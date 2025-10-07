@@ -374,14 +374,24 @@ end
 -- Ipo Quoting Period Update Message
 nasdaq_nsmequities_level2_itch_v2_0.ipo_quoting_period_update_message = {}
 
--- Size: Ipo Quoting Period Update Message
-nasdaq_nsmequities_level2_itch_v2_0.ipo_quoting_period_update_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.stock.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.ipo_quotation_release_time.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.ipo_quotation_release_qualifier.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.ipo_price.size
+-- Calculate size of: Ipo Quoting Period Update Message
+nasdaq_nsmequities_level2_itch_v2_0.ipo_quoting_period_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.stock.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.ipo_quotation_release_time.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.ipo_quotation_release_qualifier.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.ipo_price.size
+
+  return index
+end
 
 -- Display: Ipo Quoting Period Update Message
 nasdaq_nsmequities_level2_itch_v2_0.ipo_quoting_period_update_message.display = function(packet, parent, length)
@@ -467,11 +477,18 @@ end
 -- Mwcb Status Message
 nasdaq_nsmequities_level2_itch_v2_0.mwcb_status_message = {}
 
--- Size: Mwcb Status Message
-nasdaq_nsmequities_level2_itch_v2_0.mwcb_status_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.breached_level.size
+-- Calculate size of: Mwcb Status Message
+nasdaq_nsmequities_level2_itch_v2_0.mwcb_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.breached_level.size
+
+  return index
+end
 
 -- Display: Mwcb Status Message
 nasdaq_nsmequities_level2_itch_v2_0.mwcb_status_message.display = function(packet, parent, length)
@@ -602,13 +619,22 @@ end
 -- Mwcb Decline Level Message
 nasdaq_nsmequities_level2_itch_v2_0.mwcb_decline_level_message = {}
 
--- Size: Mwcb Decline Level Message
-nasdaq_nsmequities_level2_itch_v2_0.mwcb_decline_level_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.level_1.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.level_2.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.level_3.size
+-- Calculate size of: Mwcb Decline Level Message
+nasdaq_nsmequities_level2_itch_v2_0.mwcb_decline_level_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.level_1.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.level_2.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.level_3.size
+
+  return index
+end
 
 -- Display: Mwcb Decline Level Message
 nasdaq_nsmequities_level2_itch_v2_0.mwcb_decline_level_message.display = function(packet, parent, length)
@@ -694,12 +720,20 @@ end
 -- Retail Price Interest Indicator Message
 nasdaq_nsmequities_level2_itch_v2_0.retail_price_interest_indicator_message = {}
 
--- Size: Retail Price Interest Indicator Message
-nasdaq_nsmequities_level2_itch_v2_0.retail_price_interest_indicator_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.stock.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.interest_flag.size
+-- Calculate size of: Retail Price Interest Indicator Message
+nasdaq_nsmequities_level2_itch_v2_0.retail_price_interest_indicator_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.stock.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.interest_flag.size
+
+  return index
+end
 
 -- Display: Retail Price Interest Indicator Message
 nasdaq_nsmequities_level2_itch_v2_0.retail_price_interest_indicator_message.display = function(packet, parent, length)
@@ -851,15 +885,26 @@ end
 -- Market Participant Bidask Update Message
 nasdaq_nsmequities_level2_itch_v2_0.market_participant_bidask_update_message = {}
 
--- Size: Market Participant Bidask Update Message
-nasdaq_nsmequities_level2_itch_v2_0.market_participant_bidask_update_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.market_side.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.participant_shares.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.stock.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.price.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.mpid.size
+-- Calculate size of: Market Participant Bidask Update Message
+nasdaq_nsmequities_level2_itch_v2_0.market_participant_bidask_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.market_side.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.participant_shares.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.stock.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.price.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.mpid.size
+
+  return index
+end
 
 -- Display: Market Participant Bidask Update Message
 nasdaq_nsmequities_level2_itch_v2_0.market_participant_bidask_update_message.display = function(packet, parent, length)
@@ -978,13 +1023,22 @@ end
 -- Operational Halt Message
 nasdaq_nsmequities_level2_itch_v2_0.operational_halt_message = {}
 
--- Size: Operational Halt Message
-nasdaq_nsmequities_level2_itch_v2_0.operational_halt_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.stock.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.market_code.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.operational_halt_action.size
+-- Calculate size of: Operational Halt Message
+nasdaq_nsmequities_level2_itch_v2_0.operational_halt_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.stock.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.market_code.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.operational_halt_action.size
+
+  return index
+end
 
 -- Display: Operational Halt Message
 nasdaq_nsmequities_level2_itch_v2_0.operational_halt_message.display = function(packet, parent, length)
@@ -1142,15 +1196,26 @@ end
 -- Participant Position Summary Message
 nasdaq_nsmequities_level2_itch_v2_0.participant_position_summary_message = {}
 
--- Size: Participant Position Summary Message
-nasdaq_nsmequities_level2_itch_v2_0.participant_position_summary_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.mpid.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.stock.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.primary_market_maker.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.market_maker_mode.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.market_participant_state.size
+-- Calculate size of: Participant Position Summary Message
+nasdaq_nsmequities_level2_itch_v2_0.participant_position_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.mpid.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.stock.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.primary_market_maker.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.market_maker_mode.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.market_participant_state.size
+
+  return index
+end
 
 -- Display: Participant Position Summary Message
 nasdaq_nsmequities_level2_itch_v2_0.participant_position_summary_message.display = function(packet, parent, length)
@@ -1239,12 +1304,20 @@ end
 -- Reg Sho Restriction Message
 nasdaq_nsmequities_level2_itch_v2_0.reg_sho_restriction_message = {}
 
--- Size: Reg Sho Restriction Message
-nasdaq_nsmequities_level2_itch_v2_0.reg_sho_restriction_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.stock.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.reg_sho_action.size
+-- Calculate size of: Reg Sho Restriction Message
+nasdaq_nsmequities_level2_itch_v2_0.reg_sho_restriction_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.stock.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.reg_sho_action.size
+
+  return index
+end
 
 -- Display: Reg Sho Restriction Message
 nasdaq_nsmequities_level2_itch_v2_0.reg_sho_restriction_message.display = function(packet, parent, length)
@@ -1453,13 +1526,22 @@ end
 -- Stock Trading Action Message
 nasdaq_nsmequities_level2_itch_v2_0.stock_trading_action_message = {}
 
--- Size: Stock Trading Action Message
-nasdaq_nsmequities_level2_itch_v2_0.stock_trading_action_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.stock.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.current_trading_state.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.trading_action_reason.size
+-- Calculate size of: Stock Trading Action Message
+nasdaq_nsmequities_level2_itch_v2_0.stock_trading_action_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.stock.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.current_trading_state.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.trading_action_reason.size
+
+  return index
+end
 
 -- Display: Stock Trading Action Message
 nasdaq_nsmequities_level2_itch_v2_0.stock_trading_action_message.display = function(packet, parent, length)
@@ -2155,24 +2237,44 @@ end
 -- Stock Directory Message
 nasdaq_nsmequities_level2_itch_v2_0.stock_directory_message = {}
 
--- Size: Stock Directory Message
-nasdaq_nsmequities_level2_itch_v2_0.stock_directory_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.stock.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.market_category.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.financial_status_indicator.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.round_lot_size.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.round_lots_only.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.issue_classification.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.issue_subtype.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.authenticity.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.short_sale_threshold_indicator.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.ipo_flag.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.luld_reference_price_tier.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.etp_flag.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.etp_leverage_factor.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.inverse_indicator.size
+-- Calculate size of: Stock Directory Message
+nasdaq_nsmequities_level2_itch_v2_0.stock_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.stock.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.market_category.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.financial_status_indicator.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.round_lot_size.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.round_lots_only.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.issue_classification.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.issue_subtype.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.authenticity.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.short_sale_threshold_indicator.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.ipo_flag.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.luld_reference_price_tier.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.etp_flag.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.etp_leverage_factor.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.inverse_indicator.size
+
+  return index
+end
 
 -- Display: Stock Directory Message
 nasdaq_nsmequities_level2_itch_v2_0.stock_directory_message.display = function(packet, parent, length)
@@ -2297,11 +2399,18 @@ end
 -- System Event Message
 nasdaq_nsmequities_level2_itch_v2_0.system_event_message = {}
 
--- Size: System Event Message
-nasdaq_nsmequities_level2_itch_v2_0.system_event_message.size =
-  nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.timestamp.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.event_code.size
+-- Calculate size of: System Event Message
+nasdaq_nsmequities_level2_itch_v2_0.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.event_code.size
+
+  return index
+end
 
 -- Display: System Event Message
 nasdaq_nsmequities_level2_itch_v2_0.system_event_message.display = function(packet, parent, length)
@@ -2553,10 +2662,16 @@ end
 -- Message Header
 nasdaq_nsmequities_level2_itch_v2_0.message_header = {}
 
--- Size: Message Header
-nasdaq_nsmequities_level2_itch_v2_0.message_header.size =
-  nasdaq_nsmequities_level2_itch_v2_0.message_length.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.message_type.size
+-- Calculate size of: Message Header
+nasdaq_nsmequities_level2_itch_v2_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.message_length.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nasdaq_nsmequities_level2_itch_v2_0.message_header.display = function(packet, parent, length)
@@ -2733,11 +2848,18 @@ end
 -- Packet Header
 nasdaq_nsmequities_level2_itch_v2_0.packet_header = {}
 
--- Size: Packet Header
-nasdaq_nsmequities_level2_itch_v2_0.packet_header.size =
-  nasdaq_nsmequities_level2_itch_v2_0.session.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.sequence_number.size + 
-  nasdaq_nsmequities_level2_itch_v2_0.message_count.size
+-- Calculate size of: Packet Header
+nasdaq_nsmequities_level2_itch_v2_0.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.session.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.sequence_number.size
+
+  index = index + nasdaq_nsmequities_level2_itch_v2_0.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 nasdaq_nsmequities_level2_itch_v2_0.packet_header.display = function(packet, parent, length)

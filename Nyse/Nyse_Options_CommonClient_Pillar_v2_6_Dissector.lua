@@ -151,10 +151,16 @@ end
 -- Message Header
 nyse_options_commonclient_pillar_v2_6.message_header = {}
 
--- Size: Message Header
-nyse_options_commonclient_pillar_v2_6.message_header.size =
-  nyse_options_commonclient_pillar_v2_6.message_size.size + 
-  nyse_options_commonclient_pillar_v2_6.message_type.size
+-- Calculate size of: Message Header
+nyse_options_commonclient_pillar_v2_6.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_commonclient_pillar_v2_6.message_size.size
+
+  index = index + nyse_options_commonclient_pillar_v2_6.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nyse_options_commonclient_pillar_v2_6.message_header.display = function(packet, parent, length)
@@ -421,14 +427,24 @@ end
 -- Packet Header
 nyse_options_commonclient_pillar_v2_6.packet_header = {}
 
--- Size: Packet Header
-nyse_options_commonclient_pillar_v2_6.packet_header.size =
-  nyse_options_commonclient_pillar_v2_6.packet_size.size + 
-  nyse_options_commonclient_pillar_v2_6.delivery_flag.size + 
-  nyse_options_commonclient_pillar_v2_6.message_count.size + 
-  nyse_options_commonclient_pillar_v2_6.sequence_number.size + 
-  nyse_options_commonclient_pillar_v2_6.timestamp.size + 
-  nyse_options_commonclient_pillar_v2_6.nanoseconds.size
+-- Calculate size of: Packet Header
+nyse_options_commonclient_pillar_v2_6.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_commonclient_pillar_v2_6.packet_size.size
+
+  index = index + nyse_options_commonclient_pillar_v2_6.delivery_flag.size
+
+  index = index + nyse_options_commonclient_pillar_v2_6.message_count.size
+
+  index = index + nyse_options_commonclient_pillar_v2_6.sequence_number.size
+
+  index = index + nyse_options_commonclient_pillar_v2_6.timestamp.size
+
+  index = index + nyse_options_commonclient_pillar_v2_6.nanoseconds.size
+
+  return index
+end
 
 -- Display: Packet Header
 nyse_options_commonclient_pillar_v2_6.packet_header.display = function(packet, parent, length)

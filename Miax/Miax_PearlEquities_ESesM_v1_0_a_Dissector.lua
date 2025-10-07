@@ -449,10 +449,16 @@ end
 -- Retransmission Request
 miax_pearlequities_esesm_v1_0_a.retransmission_request = {}
 
--- Size: Retransmission Request
-miax_pearlequities_esesm_v1_0_a.retransmission_request.size =
-  miax_pearlequities_esesm_v1_0_a.start_sequence_number.size + 
-  miax_pearlequities_esesm_v1_0_a.end_sequence_number.size
+-- Calculate size of: Retransmission Request
+miax_pearlequities_esesm_v1_0_a.retransmission_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_esesm_v1_0_a.start_sequence_number.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.end_sequence_number.size
+
+  return index
+end
 
 -- Display: Retransmission Request
 miax_pearlequities_esesm_v1_0_a.retransmission_request.display = function(packet, parent, length)
@@ -516,9 +522,14 @@ end
 -- Synchronization Complete
 miax_pearlequities_esesm_v1_0_a.synchronization_complete = {}
 
--- Size: Synchronization Complete
-miax_pearlequities_esesm_v1_0_a.synchronization_complete.size =
-  miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size
+-- Calculate size of: Synchronization Complete
+miax_pearlequities_esesm_v1_0_a.synchronization_complete.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size
+
+  return index
+end
 
 -- Display: Synchronization Complete
 miax_pearlequities_esesm_v1_0_a.synchronization_complete.display = function(packet, parent, length)
@@ -653,12 +664,20 @@ end
 -- Login Response
 miax_pearlequities_esesm_v1_0_a.login_response = {}
 
--- Size: Login Response
-miax_pearlequities_esesm_v1_0_a.login_response.size =
-  miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size + 
-  miax_pearlequities_esesm_v1_0_a.login_status.size + 
-  miax_pearlequities_esesm_v1_0_a.trading_session_id.size + 
-  miax_pearlequities_esesm_v1_0_a.highest_sequence_number.size
+-- Calculate size of: Login Response
+miax_pearlequities_esesm_v1_0_a.login_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.login_status.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.trading_session_id.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.highest_sequence_number.size
+
+  return index
+end
 
 -- Display: Login Response
 miax_pearlequities_esesm_v1_0_a.login_response.display = function(packet, parent, length)
@@ -843,14 +862,24 @@ end
 -- Login Request
 miax_pearlequities_esesm_v1_0_a.login_request = {}
 
--- Size: Login Request
-miax_pearlequities_esesm_v1_0_a.login_request.size =
-  miax_pearlequities_esesm_v1_0_a.esesm_version.size + 
-  miax_pearlequities_esesm_v1_0_a.username.size + 
-  miax_pearlequities_esesm_v1_0_a.computer_id.size + 
-  miax_pearlequities_esesm_v1_0_a.application_protocol.size + 
-  miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.size + 
-  miax_pearlequities_esesm_v1_0_a.requested_sequence_number.size
+-- Calculate size of: Login Request
+miax_pearlequities_esesm_v1_0_a.login_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_esesm_v1_0_a.esesm_version.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.username.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.computer_id.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.application_protocol.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.requested_sequence_number.size
+
+  return index
+end
 
 -- Display: Login Request
 miax_pearlequities_esesm_v1_0_a.login_request.display = function(packet, parent, length)
@@ -1359,10 +1388,16 @@ end
 -- Packet Header
 miax_pearlequities_esesm_v1_0_a.packet_header = {}
 
--- Size: Packet Header
-miax_pearlequities_esesm_v1_0_a.packet_header.size =
-  miax_pearlequities_esesm_v1_0_a.packet_length.size + 
-  miax_pearlequities_esesm_v1_0_a.packet_type.size
+-- Calculate size of: Packet Header
+miax_pearlequities_esesm_v1_0_a.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_esesm_v1_0_a.packet_length.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.packet_type.size
+
+  return index
+end
 
 -- Display: Packet Header
 miax_pearlequities_esesm_v1_0_a.packet_header.display = function(packet, parent, length)
@@ -1451,7 +1486,7 @@ local esesm_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < miax_pearlequities_esesm_v1_0_a.packet_header.size then
+  if remaining < miax_pearlequities_esesm_v1_0_a.packet_header.size(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

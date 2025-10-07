@@ -222,9 +222,14 @@ end
 -- Unsequenced Data Packet
 cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet = {}
 
--- Size: Unsequenced Data Packet
-cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.size =
-  cboe_europe_lastsale_apf_v1_7.unsequenced_message.size
+-- Calculate size of: Unsequenced Data Packet
+cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_lastsale_apf_v1_7.unsequenced_message.size
+
+  return index
+end
 
 -- Display: Unsequenced Data Packet
 cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.display = function(packet, parent, length)
@@ -354,12 +359,20 @@ end
 -- Login Request Packet
 cboe_europe_lastsale_apf_v1_7.login_request_packet = {}
 
--- Size: Login Request Packet
-cboe_europe_lastsale_apf_v1_7.login_request_packet.size =
-  cboe_europe_lastsale_apf_v1_7.username.size + 
-  cboe_europe_lastsale_apf_v1_7.password.size + 
-  cboe_europe_lastsale_apf_v1_7.requested_session.size + 
-  cboe_europe_lastsale_apf_v1_7.requested_sequence_number.size
+-- Calculate size of: Login Request Packet
+cboe_europe_lastsale_apf_v1_7.login_request_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_lastsale_apf_v1_7.username.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.password.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.requested_session.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.requested_sequence_number.size
+
+  return index
+end
 
 -- Display: Login Request Packet
 cboe_europe_lastsale_apf_v1_7.login_request_packet.display = function(packet, parent, length)
@@ -1464,43 +1477,82 @@ end
 -- Last Sale Europe Message New
 cboe_europe_lastsale_apf_v1_7.last_sale_europe_message_new = {}
 
--- Size: Last Sale Europe Message New
-cboe_europe_lastsale_apf_v1_7.last_sale_europe_message_new.size =
-  cboe_europe_lastsale_apf_v1_7.trading_date_time.size + 
-  cboe_europe_lastsale_apf_v1_7.symbol.size + 
-  cboe_europe_lastsale_apf_v1_7.price.size + 
-  cboe_europe_lastsale_apf_v1_7.price_notation.size + 
-  cboe_europe_lastsale_apf_v1_7.price_currency.size + 
-  cboe_europe_lastsale_apf_v1_7.executed_shares.size + 
-  cboe_europe_lastsale_apf_v1_7.notional_amount.size + 
-  cboe_europe_lastsale_apf_v1_7.notional_currency.size + 
-  cboe_europe_lastsale_apf_v1_7.execution_venue.size + 
-  cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.size + 
-  cboe_europe_lastsale_apf_v1_7.publication_date_time.size + 
-  cboe_europe_lastsale_apf_v1_7.trade_id.size + 
-  cboe_europe_lastsale_apf_v1_7.market_mechanism.size + 
-  cboe_europe_lastsale_apf_v1_7.trading_mode.size + 
-  cboe_europe_lastsale_apf_v1_7.transaction_category.size + 
-  cboe_europe_lastsale_apf_v1_7.negotiation_flag.size + 
-  cboe_europe_lastsale_apf_v1_7.agency_cross_trade.size + 
-  cboe_europe_lastsale_apf_v1_7.modification_indicator.size + 
-  cboe_europe_lastsale_apf_v1_7.benchmark_indicator.size + 
-  cboe_europe_lastsale_apf_v1_7.special_dividend.size + 
-  cboe_europe_lastsale_apf_v1_7.off_book_automated.size + 
-  cboe_europe_lastsale_apf_v1_7.price_discovery_process.size + 
-  cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.size + 
-  cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.size + 
-  cboe_europe_lastsale_apf_v1_7.portfolio_flag.size + 
-  cboe_europe_lastsale_apf_v1_7.contingent_flag.size + 
-  cboe_europe_lastsale_apf_v1_7.giveup_flag.size + 
-  cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.size + 
-  cboe_europe_lastsale_apf_v1_7.deferral_or_enrichment_type.size + 
-  cboe_europe_lastsale_apf_v1_7.deferral_illiquid_instrument.size + 
-  cboe_europe_lastsale_apf_v1_7.deferral_size_specific.size + 
-  cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.size + 
-  cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.size + 
-  cboe_europe_lastsale_apf_v1_7.intra_group_indicator.size + 
-  cboe_europe_lastsale_apf_v1_7.jurisdiction.size
+-- Calculate size of: Last Sale Europe Message New
+cboe_europe_lastsale_apf_v1_7.last_sale_europe_message_new.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_lastsale_apf_v1_7.trading_date_time.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.symbol.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.price.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.price_notation.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.price_currency.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.executed_shares.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.notional_amount.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.notional_currency.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.execution_venue.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.publication_date_time.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.trade_id.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.market_mechanism.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.trading_mode.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.transaction_category.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.negotiation_flag.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.agency_cross_trade.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.modification_indicator.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.benchmark_indicator.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.special_dividend.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.off_book_automated.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.price_discovery_process.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.portfolio_flag.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.contingent_flag.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.giveup_flag.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.deferral_or_enrichment_type.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.deferral_illiquid_instrument.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.deferral_size_specific.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.intra_group_indicator.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.jurisdiction.size
+
+  return index
+end
 
 -- Display: Last Sale Europe Message New
 cboe_europe_lastsale_apf_v1_7.last_sale_europe_message_new.display = function(packet, parent, length)
@@ -1697,27 +1749,50 @@ end
 -- Last Sale Europe Message
 cboe_europe_lastsale_apf_v1_7.last_sale_europe_message = {}
 
--- Size: Last Sale Europe Message
-cboe_europe_lastsale_apf_v1_7.last_sale_europe_message.size =
-  cboe_europe_lastsale_apf_v1_7.trading_date_time.size + 
-  cboe_europe_lastsale_apf_v1_7.symbol.size + 
-  cboe_europe_lastsale_apf_v1_7.price.size + 
-  cboe_europe_lastsale_apf_v1_7.price_currency.size + 
-  cboe_europe_lastsale_apf_v1_7.executed_shares.size + 
-  cboe_europe_lastsale_apf_v1_7.execution_venue.size + 
-  cboe_europe_lastsale_apf_v1_7.publication_date_time.size + 
-  cboe_europe_lastsale_apf_v1_7.trade_id.size + 
-  cboe_europe_lastsale_apf_v1_7.transaction_category.size + 
-  cboe_europe_lastsale_apf_v1_7.negotiation_flag.size + 
-  cboe_europe_lastsale_apf_v1_7.agency_cross_trade.size + 
-  cboe_europe_lastsale_apf_v1_7.modification_indicator.size + 
-  cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.size + 
-  cboe_europe_lastsale_apf_v1_7.special_dividend.size + 
-  cboe_europe_lastsale_apf_v1_7.price_discovery_process.size + 
-  cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.size + 
-  cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.size + 
-  cboe_europe_lastsale_apf_v1_7.duplicative_indicator.size + 
-  cboe_europe_lastsale_apf_v1_7.jurisdiction.size
+-- Calculate size of: Last Sale Europe Message
+cboe_europe_lastsale_apf_v1_7.last_sale_europe_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_lastsale_apf_v1_7.trading_date_time.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.symbol.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.price.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.price_currency.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.executed_shares.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.execution_venue.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.publication_date_time.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.trade_id.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.transaction_category.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.negotiation_flag.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.agency_cross_trade.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.modification_indicator.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.special_dividend.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.price_discovery_process.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.duplicative_indicator.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.jurisdiction.size
+
+  return index
+end
 
 -- Display: Last Sale Europe Message
 cboe_europe_lastsale_apf_v1_7.last_sale_europe_message.display = function(packet, parent, length)
@@ -1923,10 +1998,16 @@ end
 -- Sequenced Message Header
 cboe_europe_lastsale_apf_v1_7.sequenced_message_header = {}
 
--- Size: Sequenced Message Header
-cboe_europe_lastsale_apf_v1_7.sequenced_message_header.size =
-  cboe_europe_lastsale_apf_v1_7.timestamp.size + 
-  cboe_europe_lastsale_apf_v1_7.sequenced_message_type.size
+-- Calculate size of: Sequenced Message Header
+cboe_europe_lastsale_apf_v1_7.sequenced_message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_lastsale_apf_v1_7.timestamp.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.sequenced_message_type.size
+
+  return index
+end
 
 -- Display: Sequenced Message Header
 cboe_europe_lastsale_apf_v1_7.sequenced_message_header.display = function(packet, parent, length)
@@ -1971,7 +2052,7 @@ cboe_europe_lastsale_apf_v1_7.sequenced_data_packet = {}
 cboe_europe_lastsale_apf_v1_7.sequenced_data_packet.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_lastsale_apf_v1_7.sequenced_message_header.size
+  index = index + cboe_europe_lastsale_apf_v1_7.sequenced_message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Sequenced Message field
   local sequenced_message_offset = offset + index
@@ -2041,9 +2122,14 @@ end
 -- Login Rejected Packet
 cboe_europe_lastsale_apf_v1_7.login_rejected_packet = {}
 
--- Size: Login Rejected Packet
-cboe_europe_lastsale_apf_v1_7.login_rejected_packet.size =
-  cboe_europe_lastsale_apf_v1_7.reject_reason_code.size
+-- Calculate size of: Login Rejected Packet
+cboe_europe_lastsale_apf_v1_7.login_rejected_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_lastsale_apf_v1_7.reject_reason_code.size
+
+  return index
+end
 
 -- Display: Login Rejected Packet
 cboe_europe_lastsale_apf_v1_7.login_rejected_packet.display = function(packet, parent, length)
@@ -2127,10 +2213,16 @@ end
 -- Login Accepted Packet
 cboe_europe_lastsale_apf_v1_7.login_accepted_packet = {}
 
--- Size: Login Accepted Packet
-cboe_europe_lastsale_apf_v1_7.login_accepted_packet.size =
-  cboe_europe_lastsale_apf_v1_7.session.size + 
-  cboe_europe_lastsale_apf_v1_7.sequence_number.size
+-- Calculate size of: Login Accepted Packet
+cboe_europe_lastsale_apf_v1_7.login_accepted_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_lastsale_apf_v1_7.session.size
+
+  index = index + cboe_europe_lastsale_apf_v1_7.sequence_number.size
+
+  return index
+end
 
 -- Display: Login Accepted Packet
 cboe_europe_lastsale_apf_v1_7.login_accepted_packet.display = function(packet, parent, length)
@@ -2194,9 +2286,14 @@ end
 -- Debug Packet
 cboe_europe_lastsale_apf_v1_7.debug_packet = {}
 
--- Size: Debug Packet
-cboe_europe_lastsale_apf_v1_7.debug_packet.size =
-  cboe_europe_lastsale_apf_v1_7.text.size
+-- Calculate size of: Debug Packet
+cboe_europe_lastsale_apf_v1_7.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_lastsale_apf_v1_7.text.size
+
+  return index
+end
 
 -- Display: Debug Packet
 cboe_europe_lastsale_apf_v1_7.debug_packet.display = function(packet, parent, length)

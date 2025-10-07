@@ -399,14 +399,24 @@ end
 -- Underlying Trading Status Message
 miax_miaxoptions_topofmarket_mach_v1_9.underlying_trading_status_message = {}
 
--- Size: Underlying Trading Status Message
-miax_miaxoptions_topofmarket_mach_v1_9.underlying_trading_status_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.underlying_symbol.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.trading_status.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.event_reason.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.seconds_part.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.expected_event_time_nano_seconds_part.size
+-- Calculate size of: Underlying Trading Status Message
+miax_miaxoptions_topofmarket_mach_v1_9.underlying_trading_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.underlying_symbol.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.trading_status.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.event_reason.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.seconds_part.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.expected_event_time_nano_seconds_part.size
+
+  return index
+end
 
 -- Display: Underlying Trading Status Message
 miax_miaxoptions_topofmarket_mach_v1_9.underlying_trading_status_message.display = function(packet, parent, length)
@@ -607,15 +617,26 @@ end
 -- Trade Cancel Message
 miax_miaxoptions_topofmarket_mach_v1_9.trade_cancel_message = {}
 
--- Size: Trade Cancel Message
-miax_miaxoptions_topofmarket_mach_v1_9.trade_cancel_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.product_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.trade_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.correction_number.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.trade_price.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.trade_size.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.trade_condition.size
+-- Calculate size of: Trade Cancel Message
+miax_miaxoptions_topofmarket_mach_v1_9.trade_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.product_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.trade_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.correction_number.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.trade_price.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.trade_size.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.trade_condition.size
+
+  return index
+end
 
 -- Display: Trade Cancel Message
 miax_miaxoptions_topofmarket_mach_v1_9.trade_cancel_message.display = function(packet, parent, length)
@@ -717,17 +738,30 @@ end
 -- Trade Message
 miax_miaxoptions_topofmarket_mach_v1_9.trade_message = {}
 
--- Size: Trade Message
-miax_miaxoptions_topofmarket_mach_v1_9.trade_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.product_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.trade_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.correction_number.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.reference_trade_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.reference_correction_number.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.trade_price.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.trade_size.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.trade_condition.size
+-- Calculate size of: Trade Message
+miax_miaxoptions_topofmarket_mach_v1_9.trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.product_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.trade_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.correction_number.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.reference_trade_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.reference_correction_number.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.trade_price.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.trade_size.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.trade_condition.size
+
+  return index
+end
 
 -- Display: Trade Message
 miax_miaxoptions_topofmarket_mach_v1_9.trade_message.display = function(packet, parent, length)
@@ -1011,18 +1045,32 @@ end
 -- Wide Double Sided Top Of Market Message
 miax_miaxoptions_topofmarket_mach_v1_9.wide_double_sided_top_of_market_message = {}
 
--- Size: Wide Double Sided Top Of Market Message
-miax_miaxoptions_topofmarket_mach_v1_9.wide_double_sided_top_of_market_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.product_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.bid_price_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.bid_size_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.bid_priority_customer_size_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.bid_condition.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.offer_price_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.offer_size_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.offer_priority_customer_size_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.offer_condition.size
+-- Calculate size of: Wide Double Sided Top Of Market Message
+miax_miaxoptions_topofmarket_mach_v1_9.wide_double_sided_top_of_market_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.product_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.bid_price_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.bid_size_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.bid_priority_customer_size_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.bid_condition.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.offer_price_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.offer_size_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.offer_priority_customer_size_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.offer_condition.size
+
+  return index
+end
 
 -- Display: Wide Double Sided Top Of Market Message
 miax_miaxoptions_topofmarket_mach_v1_9.wide_double_sided_top_of_market_message.display = function(packet, parent, length)
@@ -1237,18 +1285,32 @@ end
 -- Double Sided Top Of Market Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9.double_sided_top_of_market_compact_message = {}
 
--- Size: Double Sided Top Of Market Compact Message
-miax_miaxoptions_topofmarket_mach_v1_9.double_sided_top_of_market_compact_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.product_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.bid_price_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.bid_size_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.bid_priority_customer_size_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.bid_condition.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.offer_price_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.offer_size_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.offer_priority_customer_size_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.offer_condition.size
+-- Calculate size of: Double Sided Top Of Market Compact Message
+miax_miaxoptions_topofmarket_mach_v1_9.double_sided_top_of_market_compact_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.product_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.bid_price_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.bid_size_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.bid_priority_customer_size_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.bid_condition.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.offer_price_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.offer_size_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.offer_priority_customer_size_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.offer_condition.size
+
+  return index
+end
 
 -- Display: Double Sided Top Of Market Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9.double_sided_top_of_market_compact_message.display = function(packet, parent, length)
@@ -1424,14 +1486,24 @@ end
 -- Wide Top Of Market Offer Message
 miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_offer_message = {}
 
--- Size: Wide Top Of Market Offer Message
-miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_offer_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.product_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_price_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_size_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_priority_customer_size_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_condition.size
+-- Calculate size of: Wide Top Of Market Offer Message
+miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_offer_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.product_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_price_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_size_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_priority_customer_size_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_condition.size
+
+  return index
+end
 
 -- Display: Wide Top Of Market Offer Message
 miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_offer_message.display = function(packet, parent, length)
@@ -1484,14 +1556,24 @@ end
 -- Wide Top Of Market Bid Message
 miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_bid_message = {}
 
--- Size: Wide Top Of Market Bid Message
-miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_bid_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.product_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_price_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_size_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_priority_customer_size_4.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_condition.size
+-- Calculate size of: Wide Top Of Market Bid Message
+miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_bid_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.product_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_price_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_size_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_priority_customer_size_4.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_condition.size
+
+  return index
+end
 
 -- Display: Wide Top Of Market Bid Message
 miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_bid_message.display = function(packet, parent, length)
@@ -1619,14 +1701,24 @@ end
 -- Top Of Market Offer Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_offer_compact_message = {}
 
--- Size: Top Of Market Offer Compact Message
-miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_offer_compact_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.product_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_price_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_size_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_priority_customer_size_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_condition.size
+-- Calculate size of: Top Of Market Offer Compact Message
+miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_offer_compact_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.product_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_price_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_size_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_priority_customer_size_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_condition.size
+
+  return index
+end
 
 -- Display: Top Of Market Offer Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_offer_compact_message.display = function(packet, parent, length)
@@ -1679,14 +1771,24 @@ end
 -- Top Of Market Bid Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_bid_compact_message = {}
 
--- Size: Top Of Market Bid Compact Message
-miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_bid_compact_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.product_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_price_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_size_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_priority_customer_size_2.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.mbbo_condition.size
+-- Calculate size of: Top Of Market Bid Compact Message
+miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_bid_compact_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.product_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_price_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_size_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_priority_customer_size_2.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.mbbo_condition.size
+
+  return index
+end
 
 -- Display: Top Of Market Bid Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_bid_compact_message.display = function(packet, parent, length)
@@ -1850,12 +1952,20 @@ end
 -- System State Message
 miax_miaxoptions_topofmarket_mach_v1_9.system_state_message = {}
 
--- Size: System State Message
-miax_miaxoptions_topofmarket_mach_v1_9.system_state_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.notification_time.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.to_m_version.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.session_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.system_status.size
+-- Calculate size of: System State Message
+miax_miaxoptions_topofmarket_mach_v1_9.system_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.notification_time.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.to_m_version.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.session_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.system_status.size
+
+  return index
+end
 
 -- Display: System State Message
 miax_miaxoptions_topofmarket_mach_v1_9.system_state_message.display = function(packet, parent, length)
@@ -2331,25 +2441,46 @@ end
 -- Series Update
 miax_miaxoptions_topofmarket_mach_v1_9.series_update = {}
 
--- Size: Series Update
-miax_miaxoptions_topofmarket_mach_v1_9.series_update.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.product_add_update_time.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.product_id.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.underlying_symbol.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.security_symbol.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.expiration_date.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.strike_price.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.call_or_put.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.opening_time.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.closing_time.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.restricted_option.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.long_term_option.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.active_on_miax.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.miax_bbo_posting_increment_indicator.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.liquidity_acceptance_increment_indicator.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.opening_underlying_market_code.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.priority_quote_width.size + 
-  miax_miaxoptions_topofmarket_mach_v1_9.reserved_8.size
+-- Calculate size of: Series Update
+miax_miaxoptions_topofmarket_mach_v1_9.series_update.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.product_add_update_time.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.product_id.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.underlying_symbol.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.security_symbol.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.expiration_date.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.strike_price.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.call_or_put.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.opening_time.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.closing_time.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.restricted_option.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.long_term_option.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.active_on_miax.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.miax_bbo_posting_increment_indicator.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.liquidity_acceptance_increment_indicator.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.opening_underlying_market_code.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.priority_quote_width.size
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.reserved_8.size
+
+  return index
+end
 
 -- Display: Series Update
 miax_miaxoptions_topofmarket_mach_v1_9.series_update.display = function(packet, parent, length)
@@ -2435,9 +2566,14 @@ end
 -- System Time Message
 miax_miaxoptions_topofmarket_mach_v1_9.system_time_message = {}
 
--- Size: System Time Message
-miax_miaxoptions_topofmarket_mach_v1_9.system_time_message.size =
-  miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+-- Calculate size of: System Time Message
+miax_miaxoptions_topofmarket_mach_v1_9.system_time_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_miaxoptions_topofmarket_mach_v1_9.timestamp.size
+
+  return index
+end
 
 -- Display: System Time Message
 miax_miaxoptions_topofmarket_mach_v1_9.system_time_message.display = function(packet, parent, length)

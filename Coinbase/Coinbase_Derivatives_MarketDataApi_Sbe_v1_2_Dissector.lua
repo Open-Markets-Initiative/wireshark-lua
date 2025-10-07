@@ -441,11 +441,18 @@ end
 -- Retransmit Reject Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_reject_message = {}
 
--- Size: Retransmit Reject Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_reject_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.retry_delay_nanos.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.details.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.reason.size
+-- Calculate size of: Retransmit Reject Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_reject_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.retry_delay_nanos.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.details.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.reason.size
+
+  return index
+end
 
 -- Display: Retransmit Reject Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_reject_message.display = function(packet, parent, length)
@@ -535,10 +542,16 @@ end
 -- Retransmit Request Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_request_message = {}
 
--- Size: Retransmit Request Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_request_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.size
+-- Calculate size of: Retransmit Request Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.size
+
+  return index
+end
 
 -- Display: Retransmit Request Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_request_message.display = function(packet, parent, length)
@@ -1243,33 +1256,62 @@ end
 -- End Of Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.end_of_snapshot_message = {}
 
--- Size: End Of Snapshot Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.end_of_snapshot_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.definition_flags.size
+-- Calculate size of: End Of Snapshot Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.end_of_snapshot_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.definition_flags.size
+
+  return index
+end
 
 -- Display: End Of Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.end_of_snapshot_message.display = function(packet, parent, length)
@@ -1481,13 +1523,22 @@ end
 -- Order Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.order_snapshot_message = {}
 
--- Size: Order Snapshot Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_snapshot_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.price.size
+-- Calculate size of: Order Snapshot Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_snapshot_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.price.size
+
+  return index
+end
 
 -- Display: Order Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.order_snapshot_message.display = function(packet, parent, length)
@@ -2079,27 +2130,50 @@ end
 -- Start Of Spread Instrument Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_spread_instrument_snapshot_message = {}
 
--- Size: Start Of Spread Instrument Snapshot Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_spread_instrument_snapshot_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.description.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.size
+-- Calculate size of: Start Of Spread Instrument Snapshot Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_spread_instrument_snapshot_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.description.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.size
+
+  return index
+end
 
 -- Display: Start Of Spread Instrument Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_spread_instrument_snapshot_message.display = function(packet, parent, length)
@@ -2191,24 +2265,44 @@ end
 -- Start Of Outright Instrument Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_outright_instrument_snapshot_message = {}
 
--- Size: Start Of Outright Instrument Snapshot Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_outright_instrument_snapshot_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.description.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size
+-- Calculate size of: Start Of Outright Instrument Snapshot Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_outright_instrument_snapshot_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.description.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size
+
+  return index
+end
 
 -- Display: Start Of Outright Instrument Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_outright_instrument_snapshot_message.display = function(packet, parent, length)
@@ -2406,15 +2500,26 @@ end
 -- Instr Header
 coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header = {}
 
--- Size: Instr Header
-coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.size
+-- Calculate size of: Instr Header
+coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.size
+
+  return index
+end
 
 -- Display: Instr Header
 coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.display = function(packet, parent, length)
@@ -2470,10 +2575,16 @@ end
 -- Open Interest Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest_message = {}
 
--- Size: Open Interest Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
+-- Calculate size of: Open Interest Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
+
+  return index
+end
 
 -- Display: Open Interest Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest_message.display = function(packet, parent, length)
@@ -2537,11 +2648,18 @@ end
 -- Trade Session Volume Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_session_volume_message = {}
 
--- Size: Trade Session Volume Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.trade_session_volume_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.size
+-- Calculate size of: Trade Session Volume Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.trade_session_volume_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.size
+
+  return index
+end
 
 -- Display: Trade Session Volume Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_session_volume_message.display = function(packet, parent, length)
@@ -2643,11 +2761,18 @@ end
 -- Market Stat Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.market_stat_message = {}
 
--- Size: Market Stat Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.market_stat_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.size
+-- Calculate size of: Market Stat Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.market_stat_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.size
+
+  return index
+end
 
 -- Display: Market Stat Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.market_stat_message.display = function(packet, parent, length)
@@ -2770,12 +2895,20 @@ end
 -- Trade Bust Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_bust_message = {}
 
--- Size: Trade Bust Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.trade_bust_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size
+-- Calculate size of: Trade Bust Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.trade_bust_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size
+
+  return index
+end
 
 -- Display: Trade Bust Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_bust_message.display = function(packet, parent, length)
@@ -2960,18 +3093,32 @@ end
 -- Spread Trade Amend Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.spread_trade_amend_message = {}
 
--- Size: Spread Trade Amend Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.spread_trade_amend_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.size
+-- Calculate size of: Spread Trade Amend Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.spread_trade_amend_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.size
+
+  return index
+end
 
 -- Display: Spread Trade Amend Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.spread_trade_amend_message.display = function(packet, parent, length)
@@ -3036,14 +3183,24 @@ end
 -- Trade Amend Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_amend_message = {}
 
--- Size: Trade Amend Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.trade_amend_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.size
+-- Calculate size of: Trade Amend Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.trade_amend_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.size
+
+  return index
+end
 
 -- Display: Trade Amend Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_amend_message.display = function(packet, parent, length)
@@ -3096,14 +3253,24 @@ end
 -- Trade Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_message = {}
 
--- Size: Trade Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.trade_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
+-- Calculate size of: Trade Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
+
+  return index
+end
 
 -- Display: Trade Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_message.display = function(packet, parent, length)
@@ -3225,14 +3392,24 @@ end
 -- Trade Summary Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_summary_message = {}
 
--- Size: Trade Summary Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.trade_summary_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
+-- Calculate size of: Trade Summary Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.trade_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
+
+  return index
+end
 
 -- Display: Trade Summary Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_summary_message.display = function(packet, parent, length)
@@ -3387,13 +3564,22 @@ end
 -- Implied Order Update Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.implied_order_update_message = {}
 
--- Size: Implied Order Update Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.implied_order_update_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.size
+-- Calculate size of: Implied Order Update Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.implied_order_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.size
+
+  return index
+end
 
 -- Display: Implied Order Update Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.implied_order_update_message.display = function(packet, parent, length)
@@ -3443,10 +3629,16 @@ end
 -- Order Delete Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.order_delete_message = {}
 
--- Size: Order Delete Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_delete_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.size
+-- Calculate size of: Order Delete Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_delete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.size
+
+  return index
+end
 
 -- Display: Order Delete Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.order_delete_message.display = function(packet, parent, length)
@@ -3487,12 +3679,20 @@ end
 -- Order Put Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.order_put_message = {}
 
--- Size: Order Put Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_put_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
+-- Calculate size of: Order Put Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_put_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
+
+  return index
+end
 
 -- Display: Order Put Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.order_put_message.display = function(packet, parent, length)
@@ -3539,12 +3739,20 @@ end
 -- Trading Status Update Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status_update_message = {}
 
--- Size: Trading Status Update Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status_update_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size
+-- Calculate size of: Trading Status Update Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size
+
+  return index
+end
 
 -- Display: Trading Status Update Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status_update_message.display = function(packet, parent, length)
@@ -3591,29 +3799,54 @@ end
 -- Spread Instrument Definition Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.spread_instrument_definition_message = {}
 
--- Size: Spread Instrument Definition Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.spread_instrument_definition_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.description.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.definition_flags.size
+-- Calculate size of: Spread Instrument Definition Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.spread_instrument_definition_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.description.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.definition_flags.size
+
+  return index
+end
 
 -- Display: Spread Instrument Definition Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.spread_instrument_definition_message.display = function(packet, parent, length)
@@ -3711,26 +3944,48 @@ end
 -- Outright Instrument Definition Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.outright_instrument_definition_message = {}
 
--- Size: Outright Instrument Definition Message
-coinbase_derivatives_marketdataapi_sbe_v1_2.outright_instrument_definition_message.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.description.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.definition_flags.size
+-- Calculate size of: Outright Instrument Definition Message
+coinbase_derivatives_marketdataapi_sbe_v1_2.outright_instrument_definition_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header.size(buffer, offset + index)
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.description.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.definition_flags.size
+
+  return index
+end
 
 -- Display: Outright Instrument Definition Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.outright_instrument_definition_message.display = function(packet, parent, length)
@@ -4195,13 +4450,22 @@ end
 -- Message Header
 coinbase_derivatives_marketdataapi_sbe_v1_2.message_header = {}
 
--- Size: Message Header
-coinbase_derivatives_marketdataapi_sbe_v1_2.message_header.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.version.size
+-- Calculate size of: Message Header
+coinbase_derivatives_marketdataapi_sbe_v1_2.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.version.size
+
+  return index
+end
 
 -- Display: Message Header
 coinbase_derivatives_marketdataapi_sbe_v1_2.message_header.display = function(packet, parent, length)
@@ -4424,14 +4688,24 @@ end
 -- Packet Header
 coinbase_derivatives_marketdataapi_sbe_v1_2.packet_header = {}
 
--- Size: Packet Header
-coinbase_derivatives_marketdataapi_sbe_v1_2.packet_header.size =
-  coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.size + 
-  coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.size
+-- Calculate size of: Packet Header
+coinbase_derivatives_marketdataapi_sbe_v1_2.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.size
+
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.size
+
+  return index
+end
 
 -- Display: Packet Header
 coinbase_derivatives_marketdataapi_sbe_v1_2.packet_header.display = function(packet, parent, length)

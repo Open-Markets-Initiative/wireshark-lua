@@ -349,13 +349,22 @@ end
 -- Quote Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.quote_message = {}
 
--- Size: Quote Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.quote_message.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.bid_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.bid_size.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.ask_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.ask_size.size
+-- Calculate size of: Quote Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.bid_price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.bid_size.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.ask_price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.ask_size.size
+
+  return index
+end
 
 -- Display: Quote Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.quote_message.display = function(packet, parent, length)
@@ -671,17 +680,30 @@ end
 -- Stock Status Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_status_message = {}
 
--- Size: Stock Status Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_status_message.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.comment.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_state.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trading_system_time_stamp.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.calculated_closing_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.vwap.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.resume_trade_time.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.listing_market.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.product_type.size
+-- Calculate size of: Stock Status Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.comment.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_state.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trading_system_time_stamp.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.calculated_closing_price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.vwap.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.resume_trade_time.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.listing_market.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.product_type.size
+
+  return index
+end
 
 -- Display: Stock Status Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_status_message.display = function(packet, parent, length)
@@ -994,19 +1016,34 @@ end
 -- Moc Imbalance Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.moc_imbalance_message = {}
 
--- Size: Moc Imbalance Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.moc_imbalance_message.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.imbalance_side.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.imbalance_volume.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trading_system_time_stamp.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.imbalance_reference_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.paired_volume.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.market_order_imbalance_volume.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.market_order_imbalance_side.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.near_indicative_closing_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.far_indicative_closing_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.price_variation.size
+-- Calculate size of: Moc Imbalance Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.moc_imbalance_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.imbalance_side.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.imbalance_volume.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trading_system_time_stamp.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.imbalance_reference_price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.paired_volume.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.market_order_imbalance_volume.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.market_order_imbalance_side.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.near_indicative_closing_price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.far_indicative_closing_price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.price_variation.size
+
+  return index
+end
 
 -- Display: Moc Imbalance Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.moc_imbalance_message.display = function(packet, parent, length)
@@ -1270,19 +1307,34 @@ end
 -- Trade Cancelled Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_cancelled_message = {}
 
--- Size: Trade Cancelled Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_cancelled_message.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.volume.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.buy_broker_number.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sell_broker_number.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_time_stamp.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.last_sale_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.listing_market.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.product_type.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_number.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_date.size
+-- Calculate size of: Trade Cancelled Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_cancelled_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.volume.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.buy_broker_number.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sell_broker_number.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_time_stamp.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.last_sale_price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.listing_market.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.product_type.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_number.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_date.size
+
+  return index
+end
 
 -- Display: Trade Cancelled Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_cancelled_message.display = function(packet, parent, length)
@@ -1590,26 +1642,48 @@ end
 -- Trade Report Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_report_message = {}
 
--- Size: Trade Report Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_report_message.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.volume.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.buy_broker_number.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sell_broker_number.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.bypass.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_time_stamp.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.settlement_terms.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.cross_type.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.last_sale_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.opening_trade.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.listing_market.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.product_type.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_number.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_date.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.is_mid_only.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.is_dark.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.is_conditional.size
+-- Calculate size of: Trade Report Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_report_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.volume.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.buy_broker_number.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sell_broker_number.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.bypass.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_time_stamp.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.settlement_terms.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.cross_type.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.last_sale_price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.opening_trade.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.listing_market.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.product_type.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_number.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_date.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.is_mid_only.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.is_dark.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.is_conditional.size
+
+  return index
+end
 
 -- Display: Trade Report Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_report_message.display = function(packet, parent, length)
@@ -1978,24 +2052,44 @@ end
 -- Symbol Status Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol_status_message = {}
 
--- Size: Symbol Status Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol_status_message.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_group.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.cusip.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.board_lot.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.currency.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.face_value.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.last_sale_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.listing_market.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.product_type.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.buy_maximum_quantity.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.buy_minimum_quantity.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sell_maximum_quantity.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sell_minimum_quantity.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_state.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.test_symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.moc_eligible.size
+-- Calculate size of: Symbol Status Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_group.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.cusip.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.board_lot.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.currency.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.face_value.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.last_sale_price.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.listing_market.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.product_type.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.buy_maximum_quantity.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.buy_minimum_quantity.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sell_maximum_quantity.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sell_minimum_quantity.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_state.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.test_symbol.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.moc_eligible.size
+
+  return index
+end
 
 -- Display: Symbol Status Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol_status_message.display = function(packet, parent, length)
@@ -2281,13 +2375,22 @@ end
 -- Business Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_header = {}
 
--- Size: Business Header
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_header.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.msg_version.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.source_id.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stream_id.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sequence_0.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sequence_1.size
+-- Calculate size of: Business Header
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.msg_version.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.source_id.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stream_id.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sequence_0.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.sequence_1.size
+
+  return index
+end
 
 -- Display: Business Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_header.display = function(packet, parent, length)
@@ -2447,10 +2550,16 @@ end
 -- Body Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body_header = {}
 
--- Size: Body Header
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body_header.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.msg_length.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.msg_type.size
+-- Calculate size of: Body Header
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.msg_length.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.msg_type.size
+
+  return index
+end
 
 -- Display: Body Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body_header.display = function(packet, parent, length)
@@ -2718,15 +2827,26 @@ end
 -- Frame Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.frame_header = {}
 
--- Size: Frame Header
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.frame_header.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.start_of_frame.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.protocol_name.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.protocol_version.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.message_length.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.session_id.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.ack_required_poss_dup.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.num_body.size
+-- Calculate size of: Frame Header
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.frame_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.start_of_frame.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.protocol_name.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.protocol_version.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.message_length.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.session_id.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.ack_required_poss_dup.size
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.num_body.size
+
+  return index
+end
 
 -- Display: Frame Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.frame_header.display = function(packet, parent, length)

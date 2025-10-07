@@ -601,13 +601,22 @@ end
 -- Rbc Header Comp
 eurex_derivatives_edci_t7_v13_1.rbc_header_comp = {}
 
--- Size: Rbc Header Comp
-eurex_derivatives_edci_t7_v13_1.rbc_header_comp.size =
-  eurex_derivatives_edci_t7_v13_1.sending_time.size + 
-  eurex_derivatives_edci_t7_v13_1.party_id_executing_unit.size + 
-  eurex_derivatives_edci_t7_v13_1.partition_id.size + 
-  eurex_derivatives_edci_t7_v13_1.appl_id.size + 
-  eurex_derivatives_edci_t7_v13_1.last_fragment.size
+-- Calculate size of: Rbc Header Comp
+eurex_derivatives_edci_t7_v13_1.rbc_header_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_edci_t7_v13_1.sending_time.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.party_id_executing_unit.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.partition_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.appl_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.last_fragment.size
+
+  return index
+end
 
 -- Display: Rbc Header Comp
 eurex_derivatives_edci_t7_v13_1.rbc_header_comp.display = function(packet, parent, length)
@@ -858,12 +867,20 @@ end
 -- Sessions Grp Comp
 eurex_derivatives_edci_t7_v13_1.sessions_grp_comp = {}
 
--- Size: Sessions Grp Comp
-eurex_derivatives_edci_t7_v13_1.sessions_grp_comp.size =
-  eurex_derivatives_edci_t7_v13_1.party_id_session_id.size + 
-  eurex_derivatives_edci_t7_v13_1.session_mode.size + 
-  eurex_derivatives_edci_t7_v13_1.party_executing_firm.size + 
-  eurex_derivatives_edci_t7_v13_1.pad_6.size
+-- Calculate size of: Sessions Grp Comp
+eurex_derivatives_edci_t7_v13_1.sessions_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_edci_t7_v13_1.party_id_session_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.session_mode.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.party_executing_firm.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Sessions Grp Comp
 eurex_derivatives_edci_t7_v13_1.sessions_grp_comp.display = function(packet, parent, length)
@@ -944,9 +961,14 @@ end
 -- Notif Header Comp
 eurex_derivatives_edci_t7_v13_1.notif_header_comp = {}
 
--- Size: Notif Header Comp
-eurex_derivatives_edci_t7_v13_1.notif_header_comp.size =
-  eurex_derivatives_edci_t7_v13_1.sending_time.size
+-- Calculate size of: Notif Header Comp
+eurex_derivatives_edci_t7_v13_1.notif_header_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_edci_t7_v13_1.sending_time.size
+
+  return index
+end
 
 -- Display: Notif Header Comp
 eurex_derivatives_edci_t7_v13_1.notif_header_comp.display = function(packet, parent, length)
@@ -1296,13 +1318,22 @@ end
 -- Response Header Comp
 eurex_derivatives_edci_t7_v13_1.response_header_comp = {}
 
--- Size: Response Header Comp
-eurex_derivatives_edci_t7_v13_1.response_header_comp.size =
-  eurex_derivatives_edci_t7_v13_1.request_time.size + 
-  eurex_derivatives_edci_t7_v13_1.sending_time.size + 
-  eurex_derivatives_edci_t7_v13_1.msg_seq_num.size + 
-  eurex_derivatives_edci_t7_v13_1.last_fragment.size + 
-  eurex_derivatives_edci_t7_v13_1.pad_3.size
+-- Calculate size of: Response Header Comp
+eurex_derivatives_edci_t7_v13_1.response_header_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_edci_t7_v13_1.request_time.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.sending_time.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.msg_seq_num.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.last_fragment.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.pad_3.size
+
+  return index
+end
 
 -- Display: Response Header Comp
 eurex_derivatives_edci_t7_v13_1.response_header_comp.display = function(packet, parent, length)
@@ -1429,10 +1460,16 @@ end
 -- Partition Grp Comp
 eurex_derivatives_edci_t7_v13_1.partition_grp_comp = {}
 
--- Size: Partition Grp Comp
-eurex_derivatives_edci_t7_v13_1.partition_grp_comp.size =
-  eurex_derivatives_edci_t7_v13_1.partition_id.size + 
-  eurex_derivatives_edci_t7_v13_1.pad_6.size
+-- Calculate size of: Partition Grp Comp
+eurex_derivatives_edci_t7_v13_1.partition_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_edci_t7_v13_1.partition_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Partition Grp Comp
 eurex_derivatives_edci_t7_v13_1.partition_grp_comp.display = function(packet, parent, length)
@@ -1700,12 +1737,20 @@ end
 -- Fills Grp Comp
 eurex_derivatives_edci_t7_v13_1.fills_grp_comp = {}
 
--- Size: Fills Grp Comp
-eurex_derivatives_edci_t7_v13_1.fills_grp_comp.size =
-  eurex_derivatives_edci_t7_v13_1.fill_px.size + 
-  eurex_derivatives_edci_t7_v13_1.fill_qty.size + 
-  eurex_derivatives_edci_t7_v13_1.fill_match_id.size + 
-  eurex_derivatives_edci_t7_v13_1.fill_exec_id.size
+-- Calculate size of: Fills Grp Comp
+eurex_derivatives_edci_t7_v13_1.fills_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_edci_t7_v13_1.fill_px.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.fill_qty.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.fill_match_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.fill_exec_id.size
+
+  return index
+end
 
 -- Display: Fills Grp Comp
 eurex_derivatives_edci_t7_v13_1.fills_grp_comp.display = function(packet, parent, length)
@@ -3390,10 +3435,16 @@ end
 -- Request Header Comp
 eurex_derivatives_edci_t7_v13_1.request_header_comp = {}
 
--- Size: Request Header Comp
-eurex_derivatives_edci_t7_v13_1.request_header_comp.size =
-  eurex_derivatives_edci_t7_v13_1.msg_seq_num.size + 
-  eurex_derivatives_edci_t7_v13_1.pad_4.size
+-- Calculate size of: Request Header Comp
+eurex_derivatives_edci_t7_v13_1.request_header_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_edci_t7_v13_1.msg_seq_num.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.pad_4.size
+
+  return index
+end
 
 -- Display: Request Header Comp
 eurex_derivatives_edci_t7_v13_1.request_header_comp.display = function(packet, parent, length)
@@ -4154,19 +4205,34 @@ end
 -- Affected Ord Grp Comp
 eurex_derivatives_edci_t7_v13_1.affected_ord_grp_comp = {}
 
--- Size: Affected Ord Grp Comp
-eurex_derivatives_edci_t7_v13_1.affected_ord_grp_comp.size =
-  eurex_derivatives_edci_t7_v13_1.affected_order_id.size + 
-  eurex_derivatives_edci_t7_v13_1.affected_cl_ord_id.size + 
-  eurex_derivatives_edci_t7_v13_1.affected_orig_cl_ord_id.size + 
-  eurex_derivatives_edci_t7_v13_1.security_id.size + 
-  eurex_derivatives_edci_t7_v13_1.party_id_session_id.size + 
-  eurex_derivatives_edci_t7_v13_1.party_id_executing_trader.size + 
-  eurex_derivatives_edci_t7_v13_1.ord_status.size + 
-  eurex_derivatives_edci_t7_v13_1.exec_type.size + 
-  eurex_derivatives_edci_t7_v13_1.affected_fix_cl_ord_id.size + 
-  eurex_derivatives_edci_t7_v13_1.affected_fix_orig_cl_ord_id.size + 
-  eurex_derivatives_edci_t7_v13_1.pad_6.size
+-- Calculate size of: Affected Ord Grp Comp
+eurex_derivatives_edci_t7_v13_1.affected_ord_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_edci_t7_v13_1.affected_order_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.affected_cl_ord_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.affected_orig_cl_ord_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.security_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.party_id_session_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.party_id_executing_trader.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.ord_status.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.exec_type.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.affected_fix_cl_ord_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.affected_fix_orig_cl_ord_id.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Affected Ord Grp Comp
 eurex_derivatives_edci_t7_v13_1.affected_ord_grp_comp.display = function(packet, parent, length)
@@ -4571,10 +4637,16 @@ end
 -- Message Header
 eurex_derivatives_edci_t7_v13_1.message_header = {}
 
--- Size: Message Header
-eurex_derivatives_edci_t7_v13_1.message_header.size =
-  eurex_derivatives_edci_t7_v13_1.body_len.size + 
-  eurex_derivatives_edci_t7_v13_1.template_id.size
+-- Calculate size of: Message Header
+eurex_derivatives_edci_t7_v13_1.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_edci_t7_v13_1.body_len.size
+
+  index = index + eurex_derivatives_edci_t7_v13_1.template_id.size
+
+  return index
+end
 
 -- Display: Message Header
 eurex_derivatives_edci_t7_v13_1.message_header.display = function(packet, parent, length)
@@ -4663,7 +4735,7 @@ local message_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < eurex_derivatives_edci_t7_v13_1.message_header.size then
+  if remaining < eurex_derivatives_edci_t7_v13_1.message_header.size(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

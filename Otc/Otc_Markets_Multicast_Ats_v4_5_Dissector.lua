@@ -576,18 +576,32 @@ end
 -- Trade Message
 otc_markets_multicast_ats_v4_5.trade_message = {}
 
--- Size: Trade Message
-otc_markets_multicast_ats_v4_5.trade_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.trade_id.size + 
-  otc_markets_multicast_ats_v4_5.trade_action.size + 
-  otc_markets_multicast_ats_v4_5.trade_flags.size + 
-  otc_markets_multicast_ats_v4_5.security_id.size + 
-  otc_markets_multicast_ats_v4_5.trade_status.size + 
-  otc_markets_multicast_ats_v4_5.deprecated.size + 
-  otc_markets_multicast_ats_v4_5.trade_price.size + 
-  otc_markets_multicast_ats_v4_5.trade_size.size + 
-  otc_markets_multicast_ats_v4_5.trade_time_milli.size
+-- Calculate size of: Trade Message
+otc_markets_multicast_ats_v4_5.trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.trade_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.trade_action.size
+
+  index = index + otc_markets_multicast_ats_v4_5.trade_flags.size
+
+  index = index + otc_markets_multicast_ats_v4_5.security_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.trade_status.size
+
+  index = index + otc_markets_multicast_ats_v4_5.deprecated.size
+
+  index = index + otc_markets_multicast_ats_v4_5.trade_price.size
+
+  index = index + otc_markets_multicast_ats_v4_5.trade_size.size
+
+  index = index + otc_markets_multicast_ats_v4_5.trade_time_milli.size
+
+  return index
+end
 
 -- Display: Trade Message
 otc_markets_multicast_ats_v4_5.trade_message.display = function(packet, parent, length)
@@ -2044,14 +2058,24 @@ end
 -- Reference Price Update Message
 otc_markets_multicast_ats_v4_5.reference_price_update_message = {}
 
--- Size: Reference Price Update Message
-otc_markets_multicast_ats_v4_5.reference_price_update_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.reference_price_id.size + 
-  otc_markets_multicast_ats_v4_5.quote_flags.size + 
-  otc_markets_multicast_ats_v4_5.price.size + 
-  otc_markets_multicast_ats_v4_5.size.size + 
-  otc_markets_multicast_ats_v4_5.time_milli.size
+-- Calculate size of: Reference Price Update Message
+otc_markets_multicast_ats_v4_5.reference_price_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.reference_price_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_flags.size
+
+  index = index + otc_markets_multicast_ats_v4_5.price.size
+
+  index = index + otc_markets_multicast_ats_v4_5.size.size
+
+  index = index + otc_markets_multicast_ats_v4_5.time_milli.size
+
+  return index
+end
 
 -- Display: Reference Price Update Message
 otc_markets_multicast_ats_v4_5.reference_price_update_message.display = function(packet, parent, length)
@@ -2275,19 +2299,34 @@ end
 -- Reference Price Message
 otc_markets_multicast_ats_v4_5.reference_price_message = {}
 
--- Size: Reference Price Message
-otc_markets_multicast_ats_v4_5.reference_price_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.reference_price_id.size + 
-  otc_markets_multicast_ats_v4_5.reference_price_action.size + 
-  otc_markets_multicast_ats_v4_5.quote_flags.size + 
-  otc_markets_multicast_ats_v4_5.security_id.size + 
-  otc_markets_multicast_ats_v4_5.ask_price.size + 
-  otc_markets_multicast_ats_v4_5.ask_size.size + 
-  otc_markets_multicast_ats_v4_5.ask_time_milli.size + 
-  otc_markets_multicast_ats_v4_5.bid_price.size + 
-  otc_markets_multicast_ats_v4_5.bid_size.size + 
-  otc_markets_multicast_ats_v4_5.bid_time_milli.size
+-- Calculate size of: Reference Price Message
+otc_markets_multicast_ats_v4_5.reference_price_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.reference_price_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.reference_price_action.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_flags.size
+
+  index = index + otc_markets_multicast_ats_v4_5.security_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.ask_price.size
+
+  index = index + otc_markets_multicast_ats_v4_5.ask_size.size
+
+  index = index + otc_markets_multicast_ats_v4_5.ask_time_milli.size
+
+  index = index + otc_markets_multicast_ats_v4_5.bid_price.size
+
+  index = index + otc_markets_multicast_ats_v4_5.bid_size.size
+
+  index = index + otc_markets_multicast_ats_v4_5.bid_time_milli.size
+
+  return index
+end
 
 -- Display: Reference Price Message
 otc_markets_multicast_ats_v4_5.reference_price_message.display = function(packet, parent, length)
@@ -2424,15 +2463,26 @@ end
 -- Inside Update Message
 otc_markets_multicast_ats_v4_5.inside_update_message = {}
 
--- Size: Inside Update Message
-otc_markets_multicast_ats_v4_5.inside_update_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.inside_id.size + 
-  otc_markets_multicast_ats_v4_5.quote_flags.size + 
-  otc_markets_multicast_ats_v4_5.price.size + 
-  otc_markets_multicast_ats_v4_5.size.size + 
-  otc_markets_multicast_ats_v4_5.inside_time_milli.size + 
-  otc_markets_multicast_ats_v4_5.num_priced_mp.size
+-- Calculate size of: Inside Update Message
+otc_markets_multicast_ats_v4_5.inside_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.inside_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_flags.size
+
+  index = index + otc_markets_multicast_ats_v4_5.price.size
+
+  index = index + otc_markets_multicast_ats_v4_5.size.size
+
+  index = index + otc_markets_multicast_ats_v4_5.inside_time_milli.size
+
+  index = index + otc_markets_multicast_ats_v4_5.num_priced_mp.size
+
+  return index
+end
 
 -- Display: Inside Update Message
 otc_markets_multicast_ats_v4_5.inside_update_message.display = function(packet, parent, length)
@@ -2534,11 +2584,18 @@ end
 -- Market Open Message
 otc_markets_multicast_ats_v4_5.market_open_message = {}
 
--- Size: Market Open Message
-otc_markets_multicast_ats_v4_5.market_open_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.market_open.size + 
-  otc_markets_multicast_ats_v4_5.market_close.size
+-- Calculate size of: Market Open Message
+otc_markets_multicast_ats_v4_5.market_open_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.market_open.size
+
+  index = index + otc_markets_multicast_ats_v4_5.market_close.size
+
+  return index
+end
 
 -- Display: Market Open Message
 otc_markets_multicast_ats_v4_5.market_open_message.display = function(packet, parent, length)
@@ -2737,17 +2794,30 @@ end
 -- Quote Update Message
 otc_markets_multicast_ats_v4_5.quote_update_message = {}
 
--- Size: Quote Update Message
-otc_markets_multicast_ats_v4_5.quote_update_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.quote_id.size + 
-  otc_markets_multicast_ats_v4_5.quote_flags.size + 
-  otc_markets_multicast_ats_v4_5.price.size + 
-  otc_markets_multicast_ats_v4_5.size.size + 
-  otc_markets_multicast_ats_v4_5.qap.size + 
-  otc_markets_multicast_ats_v4_5.quote_time_milli.size + 
-  otc_markets_multicast_ats_v4_5.quote_reference_id.size + 
-  otc_markets_multicast_ats_v4_5.extended_quote_flags.size
+-- Calculate size of: Quote Update Message
+otc_markets_multicast_ats_v4_5.quote_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_flags.size
+
+  index = index + otc_markets_multicast_ats_v4_5.price.size
+
+  index = index + otc_markets_multicast_ats_v4_5.size.size
+
+  index = index + otc_markets_multicast_ats_v4_5.qap.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_time_milli.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_reference_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.extended_quote_flags.size
+
+  return index
+end
 
 -- Display: Quote Update Message
 otc_markets_multicast_ats_v4_5.quote_update_message.display = function(packet, parent, length)
@@ -2901,24 +2971,44 @@ end
 -- Quote Message
 otc_markets_multicast_ats_v4_5.quote_message = {}
 
--- Size: Quote Message
-otc_markets_multicast_ats_v4_5.quote_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.quote_id.size + 
-  otc_markets_multicast_ats_v4_5.quote_action.size + 
-  otc_markets_multicast_ats_v4_5.quote_flags.size + 
-  otc_markets_multicast_ats_v4_5.security_id.size + 
-  otc_markets_multicast_ats_v4_5.mpid.size + 
-  otc_markets_multicast_ats_v4_5.ask_price.size + 
-  otc_markets_multicast_ats_v4_5.ask_size.size + 
-  otc_markets_multicast_ats_v4_5.ask_qap.size + 
-  otc_markets_multicast_ats_v4_5.ask_time_milli.size + 
-  otc_markets_multicast_ats_v4_5.bid_price.size + 
-  otc_markets_multicast_ats_v4_5.bid_size.size + 
-  otc_markets_multicast_ats_v4_5.bid_qap.size + 
-  otc_markets_multicast_ats_v4_5.bid_time_milli.size + 
-  otc_markets_multicast_ats_v4_5.quote_reference_id.size + 
-  otc_markets_multicast_ats_v4_5.extended_quote_flags.size
+-- Calculate size of: Quote Message
+otc_markets_multicast_ats_v4_5.quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_action.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_flags.size
+
+  index = index + otc_markets_multicast_ats_v4_5.security_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.mpid.size
+
+  index = index + otc_markets_multicast_ats_v4_5.ask_price.size
+
+  index = index + otc_markets_multicast_ats_v4_5.ask_size.size
+
+  index = index + otc_markets_multicast_ats_v4_5.ask_qap.size
+
+  index = index + otc_markets_multicast_ats_v4_5.ask_time_milli.size
+
+  index = index + otc_markets_multicast_ats_v4_5.bid_price.size
+
+  index = index + otc_markets_multicast_ats_v4_5.bid_size.size
+
+  index = index + otc_markets_multicast_ats_v4_5.bid_qap.size
+
+  index = index + otc_markets_multicast_ats_v4_5.bid_time_milli.size
+
+  index = index + otc_markets_multicast_ats_v4_5.quote_reference_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.extended_quote_flags.size
+
+  return index
+end
 
 -- Display: Quote Message
 otc_markets_multicast_ats_v4_5.quote_message.display = function(packet, parent, length)
@@ -3001,18 +3091,32 @@ end
 -- Security Message
 otc_markets_multicast_ats_v4_5.security_message = {}
 
--- Size: Security Message
-otc_markets_multicast_ats_v4_5.security_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.symbol.size + 
-  otc_markets_multicast_ats_v4_5.last_update_milli.size + 
-  otc_markets_multicast_ats_v4_5.security_action.size + 
-  otc_markets_multicast_ats_v4_5.asset_class.size + 
-  otc_markets_multicast_ats_v4_5.security_id.size + 
-  otc_markets_multicast_ats_v4_5.security_flags.size + 
-  otc_markets_multicast_ats_v4_5.tier.size + 
-  otc_markets_multicast_ats_v4_5.reporting_status.size + 
-  otc_markets_multicast_ats_v4_5.security_status.size
+-- Calculate size of: Security Message
+otc_markets_multicast_ats_v4_5.security_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.symbol.size
+
+  index = index + otc_markets_multicast_ats_v4_5.last_update_milli.size
+
+  index = index + otc_markets_multicast_ats_v4_5.security_action.size
+
+  index = index + otc_markets_multicast_ats_v4_5.asset_class.size
+
+  index = index + otc_markets_multicast_ats_v4_5.security_id.size
+
+  index = index + otc_markets_multicast_ats_v4_5.security_flags.size
+
+  index = index + otc_markets_multicast_ats_v4_5.tier.size
+
+  index = index + otc_markets_multicast_ats_v4_5.reporting_status.size
+
+  index = index + otc_markets_multicast_ats_v4_5.security_status.size
+
+  return index
+end
 
 -- Display: Security Message
 otc_markets_multicast_ats_v4_5.security_message.display = function(packet, parent, length)
@@ -3123,11 +3227,18 @@ end
 -- Market Close Message
 otc_markets_multicast_ats_v4_5.market_close_message = {}
 
--- Size: Market Close Message
-otc_markets_multicast_ats_v4_5.market_close_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.market_close_time_milli.size + 
-  otc_markets_multicast_ats_v4_5.market_msg_ct.size
+-- Calculate size of: Market Close Message
+otc_markets_multicast_ats_v4_5.market_close_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.market_close_time_milli.size
+
+  index = index + otc_markets_multicast_ats_v4_5.market_msg_ct.size
+
+  return index
+end
 
 -- Display: Market Close Message
 otc_markets_multicast_ats_v4_5.market_close_message.display = function(packet, parent, length)
@@ -3273,13 +3384,22 @@ end
 -- End Of Spin Message
 otc_markets_multicast_ats_v4_5.end_of_spin_message = {}
 
--- Size: End Of Spin Message
-otc_markets_multicast_ats_v4_5.end_of_spin_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.spin_type.size + 
-  otc_markets_multicast_ats_v4_5.spin_msg_ct.size + 
-  otc_markets_multicast_ats_v4_5.spin_end_time_milli.size + 
-  otc_markets_multicast_ats_v4_5.spin_last_seq_num.size
+-- Calculate size of: End Of Spin Message
+otc_markets_multicast_ats_v4_5.end_of_spin_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.spin_type.size
+
+  index = index + otc_markets_multicast_ats_v4_5.spin_msg_ct.size
+
+  index = index + otc_markets_multicast_ats_v4_5.spin_end_time_milli.size
+
+  index = index + otc_markets_multicast_ats_v4_5.spin_last_seq_num.size
+
+  return index
+end
 
 -- Display: End Of Spin Message
 otc_markets_multicast_ats_v4_5.end_of_spin_message.display = function(packet, parent, length)
@@ -3352,12 +3472,20 @@ end
 -- Start Of Spin Message
 otc_markets_multicast_ats_v4_5.start_of_spin_message = {}
 
--- Size: Start Of Spin Message
-otc_markets_multicast_ats_v4_5.start_of_spin_message.size =
-  otc_markets_multicast_ats_v4_5.channel_seq_num.size + 
-  otc_markets_multicast_ats_v4_5.spin_type.size + 
-  otc_markets_multicast_ats_v4_5.spin_start_time_milli.size + 
-  otc_markets_multicast_ats_v4_5.spin_last_seq_num.size
+-- Calculate size of: Start Of Spin Message
+otc_markets_multicast_ats_v4_5.start_of_spin_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.channel_seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.spin_type.size
+
+  index = index + otc_markets_multicast_ats_v4_5.spin_start_time_milli.size
+
+  index = index + otc_markets_multicast_ats_v4_5.spin_last_seq_num.size
+
+  return index
+end
 
 -- Display: Start Of Spin Message
 otc_markets_multicast_ats_v4_5.start_of_spin_message.display = function(packet, parent, length)
@@ -3602,10 +3730,16 @@ end
 -- Message Header
 otc_markets_multicast_ats_v4_5.message_header = {}
 
--- Size: Message Header
-otc_markets_multicast_ats_v4_5.message_header.size =
-  otc_markets_multicast_ats_v4_5.message_size.size + 
-  otc_markets_multicast_ats_v4_5.message_type.size
+-- Calculate size of: Message Header
+otc_markets_multicast_ats_v4_5.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.message_size.size
+
+  index = index + otc_markets_multicast_ats_v4_5.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 otc_markets_multicast_ats_v4_5.message_header.display = function(packet, parent, length)
@@ -3852,13 +3986,22 @@ end
 -- Packet Header
 otc_markets_multicast_ats_v4_5.packet_header = {}
 
--- Size: Packet Header
-otc_markets_multicast_ats_v4_5.packet_header.size =
-  otc_markets_multicast_ats_v4_5.packet_size.size + 
-  otc_markets_multicast_ats_v4_5.seq_num.size + 
-  otc_markets_multicast_ats_v4_5.packet_flag.size + 
-  otc_markets_multicast_ats_v4_5.messages.size + 
-  otc_markets_multicast_ats_v4_5.packet_milli.size
+-- Calculate size of: Packet Header
+otc_markets_multicast_ats_v4_5.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.packet_size.size
+
+  index = index + otc_markets_multicast_ats_v4_5.seq_num.size
+
+  index = index + otc_markets_multicast_ats_v4_5.packet_flag.size
+
+  index = index + otc_markets_multicast_ats_v4_5.messages.size
+
+  index = index + otc_markets_multicast_ats_v4_5.packet_milli.size
+
+  return index
+end
 
 -- Display: Packet Header
 otc_markets_multicast_ats_v4_5.packet_header.display = function(packet, parent, length)

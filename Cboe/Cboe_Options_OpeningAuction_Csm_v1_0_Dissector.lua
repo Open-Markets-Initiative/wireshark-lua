@@ -452,10 +452,16 @@ end
 -- Eop
 cboe_options_openingauction_csm_v1_0.eop = {}
 
--- Size: Eop
-cboe_options_openingauction_csm_v1_0.eop.size =
-  cboe_options_openingauction_csm_v1_0.eop_exponent.size + 
-  cboe_options_openingauction_csm_v1_0.eop_mantissa.size
+-- Calculate size of: Eop
+cboe_options_openingauction_csm_v1_0.eop.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.eop_exponent.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.eop_mantissa.size
+
+  return index
+end
 
 -- Display: Eop
 cboe_options_openingauction_csm_v1_0.eop.display = function(packet, parent, length)
@@ -542,14 +548,24 @@ end
 -- Expected Opening Price And Size Message
 cboe_options_openingauction_csm_v1_0.expected_opening_price_and_size_message = {}
 
--- Size: Expected Opening Price And Size Message
-cboe_options_openingauction_csm_v1_0.expected_opening_price_and_size_message.size =
-  cboe_options_openingauction_csm_v1_0.class_key.size + 
-  cboe_options_openingauction_csm_v1_0.security_id.size + 
-  cboe_options_openingauction_csm_v1_0.eop.size + 
-  cboe_options_openingauction_csm_v1_0.eos.size + 
-  cboe_options_openingauction_csm_v1_0.eop_type.size + 
-  cboe_options_openingauction_csm_v1_0.legal_market.size
+-- Calculate size of: Expected Opening Price And Size Message
+cboe_options_openingauction_csm_v1_0.expected_opening_price_and_size_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.class_key.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.security_id.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.eop.size(buffer, offset + index)
+
+  index = index + cboe_options_openingauction_csm_v1_0.eos.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.eop_type.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.legal_market.size
+
+  return index
+end
 
 -- Display: Expected Opening Price And Size Message
 cboe_options_openingauction_csm_v1_0.expected_opening_price_and_size_message.display = function(packet, parent, length)
@@ -707,10 +723,16 @@ end
 -- Md Entry Px
 cboe_options_openingauction_csm_v1_0.md_entry_px = {}
 
--- Size: Md Entry Px
-cboe_options_openingauction_csm_v1_0.md_entry_px.size =
-  cboe_options_openingauction_csm_v1_0.md_entry_px_exponent.size + 
-  cboe_options_openingauction_csm_v1_0.md_entry_px_mantissa.size
+-- Calculate size of: Md Entry Px
+cboe_options_openingauction_csm_v1_0.md_entry_px.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.md_entry_px_exponent.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.md_entry_px_mantissa.size
+
+  return index
+end
 
 -- Display: Md Entry Px
 cboe_options_openingauction_csm_v1_0.md_entry_px.display = function(packet, parent, length)
@@ -799,12 +821,20 @@ end
 -- Md Entry
 cboe_options_openingauction_csm_v1_0.md_entry = {}
 
--- Size: Md Entry
-cboe_options_openingauction_csm_v1_0.md_entry.size =
-  cboe_options_openingauction_csm_v1_0.md_entry_type.size + 
-  cboe_options_openingauction_csm_v1_0.md_entry_px.size + 
-  cboe_options_openingauction_csm_v1_0.md_entry_size.size + 
-  cboe_options_openingauction_csm_v1_0.md_volume_type.size
+-- Calculate size of: Md Entry
+cboe_options_openingauction_csm_v1_0.md_entry.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.md_entry_type.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.md_entry_px.size(buffer, offset + index)
+
+  index = index + cboe_options_openingauction_csm_v1_0.md_entry_size.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.md_volume_type.size
+
+  return index
+end
 
 -- Display: Md Entry
 cboe_options_openingauction_csm_v1_0.md_entry.display = function(packet, parent, length)
@@ -1092,10 +1122,16 @@ end
 -- Prev Close Px
 cboe_options_openingauction_csm_v1_0.prev_close_px = {}
 
--- Size: Prev Close Px
-cboe_options_openingauction_csm_v1_0.prev_close_px.size =
-  cboe_options_openingauction_csm_v1_0.prev_close_px_exponent.size + 
-  cboe_options_openingauction_csm_v1_0.prev_close_px_mantissa.size
+-- Calculate size of: Prev Close Px
+cboe_options_openingauction_csm_v1_0.prev_close_px.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.prev_close_px_exponent.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.prev_close_px_mantissa.size
+
+  return index
+end
 
 -- Display: Prev Close Px
 cboe_options_openingauction_csm_v1_0.prev_close_px.display = function(packet, parent, length)
@@ -1173,7 +1209,7 @@ cboe_options_openingauction_csm_v1_0.market_data_refresh_message.size = function
 
   index = index + cboe_options_openingauction_csm_v1_0.appl_seq_num.size
 
-  index = index + cboe_options_openingauction_csm_v1_0.prev_close_px.size
+  index = index + cboe_options_openingauction_csm_v1_0.prev_close_px.size(buffer, offset + index)
 
   index = index + cboe_options_openingauction_csm_v1_0.trade_volume.size
 
@@ -1319,11 +1355,18 @@ end
 -- Security Definition Leg
 cboe_options_openingauction_csm_v1_0.security_definition_leg = {}
 
--- Size: Security Definition Leg
-cboe_options_openingauction_csm_v1_0.security_definition_leg.size =
-  cboe_options_openingauction_csm_v1_0.leg_ratio_qty.size + 
-  cboe_options_openingauction_csm_v1_0.leg_security_id.size + 
-  cboe_options_openingauction_csm_v1_0.leg_side.size
+-- Calculate size of: Security Definition Leg
+cboe_options_openingauction_csm_v1_0.security_definition_leg.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.leg_ratio_qty.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.leg_security_id.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.leg_side.size
+
+  return index
+end
 
 -- Display: Security Definition Leg
 cboe_options_openingauction_csm_v1_0.security_definition_leg.display = function(packet, parent, length)
@@ -1759,10 +1802,16 @@ end
 -- Minimum Below Premium Fraction
 cboe_options_openingauction_csm_v1_0.minimum_below_premium_fraction = {}
 
--- Size: Minimum Below Premium Fraction
-cboe_options_openingauction_csm_v1_0.minimum_below_premium_fraction.size =
-  cboe_options_openingauction_csm_v1_0.minimum_below_premium_fraction_exponent.size + 
-  cboe_options_openingauction_csm_v1_0.minimum_below_premium_fraction_mantissa.size
+-- Calculate size of: Minimum Below Premium Fraction
+cboe_options_openingauction_csm_v1_0.minimum_below_premium_fraction.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.minimum_below_premium_fraction_exponent.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.minimum_below_premium_fraction_mantissa.size
+
+  return index
+end
 
 -- Display: Minimum Below Premium Fraction
 cboe_options_openingauction_csm_v1_0.minimum_below_premium_fraction.display = function(packet, parent, length)
@@ -1849,10 +1898,16 @@ end
 -- Minimum Above Premium Fraction
 cboe_options_openingauction_csm_v1_0.minimum_above_premium_fraction = {}
 
--- Size: Minimum Above Premium Fraction
-cboe_options_openingauction_csm_v1_0.minimum_above_premium_fraction.size =
-  cboe_options_openingauction_csm_v1_0.minimum_above_premium_fraction_exponent.size + 
-  cboe_options_openingauction_csm_v1_0.minimum_above_premium_fraction_mantissa.size
+-- Calculate size of: Minimum Above Premium Fraction
+cboe_options_openingauction_csm_v1_0.minimum_above_premium_fraction.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.minimum_above_premium_fraction_exponent.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.minimum_above_premium_fraction_mantissa.size
+
+  return index
+end
 
 -- Display: Minimum Above Premium Fraction
 cboe_options_openingauction_csm_v1_0.minimum_above_premium_fraction.display = function(packet, parent, length)
@@ -1939,10 +1994,16 @@ end
 -- Premium Break Point
 cboe_options_openingauction_csm_v1_0.premium_break_point = {}
 
--- Size: Premium Break Point
-cboe_options_openingauction_csm_v1_0.premium_break_point.size =
-  cboe_options_openingauction_csm_v1_0.premium_break_point_exponent.size + 
-  cboe_options_openingauction_csm_v1_0.premium_break_point_mantissa.size
+-- Calculate size of: Premium Break Point
+cboe_options_openingauction_csm_v1_0.premium_break_point.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.premium_break_point_exponent.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.premium_break_point_mantissa.size
+
+  return index
+end
 
 -- Display: Premium Break Point
 cboe_options_openingauction_csm_v1_0.premium_break_point.display = function(packet, parent, length)
@@ -2029,10 +2090,16 @@ end
 -- Max Strike Price
 cboe_options_openingauction_csm_v1_0.max_strike_price = {}
 
--- Size: Max Strike Price
-cboe_options_openingauction_csm_v1_0.max_strike_price.size =
-  cboe_options_openingauction_csm_v1_0.max_strike_price_exponent.size + 
-  cboe_options_openingauction_csm_v1_0.max_strike_price_mantissa.size
+-- Calculate size of: Max Strike Price
+cboe_options_openingauction_csm_v1_0.max_strike_price.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.max_strike_price_exponent.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.max_strike_price_mantissa.size
+
+  return index
+end
 
 -- Display: Max Strike Price
 cboe_options_openingauction_csm_v1_0.max_strike_price.display = function(packet, parent, length)
@@ -2119,10 +2186,16 @@ end
 -- Minimum Strike Price Fraction
 cboe_options_openingauction_csm_v1_0.minimum_strike_price_fraction = {}
 
--- Size: Minimum Strike Price Fraction
-cboe_options_openingauction_csm_v1_0.minimum_strike_price_fraction.size =
-  cboe_options_openingauction_csm_v1_0.minimum_strike_price_fraction_exponent.size + 
-  cboe_options_openingauction_csm_v1_0.minimum_strike_price_fraction_mantissa.size
+-- Calculate size of: Minimum Strike Price Fraction
+cboe_options_openingauction_csm_v1_0.minimum_strike_price_fraction.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.minimum_strike_price_fraction_exponent.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.minimum_strike_price_fraction_mantissa.size
+
+  return index
+end
 
 -- Display: Minimum Strike Price Fraction
 cboe_options_openingauction_csm_v1_0.minimum_strike_price_fraction.display = function(packet, parent, length)
@@ -2239,10 +2312,16 @@ end
 -- Strike Price
 cboe_options_openingauction_csm_v1_0.strike_price = {}
 
--- Size: Strike Price
-cboe_options_openingauction_csm_v1_0.strike_price.size =
-  cboe_options_openingauction_csm_v1_0.strike_price_exponent.size + 
-  cboe_options_openingauction_csm_v1_0.strike_price_mantissa.size
+-- Calculate size of: Strike Price
+cboe_options_openingauction_csm_v1_0.strike_price.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.strike_price_exponent.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.strike_price_mantissa.size
+
+  return index
+end
 
 -- Display: Strike Price
 cboe_options_openingauction_csm_v1_0.strike_price.display = function(packet, parent, length)
@@ -2629,19 +2708,19 @@ cboe_options_openingauction_csm_v1_0.security_definition_message.size = function
 
   index = index + cboe_options_openingauction_csm_v1_0.price_type.size
 
-  index = index + cboe_options_openingauction_csm_v1_0.strike_price.size
+  index = index + cboe_options_openingauction_csm_v1_0.strike_price.size(buffer, offset + index)
 
   index = index + cboe_options_openingauction_csm_v1_0.put_or_call.size
 
-  index = index + cboe_options_openingauction_csm_v1_0.minimum_strike_price_fraction.size
+  index = index + cboe_options_openingauction_csm_v1_0.minimum_strike_price_fraction.size(buffer, offset + index)
 
-  index = index + cboe_options_openingauction_csm_v1_0.max_strike_price.size
+  index = index + cboe_options_openingauction_csm_v1_0.max_strike_price.size(buffer, offset + index)
 
-  index = index + cboe_options_openingauction_csm_v1_0.premium_break_point.size
+  index = index + cboe_options_openingauction_csm_v1_0.premium_break_point.size(buffer, offset + index)
 
-  index = index + cboe_options_openingauction_csm_v1_0.minimum_above_premium_fraction.size
+  index = index + cboe_options_openingauction_csm_v1_0.minimum_above_premium_fraction.size(buffer, offset + index)
 
-  index = index + cboe_options_openingauction_csm_v1_0.minimum_below_premium_fraction.size
+  index = index + cboe_options_openingauction_csm_v1_0.minimum_below_premium_fraction.size(buffer, offset + index)
 
   index = index + cboe_options_openingauction_csm_v1_0.exercise_style.size
 
@@ -2945,12 +3024,20 @@ end
 -- Message Header
 cboe_options_openingauction_csm_v1_0.message_header = {}
 
--- Size: Message Header
-cboe_options_openingauction_csm_v1_0.message_header.size =
-  cboe_options_openingauction_csm_v1_0.message_length.size + 
-  cboe_options_openingauction_csm_v1_0.template_id.size + 
-  cboe_options_openingauction_csm_v1_0.message_type.size + 
-  cboe_options_openingauction_csm_v1_0.msg_seq_num.size
+-- Calculate size of: Message Header
+cboe_options_openingauction_csm_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.message_length.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.template_id.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.message_type.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.msg_seq_num.size
+
+  return index
+end
 
 -- Display: Message Header
 cboe_options_openingauction_csm_v1_0.message_header.display = function(packet, parent, length)
@@ -3001,7 +3088,7 @@ cboe_options_openingauction_csm_v1_0.message = {}
 cboe_options_openingauction_csm_v1_0.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_options_openingauction_csm_v1_0.message_header.size
+  index = index + cboe_options_openingauction_csm_v1_0.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3169,13 +3256,22 @@ end
 -- Packet Header
 cboe_options_openingauction_csm_v1_0.packet_header = {}
 
--- Size: Packet Header
-cboe_options_openingauction_csm_v1_0.packet_header.size =
-  cboe_options_openingauction_csm_v1_0.version.size + 
-  cboe_options_openingauction_csm_v1_0.packet_length.size + 
-  cboe_options_openingauction_csm_v1_0.sending_time.size + 
-  cboe_options_openingauction_csm_v1_0.message_count.size + 
-  cboe_options_openingauction_csm_v1_0.first_msg_seq_num.size
+-- Calculate size of: Packet Header
+cboe_options_openingauction_csm_v1_0.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_openingauction_csm_v1_0.version.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.packet_length.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.sending_time.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.message_count.size
+
+  index = index + cboe_options_openingauction_csm_v1_0.first_msg_seq_num.size
+
+  return index
+end
 
 -- Display: Packet Header
 cboe_options_openingauction_csm_v1_0.packet_header.display = function(packet, parent, length)

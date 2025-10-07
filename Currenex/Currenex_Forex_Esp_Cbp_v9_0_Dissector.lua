@@ -289,11 +289,18 @@ end
 -- Reject Message
 currenex_forex_esp_cbp_v9_0.reject_message = {}
 
--- Size: Reject Message
-currenex_forex_esp_cbp_v9_0.reject_message.size =
-  currenex_forex_esp_cbp_v9_0.session_id.size + 
-  currenex_forex_esp_cbp_v9_0.reject_msg_type.size + 
-  currenex_forex_esp_cbp_v9_0.reject_reason.size
+-- Calculate size of: Reject Message
+currenex_forex_esp_cbp_v9_0.reject_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.session_id.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.reject_msg_type.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.reject_reason.size
+
+  return index
+end
 
 -- Display: Reject Message
 currenex_forex_esp_cbp_v9_0.reject_message.display = function(packet, parent, length)
@@ -449,12 +456,20 @@ end
 -- Trade Ticker Message
 currenex_forex_esp_cbp_v9_0.trade_ticker_message = {}
 
--- Size: Trade Ticker Message
-currenex_forex_esp_cbp_v9_0.trade_ticker_message.size =
-  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
-  currenex_forex_esp_cbp_v9_0.rate.size + 
-  currenex_forex_esp_cbp_v9_0.ticker_type.size + 
-  currenex_forex_esp_cbp_v9_0.transact_time.size
+-- Calculate size of: Trade Ticker Message
+currenex_forex_esp_cbp_v9_0.trade_ticker_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.instrument_index.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.rate.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.ticker_type.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.transact_time.size
+
+  return index
+end
 
 -- Display: Trade Ticker Message
 currenex_forex_esp_cbp_v9_0.trade_ticker_message.display = function(packet, parent, length)
@@ -524,10 +539,16 @@ end
 -- Price Cancel Message
 currenex_forex_esp_cbp_v9_0.price_cancel_message = {}
 
--- Size: Price Cancel Message
-currenex_forex_esp_cbp_v9_0.price_cancel_message.size =
-  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
-  currenex_forex_esp_cbp_v9_0.price_id.size
+-- Calculate size of: Price Cancel Message
+currenex_forex_esp_cbp_v9_0.price_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.instrument_index.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.price_id.size
+
+  return index
+end
 
 -- Display: Price Cancel Message
 currenex_forex_esp_cbp_v9_0.price_cancel_message.display = function(packet, parent, length)
@@ -746,16 +767,28 @@ end
 -- Price Message
 currenex_forex_esp_cbp_v9_0.price_message = {}
 
--- Size: Price Message
-currenex_forex_esp_cbp_v9_0.price_message.size =
-  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
-  currenex_forex_esp_cbp_v9_0.price_id.size + 
-  currenex_forex_esp_cbp_v9_0.side.size + 
-  currenex_forex_esp_cbp_v9_0.max_amount.size + 
-  currenex_forex_esp_cbp_v9_0.min_amount.size + 
-  currenex_forex_esp_cbp_v9_0.price.size + 
-  currenex_forex_esp_cbp_v9_0.attributed.size + 
-  currenex_forex_esp_cbp_v9_0.price_provider.size
+-- Calculate size of: Price Message
+currenex_forex_esp_cbp_v9_0.price_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.instrument_index.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.price_id.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.side.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.max_amount.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.min_amount.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.price.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.attributed.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.price_provider.size
+
+  return index
+end
 
 -- Display: Price Message
 currenex_forex_esp_cbp_v9_0.price_message.display = function(packet, parent, length)
@@ -857,12 +890,20 @@ end
 -- Subscription Reply
 currenex_forex_esp_cbp_v9_0.subscription_reply = {}
 
--- Size: Subscription Reply
-currenex_forex_esp_cbp_v9_0.subscription_reply.size =
-  currenex_forex_esp_cbp_v9_0.session_id.size + 
-  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
-  currenex_forex_esp_cbp_v9_0.reply_type.size + 
-  currenex_forex_esp_cbp_v9_0.reject_reason.size
+-- Calculate size of: Subscription Reply
+currenex_forex_esp_cbp_v9_0.subscription_reply.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.session_id.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.instrument_index.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.reply_type.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.reject_reason.size
+
+  return index
+end
 
 -- Display: Subscription Reply
 currenex_forex_esp_cbp_v9_0.subscription_reply.display = function(packet, parent, length)
@@ -998,12 +1039,20 @@ end
 -- Subscription Request
 currenex_forex_esp_cbp_v9_0.subscription_request = {}
 
--- Size: Subscription Request
-currenex_forex_esp_cbp_v9_0.subscription_request.size =
-  currenex_forex_esp_cbp_v9_0.session_id.size + 
-  currenex_forex_esp_cbp_v9_0.subscription_type.size + 
-  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
-  currenex_forex_esp_cbp_v9_0.subscribe_to_ticker.size
+-- Calculate size of: Subscription Request
+currenex_forex_esp_cbp_v9_0.subscription_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.session_id.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.subscription_type.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.instrument_index.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.subscribe_to_ticker.size
+
+  return index
+end
 
 -- Display: Subscription Request
 currenex_forex_esp_cbp_v9_0.subscription_request.display = function(packet, parent, length)
@@ -1139,13 +1188,22 @@ end
 -- Instrument Info
 currenex_forex_esp_cbp_v9_0.instrument_info = {}
 
--- Size: Instrument Info
-currenex_forex_esp_cbp_v9_0.instrument_info.size =
-  currenex_forex_esp_cbp_v9_0.session_id.size + 
-  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
-  currenex_forex_esp_cbp_v9_0.instrument_type.size + 
-  currenex_forex_esp_cbp_v9_0.instrument_id.size + 
-  currenex_forex_esp_cbp_v9_0.settlement_date.size
+-- Calculate size of: Instrument Info
+currenex_forex_esp_cbp_v9_0.instrument_info.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.session_id.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.instrument_index.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.instrument_type.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.instrument_id.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.settlement_date.size
+
+  return index
+end
 
 -- Display: Instrument Info
 currenex_forex_esp_cbp_v9_0.instrument_info.display = function(packet, parent, length)
@@ -1195,9 +1253,14 @@ end
 -- Heartbeat
 currenex_forex_esp_cbp_v9_0.heartbeat = {}
 
--- Size: Heartbeat
-currenex_forex_esp_cbp_v9_0.heartbeat.size =
-  currenex_forex_esp_cbp_v9_0.session_id.size
+-- Calculate size of: Heartbeat
+currenex_forex_esp_cbp_v9_0.heartbeat.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.session_id.size
+
+  return index
+end
 
 -- Display: Heartbeat
 currenex_forex_esp_cbp_v9_0.heartbeat.display = function(packet, parent, length)
@@ -1281,11 +1344,18 @@ end
 -- Logout
 currenex_forex_esp_cbp_v9_0.logout = {}
 
--- Size: Logout
-currenex_forex_esp_cbp_v9_0.logout.size =
-  currenex_forex_esp_cbp_v9_0.user_id.size + 
-  currenex_forex_esp_cbp_v9_0.session_id.size + 
-  currenex_forex_esp_cbp_v9_0.reason.size
+-- Calculate size of: Logout
+currenex_forex_esp_cbp_v9_0.logout.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.user_id.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.session_id.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.reason.size
+
+  return index
+end
 
 -- Display: Logout
 currenex_forex_esp_cbp_v9_0.logout.display = function(packet, parent, length)
@@ -1352,11 +1422,18 @@ end
 -- Logon
 currenex_forex_esp_cbp_v9_0.logon = {}
 
--- Size: Logon
-currenex_forex_esp_cbp_v9_0.logon.size =
-  currenex_forex_esp_cbp_v9_0.user_id.size + 
-  currenex_forex_esp_cbp_v9_0.password.size + 
-  currenex_forex_esp_cbp_v9_0.session_id.size
+-- Calculate size of: Logon
+currenex_forex_esp_cbp_v9_0.logon.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.user_id.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.password.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.session_id.size
+
+  return index
+end
 
 -- Display: Logon
 currenex_forex_esp_cbp_v9_0.logon.display = function(packet, parent, length)
@@ -1597,11 +1674,18 @@ end
 -- Message Header
 currenex_forex_esp_cbp_v9_0.message_header = {}
 
--- Size: Message Header
-currenex_forex_esp_cbp_v9_0.message_header.size =
-  currenex_forex_esp_cbp_v9_0.sequence_number.size + 
-  currenex_forex_esp_cbp_v9_0.sequence_number.size + 
-  currenex_forex_esp_cbp_v9_0.message_type.size
+-- Calculate size of: Message Header
+currenex_forex_esp_cbp_v9_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_esp_cbp_v9_0.sequence_number.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.sequence_number.size
+
+  index = index + currenex_forex_esp_cbp_v9_0.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 currenex_forex_esp_cbp_v9_0.message_header.display = function(packet, parent, length)

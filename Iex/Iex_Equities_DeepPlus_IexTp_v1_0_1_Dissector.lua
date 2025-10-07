@@ -340,11 +340,18 @@ end
 -- Clear Book Message
 iex_equities_deepplus_iextp_v1_0_1.clear_book_message = {}
 
--- Size: Clear Book Message
-iex_equities_deepplus_iextp_v1_0_1.clear_book_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.reserved_1.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size
+-- Calculate size of: Clear Book Message
+iex_equities_deepplus_iextp_v1_0_1.clear_book_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.reserved_1.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  return index
+end
 
 -- Display: Clear Book Message
 iex_equities_deepplus_iextp_v1_0_1.clear_book_message.display = function(packet, parent, length)
@@ -533,14 +540,24 @@ end
 -- Trade Break Message
 iex_equities_deepplus_iextp_v1_0_1.trade_break_message = {}
 
--- Size: Trade Break Message
-iex_equities_deepplus_iextp_v1_0_1.trade_break_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.sale_condition_flags.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size + 
-  iex_equities_deepplus_iextp_v1_0_1.size.size + 
-  iex_equities_deepplus_iextp_v1_0_1.price.size + 
-  iex_equities_deepplus_iextp_v1_0_1.trade_id.size
+-- Calculate size of: Trade Break Message
+iex_equities_deepplus_iextp_v1_0_1.trade_break_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.sale_condition_flags.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.size.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.price.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.trade_id.size
+
+  return index
+end
 
 -- Display: Trade Break Message
 iex_equities_deepplus_iextp_v1_0_1.trade_break_message.display = function(packet, parent, length)
@@ -593,14 +610,24 @@ end
 -- Trade Message
 iex_equities_deepplus_iextp_v1_0_1.trade_message = {}
 
--- Size: Trade Message
-iex_equities_deepplus_iextp_v1_0_1.trade_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.sale_condition_flags.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size + 
-  iex_equities_deepplus_iextp_v1_0_1.size.size + 
-  iex_equities_deepplus_iextp_v1_0_1.price.size + 
-  iex_equities_deepplus_iextp_v1_0_1.trade_id.size
+-- Calculate size of: Trade Message
+iex_equities_deepplus_iextp_v1_0_1.trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.sale_condition_flags.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.size.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.price.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.trade_id.size
+
+  return index
+end
 
 -- Display: Trade Message
 iex_equities_deepplus_iextp_v1_0_1.trade_message.display = function(packet, parent, length)
@@ -676,15 +703,26 @@ end
 -- Order Executed Message
 iex_equities_deepplus_iextp_v1_0_1.order_executed_message = {}
 
--- Size: Order Executed Message
-iex_equities_deepplus_iextp_v1_0_1.order_executed_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.sale_condition_flags.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size + 
-  iex_equities_deepplus_iextp_v1_0_1.order_id_reference.size + 
-  iex_equities_deepplus_iextp_v1_0_1.size.size + 
-  iex_equities_deepplus_iextp_v1_0_1.price.size + 
-  iex_equities_deepplus_iextp_v1_0_1.trade_id.size
+-- Calculate size of: Order Executed Message
+iex_equities_deepplus_iextp_v1_0_1.order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.sale_condition_flags.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.order_id_reference.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.size.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.price.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.trade_id.size
+
+  return index
+end
 
 -- Display: Order Executed Message
 iex_equities_deepplus_iextp_v1_0_1.order_executed_message.display = function(packet, parent, length)
@@ -740,12 +778,20 @@ end
 -- Order Delete Message
 iex_equities_deepplus_iextp_v1_0_1.order_delete_message = {}
 
--- Size: Order Delete Message
-iex_equities_deepplus_iextp_v1_0_1.order_delete_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.reserved_1.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size + 
-  iex_equities_deepplus_iextp_v1_0_1.order_id_reference.size
+-- Calculate size of: Order Delete Message
+iex_equities_deepplus_iextp_v1_0_1.order_delete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.reserved_1.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.order_id_reference.size
+
+  return index
+end
 
 -- Display: Order Delete Message
 iex_equities_deepplus_iextp_v1_0_1.order_delete_message.display = function(packet, parent, length)
@@ -834,14 +880,24 @@ end
 -- Order Modify Message
 iex_equities_deepplus_iextp_v1_0_1.order_modify_message = {}
 
--- Size: Order Modify Message
-iex_equities_deepplus_iextp_v1_0_1.order_modify_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.modify_flags.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size + 
-  iex_equities_deepplus_iextp_v1_0_1.order_id_reference.size + 
-  iex_equities_deepplus_iextp_v1_0_1.size.size + 
-  iex_equities_deepplus_iextp_v1_0_1.price.size
+-- Calculate size of: Order Modify Message
+iex_equities_deepplus_iextp_v1_0_1.order_modify_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.modify_flags.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.order_id_reference.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.size.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.price.size
+
+  return index
+end
 
 -- Display: Order Modify Message
 iex_equities_deepplus_iextp_v1_0_1.order_modify_message.display = function(packet, parent, length)
@@ -940,14 +996,24 @@ end
 -- Add Order Message
 iex_equities_deepplus_iextp_v1_0_1.add_order_message = {}
 
--- Size: Add Order Message
-iex_equities_deepplus_iextp_v1_0_1.add_order_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.side.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size + 
-  iex_equities_deepplus_iextp_v1_0_1.order_id.size + 
-  iex_equities_deepplus_iextp_v1_0_1.size.size + 
-  iex_equities_deepplus_iextp_v1_0_1.price.size
+-- Calculate size of: Add Order Message
+iex_equities_deepplus_iextp_v1_0_1.add_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.side.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.order_id.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.size.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.price.size
+
+  return index
+end
 
 -- Display: Add Order Message
 iex_equities_deepplus_iextp_v1_0_1.add_order_message.display = function(packet, parent, length)
@@ -1036,11 +1102,18 @@ end
 -- Security Event Message
 iex_equities_deepplus_iextp_v1_0_1.security_event_message = {}
 
--- Size: Security Event Message
-iex_equities_deepplus_iextp_v1_0_1.security_event_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.security_event.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size
+-- Calculate size of: Security Event Message
+iex_equities_deepplus_iextp_v1_0_1.security_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.security_event.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  return index
+end
 
 -- Display: Security Event Message
 iex_equities_deepplus_iextp_v1_0_1.security_event_message.display = function(packet, parent, length)
@@ -1153,12 +1226,20 @@ end
 -- Short Sale Price Test Status Message
 iex_equities_deepplus_iextp_v1_0_1.short_sale_price_test_status_message = {}
 
--- Size: Short Sale Price Test Status Message
-iex_equities_deepplus_iextp_v1_0_1.short_sale_price_test_status_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.short_sale_price_test_status.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size + 
-  iex_equities_deepplus_iextp_v1_0_1.detail.size
+-- Calculate size of: Short Sale Price Test Status Message
+iex_equities_deepplus_iextp_v1_0_1.short_sale_price_test_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.short_sale_price_test_status.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.detail.size
+
+  return index
+end
 
 -- Display: Short Sale Price Test Status Message
 iex_equities_deepplus_iextp_v1_0_1.short_sale_price_test_status_message.display = function(packet, parent, length)
@@ -1235,11 +1316,18 @@ end
 -- Operational Halt Status Message
 iex_equities_deepplus_iextp_v1_0_1.operational_halt_status_message = {}
 
--- Size: Operational Halt Status Message
-iex_equities_deepplus_iextp_v1_0_1.operational_halt_status_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.operational_halt_status.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size
+-- Calculate size of: Operational Halt Status Message
+iex_equities_deepplus_iextp_v1_0_1.operational_halt_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.operational_halt_status.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  return index
+end
 
 -- Display: Operational Halt Status Message
 iex_equities_deepplus_iextp_v1_0_1.operational_halt_status_message.display = function(packet, parent, length)
@@ -1319,11 +1407,18 @@ end
 -- Retail Liquidity Indicator Message
 iex_equities_deepplus_iextp_v1_0_1.retail_liquidity_indicator_message = {}
 
--- Size: Retail Liquidity Indicator Message
-iex_equities_deepplus_iextp_v1_0_1.retail_liquidity_indicator_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.retail_liquidity_indicator.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size
+-- Calculate size of: Retail Liquidity Indicator Message
+iex_equities_deepplus_iextp_v1_0_1.retail_liquidity_indicator_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.retail_liquidity_indicator.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  return index
+end
 
 -- Display: Retail Liquidity Indicator Message
 iex_equities_deepplus_iextp_v1_0_1.retail_liquidity_indicator_message.display = function(packet, parent, length)
@@ -1426,12 +1521,20 @@ end
 -- Trading Status Message
 iex_equities_deepplus_iextp_v1_0_1.trading_status_message = {}
 
--- Size: Trading Status Message
-iex_equities_deepplus_iextp_v1_0_1.trading_status_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.trading_status.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size + 
-  iex_equities_deepplus_iextp_v1_0_1.reason.size
+-- Calculate size of: Trading Status Message
+iex_equities_deepplus_iextp_v1_0_1.trading_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.trading_status.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.reason.size
+
+  return index
+end
 
 -- Display: Trading Status Message
 iex_equities_deepplus_iextp_v1_0_1.trading_status_message.display = function(packet, parent, length)
@@ -1619,14 +1722,24 @@ end
 -- Security Directory Message
 iex_equities_deepplus_iextp_v1_0_1.security_directory_message = {}
 
--- Size: Security Directory Message
-iex_equities_deepplus_iextp_v1_0_1.security_directory_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.security_directory_flags.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size + 
-  iex_equities_deepplus_iextp_v1_0_1.symbol.size + 
-  iex_equities_deepplus_iextp_v1_0_1.round_lot_size.size + 
-  iex_equities_deepplus_iextp_v1_0_1.adjusted_poc_price.size + 
-  iex_equities_deepplus_iextp_v1_0_1.luld_tier.size
+-- Calculate size of: Security Directory Message
+iex_equities_deepplus_iextp_v1_0_1.security_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.security_directory_flags.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.symbol.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.round_lot_size.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.adjusted_poc_price.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.luld_tier.size
+
+  return index
+end
 
 -- Display: Security Directory Message
 iex_equities_deepplus_iextp_v1_0_1.security_directory_message.display = function(packet, parent, length)
@@ -1721,10 +1834,16 @@ end
 -- System Event Message
 iex_equities_deepplus_iextp_v1_0_1.system_event_message = {}
 
--- Size: System Event Message
-iex_equities_deepplus_iextp_v1_0_1.system_event_message.size =
-  iex_equities_deepplus_iextp_v1_0_1.system_event.size + 
-  iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+-- Calculate size of: System Event Message
+iex_equities_deepplus_iextp_v1_0_1.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.system_event.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.timestamp.size
+
+  return index
+end
 
 -- Display: System Event Message
 iex_equities_deepplus_iextp_v1_0_1.system_event_message.display = function(packet, parent, length)
@@ -2006,10 +2125,16 @@ end
 -- Message Header
 iex_equities_deepplus_iextp_v1_0_1.message_header = {}
 
--- Size: Message Header
-iex_equities_deepplus_iextp_v1_0_1.message_header.size =
-  iex_equities_deepplus_iextp_v1_0_1.message_length.size + 
-  iex_equities_deepplus_iextp_v1_0_1.message_type.size
+-- Calculate size of: Message Header
+iex_equities_deepplus_iextp_v1_0_1.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.message_length.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 iex_equities_deepplus_iextp_v1_0_1.message_header.display = function(packet, parent, length)
@@ -2335,18 +2460,32 @@ end
 -- Iex Tp Header
 iex_equities_deepplus_iextp_v1_0_1.iex_tp_header = {}
 
--- Size: Iex Tp Header
-iex_equities_deepplus_iextp_v1_0_1.iex_tp_header.size =
-  iex_equities_deepplus_iextp_v1_0_1.version.size + 
-  iex_equities_deepplus_iextp_v1_0_1.reserved.size + 
-  iex_equities_deepplus_iextp_v1_0_1.message_protocol_id.size + 
-  iex_equities_deepplus_iextp_v1_0_1.channel_id.size + 
-  iex_equities_deepplus_iextp_v1_0_1.session_id.size + 
-  iex_equities_deepplus_iextp_v1_0_1.payload_length.size + 
-  iex_equities_deepplus_iextp_v1_0_1.message_count.size + 
-  iex_equities_deepplus_iextp_v1_0_1.stream_offset.size + 
-  iex_equities_deepplus_iextp_v1_0_1.first_message_sequence_number.size + 
-  iex_equities_deepplus_iextp_v1_0_1.send_time.size
+-- Calculate size of: Iex Tp Header
+iex_equities_deepplus_iextp_v1_0_1.iex_tp_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.version.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.reserved.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.message_protocol_id.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.channel_id.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.session_id.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.payload_length.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.message_count.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.stream_offset.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.first_message_sequence_number.size
+
+  index = index + iex_equities_deepplus_iextp_v1_0_1.send_time.size
+
+  return index
+end
 
 -- Display: Iex Tp Header
 iex_equities_deepplus_iextp_v1_0_1.iex_tp_header.display = function(packet, parent, length)

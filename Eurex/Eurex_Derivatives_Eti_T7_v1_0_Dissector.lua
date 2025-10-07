@@ -135,10 +135,16 @@ end
 -- Message Header
 eurex_derivatives_eti_t7_v1_0.message_header = {}
 
--- Size: Message Header
-eurex_derivatives_eti_t7_v1_0.message_header.size =
-  eurex_derivatives_eti_t7_v1_0.body_len.size + 
-  eurex_derivatives_eti_t7_v1_0.template_id.size
+-- Calculate size of: Message Header
+eurex_derivatives_eti_t7_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v1_0.body_len.size
+
+  index = index + eurex_derivatives_eti_t7_v1_0.template_id.size
+
+  return index
+end
 
 -- Display: Message Header
 eurex_derivatives_eti_t7_v1_0.message_header.display = function(packet, parent, length)
@@ -230,7 +236,7 @@ local message_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < eurex_derivatives_eti_t7_v1_0.message_header.size then
+  if remaining < eurex_derivatives_eti_t7_v1_0.message_header.size(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

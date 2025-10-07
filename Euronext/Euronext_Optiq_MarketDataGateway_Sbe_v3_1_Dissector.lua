@@ -852,10 +852,16 @@ end
 -- End Of Snapshot Message
 euronext_optiq_marketdatagateway_sbe_v3_1.end_of_snapshot_message = {}
 
--- Size: End Of Snapshot Message
-euronext_optiq_marketdatagateway_sbe_v3_1.end_of_snapshot_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.last_md_seq_num.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.snapshot_time.size
+-- Calculate size of: End Of Snapshot Message
+euronext_optiq_marketdatagateway_sbe_v3_1.end_of_snapshot_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.last_md_seq_num.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.snapshot_time.size
+
+  return index
+end
 
 -- Display: End Of Snapshot Message
 euronext_optiq_marketdatagateway_sbe_v3_1.end_of_snapshot_message.display = function(packet, parent, length)
@@ -896,10 +902,16 @@ end
 -- Start Of Snapshot Message
 euronext_optiq_marketdatagateway_sbe_v3_1.start_of_snapshot_message = {}
 
--- Size: Start Of Snapshot Message
-euronext_optiq_marketdatagateway_sbe_v3_1.start_of_snapshot_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.last_md_seq_num.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.snapshot_time.size
+-- Calculate size of: Start Of Snapshot Message
+euronext_optiq_marketdatagateway_sbe_v3_1.start_of_snapshot_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.last_md_seq_num.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.snapshot_time.size
+
+  return index
+end
 
 -- Display: Start Of Snapshot Message
 euronext_optiq_marketdatagateway_sbe_v3_1.start_of_snapshot_message.display = function(packet, parent, length)
@@ -2723,47 +2735,90 @@ end
 -- Apa Full Trade Information Message
 euronext_optiq_marketdatagateway_sbe_v3_1.apa_full_trade_information_message = {}
 
--- Size: Apa Full Trade Information Message
-euronext_optiq_marketdatagateway_sbe_v3_1.apa_full_trade_information_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.emm.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.trading_date_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.publication_date_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.trade_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id_type_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_transaction_id.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_price_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_quantity.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_price_notation.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_currency.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_qty_in_msrmt_unit_notation.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_quantity_measurement_unit.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_notional_amount.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.notional_currency.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_clearing_flag.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_market_mechanism.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_trading_mode.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_transaction_category.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_negotiation_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_agency_cross_trade_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_modification_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_benchmark_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_special_dividend_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_off_book_automated_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_contributionto_price.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_algorithmic_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_publication_mode.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_post_trade_deferral.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_duplicative_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.trade_reference.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.original_report_timestamp.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.price_multiplier.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.price_multiplier_decimals.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.venue.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_emission_allowance_type.size
+-- Calculate size of: Apa Full Trade Information Message
+euronext_optiq_marketdatagateway_sbe_v3_1.apa_full_trade_information_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.emm.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.trading_date_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.publication_date_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.trade_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id_type_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_transaction_id.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_price_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_quantity.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_price_notation.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_currency.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_qty_in_msrmt_unit_notation.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_quantity_measurement_unit.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_notional_amount.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.notional_currency.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_clearing_flag.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_market_mechanism.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_trading_mode.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_transaction_category.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_negotiation_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_agency_cross_trade_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_modification_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_benchmark_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_special_dividend_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_off_book_automated_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_contributionto_price.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_algorithmic_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_publication_mode.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_post_trade_deferral.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.efficient_mmt_duplicative_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.trade_reference.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.original_report_timestamp.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.price_multiplier.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.price_multiplier_decimals.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.venue.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_emission_allowance_type.size
+
+  return index
+end
 
 -- Display: Apa Full Trade Information Message
 euronext_optiq_marketdatagateway_sbe_v3_1.apa_full_trade_information_message.display = function(packet, parent, length)
@@ -3500,28 +3555,52 @@ end
 -- Apa Standing Data Message
 euronext_optiq_marketdatagateway_sbe_v3_1.apa_standing_data_message = {}
 
--- Size: Apa Standing Data Message
-euronext_optiq_marketdatagateway_sbe_v3_1.apa_standing_data_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.full_instrument_name.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.cfi_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.notional_currency.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.second_notional_currency.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.price_multiplier.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.price_multiplier_decimals.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.underlying_isin_code.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.underlying_index_name.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.underlying_index_term.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.option_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.strike_price.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.strike_price_decimals.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.exer_style.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.maturity_date_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.expiry_date.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.settlement_method.size
+-- Calculate size of: Apa Standing Data Message
+euronext_optiq_marketdatagateway_sbe_v3_1.apa_standing_data_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.full_instrument_name.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.cfi_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.notional_currency.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.second_notional_currency.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.price_multiplier.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.price_multiplier_decimals.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.underlying_isin_code.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.underlying_index_name.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.underlying_index_term.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.option_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.strike_price.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.strike_price_decimals.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.exer_style.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.maturity_date_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.expiry_date.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.settlement_method.size
+
+  return index
+end
 
 -- Display: Apa Standing Data Message
 euronext_optiq_marketdatagateway_sbe_v3_1.apa_standing_data_message.display = function(packet, parent, length)
@@ -3808,19 +3887,34 @@ end
 -- Apa Quotes Message
 euronext_optiq_marketdatagateway_sbe_v3_1.apa_quotes_message = {}
 
--- Size: Apa Quotes Message
-euronext_optiq_marketdatagateway_sbe_v3_1.apa_quotes_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mic.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.currency.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.lei_code.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.quote_update_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_price.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.mifid_quantity.size
+-- Calculate size of: Apa Quotes Message
+euronext_optiq_marketdatagateway_sbe_v3_1.apa_quotes_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_instrument_id.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mic.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.currency.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.lei_code.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.quote_update_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_price.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.mifid_quantity.size
+
+  return index
+end
 
 -- Display: Apa Quotes Message
 euronext_optiq_marketdatagateway_sbe_v3_1.apa_quotes_message.display = function(packet, parent, length)
@@ -3934,10 +4028,16 @@ end
 -- Package Components Group
 euronext_optiq_marketdatagateway_sbe_v3_1.package_components_group = {}
 
--- Size: Package Components Group
-euronext_optiq_marketdatagateway_sbe_v3_1.package_components_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.leg_symbol_index.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.leg_ratio.size
+-- Calculate size of: Package Components Group
+euronext_optiq_marketdatagateway_sbe_v3_1.package_components_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.leg_symbol_index.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.leg_ratio.size
+
+  return index
+end
 
 -- Display: Package Components Group
 euronext_optiq_marketdatagateway_sbe_v3_1.package_components_group.display = function(packet, parent, length)
@@ -4030,10 +4130,16 @@ end
 -- Group Size Encoding
 euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding = {}
 
--- Size: Group Size Encoding
-euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.block_length_short.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.num_in_group.size
+-- Calculate size of: Group Size Encoding
+euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.block_length_short.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.num_in_group.size
+
+  return index
+end
 
 -- Display: Group Size Encoding
 euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.display = function(packet, parent, length)
@@ -4078,7 +4184,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.package_components_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.package_components_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local package_components_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4444,9 +4550,14 @@ end
 -- Outright Rep Group
 euronext_optiq_marketdatagateway_sbe_v3_1.outright_rep_group = {}
 
--- Size: Outright Rep Group
-euronext_optiq_marketdatagateway_sbe_v3_1.outright_rep_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.emm.size
+-- Calculate size of: Outright Rep Group
+euronext_optiq_marketdatagateway_sbe_v3_1.outright_rep_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.emm.size
+
+  return index
+end
 
 -- Display: Outright Rep Group
 euronext_optiq_marketdatagateway_sbe_v3_1.outright_rep_group.display = function(packet, parent, length)
@@ -4494,7 +4605,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.outright_rep_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.outright_rep_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local outright_rep_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5691,16 +5802,28 @@ end
 -- Contract Emm Properties Group
 euronext_optiq_marketdatagateway_sbe_v3_1.contract_emm_properties_group = {}
 
--- Size: Contract Emm Properties Group
-euronext_optiq_marketdatagateway_sbe_v3_1.contract_emm_properties_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.emm_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.tick_size_index_id.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.pattern_id.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.lot_size_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.strategy_authorized.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.dynamic_collar_logic.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.collar_max_unhalt_nb.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.collar_unhalt_delay.size
+-- Calculate size of: Contract Emm Properties Group
+euronext_optiq_marketdatagateway_sbe_v3_1.contract_emm_properties_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.emm_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.tick_size_index_id.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.pattern_id.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.lot_size_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.strategy_authorized.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.dynamic_collar_logic.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.collar_max_unhalt_nb.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.collar_unhalt_delay.size
+
+  return index
+end
 
 -- Display: Contract Emm Properties Group
 euronext_optiq_marketdatagateway_sbe_v3_1.contract_emm_properties_group.display = function(packet, parent, length)
@@ -5769,7 +5892,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.contract_emm_properties_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.contract_emm_properties_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local contract_emm_properties_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -7594,12 +7717,20 @@ end
 -- Strategy Standing Datarep 1 Group
 euronext_optiq_marketdatagateway_sbe_v3_1.strategy_standing_datarep_1_group = {}
 
--- Size: Strategy Standing Datarep 1 Group
-euronext_optiq_marketdatagateway_sbe_v3_1.strategy_standing_datarep_1_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.leg_symbol_index.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.leg_price.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.leg_ratio.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.leg_buy_sell.size
+-- Calculate size of: Strategy Standing Datarep 1 Group
+euronext_optiq_marketdatagateway_sbe_v3_1.strategy_standing_datarep_1_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.leg_symbol_index.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.leg_price.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.leg_ratio.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.leg_buy_sell.size
+
+  return index
+end
 
 -- Display: Strategy Standing Datarep 1 Group
 euronext_optiq_marketdatagateway_sbe_v3_1.strategy_standing_datarep_1_group.display = function(packet, parent, length)
@@ -7656,7 +7787,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.strategy_standing_datarep_1_groups = {
 euronext_optiq_marketdatagateway_sbe_v3_1.strategy_standing_datarep_1_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local strategy_standing_datarep_1_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -8152,26 +8283,48 @@ end
 -- Index Summary Message
 euronext_optiq_marketdatagateway_sbe_v3_1.index_summary_message = {}
 
--- Size: Index Summary Message
-euronext_optiq_marketdatagateway_sbe_v3_1.index_summary_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.emm.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.opening_level.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.opening_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.confirmed_reference_level.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.confirmed_reference_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.closing_reference_level.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.closing_reference_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.prct_varfrom_prev_close.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.high_level.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.high_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.low_level.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.low_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.liquidation_level.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.liquidation_time.size
+-- Calculate size of: Index Summary Message
+euronext_optiq_marketdatagateway_sbe_v3_1.index_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.emm.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.opening_level.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.opening_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.confirmed_reference_level.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.confirmed_reference_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.closing_reference_level.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.closing_reference_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.prct_varfrom_prev_close.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.high_level.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.high_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.low_level.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.low_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.liquidation_level.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.liquidation_time.size
+
+  return index
+end
 
 -- Display: Index Summary Message
 euronext_optiq_marketdatagateway_sbe_v3_1.index_summary_message.display = function(packet, parent, length)
@@ -8357,10 +8510,16 @@ end
 -- New Stats Group
 euronext_optiq_marketdatagateway_sbe_v3_1.new_stats_group = {}
 
--- Size: New Stats Group
-euronext_optiq_marketdatagateway_sbe_v3_1.new_stats_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.stats_update_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.stats_update_value.size
+-- Calculate size of: New Stats Group
+euronext_optiq_marketdatagateway_sbe_v3_1.new_stats_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.stats_update_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.stats_update_value.size
+
+  return index
+end
 
 -- Display: New Stats Group
 euronext_optiq_marketdatagateway_sbe_v3_1.new_stats_group.display = function(packet, parent, length)
@@ -8411,7 +8570,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.new_stats_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.new_stats_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local new_stats_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -8686,19 +8845,34 @@ end
 -- Real Time Index Message
 euronext_optiq_marketdatagateway_sbe_v3_1.real_time_index_message = {}
 
--- Size: Real Time Index Message
-euronext_optiq_marketdatagateway_sbe_v3_1.real_time_index_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.emm.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.index_level.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.pctg_of_capitalization.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.prct_varfrom_prev_close.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.num_traded_instruments.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.index_level_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.index_price_code.size
+-- Calculate size of: Real Time Index Message
+euronext_optiq_marketdatagateway_sbe_v3_1.real_time_index_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.emm.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.index_level.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.pctg_of_capitalization.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.prct_varfrom_prev_close.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.num_traded_instruments.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.index_level_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.index_price_code.size
+
+  return index
+end
 
 -- Display: Real Time Index Message
 euronext_optiq_marketdatagateway_sbe_v3_1.real_time_index_message.display = function(packet, parent, length)
@@ -8811,14 +8985,24 @@ end
 -- Em M Pattern Rep Group
 euronext_optiq_marketdatagateway_sbe_v3_1.em_m_pattern_rep_group = {}
 
--- Size: Em M Pattern Rep Group
-euronext_optiq_marketdatagateway_sbe_v3_1.em_m_pattern_rep_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.emm.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.pattern_id.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.tick_size_index_id.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.market_model.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.lot_size_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.inst_unit_exp.size
+-- Calculate size of: Em M Pattern Rep Group
+euronext_optiq_marketdatagateway_sbe_v3_1.em_m_pattern_rep_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.emm.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.pattern_id.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.tick_size_index_id.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.market_model.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.lot_size_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.inst_unit_exp.size
+
+  return index
+end
 
 -- Display: Em M Pattern Rep Group
 euronext_optiq_marketdatagateway_sbe_v3_1.em_m_pattern_rep_group.display = function(packet, parent, length)
@@ -8881,7 +9065,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.em_m_pattern_rep_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.em_m_pattern_rep_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local em_m_pattern_rep_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -11087,15 +11271,26 @@ end
 -- Timetables Group
 euronext_optiq_marketdatagateway_sbe_v3_1.timetables_group = {}
 
--- Size: Timetables Group
-euronext_optiq_marketdatagateway_sbe_v3_1.timetables_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.phase_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.phase_id.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.phase_qualifier.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.trading_period.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.order_entry_qualifier.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.session.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.scheduled_event.size
+-- Calculate size of: Timetables Group
+euronext_optiq_marketdatagateway_sbe_v3_1.timetables_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.phase_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.phase_id.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.phase_qualifier.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.trading_period.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.order_entry_qualifier.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.session.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.scheduled_event.size
+
+  return index
+end
 
 -- Display: Timetables Group
 euronext_optiq_marketdatagateway_sbe_v3_1.timetables_group.display = function(packet, parent, length)
@@ -11161,7 +11356,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.timetables_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.timetables_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local timetables_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -11720,23 +11915,42 @@ end
 -- Market States Group
 euronext_optiq_marketdatagateway_sbe_v3_1.market_states_group = {}
 
--- Size: Market States Group
-euronext_optiq_marketdatagateway_sbe_v3_1.market_states_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.change_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.book_state.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.status_reason.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.phase_qualifier.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.trading_period_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.trading_side.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.price_limits.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.quote_spread_multiplier.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.order_entry_qualifier.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.session.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.scheduled_event.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.scheduled_event_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.instrument_state.size
+-- Calculate size of: Market States Group
+euronext_optiq_marketdatagateway_sbe_v3_1.market_states_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.change_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.book_state.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.status_reason.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.phase_qualifier.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.trading_period_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.trading_side.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.price_limits.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.quote_spread_multiplier.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.order_entry_qualifier.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.session.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.scheduled_event.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.scheduled_event_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.instrument_state.size
+
+  return index
+end
 
 -- Display: Market States Group
 euronext_optiq_marketdatagateway_sbe_v3_1.market_states_group.display = function(packet, parent, length)
@@ -11826,7 +12040,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.market_states_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.market_states_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local market_states_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -11933,7 +12147,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.not_used_group_1_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.not_used_group_1_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local not_used_group_1_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -13459,14 +13673,24 @@ end
 -- Prices Group
 euronext_optiq_marketdatagateway_sbe_v3_1.prices_group = {}
 
--- Size: Prices Group
-euronext_optiq_marketdatagateway_sbe_v3_1.prices_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.price_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.price.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.quantity.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.imbalance_qty.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.imbalance_qty_side.size
+-- Calculate size of: Prices Group
+euronext_optiq_marketdatagateway_sbe_v3_1.prices_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.price_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.price.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.quantity.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.imbalance_qty.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.imbalance_qty_side.size
+
+  return index
+end
 
 -- Display: Prices Group
 euronext_optiq_marketdatagateway_sbe_v3_1.prices_group.display = function(packet, parent, length)
@@ -13529,7 +13753,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.prices_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.prices_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local prices_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -13918,17 +14142,30 @@ end
 -- Orders Group
 euronext_optiq_marketdatagateway_sbe_v3_1.orders_group = {}
 
--- Size: Orders Group
-euronext_optiq_marketdatagateway_sbe_v3_1.orders_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.action_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.order_priority.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.previous_priority.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.order_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.order_px.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.order_side.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.order_quantity.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.peg_offset.size
+-- Calculate size of: Orders Group
+euronext_optiq_marketdatagateway_sbe_v3_1.orders_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.action_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.order_priority.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.previous_priority.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.order_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.order_px.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.order_side.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.order_quantity.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.peg_offset.size
+
+  return index
+end
 
 -- Display: Orders Group
 euronext_optiq_marketdatagateway_sbe_v3_1.orders_group.display = function(packet, parent, length)
@@ -14000,7 +14237,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.orders_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.orders_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local orders_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -14427,13 +14664,22 @@ end
 -- Updates Group
 euronext_optiq_marketdatagateway_sbe_v3_1.updates_group = {}
 
--- Size: Updates Group
-euronext_optiq_marketdatagateway_sbe_v3_1.updates_group.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.update_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.number_of_orders.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.price.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.quantity.size
+-- Calculate size of: Updates Group
+euronext_optiq_marketdatagateway_sbe_v3_1.updates_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.update_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.number_of_orders.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.price.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.quantity.size
+
+  return index
+end
 
 -- Display: Updates Group
 euronext_optiq_marketdatagateway_sbe_v3_1.updates_group.display = function(packet, parent, length)
@@ -14493,7 +14739,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.updates_groups = {}
 euronext_optiq_marketdatagateway_sbe_v3_1.updates_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local updates_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -14690,14 +14936,24 @@ end
 -- Technical Notification Message
 euronext_optiq_marketdatagateway_sbe_v3_1.technical_notification_message = {}
 
--- Size: Technical Notification Message
-euronext_optiq_marketdatagateway_sbe_v3_1.technical_notification_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num_optional.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.technical_notification_type.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.retransmission_start_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.retransmission_end_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index_optional.size
+-- Calculate size of: Technical Notification Message
+euronext_optiq_marketdatagateway_sbe_v3_1.technical_notification_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num_optional.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.technical_notification_type.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.rebroadcast_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.retransmission_start_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.retransmission_end_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.symbol_index_optional.size
+
+  return index
+end
 
 -- Display: Technical Notification Message
 euronext_optiq_marketdatagateway_sbe_v3_1.technical_notification_message.display = function(packet, parent, length)
@@ -14750,10 +15006,16 @@ end
 -- Health Status Message
 euronext_optiq_marketdatagateway_sbe_v3_1.health_status_message = {}
 
--- Size: Health Status Message
-euronext_optiq_marketdatagateway_sbe_v3_1.health_status_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size
+-- Calculate size of: Health Status Message
+euronext_optiq_marketdatagateway_sbe_v3_1.health_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.event_time.size
+
+  return index
+end
 
 -- Display: Health Status Message
 euronext_optiq_marketdatagateway_sbe_v3_1.health_status_message.display = function(packet, parent, length)
@@ -14817,10 +15079,16 @@ end
 -- End Of Day Message
 euronext_optiq_marketdatagateway_sbe_v3_1.end_of_day_message = {}
 
--- Size: End Of Day Message
-euronext_optiq_marketdatagateway_sbe_v3_1.end_of_day_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.session_trading_day.size
+-- Calculate size of: End Of Day Message
+euronext_optiq_marketdatagateway_sbe_v3_1.end_of_day_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.session_trading_day.size
+
+  return index
+end
 
 -- Display: End Of Day Message
 euronext_optiq_marketdatagateway_sbe_v3_1.end_of_day_message.display = function(packet, parent, length)
@@ -14861,10 +15129,16 @@ end
 -- Start Of Day Message
 euronext_optiq_marketdatagateway_sbe_v3_1.start_of_day_message = {}
 
--- Size: Start Of Day Message
-euronext_optiq_marketdatagateway_sbe_v3_1.start_of_day_message.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.session_trading_day.size
+-- Calculate size of: Start Of Day Message
+euronext_optiq_marketdatagateway_sbe_v3_1.start_of_day_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.md_seq_num.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.session_trading_day.size
+
+  return index
+end
 
 -- Display: Start Of Day Message
 euronext_optiq_marketdatagateway_sbe_v3_1.start_of_day_message.display = function(packet, parent, length)
@@ -15291,12 +15565,20 @@ end
 -- Message Header
 euronext_optiq_marketdatagateway_sbe_v3_1.message_header = {}
 
--- Size: Message Header
-euronext_optiq_marketdatagateway_sbe_v3_1.message_header.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.block_length.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.template_id.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.schema_id.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.version.size
+-- Calculate size of: Message Header
+euronext_optiq_marketdatagateway_sbe_v3_1.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.block_length.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.template_id.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.schema_id.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.version.size
+
+  return index
+end
 
 -- Display: Message Header
 euronext_optiq_marketdatagateway_sbe_v3_1.message_header.display = function(packet, parent, length)
@@ -15372,7 +15654,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.message.size = function(buffer, offset
 
   index = index + euronext_optiq_marketdatagateway_sbe_v3_1.frame.size
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.message_header.size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -15560,12 +15842,20 @@ end
 -- Market Data Packet Header
 euronext_optiq_marketdatagateway_sbe_v3_1.market_data_packet_header = {}
 
--- Size: Market Data Packet Header
-euronext_optiq_marketdatagateway_sbe_v3_1.market_data_packet_header.size =
-  euronext_optiq_marketdatagateway_sbe_v3_1.packet_time.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.packet_sequence_number.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.packet_flags.size + 
-  euronext_optiq_marketdatagateway_sbe_v3_1.channel_id.size
+-- Calculate size of: Market Data Packet Header
+euronext_optiq_marketdatagateway_sbe_v3_1.market_data_packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.packet_time.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.packet_sequence_number.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.packet_flags.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_1.channel_id.size
+
+  return index
+end
 
 -- Display: Market Data Packet Header
 euronext_optiq_marketdatagateway_sbe_v3_1.market_data_packet_header.display = function(packet, parent, length)

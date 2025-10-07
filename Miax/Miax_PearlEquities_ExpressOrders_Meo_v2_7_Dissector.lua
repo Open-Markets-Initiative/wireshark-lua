@@ -742,10 +742,16 @@ end
 -- Retransmission Request
 miax_pearlequities_expressorders_meo_v2_7.retransmission_request = {}
 
--- Size: Retransmission Request
-miax_pearlequities_expressorders_meo_v2_7.retransmission_request.size =
-  miax_pearlequities_expressorders_meo_v2_7.start_sequence_number.size + 
-  miax_pearlequities_expressorders_meo_v2_7.end_sequence_number.size
+-- Calculate size of: Retransmission Request
+miax_pearlequities_expressorders_meo_v2_7.retransmission_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.start_sequence_number.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.end_sequence_number.size
+
+  return index
+end
 
 -- Display: Retransmission Request
 miax_pearlequities_expressorders_meo_v2_7.retransmission_request.display = function(packet, parent, length)
@@ -809,9 +815,14 @@ end
 -- Synchronization Complete
 miax_pearlequities_expressorders_meo_v2_7.synchronization_complete = {}
 
--- Size: Synchronization Complete
-miax_pearlequities_expressorders_meo_v2_7.synchronization_complete.size =
-  miax_pearlequities_expressorders_meo_v2_7.number_of_matching_engines.size
+-- Calculate size of: Synchronization Complete
+miax_pearlequities_expressorders_meo_v2_7.synchronization_complete.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.number_of_matching_engines.size
+
+  return index
+end
 
 -- Display: Synchronization Complete
 miax_pearlequities_expressorders_meo_v2_7.synchronization_complete.display = function(packet, parent, length)
@@ -946,12 +957,20 @@ end
 -- Login Response
 miax_pearlequities_expressorders_meo_v2_7.login_response = {}
 
--- Size: Login Response
-miax_pearlequities_expressorders_meo_v2_7.login_response.size =
-  miax_pearlequities_expressorders_meo_v2_7.number_of_matching_engines.size + 
-  miax_pearlequities_expressorders_meo_v2_7.login_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.trading_session_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.highest_sequence_number.size
+-- Calculate size of: Login Response
+miax_pearlequities_expressorders_meo_v2_7.login_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.number_of_matching_engines.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.login_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.trading_session_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.highest_sequence_number.size
+
+  return index
+end
 
 -- Display: Login Response
 miax_pearlequities_expressorders_meo_v2_7.login_response.display = function(packet, parent, length)
@@ -1136,14 +1155,24 @@ end
 -- Login Request
 miax_pearlequities_expressorders_meo_v2_7.login_request = {}
 
--- Size: Login Request
-miax_pearlequities_expressorders_meo_v2_7.login_request.size =
-  miax_pearlequities_expressorders_meo_v2_7.esesm_version.size + 
-  miax_pearlequities_expressorders_meo_v2_7.username.size + 
-  miax_pearlequities_expressorders_meo_v2_7.computer_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.application_protocol.size + 
-  miax_pearlequities_expressorders_meo_v2_7.requested_trading_session_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.requested_sequence_number.size
+-- Calculate size of: Login Request
+miax_pearlequities_expressorders_meo_v2_7.login_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.esesm_version.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.username.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.computer_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.application_protocol.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.requested_trading_session_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.requested_sequence_number.size
+
+  return index
+end
 
 -- Display: Login Request
 miax_pearlequities_expressorders_meo_v2_7.login_request.display = function(packet, parent, length)
@@ -1813,27 +1842,50 @@ end
 -- Execution Notification
 miax_pearlequities_expressorders_meo_v2_7.execution_notification = {}
 
--- Size: Execution Notification
-miax_pearlequities_expressorders_meo_v2_7.execution_notification.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.trade_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.execution_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.correction_number.size + 
-  miax_pearlequities_expressorders_meo_v2_7.trade_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.last_price.size + 
-  miax_pearlequities_expressorders_meo_v2_7.last_size.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_execution_instructions.size + 
-  miax_pearlequities_expressorders_meo_v2_7.executing_trading_center.size + 
-  miax_pearlequities_expressorders_meo_v2_7.secondary_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.liquidity_indicator.size + 
-  miax_pearlequities_expressorders_meo_v2_7.locate_account.size + 
-  miax_pearlequities_expressorders_meo_v2_7.original_order_capacity.size + 
-  miax_pearlequities_expressorders_meo_v2_7.additional_liquidity_indicator.size + 
-  miax_pearlequities_expressorders_meo_v2_7.executing_trading_center_mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_12.size
+-- Calculate size of: Execution Notification
+miax_pearlequities_expressorders_meo_v2_7.execution_notification.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.trade_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.execution_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.correction_number.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.trade_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.last_price.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.last_size.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_execution_instructions.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.executing_trading_center.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.secondary_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.liquidity_indicator.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.locate_account.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.original_order_capacity.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.additional_liquidity_indicator.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.executing_trading_center_mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_12.size
+
+  return index
+end
 
 -- Display: Execution Notification
 miax_pearlequities_expressorders_meo_v2_7.execution_notification.display = function(packet, parent, length)
@@ -1994,14 +2046,24 @@ end
 -- Reserve Order Replenishment Notification
 miax_pearlequities_expressorders_meo_v2_7.reserve_order_replenishment_notification = {}
 
--- Size: Reserve Order Replenishment Notification
-miax_pearlequities_expressorders_meo_v2_7.reserve_order_replenishment_notification.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.secondary_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.display_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+-- Calculate size of: Reserve Order Replenishment Notification
+miax_pearlequities_expressorders_meo_v2_7.reserve_order_replenishment_notification.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.secondary_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.display_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+
+  return index
+end
 
 -- Display: Reserve Order Replenishment Notification
 miax_pearlequities_expressorders_meo_v2_7.reserve_order_replenishment_notification.display = function(packet, parent, length)
@@ -2180,16 +2242,28 @@ end
 -- Aggressive Side Purge Response
 miax_pearlequities_expressorders_meo_v2_7.aggressive_side_purge_response = {}
 
--- Size: Aggressive Side Purge Response
-miax_pearlequities_expressorders_meo_v2_7.aggressive_side_purge_response.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbold_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.purge_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.number_of_orders_cancelled.size + 
-  miax_pearlequities_expressorders_meo_v2_7.asp_eligible_orders_cancelled.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+-- Calculate size of: Aggressive Side Purge Response
+miax_pearlequities_expressorders_meo_v2_7.aggressive_side_purge_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbold_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.purge_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.number_of_orders_cancelled.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.asp_eligible_orders_cancelled.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+
+  return index
+end
 
 -- Display: Aggressive Side Purge Response
 miax_pearlequities_expressorders_meo_v2_7.aggressive_side_purge_response.display = function(packet, parent, length)
@@ -2342,15 +2416,26 @@ end
 -- Aggressive Side Purge Request
 miax_pearlequities_expressorders_meo_v2_7.aggressive_side_purge_request = {}
 
--- Size: Aggressive Side Purge Request
-miax_pearlequities_expressorders_meo_v2_7.aggressive_side_purge_request.size =
-  miax_pearlequities_expressorders_meo_v2_7.reserved_8.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.purge_instructions.size + 
-  miax_pearlequities_expressorders_meo_v2_7.price.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+-- Calculate size of: Aggressive Side Purge Request
+miax_pearlequities_expressorders_meo_v2_7.aggressive_side_purge_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_8.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.purge_instructions.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.price.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+
+  return index
+end
 
 -- Display: Aggressive Side Purge Request
 miax_pearlequities_expressorders_meo_v2_7.aggressive_side_purge_request.display = function(packet, parent, length)
@@ -2493,14 +2578,24 @@ end
 -- Mass Cancel Response
 miax_pearlequities_expressorders_meo_v2_7.mass_cancel_response = {}
 
--- Size: Mass Cancel Response
-miax_pearlequities_expressorders_meo_v2_7.mass_cancel_response.size =
-  miax_pearlequities_expressorders_meo_v2_7.notification_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.number_of_matching_engines.size + 
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+-- Calculate size of: Mass Cancel Response
+miax_pearlequities_expressorders_meo_v2_7.mass_cancel_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.notification_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.number_of_matching_engines.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+
+  return index
+end
 
 -- Display: Mass Cancel Response
 miax_pearlequities_expressorders_meo_v2_7.mass_cancel_response.display = function(packet, parent, length)
@@ -2662,15 +2757,26 @@ end
 -- Mass Cancel Request
 miax_pearlequities_expressorders_meo_v2_7.mass_cancel_request = {}
 
--- Size: Mass Cancel Request
-miax_pearlequities_expressorders_meo_v2_7.mass_cancel_request.size =
-  miax_pearlequities_expressorders_meo_v2_7.reserved_8.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.scope.size + 
-  miax_pearlequities_expressorders_meo_v2_7.action.size + 
-  miax_pearlequities_expressorders_meo_v2_7.purge_group.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_9.size
+-- Calculate size of: Mass Cancel Request
+miax_pearlequities_expressorders_meo_v2_7.mass_cancel_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_8.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.scope.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.action.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.purge_group.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_9.size
+
+  return index
+end
 
 -- Display: Mass Cancel Request
 miax_pearlequities_expressorders_meo_v2_7.mass_cancel_request.display = function(packet, parent, length)
@@ -2824,16 +2930,28 @@ end
 -- Cancel Order By Exchange Order Id Response Message
 miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_response_message = {}
 
--- Size: Cancel Order By Exchange Order Id Response Message
-miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_response_message.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.leaves_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.cancel_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+-- Calculate size of: Cancel Order By Exchange Order Id Response Message
+miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.leaves_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.cancel_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+
+  return index
+end
 
 -- Display: Cancel Order By Exchange Order Id Response Message
 miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_response_message.display = function(packet, parent, length)
@@ -2892,14 +3010,24 @@ end
 -- Cancel Order By Exchange Order Id Request
 miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_request = {}
 
--- Size: Cancel Order By Exchange Order Id Request
-miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_request.size =
-  miax_pearlequities_expressorders_meo_v2_7.reserved_8.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+-- Calculate size of: Cancel Order By Exchange Order Id Request
+miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_8.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+
+  return index
+end
 
 -- Display: Cancel Order By Exchange Order Id Request
 miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_request.display = function(packet, parent, length)
@@ -2991,17 +3119,30 @@ end
 -- Cancel Order Response
 miax_pearlequities_expressorders_meo_v2_7.cancel_order_response = {}
 
--- Size: Cancel Order Response
-miax_pearlequities_expressorders_meo_v2_7.cancel_order_response.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.original_client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.leaves_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.cancel_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+-- Calculate size of: Cancel Order Response
+miax_pearlequities_expressorders_meo_v2_7.cancel_order_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.original_client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.leaves_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.cancel_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+
+  return index
+end
 
 -- Display: Cancel Order Response
 miax_pearlequities_expressorders_meo_v2_7.cancel_order_response.display = function(packet, parent, length)
@@ -3063,14 +3204,24 @@ end
 -- Cancel Order Request
 miax_pearlequities_expressorders_meo_v2_7.cancel_order_request = {}
 
--- Size: Cancel Order Request
-miax_pearlequities_expressorders_meo_v2_7.cancel_order_request.size =
-  miax_pearlequities_expressorders_meo_v2_7.reserved_8.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.original_client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+-- Calculate size of: Cancel Order Request
+miax_pearlequities_expressorders_meo_v2_7.cancel_order_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_8.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.original_client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+
+  return index
+end
 
 -- Display: Cancel Order Request
 miax_pearlequities_expressorders_meo_v2_7.cancel_order_request.display = function(packet, parent, length)
@@ -3285,18 +3436,32 @@ end
 -- Modify Order Response
 miax_pearlequities_expressorders_meo_v2_7.modify_order_response = {}
 
--- Size: Modify Order Response
-miax_pearlequities_expressorders_meo_v2_7.modify_order_response.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.original_client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.leaves_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.price.size + 
-  miax_pearlequities_expressorders_meo_v2_7.modify_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+-- Calculate size of: Modify Order Response
+miax_pearlequities_expressorders_meo_v2_7.modify_order_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.original_client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.leaves_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.price.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.modify_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+
+  return index
+end
 
 -- Display: Modify Order Response
 miax_pearlequities_expressorders_meo_v2_7.modify_order_response.display = function(packet, parent, length)
@@ -3567,22 +3732,40 @@ end
 -- Modify Order Request Message
 miax_pearlequities_expressorders_meo_v2_7.modify_order_request_message = {}
 
--- Size: Modify Order Request Message
-miax_pearlequities_expressorders_meo_v2_7.modify_order_request_message.size =
-  miax_pearlequities_expressorders_meo_v2_7.reserved_8.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.original_client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.price.size + 
-  miax_pearlequities_expressorders_meo_v2_7.size.size + 
-  miax_pearlequities_expressorders_meo_v2_7.modify_order_instructions.size + 
-  miax_pearlequities_expressorders_meo_v2_7.min_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.max_floor_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.locate_account.size + 
-  miax_pearlequities_expressorders_meo_v2_7.time_in_force.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_expiry_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_19.size
+-- Calculate size of: Modify Order Request Message
+miax_pearlequities_expressorders_meo_v2_7.modify_order_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_8.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.original_client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.price.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.size.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.modify_order_instructions.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.min_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.max_floor_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.locate_account.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.time_in_force.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_expiry_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_19.size
+
+  return index
+end
 
 -- Display: Modify Order Request Message
 miax_pearlequities_expressorders_meo_v2_7.modify_order_request_message.display = function(packet, parent, length)
@@ -3887,17 +4070,30 @@ end
 -- New Order Response Message
 miax_pearlequities_expressorders_meo_v2_7.new_order_response_message = {}
 
--- Size: New Order Response Message
-miax_pearlequities_expressorders_meo_v2_7.new_order_response_message.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.price.size + 
-  miax_pearlequities_expressorders_meo_v2_7.size.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_19.size
+-- Calculate size of: New Order Response Message
+miax_pearlequities_expressorders_meo_v2_7.new_order_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.price.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.size.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_19.size
+
+  return index
+end
 
 -- Display: New Order Response Message
 miax_pearlequities_expressorders_meo_v2_7.new_order_response_message.display = function(packet, parent, length)
@@ -4460,33 +4656,62 @@ end
 -- New Order Request Message
 miax_pearlequities_expressorders_meo_v2_7.new_order_request_message = {}
 
--- Size: New Order Request Message
-miax_pearlequities_expressorders_meo_v2_7.new_order_request_message.size =
-  miax_pearlequities_expressorders_meo_v2_7.reserved_8.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.price.size + 
-  miax_pearlequities_expressorders_meo_v2_7.size.size + 
-  miax_pearlequities_expressorders_meo_v2_7.new_order_instructions.size + 
-  miax_pearlequities_expressorders_meo_v2_7.time_in_force.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_type.size + 
-  miax_pearlequities_expressorders_meo_v2_7.price_sliding_and_reprice_frequency.size + 
-  miax_pearlequities_expressorders_meo_v2_7.self_trade_protection.size + 
-  miax_pearlequities_expressorders_meo_v2_7.self_trade_protection_group.size + 
-  miax_pearlequities_expressorders_meo_v2_7.routing.size + 
-  miax_pearlequities_expressorders_meo_v2_7.trading_collar_dollar_value.size + 
-  miax_pearlequities_expressorders_meo_v2_7.capacity.size + 
-  miax_pearlequities_expressorders_meo_v2_7.account.size + 
-  miax_pearlequities_expressorders_meo_v2_7.clearing_account.size + 
-  miax_pearlequities_expressorders_meo_v2_7.min_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.max_floor_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.display_range_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.peg_offset.size + 
-  miax_pearlequities_expressorders_meo_v2_7.locate_account.size + 
-  miax_pearlequities_expressorders_meo_v2_7.purge_group.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_expiry_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_11.size
+-- Calculate size of: New Order Request Message
+miax_pearlequities_expressorders_meo_v2_7.new_order_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_8.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.price.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.size.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.new_order_instructions.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.time_in_force.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_type.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.price_sliding_and_reprice_frequency.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.self_trade_protection.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.self_trade_protection_group.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.routing.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.trading_collar_dollar_value.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.capacity.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.account.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.clearing_account.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.min_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.max_floor_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.display_range_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.peg_offset.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.locate_account.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.purge_group.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_expiry_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_11.size
+
+  return index
+end
 
 -- Display: New Order Request Message
 miax_pearlequities_expressorders_meo_v2_7.new_order_request_message.display = function(packet, parent, length)
@@ -4930,15 +5155,26 @@ end
 -- Order Price Update Notification
 miax_pearlequities_expressorders_meo_v2_7.order_price_update_notification = {}
 
--- Size: Order Price Update Notification
-miax_pearlequities_expressorders_meo_v2_7.order_price_update_notification.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.working_price.size + 
-  miax_pearlequities_expressorders_meo_v2_7.nbbo_indicator.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_9.size
+-- Calculate size of: Order Price Update Notification
+miax_pearlequities_expressorders_meo_v2_7.order_price_update_notification.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.working_price.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.nbbo_indicator.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_9.size
+
+  return index
+end
 
 -- Display: Order Price Update Notification
 miax_pearlequities_expressorders_meo_v2_7.order_price_update_notification.display = function(packet, parent, length)
@@ -5192,20 +5428,36 @@ end
 -- Cancel Reduce Size Order Notification
 miax_pearlequities_expressorders_meo_v2_7.cancel_reduce_size_order_notification = {}
 
--- Size: Cancel Reduce Size Order Notification
-miax_pearlequities_expressorders_meo_v2_7.cancel_reduce_size_order_notification.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.leaves_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.cancel_reason.size + 
-  miax_pearlequities_expressorders_meo_v2_7.last_price.size + 
-  miax_pearlequities_expressorders_meo_v2_7.last_size.size + 
-  miax_pearlequities_expressorders_meo_v2_7.pending_cancel_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.pending_reject_reason.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_8.size
+-- Calculate size of: Cancel Reduce Size Order Notification
+miax_pearlequities_expressorders_meo_v2_7.cancel_reduce_size_order_notification.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.leaves_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.cancel_reason.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.last_price.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.last_size.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.pending_cancel_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.pending_reject_reason.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_8.size
+
+  return index
+end
 
 -- Display: Cancel Reduce Size Order Notification
 miax_pearlequities_expressorders_meo_v2_7.cancel_reduce_size_order_notification.display = function(packet, parent, length)
@@ -5332,26 +5584,48 @@ end
 -- Modify Order Notification
 miax_pearlequities_expressorders_meo_v2_7.modify_order_notification = {}
 
--- Size: Modify Order Notification
-miax_pearlequities_expressorders_meo_v2_7.modify_order_notification.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.original_client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.price.size + 
-  miax_pearlequities_expressorders_meo_v2_7.size.size + 
-  miax_pearlequities_expressorders_meo_v2_7.leaves_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.modify_order_instructions.size + 
-  miax_pearlequities_expressorders_meo_v2_7.min_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.max_floor_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.pending_modify_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.pending_reject_reason.size + 
-  miax_pearlequities_expressorders_meo_v2_7.locate_account.size + 
-  miax_pearlequities_expressorders_meo_v2_7.time_in_force.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_expiry_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_17.size
+-- Calculate size of: Modify Order Notification
+miax_pearlequities_expressorders_meo_v2_7.modify_order_notification.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.original_client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.price.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.size.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.leaves_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.modify_order_instructions.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.min_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.max_floor_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.pending_modify_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.pending_reject_reason.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.locate_account.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.time_in_force.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_expiry_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_17.size
+
+  return index
+end
 
 -- Display: Modify Order Notification
 miax_pearlequities_expressorders_meo_v2_7.modify_order_notification.display = function(packet, parent, length)
@@ -5440,35 +5714,66 @@ end
 -- New Order Notification
 miax_pearlequities_expressorders_meo_v2_7.new_order_notification = {}
 
--- Size: New Order Notification
-miax_pearlequities_expressorders_meo_v2_7.new_order_notification.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.price.size + 
-  miax_pearlequities_expressorders_meo_v2_7.size.size + 
-  miax_pearlequities_expressorders_meo_v2_7.new_order_instructions.size + 
-  miax_pearlequities_expressorders_meo_v2_7.time_in_force.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_type.size + 
-  miax_pearlequities_expressorders_meo_v2_7.price_sliding_and_reprice_frequency.size + 
-  miax_pearlequities_expressorders_meo_v2_7.self_trade_protection.size + 
-  miax_pearlequities_expressorders_meo_v2_7.self_trade_protection_group.size + 
-  miax_pearlequities_expressorders_meo_v2_7.routing.size + 
-  miax_pearlequities_expressorders_meo_v2_7.trading_collar_dollar_value.size + 
-  miax_pearlequities_expressorders_meo_v2_7.capacity.size + 
-  miax_pearlequities_expressorders_meo_v2_7.account.size + 
-  miax_pearlequities_expressorders_meo_v2_7.clearing_account.size + 
-  miax_pearlequities_expressorders_meo_v2_7.min_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.max_floor_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.display_range_qty.size + 
-  miax_pearlequities_expressorders_meo_v2_7.peg_offset.size + 
-  miax_pearlequities_expressorders_meo_v2_7.locate_account.size + 
-  miax_pearlequities_expressorders_meo_v2_7.purge_group.size + 
-  miax_pearlequities_expressorders_meo_v2_7.original_order_capacity.size + 
-  miax_pearlequities_expressorders_meo_v2_7.order_expiry_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+-- Calculate size of: New Order Notification
+miax_pearlequities_expressorders_meo_v2_7.new_order_notification.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.price.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.size.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.new_order_instructions.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.time_in_force.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_type.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.price_sliding_and_reprice_frequency.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.self_trade_protection.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.self_trade_protection_group.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.routing.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.trading_collar_dollar_value.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.capacity.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.account.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.clearing_account.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.min_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.max_floor_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.display_range_qty.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.peg_offset.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.locate_account.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.purge_group.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.original_order_capacity.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.order_expiry_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_10.size
+
+  return index
+end
 
 -- Display: New Order Notification
 miax_pearlequities_expressorders_meo_v2_7.new_order_notification.display = function(packet, parent, length)
@@ -5666,13 +5971,22 @@ end
 -- System State Notification
 miax_pearlequities_expressorders_meo_v2_7.system_state_notification = {}
 
--- Size: System State Notification
-miax_pearlequities_expressorders_meo_v2_7.system_state_notification.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.meo_version.size + 
-  miax_pearlequities_expressorders_meo_v2_7.session_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.system_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_8.size
+-- Calculate size of: System State Notification
+miax_pearlequities_expressorders_meo_v2_7.system_state_notification.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.meo_version.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.session_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.system_status.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_8.size
+
+  return index
+end
 
 -- Display: System State Notification
 miax_pearlequities_expressorders_meo_v2_7.system_state_notification.display = function(packet, parent, length)
@@ -5965,19 +6279,34 @@ end
 -- Symbol Update
 miax_pearlequities_expressorders_meo_v2_7.symbol_update = {}
 
--- Size: Symbol Update
-miax_pearlequities_expressorders_meo_v2_7.symbol_update.size =
-  miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.symbol_id.size + 
-  miax_pearlequities_expressorders_meo_v2_7.ticker_symbol.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_1.size + 
-  miax_pearlequities_expressorders_meo_v2_7.test_security_indicator.size + 
-  miax_pearlequities_expressorders_meo_v2_7.future.size + 
-  miax_pearlequities_expressorders_meo_v2_7.lot_size.size + 
-  miax_pearlequities_expressorders_meo_v2_7.opening_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.closing_time.size + 
-  miax_pearlequities_expressorders_meo_v2_7.primary_market_code.size + 
-  miax_pearlequities_expressorders_meo_v2_7.reserved_12.size
+-- Calculate size of: Symbol Update
+miax_pearlequities_expressorders_meo_v2_7.symbol_update.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.matching_engine_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.symbol_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.ticker_symbol.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_1.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.test_security_indicator.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.future.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.lot_size.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.opening_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.closing_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.primary_market_code.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.reserved_12.size
+
+  return index
+end
 
 -- Display: Symbol Update
 miax_pearlequities_expressorders_meo_v2_7.symbol_update.display = function(packet, parent, length)
@@ -6557,10 +6886,16 @@ end
 -- Packet Header
 miax_pearlequities_expressorders_meo_v2_7.packet_header = {}
 
--- Size: Packet Header
-miax_pearlequities_expressorders_meo_v2_7.packet_header.size =
-  miax_pearlequities_expressorders_meo_v2_7.packet_length.size + 
-  miax_pearlequities_expressorders_meo_v2_7.packet_type.size
+-- Calculate size of: Packet Header
+miax_pearlequities_expressorders_meo_v2_7.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.packet_length.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_7.packet_type.size
+
+  return index
+end
 
 -- Display: Packet Header
 miax_pearlequities_expressorders_meo_v2_7.packet_header.display = function(packet, parent, length)
@@ -6649,7 +6984,7 @@ local esesm_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < miax_pearlequities_expressorders_meo_v2_7.packet_header.size then
+  if remaining < miax_pearlequities_expressorders_meo_v2_7.packet_header.size(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

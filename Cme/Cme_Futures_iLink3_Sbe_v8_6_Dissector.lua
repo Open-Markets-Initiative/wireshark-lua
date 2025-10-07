@@ -36,8 +36,8 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.clearing_account_type = ProtoField.new("C
 omi_cme_futures_ilink3_sbe_v8_6.fields.clearing_trade_price_type = ProtoField.new("Clearing Trade Price Type", "cme.futures.ilink3.sbe.v8.6.clearingtradepricetype", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.clordid = ProtoField.new("ClOrdId", "cme.futures.ilink3.sbe.v8.6.clordid", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.cmta_giveup_cd = ProtoField.new("Cmta Giveup Cd", "cme.futures.ilink3.sbe.v8.6.cmtagiveupcd", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.contra_calculated_ccy_last_qty = ProtoField.new("Contra Calculated Ccy Last Qty", "cme.futures.ilink3.sbe.v8.6.contracalculatedccylastqty", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.contra_gross_trade_amt = ProtoField.new("Contra Gross Trade Amt", "cme.futures.ilink3.sbe.v8.6.contragrosstradeamt", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.contra_calculated_ccy_last_qty = ProtoField.new("Contra Calculated Ccy Last Qty", "cme.futures.ilink3.sbe.v8.6.contracalculatedccylastqty", ftypes.DOUBLE)
+omi_cme_futures_ilink3_sbe_v8_6.fields.contra_gross_trade_amt = ProtoField.new("Contra Gross Trade Amt", "cme.futures.ilink3.sbe.v8.6.contragrosstradeamt", ftypes.DOUBLE)
 omi_cme_futures_ilink3_sbe_v8_6.fields.credentials = ProtoField.new("Credentials", "cme.futures.ilink3.sbe.v8.6.credentials", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.credentials_data = ProtoField.new("Credentials Data", "cme.futures.ilink3.sbe.v8.6.credentialsdata", ftypes.BYTES)
 omi_cme_futures_ilink3_sbe_v8_6.fields.credentials_length = ProtoField.new("Credentials Length", "cme.futures.ilink3.sbe.v8.6.credentialslength", ftypes.UINT16)
@@ -114,7 +114,7 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.leg_exec_id = ProtoField.new("Leg Exec Id
 omi_cme_futures_ilink3_sbe_v8_6.fields.leg_exec_ref_id = ProtoField.new("Leg Exec Ref Id", "cme.futures.ilink3.sbe.v8.6.legexecrefid", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.leg_last_px = ProtoField.new("Leg Last Px", "cme.futures.ilink3.sbe.v8.6.leglastpx", ftypes.DOUBLE)
 omi_cme_futures_ilink3_sbe_v8_6.fields.leg_last_qty = ProtoField.new("Leg Last Qty", "cme.futures.ilink3.sbe.v8.6.leglastqty", ftypes.UINT32)
-omi_cme_futures_ilink3_sbe_v8_6.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.ilink3.sbe.v8.6.legoptiondelta", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.ilink3.sbe.v8.6.legoptiondelta", ftypes.FLOAT)
 omi_cme_futures_ilink3_sbe_v8_6.fields.leg_price = ProtoField.new("Leg Price", "cme.futures.ilink3.sbe.v8.6.legprice", ftypes.DOUBLE)
 omi_cme_futures_ilink3_sbe_v8_6.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.ilink3.sbe.v8.6.legratioqty", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.ilink3.sbe.v8.6.legsecurityid", ftypes.INT32)
@@ -2056,37 +2056,70 @@ end
 -- Execution Report Pending Replace
 cme_futures_ilink3_sbe_v8_6.execution_report_pending_replace = {}
 
--- Size: Execution Report Pending Replace
-cme_futures_ilink3_sbe_v8_6.execution_report_pending_replace.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.price.size + 
-  cme_futures_ilink3_sbe_v8_6.transact_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.cum_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.leaves.size + 
-  cme_futures_ilink3_sbe_v8_6.min_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.display_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.expire_date.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_type_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.time_in_force.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.short_sale_type.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_to_time.size + 
-  cme_futures_ilink3_sbe_v8_6.discretion_price.size
+-- Calculate size of: Execution Report Pending Replace
+cme_futures_ilink3_sbe_v8_6.execution_report_pending_replace.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.price.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.transact_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cum_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leaves.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.min_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.display_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.expire_date.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_type_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.time_in_force.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.short_sale_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.discretion_price.size
+
+  return index
+end
 
 -- Display: Execution Report Pending Replace
 cme_futures_ilink3_sbe_v8_6.execution_report_pending_replace.display = function(packet, parent, length)
@@ -2236,36 +2269,68 @@ end
 -- Execution Report Pending Cancel
 cme_futures_ilink3_sbe_v8_6.execution_report_pending_cancel = {}
 
--- Size: Execution Report Pending Cancel
-cme_futures_ilink3_sbe_v8_6.execution_report_pending_cancel.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.price.size + 
-  cme_futures_ilink3_sbe_v8_6.transact_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.cum_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.leaves_qty_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.min_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.display_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.expire_date.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_type_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.time_in_force.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_to_time.size + 
-  cme_futures_ilink3_sbe_v8_6.discretion_price.size
+-- Calculate size of: Execution Report Pending Cancel
+cme_futures_ilink3_sbe_v8_6.execution_report_pending_cancel.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.price.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.transact_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cum_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leaves_qty_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.min_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.display_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.expire_date.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_type_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.time_in_force.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.discretion_price.size
+
+  return index
+end
 
 -- Display: Execution Report Pending Cancel
 cme_futures_ilink3_sbe_v8_6.execution_report_pending_cancel.display = function(packet, parent, length)
@@ -2430,10 +2495,16 @@ end
 -- Quote Cancel Ack Set Group
 cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group = {}
 
--- Size: Quote Cancel Ack Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.size =
-  cme_futures_ilink3_sbe_v8_6.quote_set_id.size + 
-  cme_futures_ilink3_sbe_v8_6.quote_error_code.size
+-- Calculate size of: Quote Cancel Ack Set Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_set_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_error_code.size
+
+  return index
+end
 
 -- Display: Quote Cancel Ack Set Group
 cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.display = function(packet, parent, length)
@@ -2526,10 +2597,16 @@ end
 -- Group Size
 cme_futures_ilink3_sbe_v8_6.group_size = {}
 
--- Size: Group Size
-cme_futures_ilink3_sbe_v8_6.group_size.size =
-  cme_futures_ilink3_sbe_v8_6.block_length.size + 
-  cme_futures_ilink3_sbe_v8_6.num_in_group.size
+-- Calculate size of: Group Size
+cme_futures_ilink3_sbe_v8_6.group_size.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.block_length.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.num_in_group.size
+
+  return index
+end
 
 -- Display: Group Size
 cme_futures_ilink3_sbe_v8_6.group_size.display = function(packet, parent, length)
@@ -2574,7 +2651,7 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups = {}
 cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local quote_cancel_ack_set_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2668,11 +2745,18 @@ end
 -- Quote Cancel Ack Entry Group
 cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group = {}
 
--- Size: Quote Cancel Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.size =
-  cme_futures_ilink3_sbe_v8_6.quote_entry_id.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.quote_entry_reject_reason.size
+-- Calculate size of: Quote Cancel Ack Entry Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_entry_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_entry_reject_reason.size
+
+  return index
+end
 
 -- Display: Quote Cancel Ack Entry Group
 cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.display = function(packet, parent, length)
@@ -2726,7 +2810,7 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups = {}
 cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local quote_cancel_ack_entry_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3350,11 +3434,18 @@ end
 -- Affected Orders Group
 cme_futures_ilink3_sbe_v8_6.affected_orders_group = {}
 
--- Size: Affected Orders Group
-cme_futures_ilink3_sbe_v8_6.affected_orders_group.size =
-  cme_futures_ilink3_sbe_v8_6.origclordid.size + 
-  cme_futures_ilink3_sbe_v8_6.affected_order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.cxl_quantity.size
+-- Calculate size of: Affected Orders Group
+cme_futures_ilink3_sbe_v8_6.affected_orders_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.origclordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.affected_order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cxl_quantity.size
+
+  return index
+end
 
 -- Display: Affected Orders Group
 cme_futures_ilink3_sbe_v8_6.affected_orders_group.display = function(packet, parent, length)
@@ -3408,7 +3499,7 @@ cme_futures_ilink3_sbe_v8_6.affected_orders_groups = {}
 cme_futures_ilink3_sbe_v8_6.affected_orders_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local affected_orders_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4184,17 +4275,19 @@ end
 -- Leg Option Delta
 cme_futures_ilink3_sbe_v8_6.leg_option_delta = {}
 
--- Size: Leg Option Delta
-cme_futures_ilink3_sbe_v8_6.leg_option_delta.size =
-  cme_futures_ilink3_sbe_v8_6.mantissa_32.size + 
-  cme_futures_ilink3_sbe_v8_6.exponent.size
+-- Calculate size of: Leg Option Delta
+cme_futures_ilink3_sbe_v8_6.leg_option_delta.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mantissa_32.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exponent.size
+
+  return index
+end
 
 -- Display: Leg Option Delta
-cme_futures_ilink3_sbe_v8_6.leg_option_delta.display = function(raw, value)
-  if raw ~= nil then
-    return "Leg Option Delta: No Value"
-  end
-
+cme_futures_ilink3_sbe_v8_6.leg_option_delta.display = function(buffer, offset, value, packet, parent)
   return "Leg Option Delta: "..value
 end
 
@@ -4208,28 +4301,21 @@ cme_futures_ilink3_sbe_v8_6.leg_option_delta.fields = function(buffer, offset, p
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_6.exponent.dissect(buffer, index, packet, parent)
 
-  -- Composite value
-  local leg_option_delta = mantissa_32 / factor( exponent )
-
-  return index, leg_option_delta
+  return index
 end
 
 -- Dissect: Leg Option Delta
 cme_futures_ilink3_sbe_v8_6.leg_option_delta.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.leg_option_delta then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.leg_option_delta, buffer(offset, 0))
-    local index, value = cme_futures_ilink3_sbe_v8_6.leg_option_delta.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.leg_option_delta.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.leg_option_delta.fields(buffer, offset, packet, parent)
+    local length = cme_futures_ilink3_sbe_v8_6.leg_option_delta.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_ilink3_sbe_v8_6.leg_option_delta.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.leg_option_delta, range, value, display)
   end
+
+  return cme_futures_ilink3_sbe_v8_6.leg_option_delta.fields(buffer, offset, packet, parent)
 end
 
 -- Leg Price
@@ -4274,13 +4360,22 @@ end
 -- Security Definition Response Leg Group
 cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group = {}
 
--- Size: Security Definition Response Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.size =
-  cme_futures_ilink3_sbe_v8_6.leg_price.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_option_delta.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_side.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_ratio_qty.size
+-- Calculate size of: Security Definition Response Leg Group
+cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_price.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_option_delta.size(buffer, offset + index)
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_ratio_qty.size
+
+  return index
+end
 
 -- Display: Security Definition Response Leg Group
 cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.display = function(packet, parent, length)
@@ -4340,7 +4435,7 @@ cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups = {}
 cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local security_definition_response_leg_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4747,12 +4842,20 @@ end
 -- Maturity Month Year
 cme_futures_ilink3_sbe_v8_6.maturity_month_year = {}
 
--- Size: Maturity Month Year
-cme_futures_ilink3_sbe_v8_6.maturity_month_year.size =
-  cme_futures_ilink3_sbe_v8_6.year.size + 
-  cme_futures_ilink3_sbe_v8_6.month.size + 
-  cme_futures_ilink3_sbe_v8_6.day.size + 
-  cme_futures_ilink3_sbe_v8_6.week.size
+-- Calculate size of: Maturity Month Year
+cme_futures_ilink3_sbe_v8_6.maturity_month_year.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.year.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.month.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.day.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.week.size
+
+  return index
+end
 
 -- Display: Maturity Month Year
 cme_futures_ilink3_sbe_v8_6.maturity_month_year.display = function(packet, parent, length)
@@ -5035,7 +5138,7 @@ cme_futures_ilink3_sbe_v8_6.security_definition_response.size = function(buffer,
 
   index = index + cme_futures_ilink3_sbe_v8_6.currency.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.maturity_month_year.size
+  index = index + cme_futures_ilink3_sbe_v8_6.maturity_month_year.size(buffer, offset + index)
 
   index = index + cme_futures_ilink3_sbe_v8_6.delay_duration.size
 
@@ -5181,13 +5284,22 @@ end
 -- Security Definition Request Leg Group
 cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group = {}
 
--- Size: Security Definition Request Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.size =
-  cme_futures_ilink3_sbe_v8_6.leg_price.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_option_delta.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_side.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_ratio_qty.size
+-- Calculate size of: Security Definition Request Leg Group
+cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_price.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_option_delta.size(buffer, offset + index)
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_ratio_qty.size
+
+  return index
+end
 
 -- Display: Security Definition Request Leg Group
 cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.display = function(packet, parent, length)
@@ -5247,7 +5359,7 @@ cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups = {}
 cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local security_definition_request_leg_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5674,15 +5786,26 @@ end
 -- Execution Report Trade Addendum Spread Leg Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group = {}
 
--- Size: Execution Report Trade Addendum Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.size =
-  cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.trade_addendum.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.original_order_event_exec_id.size
+-- Calculate size of: Execution Report Trade Addendum Spread Leg Order Event Group
+cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.trade_addendum.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.original_order_event_exec_id.size
+
+  return index
+end
 
 -- Display: Execution Report Trade Addendum Spread Leg Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.display = function(packet, parent, length)
@@ -5748,7 +5871,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_eve
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local execution_report_trade_addendum_spread_leg_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5910,12 +6033,20 @@ end
 -- Fills Group
 cme_futures_ilink3_sbe_v8_6.fills_group = {}
 
--- Size: Fills Group
-cme_futures_ilink3_sbe_v8_6.fills_group.size =
-  cme_futures_ilink3_sbe_v8_6.fill_px.size + 
-  cme_futures_ilink3_sbe_v8_6.fill_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.fill_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.fill_yield_type.size
+-- Calculate size of: Fills Group
+cme_futures_ilink3_sbe_v8_6.fills_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.fill_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.fill_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.fill_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.fill_yield_type.size
+
+  return index
+end
 
 -- Display: Fills Group
 cme_futures_ilink3_sbe_v8_6.fills_group.display = function(packet, parent, length)
@@ -5972,7 +6103,7 @@ cme_futures_ilink3_sbe_v8_6.fills_groups = {}
 cme_futures_ilink3_sbe_v8_6.fills_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local fills_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -6048,10 +6179,16 @@ end
 -- Gross Trade Amt
 cme_futures_ilink3_sbe_v8_6.gross_trade_amt = {}
 
--- Size: Gross Trade Amt
-cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size =
-  cme_futures_ilink3_sbe_v8_6.mantissa.size + 
-  cme_futures_ilink3_sbe_v8_6.exponent.size
+-- Calculate size of: Gross Trade Amt
+cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mantissa.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exponent.size
+
+  return index
+end
 
 -- Display: Gross Trade Amt
 cme_futures_ilink3_sbe_v8_6.gross_trade_amt.display = function(raw, value)
@@ -6099,10 +6236,16 @@ end
 -- Calculated Ccy Last Qty
 cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty = {}
 
--- Size: Calculated Ccy Last Qty
-cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size =
-  cme_futures_ilink3_sbe_v8_6.mantissa.size + 
-  cme_futures_ilink3_sbe_v8_6.exponent.size
+-- Calculate size of: Calculated Ccy Last Qty
+cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mantissa.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exponent.size
+
+  return index
+end
 
 -- Display: Calculated Ccy Last Qty
 cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.display = function(raw, value)
@@ -6498,9 +6641,9 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg.size = fu
 
   index = index + cme_futures_ilink3_sbe_v8_6.settl_date.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size
+  index = index + cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size
+  index = index + cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size(buffer, offset + index)
 
   index = index + cme_futures_ilink3_sbe_v8_6.fills_groups.size(buffer, offset + index)
 
@@ -6621,15 +6764,26 @@ end
 -- Execution Report Trade Addendum Spread Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group = {}
 
--- Size: Execution Report Trade Addendum Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.size =
-  cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.trade_addendum.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.original_order_event_exec_id.size
+-- Calculate size of: Execution Report Trade Addendum Spread Order Event Group
+cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.trade_addendum.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.original_order_event_exec_id.size
+
+  return index
+end
 
 -- Display: Execution Report Trade Addendum Spread Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.display = function(packet, parent, length)
@@ -6695,7 +6849,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_g
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local execution_report_trade_addendum_spread_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -6897,16 +7051,28 @@ end
 -- Execution Report Trade Addendum Spread Leg Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group = {}
 
--- Size: Execution Report Trade Addendum Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.size =
-  cme_futures_ilink3_sbe_v8_6.leg_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_last_px.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_exec_ref_id.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_trade_id.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_trade_ref_id.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_last_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_side.size
+-- Calculate size of: Execution Report Trade Addendum Spread Leg Group
+cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_last_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_exec_ref_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_trade_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_trade_ref_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_last_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_side.size
+
+  return index
+end
 
 -- Display: Execution Report Trade Addendum Spread Leg Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.display = function(packet, parent, length)
@@ -6975,7 +7141,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups = 
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local execution_report_trade_addendum_spread_leg_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -7438,17 +7604,19 @@ end
 -- Contra Calculated Ccy Last Qty
 cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty = {}
 
--- Size: Contra Calculated Ccy Last Qty
-cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.size =
-  cme_futures_ilink3_sbe_v8_6.mantissa.size + 
-  cme_futures_ilink3_sbe_v8_6.exponent.size
+-- Calculate size of: Contra Calculated Ccy Last Qty
+cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mantissa.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exponent.size
+
+  return index
+end
 
 -- Display: Contra Calculated Ccy Last Qty
-cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.display = function(raw, value)
-  if raw ~= nil then
-    return "Contra Calculated Ccy Last Qty: No Value"
-  end
-
+cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.display = function(buffer, offset, value, packet, parent)
   return "Contra Calculated Ccy Last Qty: "..value
 end
 
@@ -7462,44 +7630,39 @@ cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.fields = function(buf
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_6.exponent.dissect(buffer, index, packet, parent)
 
-  -- Composite value
-  local contra_calculated_ccy_last_qty = mantissa / factor( exponent )
-
-  return index, contra_calculated_ccy_last_qty
+  return index
 end
 
 -- Dissect: Contra Calculated Ccy Last Qty
 cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.contra_calculated_ccy_last_qty then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.contra_calculated_ccy_last_qty, buffer(offset, 0))
-    local index, value = cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.fields(buffer, offset, packet, parent)
+    local length = cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.contra_calculated_ccy_last_qty, range, value, display)
   end
+
+  return cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.fields(buffer, offset, packet, parent)
 end
 
 -- Contra Gross Trade Amt
 cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt = {}
 
--- Size: Contra Gross Trade Amt
-cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.size =
-  cme_futures_ilink3_sbe_v8_6.mantissa.size + 
-  cme_futures_ilink3_sbe_v8_6.exponent.size
+-- Calculate size of: Contra Gross Trade Amt
+cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mantissa.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exponent.size
+
+  return index
+end
 
 -- Display: Contra Gross Trade Amt
-cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.display = function(raw, value)
-  if raw ~= nil then
-    return "Contra Gross Trade Amt: No Value"
-  end
-
+cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.display = function(buffer, offset, value, packet, parent)
   return "Contra Gross Trade Amt: "..value
 end
 
@@ -7513,44 +7676,50 @@ cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.fields = function(buffer, off
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_6.exponent.dissect(buffer, index, packet, parent)
 
-  -- Composite value
-  local contra_gross_trade_amt = mantissa / factor( exponent )
-
-  return index, contra_gross_trade_amt
+  return index
 end
 
 -- Dissect: Contra Gross Trade Amt
 cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.contra_gross_trade_amt then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.contra_gross_trade_amt, buffer(offset, 0))
-    local index, value = cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.fields(buffer, offset, packet, parent)
+    local length = cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.contra_gross_trade_amt, range, value, display)
   end
+
+  return cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.fields(buffer, offset, packet, parent)
 end
 
 -- Execution Report Trade Addendum Outright Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group = {}
 
--- Size: Execution Report Trade Addendum Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.size =
-  cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.trade_addendum.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.original_order_event_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.size + 
-  cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.size
+-- Calculate size of: Execution Report Trade Addendum Outright Order Event Group
+cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.trade_addendum.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.original_order_event_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.size(buffer, offset + index)
+
+  index = index + cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Execution Report Trade Addendum Outright Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.display = function(packet, parent, length)
@@ -7622,7 +7791,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local execution_report_trade_addendum_outright_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -7889,9 +8058,9 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright.size = func
 
   index = index + cme_futures_ilink3_sbe_v8_6.maturity_date.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size
+  index = index + cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size
+  index = index + cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size(buffer, offset + index)
 
   index = index + cme_futures_ilink3_sbe_v8_6.benchmark_price.size
 
@@ -8136,25 +8305,46 @@ end
 -- Request For Quote Ack
 cme_futures_ilink3_sbe_v8_6.request_for_quote_ack = {}
 
--- Size: Request For Quote Ack
-cme_futures_ilink3_sbe_v8_6.request_for_quote_ack.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.text.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.exchange_quote_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.request_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.quote_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.quote_reject_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_duration.size + 
-  cme_futures_ilink3_sbe_v8_6.quote_ack_status.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+-- Calculate size of: Request For Quote Ack
+cme_futures_ilink3_sbe_v8_6.request_for_quote_ack.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exchange_quote_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.request_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_reject_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_duration.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_ack_status.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+
+  return index
+end
 
 -- Display: Request For Quote Ack
 cme_futures_ilink3_sbe_v8_6.request_for_quote_ack.display = function(packet, parent, length)
@@ -8240,12 +8430,20 @@ end
 -- Mass Quote Ack Entry Group
 cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group = {}
 
--- Size: Mass Quote Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.size =
-  cme_futures_ilink3_sbe_v8_6.quote_entry_id.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.quote_set_id.size + 
-  cme_futures_ilink3_sbe_v8_6.quote_entry_reject_reason.size
+-- Calculate size of: Mass Quote Ack Entry Group
+cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_entry_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_set_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_entry_reject_reason.size
+
+  return index
+end
 
 -- Display: Mass Quote Ack Entry Group
 cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.display = function(packet, parent, length)
@@ -8302,7 +8500,7 @@ cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups = {}
 cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local mass_quote_ack_entry_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -8581,13 +8779,22 @@ end
 -- Sides Group
 cme_futures_ilink3_sbe_v8_6.sides_group = {}
 
--- Size: Sides Group
-cme_futures_ilink3_sbe_v8_6.sides_group.size =
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.side_time_in_force.size
+-- Calculate size of: Sides Group
+cme_futures_ilink3_sbe_v8_6.sides_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side_time_in_force.size
+
+  return index
+end
 
 -- Display: Sides Group
 cme_futures_ilink3_sbe_v8_6.sides_group.display = function(packet, parent, length)
@@ -8647,7 +8854,7 @@ cme_futures_ilink3_sbe_v8_6.sides_groups = {}
 cme_futures_ilink3_sbe_v8_6.sides_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local sides_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -8895,11 +9102,18 @@ end
 -- Related Sym Group
 cme_futures_ilink3_sbe_v8_6.related_sym_group = {}
 
--- Size: Related Sym Group
-cme_futures_ilink3_sbe_v8_6.related_sym_group.size =
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.rfq_side.size
+-- Calculate size of: Related Sym Group
+cme_futures_ilink3_sbe_v8_6.related_sym_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.rfq_side.size
+
+  return index
+end
 
 -- Display: Related Sym Group
 cme_futures_ilink3_sbe_v8_6.related_sym_group.display = function(packet, parent, length)
@@ -8953,7 +9167,7 @@ cme_futures_ilink3_sbe_v8_6.related_sym_groups = {}
 cme_futures_ilink3_sbe_v8_6.related_sym_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local related_sym_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -9202,23 +9416,42 @@ end
 -- Execution Ack
 cme_futures_ilink3_sbe_v8_6.execution_ack = {}
 
--- Size: Execution Ack
-cme_futures_ilink3_sbe_v8_6.execution_ack.size =
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_ack_status.size + 
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.sec_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.last_px.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.last_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.dk_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+-- Calculate size of: Execution Ack
+cme_futures_ilink3_sbe_v8_6.execution_ack.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_ack_status.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sec_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.last_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.last_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.dk_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  return index
+end
 
 -- Display: Execution Ack
 cme_futures_ilink3_sbe_v8_6.execution_ack.display = function(packet, parent, length)
@@ -9344,10 +9577,16 @@ end
 -- Trd Reg Publications Group
 cme_futures_ilink3_sbe_v8_6.trd_reg_publications_group = {}
 
--- Size: Trd Reg Publications Group
-cme_futures_ilink3_sbe_v8_6.trd_reg_publications_group.size =
-  cme_futures_ilink3_sbe_v8_6.trd_reg_publication_type.size + 
-  cme_futures_ilink3_sbe_v8_6.trd_reg_publication_reason.size
+-- Calculate size of: Trd Reg Publications Group
+cme_futures_ilink3_sbe_v8_6.trd_reg_publications_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.trd_reg_publication_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.trd_reg_publication_reason.size
+
+  return index
+end
 
 -- Display: Trd Reg Publications Group
 cme_futures_ilink3_sbe_v8_6.trd_reg_publications_group.display = function(packet, parent, length)
@@ -9398,7 +9637,7 @@ cme_futures_ilink3_sbe_v8_6.trd_reg_publications_groups = {}
 cme_futures_ilink3_sbe_v8_6.trd_reg_publications_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local trd_reg_publications_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -9524,10 +9763,16 @@ end
 -- Party Details Group
 cme_futures_ilink3_sbe_v8_6.party_details_group = {}
 
--- Size: Party Details Group
-cme_futures_ilink3_sbe_v8_6.party_details_group.size =
-  cme_futures_ilink3_sbe_v8_6.party_detail_id.size + 
-  cme_futures_ilink3_sbe_v8_6.party_detail_role.size
+-- Calculate size of: Party Details Group
+cme_futures_ilink3_sbe_v8_6.party_details_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_detail_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_detail_role.size
+
+  return index
+end
 
 -- Display: Party Details Group
 cme_futures_ilink3_sbe_v8_6.party_details_group.display = function(packet, parent, length)
@@ -9578,7 +9823,7 @@ cme_futures_ilink3_sbe_v8_6.party_details_groups = {}
 cme_futures_ilink3_sbe_v8_6.party_details_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local party_details_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10345,11 +10590,18 @@ end
 -- Party I Ds Group
 cme_futures_ilink3_sbe_v8_6.party_i_ds_group = {}
 
--- Size: Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.party_i_ds_group.size =
-  cme_futures_ilink3_sbe_v8_6.party_id.size + 
-  cme_futures_ilink3_sbe_v8_6.party_id_source.size + 
-  cme_futures_ilink3_sbe_v8_6.party_role.size
+-- Calculate size of: Party I Ds Group
+cme_futures_ilink3_sbe_v8_6.party_i_ds_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_id_source.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_role.size
+
+  return index
+end
 
 -- Display: Party I Ds Group
 cme_futures_ilink3_sbe_v8_6.party_i_ds_group.display = function(packet, parent, length)
@@ -10403,7 +10655,7 @@ cme_futures_ilink3_sbe_v8_6.party_i_ds_groups = {}
 cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local party_i_ds_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10562,11 +10814,18 @@ end
 -- Requesting Party I Ds Group
 cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group = {}
 
--- Size: Requesting Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.size =
-  cme_futures_ilink3_sbe_v8_6.requesting_party_id.size + 
-  cme_futures_ilink3_sbe_v8_6.requesting_party_id_source.size + 
-  cme_futures_ilink3_sbe_v8_6.requesting_party_role.size
+-- Calculate size of: Requesting Party I Ds Group
+cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.requesting_party_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.requesting_party_id_source.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.requesting_party_role.size
+
+  return index
+end
 
 -- Display: Requesting Party I Ds Group
 cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.display = function(packet, parent, length)
@@ -10620,7 +10879,7 @@ cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups = {}
 cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local requesting_party_i_ds_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10751,27 +11010,50 @@ end
 -- Order Cancel Replace Reject
 cme_futures_ilink3_sbe_v8_6.order_cancel_replace_reject = {}
 
--- Size: Order Cancel Replace Reject
-cme_futures_ilink3_sbe_v8_6.order_cancel_replace_reject.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.text.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.transact_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.cxl_rej_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_duration.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+-- Calculate size of: Order Cancel Replace Reject
+cme_futures_ilink3_sbe_v8_6.order_cancel_replace_reject.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.transact_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cxl_rej_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_duration.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+
+  return index
+end
 
 -- Display: Order Cancel Replace Reject
 cme_futures_ilink3_sbe_v8_6.order_cancel_replace_reject.display = function(packet, parent, length)
@@ -10863,27 +11145,50 @@ end
 -- Order Cancel Reject
 cme_futures_ilink3_sbe_v8_6.order_cancel_reject = {}
 
--- Size: Order Cancel Reject
-cme_futures_ilink3_sbe_v8_6.order_cancel_reject.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.text.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.transact_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.cxl_rej_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_duration.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+-- Calculate size of: Order Cancel Reject
+cme_futures_ilink3_sbe_v8_6.order_cancel_reject.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.transact_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cxl_rej_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_duration.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+
+  return index
+end
 
 -- Display: Order Cancel Reject
 cme_futures_ilink3_sbe_v8_6.order_cancel_reject.display = function(packet, parent, length)
@@ -11098,45 +11403,86 @@ end
 -- Execution Report Cancel
 cme_futures_ilink3_sbe_v8_6.execution_report_cancel = {}
 
--- Size: Execution Report Cancel
-cme_futures_ilink3_sbe_v8_6.execution_report_cancel.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.price.size + 
-  cme_futures_ilink3_sbe_v8_6.stop_px.size + 
-  cme_futures_ilink3_sbe_v8_6.transact_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.host_cross_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.cum_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.min_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.display_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.expire_date.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_duration.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_type_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.time_in_force.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_restatement_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_type.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_inst.size + 
-  cme_futures_ilink3_sbe_v8_6.execution_mode.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.managed_order.size + 
-  cme_futures_ilink3_sbe_v8_6.short_sale_type.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_to_time.size + 
-  cme_futures_ilink3_sbe_v8_6.discretion_price.size
+-- Calculate size of: Execution Report Cancel
+cme_futures_ilink3_sbe_v8_6.execution_report_cancel.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.price.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.stop_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.transact_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.host_cross_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cum_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.min_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.display_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.expire_date.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_duration.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_type_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.time_in_force.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_restatement_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_inst.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.execution_mode.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.managed_order.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.short_sale_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.discretion_price.size
+
+  return index
+end
 
 -- Display: Execution Report Cancel
 cme_futures_ilink3_sbe_v8_6.execution_report_cancel.display = function(packet, parent, length)
@@ -11305,16 +11651,28 @@ end
 -- Order Status Request
 cme_futures_ilink3_sbe_v8_6.order_status_request = {}
 
--- Size: Order Status Request
-cme_futures_ilink3_sbe_v8_6.order_status_request.size =
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_status_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size
+-- Calculate size of: Order Status Request
+cme_futures_ilink3_sbe_v8_6.order_status_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_status_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  return index
+end
 
 -- Display: Order Status Request
 cme_futures_ilink3_sbe_v8_6.order_status_request.display = function(packet, parent, length)
@@ -11568,47 +11926,90 @@ end
 -- Execution Report Status
 cme_futures_ilink3_sbe_v8_6.execution_report_status = {}
 
--- Size: Execution Report Status
-cme_futures_ilink3_sbe_v8_6.execution_report_status.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.text.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.price_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.stop_px.size + 
-  cme_futures_ilink3_sbe_v8_6.transact_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_status_req_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.mass_status_req_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.host_cross_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.cum_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.leaves.size + 
-  cme_futures_ilink3_sbe_v8_6.min_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.display_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.expire_date.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_status.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_type_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.time_in_force.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.last_rpt_requested.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_type.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_inst.size + 
-  cme_futures_ilink3_sbe_v8_6.execution_mode.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.managed_order.size + 
-  cme_futures_ilink3_sbe_v8_6.short_sale_type.size + 
-  cme_futures_ilink3_sbe_v8_6.discretion_price.size
+-- Calculate size of: Execution Report Status
+cme_futures_ilink3_sbe_v8_6.execution_report_status.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.price_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.stop_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.transact_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_status_req_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mass_status_req_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.host_cross_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cum_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leaves.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.min_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.display_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.expire_date.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_status.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_type_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.time_in_force.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.last_rpt_requested.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_inst.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.execution_mode.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.managed_order.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.short_sale_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.discretion_price.size
+
+  return index
+end
 
 -- Display: Execution Report Status
 cme_futures_ilink3_sbe_v8_6.execution_report_status.display = function(packet, parent, length)
@@ -11760,45 +12161,86 @@ end
 -- Execution Report Modify
 cme_futures_ilink3_sbe_v8_6.execution_report_modify = {}
 
--- Size: Execution Report Modify
-cme_futures_ilink3_sbe_v8_6.execution_report_modify.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.price.size + 
-  cme_futures_ilink3_sbe_v8_6.stop_px.size + 
-  cme_futures_ilink3_sbe_v8_6.transact_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.host_cross_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.cum_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.leaves.size + 
-  cme_futures_ilink3_sbe_v8_6.min_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.display_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.expire_date.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_duration.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_type_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.time_in_force.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_type.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_inst.size + 
-  cme_futures_ilink3_sbe_v8_6.execution_mode.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.managed_order.size + 
-  cme_futures_ilink3_sbe_v8_6.short_sale_type.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_to_time.size + 
-  cme_futures_ilink3_sbe_v8_6.discretion_price.size
+-- Calculate size of: Execution Report Modify
+cme_futures_ilink3_sbe_v8_6.execution_report_modify.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.price.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.stop_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.transact_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.host_cross_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cum_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leaves.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.min_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.display_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.expire_date.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_duration.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_type_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.time_in_force.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_inst.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.execution_mode.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.managed_order.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.short_sale_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.discretion_price.size
+
+  return index
+end
 
 -- Display: Execution Report Modify
 cme_futures_ilink3_sbe_v8_6.execution_report_modify.display = function(packet, parent, length)
@@ -12072,21 +12514,38 @@ end
 -- Order Mass Status Request
 cme_futures_ilink3_sbe_v8_6.order_mass_status_request = {}
 
--- Size: Order Mass Status Request
-cme_futures_ilink3_sbe_v8_6.order_mass_status_request.size =
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.mass_status_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.security_group.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.mass_status_req_type.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_status_req_type.size + 
-  cme_futures_ilink3_sbe_v8_6.mass_status_tif.size + 
-  cme_futures_ilink3_sbe_v8_6.market_segment_id.size
+-- Calculate size of: Order Mass Status Request
+cme_futures_ilink3_sbe_v8_6.order_mass_status_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mass_status_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_group.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mass_status_req_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_status_req_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mass_status_tif.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.market_segment_id.size
+
+  return index
+end
 
 -- Display: Order Mass Status Request
 cme_futures_ilink3_sbe_v8_6.order_mass_status_request.display = function(packet, parent, length)
@@ -12160,24 +12619,44 @@ end
 -- Order Mass Action Request
 cme_futures_ilink3_sbe_v8_6.order_mass_action_request = {}
 
--- Size: Order Mass Action Request
-cme_futures_ilink3_sbe_v8_6.order_mass_action_request.size =
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.security_group.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.mass_action_scope.size + 
-  cme_futures_ilink3_sbe_v8_6.market_segment_id.size + 
-  cme_futures_ilink3_sbe_v8_6.mass_cancel_request_type.size + 
-  cme_futures_ilink3_sbe_v8_6.side_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.mass_action_ord_typ.size + 
-  cme_futures_ilink3_sbe_v8_6.mass_cancel_tif.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+-- Calculate size of: Order Mass Action Request
+cme_futures_ilink3_sbe_v8_6.order_mass_action_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_group.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mass_action_scope.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.market_segment_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mass_cancel_request_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mass_action_ord_typ.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mass_cancel_tif.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  return index
+end
 
 -- Display: Order Mass Action Request
 cme_futures_ilink3_sbe_v8_6.order_mass_action_request.display = function(packet, parent, length)
@@ -12316,11 +12795,18 @@ end
 -- Quote Cancel Set Group
 cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group = {}
 
--- Size: Quote Cancel Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.size =
-  cme_futures_ilink3_sbe_v8_6.bid_size.size + 
-  cme_futures_ilink3_sbe_v8_6.offer_size.size + 
-  cme_futures_ilink3_sbe_v8_6.quote_set_id.size
+-- Calculate size of: Quote Cancel Set Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.bid_size.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.offer_size.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_set_id.size
+
+  return index
+end
 
 -- Display: Quote Cancel Set Group
 cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.display = function(packet, parent, length)
@@ -12374,7 +12860,7 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups = {}
 cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local quote_cancel_set_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -12422,10 +12908,16 @@ end
 -- Quote Cancel Entry Group
 cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group = {}
 
--- Size: Quote Cancel Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.size =
-  cme_futures_ilink3_sbe_v8_6.security_group.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id_optional.size
+-- Calculate size of: Quote Cancel Entry Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_group.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id_optional.size
+
+  return index
+end
 
 -- Display: Quote Cancel Entry Group
 cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.display = function(packet, parent, length)
@@ -12476,7 +12968,7 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups = {}
 cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local quote_cancel_entry_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -12683,14 +13175,24 @@ end
 -- Execution Report Trade Spread Leg Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group = {}
 
--- Size: Execution Report Trade Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.size =
-  cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_type.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_reason.size
+-- Calculate size of: Execution Report Trade Spread Leg Order Event Group
+cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_reason.size
+
+  return index
+end
 
 -- Display: Execution Report Trade Spread Leg Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.display = function(packet, parent, length)
@@ -12753,7 +13255,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local execution_report_trade_spread_leg_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -12831,10 +13333,16 @@ end
 -- Risk Free Rate
 cme_futures_ilink3_sbe_v8_6.risk_free_rate = {}
 
--- Size: Risk Free Rate
-cme_futures_ilink3_sbe_v8_6.risk_free_rate.size =
-  cme_futures_ilink3_sbe_v8_6.mantissa_32.size + 
-  cme_futures_ilink3_sbe_v8_6.exponent.size
+-- Calculate size of: Risk Free Rate
+cme_futures_ilink3_sbe_v8_6.risk_free_rate.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mantissa_32.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exponent.size
+
+  return index
+end
 
 -- Display: Risk Free Rate
 cme_futures_ilink3_sbe_v8_6.risk_free_rate.display = function(raw, value)
@@ -12882,10 +13390,16 @@ end
 -- Time To Expiration
 cme_futures_ilink3_sbe_v8_6.time_to_expiration = {}
 
--- Size: Time To Expiration
-cme_futures_ilink3_sbe_v8_6.time_to_expiration.size =
-  cme_futures_ilink3_sbe_v8_6.mantissa_32.size + 
-  cme_futures_ilink3_sbe_v8_6.exponent.size
+-- Calculate size of: Time To Expiration
+cme_futures_ilink3_sbe_v8_6.time_to_expiration.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mantissa_32.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exponent.size
+
+  return index
+end
 
 -- Display: Time To Expiration
 cme_futures_ilink3_sbe_v8_6.time_to_expiration.display = function(raw, value)
@@ -12933,10 +13447,16 @@ end
 -- Option Delta
 cme_futures_ilink3_sbe_v8_6.option_delta = {}
 
--- Size: Option Delta
-cme_futures_ilink3_sbe_v8_6.option_delta.size =
-  cme_futures_ilink3_sbe_v8_6.mantissa_32.size + 
-  cme_futures_ilink3_sbe_v8_6.exponent.size
+-- Calculate size of: Option Delta
+cme_futures_ilink3_sbe_v8_6.option_delta.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mantissa_32.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exponent.size
+
+  return index
+end
 
 -- Display: Option Delta
 cme_futures_ilink3_sbe_v8_6.option_delta.display = function(raw, value)
@@ -13023,10 +13543,16 @@ end
 -- Volatility
 cme_futures_ilink3_sbe_v8_6.volatility = {}
 
--- Size: Volatility
-cme_futures_ilink3_sbe_v8_6.volatility.size =
-  cme_futures_ilink3_sbe_v8_6.mantissa.size + 
-  cme_futures_ilink3_sbe_v8_6.exponent.size
+-- Calculate size of: Volatility
+cme_futures_ilink3_sbe_v8_6.volatility.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.mantissa.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exponent.size
+
+  return index
+end
 
 -- Display: Volatility
 cme_futures_ilink3_sbe_v8_6.volatility.display = function(raw, value)
@@ -13088,7 +13614,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg.size = function(bu
 
   index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.volatility.size
+  index = index + cme_futures_ilink3_sbe_v8_6.volatility.size(buffer, offset + index)
 
   index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
 
@@ -13106,11 +13632,11 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg.size = function(bu
 
   index = index + cme_futures_ilink3_sbe_v8_6.location.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.option_delta.size
+  index = index + cme_futures_ilink3_sbe_v8_6.option_delta.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.time_to_expiration.size
+  index = index + cme_futures_ilink3_sbe_v8_6.time_to_expiration.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.risk_free_rate.size
+  index = index + cme_futures_ilink3_sbe_v8_6.risk_free_rate.size(buffer, offset + index)
 
   index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
 
@@ -13132,9 +13658,9 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg.size = function(bu
 
   index = index + cme_futures_ilink3_sbe_v8_6.settl_date.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size
+  index = index + cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size
+  index = index + cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size(buffer, offset + index)
 
   index = index + cme_futures_ilink3_sbe_v8_6.fills_groups.size(buffer, offset + index)
 
@@ -13264,14 +13790,24 @@ end
 -- Execution Report Trade Spread Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group = {}
 
--- Size: Execution Report Trade Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.size =
-  cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_type.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_reason.size
+-- Calculate size of: Execution Report Trade Spread Order Event Group
+cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_reason.size
+
+  return index
+end
 
 -- Display: Execution Report Trade Spread Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.display = function(packet, parent, length)
@@ -13334,7 +13870,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups = {
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local execution_report_trade_spread_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -13382,14 +13918,24 @@ end
 -- Execution Report Trade Spread Leg Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group = {}
 
--- Size: Execution Report Trade Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.size =
-  cme_futures_ilink3_sbe_v8_6.leg_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_last_px.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_trade_id.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_last_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.leg_side.size
+-- Calculate size of: Execution Report Trade Spread Leg Group
+cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_last_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_trade_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_last_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.leg_side.size
+
+  return index
+end
 
 -- Display: Execution Report Trade Spread Leg Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.display = function(packet, parent, length)
@@ -13452,7 +13998,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups = {}
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local execution_report_trade_spread_leg_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -13775,16 +14321,28 @@ end
 -- Execution Report Trade Outright Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group = {}
 
--- Size: Execution Report Trade Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.size =
-  cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_type.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.size + 
-  cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.size
+-- Calculate size of: Execution Report Trade Outright Order Event Group
+cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_event_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.size(buffer, offset + index)
+
+  index = index + cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Execution Report Trade Outright Order Event Group
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.display = function(packet, parent, length)
@@ -13853,7 +14411,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups =
 cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local execution_report_trade_outright_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -14048,9 +14606,9 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright.size = function(buff
 
   index = index + cme_futures_ilink3_sbe_v8_6.maturity_date.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size
+  index = index + cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size
+  index = index + cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size(buffer, offset + index)
 
   index = index + cme_futures_ilink3_sbe_v8_6.benchmark_price.size
 
@@ -14242,41 +14800,78 @@ end
 -- Execution Report Elimination
 cme_futures_ilink3_sbe_v8_6.execution_report_elimination = {}
 
--- Size: Execution Report Elimination
-cme_futures_ilink3_sbe_v8_6.execution_report_elimination.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.price.size + 
-  cme_futures_ilink3_sbe_v8_6.stop_px.size + 
-  cme_futures_ilink3_sbe_v8_6.transact_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.host_cross_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.cum_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.min_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.display_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.expire_date.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_type_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.time_in_force.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_type.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_inst.size + 
-  cme_futures_ilink3_sbe_v8_6.execution_mode.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.managed_order.size + 
-  cme_futures_ilink3_sbe_v8_6.short_sale_type.size + 
-  cme_futures_ilink3_sbe_v8_6.discretion_price.size
+-- Calculate size of: Execution Report Elimination
+cme_futures_ilink3_sbe_v8_6.execution_report_elimination.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.price.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.stop_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.transact_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.host_cross_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cum_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.min_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.display_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.expire_date.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_type_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.time_in_force.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_inst.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.execution_mode.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.managed_order.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.short_sale_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.discretion_price.size
+
+  return index
+end
 
 -- Display: Execution Report Elimination
 cme_futures_ilink3_sbe_v8_6.execution_report_elimination.display = function(packet, parent, length)
@@ -14433,45 +15028,86 @@ end
 -- Execution Report Reject
 cme_futures_ilink3_sbe_v8_6.execution_report_reject = {}
 
--- Size: Execution Report Reject
-cme_futures_ilink3_sbe_v8_6.execution_report_reject.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.text.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.price_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.stop_px.size + 
-  cme_futures_ilink3_sbe_v8_6.transact_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.host_cross_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.min_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.display_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_rej_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.expire_date.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_duration.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_type_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.time_in_force.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_type.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_inst.size + 
-  cme_futures_ilink3_sbe_v8_6.execution_mode.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.managed_order.size + 
-  cme_futures_ilink3_sbe_v8_6.short_sale_type.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_to_time.size + 
-  cme_futures_ilink3_sbe_v8_6.discretion_price.size
+-- Calculate size of: Execution Report Reject
+cme_futures_ilink3_sbe_v8_6.execution_report_reject.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.price_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.stop_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.transact_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.host_cross_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.min_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.display_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_rej_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.expire_date.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_duration.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_type_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.time_in_force.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_inst.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.execution_mode.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.managed_order.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.short_sale_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.discretion_price.size
+
+  return index
+end
 
 -- Display: Execution Report Reject
 cme_futures_ilink3_sbe_v8_6.execution_report_reject.display = function(packet, parent, length)
@@ -14617,43 +15253,82 @@ end
 -- Execution Report New
 cme_futures_ilink3_sbe_v8_6.execution_report_new = {}
 
--- Size: Execution Report New
-cme_futures_ilink3_sbe_v8_6.execution_report_new.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id.size + 
-  cme_futures_ilink3_sbe_v8_6.price.size + 
-  cme_futures_ilink3_sbe_v8_6.stop_px.size + 
-  cme_futures_ilink3_sbe_v8_6.transact_time.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.host_cross_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.min_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.display_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.expire_date.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_duration.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_type_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.time_in_force.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_6.cross_type.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_inst.size + 
-  cme_futures_ilink3_sbe_v8_6.execution_mode.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.managed_order.size + 
-  cme_futures_ilink3_sbe_v8_6.short_sale_type.size + 
-  cme_futures_ilink3_sbe_v8_6.delay_to_time.size + 
-  cme_futures_ilink3_sbe_v8_6.discretion_price.size
+-- Calculate size of: Execution Report New
+cme_futures_ilink3_sbe_v8_6.execution_report_new.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.price.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.stop_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.transact_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.host_cross_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.min_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.display_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.expire_date.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_duration.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_type_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.time_in_force.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.cross_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_inst.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.execution_mode.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.managed_order.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.short_sale_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.discretion_price.size
+
+  return index
+end
 
 -- Display: Execution Report New
 cme_futures_ilink3_sbe_v8_6.execution_report_new.display = function(packet, parent, length)
@@ -15039,23 +15714,42 @@ end
 -- Business Reject
 cme_futures_ilink3_sbe_v8_6.business_reject = {}
 
--- Size: Business Reject
-cme_futures_ilink3_sbe_v8_6.business_reject.size =
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.text.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.business_reject_ref_id.size + 
-  cme_futures_ilink3_sbe_v8_6.location_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.ref_seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.ref_tag_id.size + 
-  cme_futures_ilink3_sbe_v8_6.business_reject_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.ref_msg_type.size + 
-  cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size
+-- Calculate size of: Business Reject
+cme_futures_ilink3_sbe_v8_6.business_reject.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.text.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.business_reject_ref_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ref_seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ref_tag_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.business_reject_reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ref_msg_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  return index
+end
 
 -- Display: Business Reject
 cme_futures_ilink3_sbe_v8_6.business_reject.display = function(packet, parent, length)
@@ -15644,16 +16338,28 @@ end
 -- Mass Quote Entry Group
 cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group = {}
 
--- Size: Mass Quote Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.size =
-  cme_futures_ilink3_sbe_v8_6.bid_px.size + 
-  cme_futures_ilink3_sbe_v8_6.offer_px.size + 
-  cme_futures_ilink3_sbe_v8_6.quote_entry_id.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.bid_size.size + 
-  cme_futures_ilink3_sbe_v8_6.offer_size.size + 
-  cme_futures_ilink3_sbe_v8_6.underlying_security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.quote_set_id.size
+-- Calculate size of: Mass Quote Entry Group
+cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.bid_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.offer_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_entry_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.bid_size.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.offer_size.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.underlying_security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_set_id.size
+
+  return index
+end
 
 -- Display: Mass Quote Entry Group
 cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.display = function(packet, parent, length)
@@ -15722,7 +16428,7 @@ cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups = {}
 cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
+  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local mass_quote_entry_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -15965,20 +16671,36 @@ end
 -- Order Cancel Request
 cme_futures_ilink3_sbe_v8_6.order_cancel_request = {}
 
--- Size: Order Cancel Request
-cme_futures_ilink3_sbe_v8_6.order_cancel_request.size =
-  cme_futures_ilink3_sbe_v8_6.order_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+-- Calculate size of: Order Cancel Request
+cme_futures_ilink3_sbe_v8_6.order_cancel_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  return index
+end
 
 -- Display: Order Cancel Request
 cme_futures_ilink3_sbe_v8_6.order_cancel_request.display = function(packet, parent, length)
@@ -16131,34 +16853,64 @@ end
 -- Order Cancel Replace Request
 cme_futures_ilink3_sbe_v8_6.order_cancel_replace_request = {}
 
--- Size: Order Cancel Replace Request
-cme_futures_ilink3_sbe_v8_6.order_cancel_replace_request.size =
-  cme_futures_ilink3_sbe_v8_6.price_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_id_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.stop_px.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.min_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.display_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.expire_date.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_type.size + 
-  cme_futures_ilink3_sbe_v8_6.time_in_force.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.ofm_override.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_inst.size + 
-  cme_futures_ilink3_sbe_v8_6.execution_mode.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.managed_order.size + 
-  cme_futures_ilink3_sbe_v8_6.short_sale_type.size + 
-  cme_futures_ilink3_sbe_v8_6.discretion_price.size
+-- Calculate size of: Order Cancel Replace Request
+cme_futures_ilink3_sbe_v8_6.order_cancel_replace_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.price_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_id_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.stop_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.min_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.display_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.expire_date.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.time_in_force.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ofm_override.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_inst.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.execution_mode.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.managed_order.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.short_sale_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.discretion_price.size
+
+  return index
+end
 
 -- Display: Order Cancel Replace Request
 cme_futures_ilink3_sbe_v8_6.order_cancel_replace_request.display = function(packet, parent, length)
@@ -16271,32 +17023,60 @@ end
 -- New Order Single
 cme_futures_ilink3_sbe_v8_6.new_order_single = {}
 
--- Size: New Order Single
-cme_futures_ilink3_sbe_v8_6.new_order_single.size =
-  cme_futures_ilink3_sbe_v8_6.price_optional.size + 
-  cme_futures_ilink3_sbe_v8_6.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.security_id.size + 
-  cme_futures_ilink3_sbe_v8_6.side.size + 
-  cme_futures_ilink3_sbe_v8_6.seq_num.size + 
-  cme_futures_ilink3_sbe_v8_6.sender_id.size + 
-  cme_futures_ilink3_sbe_v8_6.clordid.size + 
-  cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_futures_ilink3_sbe_v8_6.stop_px.size + 
-  cme_futures_ilink3_sbe_v8_6.location.size + 
-  cme_futures_ilink3_sbe_v8_6.min_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.display_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.expire_date.size + 
-  cme_futures_ilink3_sbe_v8_6.ord_type.size + 
-  cme_futures_ilink3_sbe_v8_6.time_in_force.size + 
-  cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.exec_inst.size + 
-  cme_futures_ilink3_sbe_v8_6.execution_mode.size + 
-  cme_futures_ilink3_sbe_v8_6.liquidity_flag.size + 
-  cme_futures_ilink3_sbe_v8_6.managed_order.size + 
-  cme_futures_ilink3_sbe_v8_6.short_sale_type.size + 
-  cme_futures_ilink3_sbe_v8_6.discretion_price.size
+-- Calculate size of: New Order Single
+cme_futures_ilink3_sbe_v8_6.new_order_single.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.price_optional.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.side.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.clordid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.stop_px.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.min_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.display_qty.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.expire_date.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.ord_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.time_in_force.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.exec_inst.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.execution_mode.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.managed_order.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.short_sale_type.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.discretion_price.size
+
+  return index
+end
 
 -- Display: New Order Single
 cme_futures_ilink3_sbe_v8_6.new_order_single.display = function(packet, parent, length)
@@ -16449,12 +17229,20 @@ end
 -- Not Applied
 cme_futures_ilink3_sbe_v8_6.not_applied = {}
 
--- Size: Not Applied
-cme_futures_ilink3_sbe_v8_6.not_applied.size =
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.from_seq_no.size + 
-  cme_futures_ilink3_sbe_v8_6.msg_count.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size
+-- Calculate size of: Not Applied
+cme_futures_ilink3_sbe_v8_6.not_applied.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.from_seq_no.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.msg_count.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  return index
+end
 
 -- Display: Not Applied
 cme_futures_ilink3_sbe_v8_6.not_applied.display = function(packet, parent, length)
@@ -16618,14 +17406,24 @@ end
 -- Retransmit Reject
 cme_futures_ilink3_sbe_v8_6.retransmit_reject = {}
 
--- Size: Retransmit Reject
-cme_futures_ilink3_sbe_v8_6.retransmit_reject.size =
-  cme_futures_ilink3_sbe_v8_6.reason.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.last_uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_futures_ilink3_sbe_v8_6.error_codes.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size
+-- Calculate size of: Retransmit Reject
+cme_futures_ilink3_sbe_v8_6.retransmit_reject.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.last_uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.request_timestamp.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.error_codes.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  return index
+end
 
 -- Display: Retransmit Reject
 cme_futures_ilink3_sbe_v8_6.retransmit_reject.display = function(packet, parent, length)
@@ -16701,14 +17499,24 @@ end
 -- Retransmission
 cme_futures_ilink3_sbe_v8_6.retransmission = {}
 
--- Size: Retransmission
-cme_futures_ilink3_sbe_v8_6.retransmission.size =
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.last_uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_futures_ilink3_sbe_v8_6.from_seq_no.size + 
-  cme_futures_ilink3_sbe_v8_6.msg_count_16.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size
+-- Calculate size of: Retransmission
+cme_futures_ilink3_sbe_v8_6.retransmission.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.last_uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.request_timestamp.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.from_seq_no.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.msg_count_16.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  return index
+end
 
 -- Display: Retransmission
 cme_futures_ilink3_sbe_v8_6.retransmission.display = function(packet, parent, length)
@@ -16761,13 +17569,22 @@ end
 -- Retransmit Request
 cme_futures_ilink3_sbe_v8_6.retransmit_request = {}
 
--- Size: Retransmit Request
-cme_futures_ilink3_sbe_v8_6.retransmit_request.size =
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.last_uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_futures_ilink3_sbe_v8_6.from_seq_no.size + 
-  cme_futures_ilink3_sbe_v8_6.msg_count_16.size
+-- Calculate size of: Retransmit Request
+cme_futures_ilink3_sbe_v8_6.retransmit_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.last_uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.request_timestamp.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.from_seq_no.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.msg_count_16.size
+
+  return index
+end
 
 -- Display: Retransmit Request
 cme_futures_ilink3_sbe_v8_6.retransmit_request.display = function(packet, parent, length)
@@ -16817,13 +17634,22 @@ end
 -- Terminate
 cme_futures_ilink3_sbe_v8_6.terminate = {}
 
--- Size: Terminate
-cme_futures_ilink3_sbe_v8_6.terminate.size =
-  cme_futures_ilink3_sbe_v8_6.reason.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_futures_ilink3_sbe_v8_6.error_codes.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size
+-- Calculate size of: Terminate
+cme_futures_ilink3_sbe_v8_6.terminate.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.request_timestamp.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.error_codes.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  return index
+end
 
 -- Display: Terminate
 cme_futures_ilink3_sbe_v8_6.terminate.display = function(packet, parent, length)
@@ -16959,12 +17785,20 @@ end
 -- Sequence
 cme_futures_ilink3_sbe_v8_6.sequence = {}
 
--- Size: Sequence
-cme_futures_ilink3_sbe_v8_6.sequence.size =
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.next_seq_no.size + 
-  cme_futures_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.keep_alive_interval_lapsed.size
+-- Calculate size of: Sequence
+cme_futures_ilink3_sbe_v8_6.sequence.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.next_seq_no.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.fault_tolerance_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.keep_alive_interval_lapsed.size
+
+  return index
+end
 
 -- Display: Sequence
 cme_futures_ilink3_sbe_v8_6.sequence.display = function(packet, parent, length)
@@ -17011,15 +17845,26 @@ end
 -- Establishment Reject
 cme_futures_ilink3_sbe_v8_6.establishment_reject = {}
 
--- Size: Establishment Reject
-cme_futures_ilink3_sbe_v8_6.establishment_reject.size =
-  cme_futures_ilink3_sbe_v8_6.reason.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_futures_ilink3_sbe_v8_6.next_seq_no.size + 
-  cme_futures_ilink3_sbe_v8_6.error_codes.size + 
-  cme_futures_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size
+-- Calculate size of: Establishment Reject
+cme_futures_ilink3_sbe_v8_6.establishment_reject.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.request_timestamp.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.next_seq_no.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.error_codes.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.fault_tolerance_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  return index
+end
 
 -- Display: Establishment Reject
 cme_futures_ilink3_sbe_v8_6.establishment_reject.display = function(packet, parent, length)
@@ -17172,17 +18017,30 @@ end
 -- Establishment Ack
 cme_futures_ilink3_sbe_v8_6.establishment_ack = {}
 
--- Size: Establishment Ack
-cme_futures_ilink3_sbe_v8_6.establishment_ack.size =
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_futures_ilink3_sbe_v8_6.next_seq_no.size + 
-  cme_futures_ilink3_sbe_v8_6.previous_seq_no.size + 
-  cme_futures_ilink3_sbe_v8_6.previous_uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.keep_alive_interval.size + 
-  cme_futures_ilink3_sbe_v8_6.secret_key_secure_id_expiration.size + 
-  cme_futures_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size
+-- Calculate size of: Establishment Ack
+cme_futures_ilink3_sbe_v8_6.establishment_ack.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.request_timestamp.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.next_seq_no.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.previous_seq_no.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.previous_uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.keep_alive_interval.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.secret_key_secure_id_expiration.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.fault_tolerance_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  return index
+end
 
 -- Display: Establishment Ack
 cme_futures_ilink3_sbe_v8_6.establishment_ack.display = function(packet, parent, length)
@@ -17709,14 +18567,24 @@ end
 -- Negotiation Reject
 cme_futures_ilink3_sbe_v8_6.negotiation_reject = {}
 
--- Size: Negotiation Reject
-cme_futures_ilink3_sbe_v8_6.negotiation_reject.size =
-  cme_futures_ilink3_sbe_v8_6.reason.size + 
-  cme_futures_ilink3_sbe_v8_6.uuid.size + 
-  cme_futures_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_futures_ilink3_sbe_v8_6.error_codes.size + 
-  cme_futures_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
-  cme_futures_ilink3_sbe_v8_6.split_msg.size
+-- Calculate size of: Negotiation Reject
+cme_futures_ilink3_sbe_v8_6.negotiation_reject.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.reason.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.request_timestamp.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.error_codes.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.fault_tolerance_indicator.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.split_msg.size
+
+  return index
+end
 
 -- Display: Negotiation Reject
 cme_futures_ilink3_sbe_v8_6.negotiation_reject.display = function(packet, parent, length)
@@ -18574,12 +19442,20 @@ end
 -- Message Header
 cme_futures_ilink3_sbe_v8_6.message_header = {}
 
--- Size: Message Header
-cme_futures_ilink3_sbe_v8_6.message_header.size =
-  cme_futures_ilink3_sbe_v8_6.block_length.size + 
-  cme_futures_ilink3_sbe_v8_6.template_id.size + 
-  cme_futures_ilink3_sbe_v8_6.schema_id.size + 
-  cme_futures_ilink3_sbe_v8_6.version.size
+-- Calculate size of: Message Header
+cme_futures_ilink3_sbe_v8_6.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.block_length.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.template_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.schema_id.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.version.size
+
+  return index
+end
 
 -- Display: Message Header
 cme_futures_ilink3_sbe_v8_6.message_header.display = function(packet, parent, length)
@@ -18672,10 +19548,16 @@ end
 -- Simple Open Framing Header
 cme_futures_ilink3_sbe_v8_6.simple_open_framing_header = {}
 
--- Size: Simple Open Framing Header
-cme_futures_ilink3_sbe_v8_6.simple_open_framing_header.size =
-  cme_futures_ilink3_sbe_v8_6.message_length.size + 
-  cme_futures_ilink3_sbe_v8_6.encoding_type.size
+-- Calculate size of: Simple Open Framing Header
+cme_futures_ilink3_sbe_v8_6.simple_open_framing_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_ilink3_sbe_v8_6.message_length.size
+
+  index = index + cme_futures_ilink3_sbe_v8_6.encoding_type.size
+
+  return index
+end
 
 -- Display: Simple Open Framing Header
 cme_futures_ilink3_sbe_v8_6.simple_open_framing_header.display = function(packet, parent, length)
@@ -18767,7 +19649,7 @@ local simple_open_frame_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < cme_futures_ilink3_sbe_v8_6.simple_open_framing_header.size then
+  if remaining < cme_futures_ilink3_sbe_v8_6.simple_open_framing_header.size(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

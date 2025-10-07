@@ -306,10 +306,16 @@ end
 -- Timestamp
 boats_equities_memoirtopofbook_sbe_v1_3.timestamp = {}
 
--- Size: Timestamp
-boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.time.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.unit.size
+-- Calculate size of: Timestamp
+boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.time.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.unit.size
+
+  return index
+end
 
 -- Display: Timestamp
 boats_equities_memoirtopofbook_sbe_v1_3.timestamp.display = function(packet, parent, length)
@@ -350,10 +356,16 @@ end
 -- Clear Book Message
 boats_equities_memoirtopofbook_sbe_v1_3.clear_book_message = {}
 
--- Size: Clear Book Message
-boats_equities_memoirtopofbook_sbe_v1_3.clear_book_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_id.size
+-- Calculate size of: Clear Book Message
+boats_equities_memoirtopofbook_sbe_v1_3.clear_book_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  return index
+end
 
 -- Display: Clear Book Message
 boats_equities_memoirtopofbook_sbe_v1_3.clear_book_message.display = function(packet, parent, length)
@@ -440,10 +452,16 @@ end
 -- Offer Price Short Price Type
 boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type = {}
 
--- Size: Offer Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.exponent.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.mantissa.size
+-- Calculate size of: Offer Price Short Price Type
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.exponent.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.mantissa.size
+
+  return index
+end
 
 -- Display: Offer Price Short Price Type
 boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.display = function(packet, parent, length)
@@ -507,12 +525,20 @@ end
 -- Best Offer Short Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message = {}
 
--- Size: Best Offer Short Message
-boats_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.size
+-- Calculate size of: Best Offer Short Message
+boats_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Best Offer Short Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.display = function(packet, parent, length)
@@ -559,10 +585,16 @@ end
 -- Bid Price Short Price Type
 boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type = {}
 
--- Size: Bid Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.exponent.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.mantissa.size
+-- Calculate size of: Bid Price Short Price Type
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.exponent.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.mantissa.size
+
+  return index
+end
 
 -- Display: Bid Price Short Price Type
 boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.display = function(packet, parent, length)
@@ -626,12 +658,20 @@ end
 -- Best Bid Short Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message = {}
 
--- Size: Best Bid Short Message
-boats_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.bid_size_short.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.size
+-- Calculate size of: Best Bid Short Message
+boats_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.bid_size_short.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Best Bid Short Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.display = function(packet, parent, length)
@@ -730,12 +770,20 @@ end
 -- Best Offer Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_offer_message = {}
 
--- Size: Best Offer Message
-boats_equities_memoirtopofbook_sbe_v1_3.best_offer_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.offer_size.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.size
+-- Calculate size of: Best Offer Message
+boats_equities_memoirtopofbook_sbe_v1_3.best_offer_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.offer_size.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.size
+
+  return index
+end
 
 -- Display: Best Offer Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_offer_message.display = function(packet, parent, length)
@@ -834,12 +882,20 @@ end
 -- Best Bid Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_message = {}
 
--- Size: Best Bid Message
-boats_equities_memoirtopofbook_sbe_v1_3.best_bid_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.bid_size.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.size
+-- Calculate size of: Best Bid Message
+boats_equities_memoirtopofbook_sbe_v1_3.best_bid_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.bid_size.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.size
+
+  return index
+end
 
 -- Display: Best Bid Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_message.display = function(packet, parent, length)
@@ -886,14 +942,24 @@ end
 -- Best Bid Offer Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message = {}
 
--- Size: Best Bid Offer Message
-boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.bid_size.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.offer_size.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.size
+-- Calculate size of: Best Bid Offer Message
+boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.bid_size.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.offer_size.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.size
+
+  return index
+end
 
 -- Display: Best Bid Offer Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.display = function(packet, parent, length)
@@ -969,10 +1035,16 @@ end
 -- Snapshot Complete Message
 boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message = {}
 
--- Size: Snapshot Complete Message
-boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size
+-- Calculate size of: Snapshot Complete Message
+boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size
+
+  return index
+end
 
 -- Display: Snapshot Complete Message
 boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.display = function(packet, parent, length)
@@ -1062,10 +1134,16 @@ end
 -- Trading Session Status Message
 boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message = {}
 
--- Size: Trading Session Status Message
-boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.trading_session.size
+-- Calculate size of: Trading Session Status Message
+boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.trading_session.size
+
+  return index
+end
 
 -- Display: Trading Session Status Message
 boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.display = function(packet, parent, length)
@@ -1201,12 +1279,20 @@ end
 -- Security Trading Status Message
 boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message = {}
 
--- Size: Security Trading Status Message
-boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.size
+-- Calculate size of: Security Trading Status Message
+boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.size
+
+  return index
+end
 
 -- Display: Security Trading Status Message
 boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.display = function(packet, parent, length)
@@ -1283,11 +1369,18 @@ end
 -- Reg Sho Restriction Message
 boats_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message = {}
 
--- Size: Reg Sho Restriction Message
-boats_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.size
+-- Calculate size of: Reg Sho Restriction Message
+boats_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.size
+
+  return index
+end
 
 -- Display: Reg Sho Restriction Message
 boats_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.display = function(packet, parent, length)
@@ -1514,16 +1607,28 @@ end
 -- Instrument Directory Message
 boats_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message = {}
 
--- Size: Instrument Directory Message
-boats_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.symbol.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.round_lot.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.reserved.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.mpv.size
+-- Calculate size of: Instrument Directory Message
+boats_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size(buffer, offset + index)
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.symbol.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.round_lot.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.reserved.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.mpv.size
+
+  return index
+end
 
 -- Display: Instrument Directory Message
 boats_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.display = function(packet, parent, length)
@@ -1836,12 +1941,20 @@ end
 -- Sbe Header
 boats_equities_memoirtopofbook_sbe_v1_3.sbe_header = {}
 
--- Size: Sbe Header
-boats_equities_memoirtopofbook_sbe_v1_3.sbe_header.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.block_length.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.template_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.schema_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.version.size
+-- Calculate size of: Sbe Header
+boats_equities_memoirtopofbook_sbe_v1_3.sbe_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.block_length.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.template_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.schema_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.version.size
+
+  return index
+end
 
 -- Display: Sbe Header
 boats_equities_memoirtopofbook_sbe_v1_3.sbe_header.display = function(packet, parent, length)
@@ -2239,12 +2352,20 @@ end
 -- Common Header
 boats_equities_memoirtopofbook_sbe_v1_3.common_header = {}
 
--- Size: Common Header
-boats_equities_memoirtopofbook_sbe_v1_3.common_header.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.message_type.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.header_length.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.session_id.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.sequence_number.size
+-- Calculate size of: Common Header
+boats_equities_memoirtopofbook_sbe_v1_3.common_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.message_type.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.header_length.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.session_id.size
+
+  index = index + boats_equities_memoirtopofbook_sbe_v1_3.sequence_number.size
+
+  return index
+end
 
 -- Display: Common Header
 boats_equities_memoirtopofbook_sbe_v1_3.common_header.display = function(packet, parent, length)

@@ -240,13 +240,22 @@ end
 -- Business Header
 tmx_quantumfeed_xmtheader_udp_v1_1.business_header = {}
 
--- Size: Business Header
-tmx_quantumfeed_xmtheader_udp_v1_1.business_header.size =
-  tmx_quantumfeed_xmtheader_udp_v1_1.msg_version.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.source_id.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.stream_id.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.sequence_0.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.sequence_1.size
+-- Calculate size of: Business Header
+tmx_quantumfeed_xmtheader_udp_v1_1.business_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.msg_version.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.source_id.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.stream_id.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.sequence_0.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.sequence_1.size
+
+  return index
+end
 
 -- Display: Business Header
 tmx_quantumfeed_xmtheader_udp_v1_1.business_header.display = function(packet, parent, length)
@@ -390,10 +399,16 @@ end
 -- Body Header
 tmx_quantumfeed_xmtheader_udp_v1_1.body_header = {}
 
--- Size: Body Header
-tmx_quantumfeed_xmtheader_udp_v1_1.body_header.size =
-  tmx_quantumfeed_xmtheader_udp_v1_1.msg_length.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.msg_type.size
+-- Calculate size of: Body Header
+tmx_quantumfeed_xmtheader_udp_v1_1.body_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.msg_length.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.msg_type.size
+
+  return index
+end
 
 -- Display: Body Header
 tmx_quantumfeed_xmtheader_udp_v1_1.body_header.display = function(packet, parent, length)
@@ -661,15 +676,26 @@ end
 -- Frame Header
 tmx_quantumfeed_xmtheader_udp_v1_1.frame_header = {}
 
--- Size: Frame Header
-tmx_quantumfeed_xmtheader_udp_v1_1.frame_header.size =
-  tmx_quantumfeed_xmtheader_udp_v1_1.start_of_frame.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.protocol_name.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.protocol_version.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.message_length.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.session_id.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.ack_required_poss_dup.size + 
-  tmx_quantumfeed_xmtheader_udp_v1_1.num_body.size
+-- Calculate size of: Frame Header
+tmx_quantumfeed_xmtheader_udp_v1_1.frame_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.start_of_frame.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.protocol_name.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.protocol_version.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.message_length.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.session_id.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.ack_required_poss_dup.size
+
+  index = index + tmx_quantumfeed_xmtheader_udp_v1_1.num_body.size
+
+  return index
+end
 
 -- Display: Frame Header
 tmx_quantumfeed_xmtheader_udp_v1_1.frame_header.display = function(packet, parent, length)

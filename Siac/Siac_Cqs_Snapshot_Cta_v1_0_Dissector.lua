@@ -2711,10 +2711,16 @@ end
 -- Message Header
 siac_cqs_snapshot_cta_v1_0.message_header = {}
 
--- Size: Message Header
-siac_cqs_snapshot_cta_v1_0.message_header.size =
-  siac_cqs_snapshot_cta_v1_0.message_length.size + 
-  siac_cqs_snapshot_cta_v1_0.message_category.size
+-- Calculate size of: Message Header
+siac_cqs_snapshot_cta_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cqs_snapshot_cta_v1_0.message_length.size
+
+  index = index + siac_cqs_snapshot_cta_v1_0.message_category.size
+
+  return index
+end
 
 -- Display: Message Header
 siac_cqs_snapshot_cta_v1_0.message_header.display = function(packet, parent, length)
@@ -2875,10 +2881,16 @@ end
 -- Sip Block Timestamp
 siac_cqs_snapshot_cta_v1_0.sip_block_timestamp = {}
 
--- Size: Sip Block Timestamp
-siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.size =
-  siac_cqs_snapshot_cta_v1_0.seconds.size + 
-  siac_cqs_snapshot_cta_v1_0.nanoseconds.size
+-- Calculate size of: Sip Block Timestamp
+siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cqs_snapshot_cta_v1_0.seconds.size
+
+  index = index + siac_cqs_snapshot_cta_v1_0.nanoseconds.size
+
+  return index
+end
 
 -- Display: Sip Block Timestamp
 siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.display = function(packet, parent, length)
@@ -3093,17 +3105,30 @@ end
 -- Block Header
 siac_cqs_snapshot_cta_v1_0.block_header = {}
 
--- Size: Block Header
-siac_cqs_snapshot_cta_v1_0.block_header.size =
-  siac_cqs_snapshot_cta_v1_0.version.size + 
-  siac_cqs_snapshot_cta_v1_0.block_size.size + 
-  siac_cqs_snapshot_cta_v1_0.block_sequence_number.size + 
-  siac_cqs_snapshot_cta_v1_0.messages_in_block.size + 
-  siac_cqs_snapshot_cta_v1_0.delivery_flag.size + 
-  siac_cqs_snapshot_cta_v1_0.last_seq_num.size + 
-  siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size + 
-  siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.size + 
-  siac_cqs_snapshot_cta_v1_0.block_checksum.size
+-- Calculate size of: Block Header
+siac_cqs_snapshot_cta_v1_0.block_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cqs_snapshot_cta_v1_0.version.size
+
+  index = index + siac_cqs_snapshot_cta_v1_0.block_size.size
+
+  index = index + siac_cqs_snapshot_cta_v1_0.block_sequence_number.size
+
+  index = index + siac_cqs_snapshot_cta_v1_0.messages_in_block.size
+
+  index = index + siac_cqs_snapshot_cta_v1_0.delivery_flag.size
+
+  index = index + siac_cqs_snapshot_cta_v1_0.last_seq_num.size
+
+  index = index + siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size
+
+  index = index + siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.size(buffer, offset + index)
+
+  index = index + siac_cqs_snapshot_cta_v1_0.block_checksum.size
+
+  return index
+end
 
 -- Display: Block Header
 siac_cqs_snapshot_cta_v1_0.block_header.display = function(packet, parent, length)

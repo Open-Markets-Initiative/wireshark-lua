@@ -263,10 +263,16 @@ end
 -- Global Day Roll
 cme_ebs_spectrum_sbe_v12_0.global_day_roll = {}
 
--- Size: Global Day Roll
-cme_ebs_spectrum_sbe_v12_0.global_day_roll.size =
-  cme_ebs_spectrum_sbe_v12_0.transact_time.size + 
-  cme_ebs_spectrum_sbe_v12_0.security_trading_event.size
+-- Calculate size of: Global Day Roll
+cme_ebs_spectrum_sbe_v12_0.global_day_roll.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.transact_time.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.security_trading_event.size
+
+  return index
+end
 
 -- Display: Global Day Roll
 cme_ebs_spectrum_sbe_v12_0.global_day_roll.display = function(packet, parent, length)
@@ -582,15 +588,26 @@ end
 -- M D Snapshot Refresh Ticker Group
 cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group = {}
 
--- Size: M D Snapshot Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.size =
-  cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_px.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_size.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_time.size + 
-  cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.size + 
-  cme_ebs_spectrum_sbe_v12_0.trading_session_id.size + 
-  cme_ebs_spectrum_sbe_v12_0.aggressor_side.size
+-- Calculate size of: M D Snapshot Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_px.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_size.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.trading_session_id.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.aggressor_side.size
+
+  return index
+end
 
 -- Display: M D Snapshot Refresh Ticker Group
 cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.display = function(packet, parent, length)
@@ -698,10 +715,16 @@ end
 -- Group Size
 cme_ebs_spectrum_sbe_v12_0.group_size = {}
 
--- Size: Group Size
-cme_ebs_spectrum_sbe_v12_0.group_size.size =
-  cme_ebs_spectrum_sbe_v12_0.block_length.size + 
-  cme_ebs_spectrum_sbe_v12_0.num_in_group_uint_8.size
+-- Calculate size of: Group Size
+cme_ebs_spectrum_sbe_v12_0.group_size.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.block_length.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.num_in_group_uint_8.size
+
+  return index
+end
 
 -- Display: Group Size
 cme_ebs_spectrum_sbe_v12_0.group_size.display = function(packet, parent, length)
@@ -746,7 +769,7 @@ cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups = {}
 cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size
+  index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_snapshot_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1031,12 +1054,20 @@ end
 -- M D Snapshot Refresh Spectrum Group
 cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group = {}
 
--- Size: M D Snapshot Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.size =
-  cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_px.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_size.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
+-- Calculate size of: M D Snapshot Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_px.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_size.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
+
+  return index
+end
 
 -- Display: M D Snapshot Refresh Spectrum Group
 cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.display = function(packet, parent, length)
@@ -1093,7 +1124,7 @@ cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups = {}
 cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size
+  index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_snapshot_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1211,19 +1242,34 @@ end
 -- M D Incremental Refresh Ticker Group
 cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group = {}
 
--- Size: M D Incremental Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.size =
-  cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.size + 
-  cme_ebs_spectrum_sbe_v12_0.security_id.size + 
-  cme_ebs_spectrum_sbe_v12_0.symbol.size + 
-  cme_ebs_spectrum_sbe_v12_0.instrument_guid.size + 
-  cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_px.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_size.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_time.size + 
-  cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.size + 
-  cme_ebs_spectrum_sbe_v12_0.trading_session_id.size + 
-  cme_ebs_spectrum_sbe_v12_0.aggressor_side.size
+-- Calculate size of: M D Incremental Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.security_id.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.symbol.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.instrument_guid.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_px.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_size.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.trading_session_id.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.aggressor_side.size
+
+  return index
+end
 
 -- Display: M D Incremental Refresh Ticker Group
 cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.display = function(packet, parent, length)
@@ -1301,7 +1347,7 @@ cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups = {}
 cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size
+  index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1399,16 +1445,28 @@ end
 -- M D Incremental Refresh Spectrum Group
 cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group = {}
 
--- Size: M D Incremental Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.size =
-  cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size + 
-  cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.size + 
-  cme_ebs_spectrum_sbe_v12_0.symbol.size + 
-  cme_ebs_spectrum_sbe_v12_0.instrument_guid.size + 
-  cme_ebs_spectrum_sbe_v12_0.security_id.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_px.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_size.size + 
-  cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
+-- Calculate size of: M D Incremental Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.symbol.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.instrument_guid.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.security_id.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_px.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_size.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
+
+  return index
+end
 
 -- Display: M D Incremental Refresh Spectrum Group
 cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.display = function(packet, parent, length)
@@ -1477,7 +1535,7 @@ cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups = {}
 cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size
+  index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1750,12 +1808,20 @@ end
 -- Message Header
 cme_ebs_spectrum_sbe_v12_0.message_header = {}
 
--- Size: Message Header
-cme_ebs_spectrum_sbe_v12_0.message_header.size =
-  cme_ebs_spectrum_sbe_v12_0.block_length.size + 
-  cme_ebs_spectrum_sbe_v12_0.template_id.size + 
-  cme_ebs_spectrum_sbe_v12_0.schema_id.size + 
-  cme_ebs_spectrum_sbe_v12_0.version.size
+-- Calculate size of: Message Header
+cme_ebs_spectrum_sbe_v12_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.block_length.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.template_id.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.schema_id.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.version.size
+
+  return index
+end
 
 -- Display: Message Header
 cme_ebs_spectrum_sbe_v12_0.message_header.display = function(packet, parent, length)
@@ -1831,7 +1897,7 @@ cme_ebs_spectrum_sbe_v12_0.message.size = function(buffer, offset)
 
   index = index + cme_ebs_spectrum_sbe_v12_0.message_size.size
 
-  index = index + cme_ebs_spectrum_sbe_v12_0.message_header.size
+  index = index + cme_ebs_spectrum_sbe_v12_0.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1931,10 +1997,16 @@ end
 -- Binary Packet Header
 cme_ebs_spectrum_sbe_v12_0.binary_packet_header = {}
 
--- Size: Binary Packet Header
-cme_ebs_spectrum_sbe_v12_0.binary_packet_header.size =
-  cme_ebs_spectrum_sbe_v12_0.message_sequence_number.size + 
-  cme_ebs_spectrum_sbe_v12_0.sending_time.size
+-- Calculate size of: Binary Packet Header
+cme_ebs_spectrum_sbe_v12_0.binary_packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.message_sequence_number.size
+
+  index = index + cme_ebs_spectrum_sbe_v12_0.sending_time.size
+
+  return index
+end
 
 -- Display: Binary Packet Header
 cme_ebs_spectrum_sbe_v12_0.binary_packet_header.display = function(packet, parent, length)

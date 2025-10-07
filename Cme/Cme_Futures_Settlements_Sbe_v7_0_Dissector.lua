@@ -24,13 +24,13 @@ omi_cme_futures_settlements_sbe_v7_0.fields.clearing_product_code = ProtoField.n
 omi_cme_futures_settlements_sbe_v7_0.fields.day = ProtoField.new("Day", "cme.futures.settlements.sbe.v7.0.day", ftypes.UINT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.exponent = ProtoField.new("Exponent", "cme.futures.settlements.sbe.v7.0.exponent", ftypes.INT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.final_daily = ProtoField.new("Final Daily", "cme.futures.settlements.sbe.v7.0.finaldaily", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px = ProtoField.new("Formatted Last Px", "cme.futures.settlements.sbe.v7.0.formattedlastpx", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px = ProtoField.new("Formatted Last Px", "cme.futures.settlements.sbe.v7.0.formattedlastpx", ftypes.DOUBLE)
 omi_cme_futures_settlements_sbe_v7_0.fields.group_size = ProtoField.new("Group Size", "cme.futures.settlements.sbe.v7.0.groupsize", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.high_px = ProtoField.new("High Px", "cme.futures.settlements.sbe.v7.0.highpx", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.high_px = ProtoField.new("High Px", "cme.futures.settlements.sbe.v7.0.highpx", ftypes.DOUBLE)
 omi_cme_futures_settlements_sbe_v7_0.fields.high_px_ind = ProtoField.new("High Px Ind", "cme.futures.settlements.sbe.v7.0.highpxind", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.futures.settlements.sbe.v7.0.instrumentguid", ftypes.UINT64)
 omi_cme_futures_settlements_sbe_v7_0.fields.intraday = ProtoField.new("Intraday", "cme.futures.settlements.sbe.v7.0.intraday", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-omi_cme_futures_settlements_sbe_v7_0.fields.low_px = ProtoField.new("Low Px", "cme.futures.settlements.sbe.v7.0.lowpx", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.low_px = ProtoField.new("Low Px", "cme.futures.settlements.sbe.v7.0.lowpx", ftypes.DOUBLE)
 omi_cme_futures_settlements_sbe_v7_0.fields.low_px_ind = ProtoField.new("Low Px Ind", "cme.futures.settlements.sbe.v7.0.lowpxind", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group = ProtoField.new("M D Incremental Refresh High Low Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroup", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_groups = ProtoField.new("M D Incremental Refresh High Low Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroups", ftypes.STRING)
@@ -65,7 +65,7 @@ omi_cme_futures_settlements_sbe_v7_0.fields.security_id = ProtoField.new("Securi
 omi_cme_futures_settlements_sbe_v7_0.fields.security_type = ProtoField.new("Security Type", "cme.futures.settlements.sbe.v7.0.securitytype", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "cme.futures.settlements.sbe.v7.0.sendingtime", ftypes.UINT64)
 omi_cme_futures_settlements_sbe_v7_0.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.futures.settlements.sbe.v7.0.settlpricetype", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.settlements.sbe.v7.0.strikeprice", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.settlements.sbe.v7.0.strikeprice", ftypes.DOUBLE)
 omi_cme_futures_settlements_sbe_v7_0.fields.symbol = ProtoField.new("Symbol", "cme.futures.settlements.sbe.v7.0.symbol", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.template_id = ProtoField.new("Template Id", "cme.futures.settlements.sbe.v7.0.templateid", ftypes.UINT16)
 omi_cme_futures_settlements_sbe_v7_0.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.futures.settlements.sbe.v7.0.tradingreferencedate", ftypes.UINT16)
@@ -245,38 +245,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Functions
------------------------------------------------------------------------
-
--- Convert exponent to decimal
-factor = function(value)
-  if value == nil then
-    return nil
-  elseif value == -1 then
-    return 10
-  elseif value == -2 then
-    return 100
-  elseif value == -3 then
-    return 1000
-  elseif value == -4 then
-    return 10000
-  elseif value == -5 then
-    return 100000
-  elseif value == -6 then
-    return 1000000
-  elseif value == -7 then
-    return 10000000
-  elseif value == -8 then
-    return 100000000
-  elseif value == -9 then
-    return 1000000000
-  end
-
-  return 1
-end
-
-
------------------------------------------------------------------------
 -- Dissect Cme Futures Settlements Sbe 7.0
 -----------------------------------------------------------------------
 
@@ -413,17 +381,19 @@ end
 -- High Px
 cme_futures_settlements_sbe_v7_0.high_px = {}
 
--- Size: High Px
-cme_futures_settlements_sbe_v7_0.high_px.size =
-  cme_futures_settlements_sbe_v7_0.mantissa.size + 
-  cme_futures_settlements_sbe_v7_0.exponent.size
+-- Calculate size of: High Px
+cme_futures_settlements_sbe_v7_0.high_px.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.mantissa.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.exponent.size
+
+  return index
+end
 
 -- Display: High Px
-cme_futures_settlements_sbe_v7_0.high_px.display = function(raw, value)
-  if raw ~= nil then
-    return "High Px: No Value"
-  end
-
+cme_futures_settlements_sbe_v7_0.high_px.display = function(buffer, offset, value, packet, parent)
   return "High Px: "..value
 end
 
@@ -437,28 +407,21 @@ cme_futures_settlements_sbe_v7_0.high_px.fields = function(buffer, offset, packe
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
-  -- Composite value
-  local high_px = mantissa / factor( exponent )
-
-  return index, high_px
+  return index
 end
 
 -- Dissect: High Px
 cme_futures_settlements_sbe_v7_0.high_px.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.high_px then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.high_px, buffer(offset, 0))
-    local index, value = cme_futures_settlements_sbe_v7_0.high_px.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.high_px.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.high_px.fields(buffer, offset, packet, parent)
+    local length = cme_futures_settlements_sbe_v7_0.high_px.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_settlements_sbe_v7_0.high_px.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.high_px, range, value, display)
   end
+
+  return cme_futures_settlements_sbe_v7_0.high_px.fields(buffer, offset, packet, parent)
 end
 
 -- Low Px Ind
@@ -510,17 +473,19 @@ end
 -- Low Px
 cme_futures_settlements_sbe_v7_0.low_px = {}
 
--- Size: Low Px
-cme_futures_settlements_sbe_v7_0.low_px.size =
-  cme_futures_settlements_sbe_v7_0.mantissa.size + 
-  cme_futures_settlements_sbe_v7_0.exponent.size
+-- Calculate size of: Low Px
+cme_futures_settlements_sbe_v7_0.low_px.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.mantissa.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.exponent.size
+
+  return index
+end
 
 -- Display: Low Px
-cme_futures_settlements_sbe_v7_0.low_px.display = function(raw, value)
-  if raw ~= nil then
-    return "Low Px: No Value"
-  end
-
+cme_futures_settlements_sbe_v7_0.low_px.display = function(buffer, offset, value, packet, parent)
   return "Low Px: "..value
 end
 
@@ -534,28 +499,21 @@ cme_futures_settlements_sbe_v7_0.low_px.fields = function(buffer, offset, packet
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
-  -- Composite value
-  local low_px = mantissa / factor( exponent )
-
-  return index, low_px
+  return index
 end
 
 -- Dissect: Low Px
 cme_futures_settlements_sbe_v7_0.low_px.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.low_px then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.low_px, buffer(offset, 0))
-    local index, value = cme_futures_settlements_sbe_v7_0.low_px.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.low_px.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.low_px.fields(buffer, offset, packet, parent)
+    local length = cme_futures_settlements_sbe_v7_0.low_px.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_settlements_sbe_v7_0.low_px.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.low_px, range, value, display)
   end
+
+  return cme_futures_settlements_sbe_v7_0.low_px.fields(buffer, offset, packet, parent)
 end
 
 -- Security Id
@@ -768,12 +726,20 @@ end
 -- Underlying Maturity Month Year
 cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year = {}
 
--- Size: Underlying Maturity Month Year
-cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size =
-  cme_futures_settlements_sbe_v7_0.year.size + 
-  cme_futures_settlements_sbe_v7_0.month.size + 
-  cme_futures_settlements_sbe_v7_0.day.size + 
-  cme_futures_settlements_sbe_v7_0.week.size
+-- Calculate size of: Underlying Maturity Month Year
+cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.year.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.month.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.day.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.week.size
+
+  return index
+end
 
 -- Display: Underlying Maturity Month Year
 cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.display = function(packet, parent, length)
@@ -965,17 +931,19 @@ end
 -- Strike Price
 cme_futures_settlements_sbe_v7_0.strike_price = {}
 
--- Size: Strike Price
-cme_futures_settlements_sbe_v7_0.strike_price.size =
-  cme_futures_settlements_sbe_v7_0.mantissa.size + 
-  cme_futures_settlements_sbe_v7_0.exponent.size
+-- Calculate size of: Strike Price
+cme_futures_settlements_sbe_v7_0.strike_price.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.mantissa.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.exponent.size
+
+  return index
+end
 
 -- Display: Strike Price
-cme_futures_settlements_sbe_v7_0.strike_price.display = function(raw, value)
-  if raw ~= nil then
-    return "Strike Price: No Value"
-  end
-
+cme_futures_settlements_sbe_v7_0.strike_price.display = function(buffer, offset, value, packet, parent)
   return "Strike Price: "..value
 end
 
@@ -989,28 +957,21 @@ cme_futures_settlements_sbe_v7_0.strike_price.fields = function(buffer, offset, 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
-  -- Composite value
-  local strike_price = mantissa / factor( exponent )
-
-  return index, strike_price
+  return index
 end
 
 -- Dissect: Strike Price
 cme_futures_settlements_sbe_v7_0.strike_price.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.strike_price then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.strike_price, buffer(offset, 0))
-    local index, value = cme_futures_settlements_sbe_v7_0.strike_price.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.strike_price.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.strike_price.fields(buffer, offset, packet, parent)
+    local length = cme_futures_settlements_sbe_v7_0.strike_price.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_settlements_sbe_v7_0.strike_price.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.strike_price, range, value, display)
   end
+
+  return cme_futures_settlements_sbe_v7_0.strike_price.fields(buffer, offset, packet, parent)
 end
 
 -- Put Or Call
@@ -1049,12 +1010,20 @@ end
 -- Maturity Month Year
 cme_futures_settlements_sbe_v7_0.maturity_month_year = {}
 
--- Size: Maturity Month Year
-cme_futures_settlements_sbe_v7_0.maturity_month_year.size =
-  cme_futures_settlements_sbe_v7_0.year.size + 
-  cme_futures_settlements_sbe_v7_0.month.size + 
-  cme_futures_settlements_sbe_v7_0.day.size + 
-  cme_futures_settlements_sbe_v7_0.week.size
+-- Calculate size of: Maturity Month Year
+cme_futures_settlements_sbe_v7_0.maturity_month_year.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.year.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.month.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.day.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.week.size
+
+  return index
+end
 
 -- Display: Maturity Month Year
 cme_futures_settlements_sbe_v7_0.maturity_month_year.display = function(packet, parent, length)
@@ -1246,28 +1215,52 @@ end
 -- M D Incremental Refresh High Low Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group = {}
 
--- Size: M D Incremental Refresh High Low Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.size =
-  cme_futures_settlements_sbe_v7_0.product_guid.size + 
-  cme_futures_settlements_sbe_v7_0.clearing_product_code.size + 
-  cme_futures_settlements_sbe_v7_0.security_type.size + 
-  cme_futures_settlements_sbe_v7_0.security_exchange.size + 
-  cme_futures_settlements_sbe_v7_0.maturity_month_year.size + 
-  cme_futures_settlements_sbe_v7_0.put_or_call.size + 
-  cme_futures_settlements_sbe_v7_0.strike_price.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_product_guid.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_security_type.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size + 
-  cme_futures_settlements_sbe_v7_0.symbol.size + 
-  cme_futures_settlements_sbe_v7_0.instrument_guid.size + 
-  cme_futures_settlements_sbe_v7_0.security_id.size + 
-  cme_futures_settlements_sbe_v7_0.low_px.size + 
-  cme_futures_settlements_sbe_v7_0.low_px_ind.size + 
-  cme_futures_settlements_sbe_v7_0.high_px.size + 
-  cme_futures_settlements_sbe_v7_0.high_px_ind.size + 
-  cme_futures_settlements_sbe_v7_0.trading_reference_date.size
+-- Calculate size of: M D Incremental Refresh High Low Group
+cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.product_guid.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.clearing_product_code.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.security_type.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.security_exchange.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.maturity_month_year.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.put_or_call.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.strike_price.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_product_guid.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_type.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.symbol.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.instrument_guid.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.security_id.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.low_px.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.low_px_ind.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.high_px.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.high_px_ind.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.trading_reference_date.size
+
+  return index
+end
 
 -- Display: M D Incremental Refresh High Low Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.display = function(packet, parent, length)
@@ -1414,10 +1407,16 @@ end
 -- Group Size
 cme_futures_settlements_sbe_v7_0.group_size = {}
 
--- Size: Group Size
-cme_futures_settlements_sbe_v7_0.group_size.size =
-  cme_futures_settlements_sbe_v7_0.block_length.size + 
-  cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.size
+-- Calculate size of: Group Size
+cme_futures_settlements_sbe_v7_0.group_size.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.block_length.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.size
+
+  return index
+end
 
 -- Display: Group Size
 cme_futures_settlements_sbe_v7_0.group_size.display = function(packet, parent, length)
@@ -1462,7 +1461,7 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups = {}
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_settlements_sbe_v7_0.group_size.size
+  index = index + cme_futures_settlements_sbe_v7_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_high_low_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1668,27 +1667,50 @@ end
 -- M D Incremental Refresh Voi Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group = {}
 
--- Size: M D Incremental Refresh Voi Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.size =
-  cme_futures_settlements_sbe_v7_0.product_guid.size + 
-  cme_futures_settlements_sbe_v7_0.clearing_product_code.size + 
-  cme_futures_settlements_sbe_v7_0.security_type.size + 
-  cme_futures_settlements_sbe_v7_0.security_exchange.size + 
-  cme_futures_settlements_sbe_v7_0.maturity_month_year.size + 
-  cme_futures_settlements_sbe_v7_0.put_or_call.size + 
-  cme_futures_settlements_sbe_v7_0.strike_price.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_product_guid.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_security_type.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size + 
-  cme_futures_settlements_sbe_v7_0.symbol.size + 
-  cme_futures_settlements_sbe_v7_0.instrument_guid.size + 
-  cme_futures_settlements_sbe_v7_0.security_id.size + 
-  cme_futures_settlements_sbe_v7_0.cleared_volume.size + 
-  cme_futures_settlements_sbe_v7_0.open_interest_qty.size + 
-  cme_futures_settlements_sbe_v7_0.open_close_settl_flag.size + 
-  cme_futures_settlements_sbe_v7_0.trading_reference_date.size
+-- Calculate size of: M D Incremental Refresh Voi Group
+cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.product_guid.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.clearing_product_code.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.security_type.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.security_exchange.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.maturity_month_year.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.put_or_call.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.strike_price.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_product_guid.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_type.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.symbol.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.instrument_guid.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.security_id.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.cleared_volume.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.open_interest_qty.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.open_close_settl_flag.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.trading_reference_date.size
+
+  return index
+end
 
 -- Display: M D Incremental Refresh Voi Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.display = function(packet, parent, length)
@@ -1790,7 +1812,7 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups = {}
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_settlements_sbe_v7_0.group_size.size
+  index = index + cme_futures_settlements_sbe_v7_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_voi_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2038,17 +2060,19 @@ end
 -- Formatted Last Px
 cme_futures_settlements_sbe_v7_0.formatted_last_px = {}
 
--- Size: Formatted Last Px
-cme_futures_settlements_sbe_v7_0.formatted_last_px.size =
-  cme_futures_settlements_sbe_v7_0.mantissa.size + 
-  cme_futures_settlements_sbe_v7_0.exponent.size
+-- Calculate size of: Formatted Last Px
+cme_futures_settlements_sbe_v7_0.formatted_last_px.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.mantissa.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.exponent.size
+
+  return index
+end
 
 -- Display: Formatted Last Px
-cme_futures_settlements_sbe_v7_0.formatted_last_px.display = function(raw, value)
-  if raw ~= nil then
-    return "Formatted Last Px: No Value"
-  end
-
+cme_futures_settlements_sbe_v7_0.formatted_last_px.display = function(buffer, offset, value, packet, parent)
   return "Formatted Last Px: "..value
 end
 
@@ -2062,28 +2086,21 @@ cme_futures_settlements_sbe_v7_0.formatted_last_px.fields = function(buffer, off
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
-  -- Composite value
-  local formatted_last_px = mantissa / factor( exponent )
-
-  return index, formatted_last_px
+  return index
 end
 
 -- Dissect: Formatted Last Px
 cme_futures_settlements_sbe_v7_0.formatted_last_px.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.formatted_last_px then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px, buffer(offset, 0))
-    local index, value = cme_futures_settlements_sbe_v7_0.formatted_last_px.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.formatted_last_px.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.formatted_last_px.fields(buffer, offset, packet, parent)
+    local length = cme_futures_settlements_sbe_v7_0.formatted_last_px.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_settlements_sbe_v7_0.formatted_last_px.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px, range, value, display)
   end
+
+  return cme_futures_settlements_sbe_v7_0.formatted_last_px.fields(buffer, offset, packet, parent)
 end
 
 -- Md Entry Type
@@ -2158,30 +2175,56 @@ end
 -- M D Incremental Refresh Settle Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group = {}
 
--- Size: M D Incremental Refresh Settle Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.size =
-  cme_futures_settlements_sbe_v7_0.md_update_action.size + 
-  cme_futures_settlements_sbe_v7_0.md_entry_type.size + 
-  cme_futures_settlements_sbe_v7_0.product_guid.size + 
-  cme_futures_settlements_sbe_v7_0.clearing_product_code.size + 
-  cme_futures_settlements_sbe_v7_0.security_type.size + 
-  cme_futures_settlements_sbe_v7_0.security_exchange.size + 
-  cme_futures_settlements_sbe_v7_0.maturity_month_year.size + 
-  cme_futures_settlements_sbe_v7_0.put_or_call.size + 
-  cme_futures_settlements_sbe_v7_0.strike_price.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_product_guid.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_security_type.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size + 
-  cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size + 
-  cme_futures_settlements_sbe_v7_0.symbol.size + 
-  cme_futures_settlements_sbe_v7_0.instrument_guid.size + 
-  cme_futures_settlements_sbe_v7_0.security_id.size + 
-  cme_futures_settlements_sbe_v7_0.formatted_last_px.size + 
-  cme_futures_settlements_sbe_v7_0.md_entry_px.size + 
-  cme_futures_settlements_sbe_v7_0.settl_price_type.size + 
-  cme_futures_settlements_sbe_v7_0.trading_reference_date.size + 
-  cme_futures_settlements_sbe_v7_0.md_statistic_desc.size
+-- Calculate size of: M D Incremental Refresh Settle Group
+cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.md_update_action.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.md_entry_type.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.product_guid.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.clearing_product_code.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.security_type.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.security_exchange.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.maturity_month_year.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.put_or_call.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.strike_price.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_product_guid.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_type.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.symbol.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.instrument_guid.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.security_id.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.formatted_last_px.size(buffer, offset + index)
+
+  index = index + cme_futures_settlements_sbe_v7_0.md_entry_px.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.settl_price_type.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.trading_reference_date.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.md_statistic_desc.size
+
+  return index
+end
 
 -- Display: M D Incremental Refresh Settle Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.display = function(packet, parent, length)
@@ -2292,7 +2335,7 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups = {}
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_settlements_sbe_v7_0.group_size.size
+  index = index + cme_futures_settlements_sbe_v7_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_settle_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2538,12 +2581,20 @@ end
 -- Message Header
 cme_futures_settlements_sbe_v7_0.message_header = {}
 
--- Size: Message Header
-cme_futures_settlements_sbe_v7_0.message_header.size =
-  cme_futures_settlements_sbe_v7_0.block_length.size + 
-  cme_futures_settlements_sbe_v7_0.template_id.size + 
-  cme_futures_settlements_sbe_v7_0.schema_id.size + 
-  cme_futures_settlements_sbe_v7_0.version.size
+-- Calculate size of: Message Header
+cme_futures_settlements_sbe_v7_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.block_length.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.template_id.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.schema_id.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.version.size
+
+  return index
+end
 
 -- Display: Message Header
 cme_futures_settlements_sbe_v7_0.message_header.display = function(packet, parent, length)
@@ -2619,7 +2670,7 @@ cme_futures_settlements_sbe_v7_0.message.size = function(buffer, offset)
 
   index = index + cme_futures_settlements_sbe_v7_0.message_size.size
 
-  index = index + cme_futures_settlements_sbe_v7_0.message_header.size
+  index = index + cme_futures_settlements_sbe_v7_0.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2719,10 +2770,16 @@ end
 -- Binary Packet Header
 cme_futures_settlements_sbe_v7_0.binary_packet_header = {}
 
--- Size: Binary Packet Header
-cme_futures_settlements_sbe_v7_0.binary_packet_header.size =
-  cme_futures_settlements_sbe_v7_0.message_sequence_number.size + 
-  cme_futures_settlements_sbe_v7_0.sending_time.size
+-- Calculate size of: Binary Packet Header
+cme_futures_settlements_sbe_v7_0.binary_packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_settlements_sbe_v7_0.message_sequence_number.size
+
+  index = index + cme_futures_settlements_sbe_v7_0.sending_time.size
+
+  return index
+end
 
 -- Display: Binary Packet Header
 cme_futures_settlements_sbe_v7_0.binary_packet_header.display = function(packet, parent, length)

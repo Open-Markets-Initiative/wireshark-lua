@@ -565,13 +565,22 @@ end
 -- Message Info
 nasdaq_uqdf_output_utp_v1_5.message_info = {}
 
--- Size: Message Info
-nasdaq_uqdf_output_utp_v1_5.message_info.size =
-  nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.size + 
-  nasdaq_uqdf_output_utp_v1_5.sub_market_center_id.size + 
-  nasdaq_uqdf_output_utp_v1_5.sip_timestamp.size + 
-  nasdaq_uqdf_output_utp_v1_5.participant_timestamp.size + 
-  nasdaq_uqdf_output_utp_v1_5.participant_token.size
+-- Calculate size of: Message Info
+nasdaq_uqdf_output_utp_v1_5.message_info.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.sub_market_center_id.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.sip_timestamp.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.participant_timestamp.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.participant_token.size
+
+  return index
+end
 
 -- Display: Message Info
 nasdaq_uqdf_output_utp_v1_5.message_info.display = function(packet, parent, length)
@@ -1196,13 +1205,22 @@ end
 -- Market Center Close Recap
 nasdaq_uqdf_output_utp_v1_5.market_center_close_recap = {}
 
--- Size: Market Center Close Recap
-nasdaq_uqdf_output_utp_v1_5.market_center_close_recap.size =
-  nasdaq_uqdf_output_utp_v1_5.market_center_identifier.size + 
-  nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.size + 
-  nasdaq_uqdf_output_utp_v1_5.market_center_bid_size.size + 
-  nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.size + 
-  nasdaq_uqdf_output_utp_v1_5.market_center_ask_size.size
+-- Calculate size of: Market Center Close Recap
+nasdaq_uqdf_output_utp_v1_5.market_center_close_recap.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_identifier.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_bid_size.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_ask_size.size
+
+  return index
+end
 
 -- Display: Market Center Close Recap
 nasdaq_uqdf_output_utp_v1_5.market_center_close_recap.display = function(packet, parent, length)
@@ -3393,10 +3411,16 @@ end
 -- Finra Adf Mpid Appendage
 nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage = {}
 
--- Size: Finra Adf Mpid Appendage
-nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage.size =
-  nasdaq_uqdf_output_utp_v1_5.bid_adf_mpid.size + 
-  nasdaq_uqdf_output_utp_v1_5.ask_adf_mpid.size
+-- Calculate size of: Finra Adf Mpid Appendage
+nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.bid_adf_mpid.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.ask_adf_mpid.size
+
+  return index
+end
 
 -- Display: Finra Adf Mpid Appendage
 nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage.display = function(packet, parent, length)
@@ -3653,15 +3677,26 @@ end
 -- Long Form National Bbo Appendage
 nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage = {}
 
--- Size: Long Form National Bbo Appendage
-nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.size =
-  nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.size + 
-  nasdaq_uqdf_output_utp_v1_5.best_bid_market_center.size + 
-  nasdaq_uqdf_output_utp_v1_5.best_bid_price.size + 
-  nasdaq_uqdf_output_utp_v1_5.best_bid_size.size + 
-  nasdaq_uqdf_output_utp_v1_5.best_ask_market_center.size + 
-  nasdaq_uqdf_output_utp_v1_5.best_ask_price.size + 
-  nasdaq_uqdf_output_utp_v1_5.best_ask_size.size
+-- Calculate size of: Long Form National Bbo Appendage
+nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.best_bid_market_center.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.best_bid_price.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.best_bid_size.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.best_ask_market_center.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.best_ask_price.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.best_ask_size.size
+
+  return index
+end
 
 -- Display: Long Form National Bbo Appendage
 nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.display = function(packet, parent, length)
@@ -3821,15 +3856,26 @@ end
 -- Short Form National Bbo Appendage
 nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage = {}
 
--- Size: Short Form National Bbo Appendage
-nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.size =
-  nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.size + 
-  nasdaq_uqdf_output_utp_v1_5.national_best_bid_market_center.size + 
-  nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.size + 
-  nasdaq_uqdf_output_utp_v1_5.national_best_bid_size_short.size + 
-  nasdaq_uqdf_output_utp_v1_5.national_best_ask_market_center.size + 
-  nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.size + 
-  nasdaq_uqdf_output_utp_v1_5.national_best_ask_size_short.size
+-- Calculate size of: Short Form National Bbo Appendage
+nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_bid_market_center.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_bid_size_short.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_ask_market_center.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_ask_size_short.size
+
+  return index
+end
 
 -- Display: Short Form National Bbo Appendage
 nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.display = function(packet, parent, length)
@@ -4728,11 +4774,18 @@ end
 -- Message Header
 nasdaq_uqdf_output_utp_v1_5.message_header = {}
 
--- Size: Message Header
-nasdaq_uqdf_output_utp_v1_5.message_header.size =
-  nasdaq_uqdf_output_utp_v1_5.message_length.size + 
-  nasdaq_uqdf_output_utp_v1_5.version.size + 
-  nasdaq_uqdf_output_utp_v1_5.message_category.size
+-- Calculate size of: Message Header
+nasdaq_uqdf_output_utp_v1_5.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.message_length.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.version.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.message_category.size
+
+  return index
+end
 
 -- Display: Message Header
 nasdaq_uqdf_output_utp_v1_5.message_header.display = function(packet, parent, length)
@@ -4896,11 +4949,18 @@ end
 -- Packet Header
 nasdaq_uqdf_output_utp_v1_5.packet_header = {}
 
--- Size: Packet Header
-nasdaq_uqdf_output_utp_v1_5.packet_header.size =
-  nasdaq_uqdf_output_utp_v1_5.session.size + 
-  nasdaq_uqdf_output_utp_v1_5.sequence.size + 
-  nasdaq_uqdf_output_utp_v1_5.count.size
+-- Calculate size of: Packet Header
+nasdaq_uqdf_output_utp_v1_5.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.session.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.sequence.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.count.size
+
+  return index
+end
 
 -- Display: Packet Header
 nasdaq_uqdf_output_utp_v1_5.packet_header.display = function(packet, parent, length)

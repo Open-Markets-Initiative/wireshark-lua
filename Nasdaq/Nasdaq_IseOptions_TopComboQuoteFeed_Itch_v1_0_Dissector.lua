@@ -438,17 +438,30 @@ end
 -- Complex Strategy Ticker Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message = {}
 
--- Size: Complex Strategy Ticker Message
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.size =
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.last_price.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.first.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.size
+-- Calculate size of: Complex Strategy Ticker Message
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.last_price.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.first.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.size
+
+  return index
+end
 
 -- Display: Complex Strategy Ticker Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.display = function(packet, parent, length)
@@ -684,18 +697,32 @@ end
 -- Strategy Best Ask Update
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_ask_update = {}
 
--- Size: Strategy Best Ask Update
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_ask_update.size =
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.size
+-- Calculate size of: Strategy Best Ask Update
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_ask_update.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.size
+
+  return index
+end
 
 -- Display: Strategy Best Ask Update
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_ask_update.display = function(packet, parent, length)
@@ -760,18 +787,32 @@ end
 -- Strategy Best Bid Update
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_update = {}
 
--- Size: Strategy Best Bid Update
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_update.size =
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.size
+-- Calculate size of: Strategy Best Bid Update
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_update.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.size
+
+  return index
+end
 
 -- Display: Strategy Best Bid Update
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_update.display = function(packet, parent, length)
@@ -1170,25 +1211,46 @@ end
 -- Strategy Best Bid And Ask Update
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update = {}
 
--- Size: Strategy Best Bid And Ask Update
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update.size =
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.size
+-- Calculate size of: Strategy Best Bid And Ask Update
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.size
+
+  return index
+end
 
 -- Display: Strategy Best Bid And Ask Update
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update.display = function(packet, parent, length)
@@ -1304,11 +1366,18 @@ end
 -- Strategy Trading Action Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message = {}
 
--- Size: Strategy Trading Action Message
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message.size =
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.size
+-- Calculate size of: Strategy Trading Action Message
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.size
+
+  return index
+end
 
 -- Display: Strategy Trading Action Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message.display = function(packet, parent, length)
@@ -1382,11 +1451,18 @@ end
 -- Strategy Open Closed Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message = {}
 
--- Size: Strategy Open Closed Message
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message.size =
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.size
+-- Calculate size of: Strategy Open Closed Message
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.size
+
+  return index
+end
 
 -- Display: Strategy Open Closed Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message.display = function(packet, parent, length)
@@ -1686,18 +1762,32 @@ end
 -- Leg Information
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_information = {}
 
--- Size: Leg Information
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_information.size =
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.size
+-- Calculate size of: Leg Information
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_information.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.size
+
+  return index
+end
 
 -- Display: Leg Information
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_information.display = function(packet, parent, length)
@@ -2125,15 +2215,26 @@ end
 -- System Event Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message = {}
 
--- Size: System Event Message
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.size =
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.size
+-- Calculate size of: System Event Message
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.size
+
+  return index
+end
 
 -- Display: System Event Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.display = function(packet, parent, length)
@@ -2364,10 +2465,16 @@ end
 -- Message Header
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_header = {}
 
--- Size: Message Header
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_header.size =
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.size
+-- Calculate size of: Message Header
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_header.display = function(packet, parent, length)
@@ -2544,11 +2651,18 @@ end
 -- Packet Header
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.packet_header = {}
 
--- Size: Packet Header
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.packet_header.size =
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.size
+-- Calculate size of: Packet Header
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.size
+
+  index = index + nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.packet_header.display = function(packet, parent, length)

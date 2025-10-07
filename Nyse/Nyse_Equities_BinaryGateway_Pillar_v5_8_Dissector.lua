@@ -1554,10 +1554,16 @@ end
 -- Seq Msg Header
 nyse_equities_binarygateway_pillar_v5_8.seq_msg_header = {}
 
--- Size: Seq Msg Header
-nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_length.size
+-- Calculate size of: Seq Msg Header
+nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_length.size
+
+  return index
+end
 
 -- Display: Seq Msg Header
 nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.display = function(packet, parent, length)
@@ -1598,36 +1604,68 @@ end
 -- Risk Control Alert
 nyse_equities_binarygateway_pillar_v5_8.risk_control_alert = {}
 
--- Size: Risk Control Alert
-nyse_equities_binarygateway_pillar_v5_8.risk_control_alert.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.market_maker.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mp_sub_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_4.size + 
-  nyse_equities_binarygateway_pillar_v5_8.clearing_number.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_user_crd.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_user_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_control_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.time_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.percentage_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.count_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.breach_action_response.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ioc_attribution.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_calculation_1.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_calculation_2.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_calculation_3.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_calculation_4.size + 
-  nyse_equities_binarygateway_pillar_v5_8.count_calculation.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_action_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.threshold_breach_level.size + 
-  nyse_equities_binarygateway_pillar_v5_8.blocked_by_breach_indicator.size + 
-  nyse_equities_binarygateway_pillar_v5_8.blocked_by_kill_switch_indicator.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reinstatement_requiredby_self.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reinstatement_requiredby_other.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_200.size
+-- Calculate size of: Risk Control Alert
+nyse_equities_binarygateway_pillar_v5_8.risk_control_alert.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.market_maker.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mp_sub_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_4.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.clearing_number.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_user_crd.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_user_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_control_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.time_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.percentage_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.count_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.breach_action_response.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ioc_attribution.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_calculation_1.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_calculation_2.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_calculation_3.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_calculation_4.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.count_calculation.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_action_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.threshold_breach_level.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.blocked_by_breach_indicator.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.blocked_by_kill_switch_indicator.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reinstatement_requiredby_self.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reinstatement_requiredby_other.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_200.size
+
+  return index
+end
 
 -- Display: Risk Control Alert
 nyse_equities_binarygateway_pillar_v5_8.risk_control_alert.display = function(packet, parent, length)
@@ -1944,41 +1982,78 @@ end
 -- Risk Control Acknowledgement
 nyse_equities_binarygateway_pillar_v5_8.risk_control_acknowledgement = {}
 
--- Size: Risk Control Acknowledgement
-nyse_equities_binarygateway_pillar_v5_8.risk_control_acknowledgement.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.market_maker.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mp_sub_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_4.size + 
-  nyse_equities_binarygateway_pillar_v5_8.clearing_number.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_ack_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_user_crd.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_user_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_control_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_control_activation.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_action_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.time_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.percentage_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.count_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.breach_action_response.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ioc_attribution.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_calculation_1.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_calculation_2.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_calculation_3.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_calculation_4.size + 
-  nyse_equities_binarygateway_pillar_v5_8.count_calculation.size + 
-  nyse_equities_binarygateway_pillar_v5_8.blocked_by_breach_indicator.size + 
-  nyse_equities_binarygateway_pillar_v5_8.blocked_by_kill_switch_indicator.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reinstatement_requiredby_self.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reinstatement_requiredby_other.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_range_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_minimum_value.size + 
-  nyse_equities_binarygateway_pillar_v5_8.price_scale.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_190.size
+-- Calculate size of: Risk Control Acknowledgement
+nyse_equities_binarygateway_pillar_v5_8.risk_control_acknowledgement.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.market_maker.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mp_sub_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_4.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.clearing_number.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_ack_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_user_crd.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_user_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_control_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_control_activation.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_action_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.time_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.percentage_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.count_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.breach_action_response.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ioc_attribution.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_calculation_1.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_calculation_2.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_calculation_3.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_calculation_4.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.count_calculation.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.blocked_by_breach_indicator.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.blocked_by_kill_switch_indicator.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reinstatement_requiredby_self.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reinstatement_requiredby_other.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_range_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_minimum_value.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.price_scale.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_190.size
+
+  return index
+end
 
 -- Display: Risk Control Acknowledgement
 nyse_equities_binarygateway_pillar_v5_8.risk_control_acknowledgement.display = function(packet, parent, length)
@@ -2454,10 +2529,16 @@ end
 -- Stream Id
 nyse_equities_binarygateway_pillar_v5_8.stream_id = {}
 
--- Size: Stream Id
-nyse_equities_binarygateway_pillar_v5_8.stream_id.size =
-  nyse_equities_binarygateway_pillar_v5_8.sess.size + 
-  nyse_equities_binarygateway_pillar_v5_8.user.size
+-- Calculate size of: Stream Id
+nyse_equities_binarygateway_pillar_v5_8.stream_id.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.sess.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.user.size
+
+  return index
+end
 
 -- Display: Stream Id
 nyse_equities_binarygateway_pillar_v5_8.stream_id.display = function(buffer, offset, value, packet, parent)
@@ -2494,10 +2575,16 @@ end
 -- Manual Action Id
 nyse_equities_binarygateway_pillar_v5_8.manual_action_id = {}
 
--- Size: Manual Action Id
-nyse_equities_binarygateway_pillar_v5_8.manual_action_id.size =
-  nyse_equities_binarygateway_pillar_v5_8.stream_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.seq.size
+-- Calculate size of: Manual Action Id
+nyse_equities_binarygateway_pillar_v5_8.manual_action_id.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.stream_id.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq.size
+
+  return index
+end
 
 -- Display: Manual Action Id
 nyse_equities_binarygateway_pillar_v5_8.manual_action_id.display = function(packet, parent, length)
@@ -2627,24 +2714,44 @@ end
 -- Manual Action Request
 nyse_equities_binarygateway_pillar_v5_8.manual_action_request = {}
 
--- Size: Manual Action Request
-nyse_equities_binarygateway_pillar_v5_8.manual_action_request.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.introducing_badge_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mmid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.manual_action_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.side.size + 
-  nyse_equities_binarygateway_pillar_v5_8.price.size + 
-  nyse_equities_binarygateway_pillar_v5_8.dmm_requested_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.dmm_available_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.dmm_allocated_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ssr_filing_price.size + 
-  nyse_equities_binarygateway_pillar_v5_8.manual_override.size + 
-  nyse_equities_binarygateway_pillar_v5_8.manual_override_reason.size + 
-  nyse_equities_binarygateway_pillar_v5_8.manual_action_type.size
+-- Calculate size of: Manual Action Request
+nyse_equities_binarygateway_pillar_v5_8.manual_action_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.introducing_badge_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mmid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.manual_action_id.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.side.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.price.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.dmm_requested_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.dmm_available_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.dmm_allocated_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ssr_filing_price.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.manual_override.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.manual_override_reason.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.manual_action_type.size
+
+  return index
+end
 
 -- Display: Manual Action Request
 nyse_equities_binarygateway_pillar_v5_8.manual_action_request.display = function(packet, parent, length)
@@ -2760,13 +2867,22 @@ end
 -- Auction Request
 nyse_equities_binarygateway_pillar_v5_8.auction_request = {}
 
--- Size: Auction Request
-nyse_equities_binarygateway_pillar_v5_8.auction_request.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.auction_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ssr_filing_price.size
+-- Calculate size of: Auction Request
+nyse_equities_binarygateway_pillar_v5_8.auction_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.auction_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ssr_filing_price.size
+
+  return index
+end
 
 -- Display: Auction Request
 nyse_equities_binarygateway_pillar_v5_8.auction_request.display = function(packet, parent, length)
@@ -2997,19 +3113,34 @@ end
 -- Auction Price Data
 nyse_equities_binarygateway_pillar_v5_8.auction_price_data = {}
 
--- Size: Auction Price Data
-nyse_equities_binarygateway_pillar_v5_8.auction_price_data.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.imbalance_side.size + 
-  nyse_equities_binarygateway_pillar_v5_8.side_of_unpaired_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.imbalance_volume.size + 
-  nyse_equities_binarygateway_pillar_v5_8.price.size + 
-  nyse_equities_binarygateway_pillar_v5_8.paired_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.unpaired_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.buy_dmm_available_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.sell_dmm_available_qty.size
+-- Calculate size of: Auction Price Data
+nyse_equities_binarygateway_pillar_v5_8.auction_price_data.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.imbalance_side.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.side_of_unpaired_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.imbalance_volume.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.price.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.paired_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.unpaired_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.buy_dmm_available_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.sell_dmm_available_qty.size
+
+  return index
+end
 
 -- Display: Auction Price Data
 nyse_equities_binarygateway_pillar_v5_8.auction_price_data.display = function(packet, parent, length)
@@ -3077,10 +3208,16 @@ end
 -- Gt End
 nyse_equities_binarygateway_pillar_v5_8.gt_end = {}
 
--- Size: Gt End
-nyse_equities_binarygateway_pillar_v5_8.gt_end.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+-- Calculate size of: Gt End
+nyse_equities_binarygateway_pillar_v5_8.gt_end.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  return index
+end
 
 -- Display: Gt End
 nyse_equities_binarygateway_pillar_v5_8.gt_end.display = function(packet, parent, length)
@@ -3121,10 +3258,16 @@ end
 -- Gt Begin
 nyse_equities_binarygateway_pillar_v5_8.gt_begin = {}
 
--- Size: Gt Begin
-nyse_equities_binarygateway_pillar_v5_8.gt_begin.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+-- Calculate size of: Gt Begin
+nyse_equities_binarygateway_pillar_v5_8.gt_begin.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  return index
+end
 
 -- Display: Gt Begin
 nyse_equities_binarygateway_pillar_v5_8.gt_begin.display = function(packet, parent, length)
@@ -3218,13 +3361,22 @@ end
 -- Symbol Subscription Acknowledgement
 nyse_equities_binarygateway_pillar_v5_8.symbol_subscription_acknowledgement = {}
 
--- Size: Symbol Subscription Acknowledgement
-nyse_equities_binarygateway_pillar_v5_8.symbol_subscription_acknowledgement.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.username.size + 
-  nyse_equities_binarygateway_pillar_v5_8.subscription_status.size
+-- Calculate size of: Symbol Subscription Acknowledgement
+nyse_equities_binarygateway_pillar_v5_8.symbol_subscription_acknowledgement.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.username.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.subscription_status.size
+
+  return index
+end
 
 -- Display: Symbol Subscription Acknowledgement
 nyse_equities_binarygateway_pillar_v5_8.symbol_subscription_acknowledgement.display = function(packet, parent, length)
@@ -4384,17 +4536,30 @@ end
 -- Application Layer Reject
 nyse_equities_binarygateway_pillar_v5_8.application_layer_reject = {}
 
--- Size: Application Layer Reject
-nyse_equities_binarygateway_pillar_v5_8.application_layer_reject.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reason_code.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reject_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.user_data.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_4.size
+-- Calculate size of: Application Layer Reject
+nyse_equities_binarygateway_pillar_v5_8.application_layer_reject.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reason_code.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reject_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.user_data.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_4.size
+
+  return index
+end
 
 -- Display: Application Layer Reject
 nyse_equities_binarygateway_pillar_v5_8.application_layer_reject.display = function(packet, parent, length)
@@ -4531,10 +4696,16 @@ end
 -- Ref Seq Msg Id
 nyse_equities_binarygateway_pillar_v5_8.ref_seq_msg_id = {}
 
--- Size: Ref Seq Msg Id
-nyse_equities_binarygateway_pillar_v5_8.ref_seq_msg_id.size =
-  nyse_equities_binarygateway_pillar_v5_8.stream_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.seq.size
+-- Calculate size of: Ref Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_8.ref_seq_msg_id.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.stream_id.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq.size
+
+  return index
+end
 
 -- Display: Ref Seq Msg Id
 nyse_equities_binarygateway_pillar_v5_8.ref_seq_msg_id.display = function(packet, parent, length)
@@ -4598,20 +4769,36 @@ end
 -- Trade Bust Correct
 nyse_equities_binarygateway_pillar_v5_8.trade_bust_correct = {}
 
--- Size: Trade Bust Correct
-nyse_equities_binarygateway_pillar_v5_8.trade_bust_correct.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.order_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ref_seq_msg_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.deal_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.last_px.size + 
-  nyse_equities_binarygateway_pillar_v5_8.last_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reason_code.size + 
-  nyse_equities_binarygateway_pillar_v5_8.user_data.size
+-- Calculate size of: Trade Bust Correct
+nyse_equities_binarygateway_pillar_v5_8.trade_bust_correct.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.order_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ref_seq_msg_id.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.deal_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.last_px.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.last_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reason_code.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.user_data.size
+
+  return index
+end
 
 -- Display: Trade Bust Correct
 nyse_equities_binarygateway_pillar_v5_8.trade_bust_correct.display = function(packet, parent, length)
@@ -4728,10 +4915,16 @@ end
 -- Sub Msg Header
 nyse_equities_binarygateway_pillar_v5_8.sub_msg_header = {}
 
--- Size: Sub Msg Header
-nyse_equities_binarygateway_pillar_v5_8.sub_msg_header.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_length.size
+-- Calculate size of: Sub Msg Header
+nyse_equities_binarygateway_pillar_v5_8.sub_msg_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_length.size
+
+  return index
+end
 
 -- Display: Sub Msg Header
 nyse_equities_binarygateway_pillar_v5_8.sub_msg_header.display = function(packet, parent, length)
@@ -4772,10 +4965,16 @@ end
 -- Optional Settlement Type Add On
 nyse_equities_binarygateway_pillar_v5_8.optional_settlement_type_add_on = {}
 
--- Size: Optional Settlement Type Add On
-nyse_equities_binarygateway_pillar_v5_8.optional_settlement_type_add_on.size =
-  nyse_equities_binarygateway_pillar_v5_8.sub_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.settlement_type.size
+-- Calculate size of: Optional Settlement Type Add On
+nyse_equities_binarygateway_pillar_v5_8.optional_settlement_type_add_on.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.sub_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.settlement_type.size
+
+  return index
+end
 
 -- Display: Optional Settlement Type Add On
 nyse_equities_binarygateway_pillar_v5_8.optional_settlement_type_add_on.display = function(packet, parent, length)
@@ -5006,26 +5205,48 @@ end
 -- Execution Report
 nyse_equities_binarygateway_pillar_v5_8.execution_report = {}
 
--- Size: Execution Report
-nyse_equities_binarygateway_pillar_v5_8.execution_report.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.order_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.deal_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.last_px.size + 
-  nyse_equities_binarygateway_pillar_v5_8.leaves_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cum_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.last_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.liquidity_indicator.size + 
-  nyse_equities_binarygateway_pillar_v5_8.displayed_liquidity_indicator.size + 
-  nyse_equities_binarygateway_pillar_v5_8.locate_reqd.size + 
-  nyse_equities_binarygateway_pillar_v5_8.participant_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reason_code.size + 
-  nyse_equities_binarygateway_pillar_v5_8.user_data.size + 
-  nyse_equities_binarygateway_pillar_v5_8.optional_settlement_type_add_on.size
+-- Calculate size of: Execution Report
+nyse_equities_binarygateway_pillar_v5_8.execution_report.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.order_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.deal_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.last_px.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.leaves_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cum_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.last_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.liquidity_indicator.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.displayed_liquidity_indicator.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.locate_reqd.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.participant_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reason_code.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.user_data.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.optional_settlement_type_add_on.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Execution Report
 nyse_equities_binarygateway_pillar_v5_8.execution_report.display = function(packet, parent, length)
@@ -5309,20 +5530,36 @@ end
 -- Order Priority Update Acknowledgment
 nyse_equities_binarygateway_pillar_v5_8.order_priority_update_acknowledgment = {}
 
--- Size: Order Priority Update Acknowledgment
-nyse_equities_binarygateway_pillar_v5_8.order_priority_update_acknowledgment.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.order_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.working_price.size + 
-  nyse_equities_binarygateway_pillar_v5_8.order_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.working_away_from_display.size + 
-  nyse_equities_binarygateway_pillar_v5_8.pre_liquidity_indicator.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ack_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.user_data.size
+-- Calculate size of: Order Priority Update Acknowledgment
+nyse_equities_binarygateway_pillar_v5_8.order_priority_update_acknowledgment.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.order_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.working_price.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.order_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.working_away_from_display.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.pre_liquidity_indicator.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ack_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.user_data.size
+
+  return index
+end
 
 -- Display: Order Priority Update Acknowledgment
 nyse_equities_binarygateway_pillar_v5_8.order_priority_update_acknowledgment.display = function(packet, parent, length)
@@ -5504,24 +5741,44 @@ end
 -- Order Modify Cancel Request Acknowledgment And Urout
 nyse_equities_binarygateway_pillar_v5_8.order_modify_cancel_request_acknowledgment_and_urout = {}
 
--- Size: Order Modify Cancel Request Acknowledgment And Urout
-nyse_equities_binarygateway_pillar_v5_8.order_modify_cancel_request_acknowledgment_and_urout.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.order_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ref_cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.orig_cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.price.size + 
-  nyse_equities_binarygateway_pillar_v5_8.order_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.leaves_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.side.size + 
-  nyse_equities_binarygateway_pillar_v5_8.locate_reqd.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reason_code.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ack_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.bitfield_flow_indicator.size + 
-  nyse_equities_binarygateway_pillar_v5_8.user_data.size
+-- Calculate size of: Order Modify Cancel Request Acknowledgment And Urout
+nyse_equities_binarygateway_pillar_v5_8.order_modify_cancel_request_acknowledgment_and_urout.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.order_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ref_cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.orig_cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.price.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.order_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.leaves_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.side.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.locate_reqd.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reason_code.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ack_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.bitfield_flow_indicator.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.user_data.size
+
+  return index
+end
 
 -- Display: Order Modify Cancel Request Acknowledgment And Urout
 nyse_equities_binarygateway_pillar_v5_8.order_modify_cancel_request_acknowledgment_and_urout.display = function(packet, parent, length)
@@ -5812,15 +6069,26 @@ end
 -- Optional Order Add On
 nyse_equities_binarygateway_pillar_v5_8.optional_order_add_on = {}
 
--- Size: Optional Order Add On
-nyse_equities_binarygateway_pillar_v5_8.optional_order_add_on.size =
-  nyse_equities_binarygateway_pillar_v5_8.sub_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.stop_px.size + 
-  nyse_equities_binarygateway_pillar_v5_8.max_floor.size + 
-  nyse_equities_binarygateway_pillar_v5_8.deliver_to_comp_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.clearing_firm.size + 
-  nyse_equities_binarygateway_pillar_v5_8.optional_data.size + 
-  nyse_equities_binarygateway_pillar_v5_8.clearing_account.size
+-- Calculate size of: Optional Order Add On
+nyse_equities_binarygateway_pillar_v5_8.optional_order_add_on.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.sub_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.stop_px.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.max_floor.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.deliver_to_comp_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.clearing_firm.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.optional_data.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.clearing_account.size
+
+  return index
+end
 
 -- Display: Optional Order Add On
 nyse_equities_binarygateway_pillar_v5_8.optional_order_add_on.display = function(packet, parent, length)
@@ -5926,7 +6194,7 @@ nyse_equities_binarygateway_pillar_v5_8.order_and_cancel_replace_acknowledgement
 nyse_equities_binarygateway_pillar_v5_8.order_and_cancel_replace_acknowledgement_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
 
   index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
 
@@ -5971,7 +6239,7 @@ nyse_equities_binarygateway_pillar_v5_8.order_and_cancel_replace_acknowledgement
   local seq_msg_length = buffer(offset + index - 113, 2):le_uint()
 
   if seq_msg_length ~= 65 then
-    index = index + nyse_equities_binarygateway_pillar_v5_8.optional_order_add_on.size
+    index = index + nyse_equities_binarygateway_pillar_v5_8.optional_order_add_on.size(buffer, offset + index)
 
   end
 
@@ -6477,25 +6745,46 @@ end
 -- Session Configuration Acknowledgement Message
 nyse_equities_binarygateway_pillar_v5_8.session_configuration_acknowledgement_message = {}
 
--- Size: Session Configuration Acknowledgement Message
-nyse_equities_binarygateway_pillar_v5_8.session_configuration_acknowledgement_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.user_session_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.user_session_status.size + 
-  nyse_equities_binarygateway_pillar_v5_8.username.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mic.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cancel_on_disconnect.size + 
-  nyse_equities_binarygateway_pillar_v5_8.throttle_preference.size + 
-  nyse_equities_binarygateway_pillar_v5_8.throttle_window.size + 
-  nyse_equities_binarygateway_pillar_v5_8.throttle_threshold.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_eligibility.size + 
-  nyse_equities_binarygateway_pillar_v5_8.max_order_quantity.size + 
-  nyse_equities_binarygateway_pillar_v5_8.self_trade_prevention.size + 
-  nyse_equities_binarygateway_pillar_v5_8.order_priority_update_ack_subscription.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ack_status.size + 
-  nyse_equities_binarygateway_pillar_v5_8.bold_designation.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_49.size
+-- Calculate size of: Session Configuration Acknowledgement Message
+nyse_equities_binarygateway_pillar_v5_8.session_configuration_acknowledgement_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.user_session_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.user_session_status.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.username.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mic.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cancel_on_disconnect.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.throttle_preference.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.throttle_window.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.throttle_threshold.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_eligibility.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.max_order_quantity.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.self_trade_prevention.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.order_priority_update_ack_subscription.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ack_status.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.bold_designation.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_49.size
+
+  return index
+end
 
 -- Display: Session Configuration Acknowledgement Message
 nyse_equities_binarygateway_pillar_v5_8.session_configuration_acknowledgement_message.display = function(packet, parent, length)
@@ -6604,14 +6893,24 @@ end
 -- Mmid Configuration Message
 nyse_equities_binarygateway_pillar_v5_8.mmid_configuration_message = {}
 
--- Size: Mmid Configuration Message
-nyse_equities_binarygateway_pillar_v5_8.mmid_configuration_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.market_maker.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mmid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.username.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_100.size
+-- Calculate size of: Mmid Configuration Message
+nyse_equities_binarygateway_pillar_v5_8.mmid_configuration_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.market_maker.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mmid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.username.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_100.size
+
+  return index
+end
 
 -- Display: Mmid Configuration Message
 nyse_equities_binarygateway_pillar_v5_8.mmid_configuration_message.display = function(packet, parent, length)
@@ -6720,14 +7019,24 @@ end
 -- Mpid Configuration Message
 nyse_equities_binarygateway_pillar_v5_8.mpid_configuration_message = {}
 
--- Size: Mpid Configuration Message
-nyse_equities_binarygateway_pillar_v5_8.mpid_configuration_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid_status.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.username.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_50.size
+-- Calculate size of: Mpid Configuration Message
+nyse_equities_binarygateway_pillar_v5_8.mpid_configuration_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid_status.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.username.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_50.size
+
+  return index
+end
 
 -- Display: Mpid Configuration Message
 nyse_equities_binarygateway_pillar_v5_8.mpid_configuration_message.display = function(packet, parent, length)
@@ -6884,13 +7193,22 @@ end
 -- Mpv Level Definition
 nyse_equities_binarygateway_pillar_v5_8.mpv_level_definition = {}
 
--- Size: Mpv Level Definition
-nyse_equities_binarygateway_pillar_v5_8.mpv_level_definition.size =
-  nyse_equities_binarygateway_pillar_v5_8.mpv_level_name.size + 
-  nyse_equities_binarygateway_pillar_v5_8.price.size + 
-  nyse_equities_binarygateway_pillar_v5_8.quoting_mpv.size + 
-  nyse_equities_binarygateway_pillar_v5_8.trading_mpv.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpv_class_id.size
+-- Calculate size of: Mpv Level Definition
+nyse_equities_binarygateway_pillar_v5_8.mpv_level_definition.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpv_level_name.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.price.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.quoting_mpv.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.trading_mpv.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpv_class_id.size
+
+  return index
+end
 
 -- Display: Mpv Level Definition
 nyse_equities_binarygateway_pillar_v5_8.mpv_level_definition.display = function(packet, parent, length)
@@ -6940,7 +7258,7 @@ end
 -- Minimum Price Variant Level Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8.minimum_price_variant_level_reference_data_message = {}
 
--- Size: Minimum Price Variant Level Reference Data Message
+-- Size Of: Minimum Price Variant Level Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8.minimum_price_variant_level_reference_data_message.size = function(buffer, offset)
   local index = 0
 
@@ -7070,14 +7388,24 @@ end
 -- Minimum Price Variant Class Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8.minimum_price_variant_class_reference_data_message = {}
 
--- Size: Minimum Price Variant Class Reference Data Message
-nyse_equities_binarygateway_pillar_v5_8.minimum_price_variant_class_reference_data_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpv_class_name.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpv_class_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.rpimpv.size + 
-  nyse_equities_binarygateway_pillar_v5_8.luldmpv.size
+-- Calculate size of: Minimum Price Variant Class Reference Data Message
+nyse_equities_binarygateway_pillar_v5_8.minimum_price_variant_class_reference_data_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpv_class_name.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpv_class_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.rpimpv.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.luldmpv.size
+
+  return index
+end
 
 -- Display: Minimum Price Variant Class Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8.minimum_price_variant_class_reference_data_message.display = function(packet, parent, length)
@@ -7459,25 +7787,46 @@ end
 -- Dmm Symbol Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8.dmm_symbol_reference_data_message = {}
 
--- Size: Dmm Symbol Reference Data Message
-nyse_equities_binarygateway_pillar_v5_8.dmm_symbol_reference_data_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.nyse_symbol.size + 
-  nyse_equities_binarygateway_pillar_v5_8.book.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.dmm_unit_num.size + 
-  nyse_equities_binarygateway_pillar_v5_8.post.size + 
-  nyse_equities_binarygateway_pillar_v5_8.median_volume.size + 
-  nyse_equities_binarygateway_pillar_v5_8.rd_seq.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ridge.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ppp_1.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ppp_2.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ppp_3.size + 
-  nyse_equities_binarygateway_pillar_v5_8.open_on_trade_max_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.close_on_trade_max_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.lmocp.size
+-- Calculate size of: Dmm Symbol Reference Data Message
+nyse_equities_binarygateway_pillar_v5_8.dmm_symbol_reference_data_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.nyse_symbol.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.book.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.dmm_unit_num.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.post.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.median_volume.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.rd_seq.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ridge.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ppp_1.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ppp_2.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ppp_3.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.open_on_trade_max_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.close_on_trade_max_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.lmocp.size
+
+  return index
+end
 
 -- Display: Dmm Symbol Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8.dmm_symbol_reference_data_message.display = function(packet, parent, length)
@@ -7675,18 +8024,32 @@ end
 -- Equities Symbol Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8.equities_symbol_reference_data_message = {}
 
--- Size: Equities Symbol Reference Data Message
-nyse_equities_binarygateway_pillar_v5_8.equities_symbol_reference_data_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.transact_time.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.nyse_symbol.size + 
-  nyse_equities_binarygateway_pillar_v5_8.listed_mic.size + 
-  nyse_equities_binarygateway_pillar_v5_8.round_lot_size.size + 
-  nyse_equities_binarygateway_pillar_v5_8.adv_risk_range_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_7.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpv_class_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.test_symbol_indicator.size
+-- Calculate size of: Equities Symbol Reference Data Message
+nyse_equities_binarygateway_pillar_v5_8.equities_symbol_reference_data_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.transact_time.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.nyse_symbol.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.listed_mic.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.round_lot_size.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.adv_risk_range_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_7.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpv_class_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.test_symbol_indicator.size
+
+  return index
+end
 
 -- Display: Equities Symbol Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8.equities_symbol_reference_data_message.display = function(packet, parent, length)
@@ -7774,22 +8137,40 @@ end
 -- Risk Action Request Message
 nyse_equities_binarygateway_pillar_v5_8.risk_action_request_message = {}
 
--- Size: Risk Action Request Message
-nyse_equities_binarygateway_pillar_v5_8.risk_action_request_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.market_maker.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mp_sub_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_4.size + 
-  nyse_equities_binarygateway_pillar_v5_8.clearing_number.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_user_crd.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_user_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_control_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_action_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_range_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_199.size
+-- Calculate size of: Risk Action Request Message
+nyse_equities_binarygateway_pillar_v5_8.risk_action_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.market_maker.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mp_sub_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_4.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.clearing_number.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_user_crd.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_user_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_control_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_action_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_range_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_199.size
+
+  return index
+end
 
 -- Display: Risk Action Request Message
 nyse_equities_binarygateway_pillar_v5_8.risk_action_request_message.display = function(packet, parent, length)
@@ -7902,31 +8283,58 @@ end
 -- Risk Limit Update Request Message
 nyse_equities_binarygateway_pillar_v5_8.risk_limit_update_request_message = {}
 
--- Size: Risk Limit Update Request Message
-nyse_equities_binarygateway_pillar_v5_8.risk_limit_update_request_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.market_maker.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mp_sub_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_4.size + 
-  nyse_equities_binarygateway_pillar_v5_8.clearing_number.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_user_crd.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_user_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_control_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_control_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_control_activation.size + 
-  nyse_equities_binarygateway_pillar_v5_8.usd_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.time_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.percentage_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.count_limit.size + 
-  nyse_equities_binarygateway_pillar_v5_8.breach_action_request.size + 
-  nyse_equities_binarygateway_pillar_v5_8.ioc_attribution.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_range_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.risk_minimum_value.size + 
-  nyse_equities_binarygateway_pillar_v5_8.price_scale.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_190.size
+-- Calculate size of: Risk Limit Update Request Message
+nyse_equities_binarygateway_pillar_v5_8.risk_limit_update_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.market_maker.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mp_sub_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_4.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.clearing_number.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_user_crd.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_user_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_control_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_control_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_control_activation.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.usd_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.time_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.percentage_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.count_limit.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.breach_action_request.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.ioc_attribution.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_range_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.risk_minimum_value.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.price_scale.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_190.size
+
+  return index
+end
 
 -- Display: Risk Limit Update Request Message
 nyse_equities_binarygateway_pillar_v5_8.risk_limit_update_request_message.display = function(packet, parent, length)
@@ -8171,20 +8579,36 @@ end
 -- Manual Action Response Message
 nyse_equities_binarygateway_pillar_v5_8.manual_action_response_message = {}
 
--- Size: Manual Action Response Message
-nyse_equities_binarygateway_pillar_v5_8.manual_action_response_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.manual_action_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.sell_indicator.size + 
-  nyse_equities_binarygateway_pillar_v5_8.intraday_sell_short_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mp_sub_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.locate_reqd.size + 
-  nyse_equities_binarygateway_pillar_v5_8.self_trade_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.user_data.size + 
-  nyse_equities_binarygateway_pillar_v5_8.manual_response_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.dmm_reject_reason.size
+-- Calculate size of: Manual Action Response Message
+nyse_equities_binarygateway_pillar_v5_8.manual_action_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.manual_action_id.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.sell_indicator.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.intraday_sell_short_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mp_sub_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.locate_reqd.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.self_trade_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.user_data.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.manual_response_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.dmm_reject_reason.size
+
+  return index
+end
 
 -- Display: Manual Action Response Message
 nyse_equities_binarygateway_pillar_v5_8.manual_action_response_message.display = function(packet, parent, length)
@@ -8255,9 +8679,14 @@ end
 -- Tg End Message
 nyse_equities_binarygateway_pillar_v5_8.tg_end_message = {}
 
--- Size: Tg End Message
-nyse_equities_binarygateway_pillar_v5_8.tg_end_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size
+-- Calculate size of: Tg End Message
+nyse_equities_binarygateway_pillar_v5_8.tg_end_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Tg End Message
 nyse_equities_binarygateway_pillar_v5_8.tg_end_message.display = function(packet, parent, length)
@@ -8295,9 +8724,14 @@ end
 -- Tg Begin Message
 nyse_equities_binarygateway_pillar_v5_8.tg_begin_message = {}
 
--- Size: Tg Begin Message
-nyse_equities_binarygateway_pillar_v5_8.tg_begin_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size
+-- Calculate size of: Tg Begin Message
+nyse_equities_binarygateway_pillar_v5_8.tg_begin_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Tg Begin Message
 nyse_equities_binarygateway_pillar_v5_8.tg_begin_message.display = function(packet, parent, length)
@@ -8335,11 +8769,18 @@ end
 -- Symbol Subscription Request Message
 nyse_equities_binarygateway_pillar_v5_8.symbol_subscription_request_message = {}
 
--- Size: Symbol Subscription Request Message
-nyse_equities_binarygateway_pillar_v5_8.symbol_subscription_request_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.username.size
+-- Calculate size of: Symbol Subscription Request Message
+nyse_equities_binarygateway_pillar_v5_8.symbol_subscription_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.username.size
+
+  return index
+end
 
 -- Display: Symbol Subscription Request Message
 nyse_equities_binarygateway_pillar_v5_8.symbol_subscription_request_message.display = function(packet, parent, length)
@@ -8446,16 +8887,28 @@ end
 -- Bulk Cancel Request Message
 nyse_equities_binarygateway_pillar_v5_8.bulk_cancel_request_message = {}
 
--- Size: Bulk Cancel Request Message
-nyse_equities_binarygateway_pillar_v5_8.bulk_cancel_request_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mmid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.deliver_to_comp_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.bulk_cancel_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.side.size
+-- Calculate size of: Bulk Cancel Request Message
+nyse_equities_binarygateway_pillar_v5_8.bulk_cancel_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mmid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.deliver_to_comp_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.bulk_cancel_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.side.size
+
+  return index
+end
 
 -- Display: Bulk Cancel Request Message
 nyse_equities_binarygateway_pillar_v5_8.bulk_cancel_request_message.display = function(packet, parent, length)
@@ -8514,16 +8967,28 @@ end
 -- Order Modify Request Message
 nyse_equities_binarygateway_pillar_v5_8.order_modify_request_message = {}
 
--- Size: Order Modify Request Message
-nyse_equities_binarygateway_pillar_v5_8.order_modify_request_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.orig_cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.order_qty.size + 
-  nyse_equities_binarygateway_pillar_v5_8.side.size + 
-  nyse_equities_binarygateway_pillar_v5_8.locate_reqd.size
+-- Calculate size of: Order Modify Request Message
+nyse_equities_binarygateway_pillar_v5_8.order_modify_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.orig_cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.order_qty.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.side.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.locate_reqd.size
+
+  return index
+end
 
 -- Display: Order Modify Request Message
 nyse_equities_binarygateway_pillar_v5_8.order_modify_request_message.display = function(packet, parent, length)
@@ -8582,13 +9047,22 @@ end
 -- Order Cancel Request Message
 nyse_equities_binarygateway_pillar_v5_8.order_cancel_request_message = {}
 
--- Size: Order Cancel Request Message
-nyse_equities_binarygateway_pillar_v5_8.order_cancel_request_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.symbol_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.mpid.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.orig_cl_ord_id.size
+-- Calculate size of: Order Cancel Request Message
+nyse_equities_binarygateway_pillar_v5_8.order_cancel_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.mpid.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cl_ord_id.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.orig_cl_ord_id.size
+
+  return index
+end
 
 -- Display: Order Cancel Request Message
 nyse_equities_binarygateway_pillar_v5_8.order_cancel_request_message.display = function(packet, parent, length)
@@ -8642,7 +9116,7 @@ nyse_equities_binarygateway_pillar_v5_8.new_order_single_and_cancel_replace_requ
 nyse_equities_binarygateway_pillar_v5_8.new_order_single_and_cancel_replace_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
 
   index = index + nyse_equities_binarygateway_pillar_v5_8.symbol_id.size
 
@@ -8669,7 +9143,7 @@ nyse_equities_binarygateway_pillar_v5_8.new_order_single_and_cancel_replace_requ
   local seq_msg_length = buffer(offset + index - 63, 2):le_uint()
 
   if seq_msg_length ~= 65 then
-    index = index + nyse_equities_binarygateway_pillar_v5_8.optional_order_add_on.size
+    index = index + nyse_equities_binarygateway_pillar_v5_8.optional_order_add_on.size(buffer, offset + index)
 
   end
 
@@ -8752,9 +9226,14 @@ end
 -- Sequenced Filler Message
 nyse_equities_binarygateway_pillar_v5_8.sequenced_filler_message = {}
 
--- Size: Sequenced Filler Message
-nyse_equities_binarygateway_pillar_v5_8.sequenced_filler_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size
+-- Calculate size of: Sequenced Filler Message
+nyse_equities_binarygateway_pillar_v5_8.sequenced_filler_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Sequenced Filler Message
 nyse_equities_binarygateway_pillar_v5_8.sequenced_filler_message.display = function(packet, parent, length)
@@ -8792,16 +9271,28 @@ end
 -- Session Configuration Request Message
 nyse_equities_binarygateway_pillar_v5_8.session_configuration_request_message = {}
 
--- Size: Session Configuration Request Message
-nyse_equities_binarygateway_pillar_v5_8.session_configuration_request_message.size =
-  nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size + 
-  nyse_equities_binarygateway_pillar_v5_8.username.size + 
-  nyse_equities_binarygateway_pillar_v5_8.cancel_on_disconnect.size + 
-  nyse_equities_binarygateway_pillar_v5_8.throttle_preference.size + 
-  nyse_equities_binarygateway_pillar_v5_8.self_trade_prevention.size + 
-  nyse_equities_binarygateway_pillar_v5_8.order_priority_update_ack_subscription.size + 
-  nyse_equities_binarygateway_pillar_v5_8.bold_designation.size + 
-  nyse_equities_binarygateway_pillar_v5_8.reserved_49.size
+-- Calculate size of: Session Configuration Request Message
+nyse_equities_binarygateway_pillar_v5_8.session_configuration_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq_msg_header.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.username.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.cancel_on_disconnect.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.throttle_preference.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.self_trade_prevention.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.order_priority_update_ack_subscription.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.bold_designation.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.reserved_49.size
+
+  return index
+end
 
 -- Display: Session Configuration Request Message
 nyse_equities_binarygateway_pillar_v5_8.session_configuration_request_message.display = function(packet, parent, length)
@@ -9187,10 +9678,16 @@ end
 -- Seqmsgid
 nyse_equities_binarygateway_pillar_v5_8.seqmsgid = {}
 
--- Size: Seqmsgid
-nyse_equities_binarygateway_pillar_v5_8.seqmsgid.size =
-  nyse_equities_binarygateway_pillar_v5_8.stream_id.size + 
-  nyse_equities_binarygateway_pillar_v5_8.seq.size
+-- Calculate size of: Seqmsgid
+nyse_equities_binarygateway_pillar_v5_8.seqmsgid.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.stream_id.size(buffer, offset + index)
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.seq.size
+
+  return index
+end
 
 -- Display: Seqmsgid
 nyse_equities_binarygateway_pillar_v5_8.seqmsgid.display = function(packet, parent, length)
@@ -9305,10 +9802,16 @@ end
 -- Msg Header
 nyse_equities_binarygateway_pillar_v5_8.msg_header = {}
 
--- Size: Msg Header
-nyse_equities_binarygateway_pillar_v5_8.msg_header.size =
-  nyse_equities_binarygateway_pillar_v5_8.msg_type.size + 
-  nyse_equities_binarygateway_pillar_v5_8.msg_length.size
+-- Calculate size of: Msg Header
+nyse_equities_binarygateway_pillar_v5_8.msg_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.msg_type.size
+
+  index = index + nyse_equities_binarygateway_pillar_v5_8.msg_length.size
+
+  return index
+end
 
 -- Display: Msg Header
 nyse_equities_binarygateway_pillar_v5_8.msg_header.display = function(packet, parent, length)

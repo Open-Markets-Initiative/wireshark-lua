@@ -381,15 +381,26 @@ end
 -- Trade Cancel Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message = {}
 
--- Size: Trade Cancel Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.size =
-  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.trade_date.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.trade_id.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.correction_number.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.price.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.size.size
+-- Calculate size of: Trade Cancel Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trade_date.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trade_id.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.correction_number.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.price.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.size.size
+
+  return index
+end
 
 -- Display: Trade Cancel Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.display = function(packet, parent, length)
@@ -445,13 +456,22 @@ end
 -- Last Sale Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message = {}
 
--- Size: Last Sale Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.size =
-  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.trade_id.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.price.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.size.size
+-- Calculate size of: Last Sale Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trade_id.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.price.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.size.size
+
+  return index
+end
 
 -- Display: Last Sale Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.display = function(packet, parent, length)
@@ -605,14 +625,24 @@ end
 -- Best Bid And Offer Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message = {}
 
--- Size: Best Bid And Offer Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.size =
-  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_size.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_size.size
+-- Calculate size of: Best Bid And Offer Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_size.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_size.size
+
+  return index
+end
 
 -- Display: Best Bid And Offer Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.display = function(packet, parent, length)
@@ -743,12 +773,20 @@ end
 -- Instrument Trading Status Notification Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message = {}
 
--- Size: Instrument Trading Status Notification Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.size =
-  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.trading_status.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.market_state.size
+-- Calculate size of: Instrument Trading Status Notification Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trading_status.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.market_state.size
+
+  return index
+end
 
 -- Display: Instrument Trading Status Notification Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.display = function(packet, parent, length)
@@ -877,12 +915,20 @@ end
 -- System State Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message = {}
 
--- Size: System State Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.size =
-  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.tom_version.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.session_id.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.system_status.size
+-- Calculate size of: System State Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.tom_version.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.session_id.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.system_status.size
+
+  return index
+end
 
 -- Display: System State Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.display = function(packet, parent, length)
@@ -998,12 +1044,20 @@ end
 -- Instrument Leg
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg = {}
 
--- Size: Instrument Leg
-miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg.size =
-  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.leg_ratio_and_side.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.maturity_month_year.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_8.size
+-- Calculate size of: Instrument Leg
+miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.leg_ratio_and_side.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.maturity_month_year.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_8.size
+
+  return index
+end
 
 -- Display: Instrument Leg
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg.display = function(packet, parent, length)
@@ -1894,34 +1948,64 @@ end
 -- Simple Instrument Definition Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message = {}
 
--- Size: Simple Instrument Definition Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.size =
-  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset_type.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.product_group_code.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.exchange.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id_source.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_type.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.maturity_month_year.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.currency.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_currency.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.match_algorithm.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.minimum_size.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.maximum_size.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.tick.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure_quantity.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price_type_calc_method.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.total_volume.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.open_interest_quantity.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.high_limit_price.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.low_limit_price.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation_type.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation.size + 
-  miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_16.size
+-- Calculate size of: Simple Instrument Definition Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset_type.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.product_group_code.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.exchange.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id_source.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_type.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.maturity_month_year.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.currency.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_currency.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.match_algorithm.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.minimum_size.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.maximum_size.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.tick.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure_quantity.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price_type_calc_method.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.total_volume.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.open_interest_quantity.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.high_limit_price.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.low_limit_price.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation_type.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation.size
+
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_16.size
+
+  return index
+end
 
 -- Display: Simple Instrument Definition Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.display = function(packet, parent, length)

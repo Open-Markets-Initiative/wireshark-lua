@@ -373,14 +373,24 @@ end
 -- Trade Cancel Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message = {}
 
--- Size: Trade Cancel Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.trade_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.correction_number.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.price.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.size.size
+-- Calculate size of: Trade Cancel Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.trade_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.correction_number.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.price.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.size.size
+
+  return index
+end
 
 -- Display: Trade Cancel Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.display = function(packet, parent, length)
@@ -475,15 +485,26 @@ end
 -- Trade Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message = {}
 
--- Size: Trade Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.trade_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.correction_number.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.price.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.size.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.size
+-- Calculate size of: Trade Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.trade_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.correction_number.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.price.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.size.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.size
+
+  return index
+end
 
 -- Display: Trade Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.display = function(packet, parent, length)
@@ -604,15 +625,26 @@ end
 -- Order Execution Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message = {}
 
--- Size: Order Execution Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.trade_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.price.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.size.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.size
+-- Calculate size of: Order Execution Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.trade_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.price.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.size.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.size
+
+  return index
+end
 
 -- Display: Order Execution Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.display = function(packet, parent, length)
@@ -668,11 +700,18 @@ end
 -- Delete Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message = {}
 
--- Size: Delete Order Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size
+-- Calculate size of: Delete Order Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size
+
+  return index
+end
 
 -- Display: Delete Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.display = function(packet, parent, length)
@@ -758,14 +797,24 @@ end
 -- Modify Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message = {}
 
--- Size: Modify Order Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.price.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.size.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.size
+-- Calculate size of: Modify Order Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.price.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.size.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.size
+
+  return index
+end
 
 -- Display: Modify Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.display = function(packet, parent, length)
@@ -871,15 +920,26 @@ end
 -- Add Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message = {}
 
--- Size: Add Order Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.order_side.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.price.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.size.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.attributable_id.size
+-- Calculate size of: Add Order Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.order_side.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.price.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.size.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.attributable_id.size
+
+  return index
+end
 
 -- Display: Add Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.display = function(packet, parent, length)
@@ -935,10 +995,16 @@ end
 -- Symbol Clear Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message = {}
 
--- Size: Symbol Clear Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
+-- Calculate size of: Symbol Clear Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
+
+  return index
+end
 
 -- Display: Symbol Clear Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.display = function(packet, parent, length)
@@ -1084,13 +1150,22 @@ end
 -- Security Trading Status Notification Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message = {}
 
--- Size: Security Trading Status Notification Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.short_sale_restriction.size
+-- Calculate size of: Security Trading Status Notification Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.short_sale_restriction.size
+
+  return index
+end
 
 -- Display: Security Trading Status Notification Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.display = function(packet, parent, length)
@@ -1222,12 +1297,20 @@ end
 -- System State Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message = {}
 
--- Size: System State Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.do_m_version.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.session_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.system_status.size
+-- Calculate size of: System State Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.do_m_version.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.session_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.system_status.size
+
+  return index
+end
 
 -- Display: System State Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.display = function(packet, parent, length)
@@ -1497,18 +1580,32 @@ end
 -- Symbol Update Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message = {}
 
--- Size: Symbol Update Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.ticker_symbol.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.test_security_indicator.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.lot_size.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.opening_time.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.closing_time.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.primary_market_code.size
+-- Calculate size of: Symbol Update Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.ticker_symbol.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.test_security_indicator.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.lot_size.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.opening_time.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.closing_time.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.primary_market_code.size
+
+  return index
+end
 
 -- Display: Symbol Update Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.display = function(packet, parent, length)
@@ -1573,9 +1670,14 @@ end
 -- System Time Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message = {}
 
--- Size: System Time Message
-miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+-- Calculate size of: System Time Message
+miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+
+  return index
+end
 
 -- Display: System Time Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.display = function(packet, parent, length)

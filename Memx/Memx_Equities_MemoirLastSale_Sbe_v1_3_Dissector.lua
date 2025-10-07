@@ -721,23 +721,42 @@ end
 -- Trade Correct Message
 memx_equities_memoirlastsale_sbe_v1_3.trade_correct_message = {}
 
--- Size: Trade Correct Message
-memx_equities_memoirlastsale_sbe_v1_3.trade_correct_message.size =
-  memx_equities_memoirlastsale_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.security_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.trade_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.original_trade_qty.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.original_trade_price.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size
+-- Calculate size of: Trade Correct Message
+memx_equities_memoirlastsale_sbe_v1_3.trade_correct_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.trade_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.original_trade_qty.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.original_trade_price.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size
+
+  return index
+end
 
 -- Display: Trade Correct Message
 memx_equities_memoirlastsale_sbe_v1_3.trade_correct_message.display = function(packet, parent, length)
@@ -1044,17 +1063,30 @@ end
 -- Trade Cancel Message
 memx_equities_memoirlastsale_sbe_v1_3.trade_cancel_message = {}
 
--- Size: Trade Cancel Message
-memx_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.size =
-  memx_equities_memoirlastsale_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.security_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.trade_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.trade_qty.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.last_price.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
+-- Calculate size of: Trade Cancel Message
+memx_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.trade_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.trade_qty.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.last_price.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
+
+  return index
+end
 
 -- Display: Trade Cancel Message
 memx_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.display = function(packet, parent, length)
@@ -1145,17 +1177,30 @@ end
 -- Trade Report Message
 memx_equities_memoirlastsale_sbe_v1_3.trade_report_message = {}
 
--- Size: Trade Report Message
-memx_equities_memoirlastsale_sbe_v1_3.trade_report_message.size =
-  memx_equities_memoirlastsale_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.security_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.trade_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.trade_qty.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.trade_price.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
+-- Calculate size of: Trade Report Message
+memx_equities_memoirlastsale_sbe_v1_3.trade_report_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.trade_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.trade_qty.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.trade_price.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
+
+  return index
+end
 
 -- Display: Trade Report Message
 memx_equities_memoirlastsale_sbe_v1_3.trade_report_message.display = function(packet, parent, length)
@@ -1266,10 +1311,16 @@ end
 -- Trading Session Status Message
 memx_equities_memoirlastsale_sbe_v1_3.trading_session_status_message = {}
 
--- Size: Trading Session Status Message
-memx_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.size =
-  memx_equities_memoirlastsale_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.trading_session.size
+-- Calculate size of: Trading Session Status Message
+memx_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.trading_session.size
+
+  return index
+end
 
 -- Display: Trading Session Status Message
 memx_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.display = function(packet, parent, length)
@@ -1405,12 +1456,20 @@ end
 -- Security Trading Status Message
 memx_equities_memoirlastsale_sbe_v1_3.security_trading_status_message = {}
 
--- Size: Security Trading Status Message
-memx_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.size =
-  memx_equities_memoirlastsale_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.security_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.security_trading_status.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size
+-- Calculate size of: Security Trading Status Message
+memx_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.security_trading_status.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size
+
+  return index
+end
 
 -- Display: Security Trading Status Message
 memx_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.display = function(packet, parent, length)
@@ -1487,11 +1546,18 @@ end
 -- Reg Sho Restriction Message
 memx_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message = {}
 
--- Size: Reg Sho Restriction Message
-memx_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.size =
-  memx_equities_memoirlastsale_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.security_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size
+-- Calculate size of: Reg Sho Restriction Message
+memx_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size
+
+  return index
+end
 
 -- Display: Reg Sho Restriction Message
 memx_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.display = function(packet, parent, length)
@@ -1695,15 +1761,26 @@ end
 -- Instrument Directory Message
 memx_equities_memoirlastsale_sbe_v1_3.instrument_directory_message = {}
 
--- Size: Instrument Directory Message
-memx_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.size =
-  memx_equities_memoirlastsale_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.security_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.symbol.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.symbol_sfx.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.round_lot.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.is_test_symbol.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.mpv.size
+-- Calculate size of: Instrument Directory Message
+memx_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.symbol.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.symbol_sfx.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.round_lot.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.is_test_symbol.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.mpv.size
+
+  return index
+end
 
 -- Display: Instrument Directory Message
 memx_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.display = function(packet, parent, length)
@@ -1969,12 +2046,20 @@ end
 -- Sbe Header
 memx_equities_memoirlastsale_sbe_v1_3.sbe_header = {}
 
--- Size: Sbe Header
-memx_equities_memoirlastsale_sbe_v1_3.sbe_header.size =
-  memx_equities_memoirlastsale_sbe_v1_3.block_length.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.template_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.schema_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.version.size
+-- Calculate size of: Sbe Header
+memx_equities_memoirlastsale_sbe_v1_3.sbe_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.block_length.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.template_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.schema_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.version.size
+
+  return index
+end
 
 -- Display: Sbe Header
 memx_equities_memoirlastsale_sbe_v1_3.sbe_header.display = function(packet, parent, length)
@@ -2025,7 +2110,7 @@ memx_equities_memoirlastsale_sbe_v1_3.sbe_message = {}
 memx_equities_memoirlastsale_sbe_v1_3.sbe_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_equities_memoirlastsale_sbe_v1_3.sbe_header.size
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.sbe_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2163,7 +2248,7 @@ end
 -- Sequenced Message
 memx_equities_memoirlastsale_sbe_v1_3.sequenced_message = {}
 
--- Size: Sequenced Message
+-- Size Of: Sequenced Message
 memx_equities_memoirlastsale_sbe_v1_3.sequenced_message.size = function(buffer, offset)
   local index = 0
 
@@ -2359,12 +2444,20 @@ end
 -- Common Header
 memx_equities_memoirlastsale_sbe_v1_3.common_header = {}
 
--- Size: Common Header
-memx_equities_memoirlastsale_sbe_v1_3.common_header.size =
-  memx_equities_memoirlastsale_sbe_v1_3.message_type.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.header_length.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.session_id.size + 
-  memx_equities_memoirlastsale_sbe_v1_3.sequence_number.size
+-- Calculate size of: Common Header
+memx_equities_memoirlastsale_sbe_v1_3.common_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.message_type.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.header_length.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.session_id.size
+
+  index = index + memx_equities_memoirlastsale_sbe_v1_3.sequence_number.size
+
+  return index
+end
 
 -- Display: Common Header
 memx_equities_memoirlastsale_sbe_v1_3.common_header.display = function(packet, parent, length)

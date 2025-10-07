@@ -898,16 +898,28 @@ end
 -- No M D Entries Group
 b3_equities_binaryumdf_sbe_v2_1.no_m_d_entries_group = {}
 
--- Size: No M D Entries Group
-b3_equities_binaryumdf_sbe_v2_1.no_m_d_entries_group.size =
-  b3_equities_binaryumdf_sbe_v2_1.md_corporate_offset_price_optional.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_position_no.size + 
-  b3_equities_binaryumdf_sbe_v2_1.entering_firm.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_insert_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.secondary_order_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+-- Calculate size of: No M D Entries Group
+b3_equities_binaryumdf_sbe_v2_1.no_m_d_entries_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_corporate_offset_price_optional.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_position_no.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.entering_firm.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_insert_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.secondary_order_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  return index
+end
 
 -- Display: No M D Entries Group
 b3_equities_binaryumdf_sbe_v2_1.no_m_d_entries_group.display = function(packet, parent, length)
@@ -1018,10 +1030,16 @@ end
 -- Group Size Encoding
 b3_equities_binaryumdf_sbe_v2_1.group_size_encoding = {}
 
--- Size: Group Size Encoding
-b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.size =
-  b3_equities_binaryumdf_sbe_v2_1.block_length.size + 
-  b3_equities_binaryumdf_sbe_v2_1.num_in_group.size
+-- Calculate size of: Group Size Encoding
+b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.block_length.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.num_in_group.size
+
+  return index
+end
 
 -- Display: Group Size Encoding
 b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.display = function(packet, parent, length)
@@ -1066,7 +1084,7 @@ b3_equities_binaryumdf_sbe_v2_1.no_m_d_entries_groups = {}
 b3_equities_binaryumdf_sbe_v2_1.no_m_d_entries_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.size
+  index = index + b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1379,19 +1397,34 @@ end
 -- Trade Bust 57 Message
 b3_equities_binaryumdf_sbe_v2_1.trade_bust_57_message = {}
 
--- Size: Trade Bust 57 Message
-b3_equities_binaryumdf_sbe_v2_1.trade_bust_57_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_10_padding_2.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_future_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_34_padding_2.size + 
-  b3_equities_binaryumdf_sbe_v2_1.transact_time.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Trade Bust 57 Message
+b3_equities_binaryumdf_sbe_v2_1.trade_bust_57_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_10_padding_2.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_future_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_34_padding_2.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Trade Bust 57 Message
 b3_equities_binaryumdf_sbe_v2_1.trade_bust_57_message.display = function(packet, parent, length)
@@ -1610,18 +1643,32 @@ end
 -- Execution Statistics 56 Message
 b3_equities_binaryumdf_sbe_v2_1.execution_statistics_56_message = {}
 
--- Size: Execution Statistics 56 Message
-b3_equities_binaryumdf_sbe_v2_1.execution_statistics_56_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_volume.size + 
-  b3_equities_binaryumdf_sbe_v2_1.vwap_px.size + 
-  b3_equities_binaryumdf_sbe_v2_1.net_chg_prev_day.size + 
-  b3_equities_binaryumdf_sbe_v2_1.number_of_trades.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Execution Statistics 56 Message
+b3_equities_binaryumdf_sbe_v2_1.execution_statistics_56_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_volume.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.vwap_px.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.net_chg_prev_day.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.number_of_trades.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Execution Statistics 56 Message
 b3_equities_binaryumdf_sbe_v2_1.execution_statistics_56_message.display = function(packet, parent, length)
@@ -1890,19 +1937,34 @@ end
 -- Execution Summary 55 Message
 b3_equities_binaryumdf_sbe_v2_1.execution_summary_55_message = {}
 
--- Size: Execution Summary 55 Message
-b3_equities_binaryumdf_sbe_v2_1.execution_summary_55_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_8_padding_2.size + 
-  b3_equities_binaryumdf_sbe_v2_1.aggressor_side.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_11_padding_1.size + 
-  b3_equities_binaryumdf_sbe_v2_1.last_px.size + 
-  b3_equities_binaryumdf_sbe_v2_1.fill_qty.size + 
-  b3_equities_binaryumdf_sbe_v2_1.traded_hidden_qty.size + 
-  b3_equities_binaryumdf_sbe_v2_1.cxl_qty.size + 
-  b3_equities_binaryumdf_sbe_v2_1.aggressor_time.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size + 
-  b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+-- Calculate size of: Execution Summary 55 Message
+b3_equities_binaryumdf_sbe_v2_1.execution_summary_55_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_8_padding_2.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.aggressor_side.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_11_padding_1.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.last_px.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.fill_qty.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.traded_hidden_qty.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.cxl_qty.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.aggressor_time.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+
+  return index
+end
 
 -- Display: Execution Summary 55 Message
 b3_equities_binaryumdf_sbe_v2_1.execution_summary_55_message.display = function(packet, parent, length)
@@ -2235,24 +2297,44 @@ end
 -- Forward Trade 54 Message
 b3_equities_binaryumdf_sbe_v2_1.forward_trade_54_message = {}
 
--- Size: Forward Trade 54 Message
-b3_equities_binaryumdf_sbe_v2_1.forward_trade_54_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_condition.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_future_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_buyer.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_seller.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.transact_time.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size + 
-  b3_equities_binaryumdf_sbe_v2_1.seller_days.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_interest_rate.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trd_sub_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.padding_3.size
+-- Calculate size of: Forward Trade 54 Message
+b3_equities_binaryumdf_sbe_v2_1.forward_trade_54_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_condition.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_future_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_buyer.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_seller.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.seller_days.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_interest_rate.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trd_sub_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.padding_3.size
+
+  return index
+end
 
 -- Display: Forward Trade 54 Message
 b3_equities_binaryumdf_sbe_v2_1.forward_trade_54_message.display = function(packet, parent, length)
@@ -2358,22 +2440,40 @@ end
 -- Trade 53 Message
 b3_equities_binaryumdf_sbe_v2_1.trade_53_message = {}
 
--- Size: Trade 53 Message
-b3_equities_binaryumdf_sbe_v2_1.trade_53_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_condition.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_future_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_buyer.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_seller.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trd_sub_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_43_padding_1.size + 
-  b3_equities_binaryumdf_sbe_v2_1.transact_time.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Trade 53 Message
+b3_equities_binaryumdf_sbe_v2_1.trade_53_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_condition.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_future_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_buyer.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_seller.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trd_sub_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_43_padding_1.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Trade 53 Message
 b3_equities_binaryumdf_sbe_v2_1.trade_53_message.display = function(packet, parent, length)
@@ -2492,16 +2592,28 @@ end
 -- Mass Delete Orders Mb O 52 Message
 b3_equities_binaryumdf_sbe_v2_1.mass_delete_orders_mb_o_52_message = {}
 
--- Size: Mass Delete Orders Mb O 52 Message
-b3_equities_binaryumdf_sbe_v2_1.mass_delete_orders_mb_o_52_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_update_action.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_11_padding_1.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_position_no.size + 
-  b3_equities_binaryumdf_sbe_v2_1.transact_time.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Mass Delete Orders Mb O 52 Message
+b3_equities_binaryumdf_sbe_v2_1.mass_delete_orders_mb_o_52_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_update_action.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_11_padding_1.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_position_no.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Mass Delete Orders Mb O 52 Message
 b3_equities_binaryumdf_sbe_v2_1.mass_delete_orders_mb_o_52_message.display = function(packet, parent, length)
@@ -2583,19 +2695,34 @@ end
 -- Delete Order Mb O 51 Message
 b3_equities_binaryumdf_sbe_v2_1.delete_order_mb_o_51_message = {}
 
--- Size: Delete Order Mb O 51 Message
-b3_equities_binaryumdf_sbe_v2_1.delete_order_mb_o_51_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_9_padding_1.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_11_padding_1.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_position_no.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size + 
-  b3_equities_binaryumdf_sbe_v2_1.secondary_order_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.transact_time.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_corporate_offset_price_optional.size
+-- Calculate size of: Delete Order Mb O 51 Message
+b3_equities_binaryumdf_sbe_v2_1.delete_order_mb_o_51_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_9_padding_1.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_11_padding_1.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_position_no.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.secondary_order_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_corporate_offset_price_optional.size
+
+  return index
+end
 
 -- Display: Delete Order Mb O 51 Message
 b3_equities_binaryumdf_sbe_v2_1.delete_order_mb_o_51_message.display = function(packet, parent, length)
@@ -2663,21 +2790,38 @@ end
 -- Order Mb O 50 Message
 b3_equities_binaryumdf_sbe_v2_1.order_mb_o_50_message = {}
 
--- Size: Order Mb O 50 Message
-b3_equities_binaryumdf_sbe_v2_1.order_mb_o_50_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_update_action.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_11_padding_1.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_corporate_offset_price_optional.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_position_no.size + 
-  b3_equities_binaryumdf_sbe_v2_1.entering_firm.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_insert_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.secondary_order_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size + 
-  b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+-- Calculate size of: Order Mb O 50 Message
+b3_equities_binaryumdf_sbe_v2_1.order_mb_o_50_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_update_action.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_11_padding_1.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_corporate_offset_price_optional.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_position_no.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.entering_firm.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_insert_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.secondary_order_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+
+  return index
+end
 
 -- Display: Order Mb O 50 Message
 b3_equities_binaryumdf_sbe_v2_1.order_mb_o_50_message.display = function(packet, parent, length)
@@ -2935,17 +3079,30 @@ end
 -- Snapshot Full Refresh Header 30 Message
 b3_equities_binaryumdf_sbe_v2_1.snapshot_full_refresh_header_30_message = {}
 
--- Size: Snapshot Full Refresh Header 30 Message
-b3_equities_binaryumdf_sbe_v2_1.snapshot_full_refresh_header_30_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.last_msg_seq_num_processed.size + 
-  b3_equities_binaryumdf_sbe_v2_1.tot_num_reports.size + 
-  b3_equities_binaryumdf_sbe_v2_1.tot_num_bids.size + 
-  b3_equities_binaryumdf_sbe_v2_1.tot_num_offers.size + 
-  b3_equities_binaryumdf_sbe_v2_1.tot_num_stats.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_26_padding_2.size + 
-  b3_equities_binaryumdf_sbe_v2_1.last_rpt_seq.size + 
-  b3_equities_binaryumdf_sbe_v2_1.last_sequence_version.size
+-- Calculate size of: Snapshot Full Refresh Header 30 Message
+b3_equities_binaryumdf_sbe_v2_1.snapshot_full_refresh_header_30_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.last_msg_seq_num_processed.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.tot_num_reports.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.tot_num_bids.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.tot_num_offers.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.tot_num_stats.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_26_padding_2.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.last_rpt_seq.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.last_sequence_version.size
+
+  return index
+end
 
 -- Display: Snapshot Full Refresh Header 30 Message
 b3_equities_binaryumdf_sbe_v2_1.snapshot_full_refresh_header_30_message.display = function(packet, parent, length)
@@ -3007,15 +3164,26 @@ end
 -- Open Interest 29 Message
 b3_equities_binaryumdf_sbe_v2_1.open_interest_29_message = {}
 
--- Size: Open Interest 29 Message
-b3_equities_binaryumdf_sbe_v2_1.open_interest_29_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_9_padding_1.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Open Interest 29 Message
+b3_equities_binaryumdf_sbe_v2_1.open_interest_29_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_9_padding_1.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Open Interest 29 Message
 b3_equities_binaryumdf_sbe_v2_1.open_interest_29_message.display = function(packet, parent, length)
@@ -3199,19 +3367,34 @@ end
 -- Settlement Price 28 Message
 b3_equities_binaryumdf_sbe_v2_1.settlement_price_28_message = {}
 
--- Size: Settlement Price 28 Message
-b3_equities_binaryumdf_sbe_v2_1.settlement_price_28_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_9_padding_1.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_future_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.open_close_settl_flag.size + 
-  b3_equities_binaryumdf_sbe_v2_1.price_type_price_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.settl_price_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size + 
-  b3_equities_binaryumdf_sbe_v2_1.padding_1.size
+-- Calculate size of: Settlement Price 28 Message
+b3_equities_binaryumdf_sbe_v2_1.settlement_price_28_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_9_padding_1.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_future_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.open_close_settl_flag.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.price_type_price_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.settl_price_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.padding_1.size
+
+  return index
+end
 
 -- Display: Settlement Price 28 Message
 b3_equities_binaryumdf_sbe_v2_1.settlement_price_28_message.display = function(packet, parent, length)
@@ -3279,24 +3462,44 @@ end
 -- Last Trade Price 27 Message
 b3_equities_binaryumdf_sbe_v2_1.last_trade_price_27_message = {}
 
--- Size: Last Trade Price 27 Message
-b3_equities_binaryumdf_sbe_v2_1.last_trade_price_27_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_condition.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_future_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_buyer.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_seller.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size + 
-  b3_equities_binaryumdf_sbe_v2_1.seller_days.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_interest_rate.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trd_sub_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.padding_3.size
+-- Calculate size of: Last Trade Price 27 Message
+b3_equities_binaryumdf_sbe_v2_1.last_trade_price_27_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_condition.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_future_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_buyer.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_seller.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.seller_days.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_interest_rate.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trd_sub_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.padding_3.size
+
+  return index
+end
 
 -- Display: Last Trade Price 27 Message
 b3_equities_binaryumdf_sbe_v2_1.last_trade_price_27_message.display = function(packet, parent, length)
@@ -3379,15 +3582,26 @@ end
 -- Low Price 25 Message
 b3_equities_binaryumdf_sbe_v2_1.low_price_25_message = {}
 
--- Size: Low Price 25 Message
-b3_equities_binaryumdf_sbe_v2_1.low_price_25_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_update_action.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_future_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Low Price 25 Message
+b3_equities_binaryumdf_sbe_v2_1.low_price_25_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_update_action.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_future_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Low Price 25 Message
 b3_equities_binaryumdf_sbe_v2_1.low_price_25_message.display = function(packet, parent, length)
@@ -3443,15 +3657,26 @@ end
 -- High Price 24 Message
 b3_equities_binaryumdf_sbe_v2_1.high_price_24_message = {}
 
--- Size: High Price 24 Message
-b3_equities_binaryumdf_sbe_v2_1.high_price_24_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_update_action.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_future_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: High Price 24 Message
+b3_equities_binaryumdf_sbe_v2_1.high_price_24_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_update_action.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_future_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: High Price 24 Message
 b3_equities_binaryumdf_sbe_v2_1.high_price_24_message.display = function(packet, parent, length)
@@ -3735,18 +3960,32 @@ end
 -- Price Band 22 Message
 b3_equities_binaryumdf_sbe_v2_1.price_band_22_message = {}
 
--- Size: Price Band 22 Message
-b3_equities_binaryumdf_sbe_v2_1.price_band_22_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.price_band_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.price_limit_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.price_band_midpoint_price_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.low_limit_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.high_limit_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trading_reference_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Price Band 22 Message
+b3_equities_binaryumdf_sbe_v2_1.price_band_22_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.price_band_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.price_limit_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.price_band_midpoint_price_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.low_limit_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.high_limit_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trading_reference_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Price Band 22 Message
 b3_equities_binaryumdf_sbe_v2_1.price_band_22_message.display = function(packet, parent, length)
@@ -3880,15 +4119,26 @@ end
 -- Quantity Band 21 Message
 b3_equities_binaryumdf_sbe_v2_1.quantity_band_21_message = {}
 
--- Size: Quantity Band 21 Message
-b3_equities_binaryumdf_sbe_v2_1.quantity_band_21_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_9_padding_3.size + 
-  b3_equities_binaryumdf_sbe_v2_1.avg_daily_traded_qty.size + 
-  b3_equities_binaryumdf_sbe_v2_1.max_trade_vol.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Quantity Band 21 Message
+b3_equities_binaryumdf_sbe_v2_1.quantity_band_21_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_9_padding_3.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.avg_daily_traded_qty.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.max_trade_vol.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Quantity Band 21 Message
 b3_equities_binaryumdf_sbe_v2_1.quantity_band_21_message.display = function(packet, parent, length)
@@ -4019,15 +4269,26 @@ end
 -- Auction Imbalance 19 Message
 b3_equities_binaryumdf_sbe_v2_1.auction_imbalance_19_message = {}
 
--- Size: Auction Imbalance 19 Message
-b3_equities_binaryumdf_sbe_v2_1.auction_imbalance_19_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_update_action.size + 
-  b3_equities_binaryumdf_sbe_v2_1.imbalance_condition.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity_optional.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Auction Imbalance 19 Message
+b3_equities_binaryumdf_sbe_v2_1.auction_imbalance_19_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_update_action.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.imbalance_condition.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity_optional.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Auction Imbalance 19 Message
 b3_equities_binaryumdf_sbe_v2_1.auction_imbalance_19_message.display = function(packet, parent, length)
@@ -4140,17 +4401,30 @@ end
 -- Closing Price 17 Message
 b3_equities_binaryumdf_sbe_v2_1.closing_price_17_message = {}
 
--- Size: Closing Price 17 Message
-b3_equities_binaryumdf_sbe_v2_1.closing_price_17_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.open_close_settl_flag.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_10_padding_2.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_corporate_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.last_trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Closing Price 17 Message
+b3_equities_binaryumdf_sbe_v2_1.closing_price_17_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.open_close_settl_flag.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_10_padding_2.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_corporate_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.last_trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Closing Price 17 Message
 b3_equities_binaryumdf_sbe_v2_1.closing_price_17_message.display = function(packet, parent, length)
@@ -4212,16 +4486,28 @@ end
 -- Theoretical Opening Price 16 Message
 b3_equities_binaryumdf_sbe_v2_1.theoretical_opening_price_16_message = {}
 
--- Size: Theoretical Opening Price 16 Message
-b3_equities_binaryumdf_sbe_v2_1.theoretical_opening_price_16_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_update_action.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_corporate_offset_price_optional.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity_optional.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Theoretical Opening Price 16 Message
+b3_equities_binaryumdf_sbe_v2_1.theoretical_opening_price_16_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_update_action.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_corporate_offset_price_optional.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity_optional.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Theoretical Opening Price 16 Message
 b3_equities_binaryumdf_sbe_v2_1.theoretical_opening_price_16_message.display = function(packet, parent, length)
@@ -4303,19 +4589,34 @@ end
 -- Opening Price 15 Message
 b3_equities_binaryumdf_sbe_v2_1.opening_price_15_message = {}
 
--- Size: Opening Price 15 Message
-b3_equities_binaryumdf_sbe_v2_1.opening_price_15_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_update_action.size + 
-  b3_equities_binaryumdf_sbe_v2_1.open_close_settl_flag.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_11_padding_1.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_future_price.size + 
-  b3_equities_binaryumdf_sbe_v2_1.net_chg_prev_day.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size + 
-  b3_equities_binaryumdf_sbe_v2_1.padding_2.size
+-- Calculate size of: Opening Price 15 Message
+b3_equities_binaryumdf_sbe_v2_1.opening_price_15_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_update_action.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.open_close_settl_flag.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_11_padding_1.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_future_price.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.net_chg_prev_day.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.padding_2.size
+
+  return index
+end
 
 -- Display: Opening Price 15 Message
 b3_equities_binaryumdf_sbe_v2_1.opening_price_15_message.display = function(packet, parent, length)
@@ -4443,8 +4744,8 @@ b3_equities_binaryumdf_sbe_v2_1.url_link.size = function(buffer, offset)
 end
 
 -- Display: Url Link
-b3_equities_binaryumdf_sbe_v2_1.url_link.display = function(buffer, offset, value, packet, parent)
-  return "Url Link: "..value
+b3_equities_binaryumdf_sbe_v2_1.url_link.display = function(packet, parent, length)
+  return ""
 end
 
 -- Dissect Fields: Url Link
@@ -4470,13 +4771,12 @@ end
 
 -- Dissect: Url Link
 b3_equities_binaryumdf_sbe_v2_1.url_link.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.url_link then
     local length = b3_equities_binaryumdf_sbe_v2_1.url_link.size(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:bytes():tohex(false, " ")
-    local display = b3_equities_binaryumdf_sbe_v2_1.url_link.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.url_link, range, value, display)
+    local display = b3_equities_binaryumdf_sbe_v2_1.url_link.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.url_link, range, display)
   end
 
   return b3_equities_binaryumdf_sbe_v2_1.url_link.fields(buffer, offset, packet, parent)
@@ -4545,8 +4845,8 @@ b3_equities_binaryumdf_sbe_v2_1.text.size = function(buffer, offset)
 end
 
 -- Display: Text
-b3_equities_binaryumdf_sbe_v2_1.text.display = function(buffer, offset, value, packet, parent)
-  return "Text: "..value
+b3_equities_binaryumdf_sbe_v2_1.text.display = function(packet, parent, length)
+  return ""
 end
 
 -- Dissect Fields: Text
@@ -4572,13 +4872,12 @@ end
 
 -- Dissect: Text
 b3_equities_binaryumdf_sbe_v2_1.text.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.text then
     local length = b3_equities_binaryumdf_sbe_v2_1.text.size(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:bytes():tohex(false, " ")
-    local display = b3_equities_binaryumdf_sbe_v2_1.text.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.text, range, value, display)
+    local display = b3_equities_binaryumdf_sbe_v2_1.text.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.text, range, display)
   end
 
   return b3_equities_binaryumdf_sbe_v2_1.text.fields(buffer, offset, packet, parent)
@@ -4647,8 +4946,8 @@ b3_equities_binaryumdf_sbe_v2_1.headline.size = function(buffer, offset)
 end
 
 -- Display: Headline
-b3_equities_binaryumdf_sbe_v2_1.headline.display = function(buffer, offset, value, packet, parent)
-  return "Headline: "..value
+b3_equities_binaryumdf_sbe_v2_1.headline.display = function(packet, parent, length)
+  return ""
 end
 
 -- Dissect Fields: Headline
@@ -4674,13 +4973,12 @@ end
 
 -- Dissect: Headline
 b3_equities_binaryumdf_sbe_v2_1.headline.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.headline then
     local length = b3_equities_binaryumdf_sbe_v2_1.headline.size(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:bytes():tohex(false, " ")
-    local display = b3_equities_binaryumdf_sbe_v2_1.headline.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.headline, range, value, display)
+    local display = b3_equities_binaryumdf_sbe_v2_1.headline.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.headline, range, display)
   end
 
   return b3_equities_binaryumdf_sbe_v2_1.headline.fields(buffer, offset, packet, parent)
@@ -5220,10 +5518,16 @@ end
 -- No Instr Attribs Group
 b3_equities_binaryumdf_sbe_v2_1.no_instr_attribs_group = {}
 
--- Size: No Instr Attribs Group
-b3_equities_binaryumdf_sbe_v2_1.no_instr_attribs_group.size =
-  b3_equities_binaryumdf_sbe_v2_1.instr_attrib_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.instr_attrib_value.size
+-- Calculate size of: No Instr Attribs Group
+b3_equities_binaryumdf_sbe_v2_1.no_instr_attribs_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.instr_attrib_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.instr_attrib_value.size
+
+  return index
+end
 
 -- Display: No Instr Attribs Group
 b3_equities_binaryumdf_sbe_v2_1.no_instr_attribs_group.display = function(packet, parent, length)
@@ -5274,7 +5578,7 @@ b3_equities_binaryumdf_sbe_v2_1.no_instr_attribs_groups = {}
 b3_equities_binaryumdf_sbe_v2_1.no_instr_attribs_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.size
+  index = index + b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local no_instr_attribs_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5518,13 +5822,22 @@ end
 -- No Legs Group
 b3_equities_binaryumdf_sbe_v2_1.no_legs_group = {}
 
--- Size: No Legs Group
-b3_equities_binaryumdf_sbe_v2_1.no_legs_group.size =
-  b3_equities_binaryumdf_sbe_v2_1.leg_security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.leg_ratio_qty.size + 
-  b3_equities_binaryumdf_sbe_v2_1.leg_security_type.size + 
-  b3_equities_binaryumdf_sbe_v2_1.leg_side.size + 
-  b3_equities_binaryumdf_sbe_v2_1.leg_symbol.size
+-- Calculate size of: No Legs Group
+b3_equities_binaryumdf_sbe_v2_1.no_legs_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.leg_security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.leg_ratio_qty.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.leg_security_type.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.leg_side.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.leg_symbol.size
+
+  return index
+end
 
 -- Display: No Legs Group
 b3_equities_binaryumdf_sbe_v2_1.no_legs_group.display = function(packet, parent, length)
@@ -5584,7 +5897,7 @@ b3_equities_binaryumdf_sbe_v2_1.no_legs_groups = {}
 b3_equities_binaryumdf_sbe_v2_1.no_legs_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.size
+  index = index + b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local no_legs_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5694,10 +6007,16 @@ end
 -- No Underlyings Group
 b3_equities_binaryumdf_sbe_v2_1.no_underlyings_group = {}
 
--- Size: No Underlyings Group
-b3_equities_binaryumdf_sbe_v2_1.no_underlyings_group.size =
-  b3_equities_binaryumdf_sbe_v2_1.underlying_security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.underlying_symbol.size
+-- Calculate size of: No Underlyings Group
+b3_equities_binaryumdf_sbe_v2_1.no_underlyings_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.underlying_security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.underlying_symbol.size
+
+  return index
+end
 
 -- Display: No Underlyings Group
 b3_equities_binaryumdf_sbe_v2_1.no_underlyings_group.display = function(packet, parent, length)
@@ -5748,7 +6067,7 @@ b3_equities_binaryumdf_sbe_v2_1.no_underlyings_groups = {}
 b3_equities_binaryumdf_sbe_v2_1.no_underlyings_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.size
+  index = index + b3_equities_binaryumdf_sbe_v2_1.group_size_encoding.size(buffer, offset + index)
 
   -- Calculate field size from count
   local no_underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -6526,12 +6845,20 @@ end
 -- Contract Settl Month
 b3_equities_binaryumdf_sbe_v2_1.contract_settl_month = {}
 
--- Size: Contract Settl Month
-b3_equities_binaryumdf_sbe_v2_1.contract_settl_month.size =
-  b3_equities_binaryumdf_sbe_v2_1.year.size + 
-  b3_equities_binaryumdf_sbe_v2_1.month.size + 
-  b3_equities_binaryumdf_sbe_v2_1.day.size + 
-  b3_equities_binaryumdf_sbe_v2_1.week.size
+-- Calculate size of: Contract Settl Month
+b3_equities_binaryumdf_sbe_v2_1.contract_settl_month.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.year.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.month.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.day.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.week.size
+
+  return index
+end
 
 -- Display: Contract Settl Month
 b3_equities_binaryumdf_sbe_v2_1.contract_settl_month.display = function(packet, parent, length)
@@ -6578,12 +6905,20 @@ end
 -- Maturity Month Year
 b3_equities_binaryumdf_sbe_v2_1.maturity_month_year = {}
 
--- Size: Maturity Month Year
-b3_equities_binaryumdf_sbe_v2_1.maturity_month_year.size =
-  b3_equities_binaryumdf_sbe_v2_1.year.size + 
-  b3_equities_binaryumdf_sbe_v2_1.month.size + 
-  b3_equities_binaryumdf_sbe_v2_1.day.size + 
-  b3_equities_binaryumdf_sbe_v2_1.week.size
+-- Calculate size of: Maturity Month Year
+b3_equities_binaryumdf_sbe_v2_1.maturity_month_year.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.year.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.month.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.day.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.week.size
+
+  return index
+end
 
 -- Display: Maturity Month Year
 b3_equities_binaryumdf_sbe_v2_1.maturity_month_year.display = function(packet, parent, length)
@@ -7712,9 +8047,9 @@ b3_equities_binaryumdf_sbe_v2_1.security_definition_12_message.size = function(b
 
   index = index + b3_equities_binaryumdf_sbe_v2_1.cfi_code.size
 
-  index = index + b3_equities_binaryumdf_sbe_v2_1.maturity_month_year.size
+  index = index + b3_equities_binaryumdf_sbe_v2_1.maturity_month_year.size(buffer, offset + index)
 
-  index = index + b3_equities_binaryumdf_sbe_v2_1.contract_settl_month.size
+  index = index + b3_equities_binaryumdf_sbe_v2_1.contract_settl_month.size(buffer, offset + index)
 
   index = index + b3_equities_binaryumdf_sbe_v2_1.currency.size
 
@@ -8117,18 +8452,32 @@ end
 -- Security Group Phase 10 Message
 b3_equities_binaryumdf_sbe_v2_1.security_group_phase_10_message = {}
 
--- Size: Security Group Phase 10 Message
-b3_equities_binaryumdf_sbe_v2_1.security_group_phase_10_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_group.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_3_padding_5.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trading_session_sub_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.security_trading_event.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_14_padding_2.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trad_ses_open_time.size + 
-  b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+-- Calculate size of: Security Group Phase 10 Message
+b3_equities_binaryumdf_sbe_v2_1.security_group_phase_10_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_group.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_3_padding_5.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trading_session_sub_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_trading_event.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_14_padding_2.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trad_ses_open_time.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+
+  return index
+end
 
 -- Display: Security Group Phase 10 Message
 b3_equities_binaryumdf_sbe_v2_1.security_group_phase_10_message.display = function(packet, parent, length)
@@ -8238,18 +8587,32 @@ end
 -- Security Status 3 Message
 b3_equities_binaryumdf_sbe_v2_1.security_status_3_message = {}
 
--- Size: Security Status 3 Message
-b3_equities_binaryumdf_sbe_v2_1.security_status_3_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.security_trading_status.size + 
-  b3_equities_binaryumdf_sbe_v2_1.security_trading_event.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trade_date.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_14_padding_2.size + 
-  b3_equities_binaryumdf_sbe_v2_1.trad_ses_open_time.size + 
-  b3_equities_binaryumdf_sbe_v2_1.transact_time.size + 
-  b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+-- Calculate size of: Security Status 3 Message
+b3_equities_binaryumdf_sbe_v2_1.security_status_3_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trading_session_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_trading_status.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_trading_event.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trade_date.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_14_padding_2.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.trad_ses_open_time.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.transact_time.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.rpt_seq.size
+
+  return index
+end
 
 -- Display: Security Status 3 Message
 b3_equities_binaryumdf_sbe_v2_1.security_status_3_message.display = function(packet, parent, length)
@@ -8337,11 +8700,18 @@ end
 -- Channel Reset 11 Message
 b3_equities_binaryumdf_sbe_v2_1.channel_reset_11_message = {}
 
--- Size: Channel Reset 11 Message
-b3_equities_binaryumdf_sbe_v2_1.channel_reset_11_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_1_padding_3.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+-- Calculate size of: Channel Reset 11 Message
+b3_equities_binaryumdf_sbe_v2_1.channel_reset_11_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_1_padding_3.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  return index
+end
 
 -- Display: Channel Reset 11 Message
 b3_equities_binaryumdf_sbe_v2_1.channel_reset_11_message.display = function(packet, parent, length)
@@ -8385,12 +8755,20 @@ end
 -- Empty Book 9 Message
 b3_equities_binaryumdf_sbe_v2_1.empty_book_9_message = {}
 
--- Size: Empty Book 9 Message
-b3_equities_binaryumdf_sbe_v2_1.empty_book_9_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.security_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size + 
-  b3_equities_binaryumdf_sbe_v2_1.offset_9_padding_3.size + 
-  b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+-- Calculate size of: Empty Book 9 Message
+b3_equities_binaryumdf_sbe_v2_1.empty_book_9_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.security_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.match_event_indicator.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.offset_9_padding_3.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.md_entry_timestamp.size
+
+  return index
+end
 
 -- Display: Empty Book 9 Message
 b3_equities_binaryumdf_sbe_v2_1.empty_book_9_message.display = function(packet, parent, length)
@@ -8460,9 +8838,14 @@ end
 -- Sequence 2 Message
 b3_equities_binaryumdf_sbe_v2_1.sequence_2_message = {}
 
--- Size: Sequence 2 Message
-b3_equities_binaryumdf_sbe_v2_1.sequence_2_message.size =
-  b3_equities_binaryumdf_sbe_v2_1.next_seq_no.size
+-- Calculate size of: Sequence 2 Message
+b3_equities_binaryumdf_sbe_v2_1.sequence_2_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.next_seq_no.size
+
+  return index
+end
 
 -- Display: Sequence 2 Message
 b3_equities_binaryumdf_sbe_v2_1.sequence_2_message.display = function(packet, parent, length)
@@ -8928,12 +9311,20 @@ end
 -- Message Header
 b3_equities_binaryumdf_sbe_v2_1.message_header = {}
 
--- Size: Message Header
-b3_equities_binaryumdf_sbe_v2_1.message_header.size =
-  b3_equities_binaryumdf_sbe_v2_1.block_length.size + 
-  b3_equities_binaryumdf_sbe_v2_1.template_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.schema_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.version.size
+-- Calculate size of: Message Header
+b3_equities_binaryumdf_sbe_v2_1.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.block_length.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.template_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.schema_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.version.size
+
+  return index
+end
 
 -- Display: Message Header
 b3_equities_binaryumdf_sbe_v2_1.message_header.display = function(packet, parent, length)
@@ -9196,13 +9587,22 @@ end
 -- Packet Header
 b3_equities_binaryumdf_sbe_v2_1.packet_header = {}
 
--- Size: Packet Header
-b3_equities_binaryumdf_sbe_v2_1.packet_header.size =
-  b3_equities_binaryumdf_sbe_v2_1.channel_id.size + 
-  b3_equities_binaryumdf_sbe_v2_1.reserved.size + 
-  b3_equities_binaryumdf_sbe_v2_1.sequence_version.size + 
-  b3_equities_binaryumdf_sbe_v2_1.sequence_number.size + 
-  b3_equities_binaryumdf_sbe_v2_1.sending_time.size
+-- Calculate size of: Packet Header
+b3_equities_binaryumdf_sbe_v2_1.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.channel_id.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.reserved.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.sequence_version.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.sequence_number.size
+
+  index = index + b3_equities_binaryumdf_sbe_v2_1.sending_time.size
+
+  return index
+end
 
 -- Display: Packet Header
 b3_equities_binaryumdf_sbe_v2_1.packet_header.display = function(packet, parent, length)

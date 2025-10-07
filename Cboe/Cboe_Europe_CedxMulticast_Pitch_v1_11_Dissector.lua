@@ -750,20 +750,36 @@ end
 -- End Of Day Summary Message
 cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message = {}
 
--- Size: End Of Day Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.open_interest.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.high_price_binary_price_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.open_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.close_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.total_volume.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.block_volume.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.size
+-- Calculate size of: End Of Day Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.open_interest.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.high_price_binary_price_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.open_price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.close_price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.total_volume.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.block_volume.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.size
+
+  return index
+end
 
 -- Display: End Of Day Summary Message
 cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.display = function(packet, parent, length)
@@ -887,13 +903,22 @@ end
 -- Settlement Message
 cboe_europe_cedxmulticast_pitch_v1_11.settlement_message = {}
 
--- Size: Settlement Message
-cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.issue.size
+-- Calculate size of: Settlement Message
+cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.issue.size
+
+  return index
+end
 
 -- Display: Settlement Message
 cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.display = function(packet, parent, length)
@@ -966,10 +991,16 @@ end
 -- Trade Break Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message = {}
 
--- Size: Trade Break Message
-cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
+-- Calculate size of: Trade Break Message
+cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
+
+  return index
+end
 
 -- Display: Trade Break Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.display = function(packet, parent, length)
@@ -1089,12 +1120,20 @@ end
 -- Width Update Message
 cboe_europe_cedxmulticast_pitch_v1_11.width_update_message = {}
 
--- Size: Width Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.width_type.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.multiplier.size
+-- Calculate size of: Width Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.width_type.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.multiplier.size
+
+  return index
+end
 
 -- Display: Width Update Message
 cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.display = function(packet, parent, length)
@@ -1331,17 +1370,30 @@ end
 -- Options Instrument Definition Message
 cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message = {}
 
--- Size: Options Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.call_put.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.strike_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.listing_state.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
+-- Calculate size of: Options Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.call_put.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.strike_price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.listing_state.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
+
+  return index
+end
 
 -- Display: Options Instrument Definition Message
 cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.display = function(packet, parent, length)
@@ -1403,15 +1455,26 @@ end
 -- Futures Instrument Definition Message
 cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message = {}
 
--- Size: Futures Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.listing_state.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
+-- Calculate size of: Futures Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.listing_state.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
+
+  return index
+end
 
 -- Display: Futures Instrument Definition Message
 cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.display = function(packet, parent, length)
@@ -1519,10 +1582,16 @@ end
 -- Price Level Group
 cboe_europe_cedxmulticast_pitch_v1_11.price_level_group = {}
 
--- Size: Price Level Group
-cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.price_level.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.volume.size
+-- Calculate size of: Price Level Group
+cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price_level.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.volume.size
+
+  return index
+end
 
 -- Display: Price Level Group
 cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.display = function(packet, parent, length)
@@ -1836,12 +1905,20 @@ end
 -- Execution Flags
 cboe_europe_cedxmulticast_pitch_v1_11.execution_flags = {}
 
--- Size: Execution Flags
-cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.size
+-- Calculate size of: Execution Flags
+cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.size
+
+  return index
+end
 
 -- Display: Execution Flags
 cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.display = function(packet, parent, length)
@@ -1940,14 +2017,24 @@ end
 -- Auction Trade Message
 cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message = {}
 
--- Size: Auction Trade Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size
+-- Calculate size of: Auction Trade Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Auction Trade Message
 cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.display = function(packet, parent, length)
@@ -2000,10 +2087,16 @@ end
 -- Auction Cancel Message
 cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message = {}
 
--- Size: Auction Cancel Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size
+-- Calculate size of: Auction Cancel Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size
+
+  return index
+end
 
 -- Display: Auction Cancel Message
 cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.display = function(packet, parent, length)
@@ -2169,18 +2262,32 @@ end
 -- Auction Notification Message
 cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message = {}
 
--- Size: Auction Notification Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.side.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.participant_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.size
+-- Calculate size of: Auction Notification Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.side.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.participant_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.size
+
+  return index
+end
 
 -- Display: Auction Notification Message
 cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.display = function(packet, parent, length)
@@ -2482,19 +2589,34 @@ end
 -- Opening Auction Update Message
 cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message = {}
 
--- Size: Opening Auction Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.reference_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.size
+-- Calculate size of: Opening Auction Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.reference_price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.size
+
+  return index
+end
 
 -- Display: Opening Auction Update Message
 cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.display = function(packet, parent, length)
@@ -2585,13 +2707,22 @@ end
 -- Auction Summary Message
 cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message = {}
 
--- Size: Auction Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size
+-- Calculate size of: Auction Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size
+
+  return index
+end
 
 -- Display: Auction Summary Message
 cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.display = function(packet, parent, length)
@@ -2687,11 +2818,18 @@ end
 -- Fast Status Message
 cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message = {}
 
--- Size: Fast Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.is_fast.size
+-- Calculate size of: Fast Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.is_fast.size
+
+  return index
+end
 
 -- Display: Fast Status Message
 cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.display = function(packet, parent, length)
@@ -2800,12 +2938,20 @@ end
 -- Trading Status Message
 cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message = {}
 
--- Size: Trading Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.status.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.reserved.size
+-- Calculate size of: Trading Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.status.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.reserved.size
+
+  return index
+end
 
 -- Display: Trading Status Message
 cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.display = function(packet, parent, length)
@@ -2852,9 +2998,14 @@ end
 -- Transaction Begin Message
 cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message = {}
 
--- Size: Transaction Begin Message
-cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+-- Calculate size of: Transaction Begin Message
+cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  return index
+end
 
 -- Display: Transaction Begin Message
 cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.display = function(packet, parent, length)
@@ -2892,9 +3043,14 @@ end
 -- End Of Session
 cboe_europe_cedxmulticast_pitch_v1_11.end_of_session = {}
 
--- Size: End Of Session
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+-- Calculate size of: End Of Session
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  return index
+end
 
 -- Display: End Of Session
 cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.display = function(packet, parent, length)
@@ -3275,22 +3431,40 @@ end
 -- Extended Trade Flags
 cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags = {}
 
--- Size: Extended Trade Flags
-cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.size
+-- Calculate size of: Extended Trade Flags
+cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.size
+
+  return index
+end
 
 -- Display: Extended Trade Flags
 cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.display = function(packet, parent, length)
@@ -3505,18 +3679,32 @@ end
 -- Trade Extended Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message = {}
 
--- Size: Trade Extended Message
-cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trade_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.currency.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.size
+-- Calculate size of: Trade Extended Message
+cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.trade_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.currency.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Trade Extended Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.display = function(packet, parent, length)
@@ -3581,13 +3769,22 @@ end
 -- Trade Flags
 cboe_europe_cedxmulticast_pitch_v1_11.trade_flags = {}
 
--- Size: Trade Flags
-cboe_europe_cedxmulticast_pitch_v1_11.trade_flags.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.size
+-- Calculate size of: Trade Flags
+cboe_europe_cedxmulticast_pitch_v1_11.trade_flags.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.size
+
+  return index
+end
 
 -- Display: Trade Flags
 cboe_europe_cedxmulticast_pitch_v1_11.trade_flags.display = function(packet, parent, length)
@@ -3742,16 +3939,28 @@ end
 -- Trade Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_short_message = {}
 
--- Size: Trade Short Message
-cboe_europe_cedxmulticast_pitch_v1_11.trade_short_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price_short.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trade_flags.size
+-- Calculate size of: Trade Short Message
+cboe_europe_cedxmulticast_pitch_v1_11.trade_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price_short.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.trade_flags.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Trade Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_short_message.display = function(packet, parent, length)
@@ -3810,16 +4019,28 @@ end
 -- Trade Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_long_message = {}
 
--- Size: Trade Long Message
-cboe_europe_cedxmulticast_pitch_v1_11.trade_long_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trade_flags.size
+-- Calculate size of: Trade Long Message
+cboe_europe_cedxmulticast_pitch_v1_11.trade_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.trade_flags.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Trade Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_long_message.display = function(packet, parent, length)
@@ -3878,10 +4099,16 @@ end
 -- Delete Order Message
 cboe_europe_cedxmulticast_pitch_v1_11.delete_order_message = {}
 
--- Size: Delete Order Message
-cboe_europe_cedxmulticast_pitch_v1_11.delete_order_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+-- Calculate size of: Delete Order Message
+cboe_europe_cedxmulticast_pitch_v1_11.delete_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  return index
+end
 
 -- Display: Delete Order Message
 cboe_europe_cedxmulticast_pitch_v1_11.delete_order_message.display = function(packet, parent, length)
@@ -3922,12 +4149,20 @@ end
 -- Modify Order Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.modify_order_short_message = {}
 
--- Size: Modify Order Short Message
-cboe_europe_cedxmulticast_pitch_v1_11.modify_order_short_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price_short.size
+-- Calculate size of: Modify Order Short Message
+cboe_europe_cedxmulticast_pitch_v1_11.modify_order_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price_short.size
+
+  return index
+end
 
 -- Display: Modify Order Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.modify_order_short_message.display = function(packet, parent, length)
@@ -3974,12 +4209,20 @@ end
 -- Modify Order Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.modify_order_long_message = {}
 
--- Size: Modify Order Long Message
-cboe_europe_cedxmulticast_pitch_v1_11.modify_order_long_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size
+-- Calculate size of: Modify Order Long Message
+cboe_europe_cedxmulticast_pitch_v1_11.modify_order_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price.size
+
+  return index
+end
 
 -- Display: Modify Order Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.modify_order_long_message.display = function(packet, parent, length)
@@ -4049,11 +4292,18 @@ end
 -- Reduce Size Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_short_message = {}
 
--- Size: Reduce Size Short Message
-cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_short_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.size
+-- Calculate size of: Reduce Size Short Message
+cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.size
+
+  return index
+end
 
 -- Display: Reduce Size Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_short_message.display = function(packet, parent, length)
@@ -4120,11 +4370,18 @@ end
 -- Reduce Size Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_long_message = {}
 
--- Size: Reduce Size Long Message
-cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_long_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.size
+-- Calculate size of: Reduce Size Long Message
+cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.size
+
+  return index
+end
 
 -- Display: Reduce Size Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_long_message.display = function(packet, parent, length)
@@ -4214,15 +4471,26 @@ end
 -- Order Executed At Price Size Message
 cboe_europe_cedxmulticast_pitch_v1_11.order_executed_at_price_size_message = {}
 
--- Size: Order Executed At Price Size Message
-cboe_europe_cedxmulticast_pitch_v1_11.order_executed_at_price_size_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size
+-- Calculate size of: Order Executed At Price Size Message
+cboe_europe_cedxmulticast_pitch_v1_11.order_executed_at_price_size_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Order Executed At Price Size Message
 cboe_europe_cedxmulticast_pitch_v1_11.order_executed_at_price_size_message.display = function(packet, parent, length)
@@ -4278,13 +4546,22 @@ end
 -- Order Executed Message
 cboe_europe_cedxmulticast_pitch_v1_11.order_executed_message = {}
 
--- Size: Order Executed Message
-cboe_europe_cedxmulticast_pitch_v1_11.order_executed_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size
+-- Calculate size of: Order Executed Message
+cboe_europe_cedxmulticast_pitch_v1_11.order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Order Executed Message
 cboe_europe_cedxmulticast_pitch_v1_11.order_executed_message.display = function(packet, parent, length)
@@ -4380,14 +4657,24 @@ end
 -- Add Order Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.add_order_short_message = {}
 
--- Size: Add Order Short Message
-cboe_europe_cedxmulticast_pitch_v1_11.add_order_short_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price_short.size
+-- Calculate size of: Add Order Short Message
+cboe_europe_cedxmulticast_pitch_v1_11.add_order_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price_short.size
+
+  return index
+end
 
 -- Display: Add Order Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.add_order_short_message.display = function(packet, parent, length)
@@ -4463,14 +4750,24 @@ end
 -- Add Order Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.add_order_long_message = {}
 
--- Size: Add Order Long Message
-cboe_europe_cedxmulticast_pitch_v1_11.add_order_long_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.order_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.quantity.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size
+-- Calculate size of: Add Order Long Message
+cboe_europe_cedxmulticast_pitch_v1_11.add_order_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.quantity.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price.size
+
+  return index
+end
 
 -- Display: Add Order Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.add_order_long_message.display = function(packet, parent, length)
@@ -4523,9 +4820,14 @@ end
 -- Unit Clear Message
 cboe_europe_cedxmulticast_pitch_v1_11.unit_clear_message = {}
 
--- Size: Unit Clear Message
-cboe_europe_cedxmulticast_pitch_v1_11.unit_clear_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+-- Calculate size of: Unit Clear Message
+cboe_europe_cedxmulticast_pitch_v1_11.unit_clear_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  return index
+end
 
 -- Display: Unit Clear Message
 cboe_europe_cedxmulticast_pitch_v1_11.unit_clear_message.display = function(packet, parent, length)
@@ -4586,9 +4888,14 @@ end
 -- Time Message
 cboe_europe_cedxmulticast_pitch_v1_11.time_message = {}
 
--- Size: Time Message
-cboe_europe_cedxmulticast_pitch_v1_11.time_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time.size
+-- Calculate size of: Time Message
+cboe_europe_cedxmulticast_pitch_v1_11.time_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time.size
+
+  return index
+end
 
 -- Display: Time Message
 cboe_europe_cedxmulticast_pitch_v1_11.time_message.display = function(packet, parent, length)
@@ -5065,10 +5372,16 @@ end
 -- Message Header
 cboe_europe_cedxmulticast_pitch_v1_11.message_header = {}
 
--- Size: Message Header
-cboe_europe_cedxmulticast_pitch_v1_11.message_header.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.message_length.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.message_type.size
+-- Calculate size of: Message Header
+cboe_europe_cedxmulticast_pitch_v1_11.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.message_length.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 cboe_europe_cedxmulticast_pitch_v1_11.message_header.display = function(packet, parent, length)
@@ -5252,12 +5565,20 @@ end
 -- Packet Header
 cboe_europe_cedxmulticast_pitch_v1_11.packet_header = {}
 
--- Size: Packet Header
-cboe_europe_cedxmulticast_pitch_v1_11.packet_header.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.length.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.count.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.unit.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.sequence.size
+-- Calculate size of: Packet Header
+cboe_europe_cedxmulticast_pitch_v1_11.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.length.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.count.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.unit.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.sequence.size
+
+  return index
+end
 
 -- Display: Packet Header
 cboe_europe_cedxmulticast_pitch_v1_11.packet_header.display = function(packet, parent, length)

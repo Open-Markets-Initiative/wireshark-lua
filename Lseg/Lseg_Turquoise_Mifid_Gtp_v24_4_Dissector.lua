@@ -1182,46 +1182,88 @@ end
 -- Mi Fid Ii Trade Cross Message
 lseg_turquoise_mifid_gtp_v24_4.mi_fid_ii_trade_cross_message = {}
 
--- Size: Mi Fid Ii Trade Cross Message
-lseg_turquoise_mifid_gtp_v24_4.mi_fid_ii_trade_cross_message.size =
-  lseg_turquoise_mifid_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_mifid_gtp_v24_4.source_venue.size + 
-  lseg_turquoise_mifid_gtp_v24_4.instrument.size + 
-  lseg_turquoise_mifid_gtp_v24_4.transaction_identification_code.size + 
-  lseg_turquoise_mifid_gtp_v24_4.cross_id.size + 
-  lseg_turquoise_mifid_gtp_v24_4.cross_type.size + 
-  lseg_turquoise_mifid_gtp_v24_4.mi_fid_price.size + 
-  lseg_turquoise_mifid_gtp_v24_4.mi_fid_quantity.size + 
-  lseg_turquoise_mifid_gtp_v24_4.trading_date_and_time.size + 
-  lseg_turquoise_mifid_gtp_v24_4.instrument_identification_code_type.size + 
-  lseg_turquoise_mifid_gtp_v24_4.instrument_identification_code.size + 
-  lseg_turquoise_mifid_gtp_v24_4.price_notation.size + 
-  lseg_turquoise_mifid_gtp_v24_4.price_major_currency.size + 
-  lseg_turquoise_mifid_gtp_v24_4.notional_amount.size + 
-  lseg_turquoise_mifid_gtp_v24_4.notional_currency.size + 
-  lseg_turquoise_mifid_gtp_v24_4.venue_of_execution.size + 
-  lseg_turquoise_mifid_gtp_v24_4.publication_date_and_time.size + 
-  lseg_turquoise_mifid_gtp_v24_4.reserved_4.size + 
-  lseg_turquoise_mifid_gtp_v24_4.nt_pre_trade_waiver_flag.size + 
-  lseg_turquoise_mifid_gtp_v24_4.pt_algo_trade.size + 
-  lseg_turquoise_mifid_gtp_v24_4.reserved_4.size + 
-  lseg_turquoise_mifid_gtp_v24_4.pt_cancellation_flag.size + 
-  lseg_turquoise_mifid_gtp_v24_4.pt_amendment_flag.size + 
-  lseg_turquoise_mifid_gtp_v24_4.reserved_28.size + 
-  lseg_turquoise_mifid_gtp_v24_4.market_mechanism.size + 
-  lseg_turquoise_mifid_gtp_v24_4.trading_mode.size + 
-  lseg_turquoise_mifid_gtp_v24_4.transaction_category.size + 
-  lseg_turquoise_mifid_gtp_v24_4.negotiation_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.agency_cross_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.modification_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.reference_price_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.special_dividend_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.off_book_automated_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.price_formation_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.algorithmic_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.post_trade_deferral_reason.size + 
-  lseg_turquoise_mifid_gtp_v24_4.deferral_enrichment_type.size + 
-  lseg_turquoise_mifid_gtp_v24_4.duplicative_indicator.size
+-- Calculate size of: Mi Fid Ii Trade Cross Message
+lseg_turquoise_mifid_gtp_v24_4.mi_fid_ii_trade_cross_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.timestamp.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.source_venue.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.instrument.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.transaction_identification_code.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.cross_id.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.cross_type.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.mi_fid_price.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.mi_fid_quantity.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.trading_date_and_time.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.instrument_identification_code_type.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.instrument_identification_code.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.price_notation.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.price_major_currency.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.notional_amount.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.notional_currency.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.venue_of_execution.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.publication_date_and_time.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.reserved_4.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.nt_pre_trade_waiver_flag.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.pt_algo_trade.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.reserved_4.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.pt_cancellation_flag.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.pt_amendment_flag.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.reserved_28.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.market_mechanism.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.trading_mode.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.transaction_category.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.negotiation_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.agency_cross_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.modification_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.reference_price_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.special_dividend_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.off_book_automated_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.price_formation_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.algorithmic_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.post_trade_deferral_reason.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.deferral_enrichment_type.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.duplicative_indicator.size
+
+  return index
+end
 
 -- Display: Mi Fid Ii Trade Cross Message
 lseg_turquoise_mifid_gtp_v24_4.mi_fid_ii_trade_cross_message.display = function(packet, parent, length)
@@ -1502,47 +1544,90 @@ end
 -- Mifid Ii Trade Message
 lseg_turquoise_mifid_gtp_v24_4.mifid_ii_trade_message = {}
 
--- Size: Mifid Ii Trade Message
-lseg_turquoise_mifid_gtp_v24_4.mifid_ii_trade_message.size =
-  lseg_turquoise_mifid_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_mifid_gtp_v24_4.source_venue.size + 
-  lseg_turquoise_mifid_gtp_v24_4.instrument.size + 
-  lseg_turquoise_mifid_gtp_v24_4.transaction_identification_code.size + 
-  lseg_turquoise_mifid_gtp_v24_4.trade_type.size + 
-  lseg_turquoise_mifid_gtp_v24_4.auction_type.size + 
-  lseg_turquoise_mifid_gtp_v24_4.mi_fid_price.size + 
-  lseg_turquoise_mifid_gtp_v24_4.mi_fid_quantity.size + 
-  lseg_turquoise_mifid_gtp_v24_4.trading_date_and_time.size + 
-  lseg_turquoise_mifid_gtp_v24_4.instrument_identification_code_type.size + 
-  lseg_turquoise_mifid_gtp_v24_4.instrument_identification_code.size + 
-  lseg_turquoise_mifid_gtp_v24_4.price_notation.size + 
-  lseg_turquoise_mifid_gtp_v24_4.price_major_currency.size + 
-  lseg_turquoise_mifid_gtp_v24_4.notional_amount.size + 
-  lseg_turquoise_mifid_gtp_v24_4.notional_currency.size + 
-  lseg_turquoise_mifid_gtp_v24_4.venue_of_execution.size + 
-  lseg_turquoise_mifid_gtp_v24_4.publication_date_and_time.size + 
-  lseg_turquoise_mifid_gtp_v24_4.pt_ref_price_waiver_flag.size + 
-  lseg_turquoise_mifid_gtp_v24_4.reserved_4.size + 
-  lseg_turquoise_mifid_gtp_v24_4.market_closing_price_flag.size + 
-  lseg_turquoise_mifid_gtp_v24_4.pt_algo_trade.size + 
-  lseg_turquoise_mifid_gtp_v24_4.pt_cancellation_flag.size + 
-  lseg_turquoise_mifid_gtp_v24_4.pt_amendment_flag.size + 
-  lseg_turquoise_mifid_gtp_v24_4.reserved_28.size + 
-  lseg_turquoise_mifid_gtp_v24_4.trade_qualifier.size + 
-  lseg_turquoise_mifid_gtp_v24_4.market_mechanism.size + 
-  lseg_turquoise_mifid_gtp_v24_4.trading_mode.size + 
-  lseg_turquoise_mifid_gtp_v24_4.transaction_category.size + 
-  lseg_turquoise_mifid_gtp_v24_4.negotiation_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.agency_cross_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.modification_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.reference_price_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.special_dividend_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.off_book_automated_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.price_formation_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.algorithmic_indicator.size + 
-  lseg_turquoise_mifid_gtp_v24_4.post_trade_deferral_reason.size + 
-  lseg_turquoise_mifid_gtp_v24_4.deferral_enrichment_type.size + 
-  lseg_turquoise_mifid_gtp_v24_4.duplicative_indicator.size
+-- Calculate size of: Mifid Ii Trade Message
+lseg_turquoise_mifid_gtp_v24_4.mifid_ii_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.timestamp.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.source_venue.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.instrument.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.transaction_identification_code.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.trade_type.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.auction_type.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.mi_fid_price.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.mi_fid_quantity.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.trading_date_and_time.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.instrument_identification_code_type.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.instrument_identification_code.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.price_notation.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.price_major_currency.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.notional_amount.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.notional_currency.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.venue_of_execution.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.publication_date_and_time.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.pt_ref_price_waiver_flag.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.reserved_4.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.market_closing_price_flag.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.pt_algo_trade.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.pt_cancellation_flag.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.pt_amendment_flag.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.reserved_28.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.trade_qualifier.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.market_mechanism.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.trading_mode.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.transaction_category.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.negotiation_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.agency_cross_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.modification_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.reference_price_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.special_dividend_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.off_book_automated_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.price_formation_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.algorithmic_indicator.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.post_trade_deferral_reason.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.deferral_enrichment_type.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.duplicative_indicator.size
+
+  return index
+end
 
 -- Display: Mifid Ii Trade Message
 lseg_turquoise_mifid_gtp_v24_4.mifid_ii_trade_message.display = function(packet, parent, length)
@@ -1840,15 +1925,26 @@ end
 -- Instrument Status Message
 lseg_turquoise_mifid_gtp_v24_4.instrument_status_message = {}
 
--- Size: Instrument Status Message
-lseg_turquoise_mifid_gtp_v24_4.instrument_status_message.size =
-  lseg_turquoise_mifid_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_mifid_gtp_v24_4.instrument.size + 
-  lseg_turquoise_mifid_gtp_v24_4.source_venue.size + 
-  lseg_turquoise_mifid_gtp_v24_4.trading_status.size + 
-  lseg_turquoise_mifid_gtp_v24_4.session_change_reason.size + 
-  lseg_turquoise_mifid_gtp_v24_4.new_end_time.size + 
-  lseg_turquoise_mifid_gtp_v24_4.order_book_type.size
+-- Calculate size of: Instrument Status Message
+lseg_turquoise_mifid_gtp_v24_4.instrument_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.timestamp.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.instrument.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.source_venue.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.trading_status.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.session_change_reason.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.new_end_time.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.order_book_type.size
+
+  return index
+end
 
 -- Display: Instrument Status Message
 lseg_turquoise_mifid_gtp_v24_4.instrument_status_message.display = function(packet, parent, length)
@@ -2197,22 +2293,40 @@ end
 -- Instrument Directory Message
 lseg_turquoise_mifid_gtp_v24_4.instrument_directory_message = {}
 
--- Size: Instrument Directory Message
-lseg_turquoise_mifid_gtp_v24_4.instrument_directory_message.size =
-  lseg_turquoise_mifid_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_mifid_gtp_v24_4.instrument.size + 
-  lseg_turquoise_mifid_gtp_v24_4.isin.size + 
-  lseg_turquoise_mifid_gtp_v24_4.allowed_book_types.size + 
-  lseg_turquoise_mifid_gtp_v24_4.source_venue.size + 
-  lseg_turquoise_mifid_gtp_v24_4.venue_instrument_id.size + 
-  lseg_turquoise_mifid_gtp_v24_4.tick_id.size + 
-  lseg_turquoise_mifid_gtp_v24_4.price_band_tolerances.size + 
-  lseg_turquoise_mifid_gtp_v24_4.dynamic_circuit_breaker_tolerances.size + 
-  lseg_turquoise_mifid_gtp_v24_4.static_circuit_breaker_tolerances.size + 
-  lseg_turquoise_mifid_gtp_v24_4.segment.size + 
-  lseg_turquoise_mifid_gtp_v24_4.reserved_23.size + 
-  lseg_turquoise_mifid_gtp_v24_4.currency.size + 
-  lseg_turquoise_mifid_gtp_v24_4.reserved_38.size
+-- Calculate size of: Instrument Directory Message
+lseg_turquoise_mifid_gtp_v24_4.instrument_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.timestamp.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.instrument.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.isin.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.allowed_book_types.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.source_venue.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.venue_instrument_id.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.tick_id.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.price_band_tolerances.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.static_circuit_breaker_tolerances.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.segment.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.reserved_23.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.currency.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.reserved_38.size
+
+  return index
+end
 
 -- Display: Instrument Directory Message
 lseg_turquoise_mifid_gtp_v24_4.instrument_directory_message.display = function(packet, parent, length)
@@ -2319,11 +2433,18 @@ end
 -- System Event Message
 lseg_turquoise_mifid_gtp_v24_4.system_event_message = {}
 
--- Size: System Event Message
-lseg_turquoise_mifid_gtp_v24_4.system_event_message.size =
-  lseg_turquoise_mifid_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_mifid_gtp_v24_4.event_code.size + 
-  lseg_turquoise_mifid_gtp_v24_4.source_venue.size
+-- Calculate size of: System Event Message
+lseg_turquoise_mifid_gtp_v24_4.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.timestamp.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.event_code.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.source_venue.size
+
+  return index
+end
 
 -- Display: System Event Message
 lseg_turquoise_mifid_gtp_v24_4.system_event_message.display = function(packet, parent, length)
@@ -2509,10 +2630,16 @@ end
 -- Message Header
 lseg_turquoise_mifid_gtp_v24_4.message_header = {}
 
--- Size: Message Header
-lseg_turquoise_mifid_gtp_v24_4.message_header.size =
-  lseg_turquoise_mifid_gtp_v24_4.message_length.size + 
-  lseg_turquoise_mifid_gtp_v24_4.message_type.size
+-- Calculate size of: Message Header
+lseg_turquoise_mifid_gtp_v24_4.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.message_length.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 lseg_turquoise_mifid_gtp_v24_4.message_header.display = function(packet, parent, length)
@@ -2557,7 +2684,7 @@ lseg_turquoise_mifid_gtp_v24_4.message = {}
 lseg_turquoise_mifid_gtp_v24_4.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_turquoise_mifid_gtp_v24_4.message_header.size
+  index = index + lseg_turquoise_mifid_gtp_v24_4.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2702,12 +2829,20 @@ end
 -- Unit Header
 lseg_turquoise_mifid_gtp_v24_4.unit_header = {}
 
--- Size: Unit Header
-lseg_turquoise_mifid_gtp_v24_4.unit_header.size =
-  lseg_turquoise_mifid_gtp_v24_4.length.size + 
-  lseg_turquoise_mifid_gtp_v24_4.message_count.size + 
-  lseg_turquoise_mifid_gtp_v24_4.market_data_group.size + 
-  lseg_turquoise_mifid_gtp_v24_4.sequence_number.size
+-- Calculate size of: Unit Header
+lseg_turquoise_mifid_gtp_v24_4.unit_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.length.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.message_count.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.market_data_group.size
+
+  index = index + lseg_turquoise_mifid_gtp_v24_4.sequence_number.size
+
+  return index
+end
 
 -- Display: Unit Header
 lseg_turquoise_mifid_gtp_v24_4.unit_header.display = function(packet, parent, length)

@@ -149,10 +149,16 @@ end
 -- Message Header
 cboe_pitch_sequencedunitheader_pitch_v1_0.message_header = {}
 
--- Size: Message Header
-cboe_pitch_sequencedunitheader_pitch_v1_0.message_header.size =
-  cboe_pitch_sequencedunitheader_pitch_v1_0.message_length.size + 
-  cboe_pitch_sequencedunitheader_pitch_v1_0.message_type.size
+-- Calculate size of: Message Header
+cboe_pitch_sequencedunitheader_pitch_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0.message_length.size
+
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 cboe_pitch_sequencedunitheader_pitch_v1_0.message_header.display = function(packet, parent, length)
@@ -339,12 +345,20 @@ end
 -- Packet Header
 cboe_pitch_sequencedunitheader_pitch_v1_0.packet_header = {}
 
--- Size: Packet Header
-cboe_pitch_sequencedunitheader_pitch_v1_0.packet_header.size =
-  cboe_pitch_sequencedunitheader_pitch_v1_0.length.size + 
-  cboe_pitch_sequencedunitheader_pitch_v1_0.count.size + 
-  cboe_pitch_sequencedunitheader_pitch_v1_0.unit.size + 
-  cboe_pitch_sequencedunitheader_pitch_v1_0.sequence.size
+-- Calculate size of: Packet Header
+cboe_pitch_sequencedunitheader_pitch_v1_0.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0.length.size
+
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0.count.size
+
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0.unit.size
+
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0.sequence.size
+
+  return index
+end
 
 -- Display: Packet Header
 cboe_pitch_sequencedunitheader_pitch_v1_0.packet_header.display = function(packet, parent, length)

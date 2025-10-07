@@ -155,10 +155,16 @@ end
 -- Message Header
 iex_equities_udpheader_iextp_v1_0.message_header = {}
 
--- Size: Message Header
-iex_equities_udpheader_iextp_v1_0.message_header.size =
-  iex_equities_udpheader_iextp_v1_0.message_length.size + 
-  iex_equities_udpheader_iextp_v1_0.message_type.size
+-- Calculate size of: Message Header
+iex_equities_udpheader_iextp_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_udpheader_iextp_v1_0.message_length.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 iex_equities_udpheader_iextp_v1_0.message_header.display = function(packet, parent, length)
@@ -487,18 +493,32 @@ end
 -- Iex Tp Header
 iex_equities_udpheader_iextp_v1_0.iex_tp_header = {}
 
--- Size: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0.iex_tp_header.size =
-  iex_equities_udpheader_iextp_v1_0.version.size + 
-  iex_equities_udpheader_iextp_v1_0.reserved.size + 
-  iex_equities_udpheader_iextp_v1_0.message_protocol_id.size + 
-  iex_equities_udpheader_iextp_v1_0.channel_id.size + 
-  iex_equities_udpheader_iextp_v1_0.session_id.size + 
-  iex_equities_udpheader_iextp_v1_0.payload_length.size + 
-  iex_equities_udpheader_iextp_v1_0.message_count.size + 
-  iex_equities_udpheader_iextp_v1_0.stream_offset.size + 
-  iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size + 
-  iex_equities_udpheader_iextp_v1_0.send_time.size
+-- Calculate size of: Iex Tp Header
+iex_equities_udpheader_iextp_v1_0.iex_tp_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_udpheader_iextp_v1_0.version.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.reserved.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.message_protocol_id.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.channel_id.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.session_id.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.payload_length.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.message_count.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.stream_offset.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.send_time.size
+
+  return index
+end
 
 -- Display: Iex Tp Header
 iex_equities_udpheader_iextp_v1_0.iex_tp_header.display = function(packet, parent, length)

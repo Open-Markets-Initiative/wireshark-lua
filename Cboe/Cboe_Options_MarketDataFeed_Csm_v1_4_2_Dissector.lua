@@ -450,9 +450,14 @@ end
 -- Market Data Control Message
 cboe_options_marketdatafeed_csm_v1_4_2.market_data_control_message = {}
 
--- Size: Market Data Control Message
-cboe_options_marketdatafeed_csm_v1_4_2.market_data_control_message.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.md_control_type.size
+-- Calculate size of: Market Data Control Message
+cboe_options_marketdatafeed_csm_v1_4_2.market_data_control_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_control_type.size
+
+  return index
+end
 
 -- Display: Market Data Control Message
 cboe_options_marketdatafeed_csm_v1_4_2.market_data_control_message.display = function(packet, parent, length)
@@ -536,10 +541,16 @@ end
 -- Md Entry Px
 cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px = {}
 
--- Size: Md Entry Px
-cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px_mantissa.size
+-- Calculate size of: Md Entry Px
+cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px_mantissa.size
+
+  return index
+end
 
 -- Display: Md Entry Px
 cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.display = function(packet, parent, length)
@@ -628,10 +639,16 @@ end
 -- Summary Md Entry
 cboe_options_marketdatafeed_csm_v1_4_2.summary_md_entry = {}
 
--- Size: Summary Md Entry
-cboe_options_marketdatafeed_csm_v1_4_2.summary_md_entry.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size
+-- Calculate size of: Summary Md Entry
+cboe_options_marketdatafeed_csm_v1_4_2.summary_md_entry.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Summary Md Entry
 cboe_options_marketdatafeed_csm_v1_4_2.summary_md_entry.display = function(packet, parent, length)
@@ -747,10 +764,16 @@ end
 -- Underlying Px
 cboe_options_marketdatafeed_csm_v1_4_2.underlying_px = {}
 
--- Size: Underlying Px
-cboe_options_marketdatafeed_csm_v1_4_2.underlying_px.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.underlying_px_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.underlying_px_mantissa.size
+-- Calculate size of: Underlying Px
+cboe_options_marketdatafeed_csm_v1_4_2.underlying_px.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.underlying_px_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.underlying_px_mantissa.size
+
+  return index
+end
 
 -- Display: Underlying Px
 cboe_options_marketdatafeed_csm_v1_4_2.underlying_px.display = function(packet, parent, length)
@@ -837,10 +860,16 @@ end
 -- Net Chg Prev Day
 cboe_options_marketdatafeed_csm_v1_4_2.net_chg_prev_day = {}
 
--- Size: Net Chg Prev Day
-cboe_options_marketdatafeed_csm_v1_4_2.net_chg_prev_day.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.net_chg_prev_day_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.net_chg_prev_day_mantissa.size
+-- Calculate size of: Net Chg Prev Day
+cboe_options_marketdatafeed_csm_v1_4_2.net_chg_prev_day.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.net_chg_prev_day_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.net_chg_prev_day_mantissa.size
+
+  return index
+end
 
 -- Display: Net Chg Prev Day
 cboe_options_marketdatafeed_csm_v1_4_2.net_chg_prev_day.display = function(packet, parent, length)
@@ -1010,9 +1039,9 @@ cboe_options_marketdatafeed_csm_v1_4_2.summary_message.size = function(buffer, o
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.open_interest.size
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.net_chg_prev_day.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.net_chg_prev_day.size(buffer, offset + index)
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.underlying_px.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.underlying_px.size(buffer, offset + index)
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.no_entries.size
 
@@ -1080,10 +1109,16 @@ end
 -- Settlement Value Md Entry
 cboe_options_marketdatafeed_csm_v1_4_2.settlement_value_md_entry = {}
 
--- Size: Settlement Value Md Entry
-cboe_options_marketdatafeed_csm_v1_4_2.settlement_value_md_entry.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size
+-- Calculate size of: Settlement Value Md Entry
+cboe_options_marketdatafeed_csm_v1_4_2.settlement_value_md_entry.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Settlement Value Md Entry
 cboe_options_marketdatafeed_csm_v1_4_2.settlement_value_md_entry.display = function(packet, parent, length)
@@ -1194,10 +1229,16 @@ end
 -- Index Value Md Entry
 cboe_options_marketdatafeed_csm_v1_4_2.index_value_md_entry = {}
 
--- Size: Index Value Md Entry
-cboe_options_marketdatafeed_csm_v1_4_2.index_value_md_entry.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size
+-- Calculate size of: Index Value Md Entry
+cboe_options_marketdatafeed_csm_v1_4_2.index_value_md_entry.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Index Value Md Entry
 cboe_options_marketdatafeed_csm_v1_4_2.index_value_md_entry.display = function(packet, parent, length)
@@ -1542,10 +1583,16 @@ end
 -- Eop
 cboe_options_marketdatafeed_csm_v1_4_2.eop = {}
 
--- Size: Eop
-cboe_options_marketdatafeed_csm_v1_4_2.eop.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.eop_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.eop_mantissa.size
+-- Calculate size of: Eop
+cboe_options_marketdatafeed_csm_v1_4_2.eop.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.eop_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.eop_mantissa.size
+
+  return index
+end
 
 -- Display: Eop
 cboe_options_marketdatafeed_csm_v1_4_2.eop.display = function(packet, parent, length)
@@ -1586,14 +1633,24 @@ end
 -- Expected Opening Price And Size Message
 cboe_options_marketdatafeed_csm_v1_4_2.expected_opening_price_and_size_message = {}
 
--- Size: Expected Opening Price And Size Message
-cboe_options_marketdatafeed_csm_v1_4_2.expected_opening_price_and_size_message.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.class_key.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.security_id.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.eop.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.eos.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.eop_type.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.legal_market.size
+-- Calculate size of: Expected Opening Price And Size Message
+cboe_options_marketdatafeed_csm_v1_4_2.expected_opening_price_and_size_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.class_key.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.security_id.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.eop.size(buffer, offset + index)
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.eos.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.eop_type.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.legal_market.size
+
+  return index
+end
 
 -- Display: Expected Opening Price And Size Message
 cboe_options_marketdatafeed_csm_v1_4_2.expected_opening_price_and_size_message.display = function(packet, parent, length)
@@ -1763,7 +1820,7 @@ cboe_options_marketdatafeed_csm_v1_4_2.ticker_md_entry.size = function(buffer, o
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size(buffer, offset + index)
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_size.size
 
@@ -1883,11 +1940,18 @@ end
 -- Recap Update Md Entry
 cboe_options_marketdatafeed_csm_v1_4_2.recap_update_md_entry = {}
 
--- Size: Recap Update Md Entry
-cboe_options_marketdatafeed_csm_v1_4_2.recap_update_md_entry.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_size.size
+-- Calculate size of: Recap Update Md Entry
+cboe_options_marketdatafeed_csm_v1_4_2.recap_update_md_entry.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size(buffer, offset + index)
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_size.size
+
+  return index
+end
 
 -- Display: Recap Update Md Entry
 cboe_options_marketdatafeed_csm_v1_4_2.recap_update_md_entry.display = function(packet, parent, length)
@@ -1983,10 +2047,16 @@ end
 -- Prev Close Px
 cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px = {}
 
--- Size: Prev Close Px
-cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px_mantissa.size
+-- Calculate size of: Prev Close Px
+cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px_mantissa.size
+
+  return index
+end
 
 -- Display: Prev Close Px
 cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px.display = function(packet, parent, length)
@@ -2037,7 +2107,7 @@ cboe_options_marketdatafeed_csm_v1_4_2.recap_update_message.size = function(buff
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.price_type.size
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px.size(buffer, offset + index)
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.trade_volume.size
 
@@ -2137,12 +2207,20 @@ end
 -- Md Entry
 cboe_options_marketdatafeed_csm_v1_4_2.md_entry = {}
 
--- Size: Md Entry
-cboe_options_marketdatafeed_csm_v1_4_2.md_entry.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.md_entry_size.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.md_volume_type.size
+-- Calculate size of: Md Entry
+cboe_options_marketdatafeed_csm_v1_4_2.md_entry.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_type.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_px.size(buffer, offset + index)
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_entry_size.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.md_volume_type.size
+
+  return index
+end
 
 -- Display: Md Entry
 cboe_options_marketdatafeed_csm_v1_4_2.md_entry.display = function(packet, parent, length)
@@ -2352,7 +2430,7 @@ cboe_options_marketdatafeed_csm_v1_4_2.market_data_refresh_message.size = functi
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.appl_seq_num.size
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.prev_close_px.size(buffer, offset + index)
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.trade_volume.size
 
@@ -2572,11 +2650,18 @@ end
 -- Security Definition Leg
 cboe_options_marketdatafeed_csm_v1_4_2.security_definition_leg = {}
 
--- Size: Security Definition Leg
-cboe_options_marketdatafeed_csm_v1_4_2.security_definition_leg.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.leg_ratio_qty.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.leg_security_id.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.leg_side.size
+-- Calculate size of: Security Definition Leg
+cboe_options_marketdatafeed_csm_v1_4_2.security_definition_leg.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.leg_ratio_qty.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.leg_security_id.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.leg_side.size
+
+  return index
+end
 
 -- Display: Security Definition Leg
 cboe_options_marketdatafeed_csm_v1_4_2.security_definition_leg.display = function(packet, parent, length)
@@ -3012,10 +3097,16 @@ end
 -- Minimum Below Premium Fraction
 cboe_options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction = {}
 
--- Size: Minimum Below Premium Fraction
-cboe_options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction_mantissa.size
+-- Calculate size of: Minimum Below Premium Fraction
+cboe_options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction_mantissa.size
+
+  return index
+end
 
 -- Display: Minimum Below Premium Fraction
 cboe_options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction.display = function(packet, parent, length)
@@ -3102,10 +3193,16 @@ end
 -- Minimum Above Premium Fraction
 cboe_options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction = {}
 
--- Size: Minimum Above Premium Fraction
-cboe_options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction_mantissa.size
+-- Calculate size of: Minimum Above Premium Fraction
+cboe_options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction_mantissa.size
+
+  return index
+end
 
 -- Display: Minimum Above Premium Fraction
 cboe_options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction.display = function(packet, parent, length)
@@ -3192,10 +3289,16 @@ end
 -- Premium Break Point
 cboe_options_marketdatafeed_csm_v1_4_2.premium_break_point = {}
 
--- Size: Premium Break Point
-cboe_options_marketdatafeed_csm_v1_4_2.premium_break_point.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.premium_break_point_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.premium_break_point_mantissa.size
+-- Calculate size of: Premium Break Point
+cboe_options_marketdatafeed_csm_v1_4_2.premium_break_point.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.premium_break_point_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.premium_break_point_mantissa.size
+
+  return index
+end
 
 -- Display: Premium Break Point
 cboe_options_marketdatafeed_csm_v1_4_2.premium_break_point.display = function(packet, parent, length)
@@ -3282,10 +3385,16 @@ end
 -- Max Strike Price
 cboe_options_marketdatafeed_csm_v1_4_2.max_strike_price = {}
 
--- Size: Max Strike Price
-cboe_options_marketdatafeed_csm_v1_4_2.max_strike_price.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.max_strike_price_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.max_strike_price_mantissa.size
+-- Calculate size of: Max Strike Price
+cboe_options_marketdatafeed_csm_v1_4_2.max_strike_price.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.max_strike_price_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.max_strike_price_mantissa.size
+
+  return index
+end
 
 -- Display: Max Strike Price
 cboe_options_marketdatafeed_csm_v1_4_2.max_strike_price.display = function(packet, parent, length)
@@ -3372,10 +3481,16 @@ end
 -- Minimum Strike Price Fraction
 cboe_options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction = {}
 
--- Size: Minimum Strike Price Fraction
-cboe_options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction_mantissa.size
+-- Calculate size of: Minimum Strike Price Fraction
+cboe_options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction_mantissa.size
+
+  return index
+end
 
 -- Display: Minimum Strike Price Fraction
 cboe_options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction.display = function(packet, parent, length)
@@ -3492,10 +3607,16 @@ end
 -- Strike Price
 cboe_options_marketdatafeed_csm_v1_4_2.strike_price = {}
 
--- Size: Strike Price
-cboe_options_marketdatafeed_csm_v1_4_2.strike_price.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.strike_price_exponent.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.strike_price_mantissa.size
+-- Calculate size of: Strike Price
+cboe_options_marketdatafeed_csm_v1_4_2.strike_price.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.strike_price_exponent.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.strike_price_mantissa.size
+
+  return index
+end
 
 -- Display: Strike Price
 cboe_options_marketdatafeed_csm_v1_4_2.strike_price.display = function(packet, parent, length)
@@ -3794,19 +3915,19 @@ cboe_options_marketdatafeed_csm_v1_4_2.security_definition_message.size = functi
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.price_type.size
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.strike_price.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.strike_price.size(buffer, offset + index)
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.put_or_call.size
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction.size(buffer, offset + index)
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.max_strike_price.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.max_strike_price.size(buffer, offset + index)
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.premium_break_point.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.premium_break_point.size(buffer, offset + index)
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction.size(buffer, offset + index)
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction.size(buffer, offset + index)
 
   index = index + cboe_options_marketdatafeed_csm_v1_4_2.exercise_style.size
 
@@ -4187,12 +4308,20 @@ end
 -- Message Header
 cboe_options_marketdatafeed_csm_v1_4_2.message_header = {}
 
--- Size: Message Header
-cboe_options_marketdatafeed_csm_v1_4_2.message_header.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.message_length.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.template_id.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.message_type.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.msg_seq_num.size
+-- Calculate size of: Message Header
+cboe_options_marketdatafeed_csm_v1_4_2.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.message_length.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.template_id.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.message_type.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.msg_seq_num.size
+
+  return index
+end
 
 -- Display: Message Header
 cboe_options_marketdatafeed_csm_v1_4_2.message_header.display = function(packet, parent, length)
@@ -4243,7 +4372,7 @@ cboe_options_marketdatafeed_csm_v1_4_2.message = {}
 cboe_options_marketdatafeed_csm_v1_4_2.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_options_marketdatafeed_csm_v1_4_2.message_header.size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -4411,13 +4540,22 @@ end
 -- Packet Header
 cboe_options_marketdatafeed_csm_v1_4_2.packet_header = {}
 
--- Size: Packet Header
-cboe_options_marketdatafeed_csm_v1_4_2.packet_header.size =
-  cboe_options_marketdatafeed_csm_v1_4_2.version.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.packet_length.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.sending_time.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.message_count.size + 
-  cboe_options_marketdatafeed_csm_v1_4_2.first_msg_seq_num.size
+-- Calculate size of: Packet Header
+cboe_options_marketdatafeed_csm_v1_4_2.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.version.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.packet_length.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.sending_time.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.message_count.size
+
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2.first_msg_seq_num.size
+
+  return index
+end
 
 -- Display: Packet Header
 cboe_options_marketdatafeed_csm_v1_4_2.packet_header.display = function(packet, parent, length)

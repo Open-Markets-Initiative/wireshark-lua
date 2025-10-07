@@ -26680,10 +26680,16 @@ end
 -- Unit Sequence
 cboe_edgx_equities_orderentry_boe_v2_3.unit_sequence = {}
 
--- Size: Unit Sequence
-cboe_edgx_equities_orderentry_boe_v2_3.unit_sequence.size =
-  cboe_edgx_equities_orderentry_boe_v2_3.unit_number.size + 
-  cboe_edgx_equities_orderentry_boe_v2_3.sequence_number.size
+-- Calculate size of: Unit Sequence
+cboe_edgx_equities_orderentry_boe_v2_3.unit_sequence.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgx_equities_orderentry_boe_v2_3.unit_number.size
+
+  index = index + cboe_edgx_equities_orderentry_boe_v2_3.sequence_number.size
+
+  return index
+end
 
 -- Display: Unit Sequence
 cboe_edgx_equities_orderentry_boe_v2_3.unit_sequence.display = function(packet, parent, length)
@@ -29999,10 +30005,16 @@ end
 -- Param Header
 cboe_edgx_equities_orderentry_boe_v2_3.param_header = {}
 
--- Size: Param Header
-cboe_edgx_equities_orderentry_boe_v2_3.param_header.size =
-  cboe_edgx_equities_orderentry_boe_v2_3.param_group_length.size + 
-  cboe_edgx_equities_orderentry_boe_v2_3.param_group_type.size
+-- Calculate size of: Param Header
+cboe_edgx_equities_orderentry_boe_v2_3.param_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgx_equities_orderentry_boe_v2_3.param_group_length.size
+
+  index = index + cboe_edgx_equities_orderentry_boe_v2_3.param_group_type.size
+
+  return index
+end
 
 -- Display: Param Header
 cboe_edgx_equities_orderentry_boe_v2_3.param_header.display = function(packet, parent, length)
@@ -30770,13 +30782,22 @@ end
 -- Message Header
 cboe_edgx_equities_orderentry_boe_v2_3.message_header = {}
 
--- Size: Message Header
-cboe_edgx_equities_orderentry_boe_v2_3.message_header.size =
-  cboe_edgx_equities_orderentry_boe_v2_3.start_of_message.size + 
-  cboe_edgx_equities_orderentry_boe_v2_3.message_length.size + 
-  cboe_edgx_equities_orderentry_boe_v2_3.message_type.size + 
-  cboe_edgx_equities_orderentry_boe_v2_3.matching_unit.size + 
-  cboe_edgx_equities_orderentry_boe_v2_3.sequence_number.size
+-- Calculate size of: Message Header
+cboe_edgx_equities_orderentry_boe_v2_3.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgx_equities_orderentry_boe_v2_3.start_of_message.size
+
+  index = index + cboe_edgx_equities_orderentry_boe_v2_3.message_length.size
+
+  index = index + cboe_edgx_equities_orderentry_boe_v2_3.message_type.size
+
+  index = index + cboe_edgx_equities_orderentry_boe_v2_3.matching_unit.size
+
+  index = index + cboe_edgx_equities_orderentry_boe_v2_3.sequence_number.size
+
+  return index
+end
 
 -- Display: Message Header
 cboe_edgx_equities_orderentry_boe_v2_3.message_header.display = function(packet, parent, length)

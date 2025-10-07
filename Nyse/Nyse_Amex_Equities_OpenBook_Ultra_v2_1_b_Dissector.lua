@@ -173,9 +173,14 @@ end
 -- Sequence Number Reset Message
 nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message = {}
 
--- Size: Sequence Number Reset Message
-nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size =
-  nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.size
+-- Calculate size of: Sequence Number Reset Message
+nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.size
+
+  return index
+end
 
 -- Display: Sequence Number Reset Message
 nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.display = function(packet, parent, length)
@@ -440,17 +445,30 @@ end
 -- Delta Price Point
 nyse_amex_equities_openbook_ultra_v2_1_b.delta_price_point = {}
 
--- Size: Delta Price Point
-nyse_amex_equities_openbook_ultra_v2_1_b.delta_price_point.size =
-  nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.volume.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.side.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.reason_code.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.link_id_2.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.size
+-- Calculate size of: Delta Price Point
+nyse_amex_equities_openbook_ultra_v2_1_b.delta_price_point.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.volume.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.side.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.reason_code.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.link_id_2.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.size
+
+  return index
+end
 
 -- Display: Delta Price Point
 nyse_amex_equities_openbook_ultra_v2_1_b.delta_price_point.display = function(packet, parent, length)
@@ -816,7 +834,7 @@ end
 -- Delta Update Messages
 nyse_amex_equities_openbook_ultra_v2_1_b.delta_update_messages = {}
 
--- Size: Delta Update Messages
+-- Size Of: Delta Update Messages
 nyse_amex_equities_openbook_ultra_v2_1_b.delta_update_messages.size = function(buffer, offset)
   return buffer:len() - offset
 end
@@ -885,13 +903,22 @@ end
 -- Full Price Point
 nyse_amex_equities_openbook_ultra_v2_1_b.full_price_point = {}
 
--- Size: Full Price Point
-nyse_amex_equities_openbook_ultra_v2_1_b.full_price_point.size =
-  nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.volume.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.side.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.size
+-- Calculate size of: Full Price Point
+nyse_amex_equities_openbook_ultra_v2_1_b.full_price_point.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.volume.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.side.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.size
+
+  return index
+end
 
 -- Display: Full Price Point
 nyse_amex_equities_openbook_ultra_v2_1_b.full_price_point.display = function(packet, parent, length)
@@ -1113,7 +1140,7 @@ end
 -- Full Update Messages
 nyse_amex_equities_openbook_ultra_v2_1_b.full_update_messages = {}
 
--- Size: Full Update Messages
+-- Size Of: Full Update Messages
 nyse_amex_equities_openbook_ultra_v2_1_b.full_update_messages.size = function(buffer, offset)
   return buffer:len() - offset
 end
@@ -1427,16 +1454,28 @@ end
 -- Packet Header
 nyse_amex_equities_openbook_ultra_v2_1_b.packet_header = {}
 
--- Size: Packet Header
-nyse_amex_equities_openbook_ultra_v2_1_b.packet_header.size =
-  nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.message_type.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.product_id.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.message_count.size + 
-  nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.size
+-- Calculate size of: Packet Header
+nyse_amex_equities_openbook_ultra_v2_1_b.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.message_type.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.product_id.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.message_count.size
+
+  index = index + nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.size
+
+  return index
+end
 
 -- Display: Packet Header
 nyse_amex_equities_openbook_ultra_v2_1_b.packet_header.display = function(packet, parent, length)

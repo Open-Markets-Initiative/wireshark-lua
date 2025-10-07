@@ -2312,12 +2312,20 @@ end
 -- Response Header Comp
 eurex_derivatives_eti_t7_v13_1.response_header_comp = {}
 
--- Size: Response Header Comp
-eurex_derivatives_eti_t7_v13_1.response_header_comp.size =
-  eurex_derivatives_eti_t7_v13_1.request_time.size + 
-  eurex_derivatives_eti_t7_v13_1.sending_time.size + 
-  eurex_derivatives_eti_t7_v13_1.msg_seq_num.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_4.size
+-- Calculate size of: Response Header Comp
+eurex_derivatives_eti_t7_v13_1.response_header_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.request_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.sending_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.msg_seq_num.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_4.size
+
+  return index
+end
 
 -- Display: Response Header Comp
 eurex_derivatives_eti_t7_v13_1.response_header_comp.display = function(packet, parent, length)
@@ -2491,10 +2499,16 @@ end
 -- Request Header Comp
 eurex_derivatives_eti_t7_v13_1.request_header_comp = {}
 
--- Size: Request Header Comp
-eurex_derivatives_eti_t7_v13_1.request_header_comp.size =
-  eurex_derivatives_eti_t7_v13_1.msg_seq_num.size + 
-  eurex_derivatives_eti_t7_v13_1.sender_sub_id.size
+-- Calculate size of: Request Header Comp
+eurex_derivatives_eti_t7_v13_1.request_header_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.msg_seq_num.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.sender_sub_id.size
+
+  return index
+end
 
 -- Display: Request Header Comp
 eurex_derivatives_eti_t7_v13_1.request_header_comp.display = function(packet, parent, length)
@@ -2930,11 +2944,18 @@ end
 -- Underlying Stip Grp Comp
 eurex_derivatives_eti_t7_v13_1.underlying_stip_grp_comp = {}
 
--- Size: Underlying Stip Grp Comp
-eurex_derivatives_eti_t7_v13_1.underlying_stip_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.underlying_stip_value.size + 
-  eurex_derivatives_eti_t7_v13_1.underlying_stip_type.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_1.size
+-- Calculate size of: Underlying Stip Grp Comp
+eurex_derivatives_eti_t7_v13_1.underlying_stip_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.underlying_stip_value.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.underlying_stip_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_1.size
+
+  return index
+end
 
 -- Display: Underlying Stip Grp Comp
 eurex_derivatives_eti_t7_v13_1.underlying_stip_grp_comp.display = function(packet, parent, length)
@@ -3080,11 +3101,18 @@ end
 -- Instrument Attribute Grp Comp
 eurex_derivatives_eti_t7_v13_1.instrument_attribute_grp_comp = {}
 
--- Size: Instrument Attribute Grp Comp
-eurex_derivatives_eti_t7_v13_1.instrument_attribute_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.instr_attrib_type.size + 
-  eurex_derivatives_eti_t7_v13_1.instr_attrib_value.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Instrument Attribute Grp Comp
+eurex_derivatives_eti_t7_v13_1.instrument_attribute_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.instr_attrib_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.instr_attrib_value.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Instrument Attribute Grp Comp
 eurex_derivatives_eti_t7_v13_1.instrument_attribute_grp_comp.display = function(packet, parent, length)
@@ -3218,11 +3246,18 @@ end
 -- Instrument Event Grp Comp
 eurex_derivatives_eti_t7_v13_1.instrument_event_grp_comp = {}
 
--- Size: Instrument Event Grp Comp
-eurex_derivatives_eti_t7_v13_1.instrument_event_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.event_date.size + 
-  eurex_derivatives_eti_t7_v13_1.event_type.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_3.size
+-- Calculate size of: Instrument Event Grp Comp
+eurex_derivatives_eti_t7_v13_1.instrument_event_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.event_date.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.event_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_3.size
+
+  return index
+end
 
 -- Display: Instrument Event Grp Comp
 eurex_derivatives_eti_t7_v13_1.instrument_event_grp_comp.display = function(packet, parent, length)
@@ -3378,11 +3413,18 @@ end
 -- Trd Instrmnt Leg Grp Comp
 eurex_derivatives_eti_t7_v13_1.trd_instrmnt_leg_grp_comp = {}
 
--- Size: Trd Instrmnt Leg Grp Comp
-eurex_derivatives_eti_t7_v13_1.trd_instrmnt_leg_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.leg_security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_price.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_qty.size
+-- Calculate size of: Trd Instrmnt Leg Grp Comp
+eurex_derivatives_eti_t7_v13_1.trd_instrmnt_leg_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_qty.size
+
+  return index
+end
 
 -- Display: Trd Instrmnt Leg Grp Comp
 eurex_derivatives_eti_t7_v13_1.trd_instrmnt_leg_grp_comp.display = function(packet, parent, length)
@@ -4381,39 +4423,74 @@ end
 -- Side Alloc Ext Grp Comp
 eurex_derivatives_eti_t7_v13_1.side_alloc_ext_grp_comp = {}
 
--- Size: Side Alloc Ext Grp Comp
-eurex_derivatives_eti_t7_v13_1.side_alloc_ext_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.alloc_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_client_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker.size + 
-  eurex_derivatives_eti_t7_v13_1.executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_1.size + 
-  eurex_derivatives_eti_t7_v13_1.tes_enrichment_rule_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size + 
-  eurex_derivatives_eti_t7_v13_1.trading_capacity.size + 
-  eurex_derivatives_eti_t7_v13_1.position_effect.size + 
-  eurex_derivatives_eti_t7_v13_1.order_attribute_liquidity_provision.size + 
-  eurex_derivatives_eti_t7_v13_1.executing_trader_qualifier.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker_qualifier.size + 
-  eurex_derivatives_eti_t7_v13_1.order_attribute_risk_reduction.size + 
-  eurex_derivatives_eti_t7_v13_1.order_origination.size + 
-  eurex_derivatives_eti_t7_v13_1.account.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_position_account.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_take_up_trading_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_1.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_2.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_3.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_order_origination_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_beneficiary.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_location_id.size + 
-  eurex_derivatives_eti_t7_v13_1.cust_order_handling_inst.size + 
-  eurex_derivatives_eti_t7_v13_1.compliance_text.size + 
-  eurex_derivatives_eti_t7_v13_1.party_end_client_identification.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_5.size
+-- Calculate size of: Side Alloc Ext Grp Comp
+eurex_derivatives_eti_t7_v13_1.side_alloc_ext_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_client_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_1.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.tes_enrichment_rule_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trading_capacity.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.position_effect.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_attribute_liquidity_provision.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.executing_trader_qualifier.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker_qualifier.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_attribute_risk_reduction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_origination.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_position_account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_take_up_trading_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_1.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_2.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_3.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_order_origination_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_beneficiary.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_location_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.cust_order_handling_inst.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.compliance_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_end_client_identification.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_5.size
+
+  return index
+end
 
 -- Display: Side Alloc Ext Grp Comp
 eurex_derivatives_eti_t7_v13_1.side_alloc_ext_grp_comp.display = function(packet, parent, length)
@@ -6041,11 +6118,18 @@ end
 -- Rra Update Base Party Ack Grp Comp
 eurex_derivatives_eti_t7_v13_1.rra_update_base_party_ack_grp_comp = {}
 
--- Size: Rra Update Base Party Ack Grp Comp
-eurex_derivatives_eti_t7_v13_1.rra_update_base_party_ack_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.party_detail_executing_unit.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_1.size + 
-  eurex_derivatives_eti_t7_v13_1.risk_limit_result.size
+-- Calculate size of: Rra Update Base Party Ack Grp Comp
+eurex_derivatives_eti_t7_v13_1.rra_update_base_party_ack_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_executing_unit.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_1.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_result.size
+
+  return index
+end
 
 -- Display: Rra Update Base Party Ack Grp Comp
 eurex_derivatives_eti_t7_v13_1.rra_update_base_party_ack_grp_comp.display = function(packet, parent, length)
@@ -6272,16 +6356,28 @@ end
 -- Nr Response Header Me Comp
 eurex_derivatives_eti_t7_v13_1.nr_response_header_me_comp = {}
 
--- Size: Nr Response Header Me Comp
-eurex_derivatives_eti_t7_v13_1.nr_response_header_me_comp.size =
-  eurex_derivatives_eti_t7_v13_1.request_time.size + 
-  eurex_derivatives_eti_t7_v13_1.trd_reg_ts_time_in.size + 
-  eurex_derivatives_eti_t7_v13_1.trd_reg_ts_time_out.size + 
-  eurex_derivatives_eti_t7_v13_1.response_in.size + 
-  eurex_derivatives_eti_t7_v13_1.sending_time.size + 
-  eurex_derivatives_eti_t7_v13_1.msg_seq_num.size + 
-  eurex_derivatives_eti_t7_v13_1.last_fragment.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_3.size
+-- Calculate size of: Nr Response Header Me Comp
+eurex_derivatives_eti_t7_v13_1.nr_response_header_me_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.request_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trd_reg_ts_time_in.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trd_reg_ts_time_out.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.response_in.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.sending_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.msg_seq_num.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_fragment.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_3.size
+
+  return index
+end
 
 -- Display: Nr Response Header Me Comp
 eurex_derivatives_eti_t7_v13_1.nr_response_header_me_comp.display = function(packet, parent, length)
@@ -6505,13 +6601,22 @@ end
 -- Rra Update Base Party Grp Comp
 eurex_derivatives_eti_t7_v13_1.rra_update_base_party_grp_comp = {}
 
--- Size: Rra Update Base Party Grp Comp
-eurex_derivatives_eti_t7_v13_1.rra_update_base_party_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.remaining_risk_allowance_base_long.size + 
-  eurex_derivatives_eti_t7_v13_1.remaining_risk_allowance_base_short.size + 
-  eurex_derivatives_eti_t7_v13_1.risk_limit_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_detail_executing_unit.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Rra Update Base Party Grp Comp
+eurex_derivatives_eti_t7_v13_1.rra_update_base_party_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.remaining_risk_allowance_base_long.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.remaining_risk_allowance_base_short.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_executing_unit.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Rra Update Base Party Grp Comp
 eurex_derivatives_eti_t7_v13_1.rra_update_base_party_grp_comp.display = function(packet, parent, length)
@@ -7058,18 +7163,32 @@ end
 -- Rbc Header Me Comp
 eurex_derivatives_eti_t7_v13_1.rbc_header_me_comp = {}
 
--- Size: Rbc Header Me Comp
-eurex_derivatives_eti_t7_v13_1.rbc_header_me_comp.size =
-  eurex_derivatives_eti_t7_v13_1.trd_reg_ts_time_out.size + 
-  eurex_derivatives_eti_t7_v13_1.notification_in.size + 
-  eurex_derivatives_eti_t7_v13_1.sending_time.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_sub_id.size + 
-  eurex_derivatives_eti_t7_v13_1.partition_id.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_msg_id.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_id.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_resend_flag.size + 
-  eurex_derivatives_eti_t7_v13_1.last_fragment.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Rbc Header Me Comp
+eurex_derivatives_eti_t7_v13_1.rbc_header_me_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trd_reg_ts_time_out.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.notification_in.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.sending_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_sub_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.partition_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_msg_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_resend_flag.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_fragment.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Rbc Header Me Comp
 eurex_derivatives_eti_t7_v13_1.rbc_header_me_comp.display = function(packet, parent, length)
@@ -8780,16 +8899,28 @@ end
 -- Rbc Header Comp
 eurex_derivatives_eti_t7_v13_1.rbc_header_comp = {}
 
--- Size: Rbc Header Comp
-eurex_derivatives_eti_t7_v13_1.rbc_header_comp.size =
-  eurex_derivatives_eti_t7_v13_1.sending_time.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_seq_num.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_sub_id.size + 
-  eurex_derivatives_eti_t7_v13_1.partition_id.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_resend_flag.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_id.size + 
-  eurex_derivatives_eti_t7_v13_1.last_fragment.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Rbc Header Comp
+eurex_derivatives_eti_t7_v13_1.rbc_header_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.sending_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_seq_num.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_sub_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.partition_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_resend_flag.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_fragment.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Rbc Header Comp
 eurex_derivatives_eti_t7_v13_1.rbc_header_comp.display = function(packet, parent, length)
@@ -9184,9 +9315,14 @@ end
 -- Notif Header Comp
 eurex_derivatives_eti_t7_v13_1.notif_header_comp = {}
 
--- Size: Notif Header Comp
-eurex_derivatives_eti_t7_v13_1.notif_header_comp.size =
-  eurex_derivatives_eti_t7_v13_1.sending_time.size
+-- Calculate size of: Notif Header Comp
+eurex_derivatives_eti_t7_v13_1.notif_header_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.sending_time.size
+
+  return index
+end
 
 -- Display: Notif Header Comp
 eurex_derivatives_eti_t7_v13_1.notif_header_comp.display = function(packet, parent, length)
@@ -10304,17 +10440,30 @@ end
 -- Side Alloc Grp Bc Comp
 eurex_derivatives_eti_t7_v13_1.side_alloc_grp_bc_comp = {}
 
--- Size: Side Alloc Grp Bc Comp
-eurex_derivatives_eti_t7_v13_1.side_alloc_grp_bc_comp.size =
-  eurex_derivatives_eti_t7_v13_1.alloc_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.reversal_approval_time.size + 
-  eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size + 
-  eurex_derivatives_eti_t7_v13_1.tes_enrichment_rule_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_3.size
+-- Calculate size of: Side Alloc Grp Bc Comp
+eurex_derivatives_eti_t7_v13_1.side_alloc_grp_bc_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.reversal_approval_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.tes_enrichment_rule_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_3.size
+
+  return index
+end
 
 -- Display: Side Alloc Grp Bc Comp
 eurex_derivatives_eti_t7_v13_1.side_alloc_grp_bc_comp.display = function(packet, parent, length)
@@ -10947,10 +11096,16 @@ end
 -- Trd Clearing Price Leg Grp Comp
 eurex_derivatives_eti_t7_v13_1.trd_clearing_price_leg_grp_comp = {}
 
--- Size: Trd Clearing Price Leg Grp Comp
-eurex_derivatives_eti_t7_v13_1.trd_clearing_price_leg_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.leg_security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_clearing_trade_price.size
+-- Calculate size of: Trd Clearing Price Leg Grp Comp
+eurex_derivatives_eti_t7_v13_1.trd_clearing_price_leg_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_clearing_trade_price.size
+
+  return index
+end
 
 -- Display: Trd Clearing Price Leg Grp Comp
 eurex_derivatives_eti_t7_v13_1.trd_clearing_price_leg_grp_comp.display = function(packet, parent, length)
@@ -12056,13 +12211,22 @@ end
 -- Nrbc Header Comp
 eurex_derivatives_eti_t7_v13_1.nrbc_header_comp = {}
 
--- Size: Nrbc Header Comp
-eurex_derivatives_eti_t7_v13_1.nrbc_header_comp.size =
-  eurex_derivatives_eti_t7_v13_1.sending_time.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_sub_id.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_id.size + 
-  eurex_derivatives_eti_t7_v13_1.last_fragment.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_2.size
+-- Calculate size of: Nrbc Header Comp
+eurex_derivatives_eti_t7_v13_1.nrbc_header_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.sending_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_sub_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_fragment.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_2.size
+
+  return index
+end
 
 -- Display: Nrbc Header Comp
 eurex_derivatives_eti_t7_v13_1.nrbc_header_comp.display = function(packet, parent, length)
@@ -13014,23 +13178,42 @@ end
 -- Target Parties Comp
 eurex_derivatives_eti_t7_v13_1.target_parties_comp = {}
 
--- Size: Target Parties Comp
-eurex_derivatives_eti_t7_v13_1.target_parties_comp.size =
-  eurex_derivatives_eti_t7_v13_1.target_party_id_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.side_disclosure_instruction.size + 
-  eurex_derivatives_eti_t7_v13_1.price_disclosure_instruction.size + 
-  eurex_derivatives_eti_t7_v13_1.leaves_qty_disclosure_instruction.size + 
-  eurex_derivatives_eti_t7_v13_1.last_px_disclosure_instruction.size + 
-  eurex_derivatives_eti_t7_v13_1.last_qty_disclosure_instruction.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_5_disclosure_instruction.size + 
-  eurex_derivatives_eti_t7_v13_1.party_order_origination_disclosure_instruction.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_instruction.size + 
-  eurex_derivatives_eti_t7_v13_1.charge_id_disclosure_instruction.size + 
-  eurex_derivatives_eti_t7_v13_1.target_party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.target_party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.party_detail_status.size + 
-  eurex_derivatives_eti_t7_v13_1.party_detail_status_information.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_6.size
+-- Calculate size of: Target Parties Comp
+eurex_derivatives_eti_t7_v13_1.target_parties_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.target_party_id_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_disclosure_instruction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.price_disclosure_instruction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leaves_qty_disclosure_instruction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_px_disclosure_instruction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_qty_disclosure_instruction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_5_disclosure_instruction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_order_origination_disclosure_instruction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_instruction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.charge_id_disclosure_instruction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.target_party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.target_party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_status.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_status_information.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Target Parties Comp
 eurex_derivatives_eti_t7_v13_1.target_parties_comp.display = function(packet, parent, length)
@@ -14379,27 +14562,50 @@ end
 -- Srqs Quote Entry Grp Comp
 eurex_derivatives_eti_t7_v13_1.srqs_quote_entry_grp_comp = {}
 
--- Size: Srqs Quote Entry Grp Comp
-eurex_derivatives_eti_t7_v13_1.srqs_quote_entry_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.transact_time.size + 
-  eurex_derivatives_eti_t7_v13_1.expire_time.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_id.size + 
-  eurex_derivatives_eti_t7_v13_1.secondary_quote_id.size + 
-  eurex_derivatives_eti_t7_v13_1.bid_px.size + 
-  eurex_derivatives_eti_t7_v13_1.bid_size.size + 
-  eurex_derivatives_eti_t7_v13_1.offer_px.size + 
-  eurex_derivatives_eti_t7_v13_1.offer_size.size + 
-  eurex_derivatives_eti_t7_v13_1.underlying_px.size + 
-  eurex_derivatives_eti_t7_v13_1.underlying_delta_percentage.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_ref_price.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.negotiation_id.size + 
-  eurex_derivatives_eti_t7_v13_1.quoting_status.size + 
-  eurex_derivatives_eti_t7_v13_1.firm_negotiation_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.party_entering_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_2.size
+-- Calculate size of: Srqs Quote Entry Grp Comp
+eurex_derivatives_eti_t7_v13_1.srqs_quote_entry_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.transact_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.expire_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.secondary_quote_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.bid_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.bid_size.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.offer_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.offer_size.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.underlying_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.underlying_delta_percentage.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_ref_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.negotiation_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quoting_status.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.firm_negotiation_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_entering_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_2.size
+
+  return index
+end
 
 -- Display: Srqs Quote Entry Grp Comp
 eurex_derivatives_eti_t7_v13_1.srqs_quote_entry_grp_comp.display = function(packet, parent, length)
@@ -14971,14 +15177,24 @@ end
 -- Quot Req Legs Grp Comp
 eurex_derivatives_eti_t7_v13_1.quot_req_legs_grp_comp = {}
 
--- Size: Quot Req Legs Grp Comp
-eurex_derivatives_eti_t7_v13_1.quot_req_legs_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.leg_security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_ratio_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_symbol.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_security_type.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_side.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_6.size
+-- Calculate size of: Quot Req Legs Grp Comp
+eurex_derivatives_eti_t7_v13_1.quot_req_legs_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_ratio_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_symbol.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_security_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Quot Req Legs Grp Comp
 eurex_derivatives_eti_t7_v13_1.quot_req_legs_grp_comp.display = function(packet, parent, length)
@@ -16323,11 +16539,18 @@ end
 -- Smart Party Detail Grp Comp
 eurex_derivatives_eti_t7_v13_1.smart_party_detail_grp_comp = {}
 
--- Size: Smart Party Detail Grp Comp
-eurex_derivatives_eti_t7_v13_1.smart_party_detail_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.party_detail_executing_unit.size + 
-  eurex_derivatives_eti_t7_v13_1.party_detail_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_5.size
+-- Calculate size of: Smart Party Detail Grp Comp
+eurex_derivatives_eti_t7_v13_1.smart_party_detail_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_executing_unit.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_5.size
+
+  return index
+end
 
 -- Display: Smart Party Detail Grp Comp
 eurex_derivatives_eti_t7_v13_1.smart_party_detail_grp_comp.display = function(packet, parent, length)
@@ -16677,12 +16900,20 @@ end
 -- Srqs Hit Quote Grp Comp
 eurex_derivatives_eti_t7_v13_1.srqs_hit_quote_grp_comp = {}
 
--- Size: Srqs Hit Quote Grp Comp
-eurex_derivatives_eti_t7_v13_1.srqs_hit_quote_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.order_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Srqs Hit Quote Grp Comp
+eurex_derivatives_eti_t7_v13_1.srqs_hit_quote_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Srqs Hit Quote Grp Comp
 eurex_derivatives_eti_t7_v13_1.srqs_hit_quote_grp_comp.display = function(packet, parent, length)
@@ -17126,9 +17357,14 @@ end
 -- Srqs Quote Grp Comp
 eurex_derivatives_eti_t7_v13_1.srqs_quote_grp_comp = {}
 
--- Size: Srqs Quote Grp Comp
-eurex_derivatives_eti_t7_v13_1.srqs_quote_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.quote_id.size
+-- Calculate size of: Srqs Quote Grp Comp
+eurex_derivatives_eti_t7_v13_1.srqs_quote_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_id.size
+
+  return index
+end
 
 -- Display: Srqs Quote Grp Comp
 eurex_derivatives_eti_t7_v13_1.srqs_quote_grp_comp.display = function(packet, parent, length)
@@ -17305,15 +17541,26 @@ end
 -- Srqs Target Party Trd Grp Comp
 eurex_derivatives_eti_t7_v13_1.srqs_target_party_trd_grp_comp = {}
 
--- Size: Srqs Target Party Trd Grp Comp
-eurex_derivatives_eti_t7_v13_1.srqs_target_party_trd_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.side_last_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_id.size + 
-  eurex_derivatives_eti_t7_v13_1.target_party_id_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.target_party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.target_party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.target_party_entering_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_3.size
+-- Calculate size of: Srqs Target Party Trd Grp Comp
+eurex_derivatives_eti_t7_v13_1.srqs_target_party_trd_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_last_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.target_party_id_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.target_party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.target_party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.target_party_entering_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_3.size
+
+  return index
+end
 
 -- Display: Srqs Target Party Trd Grp Comp
 eurex_derivatives_eti_t7_v13_1.srqs_target_party_trd_grp_comp.display = function(packet, parent, length)
@@ -17877,16 +18124,28 @@ end
 -- Order Book Item Grp Comp
 eurex_derivatives_eti_t7_v13_1.order_book_item_grp_comp = {}
 
--- Size: Order Book Item Grp Comp
-eurex_derivatives_eti_t7_v13_1.order_book_item_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.best_bid_px.size + 
-  eurex_derivatives_eti_t7_v13_1.best_bid_size.size + 
-  eurex_derivatives_eti_t7_v13_1.best_offer_px.size + 
-  eurex_derivatives_eti_t7_v13_1.best_offer_size.size + 
-  eurex_derivatives_eti_t7_v13_1.md_book_type.size + 
-  eurex_derivatives_eti_t7_v13_1.md_sub_book_type.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_6.size
+-- Calculate size of: Order Book Item Grp Comp
+eurex_derivatives_eti_t7_v13_1.order_book_item_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.best_bid_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.best_bid_size.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.best_offer_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.best_offer_size.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.md_book_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.md_sub_book_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Order Book Item Grp Comp
 eurex_derivatives_eti_t7_v13_1.order_book_item_grp_comp.display = function(packet, parent, length)
@@ -19554,15 +19813,26 @@ end
 -- Quote Leg Exec Grp Comp
 eurex_derivatives_eti_t7_v13_1.quote_leg_exec_grp_comp = {}
 
--- Size: Quote Leg Exec Grp Comp
-eurex_derivatives_eti_t7_v13_1.quote_leg_exec_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.leg_security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_last_px.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_last_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_exec_id.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_side.size + 
-  eurex_derivatives_eti_t7_v13_1.no_quote_events_index.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_2.size
+-- Calculate size of: Quote Leg Exec Grp Comp
+eurex_derivatives_eti_t7_v13_1.quote_leg_exec_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_last_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_last_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_exec_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.no_quote_events_index.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_2.size
+
+  return index
+end
 
 -- Display: Quote Leg Exec Grp Comp
 eurex_derivatives_eti_t7_v13_1.quote_leg_exec_grp_comp.display = function(packet, parent, length)
@@ -19939,19 +20209,34 @@ end
 -- Quote Event Grp Comp
 eurex_derivatives_eti_t7_v13_1.quote_event_grp_comp = {}
 
--- Size: Quote Event Grp Comp
-eurex_derivatives_eti_t7_v13_1.quote_event_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_event_px.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_event_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_msg_id.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_event_match_id.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_event_exec_id.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_event_type.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_event_side.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_event_liquidity_ind.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_event_reason.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_4.size
+-- Calculate size of: Quote Event Grp Comp
+eurex_derivatives_eti_t7_v13_1.quote_event_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_event_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_event_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_msg_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_event_match_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_event_exec_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_event_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_event_side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_event_liquidity_ind.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_event_reason.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_4.size
+
+  return index
+end
 
 -- Display: Quote Event Grp Comp
 eurex_derivatives_eti_t7_v13_1.quote_event_grp_comp.display = function(packet, parent, length)
@@ -20182,9 +20467,14 @@ end
 -- Not Affected Securities Grp Comp
 eurex_derivatives_eti_t7_v13_1.not_affected_securities_grp_comp = {}
 
--- Size: Not Affected Securities Grp Comp
-eurex_derivatives_eti_t7_v13_1.not_affected_securities_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.not_affected_security_id.size
+-- Calculate size of: Not Affected Securities Grp Comp
+eurex_derivatives_eti_t7_v13_1.not_affected_securities_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.not_affected_security_id.size
+
+  return index
+end
 
 -- Display: Not Affected Securities Grp Comp
 eurex_derivatives_eti_t7_v13_1.not_affected_securities_grp_comp.display = function(packet, parent, length)
@@ -20776,11 +21066,18 @@ end
 -- Risk Limit Qty Grp Comp
 eurex_derivatives_eti_t7_v13_1.risk_limit_qty_grp_comp = {}
 
--- Size: Risk Limit Qty Grp Comp
-eurex_derivatives_eti_t7_v13_1.risk_limit_qty_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.risk_limit_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.risk_limit_type.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Risk Limit Qty Grp Comp
+eurex_derivatives_eti_t7_v13_1.risk_limit_qty_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Risk Limit Qty Grp Comp
 eurex_derivatives_eti_t7_v13_1.risk_limit_qty_grp_comp.display = function(packet, parent, length)
@@ -21213,18 +21510,32 @@ end
 -- Risk Limits Rpt Grp Comp
 eurex_derivatives_eti_t7_v13_1.risk_limits_rpt_grp_comp = {}
 
--- Size: Risk Limits Rpt Grp Comp
-eurex_derivatives_eti_t7_v13_1.risk_limits_rpt_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.risk_limit_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.risk_limit_open_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.risk_limit_net_position_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.netting_coefficient.size + 
-  eurex_derivatives_eti_t7_v13_1.activation_date.size + 
-  eurex_derivatives_eti_t7_v13_1.risk_limit_type.size + 
-  eurex_derivatives_eti_t7_v13_1.risk_limit_requesting_party_role.size + 
-  eurex_derivatives_eti_t7_v13_1.risk_limit_violation_indicator.size + 
-  eurex_derivatives_eti_t7_v13_1.risk_limit_group.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_6.size
+-- Calculate size of: Risk Limits Rpt Grp Comp
+eurex_derivatives_eti_t7_v13_1.risk_limits_rpt_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_open_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_net_position_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.netting_coefficient.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.activation_date.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_requesting_party_role.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_violation_indicator.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.risk_limit_group.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Risk Limits Rpt Grp Comp
 eurex_derivatives_eti_t7_v13_1.risk_limits_rpt_grp_comp.display = function(packet, parent, length)
@@ -21944,13 +22255,22 @@ end
 -- Order Event Grp Comp
 eurex_derivatives_eti_t7_v13_1.order_event_grp_comp = {}
 
--- Size: Order Event Grp Comp
-eurex_derivatives_eti_t7_v13_1.order_event_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.order_event_px.size + 
-  eurex_derivatives_eti_t7_v13_1.order_event_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.order_event_match_id.size + 
-  eurex_derivatives_eti_t7_v13_1.order_event_reason.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_3.size
+-- Calculate size of: Order Event Grp Comp
+eurex_derivatives_eti_t7_v13_1.order_event_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_event_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_event_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_event_match_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_event_reason.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_3.size
+
+  return index
+end
 
 -- Display: Order Event Grp Comp
 eurex_derivatives_eti_t7_v13_1.order_event_grp_comp.display = function(packet, parent, length)
@@ -22034,15 +22354,26 @@ end
 -- Instrmnt Leg Exec Grp Comp
 eurex_derivatives_eti_t7_v13_1.instrmnt_leg_exec_grp_comp = {}
 
--- Size: Instrmnt Leg Exec Grp Comp
-eurex_derivatives_eti_t7_v13_1.instrmnt_leg_exec_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.leg_security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_last_px.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_last_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_exec_id.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_side.size + 
-  eurex_derivatives_eti_t7_v13_1.fill_ref_id.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_2.size
+-- Calculate size of: Instrmnt Leg Exec Grp Comp
+eurex_derivatives_eti_t7_v13_1.instrmnt_leg_exec_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_last_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_last_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_exec_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.fill_ref_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_2.size
+
+  return index
+end
 
 -- Display: Instrmnt Leg Exec Grp Comp
 eurex_derivatives_eti_t7_v13_1.instrmnt_leg_exec_grp_comp.display = function(packet, parent, length)
@@ -22283,14 +22614,24 @@ end
 -- Fills Grp Comp
 eurex_derivatives_eti_t7_v13_1.fills_grp_comp = {}
 
--- Size: Fills Grp Comp
-eurex_derivatives_eti_t7_v13_1.fills_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.fill_px.size + 
-  eurex_derivatives_eti_t7_v13_1.fill_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.fill_match_id.size + 
-  eurex_derivatives_eti_t7_v13_1.fill_exec_id.size + 
-  eurex_derivatives_eti_t7_v13_1.fill_liquidity_ind.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Fills Grp Comp
+eurex_derivatives_eti_t7_v13_1.fills_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.fill_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.fill_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.fill_match_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.fill_exec_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.fill_liquidity_ind.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Fills Grp Comp
 eurex_derivatives_eti_t7_v13_1.fills_grp_comp.display = function(packet, parent, length)
@@ -22869,18 +23210,32 @@ end
 -- Response Header Me Comp
 eurex_derivatives_eti_t7_v13_1.response_header_me_comp = {}
 
--- Size: Response Header Me Comp
-eurex_derivatives_eti_t7_v13_1.response_header_me_comp.size =
-  eurex_derivatives_eti_t7_v13_1.request_time.size + 
-  eurex_derivatives_eti_t7_v13_1.trd_reg_ts_time_in.size + 
-  eurex_derivatives_eti_t7_v13_1.trd_reg_ts_time_out.size + 
-  eurex_derivatives_eti_t7_v13_1.response_in.size + 
-  eurex_derivatives_eti_t7_v13_1.sending_time.size + 
-  eurex_derivatives_eti_t7_v13_1.msg_seq_num.size + 
-  eurex_derivatives_eti_t7_v13_1.partition_id.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_id.size + 
-  eurex_derivatives_eti_t7_v13_1.appl_msg_id.size + 
-  eurex_derivatives_eti_t7_v13_1.last_fragment.size
+-- Calculate size of: Response Header Me Comp
+eurex_derivatives_eti_t7_v13_1.response_header_me_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.request_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trd_reg_ts_time_in.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trd_reg_ts_time_out.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.response_in.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.sending_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.msg_seq_num.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.partition_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.appl_msg_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_fragment.size
+
+  return index
+end
 
 -- Display: Response Header Me Comp
 eurex_derivatives_eti_t7_v13_1.response_header_me_comp.display = function(packet, parent, length)
@@ -23148,11 +23503,18 @@ end
 -- Leg Ord Grp Comp
 eurex_derivatives_eti_t7_v13_1.leg_ord_grp_comp = {}
 
--- Size: Leg Ord Grp Comp
-eurex_derivatives_eti_t7_v13_1.leg_ord_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.leg_account.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_position_effect.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_5.size
+-- Calculate size of: Leg Ord Grp Comp
+eurex_derivatives_eti_t7_v13_1.leg_ord_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_position_effect.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_5.size
+
+  return index
+end
 
 -- Display: Leg Ord Grp Comp
 eurex_derivatives_eti_t7_v13_1.leg_ord_grp_comp.display = function(packet, parent, length)
@@ -25368,15 +25730,26 @@ end
 -- Side Alloc Grp Comp
 eurex_derivatives_eti_t7_v13_1.side_alloc_grp_comp = {}
 
--- Size: Side Alloc Grp Comp
-eurex_derivatives_eti_t7_v13_1.side_alloc_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.alloc_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size + 
-  eurex_derivatives_eti_t7_v13_1.tes_enrichment_rule_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_4.size
+-- Calculate size of: Side Alloc Grp Comp
+eurex_derivatives_eti_t7_v13_1.side_alloc_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.tes_enrichment_rule_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_4.size
+
+  return index
+end
 
 -- Display: Side Alloc Grp Comp
 eurex_derivatives_eti_t7_v13_1.side_alloc_grp_comp.display = function(packet, parent, length)
@@ -26842,17 +27215,30 @@ end
 -- Basket Side Alloc Grp Comp
 eurex_derivatives_eti_t7_v13_1.basket_side_alloc_grp_comp = {}
 
--- Size: Basket Side Alloc Grp Comp
-eurex_derivatives_eti_t7_v13_1.basket_side_alloc_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.alloc_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_sub_id_type.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_4.size
+-- Calculate size of: Basket Side Alloc Grp Comp
+eurex_derivatives_eti_t7_v13_1.basket_side_alloc_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_sub_id_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_4.size
+
+  return index
+end
 
 -- Display: Basket Side Alloc Grp Comp
 eurex_derivatives_eti_t7_v13_1.basket_side_alloc_grp_comp.display = function(packet, parent, length)
@@ -27014,22 +27400,40 @@ end
 -- Instrmt Match Side Grp Comp
 eurex_derivatives_eti_t7_v13_1.instrmt_match_side_grp_comp = {}
 
--- Size: Instrmt Match Side Grp Comp
-eurex_derivatives_eti_t7_v13_1.instrmt_match_side_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.last_px.size + 
-  eurex_derivatives_eti_t7_v13_1.trans_bkd_time.size + 
-  eurex_derivatives_eti_t7_v13_1.related_close_price.size + 
-  eurex_derivatives_eti_t7_v13_1.clearing_trade_price.size + 
-  eurex_derivatives_eti_t7_v13_1.package_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_trd_sub_typ.size + 
-  eurex_derivatives_eti_t7_v13_1.product_complex.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_publish_indicator.size + 
-  eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size + 
-  eurex_derivatives_eti_t7_v13_1.effect_on_basket.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_report_text.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_6.size
+-- Calculate size of: Instrmt Match Side Grp Comp
+eurex_derivatives_eti_t7_v13_1.instrmt_match_side_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trans_bkd_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.related_close_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.clearing_trade_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.package_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_trd_sub_typ.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.product_complex.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_publish_indicator.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.effect_on_basket.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_report_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Instrmt Match Side Grp Comp
 eurex_derivatives_eti_t7_v13_1.instrmt_match_side_grp_comp.display = function(packet, parent, length)
@@ -27204,13 +27608,22 @@ end
 -- Basket Root Party Grp Comp
 eurex_derivatives_eti_t7_v13_1.basket_root_party_grp_comp = {}
 
--- Size: Basket Root Party Grp Comp
-eurex_derivatives_eti_t7_v13_1.basket_root_party_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.root_party_sub_id_type.size + 
-  eurex_derivatives_eti_t7_v13_1.root_party_contra_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.root_party_contra_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_side_trade_report_id.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Basket Root Party Grp Comp
+eurex_derivatives_eti_t7_v13_1.basket_root_party_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.root_party_sub_id_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.root_party_contra_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.root_party_contra_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_side_trade_report_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Basket Root Party Grp Comp
 eurex_derivatives_eti_t7_v13_1.basket_root_party_grp_comp.display = function(packet, parent, length)
@@ -27749,14 +28162,24 @@ end
 -- Quote Entry Ack Grp Comp
 eurex_derivatives_eti_t7_v13_1.quote_entry_ack_grp_comp = {}
 
--- Size: Quote Entry Ack Grp Comp
-eurex_derivatives_eti_t7_v13_1.quote_entry_ack_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.cxl_size.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_entry_reject_reason.size + 
-  eurex_derivatives_eti_t7_v13_1.quote_entry_status.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_2.size
+-- Calculate size of: Quote Entry Ack Grp Comp
+eurex_derivatives_eti_t7_v13_1.quote_entry_ack_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.cxl_size.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_entry_reject_reason.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.quote_entry_status.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_2.size
+
+  return index
+end
 
 -- Display: Quote Entry Ack Grp Comp
 eurex_derivatives_eti_t7_v13_1.quote_entry_ack_grp_comp.display = function(packet, parent, length)
@@ -27942,13 +28365,22 @@ end
 -- Quote Entry Grp Comp
 eurex_derivatives_eti_t7_v13_1.quote_entry_grp_comp = {}
 
--- Size: Quote Entry Grp Comp
-eurex_derivatives_eti_t7_v13_1.quote_entry_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.bid_px.size + 
-  eurex_derivatives_eti_t7_v13_1.bid_size.size + 
-  eurex_derivatives_eti_t7_v13_1.offer_px.size + 
-  eurex_derivatives_eti_t7_v13_1.offer_size.size
+-- Calculate size of: Quote Entry Grp Comp
+eurex_derivatives_eti_t7_v13_1.quote_entry_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.bid_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.bid_size.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.offer_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.offer_size.size
+
+  return index
+end
 
 -- Display: Quote Entry Grp Comp
 eurex_derivatives_eti_t7_v13_1.quote_entry_grp_comp.display = function(packet, parent, length)
@@ -28226,16 +28658,28 @@ end
 -- Order Entry Grp Comp
 eurex_derivatives_eti_t7_v13_1.order_entry_grp_comp = {}
 
--- Size: Order Entry Grp Comp
-eurex_derivatives_eti_t7_v13_1.order_entry_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.price.size + 
-  eurex_derivatives_eti_t7_v13_1.order_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.market_segment_id.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_4.size + 
-  eurex_derivatives_eti_t7_v13_1.security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.product_complex.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_6.size
+-- Calculate size of: Order Entry Grp Comp
+eurex_derivatives_eti_t7_v13_1.order_entry_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.market_segment_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_4.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.product_complex.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Order Entry Grp Comp
 eurex_derivatives_eti_t7_v13_1.order_entry_grp_comp.display = function(packet, parent, length)
@@ -29969,14 +30413,24 @@ end
 -- Party Details Grp Comp
 eurex_derivatives_eti_t7_v13_1.party_details_grp_comp = {}
 
--- Size: Party Details Grp Comp
-eurex_derivatives_eti_t7_v13_1.party_details_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.party_detail_id_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.party_detail_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.party_detail_role_qualifier.size + 
-  eurex_derivatives_eti_t7_v13_1.party_detail_status.size + 
-  eurex_derivatives_eti_t7_v13_1.party_detail_desk_id.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_1.size
+-- Calculate size of: Party Details Grp Comp
+eurex_derivatives_eti_t7_v13_1.party_details_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_id_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_role_qualifier.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_status.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_detail_desk_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_1.size
+
+  return index
+end
 
 -- Display: Party Details Grp Comp
 eurex_derivatives_eti_t7_v13_1.party_details_grp_comp.display = function(packet, parent, length)
@@ -30246,12 +30700,20 @@ end
 -- Sessions Grp Comp
 eurex_derivatives_eti_t7_v13_1.sessions_grp_comp = {}
 
--- Size: Sessions Grp Comp
-eurex_derivatives_eti_t7_v13_1.sessions_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.party_id_session_id.size + 
-  eurex_derivatives_eti_t7_v13_1.session_mode.size + 
-  eurex_derivatives_eti_t7_v13_1.session_sub_mode.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_2.size
+-- Calculate size of: Sessions Grp Comp
+eurex_derivatives_eti_t7_v13_1.sessions_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_session_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.session_mode.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.session_sub_mode.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_2.size
+
+  return index
+end
 
 -- Display: Sessions Grp Comp
 eurex_derivatives_eti_t7_v13_1.sessions_grp_comp.display = function(packet, parent, length)
@@ -30728,16 +31190,28 @@ end
 -- Mm Parameter Grp Comp
 eurex_derivatives_eti_t7_v13_1.mm_parameter_grp_comp = {}
 
--- Size: Mm Parameter Grp Comp
-eurex_derivatives_eti_t7_v13_1.mm_parameter_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.exposure_duration.size + 
-  eurex_derivatives_eti_t7_v13_1.cum_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.delta.size + 
-  eurex_derivatives_eti_t7_v13_1.vega.size + 
-  eurex_derivatives_eti_t7_v13_1.pct_count.size + 
-  eurex_derivatives_eti_t7_v13_1.target_party_id_session_id.size + 
-  eurex_derivatives_eti_t7_v13_1.mm_risk_limit_action_type.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Mm Parameter Grp Comp
+eurex_derivatives_eti_t7_v13_1.mm_parameter_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.exposure_duration.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.cum_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.delta.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.vega.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pct_count.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.target_party_id_session_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.mm_risk_limit_action_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Mm Parameter Grp Comp
 eurex_derivatives_eti_t7_v13_1.mm_parameter_grp_comp.display = function(packet, parent, length)
@@ -31013,19 +31487,34 @@ end
 -- Enrichment Rules Grp Comp
 eurex_derivatives_eti_t7_v13_1.enrichment_rules_grp_comp = {}
 
--- Size: Enrichment Rules Grp Comp
-eurex_derivatives_eti_t7_v13_1.enrichment_rules_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.enrichment_rule_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_origination_market.size + 
-  eurex_derivatives_eti_t7_v13_1.account.size + 
-  eurex_derivatives_eti_t7_v13_1.position_effect.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_take_up_trading_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_order_origination_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_beneficiary.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_1.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_2.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_3.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_1.size
+-- Calculate size of: Enrichment Rules Grp Comp
+eurex_derivatives_eti_t7_v13_1.enrichment_rules_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.enrichment_rule_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_origination_market.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.position_effect.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_take_up_trading_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_order_origination_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_beneficiary.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_1.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_2.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_3.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_1.size
+
+  return index
+end
 
 -- Display: Enrichment Rules Grp Comp
 eurex_derivatives_eti_t7_v13_1.enrichment_rules_grp_comp.display = function(packet, parent, length)
@@ -31701,12 +32190,20 @@ end
 -- Side Cross Leg Grp Comp
 eurex_derivatives_eti_t7_v13_1.side_cross_leg_grp_comp = {}
 
--- Size: Side Cross Leg Grp Comp
-eurex_derivatives_eti_t7_v13_1.side_cross_leg_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.leg_input_source.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_position_effect.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_account.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_4.size
+-- Calculate size of: Side Cross Leg Grp Comp
+eurex_derivatives_eti_t7_v13_1.side_cross_leg_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_input_source.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_position_effect.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_4.size
+
+  return index
+end
 
 -- Display: Side Cross Leg Grp Comp
 eurex_derivatives_eti_t7_v13_1.side_cross_leg_grp_comp.display = function(packet, parent, length)
@@ -31859,37 +32356,70 @@ end
 -- Cross Request Side Grp Comp
 eurex_derivatives_eti_t7_v13_1.cross_request_side_grp_comp = {}
 
--- Size: Cross Request Side Grp Comp
-eurex_derivatives_eti_t7_v13_1.cross_request_side_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.cl_ord_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_client_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker.size + 
-  eurex_derivatives_eti_t7_v13_1.executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.maximum_price.size + 
-  eurex_derivatives_eti_t7_v13_1.match_inst_cross_id.size + 
-  eurex_derivatives_eti_t7_v13_1.input_source.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.self_match_prevention_instruction.size + 
-  eurex_derivatives_eti_t7_v13_1.trading_capacity.size + 
-  eurex_derivatives_eti_t7_v13_1.executing_trader_qualifier.size + 
-  eurex_derivatives_eti_t7_v13_1.order_attribute_liquidity_provision.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker_qualifier.size + 
-  eurex_derivatives_eti_t7_v13_1.order_attribute_risk_reduction.size + 
-  eurex_derivatives_eti_t7_v13_1.order_origination.size + 
-  eurex_derivatives_eti_t7_v13_1.position_effect.size + 
-  eurex_derivatives_eti_t7_v13_1.cust_order_handling_inst.size + 
-  eurex_derivatives_eti_t7_v13_1.account.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_position_account.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_1.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_2.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_3.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_order_origination_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_beneficiary.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_take_up_trading_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.side_compliance_text.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_location_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_end_client_identification.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_4.size
+-- Calculate size of: Cross Request Side Grp Comp
+eurex_derivatives_eti_t7_v13_1.cross_request_side_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.cl_ord_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_client_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.maximum_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.match_inst_cross_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.input_source.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.self_match_prevention_instruction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trading_capacity.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.executing_trader_qualifier.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_attribute_liquidity_provision.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker_qualifier.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_attribute_risk_reduction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_origination.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.position_effect.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.cust_order_handling_inst.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_position_account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_1.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_2.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_3.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_order_origination_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_beneficiary.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_take_up_trading_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_compliance_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_location_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_end_client_identification.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_4.size
+
+  return index
+end
 
 -- Display: Cross Request Side Grp Comp
 eurex_derivatives_eti_t7_v13_1.cross_request_side_grp_comp.display = function(packet, parent, length)
@@ -33606,10 +34136,16 @@ end
 -- Affected Order Requests Grp Comp
 eurex_derivatives_eti_t7_v13_1.affected_order_requests_grp_comp = {}
 
--- Size: Affected Order Requests Grp Comp
-eurex_derivatives_eti_t7_v13_1.affected_order_requests_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.affected_order_request_id.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_4.size
+-- Calculate size of: Affected Order Requests Grp Comp
+eurex_derivatives_eti_t7_v13_1.affected_order_requests_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.affected_order_request_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_4.size
+
+  return index
+end
 
 -- Display: Affected Order Requests Grp Comp
 eurex_derivatives_eti_t7_v13_1.affected_order_requests_grp_comp.display = function(packet, parent, length)
@@ -33712,10 +34248,16 @@ end
 -- Not Affected Orders Grp Comp
 eurex_derivatives_eti_t7_v13_1.not_affected_orders_grp_comp = {}
 
--- Size: Not Affected Orders Grp Comp
-eurex_derivatives_eti_t7_v13_1.not_affected_orders_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.not_affected_order_id.size + 
-  eurex_derivatives_eti_t7_v13_1.not_aff_orig_cl_ord_id.size
+-- Calculate size of: Not Affected Orders Grp Comp
+eurex_derivatives_eti_t7_v13_1.not_affected_orders_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.not_affected_order_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.not_aff_orig_cl_ord_id.size
+
+  return index
+end
 
 -- Display: Not Affected Orders Grp Comp
 eurex_derivatives_eti_t7_v13_1.not_affected_orders_grp_comp.display = function(packet, parent, length)
@@ -34300,13 +34842,22 @@ end
 -- Cross Request Ack Side Grp Comp
 eurex_derivatives_eti_t7_v13_1.cross_request_ack_side_grp_comp = {}
 
--- Size: Cross Request Ack Side Grp Comp
-eurex_derivatives_eti_t7_v13_1.cross_request_ack_side_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.order_id.size + 
-  eurex_derivatives_eti_t7_v13_1.cl_ord_id.size + 
-  eurex_derivatives_eti_t7_v13_1.input_source.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_6.size
+-- Calculate size of: Cross Request Ack Side Grp Comp
+eurex_derivatives_eti_t7_v13_1.cross_request_ack_side_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.cl_ord_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.input_source.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Cross Request Ack Side Grp Comp
 eurex_derivatives_eti_t7_v13_1.cross_request_ack_side_grp_comp.display = function(packet, parent, length)
@@ -34781,18 +35332,32 @@ end
 -- New Basket Side Alloc Grp Comp
 eurex_derivatives_eti_t7_v13_1.new_basket_side_alloc_grp_comp = {}
 
--- Size: New Basket Side Alloc Grp Comp
-eurex_derivatives_eti_t7_v13_1.new_basket_side_alloc_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.alloc_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_sub_id_type.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.position_effect.size + 
-  eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_3.size
+-- Calculate size of: New Basket Side Alloc Grp Comp
+eurex_derivatives_eti_t7_v13_1.new_basket_side_alloc_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_sub_id_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.position_effect.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_3.size
+
+  return index
+end
 
 -- Display: New Basket Side Alloc Grp Comp
 eurex_derivatives_eti_t7_v13_1.new_basket_side_alloc_grp_comp.display = function(packet, parent, length)
@@ -34863,18 +35428,32 @@ end
 -- Old Basket Side Alloc Grp Comp
 eurex_derivatives_eti_t7_v13_1.old_basket_side_alloc_grp_comp = {}
 
--- Size: Old Basket Side Alloc Grp Comp
-eurex_derivatives_eti_t7_v13_1.old_basket_side_alloc_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.alloc_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_sub_id_type.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.position_effect.size + 
-  eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_3.size
+-- Calculate size of: Old Basket Side Alloc Grp Comp
+eurex_derivatives_eti_t7_v13_1.old_basket_side_alloc_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.individual_alloc_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_sub_id_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.position_effect.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_3.size
+
+  return index
+end
 
 -- Display: Old Basket Side Alloc Grp Comp
 eurex_derivatives_eti_t7_v13_1.old_basket_side_alloc_grp_comp.display = function(packet, parent, length)
@@ -34945,22 +35524,40 @@ end
 -- New Basket Instrmt Match Side Grp Comp
 eurex_derivatives_eti_t7_v13_1.new_basket_instrmt_match_side_grp_comp = {}
 
--- Size: New Basket Instrmt Match Side Grp Comp
-eurex_derivatives_eti_t7_v13_1.new_basket_instrmt_match_side_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.last_px.size + 
-  eurex_derivatives_eti_t7_v13_1.trans_bkd_time.size + 
-  eurex_derivatives_eti_t7_v13_1.related_close_price.size + 
-  eurex_derivatives_eti_t7_v13_1.clearing_trade_price.size + 
-  eurex_derivatives_eti_t7_v13_1.package_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_trd_sub_typ.size + 
-  eurex_derivatives_eti_t7_v13_1.product_complex.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_publish_indicator.size + 
-  eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size + 
-  eurex_derivatives_eti_t7_v13_1.effect_on_basket.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_report_text.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_6.size
+-- Calculate size of: New Basket Instrmt Match Side Grp Comp
+eurex_derivatives_eti_t7_v13_1.new_basket_instrmt_match_side_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trans_bkd_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.related_close_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.clearing_trade_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.package_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_trd_sub_typ.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.product_complex.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_publish_indicator.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.effect_on_basket.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_report_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: New Basket Instrmt Match Side Grp Comp
 eurex_derivatives_eti_t7_v13_1.new_basket_instrmt_match_side_grp_comp.display = function(packet, parent, length)
@@ -35043,22 +35640,40 @@ end
 -- Old Basket Instrmt Match Side Grp Comp
 eurex_derivatives_eti_t7_v13_1.old_basket_instrmt_match_side_grp_comp = {}
 
--- Size: Old Basket Instrmt Match Side Grp Comp
-eurex_derivatives_eti_t7_v13_1.old_basket_instrmt_match_side_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.last_px.size + 
-  eurex_derivatives_eti_t7_v13_1.trans_bkd_time.size + 
-  eurex_derivatives_eti_t7_v13_1.related_close_price.size + 
-  eurex_derivatives_eti_t7_v13_1.clearing_trade_price.size + 
-  eurex_derivatives_eti_t7_v13_1.package_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_trd_sub_typ.size + 
-  eurex_derivatives_eti_t7_v13_1.product_complex.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_publish_indicator.size + 
-  eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size + 
-  eurex_derivatives_eti_t7_v13_1.effect_on_basket.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_report_text.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_6.size
+-- Calculate size of: Old Basket Instrmt Match Side Grp Comp
+eurex_derivatives_eti_t7_v13_1.old_basket_instrmt_match_side_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trans_bkd_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.related_close_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.clearing_trade_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.package_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_trd_sub_typ.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.product_complex.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_publish_indicator.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.instrmt_match_side_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.effect_on_basket.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_report_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Old Basket Instrmt Match Side Grp Comp
 eurex_derivatives_eti_t7_v13_1.old_basket_instrmt_match_side_grp_comp.display = function(packet, parent, length)
@@ -35141,13 +35756,22 @@ end
 -- New Basket Data Grp Comp
 eurex_derivatives_eti_t7_v13_1.new_basket_data_grp_comp = {}
 
--- Size: New Basket Data Grp Comp
-eurex_derivatives_eti_t7_v13_1.new_basket_data_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.trade_report_id.size + 
-  eurex_derivatives_eti_t7_v13_1.maturity_month_year.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_trade_report_type.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_trade_report_text.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_3.size
+-- Calculate size of: New Basket Data Grp Comp
+eurex_derivatives_eti_t7_v13_1.new_basket_data_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_report_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.maturity_month_year.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trade_report_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trade_report_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_3.size
+
+  return index
+end
 
 -- Display: New Basket Data Grp Comp
 eurex_derivatives_eti_t7_v13_1.new_basket_data_grp_comp.display = function(packet, parent, length)
@@ -35197,15 +35821,26 @@ end
 -- Old Basket Data Grp Comp
 eurex_derivatives_eti_t7_v13_1.old_basket_data_grp_comp = {}
 
--- Size: Old Basket Data Grp Comp
-eurex_derivatives_eti_t7_v13_1.old_basket_data_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.basket_trd_match_id.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_exec_id.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_report_id.size + 
-  eurex_derivatives_eti_t7_v13_1.maturity_month_year.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_trade_report_type.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_trade_report_text.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Old Basket Data Grp Comp
+eurex_derivatives_eti_t7_v13_1.old_basket_data_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trd_match_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_exec_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_report_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.maturity_month_year.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trade_report_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trade_report_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Old Basket Data Grp Comp
 eurex_derivatives_eti_t7_v13_1.old_basket_data_grp_comp.display = function(packet, parent, length)
@@ -35488,17 +36123,30 @@ end
 -- New Basket Data Bc Grp Comp
 eurex_derivatives_eti_t7_v13_1.new_basket_data_bc_grp_comp = {}
 
--- Size: New Basket Data Bc Grp Comp
-eurex_derivatives_eti_t7_v13_1.new_basket_data_bc_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.transact_time.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_trd_match_id.size + 
-  eurex_derivatives_eti_t7_v13_1.orig_basket_trd_match_id.size + 
-  eurex_derivatives_eti_t7_v13_1.maturity_month_year.size + 
-  eurex_derivatives_eti_t7_v13_1.optional_early_termination_indicator.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_trade_report_type.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_report_id.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_trade_report_text.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_2.size
+-- Calculate size of: New Basket Data Bc Grp Comp
+eurex_derivatives_eti_t7_v13_1.new_basket_data_bc_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.transact_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trd_match_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.orig_basket_trd_match_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.maturity_month_year.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.optional_early_termination_indicator.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trade_report_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_report_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trade_report_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_2.size
+
+  return index
+end
 
 -- Display: New Basket Data Bc Grp Comp
 eurex_derivatives_eti_t7_v13_1.new_basket_data_bc_grp_comp.display = function(packet, parent, length)
@@ -35560,17 +36208,30 @@ end
 -- Old Basket Data Bc Grp Comp
 eurex_derivatives_eti_t7_v13_1.old_basket_data_bc_grp_comp = {}
 
--- Size: Old Basket Data Bc Grp Comp
-eurex_derivatives_eti_t7_v13_1.old_basket_data_bc_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.transact_time.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_trd_match_id.size + 
-  eurex_derivatives_eti_t7_v13_1.orig_basket_trd_match_id.size + 
-  eurex_derivatives_eti_t7_v13_1.maturity_month_year.size + 
-  eurex_derivatives_eti_t7_v13_1.optional_early_termination_indicator.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_trade_report_type.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_report_id.size + 
-  eurex_derivatives_eti_t7_v13_1.basket_trade_report_text.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_2.size
+-- Calculate size of: Old Basket Data Bc Grp Comp
+eurex_derivatives_eti_t7_v13_1.old_basket_data_bc_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.transact_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trd_match_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.orig_basket_trd_match_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.maturity_month_year.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.optional_early_termination_indicator.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trade_report_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_report_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.basket_trade_report_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_2.size
+
+  return index
+end
 
 -- Display: Old Basket Data Bc Grp Comp
 eurex_derivatives_eti_t7_v13_1.old_basket_data_bc_grp_comp.display = function(packet, parent, length)
@@ -35835,13 +36496,22 @@ end
 -- Basket Exec Grp Comp
 eurex_derivatives_eti_t7_v13_1.basket_exec_grp_comp = {}
 
--- Size: Basket Exec Grp Comp
-eurex_derivatives_eti_t7_v13_1.basket_exec_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.package_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size + 
-  eurex_derivatives_eti_t7_v13_1.alloc_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_trd_sub_typ.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_2.size
+-- Calculate size of: Basket Exec Grp Comp
+eurex_derivatives_eti_t7_v13_1.basket_exec_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.package_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_trd_sub_typ.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_2.size
+
+  return index
+end
 
 -- Display: Basket Exec Grp Comp
 eurex_derivatives_eti_t7_v13_1.basket_exec_grp_comp.display = function(packet, parent, length)
@@ -36184,39 +36854,74 @@ end
 -- Basket Side Alloc Ext Bc Grp Comp
 eurex_derivatives_eti_t7_v13_1.basket_side_alloc_ext_bc_grp_comp = {}
 
--- Size: Basket Side Alloc Ext Bc Grp Comp
-eurex_derivatives_eti_t7_v13_1.basket_side_alloc_ext_bc_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.alloc_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.last_px.size + 
-  eurex_derivatives_eti_t7_v13_1.trans_bkd_time.size + 
-  eurex_derivatives_eti_t7_v13_1.related_close_price.size + 
-  eurex_derivatives_eti_t7_v13_1.package_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size + 
-  eurex_derivatives_eti_t7_v13_1.alloc_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_trd_sub_typ.size + 
-  eurex_derivatives_eti_t7_v13_1.party_sub_id_type.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.position_effect.size + 
-  eurex_derivatives_eti_t7_v13_1.effect_on_basket.size + 
-  eurex_derivatives_eti_t7_v13_1.trading_capacity.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size + 
-  eurex_derivatives_eti_t7_v13_1.product_complex.size + 
-  eurex_derivatives_eti_t7_v13_1.trade_publish_indicator.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.account.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_1.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_2.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_3.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_take_up_trading_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_order_origination_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_beneficiary.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_position_account.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_location_id.size + 
-  eurex_derivatives_eti_t7_v13_1.cust_order_handling_inst.size + 
-  eurex_derivatives_eti_t7_v13_1.compliance_text.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_4.size
+-- Calculate size of: Basket Side Alloc Ext Bc Grp Comp
+eurex_derivatives_eti_t7_v13_1.basket_side_alloc_ext_bc_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.last_px.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trans_bkd_time.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.related_close_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.package_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_trd_sub_typ.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_sub_id_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.position_effect.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.effect_on_basket.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trading_capacity.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_alloc_status.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.product_complex.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trade_publish_indicator.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_1.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_2.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_3.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_take_up_trading_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_order_origination_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_beneficiary.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_position_account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_location_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.cust_order_handling_inst.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.compliance_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_4.size
+
+  return index
+end
 
 -- Display: Basket Side Alloc Ext Bc Grp Comp
 eurex_derivatives_eti_t7_v13_1.basket_side_alloc_ext_bc_grp_comp.display = function(packet, parent, length)
@@ -36693,37 +37398,70 @@ end
 -- Basket Side Alloc Ext Grp Comp
 eurex_derivatives_eti_t7_v13_1.basket_side_alloc_ext_grp_comp = {}
 
--- Size: Basket Side Alloc Ext Grp Comp
-eurex_derivatives_eti_t7_v13_1.basket_side_alloc_ext_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.alloc_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_client_id.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker.size + 
-  eurex_derivatives_eti_t7_v13_1.executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.package_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size + 
-  eurex_derivatives_eti_t7_v13_1.alloc_id.size + 
-  eurex_derivatives_eti_t7_v13_1.side.size + 
-  eurex_derivatives_eti_t7_v13_1.position_effect.size + 
-  eurex_derivatives_eti_t7_v13_1.trading_capacity.size + 
-  eurex_derivatives_eti_t7_v13_1.order_attribute_liquidity_provision.size + 
-  eurex_derivatives_eti_t7_v13_1.executing_trader_qualifier.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker_qualifier.size + 
-  eurex_derivatives_eti_t7_v13_1.order_attribute_risk_reduction.size + 
-  eurex_derivatives_eti_t7_v13_1.order_origination.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_executing_trader.size + 
-  eurex_derivatives_eti_t7_v13_1.account.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_1.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_2.size + 
-  eurex_derivatives_eti_t7_v13_1.free_text_3.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_take_up_trading_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_order_origination_firm.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_beneficiary.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_position_account.size + 
-  eurex_derivatives_eti_t7_v13_1.party_id_location_id.size + 
-  eurex_derivatives_eti_t7_v13_1.cust_order_handling_inst.size + 
-  eurex_derivatives_eti_t7_v13_1.compliance_text.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_7.size
+-- Calculate size of: Basket Side Alloc Ext Grp Comp
+eurex_derivatives_eti_t7_v13_1.basket_side_alloc_ext_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_client_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.package_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side_market_segment_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.alloc_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.position_effect.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.trading_capacity.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_attribute_liquidity_provision.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.executing_trader_qualifier.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_investment_decision_maker_qualifier.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_attribute_risk_reduction.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.order_origination.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_executing_trader.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_1.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_2.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.free_text_3.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_take_up_trading_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_order_origination_firm.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_beneficiary.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_position_account.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.party_id_location_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.cust_order_handling_inst.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.compliance_text.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_7.size
+
+  return index
+end
 
 -- Display: Basket Side Alloc Ext Grp Comp
 eurex_derivatives_eti_t7_v13_1.basket_side_alloc_ext_grp_comp.display = function(packet, parent, length)
@@ -37711,15 +38449,26 @@ end
 -- Instrmt Leg Grp Comp
 eurex_derivatives_eti_t7_v13_1.instrmt_leg_grp_comp = {}
 
--- Size: Instrmt Leg Grp Comp
-eurex_derivatives_eti_t7_v13_1.instrmt_leg_grp_comp.size =
-  eurex_derivatives_eti_t7_v13_1.leg_security_id.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_price.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_symbol.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_ratio_qty.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_side.size + 
-  eurex_derivatives_eti_t7_v13_1.leg_security_type.size + 
-  eurex_derivatives_eti_t7_v13_1.pad_6.size
+-- Calculate size of: Instrmt Leg Grp Comp
+eurex_derivatives_eti_t7_v13_1.instrmt_leg_grp_comp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_security_id.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_price.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_symbol.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_ratio_qty.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_side.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.leg_security_type.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.pad_6.size
+
+  return index
+end
 
 -- Display: Instrmt Leg Grp Comp
 eurex_derivatives_eti_t7_v13_1.instrmt_leg_grp_comp.display = function(packet, parent, length)
@@ -39934,10 +40683,16 @@ end
 -- Message Header
 eurex_derivatives_eti_t7_v13_1.message_header = {}
 
--- Size: Message Header
-eurex_derivatives_eti_t7_v13_1.message_header.size =
-  eurex_derivatives_eti_t7_v13_1.body_len.size + 
-  eurex_derivatives_eti_t7_v13_1.template_id.size
+-- Calculate size of: Message Header
+eurex_derivatives_eti_t7_v13_1.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v13_1.body_len.size
+
+  index = index + eurex_derivatives_eti_t7_v13_1.template_id.size
+
+  return index
+end
 
 -- Display: Message Header
 eurex_derivatives_eti_t7_v13_1.message_header.display = function(packet, parent, length)
@@ -40026,7 +40781,7 @@ local message_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < eurex_derivatives_eti_t7_v13_1.message_header.size then
+  if remaining < eurex_derivatives_eti_t7_v13_1.message_header.size(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

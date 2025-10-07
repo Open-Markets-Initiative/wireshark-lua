@@ -616,18 +616,32 @@ end
 -- Net Order Imbalance Indicator Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message = {}
 
--- Size: Net Order Imbalance Indicator Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.paired_contracts.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_direction.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.size
+-- Calculate size of: Net Order Imbalance Indicator Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.paired_contracts.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_direction.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.size
+
+  return index
+end
 
 -- Display: Net Order Imbalance Indicator Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message.display = function(packet, parent, length)
@@ -738,11 +752,18 @@ end
 -- Broken Trade Or Order Execution Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message = {}
 
--- Size: Broken Trade Or Order Execution Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size
+-- Calculate size of: Broken Trade Or Order Execution Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size
+
+  return index
+end
 
 -- Display: Broken Trade Or Order Execution Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message.display = function(packet, parent, length)
@@ -868,15 +889,26 @@ end
 -- Options Cross Trade Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.options_cross_trade_message = {}
 
--- Size: Options Cross Trade Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.options_cross_trade_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+-- Calculate size of: Options Cross Trade Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.options_cross_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+
+  return index
+end
 
 -- Display: Options Cross Trade Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.options_cross_trade_message.display = function(packet, parent, length)
@@ -962,15 +994,26 @@ end
 -- Non Auction Options Trade Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.non_auction_options_trade_message = {}
 
--- Size: Non Auction Options Trade Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.non_auction_options_trade_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+-- Calculate size of: Non Auction Options Trade Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.non_auction_options_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+
+  return index
+end
 
 -- Display: Non Auction Options Trade Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.non_auction_options_trade_message.display = function(packet, parent, length)
@@ -1072,11 +1115,18 @@ end
 -- Block Delete Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.block_delete_message = {}
 
--- Size: Block Delete Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.block_delete_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.size
+-- Calculate size of: Block Delete Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.block_delete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.size
+
+  return index
+end
 
 -- Display: Block Delete Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.block_delete_message.display = function(packet, parent, length)
@@ -1166,11 +1216,18 @@ end
 -- Quote Delete Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_delete_message = {}
 
--- Size: Quote Delete Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_delete_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.size
+-- Calculate size of: Quote Delete Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_delete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.size
+
+  return index
+end
 
 -- Display: Quote Delete Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_delete_message.display = function(packet, parent, length)
@@ -1387,17 +1444,30 @@ end
 -- Quote Replace Message Long Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_long_form = {}
 
--- Size: Quote Replace Message Long Form
-nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_long_form.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.size
+-- Calculate size of: Quote Replace Message Long Form
+nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_long_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.size
+
+  return index
+end
 
 -- Display: Quote Replace Message Long Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_long_form.display = function(packet, parent, length)
@@ -1563,17 +1633,30 @@ end
 -- Quote Replace Message Short Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form = {}
 
--- Size: Quote Replace Message Short Form
-nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.size
+-- Calculate size of: Quote Replace Message Short Form
+nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.size
+
+  return index
+end
 
 -- Display: Quote Replace Message Short Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form.display = function(packet, parent, length)
@@ -1691,13 +1774,22 @@ end
 -- Single Side Update Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_update_message = {}
 
--- Size: Single Side Update Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_update_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+-- Calculate size of: Single Side Update Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+
+  return index
+end
 
 -- Display: Single Side Update Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_update_message.display = function(packet, parent, length)
@@ -1747,10 +1839,16 @@ end
 -- Single Side Delete Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_delete_message = {}
 
--- Size: Single Side Delete Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_delete_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size
+-- Calculate size of: Single Side Delete Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_delete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size
+
+  return index
+end
 
 -- Display: Single Side Delete Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_delete_message.display = function(packet, parent, length)
@@ -1837,13 +1935,22 @@ end
 -- Single Side Replace Message Long Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form = {}
 
--- Size: Single Side Replace Message Long Form
-nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+-- Calculate size of: Single Side Replace Message Long Form
+nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+
+  return index
+end
 
 -- Display: Single Side Replace Message Long Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form.display = function(packet, parent, length)
@@ -1945,13 +2052,22 @@ end
 -- Single Side Replace Message Short Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_short_form = {}
 
--- Size: Single Side Replace Message Short Form
-nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_short_form.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.price.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.size
+-- Calculate size of: Single Side Replace Message Short Form
+nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_short_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.price.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.size
+
+  return index
+end
 
 -- Display: Single Side Replace Message Short Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_short_form.display = function(packet, parent, length)
@@ -2047,11 +2163,18 @@ end
 -- Order Cancel Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.order_cancel_message = {}
 
--- Size: Order Cancel Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.order_cancel_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.size
+-- Calculate size of: Order Cancel Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.order_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.size
+
+  return index
+end
 
 -- Display: Order Cancel Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.order_cancel_message.display = function(packet, parent, length)
@@ -2125,15 +2248,26 @@ end
 -- Single Side Order Executed With Price Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_order_executed_with_price_message = {}
 
--- Size: Single Side Order Executed With Price Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_order_executed_with_price_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+-- Calculate size of: Single Side Order Executed With Price Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_order_executed_with_price_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+
+  return index
+end
 
 -- Display: Single Side Order Executed With Price Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_order_executed_with_price_message.display = function(packet, parent, length)
@@ -2212,13 +2346,22 @@ end
 -- Single Side Executed Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_executed_message = {}
 
--- Size: Single Side Executed Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_executed_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size
+-- Calculate size of: Single Side Executed Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size
+
+  return index
+end
 
 -- Display: Single Side Executed Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_executed_message.display = function(packet, parent, length)
@@ -2314,16 +2457,28 @@ end
 -- Add Quote Message Long Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_long_form = {}
 
--- Size: Add Quote Message Long Form
-nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_long_form.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.size
+-- Calculate size of: Add Quote Message Long Form
+nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_long_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.size
+
+  return index
+end
 
 -- Display: Add Quote Message Long Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_long_form.display = function(packet, parent, length)
@@ -2382,16 +2537,28 @@ end
 -- Add Quote Message Short Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_short_form = {}
 
--- Size: Add Quote Message Short Form
-nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_short_form.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.size
+-- Calculate size of: Add Quote Message Short Form
+nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_short_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.size
+
+  return index
+end
 
 -- Display: Add Quote Message Short Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_short_form.display = function(packet, parent, length)
@@ -2480,14 +2647,24 @@ end
 -- Add Order Message Long Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_long_form = {}
 
--- Size: Add Order Message Long Form
-nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_long_form.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+-- Calculate size of: Add Order Message Long Form
+nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_long_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+
+  return index
+end
 
 -- Display: Add Order Message Long Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_long_form.display = function(packet, parent, length)
@@ -2540,14 +2717,24 @@ end
 -- Add Order Message Short Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_short_form = {}
 
--- Size: Add Order Message Short Form
-nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_short_form.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.price.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.size
+-- Calculate size of: Add Order Message Short Form
+nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_short_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.price.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.size
+
+  return index
+end
 
 -- Display: Add Order Message Short Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_short_form.display = function(packet, parent, length)
@@ -2623,11 +2810,18 @@ end
 -- Option Open Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.option_open_message = {}
 
--- Size: Option Open Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.option_open_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.size
+-- Calculate size of: Option Open Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.option_open_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.size
+
+  return index
+end
 
 -- Display: Option Open Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.option_open_message.display = function(packet, parent, length)
@@ -2713,11 +2907,18 @@ end
 -- Trading Action Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.trading_action_message = {}
 
--- Size: Trading Action Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.trading_action_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.size
+-- Calculate size of: Trading Action Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.trading_action_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.size
+
+  return index
+end
 
 -- Display: Trading Action Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.trading_action_message.display = function(packet, parent, length)
@@ -3051,21 +3252,38 @@ end
 -- Option Directory Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.option_directory_message = {}
 
--- Size: Option Directory Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.option_directory_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.source.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.size
+-- Calculate size of: Option Directory Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.option_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.source.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.size
+
+  return index
+end
 
 -- Display: Option Directory Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.option_directory_message.display = function(packet, parent, length)
@@ -3162,10 +3380,16 @@ end
 -- Base Reference Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_message = {}
 
--- Size: Base Reference Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.size
+-- Calculate size of: Base Reference Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.size
+
+  return index
+end
 
 -- Display: Base Reference Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_message.display = function(packet, parent, length)
@@ -3248,10 +3472,16 @@ end
 -- System Event Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.system_event_message = {}
 
--- Size: System Event Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.system_event_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.size
+-- Calculate size of: System Event Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.size
+
+  return index
+end
 
 -- Display: System Event Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.system_event_message.display = function(packet, parent, length)
@@ -3315,9 +3545,14 @@ end
 -- Seconds Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.seconds_message = {}
 
--- Size: Seconds Message
-nasdaq_bxoptions_depthofmarket_itch_v1_3.seconds_message.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.second.size
+-- Calculate size of: Seconds Message
+nasdaq_bxoptions_depthofmarket_itch_v1_3.seconds_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.second.size
+
+  return index
+end
 
 -- Display: Seconds Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.seconds_message.display = function(packet, parent, length)
@@ -3717,10 +3952,16 @@ end
 -- Message Header
 nasdaq_bxoptions_depthofmarket_itch_v1_3.message_header = {}
 
--- Size: Message Header
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_header.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.size
+-- Calculate size of: Message Header
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nasdaq_bxoptions_depthofmarket_itch_v1_3.message_header.display = function(packet, parent, length)
@@ -3897,11 +4138,18 @@ end
 -- Packet Header
 nasdaq_bxoptions_depthofmarket_itch_v1_3.packet_header = {}
 
--- Size: Packet Header
-nasdaq_bxoptions_depthofmarket_itch_v1_3.packet_header.size =
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.session.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.size + 
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.size
+-- Calculate size of: Packet Header
+nasdaq_bxoptions_depthofmarket_itch_v1_3.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.session.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.size
+
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 nasdaq_bxoptions_depthofmarket_itch_v1_3.packet_header.display = function(packet, parent, length)
