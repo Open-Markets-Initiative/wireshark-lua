@@ -25,6 +25,7 @@ omi_iex_equities_tops_iextp_v1_5_6.fields.bid_size = ProtoField.new("Bid Size", 
 omi_iex_equities_tops_iextp_v1_5_6.fields.channel_id = ProtoField.new("Channel Id", "iex.equities.tops.iextp.v1.5.6.channelid", ftypes.UINT32)
 omi_iex_equities_tops_iextp_v1_5_6.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "iex.equities.tops.iextp.v1.5.6.collarreferenceprice", ftypes.DOUBLE)
 omi_iex_equities_tops_iextp_v1_5_6.fields.detail = ProtoField.new("Detail", "iex.equities.tops.iextp.v1.5.6.detail", ftypes.STRING)
+omi_iex_equities_tops_iextp_v1_5_6.fields.etp = ProtoField.new("Etp", "iex.equities.tops.iextp.v1.5.6.etp", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_iex_equities_tops_iextp_v1_5_6.fields.extended_hours = ProtoField.new("Extended Hours", "iex.equities.tops.iextp.v1.5.6.extendedhours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_iex_equities_tops_iextp_v1_5_6.fields.extension_number = ProtoField.new("Extension Number", "iex.equities.tops.iextp.v1.5.6.extensionnumber", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.equities.tops.iextp.v1.5.6.firstmessagesequencenumber", ftypes.UINT64)
@@ -58,6 +59,7 @@ omi_iex_equities_tops_iextp_v1_5_6.fields.reserved = ProtoField.new("Reserved", 
 omi_iex_equities_tops_iextp_v1_5_6.fields.round_lot_size = ProtoField.new("Round Lot Size", "iex.equities.tops.iextp.v1.5.6.roundlotsize", ftypes.UINT32)
 omi_iex_equities_tops_iextp_v1_5_6.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.equities.tops.iextp.v1.5.6.saleconditionflags", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.scheduled_auction_time = ProtoField.new("Scheduled Auction Time", "iex.equities.tops.iextp.v1.5.6.scheduledauctiontime", ftypes.UINT32)
+omi_iex_equities_tops_iextp_v1_5_6.fields.security_directory_flags = ProtoField.new("Security Directory Flags", "iex.equities.tops.iextp.v1.5.6.securitydirectoryflags", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.security_event = ProtoField.new("Security Event", "iex.equities.tops.iextp.v1.5.6.securityevent", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.send_time = ProtoField.new("Send Time", "iex.equities.tops.iextp.v1.5.6.sendtime", ftypes.UINT64)
 omi_iex_equities_tops_iextp_v1_5_6.fields.session_id = ProtoField.new("Session Id", "iex.equities.tops.iextp.v1.5.6.sessionid", ftypes.UINT32)
@@ -67,14 +69,17 @@ omi_iex_equities_tops_iextp_v1_5_6.fields.stream_offset = ProtoField.new("Stream
 omi_iex_equities_tops_iextp_v1_5_6.fields.symbol = ProtoField.new("Symbol", "iex.equities.tops.iextp.v1.5.6.symbol", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.symbol_halt = ProtoField.new("Symbol Halt", "iex.equities.tops.iextp.v1.5.6.symbolhalt", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_iex_equities_tops_iextp_v1_5_6.fields.system_event = ProtoField.new("System Event", "iex.equities.tops.iextp.v1.5.6.systemevent", ftypes.STRING)
+omi_iex_equities_tops_iextp_v1_5_6.fields.test_security = ProtoField.new("Test Security", "iex.equities.tops.iextp.v1.5.6.testsecurity", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_iex_equities_tops_iextp_v1_5_6.fields.timestamp = ProtoField.new("Timestamp", "iex.equities.tops.iextp.v1.5.6.timestamp", ftypes.INT64)
 omi_iex_equities_tops_iextp_v1_5_6.fields.trade_id = ProtoField.new("Trade Id", "iex.equities.tops.iextp.v1.5.6.tradeid", ftypes.UINT64)
 omi_iex_equities_tops_iextp_v1_5_6.fields.trade_through_exempt = ProtoField.new("Trade Through Exempt", "iex.equities.tops.iextp.v1.5.6.tradethroughexempt", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
 omi_iex_equities_tops_iextp_v1_5_6.fields.trading_status = ProtoField.new("Trading Status", "iex.equities.tops.iextp.v1.5.6.tradingstatus", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.unused_4 = ProtoField.new("Unused 4", "iex.equities.tops.iextp.v1.5.6.unused4", ftypes.UINT8, nil, base.DEC, 0x0F)
+omi_iex_equities_tops_iextp_v1_5_6.fields.unused_5 = ProtoField.new("Unused 5", "iex.equities.tops.iextp.v1.5.6.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 omi_iex_equities_tops_iextp_v1_5_6.fields.unused_6 = ProtoField.new("Unused 6", "iex.equities.tops.iextp.v1.5.6.unused6", ftypes.UINT8, nil, base.DEC, 0x3F)
 omi_iex_equities_tops_iextp_v1_5_6.fields.upper_auction_collar = ProtoField.new("Upper Auction Collar", "iex.equities.tops.iextp.v1.5.6.upperauctioncollar", ftypes.DOUBLE)
 omi_iex_equities_tops_iextp_v1_5_6.fields.version = ProtoField.new("Version", "iex.equities.tops.iextp.v1.5.6.version", ftypes.UINT8)
+omi_iex_equities_tops_iextp_v1_5_6.fields.when_issued = ProtoField.new("When Issued", "iex.equities.tops.iextp.v1.5.6.whenissued", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 
 -- Iex Equities Tops IexTp 1.5.6 messages
 omi_iex_equities_tops_iextp_v1_5_6.fields.auction_information_message = ProtoField.new("Auction Information Message", "iex.equities.tops.iextp.v1.5.6.auctioninformationmessage", ftypes.STRING)
@@ -109,6 +114,7 @@ show.packet = true
 show.quote_update_flags = true
 show.quote_update_message = true
 show.sale_condition_flags = true
+show.security_directory_flags = true
 show.security_directory_message = true
 show.security_event_message = true
 show.short_sale_price_test_status_message = true
@@ -129,6 +135,7 @@ omi_iex_equities_tops_iextp_v1_5_6.prefs.show_packet = Pref.bool("Show Packet", 
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_quote_update_flags = Pref.bool("Show Quote Update Flags", show.quote_update_flags, "Parse and add Quote Update Flags to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_quote_update_message = Pref.bool("Show Quote Update Message", show.quote_update_message, "Parse and add Quote Update Message to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_sale_condition_flags = Pref.bool("Show Sale Condition Flags", show.sale_condition_flags, "Parse and add Sale Condition Flags to protocol tree")
+omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_flags = Pref.bool("Show Security Directory Flags", show.security_directory_flags, "Parse and add Security Directory Flags to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_message = Pref.bool("Show Security Directory Message", show.security_directory_message, "Parse and add Security Directory Message to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_event_message = Pref.bool("Show Security Event Message", show.security_event_message, "Parse and add Security Event Message to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_short_sale_price_test_status_message = Pref.bool("Show Short Sale Price Test Status Message", show.short_sale_price_test_status_message, "Parse and add Short Sale Price Test Status Message to protocol tree")
@@ -181,6 +188,10 @@ function omi_iex_equities_tops_iextp_v1_5_6.prefs_changed()
   end
   if show.sale_condition_flags ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_sale_condition_flags then
     show.sale_condition_flags = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_sale_condition_flags
+    changed = true
+  end
+  if show.security_directory_flags ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_flags then
+    show.security_directory_flags = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_flags
     changed = true
   end
   if show.security_directory_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_message then
@@ -1782,6 +1793,62 @@ iex_equities_tops_iextp_v1_5_6.round_lot_size.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Security Directory Flags
+iex_equities_tops_iextp_v1_5_6.security_directory_flags = {}
+
+-- Size: Security Directory Flags
+iex_equities_tops_iextp_v1_5_6.security_directory_flags.size = 1
+
+-- Display: Security Directory Flags
+iex_equities_tops_iextp_v1_5_6.security_directory_flags.display = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Test Security flag set?
+  if buffer:bitfield(0) > 0 then
+    display = display.."Test Security|"
+  end
+  -- Is When Issued flag set?
+  if buffer:bitfield(1) > 0 then
+    display = display.."When Issued|"
+  end
+  -- Is Etp flag set?
+  if buffer:bitfield(2) > 0 then
+    display = display.."Etp|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Security Directory Flags
+iex_equities_tops_iextp_v1_5_6.security_directory_flags.bits = function(buffer, offset, packet, parent)
+
+  -- Test Security: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.test_security, buffer(offset, 1))
+
+  -- When Issued: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.when_issued, buffer(offset, 1))
+
+  -- Etp: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.etp, buffer(offset, 1))
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.unused_5, buffer(offset, 1))
+end
+
+-- Dissect: Security Directory Flags
+iex_equities_tops_iextp_v1_5_6.security_directory_flags.dissect = function(buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = iex_equities_tops_iextp_v1_5_6.security_directory_flags.display(range, packet, parent)
+  local element = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.security_directory_flags, range, display)
+
+  if show.security_directory_flags then
+    iex_equities_tops_iextp_v1_5_6.security_directory_flags.bits(buffer, offset, packet, element)
+  end
+
+  return offset + 1, range
+end
+
 -- Security Directory Message
 iex_equities_tops_iextp_v1_5_6.security_directory_message = {}
 
@@ -1803,7 +1870,7 @@ end
 iex_equities_tops_iextp_v1_5_6.security_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Directory Flags
+  -- Security Directory Flags: Struct of 4 fields
   index, security_directory_flags = iex_equities_tops_iextp_v1_5_6.security_directory_flags.dissect(buffer, index, packet, parent)
 
   -- Timestamp: Timestamp
