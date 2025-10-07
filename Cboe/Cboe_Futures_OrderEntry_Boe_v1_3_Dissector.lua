@@ -24870,20 +24870,12 @@ end
 -- Quote Result Group
 cboe_futures_orderentry_boe_v1_3.quote_result_group = {}
 
--- Calculate size of: Quote Result Group
-cboe_futures_orderentry_boe_v1_3.quote_result_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe_v1_3.order_id.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.quote_result.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.quote_liquidity_indicator.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.reserved_6.size
-
-  return index
-end
+-- Size: Quote Result Group
+cboe_futures_orderentry_boe_v1_3.quote_result_group.size =
+  cboe_futures_orderentry_boe_v1_3.order_id.size + 
+  cboe_futures_orderentry_boe_v1_3.quote_result.size + 
+  cboe_futures_orderentry_boe_v1_3.quote_liquidity_indicator.size + 
+  cboe_futures_orderentry_boe_v1_3.reserved_6.size
 
 -- Display: Quote Result Group
 cboe_futures_orderentry_boe_v1_3.quote_result_group.display = function(packet, parent, length)
@@ -27669,24 +27661,14 @@ end
 -- Quote Group
 cboe_futures_orderentry_boe_v1_3.quote_group = {}
 
--- Calculate size of: Quote Group
-cboe_futures_orderentry_boe_v1_3.quote_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe_v1_3.symbol.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.side.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.open_close.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.price.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.order_qty.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.reserved_12.size
-
-  return index
-end
+-- Size: Quote Group
+cboe_futures_orderentry_boe_v1_3.quote_group.size =
+  cboe_futures_orderentry_boe_v1_3.symbol.size + 
+  cboe_futures_orderentry_boe_v1_3.side.size + 
+  cboe_futures_orderentry_boe_v1_3.open_close.size + 
+  cboe_futures_orderentry_boe_v1_3.price.size + 
+  cboe_futures_orderentry_boe_v1_3.order_qty.size + 
+  cboe_futures_orderentry_boe_v1_3.reserved_12.size
 
 -- Display: Quote Group
 cboe_futures_orderentry_boe_v1_3.quote_group.display = function(packet, parent, length)
@@ -29862,16 +29844,10 @@ end
 -- Unit Sequence
 cboe_futures_orderentry_boe_v1_3.unit_sequence = {}
 
--- Calculate size of: Unit Sequence
-cboe_futures_orderentry_boe_v1_3.unit_sequence.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe_v1_3.unit_number.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.sequence_number.size
-
-  return index
-end
+-- Size: Unit Sequence
+cboe_futures_orderentry_boe_v1_3.unit_sequence.size =
+  cboe_futures_orderentry_boe_v1_3.unit_number.size + 
+  cboe_futures_orderentry_boe_v1_3.sequence_number.size
 
 -- Display: Unit Sequence
 cboe_futures_orderentry_boe_v1_3.unit_sequence.display = function(packet, parent, length)
@@ -32968,7 +32944,7 @@ end
 -- Bitfields
 cboe_futures_orderentry_boe_v1_3.bitfields = {}
 
--- Calculate runtime size of: Bitfields
+-- Size: Bitfields
 cboe_futures_orderentry_boe_v1_3.bitfields.size = function(buffer, offset, application_message_type)
   -- Size of New Order Return Bitfields
   if application_message_type == 0x38 then
@@ -33329,7 +33305,7 @@ end
 -- Parameter
 cboe_futures_orderentry_boe_v1_3.parameter = {}
 
--- Calculate runtime size of: Parameter
+-- Size: Parameter
 cboe_futures_orderentry_boe_v1_3.parameter.size = function(buffer, offset, param_group_type)
   -- Size of Unit Sequences
   if param_group_type == 0x80 then
@@ -33438,16 +33414,10 @@ end
 -- Param Header
 cboe_futures_orderentry_boe_v1_3.param_header = {}
 
--- Calculate size of: Param Header
-cboe_futures_orderentry_boe_v1_3.param_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe_v1_3.param_group_length.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.param_group_type.size
-
-  return index
-end
+-- Size: Param Header
+cboe_futures_orderentry_boe_v1_3.param_header.size =
+  cboe_futures_orderentry_boe_v1_3.param_group_length.size + 
+  cboe_futures_orderentry_boe_v1_3.param_group_type.size
 
 -- Display: Param Header
 cboe_futures_orderentry_boe_v1_3.param_header.display = function(packet, parent, length)
@@ -33844,7 +33814,7 @@ end
 -- Message
 cboe_futures_orderentry_boe_v1_3.message = {}
 
--- Calculate runtime size of: Message
+-- Size: Message
 cboe_futures_orderentry_boe_v1_3.message.size = function(buffer, offset, message_type)
   -- Size of Login Request Message
   if message_type == 0x37 then
@@ -34336,22 +34306,13 @@ end
 -- Message Header
 cboe_futures_orderentry_boe_v1_3.message_header = {}
 
--- Calculate size of: Message Header
-cboe_futures_orderentry_boe_v1_3.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe_v1_3.start_of_message.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.message_length.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.message_type.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.matching_unit.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.sequence_number.size
-
-  return index
-end
+-- Size: Message Header
+cboe_futures_orderentry_boe_v1_3.message_header.size =
+  cboe_futures_orderentry_boe_v1_3.start_of_message.size + 
+  cboe_futures_orderentry_boe_v1_3.message_length.size + 
+  cboe_futures_orderentry_boe_v1_3.message_type.size + 
+  cboe_futures_orderentry_boe_v1_3.matching_unit.size + 
+  cboe_futures_orderentry_boe_v1_3.sequence_number.size
 
 -- Display: Message Header
 cboe_futures_orderentry_boe_v1_3.message_header.display = function(packet, parent, length)
@@ -34468,7 +34429,7 @@ end
 omi_cboe_futures_orderentry_boe_v1_3:register_heuristic("tcp", omi_cboe_futures_orderentry_boe_v1_3_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -34484,7 +34445,7 @@ omi_cboe_futures_orderentry_boe_v1_3:register_heuristic("tcp", omi_cboe_futures_
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

@@ -226,20 +226,12 @@ end
 -- Market At Close Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message = {}
 
--- Calculate size of: Market At Close Book Entry Message
-a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.quantity.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.price.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.order_ref.size
-
-  return index
-end
+-- Size: Market At Close Book Entry Message
+a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.size =
+  a2x_equities_snapshot_amd_v1_3_2.security_id.size + 
+  a2x_equities_snapshot_amd_v1_3_2.quantity.size + 
+  a2x_equities_snapshot_amd_v1_3_2.price.size + 
+  a2x_equities_snapshot_amd_v1_3_2.order_ref.size
 
 -- Display: Market At Close Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.display = function(packet, parent, length)
@@ -286,20 +278,12 @@ end
 -- Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2.book_entry_message = {}
 
--- Calculate size of: Book Entry Message
-a2x_equities_snapshot_amd_v1_3_2.book_entry_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.quantity.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.price.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.order_ref.size
-
-  return index
-end
+-- Size: Book Entry Message
+a2x_equities_snapshot_amd_v1_3_2.book_entry_message.size =
+  a2x_equities_snapshot_amd_v1_3_2.security_id.size + 
+  a2x_equities_snapshot_amd_v1_3_2.quantity.size + 
+  a2x_equities_snapshot_amd_v1_3_2.price.size + 
+  a2x_equities_snapshot_amd_v1_3_2.order_ref.size
 
 -- Display: Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2.book_entry_message.display = function(packet, parent, length)
@@ -517,26 +501,15 @@ end
 -- Book Status Message
 a2x_equities_snapshot_amd_v1_3_2.book_status_message = {}
 
--- Calculate size of: Book Status Message
-a2x_equities_snapshot_amd_v1_3_2.book_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.trading_status.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.market_flags.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.entries.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.indicative_price.size
-
-  return index
-end
+-- Size: Book Status Message
+a2x_equities_snapshot_amd_v1_3_2.book_status_message.size =
+  a2x_equities_snapshot_amd_v1_3_2.security_id.size + 
+  a2x_equities_snapshot_amd_v1_3_2.trading_status.size + 
+  a2x_equities_snapshot_amd_v1_3_2.market_flags.size + 
+  a2x_equities_snapshot_amd_v1_3_2.entries.size + 
+  a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.size + 
+  a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.size + 
+  a2x_equities_snapshot_amd_v1_3_2.indicative_price.size
 
 -- Display: Book Status Message
 a2x_equities_snapshot_amd_v1_3_2.book_status_message.display = function(packet, parent, length)
@@ -661,18 +634,11 @@ end
 -- Snapshot Start Message
 a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message = {}
 
--- Calculate size of: Snapshot Start Message
-a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.security_count.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.timestamp.size
-
-  return index
-end
+-- Size: Snapshot Start Message
+a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.size =
+  a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.size + 
+  a2x_equities_snapshot_amd_v1_3_2.security_count.size + 
+  a2x_equities_snapshot_amd_v1_3_2.timestamp.size
 
 -- Display: Snapshot Start Message
 a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.display = function(packet, parent, length)
@@ -716,7 +682,7 @@ end
 -- Payload
 a2x_equities_snapshot_amd_v1_3_2.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 a2x_equities_snapshot_amd_v1_3_2.payload.size = function(buffer, offset, msg_type)
   -- Size of Heartbeat Message
   if msg_type == 1 then
@@ -724,19 +690,19 @@ a2x_equities_snapshot_amd_v1_3_2.payload.size = function(buffer, offset, msg_typ
   end
   -- Size of Snapshot Start Message
   if msg_type == 10 then
-    return a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.size(buffer, offset)
+    return a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.size
   end
   -- Size of Book Status Message
   if msg_type == 11 then
-    return a2x_equities_snapshot_amd_v1_3_2.book_status_message.size(buffer, offset)
+    return a2x_equities_snapshot_amd_v1_3_2.book_status_message.size
   end
   -- Size of Book Entry Message
   if msg_type == 12 then
-    return a2x_equities_snapshot_amd_v1_3_2.book_entry_message.size(buffer, offset)
+    return a2x_equities_snapshot_amd_v1_3_2.book_entry_message.size
   end
   -- Size of Market At Close Book Entry Message
   if msg_type == 18 then
-    return a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.size(buffer, offset)
+    return a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.size
   end
 
   return 0
@@ -880,18 +846,11 @@ end
 -- Message Header
 a2x_equities_snapshot_amd_v1_3_2.message_header = {}
 
--- Calculate size of: Message Header
-a2x_equities_snapshot_amd_v1_3_2.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.msg_type.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.msg_length.size
-
-  index = index + a2x_equities_snapshot_amd_v1_3_2.seq_no.size
-
-  return index
-end
+-- Size: Message Header
+a2x_equities_snapshot_amd_v1_3_2.message_header.size =
+  a2x_equities_snapshot_amd_v1_3_2.msg_type.size + 
+  a2x_equities_snapshot_amd_v1_3_2.msg_length.size + 
+  a2x_equities_snapshot_amd_v1_3_2.seq_no.size
 
 -- Display: Message Header
 a2x_equities_snapshot_amd_v1_3_2.message_header.display = function(packet, parent, length)
@@ -1080,7 +1039,7 @@ end
 omi_a2x_equities_snapshot_amd_v1_3_2:register_heuristic("udp", omi_a2x_equities_snapshot_amd_v1_3_2_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -1096,7 +1055,7 @@ omi_a2x_equities_snapshot_amd_v1_3_2:register_heuristic("udp", omi_a2x_equities_
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

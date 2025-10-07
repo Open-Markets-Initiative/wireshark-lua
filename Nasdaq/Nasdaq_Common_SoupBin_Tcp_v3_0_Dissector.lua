@@ -318,20 +318,12 @@ end
 -- Login Request Packet
 nasdaq_common_soupbin_tcp_v3_0.login_request_packet = {}
 
--- Calculate size of: Login Request Packet
-nasdaq_common_soupbin_tcp_v3_0.login_request_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.username.size
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.password.size
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.requested_session.size
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.size
-
-  return index
-end
+-- Size: Login Request Packet
+nasdaq_common_soupbin_tcp_v3_0.login_request_packet.size =
+  nasdaq_common_soupbin_tcp_v3_0.username.size + 
+  nasdaq_common_soupbin_tcp_v3_0.password.size + 
+  nasdaq_common_soupbin_tcp_v3_0.requested_session.size + 
+  nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.size
 
 -- Display: Login Request Packet
 nasdaq_common_soupbin_tcp_v3_0.login_request_packet.display = function(packet, parent, length)
@@ -497,14 +489,9 @@ end
 -- Login Rejected Packet
 nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet = {}
 
--- Calculate size of: Login Rejected Packet
-nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.size
-
-  return index
-end
+-- Size: Login Rejected Packet
+nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.size =
+  nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.size
 
 -- Display: Login Rejected Packet
 nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.display = function(packet, parent, length)
@@ -588,16 +575,10 @@ end
 -- Login Accepted Packet
 nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet = {}
 
--- Calculate size of: Login Accepted Packet
-nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.session.size
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.sequence_number.size
-
-  return index
-end
+-- Size: Login Accepted Packet
+nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.size =
+  nasdaq_common_soupbin_tcp_v3_0.session.size + 
+  nasdaq_common_soupbin_tcp_v3_0.sequence_number.size
 
 -- Display: Login Accepted Packet
 nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.display = function(packet, parent, length)
@@ -661,14 +642,9 @@ end
 -- Debug Packet
 nasdaq_common_soupbin_tcp_v3_0.debug_packet = {}
 
--- Calculate size of: Debug Packet
-nasdaq_common_soupbin_tcp_v3_0.debug_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.text.size
-
-  return index
-end
+-- Size: Debug Packet
+nasdaq_common_soupbin_tcp_v3_0.debug_packet.size =
+  nasdaq_common_soupbin_tcp_v3_0.text.size
 
 -- Display: Debug Packet
 nasdaq_common_soupbin_tcp_v3_0.debug_packet.display = function(packet, parent, length)
@@ -706,19 +682,19 @@ end
 -- Payload
 nasdaq_common_soupbin_tcp_v3_0.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 nasdaq_common_soupbin_tcp_v3_0.payload.size = function(buffer, offset, packet_type)
   -- Size of Debug Packet
   if packet_type == "+" then
-    return nasdaq_common_soupbin_tcp_v3_0.debug_packet.size(buffer, offset)
+    return nasdaq_common_soupbin_tcp_v3_0.debug_packet.size
   end
   -- Size of Login Accepted Packet
   if packet_type == "A" then
-    return nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.size(buffer, offset)
+    return nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.size
   end
   -- Size of Login Rejected Packet
   if packet_type == "J" then
-    return nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.size(buffer, offset)
+    return nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.size
   end
   -- Size of Sequenced Data Packet
   if packet_type == "S" then
@@ -726,7 +702,7 @@ nasdaq_common_soupbin_tcp_v3_0.payload.size = function(buffer, offset, packet_ty
   end
   -- Size of Login Request Packet
   if packet_type == "L" then
-    return nasdaq_common_soupbin_tcp_v3_0.login_request_packet.size(buffer, offset)
+    return nasdaq_common_soupbin_tcp_v3_0.login_request_packet.size
   end
   -- Size of Unsequenced Data Packet
   if packet_type == "U" then
@@ -871,16 +847,10 @@ end
 -- Packet Header
 nasdaq_common_soupbin_tcp_v3_0.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_common_soupbin_tcp_v3_0.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.packet_length.size
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.packet_type.size
-
-  return index
-end
+-- Size: Packet Header
+nasdaq_common_soupbin_tcp_v3_0.packet_header.size =
+  nasdaq_common_soupbin_tcp_v3_0.packet_length.size + 
+  nasdaq_common_soupbin_tcp_v3_0.packet_type.size
 
 -- Display: Packet Header
 nasdaq_common_soupbin_tcp_v3_0.packet_header.display = function(packet, parent, length)
@@ -969,7 +939,7 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < nasdaq_common_soupbin_tcp_v3_0.packet_header.size(buffer, index) then
+  if remaining < nasdaq_common_soupbin_tcp_v3_0.packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -1065,7 +1035,7 @@ end
 omi_nasdaq_common_soupbin_tcp_v3_0:register_heuristic("tcp", omi_nasdaq_common_soupbin_tcp_v3_0_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -1081,7 +1051,7 @@ omi_nasdaq_common_soupbin_tcp_v3_0:register_heuristic("tcp", omi_nasdaq_common_s
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

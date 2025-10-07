@@ -381,26 +381,15 @@ end
 -- Trade Cancel Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message = {}
 
--- Calculate size of: Trade Cancel Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trade_date.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trade_id.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.correction_number.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.price.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.size.size
-
-  return index
-end
+-- Size: Trade Cancel Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.size =
+  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.trade_date.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.trade_id.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.correction_number.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.price.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.size.size
 
 -- Display: Trade Cancel Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.display = function(packet, parent, length)
@@ -456,22 +445,13 @@ end
 -- Last Sale Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message = {}
 
--- Calculate size of: Last Sale Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trade_id.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.price.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.size.size
-
-  return index
-end
+-- Size: Last Sale Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.size =
+  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.trade_id.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.price.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.size.size
 
 -- Display: Last Sale Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.display = function(packet, parent, length)
@@ -625,24 +605,14 @@ end
 -- Best Bid And Offer Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message = {}
 
--- Calculate size of: Best Bid And Offer Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_size.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_size.size
-
-  return index
-end
+-- Size: Best Bid And Offer Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.size =
+  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_size.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_size.size
 
 -- Display: Best Bid And Offer Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.display = function(packet, parent, length)
@@ -773,20 +743,12 @@ end
 -- Instrument Trading Status Notification Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message = {}
 
--- Calculate size of: Instrument Trading Status Notification Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trading_status.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.market_state.size
-
-  return index
-end
+-- Size: Instrument Trading Status Notification Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.size =
+  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.trading_status.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.market_state.size
 
 -- Display: Instrument Trading Status Notification Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.display = function(packet, parent, length)
@@ -915,20 +877,12 @@ end
 -- System State Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message = {}
 
--- Calculate size of: System State Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.tom_version.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.session_id.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.system_status.size
-
-  return index
-end
+-- Size: System State Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.size =
+  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.tom_version.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.session_id.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.system_status.size
 
 -- Display: System State Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.display = function(packet, parent, length)
@@ -1044,20 +998,12 @@ end
 -- Instrument Leg
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg = {}
 
--- Calculate size of: Instrument Leg
-miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.leg_ratio_and_side.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.maturity_month_year.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_8.size
-
-  return index
-end
+-- Size: Instrument Leg
+miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg.size =
+  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.leg_ratio_and_side.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.maturity_month_year.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_8.size
 
 -- Display: Instrument Leg
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg.display = function(packet, parent, length)
@@ -1948,64 +1894,34 @@ end
 -- Simple Instrument Definition Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message = {}
 
--- Calculate size of: Simple Instrument Definition Message
-miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset_type.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.product_group_code.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.exchange.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id_source.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_type.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.maturity_month_year.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.currency.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_currency.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.match_algorithm.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.minimum_size.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.maximum_size.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.tick.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure_quantity.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price_type_calc_method.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.total_volume.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.open_interest_quantity.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.high_limit_price.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.low_limit_price.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation_type.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation.size
-
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_16.size
-
-  return index
-end
+-- Size: Simple Instrument Definition Message
+miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.size =
+  miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset_type.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.product_group_code.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.exchange.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id_source.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_type.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.maturity_month_year.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.currency.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_currency.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.match_algorithm.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.minimum_size.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.maximum_size.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.tick.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure_quantity.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price_type_calc_method.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.total_volume.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.open_interest_quantity.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.high_limit_price.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.low_limit_price.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation_type.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation.size + 
+  miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_16.size
 
 -- Display: Simple Instrument Definition Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.display = function(packet, parent, length)
@@ -2118,11 +2034,11 @@ end
 -- Data
 miax_onyxfutures_topofmarket_mach_v1_0_b.data = {}
 
--- Calculate runtime size of: Data
+-- Size: Data
 miax_onyxfutures_topofmarket_mach_v1_0_b.data.size = function(buffer, offset, message_type)
   -- Size of Simple Instrument Definition Message
   if message_type == 1 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.size(buffer, offset)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.size
   end
   -- Size of Complex Instrument Definition Message
   if message_type == 2 then
@@ -2130,23 +2046,23 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.data.size = function(buffer, offset, me
   end
   -- Size of System State Message
   if message_type == 3 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.size(buffer, offset)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.size
   end
   -- Size of Instrument Trading Status Notification Message
   if message_type == 4 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.size(buffer, offset)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.size
   end
   -- Size of Best Bid And Offer Message
   if message_type == 15 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.size(buffer, offset)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.size
   end
   -- Size of Last Sale Message
   if message_type == 16 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.size(buffer, offset)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.size
   end
   -- Size of Trade Cancel Message
   if message_type == 14 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.size(buffer, offset)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.size
   end
 
   return 0
@@ -2307,7 +2223,7 @@ end
 -- Payload
 miax_onyxfutures_topofmarket_mach_v1_0_b.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 miax_onyxfutures_topofmarket_mach_v1_0_b.payload.size = function(buffer, offset, packet_type)
   -- Size of Application Message
   if packet_type == 3 then
@@ -2589,7 +2505,7 @@ end
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b:register_heuristic("udp", omi_miax_onyxfutures_topofmarket_mach_v1_0_b_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -2605,7 +2521,7 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b:register_heuristic("udp", omi_miax_
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

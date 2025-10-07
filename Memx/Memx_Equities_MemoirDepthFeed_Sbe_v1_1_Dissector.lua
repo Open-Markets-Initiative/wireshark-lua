@@ -277,16 +277,10 @@ end
 -- Snapshot Complete Message
 memx_equities_memoirdepthfeed_sbe_v1_1.snapshot_complete_message = {}
 
--- Calculate size of: Snapshot Complete Message
-memx_equities_memoirdepthfeed_sbe_v1_1.snapshot_complete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.as_of_sequence_number.size
-
-  return index
-end
+-- Size: Snapshot Complete Message
+memx_equities_memoirdepthfeed_sbe_v1_1.snapshot_complete_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.as_of_sequence_number.size
 
 -- Display: Snapshot Complete Message
 memx_equities_memoirdepthfeed_sbe_v1_1.snapshot_complete_message.display = function(packet, parent, length)
@@ -350,16 +344,10 @@ end
 -- Clear Book Message
 memx_equities_memoirdepthfeed_sbe_v1_1.clear_book_message = {}
 
--- Calculate size of: Clear Book Message
-memx_equities_memoirdepthfeed_sbe_v1_1.clear_book_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  return index
-end
+-- Size: Clear Book Message
+memx_equities_memoirdepthfeed_sbe_v1_1.clear_book_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
 
 -- Display: Clear Book Message
 memx_equities_memoirdepthfeed_sbe_v1_1.clear_book_message.display = function(packet, parent, length)
@@ -527,26 +515,15 @@ end
 -- Corrected Trade Message
 memx_equities_memoirdepthfeed_sbe_v1_1.corrected_trade_message = {}
 
--- Calculate size of: Corrected Trade Message
-memx_equities_memoirdepthfeed_sbe_v1_1.corrected_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.trade_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.original_quantity.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.original_price.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.corrected_quantity.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.corrected_price.size
-
-  return index
-end
+-- Size: Corrected Trade Message
+memx_equities_memoirdepthfeed_sbe_v1_1.corrected_trade_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.trade_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.original_quantity.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.original_price.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.corrected_quantity.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.corrected_price.size
 
 -- Display: Corrected Trade Message
 memx_equities_memoirdepthfeed_sbe_v1_1.corrected_trade_message.display = function(packet, parent, length)
@@ -602,22 +579,13 @@ end
 -- Broken Trade Message
 memx_equities_memoirdepthfeed_sbe_v1_1.broken_trade_message = {}
 
--- Calculate size of: Broken Trade Message
-memx_equities_memoirdepthfeed_sbe_v1_1.broken_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.trade_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.original_quantity.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.original_price.size
-
-  return index
-end
+-- Size: Broken Trade Message
+memx_equities_memoirdepthfeed_sbe_v1_1.broken_trade_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.trade_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.original_quantity.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.original_price.size
 
 -- Display: Broken Trade Message
 memx_equities_memoirdepthfeed_sbe_v1_1.broken_trade_message.display = function(packet, parent, length)
@@ -719,22 +687,13 @@ end
 -- Trade Message
 memx_equities_memoirdepthfeed_sbe_v1_1.trade_message = {}
 
--- Calculate size of: Trade Message
-memx_equities_memoirdepthfeed_sbe_v1_1.trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.trade_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.quantity.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.price.size
-
-  return index
-end
+-- Size: Trade Message
+memx_equities_memoirdepthfeed_sbe_v1_1.trade_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.trade_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.quantity.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.price.size
 
 -- Display: Trade Message
 memx_equities_memoirdepthfeed_sbe_v1_1.trade_message.display = function(packet, parent, length)
@@ -807,24 +766,14 @@ end
 -- Order Executed Message
 memx_equities_memoirdepthfeed_sbe_v1_1.order_executed_message = {}
 
--- Calculate size of: Order Executed Message
-memx_equities_memoirdepthfeed_sbe_v1_1.order_executed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.order_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.trade_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.quantity.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.price.size
-
-  return index
-end
+-- Size: Order Executed Message
+memx_equities_memoirdepthfeed_sbe_v1_1.order_executed_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.order_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.trade_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.quantity.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.price.size
 
 -- Display: Order Executed Message
 memx_equities_memoirdepthfeed_sbe_v1_1.order_executed_message.display = function(packet, parent, length)
@@ -877,20 +826,12 @@ end
 -- Order Reduced Message
 memx_equities_memoirdepthfeed_sbe_v1_1.order_reduced_message = {}
 
--- Calculate size of: Order Reduced Message
-memx_equities_memoirdepthfeed_sbe_v1_1.order_reduced_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.order_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.quantity.size
-
-  return index
-end
+-- Size: Order Reduced Message
+memx_equities_memoirdepthfeed_sbe_v1_1.order_reduced_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.order_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.quantity.size
 
 -- Display: Order Reduced Message
 memx_equities_memoirdepthfeed_sbe_v1_1.order_reduced_message.display = function(packet, parent, length)
@@ -937,18 +878,11 @@ end
 -- Order Deleted Message
 memx_equities_memoirdepthfeed_sbe_v1_1.order_deleted_message = {}
 
--- Calculate size of: Order Deleted Message
-memx_equities_memoirdepthfeed_sbe_v1_1.order_deleted_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.order_id.size
-
-  return index
-end
+-- Size: Order Deleted Message
+memx_equities_memoirdepthfeed_sbe_v1_1.order_deleted_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.order_id.size
 
 -- Display: Order Deleted Message
 memx_equities_memoirdepthfeed_sbe_v1_1.order_deleted_message.display = function(packet, parent, length)
@@ -1035,24 +969,14 @@ end
 -- Order Added Message
 memx_equities_memoirdepthfeed_sbe_v1_1.order_added_message = {}
 
--- Calculate size of: Order Added Message
-memx_equities_memoirdepthfeed_sbe_v1_1.order_added_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.order_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.side.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.quantity.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.price.size
-
-  return index
-end
+-- Size: Order Added Message
+memx_equities_memoirdepthfeed_sbe_v1_1.order_added_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.order_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.side.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.quantity.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.price.size
 
 -- Display: Order Added Message
 memx_equities_memoirdepthfeed_sbe_v1_1.order_added_message.display = function(packet, parent, length)
@@ -1154,16 +1078,10 @@ end
 -- Trading Session Status Message
 memx_equities_memoirdepthfeed_sbe_v1_1.trading_session_status_message = {}
 
--- Calculate size of: Trading Session Status Message
-memx_equities_memoirdepthfeed_sbe_v1_1.trading_session_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.trading_session.size
-
-  return index
-end
+-- Size: Trading Session Status Message
+memx_equities_memoirdepthfeed_sbe_v1_1.trading_session_status_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.trading_session.size
 
 -- Display: Trading Session Status Message
 memx_equities_memoirdepthfeed_sbe_v1_1.trading_session_status_message.display = function(packet, parent, length)
@@ -1299,20 +1217,12 @@ end
 -- Security Trading Status Message
 memx_equities_memoirdepthfeed_sbe_v1_1.security_trading_status_message = {}
 
--- Calculate size of: Security Trading Status Message
-memx_equities_memoirdepthfeed_sbe_v1_1.security_trading_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_trading_status.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_trading_status_reason.size
-
-  return index
-end
+-- Size: Security Trading Status Message
+memx_equities_memoirdepthfeed_sbe_v1_1.security_trading_status_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_trading_status.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_trading_status_reason.size
 
 -- Display: Security Trading Status Message
 memx_equities_memoirdepthfeed_sbe_v1_1.security_trading_status_message.display = function(packet, parent, length)
@@ -1389,18 +1299,11 @@ end
 -- Reg Sho Restriction Message
 memx_equities_memoirdepthfeed_sbe_v1_1.reg_sho_restriction_message = {}
 
--- Calculate size of: Reg Sho Restriction Message
-memx_equities_memoirdepthfeed_sbe_v1_1.reg_sho_restriction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.short_sale_restriction.size
-
-  return index
-end
+-- Size: Reg Sho Restriction Message
+memx_equities_memoirdepthfeed_sbe_v1_1.reg_sho_restriction_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.short_sale_restriction.size
 
 -- Display: Reg Sho Restriction Message
 memx_equities_memoirdepthfeed_sbe_v1_1.reg_sho_restriction_message.display = function(packet, parent, length)
@@ -1627,28 +1530,16 @@ end
 -- Instrument Directory Message
 memx_equities_memoirdepthfeed_sbe_v1_1.instrument_directory_message = {}
 
--- Calculate size of: Instrument Directory Message
-memx_equities_memoirdepthfeed_sbe_v1_1.instrument_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.symbol.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.symbol_sfx.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.round_lot.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.reserved.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.is_test_symbol.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.mpv.size
-
-  return index
-end
+-- Size: Instrument Directory Message
+memx_equities_memoirdepthfeed_sbe_v1_1.instrument_directory_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.security_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.symbol.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.symbol_sfx.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.round_lot.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.reserved.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.is_test_symbol.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.mpv.size
 
 -- Display: Instrument Directory Message
 memx_equities_memoirdepthfeed_sbe_v1_1.instrument_directory_message.display = function(packet, parent, length)
@@ -1707,59 +1598,59 @@ end
 -- Payload
 memx_equities_memoirdepthfeed_sbe_v1_1.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 memx_equities_memoirdepthfeed_sbe_v1_1.payload.size = function(buffer, offset, template_id)
   -- Size of Instrument Directory Message
   if template_id == 1 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.instrument_directory_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.instrument_directory_message.size
   end
   -- Size of Reg Sho Restriction Message
   if template_id == 2 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.reg_sho_restriction_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.reg_sho_restriction_message.size
   end
   -- Size of Security Trading Status Message
   if template_id == 3 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.security_trading_status_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.security_trading_status_message.size
   end
   -- Size of Trading Session Status Message
   if template_id == 5 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.trading_session_status_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.trading_session_status_message.size
   end
   -- Size of Order Added Message
   if template_id == 10 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.order_added_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.order_added_message.size
   end
   -- Size of Order Deleted Message
   if template_id == 11 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.order_deleted_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.order_deleted_message.size
   end
   -- Size of Order Reduced Message
   if template_id == 12 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.order_reduced_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.order_reduced_message.size
   end
   -- Size of Order Executed Message
   if template_id == 13 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.order_executed_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.order_executed_message.size
   end
   -- Size of Trade Message
   if template_id == 14 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.trade_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.trade_message.size
   end
   -- Size of Broken Trade Message
   if template_id == 15 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.broken_trade_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.broken_trade_message.size
   end
   -- Size of Corrected Trade Message
   if template_id == 16 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.corrected_trade_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.corrected_trade_message.size
   end
   -- Size of Clear Book Message
   if template_id == 18 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.clear_book_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.clear_book_message.size
   end
   -- Size of Snapshot Complete Message
   if template_id == 100 then
-    return memx_equities_memoirdepthfeed_sbe_v1_1.snapshot_complete_message.size(buffer, offset)
+    return memx_equities_memoirdepthfeed_sbe_v1_1.snapshot_complete_message.size
   end
 
   return 0
@@ -1983,20 +1874,12 @@ end
 -- Sbe Header
 memx_equities_memoirdepthfeed_sbe_v1_1.sbe_header = {}
 
--- Calculate size of: Sbe Header
-memx_equities_memoirdepthfeed_sbe_v1_1.sbe_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.block_length.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.template_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.schema_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.version.size
-
-  return index
-end
+-- Size: Sbe Header
+memx_equities_memoirdepthfeed_sbe_v1_1.sbe_header.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.block_length.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.template_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.schema_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.version.size
 
 -- Display: Sbe Header
 memx_equities_memoirdepthfeed_sbe_v1_1.sbe_header.display = function(packet, parent, length)
@@ -2047,7 +1930,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1.sbe_message = {}
 memx_equities_memoirdepthfeed_sbe_v1_1.sbe_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.sbe_header.size(buffer, offset + index)
+  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.sbe_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2185,7 +2068,7 @@ end
 -- Sequenced Message
 memx_equities_memoirdepthfeed_sbe_v1_1.sequenced_message = {}
 
--- Size Of: Sequenced Message
+-- Size: Sequenced Message
 memx_equities_memoirdepthfeed_sbe_v1_1.sequenced_message.size = function(buffer, offset)
   local index = 0
 
@@ -2231,7 +2114,7 @@ end
 -- Sequenced Messages
 memx_equities_memoirdepthfeed_sbe_v1_1.sequenced_messages = {}
 
--- Calculate runtime size of: Sequenced Messages
+-- Size: Sequenced Messages
 memx_equities_memoirdepthfeed_sbe_v1_1.sequenced_messages.size = function(buffer, offset, message_type)
   -- Size of Sequenced Message
   if message_type == 2 then
@@ -2381,20 +2264,12 @@ end
 -- Common Header
 memx_equities_memoirdepthfeed_sbe_v1_1.common_header = {}
 
--- Calculate size of: Common Header
-memx_equities_memoirdepthfeed_sbe_v1_1.common_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.message_type.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.header_length.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.session_id.size
-
-  index = index + memx_equities_memoirdepthfeed_sbe_v1_1.sequence_number.size
-
-  return index
-end
+-- Size: Common Header
+memx_equities_memoirdepthfeed_sbe_v1_1.common_header.size =
+  memx_equities_memoirdepthfeed_sbe_v1_1.message_type.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.header_length.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.session_id.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_1.sequence_number.size
 
 -- Display: Common Header
 memx_equities_memoirdepthfeed_sbe_v1_1.common_header.display = function(packet, parent, length)
@@ -2538,7 +2413,7 @@ end
 omi_memx_equities_memoirdepthfeed_sbe_v1_1:register_heuristic("udp", omi_memx_equities_memoirdepthfeed_sbe_v1_1_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -2554,7 +2429,7 @@ omi_memx_equities_memoirdepthfeed_sbe_v1_1:register_heuristic("udp", omi_memx_eq
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

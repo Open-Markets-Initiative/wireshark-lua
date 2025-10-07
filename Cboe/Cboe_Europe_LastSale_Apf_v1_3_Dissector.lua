@@ -196,14 +196,9 @@ end
 -- Unsequenced Data Packet
 cboe_europe_lastsale_apf_v1_3.unsequenced_data_packet = {}
 
--- Calculate size of: Unsequenced Data Packet
-cboe_europe_lastsale_apf_v1_3.unsequenced_data_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_lastsale_apf_v1_3.unsequenced_message.size
-
-  return index
-end
+-- Size: Unsequenced Data Packet
+cboe_europe_lastsale_apf_v1_3.unsequenced_data_packet.size =
+  cboe_europe_lastsale_apf_v1_3.unsequenced_message.size
 
 -- Display: Unsequenced Data Packet
 cboe_europe_lastsale_apf_v1_3.unsequenced_data_packet.display = function(packet, parent, length)
@@ -333,20 +328,12 @@ end
 -- Login Request Packet
 cboe_europe_lastsale_apf_v1_3.login_request_packet = {}
 
--- Calculate size of: Login Request Packet
-cboe_europe_lastsale_apf_v1_3.login_request_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_lastsale_apf_v1_3.username.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.password.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.requested_session.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.requested_sequence_number.size
-
-  return index
-end
+-- Size: Login Request Packet
+cboe_europe_lastsale_apf_v1_3.login_request_packet.size =
+  cboe_europe_lastsale_apf_v1_3.username.size + 
+  cboe_europe_lastsale_apf_v1_3.password.size + 
+  cboe_europe_lastsale_apf_v1_3.requested_session.size + 
+  cboe_europe_lastsale_apf_v1_3.requested_sequence_number.size
 
 -- Display: Login Request Packet
 cboe_europe_lastsale_apf_v1_3.login_request_packet.display = function(packet, parent, length)
@@ -889,48 +876,26 @@ end
 -- Last Sale Europe Message
 cboe_europe_lastsale_apf_v1_3.last_sale_europe_message = {}
 
--- Calculate size of: Last Sale Europe Message
-cboe_europe_lastsale_apf_v1_3.last_sale_europe_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_lastsale_apf_v1_3.trading_date_time.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.symbol.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.price.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.price_currency.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.executed_shares.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.execution_venue.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.publication_date_time.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.trade_id.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.transaction_category.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.negotiation_flag.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.agency_cross_trade.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.modification_indicator.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.benchmark_reference_indicator.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.special_dividend.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.price_discovery_process.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.algorithmic_indicator.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.post_trade_deferral_reason.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.duplicative_indicator.size
-
-  return index
-end
+-- Size: Last Sale Europe Message
+cboe_europe_lastsale_apf_v1_3.last_sale_europe_message.size =
+  cboe_europe_lastsale_apf_v1_3.trading_date_time.size + 
+  cboe_europe_lastsale_apf_v1_3.symbol.size + 
+  cboe_europe_lastsale_apf_v1_3.price.size + 
+  cboe_europe_lastsale_apf_v1_3.price_currency.size + 
+  cboe_europe_lastsale_apf_v1_3.executed_shares.size + 
+  cboe_europe_lastsale_apf_v1_3.execution_venue.size + 
+  cboe_europe_lastsale_apf_v1_3.publication_date_time.size + 
+  cboe_europe_lastsale_apf_v1_3.trade_id.size + 
+  cboe_europe_lastsale_apf_v1_3.transaction_category.size + 
+  cboe_europe_lastsale_apf_v1_3.negotiation_flag.size + 
+  cboe_europe_lastsale_apf_v1_3.agency_cross_trade.size + 
+  cboe_europe_lastsale_apf_v1_3.modification_indicator.size + 
+  cboe_europe_lastsale_apf_v1_3.benchmark_reference_indicator.size + 
+  cboe_europe_lastsale_apf_v1_3.special_dividend.size + 
+  cboe_europe_lastsale_apf_v1_3.price_discovery_process.size + 
+  cboe_europe_lastsale_apf_v1_3.algorithmic_indicator.size + 
+  cboe_europe_lastsale_apf_v1_3.post_trade_deferral_reason.size + 
+  cboe_europe_lastsale_apf_v1_3.duplicative_indicator.size
 
 -- Display: Last Sale Europe Message
 cboe_europe_lastsale_apf_v1_3.last_sale_europe_message.display = function(packet, parent, length)
@@ -1019,11 +984,11 @@ end
 -- Sequenced Message
 cboe_europe_lastsale_apf_v1_3.sequenced_message = {}
 
--- Calculate runtime size of: Sequenced Message
+-- Size: Sequenced Message
 cboe_europe_lastsale_apf_v1_3.sequenced_message.size = function(buffer, offset, sequenced_message_type)
   -- Size of Last Sale Europe Message
   if sequenced_message_type == "u" then
-    return cboe_europe_lastsale_apf_v1_3.last_sale_europe_message.size(buffer, offset)
+    return cboe_europe_lastsale_apf_v1_3.last_sale_europe_message.size
   end
 
   return 0
@@ -1122,16 +1087,10 @@ end
 -- Sequenced Message Header
 cboe_europe_lastsale_apf_v1_3.sequenced_message_header = {}
 
--- Calculate size of: Sequenced Message Header
-cboe_europe_lastsale_apf_v1_3.sequenced_message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_lastsale_apf_v1_3.timestamp.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.sequenced_message_type.size
-
-  return index
-end
+-- Size: Sequenced Message Header
+cboe_europe_lastsale_apf_v1_3.sequenced_message_header.size =
+  cboe_europe_lastsale_apf_v1_3.timestamp.size + 
+  cboe_europe_lastsale_apf_v1_3.sequenced_message_type.size
 
 -- Display: Sequenced Message Header
 cboe_europe_lastsale_apf_v1_3.sequenced_message_header.display = function(packet, parent, length)
@@ -1176,7 +1135,7 @@ cboe_europe_lastsale_apf_v1_3.sequenced_data_packet = {}
 cboe_europe_lastsale_apf_v1_3.sequenced_data_packet.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_lastsale_apf_v1_3.sequenced_message_header.size(buffer, offset + index)
+  index = index + cboe_europe_lastsale_apf_v1_3.sequenced_message_header.size
 
   -- Calculate runtime size of Sequenced Message field
   local sequenced_message_offset = offset + index
@@ -1246,14 +1205,9 @@ end
 -- Login Rejected Packet
 cboe_europe_lastsale_apf_v1_3.login_rejected_packet = {}
 
--- Calculate size of: Login Rejected Packet
-cboe_europe_lastsale_apf_v1_3.login_rejected_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_lastsale_apf_v1_3.reject_reason_code.size
-
-  return index
-end
+-- Size: Login Rejected Packet
+cboe_europe_lastsale_apf_v1_3.login_rejected_packet.size =
+  cboe_europe_lastsale_apf_v1_3.reject_reason_code.size
 
 -- Display: Login Rejected Packet
 cboe_europe_lastsale_apf_v1_3.login_rejected_packet.display = function(packet, parent, length)
@@ -1337,16 +1291,10 @@ end
 -- Login Accepted Packet
 cboe_europe_lastsale_apf_v1_3.login_accepted_packet = {}
 
--- Calculate size of: Login Accepted Packet
-cboe_europe_lastsale_apf_v1_3.login_accepted_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_lastsale_apf_v1_3.session.size
-
-  index = index + cboe_europe_lastsale_apf_v1_3.sequence_number.size
-
-  return index
-end
+-- Size: Login Accepted Packet
+cboe_europe_lastsale_apf_v1_3.login_accepted_packet.size =
+  cboe_europe_lastsale_apf_v1_3.session.size + 
+  cboe_europe_lastsale_apf_v1_3.sequence_number.size
 
 -- Display: Login Accepted Packet
 cboe_europe_lastsale_apf_v1_3.login_accepted_packet.display = function(packet, parent, length)
@@ -1410,14 +1358,9 @@ end
 -- Debug Packet
 cboe_europe_lastsale_apf_v1_3.debug_packet = {}
 
--- Calculate size of: Debug Packet
-cboe_europe_lastsale_apf_v1_3.debug_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_lastsale_apf_v1_3.text.size
-
-  return index
-end
+-- Size: Debug Packet
+cboe_europe_lastsale_apf_v1_3.debug_packet.size =
+  cboe_europe_lastsale_apf_v1_3.text.size
 
 -- Display: Debug Packet
 cboe_europe_lastsale_apf_v1_3.debug_packet.display = function(packet, parent, length)
@@ -1455,19 +1398,19 @@ end
 -- Payload
 cboe_europe_lastsale_apf_v1_3.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 cboe_europe_lastsale_apf_v1_3.payload.size = function(buffer, offset, packet_type)
   -- Size of Debug Packet
   if packet_type == "+" then
-    return cboe_europe_lastsale_apf_v1_3.debug_packet.size(buffer, offset)
+    return cboe_europe_lastsale_apf_v1_3.debug_packet.size
   end
   -- Size of Login Accepted Packet
   if packet_type == "A" then
-    return cboe_europe_lastsale_apf_v1_3.login_accepted_packet.size(buffer, offset)
+    return cboe_europe_lastsale_apf_v1_3.login_accepted_packet.size
   end
   -- Size of Login Rejected Packet
   if packet_type == "J" then
-    return cboe_europe_lastsale_apf_v1_3.login_rejected_packet.size(buffer, offset)
+    return cboe_europe_lastsale_apf_v1_3.login_rejected_packet.size
   end
   -- Size of Sequenced Data Packet
   if packet_type == "S" then
@@ -1475,11 +1418,11 @@ cboe_europe_lastsale_apf_v1_3.payload.size = function(buffer, offset, packet_typ
   end
   -- Size of Login Request Packet
   if packet_type == "L" then
-    return cboe_europe_lastsale_apf_v1_3.login_request_packet.size(buffer, offset)
+    return cboe_europe_lastsale_apf_v1_3.login_request_packet.size
   end
   -- Size of Unsequenced Data Packet
   if packet_type == "U" then
-    return cboe_europe_lastsale_apf_v1_3.unsequenced_data_packet.size(buffer, offset)
+    return cboe_europe_lastsale_apf_v1_3.unsequenced_data_packet.size
   end
 
   return 0
@@ -1682,7 +1625,7 @@ end
 omi_cboe_europe_lastsale_apf_v1_3:register_heuristic("tcp", omi_cboe_europe_lastsale_apf_v1_3_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -1698,7 +1641,7 @@ omi_cboe_europe_lastsale_apf_v1_3:register_heuristic("tcp", omi_cboe_europe_last
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

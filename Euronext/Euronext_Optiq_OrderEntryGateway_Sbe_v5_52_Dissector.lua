@@ -1268,16 +1268,10 @@ end
 -- Group Size Encoding
 euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding = {}
 
--- Calculate size of: Group Size Encoding
-euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.block_length_short.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.num_in_group.size
-
-  return index
-end
+-- Size: Group Size Encoding
+euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.block_length_short.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.num_in_group.size
 
 -- Display: Group Size Encoding
 euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.display = function(packet, parent, length)
@@ -1322,7 +1316,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.not_used_group_1_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.not_used_group_1_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local not_used_group_1_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1887,26 +1881,15 @@ end
 -- Fund Price Input Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_ack_message = {}
 
--- Calculate size of: Fund Price Input Ack Message
-euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_ack_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.price.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.bypass_indicator.size
-
-  return index
-end
+-- Size: Fund Price Input Ack Message
+euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_ack_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.price.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.bypass_indicator.size
 
 -- Display: Fund Price Input Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_ack_message.display = function(packet, parent, length)
@@ -2012,28 +1995,16 @@ end
 -- Fund Price Input Message
 euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_message = {}
 
--- Calculate size of: Fund Price Input Message
-euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.price.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.bypass_indicator.size
-
-  return index
-end
+-- Size: Fund Price Input Message
+euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.price.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.bypass_indicator.size
 
 -- Display: Fund Price Input Message
 euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_message.display = function(packet, parent, length)
@@ -2187,30 +2158,17 @@ end
 -- Declaration Cancel And Refusal Message
 euronext_optiq_orderentrygateway_sbe_v5_52.declaration_cancel_and_refusal_message = {}
 
--- Calculate size of: Declaration Cancel And Refusal Message
-euronext_optiq_orderentrygateway_sbe_v5_52.declaration_cancel_and_refusal_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.declaration_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.action_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.trade_unique_identifier.size
-
-  return index
-end
+-- Size: Declaration Cancel And Refusal Message
+euronext_optiq_orderentrygateway_sbe_v5_52.declaration_cancel_and_refusal_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.declaration_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.action_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.trade_unique_identifier.size
 
 -- Display: Declaration Cancel And Refusal Message
 euronext_optiq_orderentrygateway_sbe_v5_52.declaration_cancel_and_refusal_message.display = function(packet, parent, length)
@@ -2276,7 +2234,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.not_used_group_2_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.not_used_group_2_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local not_used_group_2_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4520,22 +4478,13 @@ end
 -- Technical Reject Message
 euronext_optiq_orderentrygateway_sbe_v5_52.technical_reject_message = {}
 
--- Calculate size of: Technical Reject Message
-euronext_optiq_orderentrygateway_sbe_v5_52.technical_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.rejected_client_message_sequence_number.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.rejected_message.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.error_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.rejected_message_id.size
-
-  return index
-end
+-- Size: Technical Reject Message
+euronext_optiq_orderentrygateway_sbe_v5_52.technical_reject_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.rejected_client_message_sequence_number.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.rejected_message.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.error_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.rejected_message_id.size
 
 -- Display: Technical Reject Message
 euronext_optiq_orderentrygateway_sbe_v5_52.technical_reject_message.display = function(packet, parent, length)
@@ -4627,14 +4576,9 @@ end
 -- Logout Message
 euronext_optiq_orderentrygateway_sbe_v5_52.logout_message = {}
 
--- Calculate size of: Logout Message
-euronext_optiq_orderentrygateway_sbe_v5_52.logout_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.log_out_reason_code.size
-
-  return index
-end
+-- Size: Logout Message
+euronext_optiq_orderentrygateway_sbe_v5_52.logout_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.log_out_reason_code.size
 
 -- Display: Logout Message
 euronext_optiq_orderentrygateway_sbe_v5_52.logout_message.display = function(packet, parent, length)
@@ -4802,20 +4746,12 @@ end
 -- Logon Reject Message
 euronext_optiq_orderentrygateway_sbe_v5_52.logon_reject_message = {}
 
--- Calculate size of: Logon Reject Message
-euronext_optiq_orderentrygateway_sbe_v5_52.logon_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.exchange_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.logon_reject_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.last_cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.last_msg_seq_num.size
-
-  return index
-end
+-- Size: Logon Reject Message
+euronext_optiq_orderentrygateway_sbe_v5_52.logon_reject_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.exchange_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.logon_reject_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.last_cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.last_msg_seq_num.size
 
 -- Display: Logon Reject Message
 euronext_optiq_orderentrygateway_sbe_v5_52.logon_reject_message.display = function(packet, parent, length)
@@ -4862,16 +4798,10 @@ end
 -- Logon Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_52.logon_ack_message = {}
 
--- Calculate size of: Logon Ack Message
-euronext_optiq_orderentrygateway_sbe_v5_52.logon_ack_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.exchange_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.last_cl_msg_seq_num.size
-
-  return index
-end
+-- Size: Logon Ack Message
+euronext_optiq_orderentrygateway_sbe_v5_52.logon_ack_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.exchange_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.last_cl_msg_seq_num.size
 
 -- Display: Logon Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_52.logon_ack_message.display = function(packet, parent, length)
@@ -5048,22 +4978,13 @@ end
 -- Logon Message
 euronext_optiq_orderentrygateway_sbe_v5_52.logon_message = {}
 
--- Calculate size of: Logon Message
-euronext_optiq_orderentrygateway_sbe_v5_52.logon_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.logical_access_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oe_partition_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.last_msg_seq_num_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.software_provider.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.queueing_indicator.size
-
-  return index
-end
+-- Size: Logon Message
+euronext_optiq_orderentrygateway_sbe_v5_52.logon_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.logical_access_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oe_partition_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.last_msg_seq_num_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.software_provider.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.queueing_indicator.size
 
 -- Display: Logon Message
 euronext_optiq_orderentrygateway_sbe_v5_52.logon_message.display = function(packet, parent, length)
@@ -5113,20 +5034,12 @@ end
 -- Clear Book Message
 euronext_optiq_orderentrygateway_sbe_v5_52.clear_book_message = {}
 
--- Calculate size of: Clear Book Message
-euronext_optiq_orderentrygateway_sbe_v5_52.clear_book_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  return index
-end
+-- Size: Clear Book Message
+euronext_optiq_orderentrygateway_sbe_v5_52.clear_book_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
 
 -- Display: Clear Book Message
 euronext_optiq_orderentrygateway_sbe_v5_52.clear_book_message.display = function(packet, parent, length)
@@ -5600,52 +5513,28 @@ end
 -- Wave For Liquidity Notification Message
 euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_notification_message = {}
 
--- Calculate size of: Wave For Liquidity Notification Message
-euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_member.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_time_to_me.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_in_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.ioi_id_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.exchange_ioi_id_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.ioi_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.original_ioiid.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.ioi_side.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_quantity.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.ioi_quantity.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.ioi_quality_indication.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.error_code_optional.size
-
-  return index
-end
+-- Size: Wave For Liquidity Notification Message
+euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_notification_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_member.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_time_to_me.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_in_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.ioi_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.exchange_ioi_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.ioi_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.original_ioiid.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.ioi_side.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_quantity.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.ioi_quantity.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.ioi_quality_indication.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.error_code_optional.size
 
 -- Display: Wave For Liquidity Notification Message
 euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_notification_message.display = function(packet, parent, length)
@@ -5901,38 +5790,21 @@ end
 -- Wave For Liquidity Message
 euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_message = {}
 
--- Calculate size of: Wave For Liquidity Message
-euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.ioi_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.ioi_transaction_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.original_ioiid.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.target_counterparties.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.ioi_side.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_quantity.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.ioi_quantity.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.ioi_quality_indication.size
-
-  return index
-end
+-- Size: Wave For Liquidity Message
+euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.ioi_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.ioi_transaction_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.original_ioiid.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.target_counterparties.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.ioi_side.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_quantity.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.ioi_quantity.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.ioi_quality_indication.size
 
 -- Display: Wave For Liquidity Message
 euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_message.display = function(packet, parent, length)
@@ -6193,22 +6065,13 @@ end
 -- Rfq Counterparts Group
 euronext_optiq_orderentrygateway_sbe_v5_52.rfq_counterparts_group = {}
 
--- Calculate size of: Rfq Counterparts Group
-euronext_optiq_orderentrygateway_sbe_v5_52.rfq_counterparts_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_origin.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_price.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.last_traded_quantity.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.minimum_order_quantity.size
-
-  return index
-end
+-- Size: Rfq Counterparts Group
+euronext_optiq_orderentrygateway_sbe_v5_52.rfq_counterparts_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_origin.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_price.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.last_traded_quantity.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.minimum_order_quantity.size
 
 -- Display: Rfq Counterparts Group
 euronext_optiq_orderentrygateway_sbe_v5_52.rfq_counterparts_group.display = function(packet, parent, length)
@@ -6268,7 +6131,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.rfq_counterparts_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.rfq_counterparts_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local rfq_counterparts_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -6661,24 +6524,14 @@ end
 -- Strategy Fields Group
 euronext_optiq_orderentrygateway_sbe_v5_52.strategy_fields_group = {}
 
--- Calculate size of: Strategy Fields Group
-euronext_optiq_orderentrygateway_sbe_v5_52.strategy_fields_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_last_px.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_last_qty.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_instrument_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_side_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_id_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.trade_unique_identifier.size
-
-  return index
-end
+-- Size: Strategy Fields Group
+euronext_optiq_orderentrygateway_sbe_v5_52.strategy_fields_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_last_px.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_last_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_instrument_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_side_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.trade_unique_identifier.size
 
 -- Display: Strategy Fields Group
 euronext_optiq_orderentrygateway_sbe_v5_52.strategy_fields_group.display = function(packet, parent, length)
@@ -6741,7 +6594,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.strategy_fields_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.strategy_fields_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local strategy_fields_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -7023,28 +6876,16 @@ end
 -- Clearing Fields X Group
 euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_x_group = {}
 
--- Calculate size of: Clearing Fields X Group
-euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_x_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.long_client_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.trading_capacity_optional.size
-
-  return index
-end
+-- Size: Clearing Fields X Group
+euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_x_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.long_client_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.trading_capacity_optional.size
 
 -- Display: Clearing Fields X Group
 euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_x_group.display = function(packet, parent, length)
@@ -7113,7 +6954,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_x_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_x_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local clearing_fields_x_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -7189,18 +7030,11 @@ end
 -- Mifid Short Codes Group
 euronext_optiq_orderentrygateway_sbe_v5_52.mifid_short_codes_group = {}
 
--- Calculate size of: Mifid Short Codes Group
-euronext_optiq_orderentrygateway_sbe_v5_52.mifid_short_codes_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.investment_decision_w_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.non_executing_broker_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  return index
-end
+-- Size: Mifid Short Codes Group
+euronext_optiq_orderentrygateway_sbe_v5_52.mifid_short_codes_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.investment_decision_w_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.non_executing_broker_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
 
 -- Display: Mifid Short Codes Group
 euronext_optiq_orderentrygateway_sbe_v5_52.mifid_short_codes_group.display = function(packet, parent, length)
@@ -7254,7 +7088,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.mifid_short_codes_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.mifid_short_codes_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local mifid_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -7302,14 +7136,9 @@ end
 -- Free Text Section Group
 euronext_optiq_orderentrygateway_sbe_v5_52.free_text_section_group = {}
 
--- Calculate size of: Free Text Section Group
-euronext_optiq_orderentrygateway_sbe_v5_52.free_text_section_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.free_text.size
-
-  return index
-end
+-- Size: Free Text Section Group
+euronext_optiq_orderentrygateway_sbe_v5_52.free_text_section_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.free_text.size
 
 -- Display: Free Text Section Group
 euronext_optiq_orderentrygateway_sbe_v5_52.free_text_section_group.display = function(packet, parent, length)
@@ -7357,7 +7186,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.free_text_section_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.free_text_section_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local free_text_section_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -7785,32 +7614,18 @@ end
 -- Request For Implied Execution Message
 euronext_optiq_orderentrygateway_sbe_v5_52.request_for_implied_execution_message = {}
 
--- Calculate size of: Request For Implied Execution Message
-euronext_optiq_orderentrygateway_sbe_v5_52.request_for_implied_execution_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.mifid_indicators.size
-
-  return index
-end
+-- Size: Request For Implied Execution Message
+euronext_optiq_orderentrygateway_sbe_v5_52.request_for_implied_execution_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.mifid_indicators.size
 
 -- Display: Request For Implied Execution Message
 euronext_optiq_orderentrygateway_sbe_v5_52.request_for_implied_execution_message.display = function(packet, parent, length)
@@ -7875,24 +7690,14 @@ end
 -- Wholesale Ack Clearing Rep Group
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_clearing_rep_group = {}
 
--- Calculate size of: Wholesale Ack Clearing Rep Group
-euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_clearing_rep_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.side.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.investment_decision_w_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.non_executing_broker_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.non_executing_client_id.size
-
-  return index
-end
+-- Size: Wholesale Ack Clearing Rep Group
+euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_clearing_rep_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.side.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.investment_decision_w_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.non_executing_broker_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.non_executing_client_id.size
 
 -- Display: Wholesale Ack Clearing Rep Group
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_clearing_rep_group.display = function(packet, parent, length)
@@ -7955,7 +7760,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_clearing_rep_groups = {
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_clearing_rep_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local wholesale_ack_clearing_rep_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -8110,22 +7915,13 @@ end
 -- Wholesale Ack Legs Rep Group
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_legs_rep_group = {}
 
--- Calculate size of: Wholesale Ack Legs Rep Group
-euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_legs_rep_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_bid_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_offer_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_side_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_error_code.size
-
-  return index
-end
+-- Size: Wholesale Ack Legs Rep Group
+euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_legs_rep_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_bid_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_offer_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_side_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_error_code.size
 
 -- Display: Wholesale Ack Legs Rep Group
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_legs_rep_group.display = function(packet, parent, length)
@@ -8185,7 +7981,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_legs_rep_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_ack_legs_rep_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local wholesale_ack_legs_rep_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -8868,42 +8664,23 @@ end
 -- Wholesale Client Rep Group
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_client_rep_group = {}
 
--- Calculate size of: Wholesale Client Rep Group
-euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_client_rep_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.side.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.long_client_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.free_text.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.non_executing_client_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.investment_decision_w_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.non_executing_broker_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.trading_capacity_optional.size
-
-  return index
-end
+-- Size: Wholesale Client Rep Group
+euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_client_rep_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.side.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.long_client_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.free_text.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.non_executing_client_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.investment_decision_w_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.non_executing_broker_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.trading_capacity_optional.size
 
 -- Display: Wholesale Client Rep Group
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_client_rep_group.display = function(packet, parent, length)
@@ -8993,7 +8770,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_client_rep_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_client_rep_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local wholesale_client_rep_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -9281,32 +9058,18 @@ end
 -- Wholesale Legs Rep Group
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_legs_rep_group = {}
 
--- Calculate size of: Wholesale Legs Rep Group
-euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_legs_rep_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_price.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.bid_quantity.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.offer_quantity.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_side_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_strike_price.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_ratio_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_put_or_call.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_security_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_last_trading_date.size
-
-  return index
-end
+-- Size: Wholesale Legs Rep Group
+euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_legs_rep_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_price.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.bid_quantity.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.offer_quantity.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_side_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_strike_price.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_ratio_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_put_or_call.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_security_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_last_trading_date.size
 
 -- Display: Wholesale Legs Rep Group
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_legs_rep_group.display = function(packet, parent, length)
@@ -9381,7 +9144,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_legs_rep_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.wholesale_legs_rep_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local wholesale_legs_rep_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -9722,22 +9485,13 @@ end
 -- Mmp Section2 Group
 euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section2_group = {}
 
--- Calculate size of: Mmp Section2 Group
-euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section2_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.protection_type_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.protection_threshold.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.breach_action.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.current_mmp_position.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.breach_status.size
-
-  return index
-end
+-- Size: Mmp Section2 Group
+euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section2_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.protection_type_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.protection_threshold.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.breach_action.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.current_mmp_position.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.breach_status.size
 
 -- Display: Mmp Section2 Group
 euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section2_group.display = function(packet, parent, length)
@@ -9797,7 +9551,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section2_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section2_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local mmp_section2_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10041,18 +9795,11 @@ end
 -- Mmp Section Group
 euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section_group = {}
 
--- Calculate size of: Mmp Section Group
-euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.protection_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.protection_threshold.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.breach_action.size
-
-  return index
-end
+-- Size: Mmp Section Group
+euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.protection_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.protection_threshold.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.breach_action.size
 
 -- Display: Mmp Section Group
 euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section_group.display = function(packet, parent, length)
@@ -10106,7 +9853,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.mmp_section_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local mmp_section_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10290,34 +10037,19 @@ end
 -- Security Definition Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_52.security_definition_ack_message = {}
 
--- Calculate size of: Security Definition Ack Message
-euronext_optiq_orderentrygateway_sbe_v5_52.security_definition_ack_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_member.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_time_to_me.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_in_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.security_req_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  return index
-end
+-- Size: Security Definition Ack Message
+euronext_optiq_orderentrygateway_sbe_v5_52.security_definition_ack_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_member.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_time_to_me.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_in_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.security_req_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
 
 -- Display: Security Definition Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_52.security_definition_ack_message.display = function(packet, parent, length)
@@ -10466,28 +10198,16 @@ end
 -- Strategy Legs Group
 euronext_optiq_orderentrygateway_sbe_v5_52.strategy_legs_group = {}
 
--- Calculate size of: Strategy Legs Group
-euronext_optiq_orderentrygateway_sbe_v5_52.strategy_legs_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_ratio.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_security_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_put_or_call.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_price_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_strike_price.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_last_trading_date.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.leg_side.size
-
-  return index
-end
+-- Size: Strategy Legs Group
+euronext_optiq_orderentrygateway_sbe_v5_52.strategy_legs_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_ratio.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_security_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_put_or_call.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_price_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_strike_price.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_last_trading_date.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.leg_side.size
 
 -- Display: Strategy Legs Group
 euronext_optiq_orderentrygateway_sbe_v5_52.strategy_legs_group.display = function(packet, parent, length)
@@ -10556,7 +10276,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.strategy_legs_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.strategy_legs_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local strategy_legs_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10901,20 +10621,12 @@ end
 -- Synchronization Time Message
 euronext_optiq_orderentrygateway_sbe_v5_52.synchronization_time_message = {}
 
--- Calculate size of: Synchronization Time Message
-euronext_optiq_orderentrygateway_sbe_v5_52.synchronization_time_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.resynchronization_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.last_book_in_time.size
-
-  return index
-end
+-- Size: Synchronization Time Message
+euronext_optiq_orderentrygateway_sbe_v5_52.synchronization_time_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.resynchronization_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.last_book_in_time.size
 
 -- Display: Synchronization Time Message
 euronext_optiq_orderentrygateway_sbe_v5_52.synchronization_time_message.display = function(packet, parent, length)
@@ -10961,16 +10673,10 @@ end
 -- Instrument Synchronization Section Group
 euronext_optiq_orderentrygateway_sbe_v5_52.instrument_synchronization_section_group = {}
 
--- Calculate size of: Instrument Synchronization Section Group
-euronext_optiq_orderentrygateway_sbe_v5_52.instrument_synchronization_section_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  return index
-end
+-- Size: Instrument Synchronization Section Group
+euronext_optiq_orderentrygateway_sbe_v5_52.instrument_synchronization_section_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
 
 -- Display: Instrument Synchronization Section Group
 euronext_optiq_orderentrygateway_sbe_v5_52.instrument_synchronization_section_group.display = function(packet, parent, length)
@@ -11021,7 +10727,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.instrument_synchronization_section_gr
 euronext_optiq_orderentrygateway_sbe_v5_52.instrument_synchronization_section_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local instrument_synchronization_section_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -11124,56 +10830,30 @@ end
 -- Mm Sign In Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_ack_message = {}
 
--- Calculate size of: Mm Sign In Ack Message
-euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_ack_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_member.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_time_to_me.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_in.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.logical_access_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oe_partition_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.free_text.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.long_client_id.size
-
-  return index
-end
+-- Size: Mm Sign In Ack Message
+euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_ack_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_member.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_time_to_me.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_in.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.logical_access_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oe_partition_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.free_text.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.long_client_id.size
 
 -- Display: Mm Sign In Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_ack_message.display = function(packet, parent, length)
@@ -11274,44 +10954,24 @@ end
 -- Mm Sign In Message
 euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_message = {}
 
--- Calculate size of: Mm Sign In Message
-euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.logical_access_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oe_partition_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.free_text.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.long_client_id.size
-
-  return index
-end
+-- Size: Mm Sign In Message
+euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.logical_access_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oe_partition_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.free_text.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.long_client_id.size
 
 -- Display: Mm Sign In Message
 euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_message.display = function(packet, parent, length)
@@ -11931,34 +11591,19 @@ end
 -- Rfqlp Matching Status Message
 euronext_optiq_orderentrygateway_sbe_v5_52.rfqlp_matching_status_message = {}
 
--- Calculate size of: Rfqlp Matching Status Message
-euronext_optiq_orderentrygateway_sbe_v5_52.rfqlp_matching_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_in.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.quote_req_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.potential_matching_qty.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.side.size
-
-  return index
-end
+-- Size: Rfqlp Matching Status Message
+euronext_optiq_orderentrygateway_sbe_v5_52.rfqlp_matching_status_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_in.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.quote_req_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.potential_matching_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.side.size
 
 -- Display: Rfqlp Matching Status Message
 euronext_optiq_orderentrygateway_sbe_v5_52.rfqlp_matching_status_message.display = function(packet, parent, length)
@@ -12112,40 +11757,22 @@ end
 -- Rfq Matching Status Message
 euronext_optiq_orderentrygateway_sbe_v5_52.rfq_matching_status_message = {}
 
--- Calculate size of: Rfq Matching Status Message
-euronext_optiq_orderentrygateway_sbe_v5_52.rfq_matching_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_in.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.quote_req_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.potential_matching_px.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.potential_matching_qty.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.side.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.number_of_lps.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.recipient_type.size
-
-  return index
-end
+-- Size: Rfq Matching Status Message
+euronext_optiq_orderentrygateway_sbe_v5_52.rfq_matching_status_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_in.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.quote_req_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.potential_matching_px.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.potential_matching_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.side.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.number_of_lps.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.recipient_type.size
 
 -- Display: Rfq Matching Status Message
 euronext_optiq_orderentrygateway_sbe_v5_52.rfq_matching_status_message.display = function(packet, parent, length)
@@ -12434,46 +12061,25 @@ end
 -- Rfq Notification Message
 euronext_optiq_orderentrygateway_sbe_v5_52.rfq_notification_message = {}
 
--- Calculate size of: Rfq Notification Message
-euronext_optiq_orderentrygateway_sbe_v5_52.rfq_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_in.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.quote_req_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_qty.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.counterpart_firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.rfq_update_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.side_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.end_client.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.min_order_qty.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_type_optional.size
-
-  return index
-end
+-- Size: Rfq Notification Message
+euronext_optiq_orderentrygateway_sbe_v5_52.rfq_notification_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_in.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.quote_req_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.counterpart_firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.rfq_update_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.side_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.end_client.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.min_order_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_type_optional.size
 
 -- Display: Rfq Notification Message
 euronext_optiq_orderentrygateway_sbe_v5_52.rfq_notification_message.display = function(packet, parent, length)
@@ -12559,20 +12165,12 @@ end
 -- Request For Execution Message
 euronext_optiq_orderentrygateway_sbe_v5_52.request_for_execution_message = {}
 
--- Calculate size of: Request For Execution Message
-euronext_optiq_orderentrygateway_sbe_v5_52.request_for_execution_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  return index
-end
+-- Size: Request For Execution Message
+euronext_optiq_orderentrygateway_sbe_v5_52.request_for_execution_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
 
 -- Display: Request For Execution Message
 euronext_optiq_orderentrygateway_sbe_v5_52.request_for_execution_message.display = function(packet, parent, length)
@@ -12658,22 +12256,13 @@ end
 -- Ask For Quote Message
 euronext_optiq_orderentrygateway_sbe_v5_52.ask_for_quote_message = {}
 
--- Calculate size of: Ask For Quote Message
-euronext_optiq_orderentrygateway_sbe_v5_52.ask_for_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.afq_reason.size
-
-  return index
-end
+-- Size: Ask For Quote Message
+euronext_optiq_orderentrygateway_sbe_v5_52.ask_for_quote_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.afq_reason.size
 
 -- Display: Ask For Quote Message
 euronext_optiq_orderentrygateway_sbe_v5_52.ask_for_quote_message.display = function(packet, parent, length)
@@ -12762,30 +12351,17 @@ end
 -- Liquidity Provider Command Message
 euronext_optiq_orderentrygateway_sbe_v5_52.liquidity_provider_command_message = {}
 
--- Calculate size of: Liquidity Provider Command Message
-euronext_optiq_orderentrygateway_sbe_v5_52.liquidity_provider_command_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.lp_action_code.size
-
-  return index
-end
+-- Size: Liquidity Provider Command Message
+euronext_optiq_orderentrygateway_sbe_v5_52.liquidity_provider_command_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.lp_action_code.size
 
 -- Display: Liquidity Provider Command Message
 euronext_optiq_orderentrygateway_sbe_v5_52.liquidity_provider_command_message.display = function(packet, parent, length)
@@ -12877,32 +12453,18 @@ end
 -- Price Input Message
 euronext_optiq_orderentrygateway_sbe_v5_52.price_input_message = {}
 
--- Calculate size of: Price Input Message
-euronext_optiq_orderentrygateway_sbe_v5_52.price_input_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.input_price_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.price_optional.size
-
-  return index
-end
+-- Size: Price Input Message
+euronext_optiq_orderentrygateway_sbe_v5_52.price_input_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.input_price_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.price_optional.size
 
 -- Display: Price Input Message
 euronext_optiq_orderentrygateway_sbe_v5_52.price_input_message.display = function(packet, parent, length)
@@ -13023,32 +12585,18 @@ end
 -- Collar Breach Confirmation Message
 euronext_optiq_orderentrygateway_sbe_v5_52.collar_breach_confirmation_message = {}
 
--- Calculate size of: Collar Breach Confirmation Message
-euronext_optiq_orderentrygateway_sbe_v5_52.collar_breach_confirmation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_id_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.orig_client_order_id.size
-
-  return index
-end
+-- Size: Collar Breach Confirmation Message
+euronext_optiq_orderentrygateway_sbe_v5_52.collar_breach_confirmation_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.orig_client_order_id.size
 
 -- Display: Collar Breach Confirmation Message
 euronext_optiq_orderentrygateway_sbe_v5_52.collar_breach_confirmation_message.display = function(packet, parent, length)
@@ -13277,44 +12825,24 @@ end
 -- Trade Bust Notification Message
 euronext_optiq_orderentrygateway_sbe_v5_52.trade_bust_notification_message = {}
 
--- Calculate size of: Trade Bust Notification Message
-euronext_optiq_orderentrygateway_sbe_v5_52.trade_bust_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_in.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.last_traded_px.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.last_shares.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.lis_transaction_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.parent_exec_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.parent_symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.trade_unique_identifier.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.parent_trade_unique_identifier.size
-
-  return index
-end
+-- Size: Trade Bust Notification Message
+euronext_optiq_orderentrygateway_sbe_v5_52.trade_bust_notification_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_in.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.book_out_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_in_from_me_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.last_traded_px.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.last_shares.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.lis_transaction_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.parent_exec_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.parent_symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.trade_unique_identifier.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.parent_trade_unique_identifier.size
 
 -- Display: Trade Bust Notification Message
 euronext_optiq_orderentrygateway_sbe_v5_52.trade_bust_notification_message.display = function(packet, parent, length)
@@ -13464,38 +12992,21 @@ end
 -- Ownership Request Message
 euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_message = {}
 
--- Calculate size of: Ownership Request Message
-euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_id_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.orig_client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.lp_role_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oe_partition_id_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_category.size
-
-  return index
-end
+-- Size: Ownership Request Message
+euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.orig_client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.lp_role_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oe_partition_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_category.size
 
 -- Display: Ownership Request Message
 euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_message.display = function(packet, parent, length)
@@ -13592,30 +13103,17 @@ end
 -- Ownership Request Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_ack_message = {}
 
--- Calculate size of: Ownership Request Ack Message
-euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_ack_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_id_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.lp_role_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.oe_partition_id_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.total_affected_orders.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_category.size
-
-  return index
-end
+-- Size: Ownership Request Ack Message
+euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_ack_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.lp_role_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.oe_partition_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.total_affected_orders.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_category.size
 
 -- Display: Ownership Request Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_ack_message.display = function(packet, parent, length)
@@ -13677,34 +13175,19 @@ end
 -- Open Order Request Message
 euronext_optiq_orderentrygateway_sbe_v5_52.open_order_request_message = {}
 
--- Calculate size of: Open Order Request Message
-euronext_optiq_orderentrygateway_sbe_v5_52.open_order_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_id_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.orig_client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_category.size
-
-  return index
-end
+-- Size: Open Order Request Message
+euronext_optiq_orderentrygateway_sbe_v5_52.open_order_request_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.orig_client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_category.size
 
 -- Display: Open Order Request Message
 euronext_optiq_orderentrygateway_sbe_v5_52.open_order_request_message.display = function(packet, parent, length)
@@ -13849,18 +13332,11 @@ end
 -- Mifid Fields Group
 euronext_optiq_orderentrygateway_sbe_v5_52.mifid_fields_group = {}
 
--- Calculate size of: Mifid Fields Group
-euronext_optiq_orderentrygateway_sbe_v5_52.mifid_fields_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_instruction_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.mifid_indicators_optional.size
-
-  return index
-end
+-- Size: Mifid Fields Group
+euronext_optiq_orderentrygateway_sbe_v5_52.mifid_fields_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_instruction_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.mifid_indicators_optional.size
 
 -- Display: Mifid Fields Group
 euronext_optiq_orderentrygateway_sbe_v5_52.mifid_fields_group.display = function(packet, parent, length)
@@ -13914,7 +13390,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.mifid_fields_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.mifid_fields_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local mifid_fields_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -14653,42 +14129,23 @@ end
 -- Quote Request Message
 euronext_optiq_orderentrygateway_sbe_v5_52.quote_request_message = {}
 
--- Calculate size of: Quote Request Message
-euronext_optiq_orderentrygateway_sbe_v5_52.quote_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_qty.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.side_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.firm_id_publication.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.end_client.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.min_order_qty.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_type_optional.size
-
-  return index
-end
+-- Size: Quote Request Message
+euronext_optiq_orderentrygateway_sbe_v5_52.quote_request_message.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.cl_msg_seq_num.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sending_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.execution_within_firm_short_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_identification_shortcode.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.side_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.firm_id_publication.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.end_client.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.min_order_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_type_optional.size
 
 -- Display: Quote Request Message
 euronext_optiq_orderentrygateway_sbe_v5_52.quote_request_message.display = function(packet, parent, length)
@@ -14952,28 +14409,16 @@ end
 -- Quote Acks Group
 euronext_optiq_orderentrygateway_sbe_v5_52.quote_acks_group = {}
 
--- Calculate size of: Quote Acks Group
-euronext_optiq_orderentrygateway_sbe_v5_52.quote_acks_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.bid_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.offer_order_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.buy_revision_flag.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.sell_revision_flag.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.bid_error_code.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.offer_error_code.size
-
-  return index
-end
+-- Size: Quote Acks Group
+euronext_optiq_orderentrygateway_sbe_v5_52.quote_acks_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.bid_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.offer_order_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.buy_revision_flag.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.sell_revision_flag.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.bid_error_code.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.offer_error_code.size
 
 -- Display: Quote Acks Group
 euronext_optiq_orderentrygateway_sbe_v5_52.quote_acks_group.display = function(packet, parent, length)
@@ -15042,7 +14487,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.quote_acks_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.quote_acks_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local quote_acks_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -15345,24 +14790,14 @@ end
 -- Quotes Rep Group
 euronext_optiq_orderentrygateway_sbe_v5_52.quotes_rep_group = {}
 
--- Calculate size of: Quotes Rep Group
-euronext_optiq_orderentrygateway_sbe_v5_52.quotes_rep_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.bid_size.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.bid_px.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.offer_size.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.offer_px.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
-
-  return index
-end
+-- Size: Quotes Rep Group
+euronext_optiq_orderentrygateway_sbe_v5_52.quotes_rep_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.bid_size.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.bid_px.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.offer_size.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.offer_px.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.emm.size
 
 -- Display: Quotes Rep Group
 euronext_optiq_orderentrygateway_sbe_v5_52.quotes_rep_group.display = function(packet, parent, length)
@@ -15425,7 +14860,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.quotes_rep_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.quotes_rep_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local quotes_rep_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -15512,26 +14947,15 @@ end
 -- Clearing Dataset Group
 euronext_optiq_orderentrygateway_sbe_v5_52.clearing_dataset_group = {}
 
--- Calculate size of: Clearing Dataset Group
-euronext_optiq_orderentrygateway_sbe_v5_52.clearing_dataset_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.free_text.size
-
-  return index
-end
+-- Size: Clearing Dataset Group
+euronext_optiq_orderentrygateway_sbe_v5_52.clearing_dataset_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.free_text.size
 
 -- Display: Clearing Dataset Group
 euronext_optiq_orderentrygateway_sbe_v5_52.clearing_dataset_group.display = function(packet, parent, length)
@@ -15597,7 +15021,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.clearing_dataset_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.clearing_dataset_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local clearing_dataset_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -15867,16 +15291,10 @@ end
 -- Collar Fields Group
 euronext_optiq_orderentrygateway_sbe_v5_52.collar_fields_group = {}
 
--- Calculate size of: Collar Fields Group
-euronext_optiq_orderentrygateway_sbe_v5_52.collar_fields_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.collar_rej_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.breached_collar_price.size
-
-  return index
-end
+-- Size: Collar Fields Group
+euronext_optiq_orderentrygateway_sbe_v5_52.collar_fields_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.collar_rej_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.breached_collar_price.size
 
 -- Display: Collar Fields Group
 euronext_optiq_orderentrygateway_sbe_v5_52.collar_fields_group.display = function(packet, parent, length)
@@ -15927,7 +15345,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.collar_fields_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.collar_fields_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local collar_fields_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -16144,14 +15562,9 @@ end
 -- Additional Infos Group
 euronext_optiq_orderentrygateway_sbe_v5_52.additional_infos_group = {}
 
--- Calculate size of: Additional Infos Group
-euronext_optiq_orderentrygateway_sbe_v5_52.additional_infos_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.long_client_id.size
-
-  return index
-end
+-- Size: Additional Infos Group
+euronext_optiq_orderentrygateway_sbe_v5_52.additional_infos_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.long_client_id.size
 
 -- Display: Additional Infos Group
 euronext_optiq_orderentrygateway_sbe_v5_52.additional_infos_group.display = function(packet, parent, length)
@@ -16199,7 +15612,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.additional_infos_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.additional_infos_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local additional_infos_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -16247,28 +15660,16 @@ end
 -- Clearing Fields Group
 euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_group = {}
 
--- Calculate size of: Clearing Fields Group
-euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.client_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.account_type_cross.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.trading_capacity_cross.size
-
-  return index
-end
+-- Size: Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.client_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_number.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.technical_origin.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.open_close.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.clearing_instruction.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.account_type_cross.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.trading_capacity_cross.size
 
 -- Display: Clearing Fields Group
 euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_group.display = function(packet, parent, length)
@@ -16337,7 +15738,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.clearing_fields_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local clearing_fields_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -16729,34 +16130,19 @@ end
 -- Optional Fields Group
 euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_group = {}
 
--- Calculate size of: Optional Fields Group
-euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.stop_px.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.undisclosed_price.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.disclosed_qty.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.min_order_qty.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.quote_req_id_optional.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_expiration_time.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.order_expiration_date.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.peg_offset.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.trading_session.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.undisclosed_iceberg_type.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.stop_triggered_time_in_force.size
-
-  return index
-end
+-- Size: Optional Fields Group
+euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.stop_px.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.undisclosed_price.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.disclosed_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.min_order_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.quote_req_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_expiration_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.order_expiration_date.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.peg_offset.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.trading_session.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.undisclosed_iceberg_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.stop_triggered_time_in_force.size
 
 -- Display: Optional Fields Group
 euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_group.display = function(packet, parent, length)
@@ -16834,7 +16220,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local optional_fields_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -17546,20 +16932,12 @@ end
 -- Optional Fields Derivatives Group
 euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_derivatives_group = {}
 
--- Calculate size of: Optional Fields Derivatives Group
-euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_derivatives_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.evaluated_price.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.message_price_notation.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.final_symbol_index.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.final_execution_id.size
-
-  return index
-end
+-- Size: Optional Fields Derivatives Group
+euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_derivatives_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.evaluated_price.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.message_price_notation.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.final_symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.final_execution_id.size
 
 -- Display: Optional Fields Derivatives Group
 euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_derivatives_group.display = function(packet, parent, length)
@@ -17616,7 +16994,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_derivatives_groups = 
 euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_derivatives_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local optional_fields_derivatives_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -17759,20 +17137,12 @@ end
 -- Optional Fields Fill Group
 euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_fill_group = {}
 
--- Calculate size of: Optional Fields Fill Group
-euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_fill_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.counterpart_firm_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.other_leg_last_px.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.package_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.underlying_instrument_id.size
-
-  return index
-end
+-- Size: Optional Fields Fill Group
+euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_fill_group.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.counterpart_firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.other_leg_last_px.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.package_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.underlying_instrument_id.size
 
 -- Display: Optional Fields Fill Group
 euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_fill_group.display = function(packet, parent, length)
@@ -17829,7 +17199,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_fill_groups = {}
 euronext_optiq_orderentrygateway_sbe_v5_52.optional_fields_fill_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.group_size_encoding.size
 
   -- Calculate field size from count
   local optional_fields_fill_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -18903,7 +18273,7 @@ end
 -- Payload
 euronext_optiq_orderentrygateway_sbe_v5_52.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 euronext_optiq_orderentrygateway_sbe_v5_52.payload.size = function(buffer, offset, template_id)
   -- Size of New Order Message
   if template_id == 1 then
@@ -18939,7 +18309,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.payload.size = function(buffer, offse
   end
   -- Size of Quote Request Message
   if template_id == 10 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.quote_request_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.quote_request_message.size
   end
   -- Size of Cancel Request Message
   if template_id == 12 then
@@ -18955,51 +18325,51 @@ euronext_optiq_orderentrygateway_sbe_v5_52.payload.size = function(buffer, offse
   end
   -- Size of Open Order Request Message
   if template_id == 15 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.open_order_request_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.open_order_request_message.size
   end
   -- Size of Ownership Request Ack Message
   if template_id == 17 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_ack_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_ack_message.size
   end
   -- Size of Ownership Request Message
   if template_id == 18 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.ownership_request_message.size
   end
   -- Size of Trade Bust Notification Message
   if template_id == 19 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.trade_bust_notification_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.trade_bust_notification_message.size
   end
   -- Size of Collar Breach Confirmation Message
   if template_id == 20 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.collar_breach_confirmation_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.collar_breach_confirmation_message.size
   end
   -- Size of Price Input Message
   if template_id == 28 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.price_input_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.price_input_message.size
   end
   -- Size of Liquidity Provider Command Message
   if template_id == 32 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.liquidity_provider_command_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.liquidity_provider_command_message.size
   end
   -- Size of Ask For Quote Message
   if template_id == 33 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.ask_for_quote_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.ask_for_quote_message.size
   end
   -- Size of Request For Execution Message
   if template_id == 34 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.request_for_execution_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.request_for_execution_message.size
   end
   -- Size of Rfq Notification Message
   if template_id == 35 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.rfq_notification_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.rfq_notification_message.size
   end
   -- Size of Rfq Matching Status Message
   if template_id == 36 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.rfq_matching_status_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.rfq_matching_status_message.size
   end
   -- Size of Rfqlp Matching Status Message
   if template_id == 37 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.rfqlp_matching_status_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.rfqlp_matching_status_message.size
   end
   -- Size of User Notification Message
   if template_id == 39 then
@@ -19007,11 +18377,11 @@ euronext_optiq_orderentrygateway_sbe_v5_52.payload.size = function(buffer, offse
   end
   -- Size of Mm Sign In Message
   if template_id == 47 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_message.size
   end
   -- Size of Mm Sign In Ack Message
   if template_id == 48 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_ack_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.mm_sign_in_ack_message.size
   end
   -- Size of Instrument Synchronization List Message
   if template_id == 50 then
@@ -19019,7 +18389,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.payload.size = function(buffer, offse
   end
   -- Size of Synchronization Time Message
   if template_id == 51 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.synchronization_time_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.synchronization_time_message.size
   end
   -- Size of Security Definition Request Message
   if template_id == 60 then
@@ -19027,7 +18397,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.payload.size = function(buffer, offse
   end
   -- Size of Security Definition Ack Message
   if template_id == 61 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.security_definition_ack_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.security_definition_ack_message.size
   end
   -- Size of Mm Protection Request Message
   if template_id == 62 then
@@ -19047,7 +18417,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.payload.size = function(buffer, offse
   end
   -- Size of Request For Implied Execution Message
   if template_id == 66 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.request_for_implied_execution_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.request_for_implied_execution_message.size
   end
   -- Size of Cross Order Message
   if template_id == 67 then
@@ -19059,31 +18429,31 @@ euronext_optiq_orderentrygateway_sbe_v5_52.payload.size = function(buffer, offse
   end
   -- Size of Wave For Liquidity Message
   if template_id == 73 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_message.size
   end
   -- Size of Wave For Liquidity Notification Message
   if template_id == 74 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_notification_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.wave_for_liquidity_notification_message.size
   end
   -- Size of Clear Book Message
   if template_id == 75 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.clear_book_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.clear_book_message.size
   end
   -- Size of Logon Message
   if template_id == 100 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.logon_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.logon_message.size
   end
   -- Size of Logon Ack Message
   if template_id == 101 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.logon_ack_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.logon_ack_message.size
   end
   -- Size of Logon Reject Message
   if template_id == 102 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.logon_reject_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.logon_reject_message.size
   end
   -- Size of Logout Message
   if template_id == 103 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.logout_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.logout_message.size
   end
   -- Size of Heartbeat Message
   if template_id == 106 then
@@ -19095,7 +18465,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.payload.size = function(buffer, offse
   end
   -- Size of Technical Reject Message
   if template_id == 108 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.technical_reject_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.technical_reject_message.size
   end
   -- Size of Declaration Entry Message
   if template_id == 40 then
@@ -19111,15 +18481,15 @@ euronext_optiq_orderentrygateway_sbe_v5_52.payload.size = function(buffer, offse
   end
   -- Size of Declaration Cancel And Refusal Message
   if template_id == 43 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.declaration_cancel_and_refusal_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.declaration_cancel_and_refusal_message.size
   end
   -- Size of Fund Price Input Message
   if template_id == 44 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_message.size
   end
   -- Size of Fund Price Input Ack Message
   if template_id == 45 then
-    return euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_ack_message.size(buffer, offset)
+    return euronext_optiq_orderentrygateway_sbe_v5_52.fund_price_input_ack_message.size
   end
   -- Size of Declaration Entry Reject Message
   if template_id == 46 then
@@ -19639,20 +19009,12 @@ end
 -- Message Header
 euronext_optiq_orderentrygateway_sbe_v5_52.message_header = {}
 
--- Calculate size of: Message Header
-euronext_optiq_orderentrygateway_sbe_v5_52.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.block_length.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.template_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.schema_id.size
-
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.version.size
-
-  return index
-end
+-- Size: Message Header
+euronext_optiq_orderentrygateway_sbe_v5_52.message_header.size =
+  euronext_optiq_orderentrygateway_sbe_v5_52.block_length.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.template_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.schema_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v5_52.version.size
 
 -- Display: Message Header
 euronext_optiq_orderentrygateway_sbe_v5_52.message_header.display = function(packet, parent, length)
@@ -19728,7 +19090,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.message.size = function(buffer, offse
 
   index = index + euronext_optiq_orderentrygateway_sbe_v5_52.frame.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.message_header.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v5_52.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -19874,7 +19236,7 @@ end
 omi_euronext_optiq_orderentrygateway_sbe_v5_52:register_heuristic("tcp", omi_euronext_optiq_orderentrygateway_sbe_v5_52_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -19890,7 +19252,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_52:register_heuristic("tcp", omi_eur
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

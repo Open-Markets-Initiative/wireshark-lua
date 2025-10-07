@@ -25,6 +25,7 @@ omi_iex_equities_tops_iextp_v1_5_6.fields.bid_size = ProtoField.new("Bid Size", 
 omi_iex_equities_tops_iextp_v1_5_6.fields.channel_id = ProtoField.new("Channel Id", "iex.equities.tops.iextp.v1.5.6.channelid", ftypes.UINT32)
 omi_iex_equities_tops_iextp_v1_5_6.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "iex.equities.tops.iextp.v1.5.6.collarreferenceprice", ftypes.DOUBLE)
 omi_iex_equities_tops_iextp_v1_5_6.fields.detail = ProtoField.new("Detail", "iex.equities.tops.iextp.v1.5.6.detail", ftypes.STRING)
+omi_iex_equities_tops_iextp_v1_5_6.fields.etp = ProtoField.new("Etp", "iex.equities.tops.iextp.v1.5.6.etp", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_iex_equities_tops_iextp_v1_5_6.fields.extended_hours = ProtoField.new("Extended Hours", "iex.equities.tops.iextp.v1.5.6.extendedhours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_iex_equities_tops_iextp_v1_5_6.fields.extension_number = ProtoField.new("Extension Number", "iex.equities.tops.iextp.v1.5.6.extensionnumber", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.equities.tops.iextp.v1.5.6.firstmessagesequencenumber", ftypes.UINT64)
@@ -58,6 +59,7 @@ omi_iex_equities_tops_iextp_v1_5_6.fields.reserved = ProtoField.new("Reserved", 
 omi_iex_equities_tops_iextp_v1_5_6.fields.round_lot_size = ProtoField.new("Round Lot Size", "iex.equities.tops.iextp.v1.5.6.roundlotsize", ftypes.UINT32)
 omi_iex_equities_tops_iextp_v1_5_6.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.equities.tops.iextp.v1.5.6.saleconditionflags", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.scheduled_auction_time = ProtoField.new("Scheduled Auction Time", "iex.equities.tops.iextp.v1.5.6.scheduledauctiontime", ftypes.UINT32)
+omi_iex_equities_tops_iextp_v1_5_6.fields.security_directory_flags = ProtoField.new("Security Directory Flags", "iex.equities.tops.iextp.v1.5.6.securitydirectoryflags", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.security_event = ProtoField.new("Security Event", "iex.equities.tops.iextp.v1.5.6.securityevent", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.send_time = ProtoField.new("Send Time", "iex.equities.tops.iextp.v1.5.6.sendtime", ftypes.UINT64)
 omi_iex_equities_tops_iextp_v1_5_6.fields.session_id = ProtoField.new("Session Id", "iex.equities.tops.iextp.v1.5.6.sessionid", ftypes.UINT32)
@@ -67,14 +69,17 @@ omi_iex_equities_tops_iextp_v1_5_6.fields.stream_offset = ProtoField.new("Stream
 omi_iex_equities_tops_iextp_v1_5_6.fields.symbol = ProtoField.new("Symbol", "iex.equities.tops.iextp.v1.5.6.symbol", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.symbol_halt = ProtoField.new("Symbol Halt", "iex.equities.tops.iextp.v1.5.6.symbolhalt", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_iex_equities_tops_iextp_v1_5_6.fields.system_event = ProtoField.new("System Event", "iex.equities.tops.iextp.v1.5.6.systemevent", ftypes.STRING)
+omi_iex_equities_tops_iextp_v1_5_6.fields.test_security = ProtoField.new("Test Security", "iex.equities.tops.iextp.v1.5.6.testsecurity", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_iex_equities_tops_iextp_v1_5_6.fields.timestamp = ProtoField.new("Timestamp", "iex.equities.tops.iextp.v1.5.6.timestamp", ftypes.INT64)
 omi_iex_equities_tops_iextp_v1_5_6.fields.trade_id = ProtoField.new("Trade Id", "iex.equities.tops.iextp.v1.5.6.tradeid", ftypes.UINT64)
 omi_iex_equities_tops_iextp_v1_5_6.fields.trade_through_exempt = ProtoField.new("Trade Through Exempt", "iex.equities.tops.iextp.v1.5.6.tradethroughexempt", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
 omi_iex_equities_tops_iextp_v1_5_6.fields.trading_status = ProtoField.new("Trading Status", "iex.equities.tops.iextp.v1.5.6.tradingstatus", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.unused_4 = ProtoField.new("Unused 4", "iex.equities.tops.iextp.v1.5.6.unused4", ftypes.UINT8, nil, base.DEC, 0x0F)
+omi_iex_equities_tops_iextp_v1_5_6.fields.unused_5 = ProtoField.new("Unused 5", "iex.equities.tops.iextp.v1.5.6.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 omi_iex_equities_tops_iextp_v1_5_6.fields.unused_6 = ProtoField.new("Unused 6", "iex.equities.tops.iextp.v1.5.6.unused6", ftypes.UINT8, nil, base.DEC, 0x3F)
 omi_iex_equities_tops_iextp_v1_5_6.fields.upper_auction_collar = ProtoField.new("Upper Auction Collar", "iex.equities.tops.iextp.v1.5.6.upperauctioncollar", ftypes.DOUBLE)
 omi_iex_equities_tops_iextp_v1_5_6.fields.version = ProtoField.new("Version", "iex.equities.tops.iextp.v1.5.6.version", ftypes.UINT8)
+omi_iex_equities_tops_iextp_v1_5_6.fields.when_issued = ProtoField.new("When Issued", "iex.equities.tops.iextp.v1.5.6.whenissued", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 
 -- Iex Equities Tops IexTp 1.5.6 messages
 omi_iex_equities_tops_iextp_v1_5_6.fields.auction_information_message = ProtoField.new("Auction Information Message", "iex.equities.tops.iextp.v1.5.6.auctioninformationmessage", ftypes.STRING)
@@ -109,6 +114,7 @@ show.packet = true
 show.quote_update_flags = true
 show.quote_update_message = true
 show.sale_condition_flags = true
+show.security_directory_flags = true
 show.security_directory_message = true
 show.security_event_message = true
 show.short_sale_price_test_status_message = true
@@ -129,6 +135,7 @@ omi_iex_equities_tops_iextp_v1_5_6.prefs.show_packet = Pref.bool("Show Packet", 
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_quote_update_flags = Pref.bool("Show Quote Update Flags", show.quote_update_flags, "Parse and add Quote Update Flags to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_quote_update_message = Pref.bool("Show Quote Update Message", show.quote_update_message, "Parse and add Quote Update Message to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_sale_condition_flags = Pref.bool("Show Sale Condition Flags", show.sale_condition_flags, "Parse and add Sale Condition Flags to protocol tree")
+omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_flags = Pref.bool("Show Security Directory Flags", show.security_directory_flags, "Parse and add Security Directory Flags to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_message = Pref.bool("Show Security Directory Message", show.security_directory_message, "Parse and add Security Directory Message to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_event_message = Pref.bool("Show Security Event Message", show.security_event_message, "Parse and add Security Event Message to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_short_sale_price_test_status_message = Pref.bool("Show Short Sale Price Test Status Message", show.short_sale_price_test_status_message, "Parse and add Short Sale Price Test Status Message to protocol tree")
@@ -181,6 +188,10 @@ function omi_iex_equities_tops_iextp_v1_5_6.prefs_changed()
   end
   if show.sale_condition_flags ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_sale_condition_flags then
     show.sale_condition_flags = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_sale_condition_flags
+    changed = true
+  end
+  if show.security_directory_flags ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_flags then
+    show.security_directory_flags = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_flags
     changed = true
   end
   if show.security_directory_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_message then
@@ -637,40 +648,22 @@ end
 -- Auction Information Message
 iex_equities_tops_iextp_v1_5_6.auction_information_message = {}
 
--- Calculate size of: Auction Information Message
-iex_equities_tops_iextp_v1_5_6.auction_information_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.auction_type.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.symbol.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.paired_shares.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.reference_price.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.indicative_clearing_price.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.imbalance_shares.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.imbalance_side.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.extension_number.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.scheduled_auction_time.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.auction_book_clearing_price.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.collar_reference_price.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.lower_auction_collar.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.upper_auction_collar.size
-
-  return index
-end
+-- Size: Auction Information Message
+iex_equities_tops_iextp_v1_5_6.auction_information_message.size =
+  iex_equities_tops_iextp_v1_5_6.auction_type.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size + 
+  iex_equities_tops_iextp_v1_5_6.symbol.size + 
+  iex_equities_tops_iextp_v1_5_6.paired_shares.size + 
+  iex_equities_tops_iextp_v1_5_6.reference_price.size + 
+  iex_equities_tops_iextp_v1_5_6.indicative_clearing_price.size + 
+  iex_equities_tops_iextp_v1_5_6.imbalance_shares.size + 
+  iex_equities_tops_iextp_v1_5_6.imbalance_side.size + 
+  iex_equities_tops_iextp_v1_5_6.extension_number.size + 
+  iex_equities_tops_iextp_v1_5_6.scheduled_auction_time.size + 
+  iex_equities_tops_iextp_v1_5_6.auction_book_clearing_price.size + 
+  iex_equities_tops_iextp_v1_5_6.collar_reference_price.size + 
+  iex_equities_tops_iextp_v1_5_6.lower_auction_collar.size + 
+  iex_equities_tops_iextp_v1_5_6.upper_auction_collar.size
 
 -- Display: Auction Information Message
 iex_equities_tops_iextp_v1_5_6.auction_information_message.display = function(packet, parent, length)
@@ -885,24 +878,14 @@ end
 -- Trade Break Message
 iex_equities_tops_iextp_v1_5_6.trade_break_message = {}
 
--- Calculate size of: Trade Break Message
-iex_equities_tops_iextp_v1_5_6.trade_break_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.sale_condition_flags.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.symbol.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.size.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.price.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.trade_id.size
-
-  return index
-end
+-- Size: Trade Break Message
+iex_equities_tops_iextp_v1_5_6.trade_break_message.size =
+  iex_equities_tops_iextp_v1_5_6.sale_condition_flags.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size + 
+  iex_equities_tops_iextp_v1_5_6.symbol.size + 
+  iex_equities_tops_iextp_v1_5_6.size.size + 
+  iex_equities_tops_iextp_v1_5_6.price.size + 
+  iex_equities_tops_iextp_v1_5_6.trade_id.size
 
 -- Display: Trade Break Message
 iex_equities_tops_iextp_v1_5_6.trade_break_message.display = function(packet, parent, length)
@@ -1014,20 +997,12 @@ end
 -- Official Price Message
 iex_equities_tops_iextp_v1_5_6.official_price_message = {}
 
--- Calculate size of: Official Price Message
-iex_equities_tops_iextp_v1_5_6.official_price_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.price_type.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.symbol.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.official_price.size
-
-  return index
-end
+-- Size: Official Price Message
+iex_equities_tops_iextp_v1_5_6.official_price_message.size =
+  iex_equities_tops_iextp_v1_5_6.price_type.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size + 
+  iex_equities_tops_iextp_v1_5_6.symbol.size + 
+  iex_equities_tops_iextp_v1_5_6.official_price.size
 
 -- Display: Official Price Message
 iex_equities_tops_iextp_v1_5_6.official_price_message.display = function(packet, parent, length)
@@ -1074,24 +1049,14 @@ end
 -- Trade Report Message
 iex_equities_tops_iextp_v1_5_6.trade_report_message = {}
 
--- Calculate size of: Trade Report Message
-iex_equities_tops_iextp_v1_5_6.trade_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.sale_condition_flags.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.symbol.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.size.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.price.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.trade_id.size
-
-  return index
-end
+-- Size: Trade Report Message
+iex_equities_tops_iextp_v1_5_6.trade_report_message.size =
+  iex_equities_tops_iextp_v1_5_6.sale_condition_flags.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size + 
+  iex_equities_tops_iextp_v1_5_6.symbol.size + 
+  iex_equities_tops_iextp_v1_5_6.size.size + 
+  iex_equities_tops_iextp_v1_5_6.price.size + 
+  iex_equities_tops_iextp_v1_5_6.trade_id.size
 
 -- Display: Trade Report Message
 iex_equities_tops_iextp_v1_5_6.trade_report_message.display = function(packet, parent, length)
@@ -1297,26 +1262,15 @@ end
 -- Quote Update Message
 iex_equities_tops_iextp_v1_5_6.quote_update_message = {}
 
--- Calculate size of: Quote Update Message
-iex_equities_tops_iextp_v1_5_6.quote_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.quote_update_flags.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.symbol.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.bid_size.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.bid_price.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.ask_price.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.ask_size.size
-
-  return index
-end
+-- Size: Quote Update Message
+iex_equities_tops_iextp_v1_5_6.quote_update_message.size =
+  iex_equities_tops_iextp_v1_5_6.quote_update_flags.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size + 
+  iex_equities_tops_iextp_v1_5_6.symbol.size + 
+  iex_equities_tops_iextp_v1_5_6.bid_size.size + 
+  iex_equities_tops_iextp_v1_5_6.bid_price.size + 
+  iex_equities_tops_iextp_v1_5_6.ask_price.size + 
+  iex_equities_tops_iextp_v1_5_6.ask_size.size
 
 -- Display: Quote Update Message
 iex_equities_tops_iextp_v1_5_6.quote_update_message.display = function(packet, parent, length)
@@ -1402,18 +1356,11 @@ end
 -- Security Event Message
 iex_equities_tops_iextp_v1_5_6.security_event_message = {}
 
--- Calculate size of: Security Event Message
-iex_equities_tops_iextp_v1_5_6.security_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.security_event.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.symbol.size
-
-  return index
-end
+-- Size: Security Event Message
+iex_equities_tops_iextp_v1_5_6.security_event_message.size =
+  iex_equities_tops_iextp_v1_5_6.security_event.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size + 
+  iex_equities_tops_iextp_v1_5_6.symbol.size
 
 -- Display: Security Event Message
 iex_equities_tops_iextp_v1_5_6.security_event_message.display = function(packet, parent, length)
@@ -1526,20 +1473,12 @@ end
 -- Short Sale Price Test Status Message
 iex_equities_tops_iextp_v1_5_6.short_sale_price_test_status_message = {}
 
--- Calculate size of: Short Sale Price Test Status Message
-iex_equities_tops_iextp_v1_5_6.short_sale_price_test_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.short_sale_price_test_status.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.symbol.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.detail.size
-
-  return index
-end
+-- Size: Short Sale Price Test Status Message
+iex_equities_tops_iextp_v1_5_6.short_sale_price_test_status_message.size =
+  iex_equities_tops_iextp_v1_5_6.short_sale_price_test_status.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size + 
+  iex_equities_tops_iextp_v1_5_6.symbol.size + 
+  iex_equities_tops_iextp_v1_5_6.detail.size
 
 -- Display: Short Sale Price Test Status Message
 iex_equities_tops_iextp_v1_5_6.short_sale_price_test_status_message.display = function(packet, parent, length)
@@ -1616,18 +1555,11 @@ end
 -- Operational Halt Status Message
 iex_equities_tops_iextp_v1_5_6.operational_halt_status_message = {}
 
--- Calculate size of: Operational Halt Status Message
-iex_equities_tops_iextp_v1_5_6.operational_halt_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.operational_halt_status.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.symbol.size
-
-  return index
-end
+-- Size: Operational Halt Status Message
+iex_equities_tops_iextp_v1_5_6.operational_halt_status_message.size =
+  iex_equities_tops_iextp_v1_5_6.operational_halt_status.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size + 
+  iex_equities_tops_iextp_v1_5_6.symbol.size
 
 -- Display: Operational Halt Status Message
 iex_equities_tops_iextp_v1_5_6.operational_halt_status_message.display = function(packet, parent, length)
@@ -1727,20 +1659,12 @@ end
 -- Trading Status Message
 iex_equities_tops_iextp_v1_5_6.trading_status_message = {}
 
--- Calculate size of: Trading Status Message
-iex_equities_tops_iextp_v1_5_6.trading_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.trading_status.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.symbol.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.reason.size
-
-  return index
-end
+-- Size: Trading Status Message
+iex_equities_tops_iextp_v1_5_6.trading_status_message.size =
+  iex_equities_tops_iextp_v1_5_6.trading_status.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size + 
+  iex_equities_tops_iextp_v1_5_6.symbol.size + 
+  iex_equities_tops_iextp_v1_5_6.reason.size
 
 -- Display: Trading Status Message
 iex_equities_tops_iextp_v1_5_6.trading_status_message.display = function(packet, parent, length)
@@ -1869,27 +1793,73 @@ iex_equities_tops_iextp_v1_5_6.round_lot_size.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Security Directory Flags
+iex_equities_tops_iextp_v1_5_6.security_directory_flags = {}
+
+-- Size: Security Directory Flags
+iex_equities_tops_iextp_v1_5_6.security_directory_flags.size = 1
+
+-- Display: Security Directory Flags
+iex_equities_tops_iextp_v1_5_6.security_directory_flags.display = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Test Security flag set?
+  if buffer:bitfield(0) > 0 then
+    display = display.."Test Security|"
+  end
+  -- Is When Issued flag set?
+  if buffer:bitfield(1) > 0 then
+    display = display.."When Issued|"
+  end
+  -- Is Etp flag set?
+  if buffer:bitfield(2) > 0 then
+    display = display.."Etp|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Security Directory Flags
+iex_equities_tops_iextp_v1_5_6.security_directory_flags.bits = function(buffer, offset, packet, parent)
+
+  -- Test Security: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.test_security, buffer(offset, 1))
+
+  -- When Issued: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.when_issued, buffer(offset, 1))
+
+  -- Etp: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.etp, buffer(offset, 1))
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.unused_5, buffer(offset, 1))
+end
+
+-- Dissect: Security Directory Flags
+iex_equities_tops_iextp_v1_5_6.security_directory_flags.dissect = function(buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = iex_equities_tops_iextp_v1_5_6.security_directory_flags.display(range, packet, parent)
+  local element = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.security_directory_flags, range, display)
+
+  if show.security_directory_flags then
+    iex_equities_tops_iextp_v1_5_6.security_directory_flags.bits(buffer, offset, packet, element)
+  end
+
+  return offset + 1, range
+end
+
 -- Security Directory Message
 iex_equities_tops_iextp_v1_5_6.security_directory_message = {}
 
--- Calculate size of: Security Directory Message
-iex_equities_tops_iextp_v1_5_6.security_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.security_directory_flags.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.symbol.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.round_lot_size.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.adjusted_poc_price.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.luld_tier.size
-
-  return index
-end
+-- Size: Security Directory Message
+iex_equities_tops_iextp_v1_5_6.security_directory_message.size =
+  iex_equities_tops_iextp_v1_5_6.security_directory_flags.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size + 
+  iex_equities_tops_iextp_v1_5_6.symbol.size + 
+  iex_equities_tops_iextp_v1_5_6.round_lot_size.size + 
+  iex_equities_tops_iextp_v1_5_6.adjusted_poc_price.size + 
+  iex_equities_tops_iextp_v1_5_6.luld_tier.size
 
 -- Display: Security Directory Message
 iex_equities_tops_iextp_v1_5_6.security_directory_message.display = function(packet, parent, length)
@@ -1900,7 +1870,7 @@ end
 iex_equities_tops_iextp_v1_5_6.security_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Directory Flags
+  -- Security Directory Flags: Struct of 4 fields
   index, security_directory_flags = iex_equities_tops_iextp_v1_5_6.security_directory_flags.dissect(buffer, index, packet, parent)
 
   -- Timestamp: Timestamp
@@ -1981,16 +1951,10 @@ end
 -- System Event Message
 iex_equities_tops_iextp_v1_5_6.system_event_message = {}
 
--- Calculate size of: System Event Message
-iex_equities_tops_iextp_v1_5_6.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.system_event.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.timestamp.size
-
-  return index
-end
+-- Size: System Event Message
+iex_equities_tops_iextp_v1_5_6.system_event_message.size =
+  iex_equities_tops_iextp_v1_5_6.system_event.size + 
+  iex_equities_tops_iextp_v1_5_6.timestamp.size
 
 -- Display: System Event Message
 iex_equities_tops_iextp_v1_5_6.system_event_message.display = function(packet, parent, length)
@@ -2031,51 +1995,51 @@ end
 -- Message Data
 iex_equities_tops_iextp_v1_5_6.message_data = {}
 
--- Calculate runtime size of: Message Data
+-- Size: Message Data
 iex_equities_tops_iextp_v1_5_6.message_data.size = function(buffer, offset, message_type)
   -- Size of System Event Message
   if message_type == "S" then
-    return iex_equities_tops_iextp_v1_5_6.system_event_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.system_event_message.size
   end
   -- Size of Security Directory Message
   if message_type == "D" then
-    return iex_equities_tops_iextp_v1_5_6.security_directory_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.security_directory_message.size
   end
   -- Size of Trading Status Message
   if message_type == "H" then
-    return iex_equities_tops_iextp_v1_5_6.trading_status_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.trading_status_message.size
   end
   -- Size of Operational Halt Status Message
   if message_type == "O" then
-    return iex_equities_tops_iextp_v1_5_6.operational_halt_status_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.operational_halt_status_message.size
   end
   -- Size of Short Sale Price Test Status Message
   if message_type == "P" then
-    return iex_equities_tops_iextp_v1_5_6.short_sale_price_test_status_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.short_sale_price_test_status_message.size
   end
   -- Size of Security Event Message
   if message_type == "E" then
-    return iex_equities_tops_iextp_v1_5_6.security_event_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.security_event_message.size
   end
   -- Size of Quote Update Message
   if message_type == "Q" then
-    return iex_equities_tops_iextp_v1_5_6.quote_update_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.quote_update_message.size
   end
   -- Size of Trade Report Message
   if message_type == "T" then
-    return iex_equities_tops_iextp_v1_5_6.trade_report_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.trade_report_message.size
   end
   -- Size of Official Price Message
   if message_type == "X" then
-    return iex_equities_tops_iextp_v1_5_6.official_price_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.official_price_message.size
   end
   -- Size of Trade Break Message
   if message_type == "B" then
-    return iex_equities_tops_iextp_v1_5_6.trade_break_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.trade_break_message.size
   end
   -- Size of Auction Information Message
   if message_type == "A" then
-    return iex_equities_tops_iextp_v1_5_6.auction_information_message.size(buffer, offset)
+    return iex_equities_tops_iextp_v1_5_6.auction_information_message.size
   end
 
   return 0
@@ -2239,16 +2203,10 @@ end
 -- Message Header
 iex_equities_tops_iextp_v1_5_6.message_header = {}
 
--- Calculate size of: Message Header
-iex_equities_tops_iextp_v1_5_6.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.message_length.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.message_type.size
-
-  return index
-end
+-- Size: Message Header
+iex_equities_tops_iextp_v1_5_6.message_header.size =
+  iex_equities_tops_iextp_v1_5_6.message_length.size + 
+  iex_equities_tops_iextp_v1_5_6.message_type.size
 
 -- Display: Message Header
 iex_equities_tops_iextp_v1_5_6.message_header.display = function(packet, parent, length)
@@ -2574,32 +2532,18 @@ end
 -- Iex Tp Header
 iex_equities_tops_iextp_v1_5_6.iex_tp_header = {}
 
--- Calculate size of: Iex Tp Header
-iex_equities_tops_iextp_v1_5_6.iex_tp_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_equities_tops_iextp_v1_5_6.version.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.reserved.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.message_protocol_id.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.channel_id.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.session_id.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.payload_length.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.message_count.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.stream_offset.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.first_message_sequence_number.size
-
-  index = index + iex_equities_tops_iextp_v1_5_6.send_time.size
-
-  return index
-end
+-- Size: Iex Tp Header
+iex_equities_tops_iextp_v1_5_6.iex_tp_header.size =
+  iex_equities_tops_iextp_v1_5_6.version.size + 
+  iex_equities_tops_iextp_v1_5_6.reserved.size + 
+  iex_equities_tops_iextp_v1_5_6.message_protocol_id.size + 
+  iex_equities_tops_iextp_v1_5_6.channel_id.size + 
+  iex_equities_tops_iextp_v1_5_6.session_id.size + 
+  iex_equities_tops_iextp_v1_5_6.payload_length.size + 
+  iex_equities_tops_iextp_v1_5_6.message_count.size + 
+  iex_equities_tops_iextp_v1_5_6.stream_offset.size + 
+  iex_equities_tops_iextp_v1_5_6.first_message_sequence_number.size + 
+  iex_equities_tops_iextp_v1_5_6.send_time.size
 
 -- Display: Iex Tp Header
 iex_equities_tops_iextp_v1_5_6.iex_tp_header.display = function(packet, parent, length)
@@ -2741,7 +2685,7 @@ end
 omi_iex_equities_tops_iextp_v1_5_6:register_heuristic("udp", omi_iex_equities_tops_iextp_v1_5_6_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -2757,7 +2701,7 @@ omi_iex_equities_tops_iextp_v1_5_6:register_heuristic("udp", omi_iex_equities_to
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

@@ -1068,44 +1068,24 @@ end
 -- Old Style Options Trade And Market Stats Message
 ice_futures_mdf_impact_v1_1_34.old_style_options_trade_and_market_stats_message = {}
 
--- Calculate size of: Old Style Options Trade And Market Stats Message
-ice_futures_mdf_impact_v1_1_34.old_style_options_trade_and_market_stats_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.underlying_market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.trade_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_market_trade_indicator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.transact_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.option_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.strike_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.event_code.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.total_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.block_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.efs_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.efp_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.high.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.low.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.vwap.size
-
-  return index
-end
+-- Size: Old Style Options Trade And Market Stats Message
+ice_futures_mdf_impact_v1_1_34.old_style_options_trade_and_market_stats_message.size =
+  ice_futures_mdf_impact_v1_1_34.underlying_market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.trade_id.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.off_market_trade_indicator.size + 
+  ice_futures_mdf_impact_v1_1_34.transact_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.option_type.size + 
+  ice_futures_mdf_impact_v1_1_34.strike_price.size + 
+  ice_futures_mdf_impact_v1_1_34.event_code.size + 
+  ice_futures_mdf_impact_v1_1_34.total_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.block_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.efs_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.efp_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.high.size + 
+  ice_futures_mdf_impact_v1_1_34.low.size + 
+  ice_futures_mdf_impact_v1_1_34.vwap.size
 
 -- Display: Old Style Options Trade And Market Stats Message
 ice_futures_mdf_impact_v1_1_34.old_style_options_trade_and_market_stats_message.display = function(packet, parent, length)
@@ -1400,28 +1380,16 @@ end
 -- Option Settlement Price Message
 ice_futures_mdf_impact_v1_1_34.option_settlement_price_message = {}
 
--- Calculate size of: Option Settlement Price Message
-ice_futures_mdf_impact_v1_1_34.option_settlement_price_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settlement_price_with_deal_price_precision.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_official.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.valuation_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.volatility.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settlement_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.delta.size
-
-  return index
-end
+-- Size: Option Settlement Price Message
+ice_futures_mdf_impact_v1_1_34.option_settlement_price_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.settlement_price_with_deal_price_precision.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.is_official.size + 
+  ice_futures_mdf_impact_v1_1_34.valuation_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.volatility.size + 
+  ice_futures_mdf_impact_v1_1_34.settlement_price.size + 
+  ice_futures_mdf_impact_v1_1_34.delta.size
 
 -- Display: Option Settlement Price Message
 ice_futures_mdf_impact_v1_1_34.option_settlement_price_message.display = function(packet, parent, length)
@@ -1542,20 +1510,12 @@ end
 -- Option Open Interest Message
 ice_futures_mdf_impact_v1_1_34.option_open_interest_message = {}
 
--- Calculate size of: Option Open Interest Message
-ice_futures_mdf_impact_v1_1_34.option_open_interest_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.open_interest.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.open_interest_date.size
-
-  return index
-end
+-- Size: Option Open Interest Message
+ice_futures_mdf_impact_v1_1_34.option_open_interest_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.open_interest.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.open_interest_date.size
 
 -- Display: Option Open Interest Message
 ice_futures_mdf_impact_v1_1_34.option_open_interest_message.display = function(packet, parent, length)
@@ -2142,26 +2102,15 @@ end
 -- Rfq Message
 ice_futures_mdf_impact_v1_1_34.rfq_message = {}
 
--- Calculate size of: Rfq Message
-ice_futures_mdf_impact_v1_1_34.rfq_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_timestamp.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.rfq_system_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_type_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.underlying_market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.side.size
-
-  return index
-end
+-- Size: Rfq Message
+ice_futures_mdf_impact_v1_1_34.rfq_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.message_timestamp.size + 
+  ice_futures_mdf_impact_v1_1_34.rfq_system_id.size + 
+  ice_futures_mdf_impact_v1_1_34.market_type_id.size + 
+  ice_futures_mdf_impact_v1_1_34.underlying_market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.side.size
 
 -- Display: Rfq Message
 ice_futures_mdf_impact_v1_1_34.rfq_message.display = function(packet, parent, length)
@@ -3359,88 +3308,46 @@ end
 -- New Options Market Definition Message
 ice_futures_mdf_impact_v1_1_34.new_options_market_definition_message = {}
 
--- Calculate size of: New Options Market Definition Message
-ice_futures_mdf_impact_v1_1_34.new_options_market_definition_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.underlying_market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.futures_contract_symbol.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.trading_status.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_price_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.increment_qty.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.lot_size.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_desc.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.option_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.strike_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.deal_price_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.min_qty.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.currency.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.num_decimals_strike_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.min_options_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.max_options_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.increment_premium_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.options_expiration_year.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.options_expiration_month.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.options_expiration_day.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.options_style.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.options_expiration_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hedge_market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settle_price_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.unit_qty_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.tick_value.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.flex_allowed.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settlement_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_block_only.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.gt_allowed.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.cross_order_supported.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.guaranteed_cross_supported.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.unit_of_measure.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.mifid_regulated_market.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.screen_last_trade_year.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.screen_last_trade_month.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.screen_last_trade_day.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_tradable.size
-
-  return index
-end
+-- Size: New Options Market Definition Message
+ice_futures_mdf_impact_v1_1_34.new_options_market_definition_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.underlying_market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.futures_contract_symbol.size + 
+  ice_futures_mdf_impact_v1_1_34.trading_status.size + 
+  ice_futures_mdf_impact_v1_1_34.order_price_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.increment_qty.size + 
+  ice_futures_mdf_impact_v1_1_34.lot_size.size + 
+  ice_futures_mdf_impact_v1_1_34.market_desc.size + 
+  ice_futures_mdf_impact_v1_1_34.option_type.size + 
+  ice_futures_mdf_impact_v1_1_34.strike_price.size + 
+  ice_futures_mdf_impact_v1_1_34.deal_price_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.min_qty.size + 
+  ice_futures_mdf_impact_v1_1_34.currency.size + 
+  ice_futures_mdf_impact_v1_1_34.num_decimals_strike_price.size + 
+  ice_futures_mdf_impact_v1_1_34.min_options_price.size + 
+  ice_futures_mdf_impact_v1_1_34.max_options_price.size + 
+  ice_futures_mdf_impact_v1_1_34.increment_premium_price.size + 
+  ice_futures_mdf_impact_v1_1_34.options_expiration_year.size + 
+  ice_futures_mdf_impact_v1_1_34.options_expiration_month.size + 
+  ice_futures_mdf_impact_v1_1_34.options_expiration_day.size + 
+  ice_futures_mdf_impact_v1_1_34.options_style.size + 
+  ice_futures_mdf_impact_v1_1_34.options_expiration_type.size + 
+  ice_futures_mdf_impact_v1_1_34.hedge_market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.settle_price_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.unit_qty_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.tick_value.size + 
+  ice_futures_mdf_impact_v1_1_34.flex_allowed.size + 
+  ice_futures_mdf_impact_v1_1_34.settlement_type.size + 
+  ice_futures_mdf_impact_v1_1_34.is_block_only.size + 
+  ice_futures_mdf_impact_v1_1_34.gt_allowed.size + 
+  ice_futures_mdf_impact_v1_1_34.cross_order_supported.size + 
+  ice_futures_mdf_impact_v1_1_34.guaranteed_cross_supported.size + 
+  ice_futures_mdf_impact_v1_1_34.unit_of_measure.size + 
+  ice_futures_mdf_impact_v1_1_34.mifid_regulated_market.size + 
+  ice_futures_mdf_impact_v1_1_34.screen_last_trade_year.size + 
+  ice_futures_mdf_impact_v1_1_34.screen_last_trade_month.size + 
+  ice_futures_mdf_impact_v1_1_34.screen_last_trade_day.size + 
+  ice_futures_mdf_impact_v1_1_34.is_tradable.size
 
 -- Display: New Options Market Definition Message
 ice_futures_mdf_impact_v1_1_34.new_options_market_definition_message.display = function(packet, parent, length)
@@ -4347,28 +4254,16 @@ end
 -- Hedge Definition
 ice_futures_mdf_impact_v1_1_34.hedge_definition = {}
 
--- Calculate size of: Hedge Definition
-ice_futures_mdf_impact_v1_1_34.hedge_definition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hedge_body_length.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hedge_market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hedge_security_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hedge_side.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hedge_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hedge_price_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hedge_delta.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hedge_strategy_code.size
-
-  return index
-end
+-- Size: Hedge Definition
+ice_futures_mdf_impact_v1_1_34.hedge_definition.size =
+  ice_futures_mdf_impact_v1_1_34.hedge_body_length.size + 
+  ice_futures_mdf_impact_v1_1_34.hedge_market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.hedge_security_type.size + 
+  ice_futures_mdf_impact_v1_1_34.hedge_side.size + 
+  ice_futures_mdf_impact_v1_1_34.hedge_price.size + 
+  ice_futures_mdf_impact_v1_1_34.hedge_price_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.hedge_delta.size + 
+  ice_futures_mdf_impact_v1_1_34.hedge_strategy_code.size
 
 -- Display: Hedge Definition
 ice_futures_mdf_impact_v1_1_34.hedge_definition.display = function(packet, parent, length)
@@ -4709,32 +4604,18 @@ end
 -- Strategy Leg Definition
 ice_futures_mdf_impact_v1_1_34.strategy_leg_definition = {}
 
--- Calculate size of: Strategy Leg Definition
-ice_futures_mdf_impact_v1_1_34.strategy_leg_definition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_body_length.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_underlying_market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_ratio.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_side.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_strategy_code.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_ratio_qty_numerator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_ratio_qty_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_ratio_price_numerator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_ratio_price_denominator.size
-
-  return index
-end
+-- Size: Strategy Leg Definition
+ice_futures_mdf_impact_v1_1_34.strategy_leg_definition.size =
+  ice_futures_mdf_impact_v1_1_34.leg_body_length.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_underlying_market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_ratio.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_side.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_strategy_code.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_ratio_qty_numerator.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_ratio_qty_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_ratio_price_numerator.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_ratio_price_denominator.size
 
 -- Display: Strategy Leg Definition
 ice_futures_mdf_impact_v1_1_34.strategy_leg_definition.display = function(packet, parent, length)
@@ -5103,20 +4984,12 @@ end
 -- Delete Price Level Message
 ice_futures_mdf_impact_v1_1_34.delete_price_level_message = {}
 
--- Calculate size of: Delete Price Level Message
-ice_futures_mdf_impact_v1_1_34.delete_price_level_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.side.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price_level_position.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.timestamp.size
-
-  return index
-end
+-- Size: Delete Price Level Message
+ice_futures_mdf_impact_v1_1_34.delete_price_level_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.side.size + 
+  ice_futures_mdf_impact_v1_1_34.price_level_position.size + 
+  ice_futures_mdf_impact_v1_1_34.timestamp.size
 
 -- Display: Delete Price Level Message
 ice_futures_mdf_impact_v1_1_34.delete_price_level_message.display = function(packet, parent, length)
@@ -5232,30 +5105,17 @@ end
 -- Change Price Level Message
 ice_futures_mdf_impact_v1_1_34.change_price_level_message = {}
 
--- Calculate size of: Change Price Level Message
-ice_futures_mdf_impact_v1_1_34.change_price_level_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.side.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price_level_position.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_count.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.implied_quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.implied_order_count.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.timestamp.size
-
-  return index
-end
+-- Size: Change Price Level Message
+ice_futures_mdf_impact_v1_1_34.change_price_level_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.side.size + 
+  ice_futures_mdf_impact_v1_1_34.price_level_position.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.order_count.size + 
+  ice_futures_mdf_impact_v1_1_34.implied_quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.implied_order_count.size + 
+  ice_futures_mdf_impact_v1_1_34.timestamp.size
 
 -- Display: Change Price Level Message
 ice_futures_mdf_impact_v1_1_34.change_price_level_message.display = function(packet, parent, length)
@@ -5317,30 +5177,17 @@ end
 -- Add Price Level Message
 ice_futures_mdf_impact_v1_1_34.add_price_level_message = {}
 
--- Calculate size of: Add Price Level Message
-ice_futures_mdf_impact_v1_1_34.add_price_level_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.side.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price_level_position.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_count.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.implied_quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.implied_order_count.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.timestamp.size
-
-  return index
-end
+-- Size: Add Price Level Message
+ice_futures_mdf_impact_v1_1_34.add_price_level_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.side.size + 
+  ice_futures_mdf_impact_v1_1_34.price_level_position.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.order_count.size + 
+  ice_futures_mdf_impact_v1_1_34.implied_quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.implied_order_count.size + 
+  ice_futures_mdf_impact_v1_1_34.timestamp.size
 
 -- Display: Add Price Level Message
 ice_futures_mdf_impact_v1_1_34.add_price_level_message.display = function(packet, parent, length)
@@ -5402,28 +5249,16 @@ end
 -- Market Snapshot Price Level Message
 ice_futures_mdf_impact_v1_1_34.market_snapshot_price_level_message = {}
 
--- Calculate size of: Market Snapshot Price Level Message
-ice_futures_mdf_impact_v1_1_34.market_snapshot_price_level_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.side.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price_level_position.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_count.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.implied_quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.implied_order_count.size
-
-  return index
-end
+-- Size: Market Snapshot Price Level Message
+ice_futures_mdf_impact_v1_1_34.market_snapshot_price_level_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.side.size + 
+  ice_futures_mdf_impact_v1_1_34.price_level_position.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.order_count.size + 
+  ice_futures_mdf_impact_v1_1_34.implied_quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.implied_order_count.size
 
 -- Display: Market Snapshot Price Level Message
 ice_futures_mdf_impact_v1_1_34.market_snapshot_price_level_message.display = function(packet, parent, length)
@@ -5505,14 +5340,9 @@ end
 -- Transaction End Marker For Empty Last Bundle Message
 ice_futures_mdf_impact_v1_1_34.transaction_end_marker_for_empty_last_bundle_message = {}
 
--- Calculate size of: Transaction End Marker For Empty Last Bundle Message
-ice_futures_mdf_impact_v1_1_34.transaction_end_marker_for_empty_last_bundle_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.trade_transaction_id.size
-
-  return index
-end
+-- Size: Transaction End Marker For Empty Last Bundle Message
+ice_futures_mdf_impact_v1_1_34.transaction_end_marker_for_empty_last_bundle_message.size =
+  ice_futures_mdf_impact_v1_1_34.trade_transaction_id.size
 
 -- Display: Transaction End Marker For Empty Last Bundle Message
 ice_futures_mdf_impact_v1_1_34.transaction_end_marker_for_empty_last_bundle_message.display = function(packet, parent, length)
@@ -5658,24 +5488,14 @@ end
 -- Fixing Indicative Price Message Message
 ice_futures_mdf_impact_v1_1_34.fixing_indicative_price_message_message = {}
 
--- Calculate size of: Fixing Indicative Price Message Message
-ice_futures_mdf_impact_v1_1_34.fixing_indicative_price_message_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.iba_currency.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price_in_gram.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.num_decimals_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.num_decimals_price_in_gram.size
-
-  return index
-end
+-- Size: Fixing Indicative Price Message Message
+ice_futures_mdf_impact_v1_1_34.fixing_indicative_price_message_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.iba_currency.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.price_in_gram.size + 
+  ice_futures_mdf_impact_v1_1_34.num_decimals_price.size + 
+  ice_futures_mdf_impact_v1_1_34.num_decimals_price_in_gram.size
 
 -- Display: Fixing Indicative Price Message Message
 ice_futures_mdf_impact_v1_1_34.fixing_indicative_price_message_message.display = function(packet, parent, length)
@@ -6030,36 +5850,20 @@ end
 -- Fixing Lockdown Message
 ice_futures_mdf_impact_v1_1_34.fixing_lockdown_message = {}
 
--- Calculate size of: Fixing Lockdown Message
-ice_futures_mdf_impact_v1_1_34.fixing_lockdown_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.auction_date.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.description.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.round.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.agg_bid_qty.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.agg_offer_qty.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.usd_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_balanced.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_final.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.gbp_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.eur_price.size
-
-  return index
-end
+-- Size: Fixing Lockdown Message
+ice_futures_mdf_impact_v1_1_34.fixing_lockdown_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.auction_date.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.description.size + 
+  ice_futures_mdf_impact_v1_1_34.round.size + 
+  ice_futures_mdf_impact_v1_1_34.agg_bid_qty.size + 
+  ice_futures_mdf_impact_v1_1_34.agg_offer_qty.size + 
+  ice_futures_mdf_impact_v1_1_34.usd_price.size + 
+  ice_futures_mdf_impact_v1_1_34.is_balanced.size + 
+  ice_futures_mdf_impact_v1_1_34.is_final.size + 
+  ice_futures_mdf_impact_v1_1_34.gbp_price.size + 
+  ice_futures_mdf_impact_v1_1_34.eur_price.size
 
 -- Display: Fixing Lockdown Message
 ice_futures_mdf_impact_v1_1_34.fixing_lockdown_message.display = function(packet, parent, length)
@@ -6226,22 +6030,13 @@ end
 -- Fixing Transition Message
 ice_futures_mdf_impact_v1_1_34.fixing_transition_message = {}
 
--- Calculate size of: Fixing Transition Message
-ice_futures_mdf_impact_v1_1_34.fixing_transition_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.status.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.auction_end_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.threshold_imbalance_qty.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  return index
-end
+-- Size: Fixing Transition Message
+ice_futures_mdf_impact_v1_1_34.fixing_transition_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.status.size + 
+  ice_futures_mdf_impact_v1_1_34.auction_end_time.size + 
+  ice_futures_mdf_impact_v1_1_34.threshold_imbalance_qty.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size
 
 -- Display: Fixing Transition Message
 ice_futures_mdf_impact_v1_1_34.fixing_transition_message.display = function(packet, parent, length)
@@ -6377,18 +6172,11 @@ end
 -- Message Bundle Marker
 ice_futures_mdf_impact_v1_1_34.message_bundle_marker = {}
 
--- Calculate size of: Message Bundle Marker
-ice_futures_mdf_impact_v1_1_34.message_bundle_marker.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.start_or_end.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.trade_transaction_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_transaction_end.size
-
-  return index
-end
+-- Size: Message Bundle Marker
+ice_futures_mdf_impact_v1_1_34.message_bundle_marker.size =
+  ice_futures_mdf_impact_v1_1_34.start_or_end.size + 
+  ice_futures_mdf_impact_v1_1_34.trade_transaction_id.size + 
+  ice_futures_mdf_impact_v1_1_34.is_transaction_end.size
 
 -- Display: Message Bundle Marker
 ice_futures_mdf_impact_v1_1_34.message_bundle_marker.display = function(packet, parent, length)
@@ -6478,20 +6266,12 @@ end
 -- Delete Order Message
 ice_futures_mdf_impact_v1_1_34.delete_order_message = {}
 
--- Calculate size of: Delete Order Message
-ice_futures_mdf_impact_v1_1_34.delete_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.sequence_within_millis.size
-
-  return index
-end
+-- Size: Delete Order Message
+ice_futures_mdf_impact_v1_1_34.delete_order_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.order_id.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.sequence_within_millis.size
 
 -- Display: Delete Order Message
 ice_futures_mdf_impact_v1_1_34.delete_order_message.display = function(packet, parent, length)
@@ -6710,36 +6490,20 @@ end
 -- Add Or Modify Order Message
 ice_futures_mdf_impact_v1_1_34.add_or_modify_order_message = {}
 
--- Calculate size of: Add Or Modify Order Message
-ice_futures_mdf_impact_v1_1_34.add_or_modify_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_sequence_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.side.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_implied.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_rfq.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_entry_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.extra_flags.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.sequence_within_millis.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.modification_timestamp.size
-
-  return index
-end
+-- Size: Add Or Modify Order Message
+ice_futures_mdf_impact_v1_1_34.add_or_modify_order_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.order_id.size + 
+  ice_futures_mdf_impact_v1_1_34.order_sequence_id.size + 
+  ice_futures_mdf_impact_v1_1_34.side.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.is_implied.size + 
+  ice_futures_mdf_impact_v1_1_34.is_rfq.size + 
+  ice_futures_mdf_impact_v1_1_34.order_entry_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.extra_flags.size + 
+  ice_futures_mdf_impact_v1_1_34.sequence_within_millis.size + 
+  ice_futures_mdf_impact_v1_1_34.modification_timestamp.size
 
 -- Display: Add Or Modify Order Message
 ice_futures_mdf_impact_v1_1_34.add_or_modify_order_message.display = function(packet, parent, length)
@@ -6810,32 +6574,18 @@ end
 -- Market Snapshot Order Message
 ice_futures_mdf_impact_v1_1_34.market_snapshot_order_message = {}
 
--- Calculate size of: Market Snapshot Order Message
-ice_futures_mdf_impact_v1_1_34.market_snapshot_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_sequence_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.side.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_implied.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_rfq.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_entry_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.sequence_within_millis.size
-
-  return index
-end
+-- Size: Market Snapshot Order Message
+ice_futures_mdf_impact_v1_1_34.market_snapshot_order_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.order_id.size + 
+  ice_futures_mdf_impact_v1_1_34.order_sequence_id.size + 
+  ice_futures_mdf_impact_v1_1_34.side.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.is_implied.size + 
+  ice_futures_mdf_impact_v1_1_34.is_rfq.size + 
+  ice_futures_mdf_impact_v1_1_34.order_entry_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.sequence_within_millis.size
 
 -- Display: Market Snapshot Order Message
 ice_futures_mdf_impact_v1_1_34.market_snapshot_order_message.display = function(packet, parent, length)
@@ -7051,7 +6801,7 @@ end
 -- Variable Field
 ice_futures_mdf_impact_v1_1_34.variable_field = {}
 
--- Calculate runtime size of: Variable Field
+-- Size: Variable Field
 ice_futures_mdf_impact_v1_1_34.variable_field.size = function(buffer, offset, special_field_id)
   -- Size of Alt Price
   if special_field_id == 1 then
@@ -7916,96 +7666,50 @@ end
 -- New Expiry Message
 ice_futures_mdf_impact_v1_1_34.new_expiry_message = {}
 
--- Calculate size of: New Expiry Message
-ice_futures_mdf_impact_v1_1_34.new_expiry_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_type_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.order_price_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.increment_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.increment_qty.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.lot_size.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_desc.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.maturity_year.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.maturity_month.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.maturity_day.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.deal_price_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.min_qty.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.unit_quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.currency.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.cleared_alias.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.min_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.max_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.product_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.product_name.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hub_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hub_alias.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.strip_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.strip_name.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settle_price_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.mic_code.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.unit_qty_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_exchange_increment_qty_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_exchange_increment_qty.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_exchange_increment_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_exchange_increment_option_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.contract_symbol.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.isin.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.num_decimals_options_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.hedge_market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settlement_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.gt_allowed.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.cross_order_supported.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.unit_of_measure.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.mifid_regulated_market.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.screen_last_trade_year.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.screen_last_trade_month.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.screen_last_trade_day.size
-
-  return index
-end
+-- Size: New Expiry Message
+ice_futures_mdf_impact_v1_1_34.new_expiry_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.market_type_id.size + 
+  ice_futures_mdf_impact_v1_1_34.order_price_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.increment_price.size + 
+  ice_futures_mdf_impact_v1_1_34.increment_qty.size + 
+  ice_futures_mdf_impact_v1_1_34.lot_size.size + 
+  ice_futures_mdf_impact_v1_1_34.market_desc.size + 
+  ice_futures_mdf_impact_v1_1_34.maturity_year.size + 
+  ice_futures_mdf_impact_v1_1_34.maturity_month.size + 
+  ice_futures_mdf_impact_v1_1_34.maturity_day.size + 
+  ice_futures_mdf_impact_v1_1_34.deal_price_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.min_qty.size + 
+  ice_futures_mdf_impact_v1_1_34.unit_quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.currency.size + 
+  ice_futures_mdf_impact_v1_1_34.cleared_alias.size + 
+  ice_futures_mdf_impact_v1_1_34.min_price.size + 
+  ice_futures_mdf_impact_v1_1_34.max_price.size + 
+  ice_futures_mdf_impact_v1_1_34.product_id.size + 
+  ice_futures_mdf_impact_v1_1_34.product_name.size + 
+  ice_futures_mdf_impact_v1_1_34.hub_id.size + 
+  ice_futures_mdf_impact_v1_1_34.hub_alias.size + 
+  ice_futures_mdf_impact_v1_1_34.strip_id.size + 
+  ice_futures_mdf_impact_v1_1_34.strip_name.size + 
+  ice_futures_mdf_impact_v1_1_34.settle_price_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.mic_code.size + 
+  ice_futures_mdf_impact_v1_1_34.unit_qty_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.off_exchange_increment_qty_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.off_exchange_increment_qty.size + 
+  ice_futures_mdf_impact_v1_1_34.off_exchange_increment_price.size + 
+  ice_futures_mdf_impact_v1_1_34.off_exchange_increment_option_price.size + 
+  ice_futures_mdf_impact_v1_1_34.contract_symbol.size + 
+  ice_futures_mdf_impact_v1_1_34.isin.size + 
+  ice_futures_mdf_impact_v1_1_34.num_decimals_options_price.size + 
+  ice_futures_mdf_impact_v1_1_34.hedge_market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.settlement_type.size + 
+  ice_futures_mdf_impact_v1_1_34.gt_allowed.size + 
+  ice_futures_mdf_impact_v1_1_34.cross_order_supported.size + 
+  ice_futures_mdf_impact_v1_1_34.unit_of_measure.size + 
+  ice_futures_mdf_impact_v1_1_34.mifid_regulated_market.size + 
+  ice_futures_mdf_impact_v1_1_34.screen_last_trade_year.size + 
+  ice_futures_mdf_impact_v1_1_34.screen_last_trade_month.size + 
+  ice_futures_mdf_impact_v1_1_34.screen_last_trade_day.size
 
 -- Display: New Expiry Message
 ice_futures_mdf_impact_v1_1_34.new_expiry_message.display = function(packet, parent, length)
@@ -8403,30 +8107,17 @@ end
 -- Leg Definition
 ice_futures_mdf_impact_v1_1_34.leg_definition = {}
 
--- Calculate size of: Leg Definition
-ice_futures_mdf_impact_v1_1_34.leg_definition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_body_length.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_ratio.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_side.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_strategy_code.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_ratio_qty_numerator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_ratio_qty_denominator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_ratio_price_numerator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.leg_ratio_price_denominator.size
-
-  return index
-end
+-- Size: Leg Definition
+ice_futures_mdf_impact_v1_1_34.leg_definition.size =
+  ice_futures_mdf_impact_v1_1_34.leg_body_length.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_ratio.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_side.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_strategy_code.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_ratio_qty_numerator.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_ratio_qty_denominator.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_ratio_price_numerator.size + 
+  ice_futures_mdf_impact_v1_1_34.leg_ratio_price_denominator.size
 
 -- Display: Leg Definition
 ice_futures_mdf_impact_v1_1_34.leg_definition.display = function(packet, parent, length)
@@ -8974,26 +8665,15 @@ end
 -- Interval Price Limit Notification Message
 ice_futures_mdf_impact_v1_1_34.interval_price_limit_notification_message = {}
 
--- Calculate size of: Interval Price Limit Notification Message
-ice_futures_mdf_impact_v1_1_34.interval_price_limit_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.ipl_hold_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.notification_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_up.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.ipl_hold_duration.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.ipl_up.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.ipl_down.size
-
-  return index
-end
+-- Size: Interval Price Limit Notification Message
+ice_futures_mdf_impact_v1_1_34.interval_price_limit_notification_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.ipl_hold_type.size + 
+  ice_futures_mdf_impact_v1_1_34.notification_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.is_up.size + 
+  ice_futures_mdf_impact_v1_1_34.ipl_hold_duration.size + 
+  ice_futures_mdf_impact_v1_1_34.ipl_up.size + 
+  ice_futures_mdf_impact_v1_1_34.ipl_down.size
 
 -- Display: Interval Price Limit Notification Message
 ice_futures_mdf_impact_v1_1_34.interval_price_limit_notification_message.display = function(packet, parent, length)
@@ -9288,32 +8968,18 @@ end
 -- Strip Info Message
 ice_futures_mdf_impact_v1_1_34.strip_info_message = {}
 
--- Calculate size of: Strip Info Message
-ice_futures_mdf_impact_v1_1_34.strip_info_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.old_strip_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.strip_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.begin_year.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.begin_month.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.begin_day.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.end_year.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.end_month.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.end_day.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.strip_info.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.strip_id.size
-
-  return index
-end
+-- Size: Strip Info Message
+ice_futures_mdf_impact_v1_1_34.strip_info_message.size =
+  ice_futures_mdf_impact_v1_1_34.old_strip_id.size + 
+  ice_futures_mdf_impact_v1_1_34.strip_type.size + 
+  ice_futures_mdf_impact_v1_1_34.begin_year.size + 
+  ice_futures_mdf_impact_v1_1_34.begin_month.size + 
+  ice_futures_mdf_impact_v1_1_34.begin_day.size + 
+  ice_futures_mdf_impact_v1_1_34.end_year.size + 
+  ice_futures_mdf_impact_v1_1_34.end_month.size + 
+  ice_futures_mdf_impact_v1_1_34.end_day.size + 
+  ice_futures_mdf_impact_v1_1_34.strip_info.size + 
+  ice_futures_mdf_impact_v1_1_34.strip_id.size
 
 -- Display: Strip Info Message
 ice_futures_mdf_impact_v1_1_34.strip_info_message.display = function(packet, parent, length)
@@ -9460,22 +9126,13 @@ end
 -- Pre Open Price Indicator Message
 ice_futures_mdf_impact_v1_1_34.pre_open_price_indicator_message = {}
 
--- Calculate size of: Pre Open Price Indicator Message
-ice_futures_mdf_impact_v1_1_34.pre_open_price_indicator_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.pre_open_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.has_pre_open_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.pre_open_volume.size
-
-  return index
-end
+-- Size: Pre Open Price Indicator Message
+ice_futures_mdf_impact_v1_1_34.pre_open_price_indicator_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.pre_open_price.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.has_pre_open_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.pre_open_volume.size
 
 -- Display: Pre Open Price Indicator Message
 ice_futures_mdf_impact_v1_1_34.pre_open_price_indicator_message.display = function(packet, parent, length)
@@ -9561,18 +9218,11 @@ end
 -- Market Event Message
 ice_futures_mdf_impact_v1_1_34.market_event_message = {}
 
--- Calculate size of: Market Event Message
-ice_futures_mdf_impact_v1_1_34.market_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.event_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  return index
-end
+-- Size: Market Event Message
+ice_futures_mdf_impact_v1_1_34.market_event_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.event_type.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size
 
 -- Display: Market Event Message
 ice_futures_mdf_impact_v1_1_34.market_event_message.display = function(packet, parent, length)
@@ -9662,38 +9312,21 @@ end
 -- End Of Day Market Summary Message
 ice_futures_mdf_impact_v1_1_34.end_of_day_market_summary_message = {}
 
--- Calculate size of: End Of Day Market Summary Message
-ice_futures_mdf_impact_v1_1_34.end_of_day_market_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.block_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.efs_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.efp_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.opening_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.high.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.low.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.vwap.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settlement_price_with_deal_price_precision.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.open_interest.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settlement_price.size
-
-  return index
-end
+-- Size: End Of Day Market Summary Message
+ice_futures_mdf_impact_v1_1_34.end_of_day_market_summary_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.volume.size + 
+  ice_futures_mdf_impact_v1_1_34.block_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.efs_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.efp_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.opening_price.size + 
+  ice_futures_mdf_impact_v1_1_34.high.size + 
+  ice_futures_mdf_impact_v1_1_34.low.size + 
+  ice_futures_mdf_impact_v1_1_34.vwap.size + 
+  ice_futures_mdf_impact_v1_1_34.settlement_price_with_deal_price_precision.size + 
+  ice_futures_mdf_impact_v1_1_34.open_interest.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.settlement_price.size
 
 -- Display: End Of Day Market Summary Message
 ice_futures_mdf_impact_v1_1_34.end_of_day_market_summary_message.display = function(packet, parent, length)
@@ -9872,26 +9505,15 @@ end
 -- Index Prices Message
 ice_futures_mdf_impact_v1_1_34.index_prices_message = {}
 
--- Calculate size of: Index Prices Message
-ice_futures_mdf_impact_v1_1_34.index_prices_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.short_name.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.published_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.valuation_date_applying_date.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.status.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  return index
-end
+-- Size: Index Prices Message
+ice_futures_mdf_impact_v1_1_34.index_prices_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.short_name.size + 
+  ice_futures_mdf_impact_v1_1_34.published_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.valuation_date_applying_date.size + 
+  ice_futures_mdf_impact_v1_1_34.status.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size
 
 -- Display: Index Prices Message
 ice_futures_mdf_impact_v1_1_34.index_prices_message.display = function(packet, parent, length)
@@ -9947,24 +9569,14 @@ end
 -- Settlement Price Message
 ice_futures_mdf_impact_v1_1_34.settlement_price_message = {}
 
--- Calculate size of: Settlement Price Message
-ice_futures_mdf_impact_v1_1_34.settlement_price_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settlement_price_with_deal_price_precision.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_official.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.valuation_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settlement_price.size
-
-  return index
-end
+-- Size: Settlement Price Message
+ice_futures_mdf_impact_v1_1_34.settlement_price_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.settlement_price_with_deal_price_precision.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.is_official.size + 
+  ice_futures_mdf_impact_v1_1_34.valuation_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.settlement_price.size
 
 -- Display: Settlement Price Message
 ice_futures_mdf_impact_v1_1_34.settlement_price_message.display = function(packet, parent, length)
@@ -10040,18 +9652,11 @@ end
 -- Close Price Message
 ice_futures_mdf_impact_v1_1_34.close_price_message = {}
 
--- Calculate size of: Close Price Message
-ice_futures_mdf_impact_v1_1_34.close_price_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.close_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  return index
-end
+-- Size: Close Price Message
+ice_futures_mdf_impact_v1_1_34.close_price_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.close_price.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size
 
 -- Display: Close Price Message
 ice_futures_mdf_impact_v1_1_34.close_price_message.display = function(packet, parent, length)
@@ -10118,18 +9723,11 @@ end
 -- Open Price Message
 ice_futures_mdf_impact_v1_1_34.open_price_message = {}
 
--- Calculate size of: Open Price Message
-ice_futures_mdf_impact_v1_1_34.open_price_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.open_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  return index
-end
+-- Size: Open Price Message
+ice_futures_mdf_impact_v1_1_34.open_price_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.open_price.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size
 
 -- Display: Open Price Message
 ice_futures_mdf_impact_v1_1_34.open_price_message.display = function(packet, parent, length)
@@ -10196,22 +9794,13 @@ end
 -- Open Interest Message
 ice_futures_mdf_impact_v1_1_34.open_interest_message = {}
 
--- Calculate size of: Open Interest Message
-ice_futures_mdf_impact_v1_1_34.open_interest_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.open_interest.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.open_interest_change.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.open_interest_date.size
-
-  return index
-end
+-- Size: Open Interest Message
+ice_futures_mdf_impact_v1_1_34.open_interest_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.open_interest.size + 
+  ice_futures_mdf_impact_v1_1_34.open_interest_change.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.open_interest_date.size
 
 -- Display: Open Interest Message
 ice_futures_mdf_impact_v1_1_34.open_interest_message.display = function(packet, parent, length)
@@ -10339,18 +9928,11 @@ end
 -- System Text Message
 ice_futures_mdf_impact_v1_1_34.system_text_message = {}
 
--- Calculate size of: System Text Message
-ice_futures_mdf_impact_v1_1_34.system_text_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.text_message.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.text_message_extra_fld.size
-
-  return index
-end
+-- Size: System Text Message
+ice_futures_mdf_impact_v1_1_34.system_text_message.size =
+  ice_futures_mdf_impact_v1_1_34.text_message.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.text_message_extra_fld.size
 
 -- Display: System Text Message
 ice_futures_mdf_impact_v1_1_34.system_text_message.display = function(packet, parent, length)
@@ -10394,18 +9976,11 @@ end
 -- Market State Change Message
 ice_futures_mdf_impact_v1_1_34.market_state_change_message = {}
 
--- Calculate size of: Market State Change Message
-ice_futures_mdf_impact_v1_1_34.market_state_change_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.trading_status.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  return index
-end
+-- Size: Market State Change Message
+ice_futures_mdf_impact_v1_1_34.market_state_change_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.trading_status.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size
 
 -- Display: Market State Change Message
 ice_futures_mdf_impact_v1_1_34.market_state_change_message.display = function(packet, parent, length)
@@ -10449,30 +10024,17 @@ end
 -- Market Statistics Message
 ice_futures_mdf_impact_v1_1_34.market_statistics_message = {}
 
--- Calculate size of: Market Statistics Message
-ice_futures_mdf_impact_v1_1_34.market_statistics_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.block_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.efs_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.efp_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.high.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.low.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.vwap.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  return index
-end
+-- Size: Market Statistics Message
+ice_futures_mdf_impact_v1_1_34.market_statistics_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.volume.size + 
+  ice_futures_mdf_impact_v1_1_34.block_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.efs_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.efp_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.high.size + 
+  ice_futures_mdf_impact_v1_1_34.low.size + 
+  ice_futures_mdf_impact_v1_1_34.vwap.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size
 
 -- Display: Market Statistics Message
 ice_futures_mdf_impact_v1_1_34.market_statistics_message.display = function(packet, parent, length)
@@ -10599,26 +10161,15 @@ end
 -- Cancelled Trade Message
 ice_futures_mdf_impact_v1_1_34.cancelled_trade_message = {}
 
--- Calculate size of: Cancelled Trade Message
-ice_futures_mdf_impact_v1_1_34.cancelled_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.trade_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_market_trade_indicator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_market_trade_type.size
-
-  return index
-end
+-- Size: Cancelled Trade Message
+ice_futures_mdf_impact_v1_1_34.cancelled_trade_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.trade_id.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.off_market_trade_indicator.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.off_market_trade_type.size
 
 -- Display: Cancelled Trade Message
 ice_futures_mdf_impact_v1_1_34.cancelled_trade_message.display = function(packet, parent, length)
@@ -10717,28 +10268,16 @@ end
 -- Investigated Trade Message
 ice_futures_mdf_impact_v1_1_34.investigated_trade_message = {}
 
--- Calculate size of: Investigated Trade Message
-ice_futures_mdf_impact_v1_1_34.investigated_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.trade_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_market_trade_indicator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.investigation_status.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_market_trade_type.size
-
-  return index
-end
+-- Size: Investigated Trade Message
+ice_futures_mdf_impact_v1_1_34.investigated_trade_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.trade_id.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.off_market_trade_indicator.size + 
+  ice_futures_mdf_impact_v1_1_34.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.investigation_status.size + 
+  ice_futures_mdf_impact_v1_1_34.off_market_trade_type.size
 
 -- Display: Investigated Trade Message
 ice_futures_mdf_impact_v1_1_34.investigated_trade_message.display = function(packet, parent, length)
@@ -10894,30 +10433,17 @@ end
 -- Spot Market Trade Message
 ice_futures_mdf_impact_v1_1_34.spot_market_trade_message = {}
 
--- Calculate size of: Spot Market Trade Message
-ice_futures_mdf_impact_v1_1_34.spot_market_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.trade_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.transact_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.extra_flags.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.delivery_begin_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.delivery_end_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_system_priced_leg.size
-
-  return index
-end
+-- Size: Spot Market Trade Message
+ice_futures_mdf_impact_v1_1_34.spot_market_trade_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.trade_id.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.transact_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.extra_flags.size + 
+  ice_futures_mdf_impact_v1_1_34.delivery_begin_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.delivery_end_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.is_system_priced_leg.size
 
 -- Display: Spot Market Trade Message
 ice_futures_mdf_impact_v1_1_34.spot_market_trade_message.display = function(packet, parent, length)
@@ -11140,40 +10666,22 @@ end
 -- Trade Message
 ice_futures_mdf_impact_v1_1_34.trade_message = {}
 
--- Calculate size of: Trade Message
-ice_futures_mdf_impact_v1_1_34.trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.trade_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_system_priced_leg.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_market_trade_indicator.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.transact_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.system_priced_leg_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_implied_spread_at_market_open.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_adjusted_trade.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.aggressor_side.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.extra_flags.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.off_market_trade_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.sequence_within_millis.size
-
-  return index
-end
+-- Size: Trade Message
+ice_futures_mdf_impact_v1_1_34.trade_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.trade_id.size + 
+  ice_futures_mdf_impact_v1_1_34.is_system_priced_leg.size + 
+  ice_futures_mdf_impact_v1_1_34.price.size + 
+  ice_futures_mdf_impact_v1_1_34.quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.off_market_trade_indicator.size + 
+  ice_futures_mdf_impact_v1_1_34.transact_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.system_priced_leg_type.size + 
+  ice_futures_mdf_impact_v1_1_34.is_implied_spread_at_market_open.size + 
+  ice_futures_mdf_impact_v1_1_34.is_adjusted_trade.size + 
+  ice_futures_mdf_impact_v1_1_34.aggressor_side.size + 
+  ice_futures_mdf_impact_v1_1_34.extra_flags.size + 
+  ice_futures_mdf_impact_v1_1_34.off_market_trade_type.size + 
+  ice_futures_mdf_impact_v1_1_34.sequence_within_millis.size
 
 -- Display: Trade Message
 ice_futures_mdf_impact_v1_1_34.trade_message.display = function(packet, parent, length)
@@ -11551,62 +11059,33 @@ end
 -- Market Snapshot Message
 ice_futures_mdf_impact_v1_1_34.market_snapshot_message = {}
 
--- Calculate size of: Market Snapshot Message
-ice_futures_mdf_impact_v1_1_34.market_snapshot_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.market_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.trading_status.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.block_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.efs_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.efp_volume.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.open_interest.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.opening_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settlement_price_with_deal_price_precision.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.high.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.low.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.vwap.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.num_of_book_entries.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.last_trade_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.last_trade_quantity.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.last_trade_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settle_price_date_time.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.last_message_sequence_id.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.reserved_2.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.open_interest_date.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.is_settle_price_official.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.settlement_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.has_previous_day_settlement_price.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.previous_day_settlement_price.size
-
-  return index
-end
+-- Size: Market Snapshot Message
+ice_futures_mdf_impact_v1_1_34.market_snapshot_message.size =
+  ice_futures_mdf_impact_v1_1_34.market_id.size + 
+  ice_futures_mdf_impact_v1_1_34.market_type.size + 
+  ice_futures_mdf_impact_v1_1_34.trading_status.size + 
+  ice_futures_mdf_impact_v1_1_34.volume.size + 
+  ice_futures_mdf_impact_v1_1_34.block_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.efs_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.efp_volume.size + 
+  ice_futures_mdf_impact_v1_1_34.open_interest.size + 
+  ice_futures_mdf_impact_v1_1_34.opening_price.size + 
+  ice_futures_mdf_impact_v1_1_34.settlement_price_with_deal_price_precision.size + 
+  ice_futures_mdf_impact_v1_1_34.high.size + 
+  ice_futures_mdf_impact_v1_1_34.low.size + 
+  ice_futures_mdf_impact_v1_1_34.vwap.size + 
+  ice_futures_mdf_impact_v1_1_34.num_of_book_entries.size + 
+  ice_futures_mdf_impact_v1_1_34.last_trade_price.size + 
+  ice_futures_mdf_impact_v1_1_34.last_trade_quantity.size + 
+  ice_futures_mdf_impact_v1_1_34.last_trade_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.settle_price_date_time.size + 
+  ice_futures_mdf_impact_v1_1_34.last_message_sequence_id.size + 
+  ice_futures_mdf_impact_v1_1_34.reserved_2.size + 
+  ice_futures_mdf_impact_v1_1_34.open_interest_date.size + 
+  ice_futures_mdf_impact_v1_1_34.is_settle_price_official.size + 
+  ice_futures_mdf_impact_v1_1_34.settlement_price.size + 
+  ice_futures_mdf_impact_v1_1_34.has_previous_day_settlement_price.size + 
+  ice_futures_mdf_impact_v1_1_34.previous_day_settlement_price.size
 
 -- Display: Market Snapshot Message
 ice_futures_mdf_impact_v1_1_34.market_snapshot_message.display = function(packet, parent, length)
@@ -11716,79 +11195,79 @@ end
 -- Payload
 ice_futures_mdf_impact_v1_1_34.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 ice_futures_mdf_impact_v1_1_34.payload.size = function(buffer, offset, message_type)
   -- Size of Market Snapshot Message
   if message_type == "C" then
-    return ice_futures_mdf_impact_v1_1_34.market_snapshot_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.market_snapshot_message.size
   end
   -- Size of Trade Message
   if message_type == "G" then
-    return ice_futures_mdf_impact_v1_1_34.trade_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.trade_message.size
   end
   -- Size of Spot Market Trade Message
   if message_type == "Y" then
-    return ice_futures_mdf_impact_v1_1_34.spot_market_trade_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.spot_market_trade_message.size
   end
   -- Size of Investigated Trade Message
   if message_type == "H" then
-    return ice_futures_mdf_impact_v1_1_34.investigated_trade_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.investigated_trade_message.size
   end
   -- Size of Cancelled Trade Message
   if message_type == "I" then
-    return ice_futures_mdf_impact_v1_1_34.cancelled_trade_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.cancelled_trade_message.size
   end
   -- Size of Market Statistics Message
   if message_type == "J" then
-    return ice_futures_mdf_impact_v1_1_34.market_statistics_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.market_statistics_message.size
   end
   -- Size of Market State Change Message
   if message_type == "K" then
-    return ice_futures_mdf_impact_v1_1_34.market_state_change_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.market_state_change_message.size
   end
   -- Size of System Text Message
   if message_type == "L" then
-    return ice_futures_mdf_impact_v1_1_34.system_text_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.system_text_message.size
   end
   -- Size of Open Interest Message
   if message_type == "M" then
-    return ice_futures_mdf_impact_v1_1_34.open_interest_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.open_interest_message.size
   end
   -- Size of Open Price Message
   if message_type == "N" then
-    return ice_futures_mdf_impact_v1_1_34.open_price_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.open_price_message.size
   end
   -- Size of Close Price Message
   if message_type == "c" then
-    return ice_futures_mdf_impact_v1_1_34.close_price_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.close_price_message.size
   end
   -- Size of Settlement Price Message
   if message_type == "O" then
-    return ice_futures_mdf_impact_v1_1_34.settlement_price_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.settlement_price_message.size
   end
   -- Size of Index Prices Message
   if message_type == "z" then
-    return ice_futures_mdf_impact_v1_1_34.index_prices_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.index_prices_message.size
   end
   -- Size of End Of Day Market Summary Message
   if message_type == "u" then
-    return ice_futures_mdf_impact_v1_1_34.end_of_day_market_summary_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.end_of_day_market_summary_message.size
   end
   -- Size of Market Event Message
   if message_type == "f" then
-    return ice_futures_mdf_impact_v1_1_34.market_event_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.market_event_message.size
   end
   -- Size of Pre Open Price Indicator Message
   if message_type == "g" then
-    return ice_futures_mdf_impact_v1_1_34.pre_open_price_indicator_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.pre_open_price_indicator_message.size
   end
   -- Size of Strip Info Message
   if message_type == "i" then
-    return ice_futures_mdf_impact_v1_1_34.strip_info_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.strip_info_message.size
   end
   -- Size of Interval Price Limit Notification Message
   if message_type == "V" then
-    return ice_futures_mdf_impact_v1_1_34.interval_price_limit_notification_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.interval_price_limit_notification_message.size
   end
   -- Size of New Futures Strategy Definition Message
   if message_type == "9" then
@@ -11796,7 +11275,7 @@ ice_futures_mdf_impact_v1_1_34.payload.size = function(buffer, offset, message_t
   end
   -- Size of New Expiry Message
   if message_type == "R" then
-    return ice_futures_mdf_impact_v1_1_34.new_expiry_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.new_expiry_message.size
   end
   -- Size of Special Field Message
   if message_type == "b" then
@@ -11804,51 +11283,51 @@ ice_futures_mdf_impact_v1_1_34.payload.size = function(buffer, offset, message_t
   end
   -- Size of Market Snapshot Order Message
   if message_type == "D" then
-    return ice_futures_mdf_impact_v1_1_34.market_snapshot_order_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.market_snapshot_order_message.size
   end
   -- Size of Add Or Modify Order Message
   if message_type == "E" then
-    return ice_futures_mdf_impact_v1_1_34.add_or_modify_order_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.add_or_modify_order_message.size
   end
   -- Size of Delete Order Message
   if message_type == "F" then
-    return ice_futures_mdf_impact_v1_1_34.delete_order_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.delete_order_message.size
   end
   -- Size of Message Bundle Marker
   if message_type == "T" then
-    return ice_futures_mdf_impact_v1_1_34.message_bundle_marker.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.message_bundle_marker.size
   end
   -- Size of Fixing Transition Message
   if message_type == "3" then
-    return ice_futures_mdf_impact_v1_1_34.fixing_transition_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.fixing_transition_message.size
   end
   -- Size of Fixing Lockdown Message
   if message_type == "4" then
-    return ice_futures_mdf_impact_v1_1_34.fixing_lockdown_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.fixing_lockdown_message.size
   end
   -- Size of Fixing Indicative Price Message Message
   if message_type == "0" then
-    return ice_futures_mdf_impact_v1_1_34.fixing_indicative_price_message_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.fixing_indicative_price_message_message.size
   end
   -- Size of Transaction End Marker For Empty Last Bundle Message
   if message_type == "e" then
-    return ice_futures_mdf_impact_v1_1_34.transaction_end_marker_for_empty_last_bundle_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.transaction_end_marker_for_empty_last_bundle_message.size
   end
   -- Size of Market Snapshot Price Level Message
   if message_type == "m" then
-    return ice_futures_mdf_impact_v1_1_34.market_snapshot_price_level_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.market_snapshot_price_level_message.size
   end
   -- Size of Add Price Level Message
   if message_type == "t" then
-    return ice_futures_mdf_impact_v1_1_34.add_price_level_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.add_price_level_message.size
   end
   -- Size of Change Price Level Message
   if message_type == "s" then
-    return ice_futures_mdf_impact_v1_1_34.change_price_level_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.change_price_level_message.size
   end
   -- Size of Delete Price Level Message
   if message_type == "r" then
-    return ice_futures_mdf_impact_v1_1_34.delete_price_level_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.delete_price_level_message.size
   end
   -- Size of New Options Strategy Definition Message
   if message_type == "U" then
@@ -11856,23 +11335,23 @@ ice_futures_mdf_impact_v1_1_34.payload.size = function(buffer, offset, message_t
   end
   -- Size of New Options Market Definition Message
   if message_type == "l" then
-    return ice_futures_mdf_impact_v1_1_34.new_options_market_definition_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.new_options_market_definition_message.size
   end
   -- Size of Rfq Message
   if message_type == "k" then
-    return ice_futures_mdf_impact_v1_1_34.rfq_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.rfq_message.size
   end
   -- Size of Option Open Interest Message
   if message_type == "v" then
-    return ice_futures_mdf_impact_v1_1_34.option_open_interest_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.option_open_interest_message.size
   end
   -- Size of Option Settlement Price Message
   if message_type == "w" then
-    return ice_futures_mdf_impact_v1_1_34.option_settlement_price_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.option_settlement_price_message.size
   end
   -- Size of Old Style Options Trade And Market Stats Message
   if message_type == "W" then
-    return ice_futures_mdf_impact_v1_1_34.old_style_options_trade_and_market_stats_message.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_34.old_style_options_trade_and_market_stats_message.size
   end
 
   return 0
@@ -12232,16 +11711,10 @@ end
 -- Message Header
 ice_futures_mdf_impact_v1_1_34.message_header = {}
 
--- Calculate size of: Message Header
-ice_futures_mdf_impact_v1_1_34.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.message_type.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.length.size
-
-  return index
-end
+-- Size: Message Header
+ice_futures_mdf_impact_v1_1_34.message_header.size =
+  ice_futures_mdf_impact_v1_1_34.message_type.size + 
+  ice_futures_mdf_impact_v1_1_34.length.size
 
 -- Display: Message Header
 ice_futures_mdf_impact_v1_1_34.message_header.display = function(packet, parent, length)
@@ -12286,7 +11759,7 @@ ice_futures_mdf_impact_v1_1_34.message = {}
 ice_futures_mdf_impact_v1_1_34.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + ice_futures_mdf_impact_v1_1_34.message_header.size(buffer, offset + index)
+  index = index + ice_futures_mdf_impact_v1_1_34.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -12435,20 +11908,12 @@ end
 -- Packet Header
 ice_futures_mdf_impact_v1_1_34.packet_header = {}
 
--- Calculate size of: Packet Header
-ice_futures_mdf_impact_v1_1_34.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_futures_mdf_impact_v1_1_34.session.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.sequence.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.number_of_msgs.size
-
-  index = index + ice_futures_mdf_impact_v1_1_34.send_datetime.size
-
-  return index
-end
+-- Size: Packet Header
+ice_futures_mdf_impact_v1_1_34.packet_header.size =
+  ice_futures_mdf_impact_v1_1_34.session.size + 
+  ice_futures_mdf_impact_v1_1_34.sequence.size + 
+  ice_futures_mdf_impact_v1_1_34.number_of_msgs.size + 
+  ice_futures_mdf_impact_v1_1_34.send_datetime.size
 
 -- Display: Packet Header
 ice_futures_mdf_impact_v1_1_34.packet_header.display = function(packet, parent, length)
@@ -12564,7 +12029,7 @@ end
 omi_ice_futures_mdf_impact_v1_1_34:register_heuristic("udp", omi_ice_futures_mdf_impact_v1_1_34_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -12580,7 +12045,7 @@ omi_ice_futures_mdf_impact_v1_1_34:register_heuristic("udp", omi_ice_futures_mdf
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

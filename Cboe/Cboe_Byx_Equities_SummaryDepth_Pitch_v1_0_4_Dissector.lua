@@ -336,22 +336,13 @@ end
 -- Trading Status Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.trading_status_message = {}
 
--- Calculate size of: Trading Status Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4.trading_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.timestamp.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.symbol.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.halt_status.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.reg_sho_action.size
-
-  return index
-end
+-- Size: Trading Status Message
+cboe_byx_equities_summarydepth_pitch_v1_0_4.trading_status_message.size =
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.timestamp.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.symbol.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.halt_status.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.reg_sho_action.size
 
 -- Display: Trading Status Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.trading_status_message.display = function(packet, parent, length)
@@ -516,26 +507,15 @@ end
 -- Trade Break Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_break_message = {}
 
--- Calculate size of: Trade Break Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_break_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.transaction_time.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.symbol.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.execution_id.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.cboe_cumulative_executed_volume.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_binary_8.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_break_flags.size
-
-  return index
-end
+-- Size: Trade Break Message
+cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_break_message.size =
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.transaction_time.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.symbol.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.execution_id.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.cboe_cumulative_executed_volume.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_binary_8.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_break_flags.size
 
 -- Display: Trade Break Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_break_message.display = function(packet, parent, length)
@@ -692,30 +672,17 @@ end
 -- Trade Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_message = {}
 
--- Calculate size of: Trade Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.transaction_time.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.symbol.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.execution_id.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.last_price.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.last_quantity.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.cboe_cumulative_executed_volume.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_binary_8.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_flags.size
-
-  return index
-end
+-- Size: Trade Message
+cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_message.size =
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.transaction_time.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.symbol.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.execution_id.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.last_price.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.last_quantity.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.cboe_cumulative_executed_volume.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_binary_8.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_flags.size
 
 -- Display: Trade Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_message.display = function(packet, parent, length)
@@ -813,20 +780,12 @@ end
 -- Rpi Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.rpi_message = {}
 
--- Calculate size of: Rpi Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4.rpi_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.timestamp.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.symbol.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.retail_price_improvement.size
-
-  return index
-end
+-- Size: Rpi Message
+cboe_byx_equities_summarydepth_pitch_v1_0_4.rpi_message.size =
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.timestamp.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.symbol.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.retail_price_improvement.size
 
 -- Display: Rpi Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.rpi_message.display = function(packet, parent, length)
@@ -948,18 +907,11 @@ end
 -- Long Update Adap Block
 cboe_byx_equities_summarydepth_pitch_v1_0_4.long_update_adap_block = {}
 
--- Calculate size of: Long Update Adap Block
-cboe_byx_equities_summarydepth_pitch_v1_0_4.long_update_adap_block.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.side.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_84_price_8.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.quantity_long.size
-
-  return index
-end
+-- Size: Long Update Adap Block
+cboe_byx_equities_summarydepth_pitch_v1_0_4.long_update_adap_block.size =
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.side.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_84_price_8.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.quantity_long.size
 
 -- Display: Long Update Adap Block
 cboe_byx_equities_summarydepth_pitch_v1_0_4.long_update_adap_block.display = function(packet, parent, length)
@@ -1055,18 +1007,11 @@ end
 -- Short Update Adap Block
 cboe_byx_equities_summarydepth_pitch_v1_0_4.short_update_adap_block = {}
 
--- Calculate size of: Short Update Adap Block
-cboe_byx_equities_summarydepth_pitch_v1_0_4.short_update_adap_block.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.side.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_44_price_4.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.quantity_short.size
-
-  return index
-end
+-- Size: Short Update Adap Block
+cboe_byx_equities_summarydepth_pitch_v1_0_4.short_update_adap_block.size =
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.side.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_44_price_4.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.quantity_short.size
 
 -- Display: Short Update Adap Block
 cboe_byx_equities_summarydepth_pitch_v1_0_4.short_update_adap_block.display = function(packet, parent, length)
@@ -1110,15 +1055,15 @@ end
 -- Adap Update
 cboe_byx_equities_summarydepth_pitch_v1_0_4.adap_update = {}
 
--- Calculate runtime size of: Adap Update
+-- Size: Adap Update
 cboe_byx_equities_summarydepth_pitch_v1_0_4.adap_update.size = function(buffer, offset, adap_block_size)
   -- Size of Short Update Adap Block
   if adap_block_size == 10 then
-    return cboe_byx_equities_summarydepth_pitch_v1_0_4.short_update_adap_block.size(buffer, offset)
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4.short_update_adap_block.size
   end
   -- Size of Long Update Adap Block
   if adap_block_size == 18 then
-    return cboe_byx_equities_summarydepth_pitch_v1_0_4.long_update_adap_block.size(buffer, offset)
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4.long_update_adap_block.size
   end
 
   return 0
@@ -1478,20 +1423,12 @@ end
 -- Cboe Market Status Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.cboe_market_status_message = {}
 
--- Calculate size of: Cboe Market Status Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4.cboe_market_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.timestamp.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.market_status.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.session_indicator.size
-
-  return index
-end
+-- Size: Cboe Market Status Message
+cboe_byx_equities_summarydepth_pitch_v1_0_4.cboe_market_status_message.size =
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.timestamp.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.market_status.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.session_indicator.size
 
 -- Display: Cboe Market Status Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.cboe_market_status_message.display = function(packet, parent, length)
@@ -1538,18 +1475,11 @@ end
 -- Clear Quote Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.clear_quote_message = {}
 
--- Calculate size of: Clear Quote Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4.clear_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.last_update_timestamp.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.symbol.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size
-
-  return index
-end
+-- Size: Clear Quote Message
+cboe_byx_equities_summarydepth_pitch_v1_0_4.clear_quote_message.size =
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.last_update_timestamp.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.symbol.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size
 
 -- Display: Clear Quote Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4.clear_quote_message.display = function(packet, parent, length)
@@ -1593,15 +1523,15 @@ end
 -- Payload
 cboe_byx_equities_summarydepth_pitch_v1_0_4.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 cboe_byx_equities_summarydepth_pitch_v1_0_4.payload.size = function(buffer, offset, message_type)
   -- Size of Clear Quote Message
   if message_type == 0xA2 then
-    return cboe_byx_equities_summarydepth_pitch_v1_0_4.clear_quote_message.size(buffer, offset)
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4.clear_quote_message.size
   end
   -- Size of Cboe Market Status Message
   if message_type == 0xA6 then
-    return cboe_byx_equities_summarydepth_pitch_v1_0_4.cboe_market_status_message.size(buffer, offset)
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4.cboe_market_status_message.size
   end
   -- Size of Adap Message
   if message_type == 0xA7 then
@@ -1609,19 +1539,19 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.payload.size = function(buffer, offs
   end
   -- Size of Rpi Message
   if message_type == 0xA8 then
-    return cboe_byx_equities_summarydepth_pitch_v1_0_4.rpi_message.size(buffer, offset)
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4.rpi_message.size
   end
   -- Size of Trade Message
   if message_type == 0xA9 then
-    return cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_message.size(buffer, offset)
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_message.size
   end
   -- Size of Trade Break Message
   if message_type == 0xAA then
-    return cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_break_message.size(buffer, offset)
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_break_message.size
   end
   -- Size of Trading Status Message
   if message_type == 0xAB then
-    return cboe_byx_equities_summarydepth_pitch_v1_0_4.trading_status_message.size(buffer, offset)
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4.trading_status_message.size
   end
 
   return 0
@@ -1757,16 +1687,10 @@ end
 -- Message Header
 cboe_byx_equities_summarydepth_pitch_v1_0_4.message_header = {}
 
--- Calculate size of: Message Header
-cboe_byx_equities_summarydepth_pitch_v1_0_4.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.message_length.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.message_type.size
-
-  return index
-end
+-- Size: Message Header
+cboe_byx_equities_summarydepth_pitch_v1_0_4.message_header.size =
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.message_length.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.message_type.size
 
 -- Display: Message Header
 cboe_byx_equities_summarydepth_pitch_v1_0_4.message_header.display = function(packet, parent, length)
@@ -1950,20 +1874,12 @@ end
 -- Packet Header
 cboe_byx_equities_summarydepth_pitch_v1_0_4.packet_header = {}
 
--- Calculate size of: Packet Header
-cboe_byx_equities_summarydepth_pitch_v1_0_4.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.length.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.count.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.unit.size
-
-  index = index + cboe_byx_equities_summarydepth_pitch_v1_0_4.sequence.size
-
-  return index
-end
+-- Size: Packet Header
+cboe_byx_equities_summarydepth_pitch_v1_0_4.packet_header.size =
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.length.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.count.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.unit.size + 
+  cboe_byx_equities_summarydepth_pitch_v1_0_4.sequence.size
 
 -- Display: Packet Header
 cboe_byx_equities_summarydepth_pitch_v1_0_4.packet_header.display = function(packet, parent, length)
@@ -2084,7 +2000,7 @@ end
 omi_cboe_byx_equities_summarydepth_pitch_v1_0_4:register_heuristic("udp", omi_cboe_byx_equities_summarydepth_pitch_v1_0_4_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -2100,7 +2016,7 @@ omi_cboe_byx_equities_summarydepth_pitch_v1_0_4:register_heuristic("udp", omi_cb
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

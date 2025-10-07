@@ -772,26 +772,15 @@ end
 -- Participant Data
 siac_cts_output_cta_v2_9.participant_data = {}
 
--- Calculate size of: Participant Data
-siac_cts_output_cta_v2_9.participant_data.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.previous_close_price_date.size
-
-  index = index + siac_cts_output_cta_v2_9.last_price.size
-
-  index = index + siac_cts_output_cta_v2_9.high_price.size
-
-  index = index + siac_cts_output_cta_v2_9.low_price.size
-
-  index = index + siac_cts_output_cta_v2_9.open_price.size
-
-  index = index + siac_cts_output_cta_v2_9.total_volume_short.size
-
-  index = index + siac_cts_output_cta_v2_9.tick.size
-
-  return index
-end
+-- Size: Participant Data
+siac_cts_output_cta_v2_9.participant_data.size =
+  siac_cts_output_cta_v2_9.previous_close_price_date.size + 
+  siac_cts_output_cta_v2_9.last_price.size + 
+  siac_cts_output_cta_v2_9.high_price.size + 
+  siac_cts_output_cta_v2_9.low_price.size + 
+  siac_cts_output_cta_v2_9.open_price.size + 
+  siac_cts_output_cta_v2_9.total_volume_short.size + 
+  siac_cts_output_cta_v2_9.tick.size
 
 -- Display: Participant Data
 siac_cts_output_cta_v2_9.participant_data.display = function(packet, parent, length)
@@ -925,26 +914,15 @@ end
 -- Consolidated Data
 siac_cts_output_cta_v2_9.consolidated_data = {}
 
--- Calculate size of: Consolidated Data
-siac_cts_output_cta_v2_9.consolidated_data.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.previous_close_price_date.size
-
-  index = index + siac_cts_output_cta_v2_9.last_participant_id.size
-
-  index = index + siac_cts_output_cta_v2_9.last_price.size
-
-  index = index + siac_cts_output_cta_v2_9.high_price.size
-
-  index = index + siac_cts_output_cta_v2_9.low_price.size
-
-  index = index + siac_cts_output_cta_v2_9.total_volume_short.size
-
-  index = index + siac_cts_output_cta_v2_9.tick.size
-
-  return index
-end
+-- Size: Consolidated Data
+siac_cts_output_cta_v2_9.consolidated_data.size =
+  siac_cts_output_cta_v2_9.previous_close_price_date.size + 
+  siac_cts_output_cta_v2_9.last_participant_id.size + 
+  siac_cts_output_cta_v2_9.last_price.size + 
+  siac_cts_output_cta_v2_9.high_price.size + 
+  siac_cts_output_cta_v2_9.low_price.size + 
+  siac_cts_output_cta_v2_9.total_volume_short.size + 
+  siac_cts_output_cta_v2_9.tick.size
 
 -- Display: Consolidated Data
 siac_cts_output_cta_v2_9.consolidated_data.display = function(packet, parent, length)
@@ -1244,16 +1222,10 @@ end
 -- Timestamp 2
 siac_cts_output_cta_v2_9.timestamp_2 = {}
 
--- Calculate size of: Timestamp 2
-siac_cts_output_cta_v2_9.timestamp_2.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.seconds.size
-
-  index = index + siac_cts_output_cta_v2_9.nanoseconds.size
-
-  return index
-end
+-- Size: Timestamp 2
+siac_cts_output_cta_v2_9.timestamp_2.size =
+  siac_cts_output_cta_v2_9.seconds.size + 
+  siac_cts_output_cta_v2_9.nanoseconds.size
 
 -- Display: Timestamp 2
 siac_cts_output_cta_v2_9.timestamp_2.display = function(packet, parent, length)
@@ -1671,20 +1643,12 @@ end
 -- Sale Conditions
 siac_cts_output_cta_v2_9.sale_conditions = {}
 
--- Calculate size of: Sale Conditions
-siac_cts_output_cta_v2_9.sale_conditions.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.settlement_type.size
-
-  index = index + siac_cts_output_cta_v2_9.trade_through_exempt_reason.size
-
-  index = index + siac_cts_output_cta_v2_9.extended_hours_or_sequence_type.size
-
-  index = index + siac_cts_output_cta_v2_9.sro_trade_detail.size
-
-  return index
-end
+-- Size: Sale Conditions
+siac_cts_output_cta_v2_9.sale_conditions.size =
+  siac_cts_output_cta_v2_9.settlement_type.size + 
+  siac_cts_output_cta_v2_9.trade_through_exempt_reason.size + 
+  siac_cts_output_cta_v2_9.extended_hours_or_sequence_type.size + 
+  siac_cts_output_cta_v2_9.sro_trade_detail.size
 
 -- Display: Sale Conditions
 siac_cts_output_cta_v2_9.sale_conditions.display = function(packet, parent, length)
@@ -1859,16 +1823,10 @@ end
 -- Timestamp 1
 siac_cts_output_cta_v2_9.timestamp_1 = {}
 
--- Calculate size of: Timestamp 1
-siac_cts_output_cta_v2_9.timestamp_1.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.seconds.size
-
-  index = index + siac_cts_output_cta_v2_9.nanoseconds.size
-
-  return index
-end
+-- Size: Timestamp 1
+siac_cts_output_cta_v2_9.timestamp_1.size =
+  siac_cts_output_cta_v2_9.seconds.size + 
+  siac_cts_output_cta_v2_9.nanoseconds.size
 
 -- Display: Timestamp 1
 siac_cts_output_cta_v2_9.timestamp_1.display = function(packet, parent, length)
@@ -3057,16 +3015,10 @@ end
 -- Prior Day Trade Date And Time
 siac_cts_output_cta_v2_9.prior_day_trade_date_and_time = {}
 
--- Calculate size of: Prior Day Trade Date And Time
-siac_cts_output_cta_v2_9.prior_day_trade_date_and_time.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.seconds.size
-
-  index = index + siac_cts_output_cta_v2_9.nanoseconds.size
-
-  return index
-end
+-- Size: Prior Day Trade Date And Time
+siac_cts_output_cta_v2_9.prior_day_trade_date_and_time.size =
+  siac_cts_output_cta_v2_9.seconds.size + 
+  siac_cts_output_cta_v2_9.nanoseconds.size
 
 -- Display: Prior Day Trade Date And Time
 siac_cts_output_cta_v2_9.prior_day_trade_date_and_time.display = function(packet, parent, length)
@@ -3107,28 +3059,16 @@ end
 -- Original Trade
 siac_cts_output_cta_v2_9.original_trade = {}
 
--- Calculate size of: Original Trade
-siac_cts_output_cta_v2_9.original_trade.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.sale_conditions.size(buffer, offset + index)
-
-  index = index + siac_cts_output_cta_v2_9.trade_price.size
-
-  index = index + siac_cts_output_cta_v2_9.trade_volume.size
-
-  index = index + siac_cts_output_cta_v2_9.sellers_sale_days.size
-
-  index = index + siac_cts_output_cta_v2_9.stop_stock_indicator.size
-
-  index = index + siac_cts_output_cta_v2_9.trade_through_exempt_indicator.size
-
-  index = index + siac_cts_output_cta_v2_9.short_sale_restriction_indicator.size
-
-  index = index + siac_cts_output_cta_v2_9.prior_day_trade_date_and_time.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Original Trade
+siac_cts_output_cta_v2_9.original_trade.size =
+  siac_cts_output_cta_v2_9.sale_conditions.size + 
+  siac_cts_output_cta_v2_9.trade_price.size + 
+  siac_cts_output_cta_v2_9.trade_volume.size + 
+  siac_cts_output_cta_v2_9.sellers_sale_days.size + 
+  siac_cts_output_cta_v2_9.stop_stock_indicator.size + 
+  siac_cts_output_cta_v2_9.trade_through_exempt_indicator.size + 
+  siac_cts_output_cta_v2_9.short_sale_restriction_indicator.size + 
+  siac_cts_output_cta_v2_9.prior_day_trade_date_and_time.size
 
 -- Display: Original Trade
 siac_cts_output_cta_v2_9.original_trade.display = function(packet, parent, length)
@@ -3187,28 +3127,16 @@ end
 -- Corrected Trade
 siac_cts_output_cta_v2_9.corrected_trade = {}
 
--- Calculate size of: Corrected Trade
-siac_cts_output_cta_v2_9.corrected_trade.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.sale_conditions.size(buffer, offset + index)
-
-  index = index + siac_cts_output_cta_v2_9.trade_price.size
-
-  index = index + siac_cts_output_cta_v2_9.trade_volume.size
-
-  index = index + siac_cts_output_cta_v2_9.sellers_sale_days.size
-
-  index = index + siac_cts_output_cta_v2_9.stop_stock_indicator.size
-
-  index = index + siac_cts_output_cta_v2_9.trade_through_exempt_indicator.size
-
-  index = index + siac_cts_output_cta_v2_9.short_sale_restriction_indicator.size
-
-  index = index + siac_cts_output_cta_v2_9.prior_day_trade_date_and_time.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Corrected Trade
+siac_cts_output_cta_v2_9.corrected_trade.size =
+  siac_cts_output_cta_v2_9.sale_conditions.size + 
+  siac_cts_output_cta_v2_9.trade_price.size + 
+  siac_cts_output_cta_v2_9.trade_volume.size + 
+  siac_cts_output_cta_v2_9.sellers_sale_days.size + 
+  siac_cts_output_cta_v2_9.stop_stock_indicator.size + 
+  siac_cts_output_cta_v2_9.trade_through_exempt_indicator.size + 
+  siac_cts_output_cta_v2_9.short_sale_restriction_indicator.size + 
+  siac_cts_output_cta_v2_9.prior_day_trade_date_and_time.size
 
 -- Display: Corrected Trade
 siac_cts_output_cta_v2_9.corrected_trade.display = function(packet, parent, length)
@@ -3577,7 +3505,7 @@ end
 -- Trade Payload
 siac_cts_output_cta_v2_9.trade_payload = {}
 
--- Calculate runtime size of: Trade Payload
+-- Size: Trade Payload
 siac_cts_output_cta_v2_9.trade_payload.size = function(buffer, offset, trade_message_type)
   -- Size of Auction Status Message
   if trade_message_type == "A" then
@@ -4250,7 +4178,7 @@ end
 -- Summary Payload
 siac_cts_output_cta_v2_9.summary_payload = {}
 
--- Calculate runtime size of: Summary Payload
+-- Size: Summary Payload
 siac_cts_output_cta_v2_9.summary_payload.size = function(buffer, offset, summary_message_type)
   -- Size of Consolidated Start Of Day Summary Message
   if summary_message_type == "A" then
@@ -4568,7 +4496,7 @@ end
 -- Prior Day Payload
 siac_cts_output_cta_v2_9.prior_day_payload = {}
 
--- Calculate runtime size of: Prior Day Payload
+-- Size: Prior Day Payload
 siac_cts_output_cta_v2_9.prior_day_payload.size = function(buffer, offset, prior_day_message_type)
   -- Size of Prior Day Trade Correction Message
   if prior_day_message_type == "C" then
@@ -4980,16 +4908,10 @@ end
 -- Participants
 siac_cts_output_cta_v2_9.participants = {}
 
--- Calculate size of: Participants
-siac_cts_output_cta_v2_9.participants.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.participant_id.size
-
-  index = index + siac_cts_output_cta_v2_9.trade_total_volume.size
-
-  return index
-end
+-- Size: Participants
+siac_cts_output_cta_v2_9.participants.size =
+  siac_cts_output_cta_v2_9.participant_id.size + 
+  siac_cts_output_cta_v2_9.trade_total_volume.size
 
 -- Display: Participants
 siac_cts_output_cta_v2_9.participants.display = function(packet, parent, length)
@@ -5361,7 +5283,7 @@ end
 -- Market Status Payload
 siac_cts_output_cta_v2_9.market_status_payload = {}
 
--- Calculate runtime size of: Market Status Payload
+-- Size: Market Status Payload
 siac_cts_output_cta_v2_9.market_status_payload.size = function(buffer, offset, market_status_message_type)
   -- Size of Market Wide Circuit Breaker Decline Level Status Message
   if market_status_message_type == "M" then
@@ -5749,7 +5671,7 @@ end
 -- Index Payload
 siac_cts_output_cta_v2_9.index_payload = {}
 
--- Calculate runtime size of: Index Payload
+-- Size: Index Payload
 siac_cts_output_cta_v2_9.index_payload.size = function(buffer, offset, index_message_type)
   -- Size of Index Message
   if index_message_type == "I" then
@@ -6168,7 +6090,7 @@ end
 -- Control Payload
 siac_cts_output_cta_v2_9.control_payload = {}
 
--- Calculate runtime size of: Control Payload
+-- Size: Control Payload
 siac_cts_output_cta_v2_9.control_payload.size = function(buffer, offset, control_message_type)
   -- Size of Start Of Day Message
   if control_message_type == "A" then
@@ -6563,7 +6485,7 @@ end
 -- Administrative Payload
 siac_cts_output_cta_v2_9.administrative_payload = {}
 
--- Calculate runtime size of: Administrative Payload
+-- Size: Administrative Payload
 siac_cts_output_cta_v2_9.administrative_payload.size = function(buffer, offset, administrative_message_type)
   -- Size of Start Of End Of Day Message
   if administrative_message_type == "A" then
@@ -6719,7 +6641,7 @@ end
 -- Payload
 siac_cts_output_cta_v2_9.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 siac_cts_output_cta_v2_9.payload.size = function(buffer, offset, message_category)
   -- Size of Administrative
   if message_category == "A" then
@@ -6883,16 +6805,10 @@ end
 -- Message Header
 siac_cts_output_cta_v2_9.message_header = {}
 
--- Calculate size of: Message Header
-siac_cts_output_cta_v2_9.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.message_length.size
-
-  index = index + siac_cts_output_cta_v2_9.message_category.size
-
-  return index
-end
+-- Size: Message Header
+siac_cts_output_cta_v2_9.message_header.size =
+  siac_cts_output_cta_v2_9.message_length.size + 
+  siac_cts_output_cta_v2_9.message_category.size
 
 -- Display: Message Header
 siac_cts_output_cta_v2_9.message_header.display = function(packet, parent, length)
@@ -7007,16 +6923,10 @@ end
 -- Sip Block Timestamp
 siac_cts_output_cta_v2_9.sip_block_timestamp = {}
 
--- Calculate size of: Sip Block Timestamp
-siac_cts_output_cta_v2_9.sip_block_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.seconds.size
-
-  index = index + siac_cts_output_cta_v2_9.nanoseconds.size
-
-  return index
-end
+-- Size: Sip Block Timestamp
+siac_cts_output_cta_v2_9.sip_block_timestamp.size =
+  siac_cts_output_cta_v2_9.seconds.size + 
+  siac_cts_output_cta_v2_9.nanoseconds.size
 
 -- Display: Sip Block Timestamp
 siac_cts_output_cta_v2_9.sip_block_timestamp.display = function(packet, parent, length)
@@ -7202,28 +7112,16 @@ end
 -- Block Header
 siac_cts_output_cta_v2_9.block_header = {}
 
--- Calculate size of: Block Header
-siac_cts_output_cta_v2_9.block_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9.version.size
-
-  index = index + siac_cts_output_cta_v2_9.block_size.size
-
-  index = index + siac_cts_output_cta_v2_9.data_feed_indicator.size
-
-  index = index + siac_cts_output_cta_v2_9.retransmission_indicator.size
-
-  index = index + siac_cts_output_cta_v2_9.block_sequence_number.size
-
-  index = index + siac_cts_output_cta_v2_9.messages_in_block.size
-
-  index = index + siac_cts_output_cta_v2_9.sip_block_timestamp.size(buffer, offset + index)
-
-  index = index + siac_cts_output_cta_v2_9.block_checksum.size
-
-  return index
-end
+-- Size: Block Header
+siac_cts_output_cta_v2_9.block_header.size =
+  siac_cts_output_cta_v2_9.version.size + 
+  siac_cts_output_cta_v2_9.block_size.size + 
+  siac_cts_output_cta_v2_9.data_feed_indicator.size + 
+  siac_cts_output_cta_v2_9.retransmission_indicator.size + 
+  siac_cts_output_cta_v2_9.block_sequence_number.size + 
+  siac_cts_output_cta_v2_9.messages_in_block.size + 
+  siac_cts_output_cta_v2_9.sip_block_timestamp.size + 
+  siac_cts_output_cta_v2_9.block_checksum.size
 
 -- Display: Block Header
 siac_cts_output_cta_v2_9.block_header.display = function(packet, parent, length)
@@ -7365,7 +7263,7 @@ end
 omi_siac_cts_output_cta_v2_9:register_heuristic("udp", omi_siac_cts_output_cta_v2_9_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -7381,7 +7279,7 @@ omi_siac_cts_output_cta_v2_9:register_heuristic("udp", omi_siac_cts_output_cta_v
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

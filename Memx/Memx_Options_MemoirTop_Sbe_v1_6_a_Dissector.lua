@@ -315,16 +315,10 @@ end
 -- Clear Book Message
 memx_options_memoirtop_sbe_v1_6_a.clear_book_message = {}
 
--- Calculate size of: Clear Book Message
-memx_options_memoirtop_sbe_v1_6_a.clear_book_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  return index
-end
+-- Size: Clear Book Message
+memx_options_memoirtop_sbe_v1_6_a.clear_book_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size
 
 -- Display: Clear Book Message
 memx_options_memoirtop_sbe_v1_6_a.clear_book_message.display = function(packet, parent, length)
@@ -591,30 +585,17 @@ end
 -- Trade Message
 memx_options_memoirtop_sbe_v1_6_a.trade_message = {}
 
--- Calculate size of: Trade Message
-memx_options_memoirtop_sbe_v1_6_a.trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.trade_id.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.trade_conditions.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.side.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.quantity.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.price.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.cust_quantity.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.capacity.size
-
-  return index
-end
+-- Size: Trade Message
+memx_options_memoirtop_sbe_v1_6_a.trade_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size + 
+  memx_options_memoirtop_sbe_v1_6_a.trade_id.size + 
+  memx_options_memoirtop_sbe_v1_6_a.trade_conditions.size + 
+  memx_options_memoirtop_sbe_v1_6_a.side.size + 
+  memx_options_memoirtop_sbe_v1_6_a.quantity.size + 
+  memx_options_memoirtop_sbe_v1_6_a.price.size + 
+  memx_options_memoirtop_sbe_v1_6_a.cust_quantity.size + 
+  memx_options_memoirtop_sbe_v1_6_a.capacity.size
 
 -- Display: Trade Message
 memx_options_memoirtop_sbe_v1_6_a.trade_message.display = function(packet, parent, length)
@@ -728,22 +709,13 @@ end
 -- Best Offer Short Message
 memx_options_memoirtop_sbe_v1_6_a.best_offer_short_message = {}
 
--- Calculate size of: Best Offer Short Message
-memx_options_memoirtop_sbe_v1_6_a.best_offer_short_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.cust_bid_size_short.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.cust_bid_size_short.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.offer_price_short.size
-
-  return index
-end
+-- Size: Best Offer Short Message
+memx_options_memoirtop_sbe_v1_6_a.best_offer_short_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size + 
+  memx_options_memoirtop_sbe_v1_6_a.cust_bid_size_short.size + 
+  memx_options_memoirtop_sbe_v1_6_a.cust_bid_size_short.size + 
+  memx_options_memoirtop_sbe_v1_6_a.offer_price_short.size
 
 -- Display: Best Offer Short Message
 memx_options_memoirtop_sbe_v1_6_a.best_offer_short_message.display = function(packet, parent, length)
@@ -845,22 +817,13 @@ end
 -- Best Bid Short Message
 memx_options_memoirtop_sbe_v1_6_a.best_bid_short_message = {}
 
--- Calculate size of: Best Bid Short Message
-memx_options_memoirtop_sbe_v1_6_a.best_bid_short_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.total_bid_size_short.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.cust_bid_size_short.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.bid_price_short.size
-
-  return index
-end
+-- Size: Best Bid Short Message
+memx_options_memoirtop_sbe_v1_6_a.best_bid_short_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size + 
+  memx_options_memoirtop_sbe_v1_6_a.total_bid_size_short.size + 
+  memx_options_memoirtop_sbe_v1_6_a.cust_bid_size_short.size + 
+  memx_options_memoirtop_sbe_v1_6_a.bid_price_short.size
 
 -- Display: Best Bid Short Message
 memx_options_memoirtop_sbe_v1_6_a.best_bid_short_message.display = function(packet, parent, length)
@@ -985,22 +948,13 @@ end
 -- Best Offer Message
 memx_options_memoirtop_sbe_v1_6_a.best_offer_message = {}
 
--- Calculate size of: Best Offer Message
-memx_options_memoirtop_sbe_v1_6_a.best_offer_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.total_offer_size.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.cust_offer_size.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.offer_price.size
-
-  return index
-end
+-- Size: Best Offer Message
+memx_options_memoirtop_sbe_v1_6_a.best_offer_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size + 
+  memx_options_memoirtop_sbe_v1_6_a.total_offer_size.size + 
+  memx_options_memoirtop_sbe_v1_6_a.cust_offer_size.size + 
+  memx_options_memoirtop_sbe_v1_6_a.offer_price.size
 
 -- Display: Best Offer Message
 memx_options_memoirtop_sbe_v1_6_a.best_offer_message.display = function(packet, parent, length)
@@ -1125,22 +1079,13 @@ end
 -- Best Bid Message
 memx_options_memoirtop_sbe_v1_6_a.best_bid_message = {}
 
--- Calculate size of: Best Bid Message
-memx_options_memoirtop_sbe_v1_6_a.best_bid_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.total_bid_size.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.cust_bid_size.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.bid_price.size
-
-  return index
-end
+-- Size: Best Bid Message
+memx_options_memoirtop_sbe_v1_6_a.best_bid_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size + 
+  memx_options_memoirtop_sbe_v1_6_a.total_bid_size.size + 
+  memx_options_memoirtop_sbe_v1_6_a.cust_bid_size.size + 
+  memx_options_memoirtop_sbe_v1_6_a.bid_price.size
 
 -- Display: Best Bid Message
 memx_options_memoirtop_sbe_v1_6_a.best_bid_message.display = function(packet, parent, length)
@@ -1190,28 +1135,16 @@ end
 -- Best Bid Offer Message
 memx_options_memoirtop_sbe_v1_6_a.best_bid_offer_message = {}
 
--- Calculate size of: Best Bid Offer Message
-memx_options_memoirtop_sbe_v1_6_a.best_bid_offer_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.total_bid_size.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.cust_bid_size.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.bid_price.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.total_offer_size.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.cust_offer_size.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.offer_price.size
-
-  return index
-end
+-- Size: Best Bid Offer Message
+memx_options_memoirtop_sbe_v1_6_a.best_bid_offer_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size + 
+  memx_options_memoirtop_sbe_v1_6_a.total_bid_size.size + 
+  memx_options_memoirtop_sbe_v1_6_a.cust_bid_size.size + 
+  memx_options_memoirtop_sbe_v1_6_a.bid_price.size + 
+  memx_options_memoirtop_sbe_v1_6_a.total_offer_size.size + 
+  memx_options_memoirtop_sbe_v1_6_a.cust_offer_size.size + 
+  memx_options_memoirtop_sbe_v1_6_a.offer_price.size
 
 -- Display: Best Bid Offer Message
 memx_options_memoirtop_sbe_v1_6_a.best_bid_offer_message.display = function(packet, parent, length)
@@ -1293,16 +1226,10 @@ end
 -- Snapshot Complete Message
 memx_options_memoirtop_sbe_v1_6_a.snapshot_complete_message = {}
 
--- Calculate size of: Snapshot Complete Message
-memx_options_memoirtop_sbe_v1_6_a.snapshot_complete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.as_of_sequence_number.size
-
-  return index
-end
+-- Size: Snapshot Complete Message
+memx_options_memoirtop_sbe_v1_6_a.snapshot_complete_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.as_of_sequence_number.size
 
 -- Display: Snapshot Complete Message
 memx_options_memoirtop_sbe_v1_6_a.snapshot_complete_message.display = function(packet, parent, length)
@@ -1447,26 +1374,15 @@ end
 -- Corrected Trade Message
 memx_options_memoirtop_sbe_v1_6_a.corrected_trade_message = {}
 
--- Calculate size of: Corrected Trade Message
-memx_options_memoirtop_sbe_v1_6_a.corrected_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.trade_id.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.original_quantity.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.original_price.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.corrected_quantity.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.corrected_price.size
-
-  return index
-end
+-- Size: Corrected Trade Message
+memx_options_memoirtop_sbe_v1_6_a.corrected_trade_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size + 
+  memx_options_memoirtop_sbe_v1_6_a.trade_id.size + 
+  memx_options_memoirtop_sbe_v1_6_a.original_quantity.size + 
+  memx_options_memoirtop_sbe_v1_6_a.original_price.size + 
+  memx_options_memoirtop_sbe_v1_6_a.corrected_quantity.size + 
+  memx_options_memoirtop_sbe_v1_6_a.corrected_price.size
 
 -- Display: Corrected Trade Message
 memx_options_memoirtop_sbe_v1_6_a.corrected_trade_message.display = function(packet, parent, length)
@@ -1522,22 +1438,13 @@ end
 -- Broken Trade Message
 memx_options_memoirtop_sbe_v1_6_a.broken_trade_message = {}
 
--- Calculate size of: Broken Trade Message
-memx_options_memoirtop_sbe_v1_6_a.broken_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.trade_id.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.original_quantity.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.original_price.size
-
-  return index
-end
+-- Size: Broken Trade Message
+memx_options_memoirtop_sbe_v1_6_a.broken_trade_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size + 
+  memx_options_memoirtop_sbe_v1_6_a.trade_id.size + 
+  memx_options_memoirtop_sbe_v1_6_a.original_quantity.size + 
+  memx_options_memoirtop_sbe_v1_6_a.original_price.size
 
 -- Display: Broken Trade Message
 memx_options_memoirtop_sbe_v1_6_a.broken_trade_message.display = function(packet, parent, length)
@@ -1669,18 +1576,11 @@ end
 -- Underlier Instrument Status Message
 memx_options_memoirtop_sbe_v1_6_a.underlier_instrument_status_message = {}
 
--- Calculate size of: Underlier Instrument Status Message
-memx_options_memoirtop_sbe_v1_6_a.underlier_instrument_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.trading_session.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.underlier.size
-
-  return index
-end
+-- Size: Underlier Instrument Status Message
+memx_options_memoirtop_sbe_v1_6_a.underlier_instrument_status_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.trading_session.size + 
+  memx_options_memoirtop_sbe_v1_6_a.underlier.size
 
 -- Display: Underlier Instrument Status Message
 memx_options_memoirtop_sbe_v1_6_a.underlier_instrument_status_message.display = function(packet, parent, length)
@@ -1810,22 +1710,13 @@ end
 -- Options Instrument Status Message
 memx_options_memoirtop_sbe_v1_6_a.options_instrument_status_message = {}
 
--- Calculate size of: Options Instrument Status Message
-memx_options_memoirtop_sbe_v1_6_a.options_instrument_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.instrument_trading_status.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.instrument_trading_status_reason.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.trading_session.size
-
-  return index
-end
+-- Size: Options Instrument Status Message
+memx_options_memoirtop_sbe_v1_6_a.options_instrument_status_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size + 
+  memx_options_memoirtop_sbe_v1_6_a.instrument_trading_status.size + 
+  memx_options_memoirtop_sbe_v1_6_a.instrument_trading_status_reason.size + 
+  memx_options_memoirtop_sbe_v1_6_a.trading_session.size
 
 -- Display: Options Instrument Status Message
 memx_options_memoirtop_sbe_v1_6_a.options_instrument_status_message.display = function(packet, parent, length)
@@ -2125,34 +2016,19 @@ end
 -- Instrument Directory Message
 memx_options_memoirtop_sbe_v1_6_a.instrument_directory_message = {}
 
--- Calculate size of: Instrument Directory Message
-memx_options_memoirtop_sbe_v1_6_a.instrument_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.timestamp.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.symbol.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.options_product_type.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.underlier.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.osi_root.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.maturity_date.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.strike_put_or_call.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.strike_price.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.closing_only.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.closing_time.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.is_test_symbol.size
-
-  return index
-end
+-- Size: Instrument Directory Message
+memx_options_memoirtop_sbe_v1_6_a.instrument_directory_message.size =
+  memx_options_memoirtop_sbe_v1_6_a.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_6_a.symbol.size + 
+  memx_options_memoirtop_sbe_v1_6_a.options_product_type.size + 
+  memx_options_memoirtop_sbe_v1_6_a.underlier.size + 
+  memx_options_memoirtop_sbe_v1_6_a.osi_root.size + 
+  memx_options_memoirtop_sbe_v1_6_a.maturity_date.size + 
+  memx_options_memoirtop_sbe_v1_6_a.strike_put_or_call.size + 
+  memx_options_memoirtop_sbe_v1_6_a.strike_price.size + 
+  memx_options_memoirtop_sbe_v1_6_a.closing_only.size + 
+  memx_options_memoirtop_sbe_v1_6_a.closing_time.size + 
+  memx_options_memoirtop_sbe_v1_6_a.is_test_symbol.size
 
 -- Display: Instrument Directory Message
 memx_options_memoirtop_sbe_v1_6_a.instrument_directory_message.display = function(packet, parent, length)
@@ -2220,59 +2096,59 @@ end
 -- Payload
 memx_options_memoirtop_sbe_v1_6_a.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 memx_options_memoirtop_sbe_v1_6_a.payload.size = function(buffer, offset, template_id)
   -- Size of Instrument Directory Message
   if template_id == 1 then
-    return memx_options_memoirtop_sbe_v1_6_a.instrument_directory_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.instrument_directory_message.size
   end
   -- Size of Options Instrument Status Message
   if template_id == 2 then
-    return memx_options_memoirtop_sbe_v1_6_a.options_instrument_status_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.options_instrument_status_message.size
   end
   -- Size of Underlier Instrument Status Message
   if template_id == 3 then
-    return memx_options_memoirtop_sbe_v1_6_a.underlier_instrument_status_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.underlier_instrument_status_message.size
   end
   -- Size of Broken Trade Message
   if template_id == 5 then
-    return memx_options_memoirtop_sbe_v1_6_a.broken_trade_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.broken_trade_message.size
   end
   -- Size of Corrected Trade Message
   if template_id == 6 then
-    return memx_options_memoirtop_sbe_v1_6_a.corrected_trade_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.corrected_trade_message.size
   end
   -- Size of Snapshot Complete Message
   if template_id == 7 then
-    return memx_options_memoirtop_sbe_v1_6_a.snapshot_complete_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.snapshot_complete_message.size
   end
   -- Size of Best Bid Offer Message
   if template_id == 10 then
-    return memx_options_memoirtop_sbe_v1_6_a.best_bid_offer_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.best_bid_offer_message.size
   end
   -- Size of Best Bid Message
   if template_id == 11 then
-    return memx_options_memoirtop_sbe_v1_6_a.best_bid_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.best_bid_message.size
   end
   -- Size of Best Offer Message
   if template_id == 12 then
-    return memx_options_memoirtop_sbe_v1_6_a.best_offer_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.best_offer_message.size
   end
   -- Size of Best Bid Short Message
   if template_id == 13 then
-    return memx_options_memoirtop_sbe_v1_6_a.best_bid_short_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.best_bid_short_message.size
   end
   -- Size of Best Offer Short Message
   if template_id == 14 then
-    return memx_options_memoirtop_sbe_v1_6_a.best_offer_short_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.best_offer_short_message.size
   end
   -- Size of Trade Message
   if template_id == 15 then
-    return memx_options_memoirtop_sbe_v1_6_a.trade_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.trade_message.size
   end
   -- Size of Clear Book Message
   if template_id == 16 then
-    return memx_options_memoirtop_sbe_v1_6_a.clear_book_message.size(buffer, offset)
+    return memx_options_memoirtop_sbe_v1_6_a.clear_book_message.size
   end
 
   return 0
@@ -2496,20 +2372,12 @@ end
 -- Sbe Header
 memx_options_memoirtop_sbe_v1_6_a.sbe_header = {}
 
--- Calculate size of: Sbe Header
-memx_options_memoirtop_sbe_v1_6_a.sbe_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.block_length.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.template_id.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.schema_id.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.version.size
-
-  return index
-end
+-- Size: Sbe Header
+memx_options_memoirtop_sbe_v1_6_a.sbe_header.size =
+  memx_options_memoirtop_sbe_v1_6_a.block_length.size + 
+  memx_options_memoirtop_sbe_v1_6_a.template_id.size + 
+  memx_options_memoirtop_sbe_v1_6_a.schema_id.size + 
+  memx_options_memoirtop_sbe_v1_6_a.version.size
 
 -- Display: Sbe Header
 memx_options_memoirtop_sbe_v1_6_a.sbe_header.display = function(packet, parent, length)
@@ -2560,7 +2428,7 @@ memx_options_memoirtop_sbe_v1_6_a.sbe_message = {}
 memx_options_memoirtop_sbe_v1_6_a.sbe_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memoirtop_sbe_v1_6_a.sbe_header.size(buffer, offset + index)
+  index = index + memx_options_memoirtop_sbe_v1_6_a.sbe_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2698,7 +2566,7 @@ end
 -- Sequenced Message
 memx_options_memoirtop_sbe_v1_6_a.sequenced_message = {}
 
--- Size Of: Sequenced Message
+-- Size: Sequenced Message
 memx_options_memoirtop_sbe_v1_6_a.sequenced_message.size = function(buffer, offset)
   local index = 0
 
@@ -2744,7 +2612,7 @@ end
 -- Sequenced Messages
 memx_options_memoirtop_sbe_v1_6_a.sequenced_messages = {}
 
--- Calculate runtime size of: Sequenced Messages
+-- Size: Sequenced Messages
 memx_options_memoirtop_sbe_v1_6_a.sequenced_messages.size = function(buffer, offset, message_type)
   -- Size of Sequenced Message
   if message_type == 2 then
@@ -2894,20 +2762,12 @@ end
 -- Common Header
 memx_options_memoirtop_sbe_v1_6_a.common_header = {}
 
--- Calculate size of: Common Header
-memx_options_memoirtop_sbe_v1_6_a.common_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.message_type.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.header_length.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.session_id.size
-
-  index = index + memx_options_memoirtop_sbe_v1_6_a.sequence_number.size
-
-  return index
-end
+-- Size: Common Header
+memx_options_memoirtop_sbe_v1_6_a.common_header.size =
+  memx_options_memoirtop_sbe_v1_6_a.message_type.size + 
+  memx_options_memoirtop_sbe_v1_6_a.header_length.size + 
+  memx_options_memoirtop_sbe_v1_6_a.session_id.size + 
+  memx_options_memoirtop_sbe_v1_6_a.sequence_number.size
 
 -- Display: Common Header
 memx_options_memoirtop_sbe_v1_6_a.common_header.display = function(packet, parent, length)
@@ -3051,7 +2911,7 @@ end
 omi_memx_options_memoirtop_sbe_v1_6_a:register_heuristic("udp", omi_memx_options_memoirtop_sbe_v1_6_a_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -3067,7 +2927,7 @@ omi_memx_options_memoirtop_sbe_v1_6_a:register_heuristic("udp", omi_memx_options
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

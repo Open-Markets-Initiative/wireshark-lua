@@ -315,22 +315,13 @@ end
 -- Order Replaced Message
 jnx_bonds_pts_itch_v1_2.order_replaced_message = {}
 
--- Calculate size of: Order Replaced Message
-jnx_bonds_pts_itch_v1_2.order_replaced_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.original_order_number.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.new_order_number.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.quantity.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.price.size
-
-  return index
-end
+-- Size: Order Replaced Message
+jnx_bonds_pts_itch_v1_2.order_replaced_message.size =
+  jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size + 
+  jnx_bonds_pts_itch_v1_2.original_order_number.size + 
+  jnx_bonds_pts_itch_v1_2.new_order_number.size + 
+  jnx_bonds_pts_itch_v1_2.quantity.size + 
+  jnx_bonds_pts_itch_v1_2.price.size
 
 -- Display: Order Replaced Message
 jnx_bonds_pts_itch_v1_2.order_replaced_message.display = function(packet, parent, length)
@@ -403,16 +394,10 @@ end
 -- Order Deleted Message
 jnx_bonds_pts_itch_v1_2.order_deleted_message = {}
 
--- Calculate size of: Order Deleted Message
-jnx_bonds_pts_itch_v1_2.order_deleted_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.order_number.size
-
-  return index
-end
+-- Size: Order Deleted Message
+jnx_bonds_pts_itch_v1_2.order_deleted_message.size =
+  jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size + 
+  jnx_bonds_pts_itch_v1_2.order_number.size
 
 -- Display: Order Deleted Message
 jnx_bonds_pts_itch_v1_2.order_deleted_message.display = function(packet, parent, length)
@@ -499,20 +484,12 @@ end
 -- Order Executed Message
 jnx_bonds_pts_itch_v1_2.order_executed_message = {}
 
--- Calculate size of: Order Executed Message
-jnx_bonds_pts_itch_v1_2.order_executed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.order_number.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.executed_quantity.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.match_number.size
-
-  return index
-end
+-- Size: Order Executed Message
+jnx_bonds_pts_itch_v1_2.order_executed_message.size =
+  jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size + 
+  jnx_bonds_pts_itch_v1_2.order_number.size + 
+  jnx_bonds_pts_itch_v1_2.executed_quantity.size + 
+  jnx_bonds_pts_itch_v1_2.match_number.size
 
 -- Display: Order Executed Message
 jnx_bonds_pts_itch_v1_2.order_executed_message.display = function(packet, parent, length)
@@ -639,26 +616,15 @@ end
 -- Order Added Message
 jnx_bonds_pts_itch_v1_2.order_added_message = {}
 
--- Calculate size of: Order Added Message
-jnx_bonds_pts_itch_v1_2.order_added_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.order_number.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.buy_sell_indicator.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.quantity.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.orderbook_id.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.group.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.price.size
-
-  return index
-end
+-- Size: Order Added Message
+jnx_bonds_pts_itch_v1_2.order_added_message.size =
+  jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size + 
+  jnx_bonds_pts_itch_v1_2.order_number.size + 
+  jnx_bonds_pts_itch_v1_2.buy_sell_indicator.size + 
+  jnx_bonds_pts_itch_v1_2.quantity.size + 
+  jnx_bonds_pts_itch_v1_2.orderbook_id.size + 
+  jnx_bonds_pts_itch_v1_2.group.size + 
+  jnx_bonds_pts_itch_v1_2.price.size
 
 -- Display: Order Added Message
 jnx_bonds_pts_itch_v1_2.order_added_message.display = function(packet, parent, length)
@@ -744,20 +710,12 @@ end
 -- Trading State Message
 jnx_bonds_pts_itch_v1_2.trading_state_message = {}
 
--- Calculate size of: Trading State Message
-jnx_bonds_pts_itch_v1_2.trading_state_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.orderbook_id.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.group.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.trading_state.size
-
-  return index
-end
+-- Size: Trading State Message
+jnx_bonds_pts_itch_v1_2.trading_state_message.size =
+  jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size + 
+  jnx_bonds_pts_itch_v1_2.orderbook_id.size + 
+  jnx_bonds_pts_itch_v1_2.group.size + 
+  jnx_bonds_pts_itch_v1_2.trading_state.size
 
 -- Display: Trading State Message
 jnx_bonds_pts_itch_v1_2.trading_state_message.display = function(packet, parent, length)
@@ -954,30 +912,17 @@ end
 -- Orderbook Directory Message
 jnx_bonds_pts_itch_v1_2.orderbook_directory_message = {}
 
--- Calculate size of: Orderbook Directory Message
-jnx_bonds_pts_itch_v1_2.orderbook_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.orderbook_id.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.orderbook_code.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.group.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.round_lot_size.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.price_tick_size_table_id.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.price_decimals.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.upper_price_limit.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.lower_price_limit.size
-
-  return index
-end
+-- Size: Orderbook Directory Message
+jnx_bonds_pts_itch_v1_2.orderbook_directory_message.size =
+  jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size + 
+  jnx_bonds_pts_itch_v1_2.orderbook_id.size + 
+  jnx_bonds_pts_itch_v1_2.orderbook_code.size + 
+  jnx_bonds_pts_itch_v1_2.group.size + 
+  jnx_bonds_pts_itch_v1_2.round_lot_size.size + 
+  jnx_bonds_pts_itch_v1_2.price_tick_size_table_id.size + 
+  jnx_bonds_pts_itch_v1_2.price_decimals.size + 
+  jnx_bonds_pts_itch_v1_2.upper_price_limit.size + 
+  jnx_bonds_pts_itch_v1_2.lower_price_limit.size
 
 -- Display: Orderbook Directory Message
 jnx_bonds_pts_itch_v1_2.orderbook_directory_message.display = function(packet, parent, length)
@@ -1091,20 +1036,12 @@ end
 -- Price Tick Size Message
 jnx_bonds_pts_itch_v1_2.price_tick_size_message = {}
 
--- Calculate size of: Price Tick Size Message
-jnx_bonds_pts_itch_v1_2.price_tick_size_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.price_tick_size_table_id.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.price_tick_size.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.price_start.size
-
-  return index
-end
+-- Size: Price Tick Size Message
+jnx_bonds_pts_itch_v1_2.price_tick_size_message.size =
+  jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size + 
+  jnx_bonds_pts_itch_v1_2.price_tick_size_table_id.size + 
+  jnx_bonds_pts_itch_v1_2.price_tick_size.size + 
+  jnx_bonds_pts_itch_v1_2.price_start.size
 
 -- Display: Price Tick Size Message
 jnx_bonds_pts_itch_v1_2.price_tick_size_message.display = function(packet, parent, length)
@@ -1174,18 +1111,11 @@ end
 -- System Event Message
 jnx_bonds_pts_itch_v1_2.system_event_message = {}
 
--- Calculate size of: System Event Message
-jnx_bonds_pts_itch_v1_2.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.group.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.system_event.size
-
-  return index
-end
+-- Size: System Event Message
+jnx_bonds_pts_itch_v1_2.system_event_message.size =
+  jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size + 
+  jnx_bonds_pts_itch_v1_2.group.size + 
+  jnx_bonds_pts_itch_v1_2.system_event.size
 
 -- Display: System Event Message
 jnx_bonds_pts_itch_v1_2.system_event_message.display = function(packet, parent, length)
@@ -1252,14 +1182,9 @@ end
 -- Timestamp Seconds Message
 jnx_bonds_pts_itch_v1_2.timestamp_seconds_message = {}
 
--- Calculate size of: Timestamp Seconds Message
-jnx_bonds_pts_itch_v1_2.timestamp_seconds_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.timestamp_seconds.size
-
-  return index
-end
+-- Size: Timestamp Seconds Message
+jnx_bonds_pts_itch_v1_2.timestamp_seconds_message.size =
+  jnx_bonds_pts_itch_v1_2.timestamp_seconds.size
 
 -- Display: Timestamp Seconds Message
 jnx_bonds_pts_itch_v1_2.timestamp_seconds_message.display = function(packet, parent, length)
@@ -1297,43 +1222,43 @@ end
 -- Payload
 jnx_bonds_pts_itch_v1_2.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 jnx_bonds_pts_itch_v1_2.payload.size = function(buffer, offset, message_type)
   -- Size of Timestamp Seconds Message
   if message_type == "T" then
-    return jnx_bonds_pts_itch_v1_2.timestamp_seconds_message.size(buffer, offset)
+    return jnx_bonds_pts_itch_v1_2.timestamp_seconds_message.size
   end
   -- Size of System Event Message
   if message_type == "S" then
-    return jnx_bonds_pts_itch_v1_2.system_event_message.size(buffer, offset)
+    return jnx_bonds_pts_itch_v1_2.system_event_message.size
   end
   -- Size of Price Tick Size Message
   if message_type == "L" then
-    return jnx_bonds_pts_itch_v1_2.price_tick_size_message.size(buffer, offset)
+    return jnx_bonds_pts_itch_v1_2.price_tick_size_message.size
   end
   -- Size of Orderbook Directory Message
   if message_type == "R" then
-    return jnx_bonds_pts_itch_v1_2.orderbook_directory_message.size(buffer, offset)
+    return jnx_bonds_pts_itch_v1_2.orderbook_directory_message.size
   end
   -- Size of Trading State Message
   if message_type == "H" then
-    return jnx_bonds_pts_itch_v1_2.trading_state_message.size(buffer, offset)
+    return jnx_bonds_pts_itch_v1_2.trading_state_message.size
   end
   -- Size of Order Added Message
   if message_type == "A" then
-    return jnx_bonds_pts_itch_v1_2.order_added_message.size(buffer, offset)
+    return jnx_bonds_pts_itch_v1_2.order_added_message.size
   end
   -- Size of Order Executed Message
   if message_type == "E" then
-    return jnx_bonds_pts_itch_v1_2.order_executed_message.size(buffer, offset)
+    return jnx_bonds_pts_itch_v1_2.order_executed_message.size
   end
   -- Size of Order Deleted Message
   if message_type == "D" then
-    return jnx_bonds_pts_itch_v1_2.order_deleted_message.size(buffer, offset)
+    return jnx_bonds_pts_itch_v1_2.order_deleted_message.size
   end
   -- Size of Order Replaced Message
   if message_type == "U" then
-    return jnx_bonds_pts_itch_v1_2.order_replaced_message.size(buffer, offset)
+    return jnx_bonds_pts_itch_v1_2.order_replaced_message.size
   end
 
   return 0
@@ -1483,16 +1408,10 @@ end
 -- Message Header
 jnx_bonds_pts_itch_v1_2.message_header = {}
 
--- Calculate size of: Message Header
-jnx_bonds_pts_itch_v1_2.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.message_length.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.message_type.size
-
-  return index
-end
+-- Size: Message Header
+jnx_bonds_pts_itch_v1_2.message_header.size =
+  jnx_bonds_pts_itch_v1_2.message_length.size + 
+  jnx_bonds_pts_itch_v1_2.message_type.size
 
 -- Display: Message Header
 jnx_bonds_pts_itch_v1_2.message_header.display = function(packet, parent, length)
@@ -1669,18 +1588,11 @@ end
 -- Packet Header
 jnx_bonds_pts_itch_v1_2.packet_header = {}
 
--- Calculate size of: Packet Header
-jnx_bonds_pts_itch_v1_2.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_bonds_pts_itch_v1_2.session.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.sequence_number.size
-
-  index = index + jnx_bonds_pts_itch_v1_2.message_count.size
-
-  return index
-end
+-- Size: Packet Header
+jnx_bonds_pts_itch_v1_2.packet_header.size =
+  jnx_bonds_pts_itch_v1_2.session.size + 
+  jnx_bonds_pts_itch_v1_2.sequence_number.size + 
+  jnx_bonds_pts_itch_v1_2.message_count.size
 
 -- Display: Packet Header
 jnx_bonds_pts_itch_v1_2.packet_header.display = function(packet, parent, length)
@@ -1801,7 +1713,7 @@ end
 omi_jnx_bonds_pts_itch_v1_2:register_heuristic("udp", omi_jnx_bonds_pts_itch_v1_2_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -1817,7 +1729,7 @@ omi_jnx_bonds_pts_itch_v1_2:register_heuristic("udp", omi_jnx_bonds_pts_itch_v1_
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

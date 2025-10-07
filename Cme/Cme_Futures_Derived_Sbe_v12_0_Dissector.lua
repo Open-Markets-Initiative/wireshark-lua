@@ -263,16 +263,10 @@ end
 -- Global Day Roll
 cme_futures_derived_sbe_v12_0.global_day_roll = {}
 
--- Calculate size of: Global Day Roll
-cme_futures_derived_sbe_v12_0.global_day_roll.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_derived_sbe_v12_0.transact_time.size
-
-  index = index + cme_futures_derived_sbe_v12_0.security_trading_event.size
-
-  return index
-end
+-- Size: Global Day Roll
+cme_futures_derived_sbe_v12_0.global_day_roll.size =
+  cme_futures_derived_sbe_v12_0.transact_time.size + 
+  cme_futures_derived_sbe_v12_0.security_trading_event.size
 
 -- Display: Global Day Roll
 cme_futures_derived_sbe_v12_0.global_day_roll.display = function(packet, parent, length)
@@ -578,26 +572,15 @@ end
 -- M D Snapshot Refresh Ticker Group
 cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group = {}
 
--- Calculate size of: M D Snapshot Refresh Ticker Group
-cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_px.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_size.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_time.size
-
-  index = index + cme_futures_derived_sbe_v12_0.open_close_settl_flag.size
-
-  index = index + cme_futures_derived_sbe_v12_0.trading_session_id.size
-
-  index = index + cme_futures_derived_sbe_v12_0.aggressor_side.size
-
-  return index
-end
+-- Size: M D Snapshot Refresh Ticker Group
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.size =
+  cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_px.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_size.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_time.size + 
+  cme_futures_derived_sbe_v12_0.open_close_settl_flag.size + 
+  cme_futures_derived_sbe_v12_0.trading_session_id.size + 
+  cme_futures_derived_sbe_v12_0.aggressor_side.size
 
 -- Display: M D Snapshot Refresh Ticker Group
 cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.display = function(packet, parent, length)
@@ -705,16 +688,10 @@ end
 -- Group Size
 cme_futures_derived_sbe_v12_0.group_size = {}
 
--- Calculate size of: Group Size
-cme_futures_derived_sbe_v12_0.group_size.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_derived_sbe_v12_0.block_length.size
-
-  index = index + cme_futures_derived_sbe_v12_0.num_in_group_uint_8.size
-
-  return index
-end
+-- Size: Group Size
+cme_futures_derived_sbe_v12_0.group_size.size =
+  cme_futures_derived_sbe_v12_0.block_length.size + 
+  cme_futures_derived_sbe_v12_0.num_in_group_uint_8.size
 
 -- Display: Group Size
 cme_futures_derived_sbe_v12_0.group_size.display = function(packet, parent, length)
@@ -759,7 +736,7 @@ cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups = {}
 cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0.group_size.size(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
   local m_d_snapshot_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1044,20 +1021,12 @@ end
 -- M D Snapshot Refresh Spectrum Group
 cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group = {}
 
--- Calculate size of: M D Snapshot Refresh Spectrum Group
-cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_px.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_size.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_time.size
-
-  return index
-end
+-- Size: M D Snapshot Refresh Spectrum Group
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.size =
+  cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_px.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_size.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_time.size
 
 -- Display: M D Snapshot Refresh Spectrum Group
 cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.display = function(packet, parent, length)
@@ -1114,7 +1083,7 @@ cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups = {}
 cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0.group_size.size(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
   local m_d_snapshot_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1232,34 +1201,19 @@ end
 -- M D Incremental Refresh Ticker Group
 cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group = {}
 
--- Calculate size of: M D Incremental Refresh Ticker Group
-cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.size
-
-  index = index + cme_futures_derived_sbe_v12_0.security_id.size
-
-  index = index + cme_futures_derived_sbe_v12_0.symbol.size
-
-  index = index + cme_futures_derived_sbe_v12_0.instrument_guid.size
-
-  index = index + cme_futures_derived_sbe_v12_0.financial_instrument_full_name.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_px.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_size.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_time.size
-
-  index = index + cme_futures_derived_sbe_v12_0.open_close_settl_flag.size
-
-  index = index + cme_futures_derived_sbe_v12_0.trading_session_id.size
-
-  index = index + cme_futures_derived_sbe_v12_0.aggressor_side.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Ticker Group
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.size =
+  cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.size + 
+  cme_futures_derived_sbe_v12_0.security_id.size + 
+  cme_futures_derived_sbe_v12_0.symbol.size + 
+  cme_futures_derived_sbe_v12_0.instrument_guid.size + 
+  cme_futures_derived_sbe_v12_0.financial_instrument_full_name.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_px.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_size.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_time.size + 
+  cme_futures_derived_sbe_v12_0.open_close_settl_flag.size + 
+  cme_futures_derived_sbe_v12_0.trading_session_id.size + 
+  cme_futures_derived_sbe_v12_0.aggressor_side.size
 
 -- Display: M D Incremental Refresh Ticker Group
 cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.display = function(packet, parent, length)
@@ -1337,7 +1291,7 @@ cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups = {}
 cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0.group_size.size(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1435,28 +1389,16 @@ end
 -- M D Incremental Refresh Spectrum Group
 cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group = {}
 
--- Calculate size of: M D Incremental Refresh Spectrum Group
-cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.size
-
-  index = index + cme_futures_derived_sbe_v12_0.financial_instrument_full_name.size
-
-  index = index + cme_futures_derived_sbe_v12_0.symbol.size
-
-  index = index + cme_futures_derived_sbe_v12_0.instrument_guid.size
-
-  index = index + cme_futures_derived_sbe_v12_0.security_id.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_px.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_size.size
-
-  index = index + cme_futures_derived_sbe_v12_0.md_entry_time.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Spectrum Group
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.size =
+  cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.size + 
+  cme_futures_derived_sbe_v12_0.financial_instrument_full_name.size + 
+  cme_futures_derived_sbe_v12_0.symbol.size + 
+  cme_futures_derived_sbe_v12_0.instrument_guid.size + 
+  cme_futures_derived_sbe_v12_0.security_id.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_px.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_size.size + 
+  cme_futures_derived_sbe_v12_0.md_entry_time.size
 
 -- Display: M D Incremental Refresh Spectrum Group
 cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.display = function(packet, parent, length)
@@ -1525,7 +1467,7 @@ cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups = {}
 cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0.group_size.size(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1623,7 +1565,7 @@ end
 -- Payload
 cme_futures_derived_sbe_v12_0.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 cme_futures_derived_sbe_v12_0.payload.size = function(buffer, offset, template_id)
   -- Size of Admin Heartbeat
   if template_id == 302 then
@@ -1647,7 +1589,7 @@ cme_futures_derived_sbe_v12_0.payload.size = function(buffer, offset, template_i
   end
   -- Size of Global Day Roll
   if template_id == 307 then
-    return cme_futures_derived_sbe_v12_0.global_day_roll.size(buffer, offset)
+    return cme_futures_derived_sbe_v12_0.global_day_roll.size
   end
 
   return 0
@@ -1798,20 +1740,12 @@ end
 -- Message Header
 cme_futures_derived_sbe_v12_0.message_header = {}
 
--- Calculate size of: Message Header
-cme_futures_derived_sbe_v12_0.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_derived_sbe_v12_0.block_length.size
-
-  index = index + cme_futures_derived_sbe_v12_0.template_id.size
-
-  index = index + cme_futures_derived_sbe_v12_0.schema_id.size
-
-  index = index + cme_futures_derived_sbe_v12_0.version.size
-
-  return index
-end
+-- Size: Message Header
+cme_futures_derived_sbe_v12_0.message_header.size =
+  cme_futures_derived_sbe_v12_0.block_length.size + 
+  cme_futures_derived_sbe_v12_0.template_id.size + 
+  cme_futures_derived_sbe_v12_0.schema_id.size + 
+  cme_futures_derived_sbe_v12_0.version.size
 
 -- Display: Message Header
 cme_futures_derived_sbe_v12_0.message_header.display = function(packet, parent, length)
@@ -1887,7 +1821,7 @@ cme_futures_derived_sbe_v12_0.message.size = function(buffer, offset)
 
   index = index + cme_futures_derived_sbe_v12_0.message_size.size
 
-  index = index + cme_futures_derived_sbe_v12_0.message_header.size(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1987,16 +1921,10 @@ end
 -- Binary Packet Header
 cme_futures_derived_sbe_v12_0.binary_packet_header = {}
 
--- Calculate size of: Binary Packet Header
-cme_futures_derived_sbe_v12_0.binary_packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_derived_sbe_v12_0.message_sequence_number.size
-
-  index = index + cme_futures_derived_sbe_v12_0.sending_time.size
-
-  return index
-end
+-- Size: Binary Packet Header
+cme_futures_derived_sbe_v12_0.binary_packet_header.size =
+  cme_futures_derived_sbe_v12_0.message_sequence_number.size + 
+  cme_futures_derived_sbe_v12_0.sending_time.size
 
 -- Display: Binary Packet Header
 cme_futures_derived_sbe_v12_0.binary_packet_header.display = function(packet, parent, length)
@@ -2136,7 +2064,7 @@ end
 omi_cme_futures_derived_sbe_v12_0:register_heuristic("udp", omi_cme_futures_derived_sbe_v12_0_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -2151,7 +2079,7 @@ omi_cme_futures_derived_sbe_v12_0:register_heuristic("udp", omi_cme_futures_deri
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

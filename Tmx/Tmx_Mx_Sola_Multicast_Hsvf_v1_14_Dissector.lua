@@ -784,16 +784,10 @@ end
 -- Start Of Day Message
 tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message = {}
 
--- Calculate size of: Start Of Day Message
-tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.business_date.size
-
-  return index
-end
+-- Size: Start Of Day Message
+tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.business_date.size
 
 -- Display: Start Of Day Message
 tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message.display = function(packet, parent, length)
@@ -862,14 +856,9 @@ end
 -- Circuit Assurance Message
 tmx_mx_sola_multicast_hsvf_v1_14.circuit_assurance_message = {}
 
--- Calculate size of: Circuit Assurance Message
-tmx_mx_sola_multicast_hsvf_v1_14.circuit_assurance_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.time.size
-
-  return index
-end
+-- Size: Circuit Assurance Message
+tmx_mx_sola_multicast_hsvf_v1_14.circuit_assurance_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.time.size
 
 -- Display: Circuit Assurance Message
 tmx_mx_sola_multicast_hsvf_v1_14.circuit_assurance_message.display = function(packet, parent, length)
@@ -907,16 +896,10 @@ end
 -- End Of Transmission Message
 tmx_mx_sola_multicast_hsvf_v1_14.end_of_transmission_message = {}
 
--- Calculate size of: End Of Transmission Message
-tmx_mx_sola_multicast_hsvf_v1_14.end_of_transmission_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.time.size
-
-  return index
-end
+-- Size: End Of Transmission Message
+tmx_mx_sola_multicast_hsvf_v1_14.end_of_transmission_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.time.size
 
 -- Display: End Of Transmission Message
 tmx_mx_sola_multicast_hsvf_v1_14.end_of_transmission_message.display = function(packet, parent, length)
@@ -1059,20 +1042,12 @@ end
 -- Tick Entry
 tmx_mx_sola_multicast_hsvf_v1_14.tick_entry = {}
 
--- Calculate size of: Tick Entry
-tmx_mx_sola_multicast_hsvf_v1_14.tick_entry.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.min_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.size
-
-  return index
-end
+-- Size: Tick Entry
+tmx_mx_sola_multicast_hsvf_v1_14.tick_entry.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.min_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.size
 
 -- Display: Tick Entry
 tmx_mx_sola_multicast_hsvf_v1_14.tick_entry.display = function(packet, parent, length)
@@ -1286,16 +1261,10 @@ end
 -- End Of Sales Message
 tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message = {}
 
--- Calculate size of: End Of Sales Message
-tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.reserved.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.time.size
-
-  return index
-end
+-- Size: End Of Sales Message
+tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.reserved.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.time.size
 
 -- Display: End Of Sales Message
 tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message.display = function(packet, parent, length)
@@ -1410,18 +1379,11 @@ end
 -- Special Text Bulletin
 tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin = {}
 
--- Calculate size of: Special Text Bulletin
-tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.size
-
-  return index
-end
+-- Size: Special Text Bulletin
+tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.size
 
 -- Display: Special Text Bulletin
 tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin.display = function(packet, parent, length)
@@ -1488,16 +1450,10 @@ end
 -- Regular Text Bulletin
 tmx_mx_sola_multicast_hsvf_v1_14.regular_text_bulletin = {}
 
--- Calculate size of: Regular Text Bulletin
-tmx_mx_sola_multicast_hsvf_v1_14.regular_text_bulletin.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.size
-
-  return index
-end
+-- Size: Regular Text Bulletin
+tmx_mx_sola_multicast_hsvf_v1_14.regular_text_bulletin.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.size
 
 -- Display: Regular Text Bulletin
 tmx_mx_sola_multicast_hsvf_v1_14.regular_text_bulletin.display = function(packet, parent, length)
@@ -1538,15 +1494,15 @@ end
 -- Bulletin
 tmx_mx_sola_multicast_hsvf_v1_14.bulletin = {}
 
--- Calculate runtime size of: Bulletin
+-- Size: Bulletin
 tmx_mx_sola_multicast_hsvf_v1_14.bulletin.size = function(buffer, offset, bulletin_type)
   -- Size of Regular Text Bulletin
   if bulletin_type == "1" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.regular_text_bulletin.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.regular_text_bulletin.size
   end
   -- Size of Special Text Bulletin
   if bulletin_type == "2" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin.size
   end
 
   return 0
@@ -1830,24 +1786,14 @@ end
 -- Bond Definition
 tmx_mx_sola_multicast_hsvf_v1_14.bond_definition = {}
 
--- Calculate size of: Bond Definition
-tmx_mx_sola_multicast_hsvf_v1_14.bond_definition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.coupon.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.size
-
-  return index
-end
+-- Size: Bond Definition
+tmx_mx_sola_multicast_hsvf_v1_14.bond_definition.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.coupon.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.size
 
 -- Display: Bond Definition
 tmx_mx_sola_multicast_hsvf_v1_14.bond_definition.display = function(packet, parent, length)
@@ -2036,20 +1982,12 @@ end
 -- Future Product
 tmx_mx_sola_multicast_hsvf_v1_14.future_product = {}
 
--- Calculate size of: Future Product
-tmx_mx_sola_multicast_hsvf_v1_14.future_product.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.root.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size
-
-  return index
-end
+-- Size: Future Product
+tmx_mx_sola_multicast_hsvf_v1_14.future_product.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.root.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size
 
 -- Display: Future Product
 tmx_mx_sola_multicast_hsvf_v1_14.future_product.display = function(packet, parent, length)
@@ -2102,7 +2040,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_deliverables_message.size = function(buf
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size(buffer, offset + index)
+  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.size
 
@@ -2201,18 +2139,11 @@ end
 -- Group Status Strategies Message
 tmx_mx_sola_multicast_hsvf_v1_14.group_status_strategies_message = {}
 
--- Calculate size of: Group Status Strategies Message
-tmx_mx_sola_multicast_hsvf_v1_14.group_status_strategies_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.group_status.size
-
-  return index
-end
+-- Size: Group Status Strategies Message
+tmx_mx_sola_multicast_hsvf_v1_14.group_status_strategies_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.group_status.size
 
 -- Display: Group Status Strategies Message
 tmx_mx_sola_multicast_hsvf_v1_14.group_status_strategies_message.display = function(packet, parent, length)
@@ -2256,18 +2187,11 @@ end
 -- Group Status Message
 tmx_mx_sola_multicast_hsvf_v1_14.group_status_message = {}
 
--- Calculate size of: Group Status Message
-tmx_mx_sola_multicast_hsvf_v1_14.group_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.root.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.group_status.size
-
-  return index
-end
+-- Size: Group Status Message
+tmx_mx_sola_multicast_hsvf_v1_14.group_status_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.root.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.group_status.size
 
 -- Display: Group Status Message
 tmx_mx_sola_multicast_hsvf_v1_14.group_status_message.display = function(packet, parent, length)
@@ -2510,32 +2434,18 @@ end
 -- Futures Trade Correction Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message = {}
 
--- Calculate size of: Futures Trade Correction Message
-tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
-
-  return index
-end
+-- Size: Futures Trade Correction Message
+tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_product.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
 
 -- Display: Futures Trade Correction Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.display = function(packet, parent, length)
@@ -2646,18 +2556,11 @@ end
 -- Strategy Auction Ending Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message = {}
 
--- Calculate size of: Strategy Auction Ending Message
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  return index
-end
+-- Size: Strategy Auction Ending Message
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
 -- Display: Strategy Auction Ending Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message.display = function(packet, parent, length)
@@ -2840,24 +2743,14 @@ end
 -- Option Symbol
 tmx_mx_sola_multicast_hsvf_v1_14.option_symbol = {}
 
--- Calculate size of: Option Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.root.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strike_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size
-
-  return index
-end
+-- Size: Option Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.root.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strike_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size
 
 -- Display: Option Symbol
 tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.display = function(packet, parent, length)
@@ -2910,18 +2803,11 @@ end
 -- Option Auction Ending Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_auction_ending_message = {}
 
--- Calculate size of: Option Auction Ending Message
-tmx_mx_sola_multicast_hsvf_v1_14.option_auction_ending_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  return index
-end
+-- Size: Option Auction Ending Message
+tmx_mx_sola_multicast_hsvf_v1_14.option_auction_ending_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
 -- Display: Option Auction Ending Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_auction_ending_message.display = function(packet, parent, length)
@@ -2965,14 +2851,9 @@ end
 -- Beginning Of Strategy Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_strategy_summary_message = {}
 
--- Calculate size of: Beginning Of Strategy Summary Message
-tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_strategy_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  return index
-end
+-- Size: Beginning Of Strategy Summary Message
+tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_strategy_summary_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
 
 -- Display: Beginning Of Strategy Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_strategy_summary_message.display = function(packet, parent, length)
@@ -3010,14 +2891,9 @@ end
 -- Beginning Of Futures Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_futures_summary_message = {}
 
--- Calculate size of: Beginning Of Futures Summary Message
-tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_futures_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  return index
-end
+-- Size: Beginning Of Futures Summary Message
+tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_futures_summary_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
 
 -- Display: Beginning Of Futures Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_futures_summary_message.display = function(packet, parent, length)
@@ -3055,14 +2931,9 @@ end
 -- Beginning Of Future Options Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_future_options_summary_message = {}
 
--- Calculate size of: Beginning Of Future Options Summary Message
-tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_future_options_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  return index
-end
+-- Size: Beginning Of Future Options Summary Message
+tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_future_options_summary_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
 
 -- Display: Beginning Of Future Options Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_future_options_summary_message.display = function(packet, parent, length)
@@ -3100,14 +2971,9 @@ end
 -- Beginning Of Options Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_options_summary_message = {}
 
--- Calculate size of: Beginning Of Options Summary Message
-tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_options_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  return index
-end
+-- Size: Beginning Of Options Summary Message
+tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_options_summary_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
 
 -- Display: Beginning Of Options Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_options_summary_message.display = function(packet, parent, length)
@@ -3330,32 +3196,18 @@ end
 -- Strategy Initial And Improvement Order Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_initial_and_improvement_order_message = {}
 
--- Calculate size of: Strategy Initial And Improvement Order Message
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_initial_and_improvement_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_side.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_type.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.size
-
-  return index
-end
+-- Size: Strategy Initial And Improvement Order Message
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_initial_and_improvement_order_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_side.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_type.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.size
 
 -- Display: Strategy Initial And Improvement Order Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_initial_and_improvement_order_message.display = function(packet, parent, length)
@@ -3420,32 +3272,18 @@ end
 -- Option Initial And Improvement Order Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_initial_and_improvement_order_message = {}
 
--- Calculate size of: Option Initial And Improvement Order Message
-tmx_mx_sola_multicast_hsvf_v1_14.option_initial_and_improvement_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_side.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_type.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.order_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.size
-
-  return index
-end
+-- Size: Option Initial And Improvement Order Message
+tmx_mx_sola_multicast_hsvf_v1_14.option_initial_and_improvement_order_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_side.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_type.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.order_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.size
 
 -- Display: Option Initial And Improvement Order Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_initial_and_improvement_order_message.display = function(packet, parent, length)
@@ -4036,66 +3874,35 @@ end
 -- Strategy Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message = {}
 
--- Calculate size of: Strategy Summary Message
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.high_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.low_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.reason.size
-
-  return index
-end
+-- Size: Strategy Summary Message
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.high_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.low_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.reason.size
 
 -- Display: Strategy Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.display = function(packet, parent, length)
@@ -4420,70 +4227,37 @@ end
 -- Futures Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message = {}
 
--- Calculate size of: Futures Summary Message
-tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.high_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.low_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_interest.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.reason.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.size
-
-  return index
-end
+-- Size: Futures Summary Message
+tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_product.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.high_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.low_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_interest.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.reason.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.size
 
 -- Display: Futures Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.display = function(packet, parent, length)
@@ -4795,26 +4569,15 @@ end
 -- Future Option Symbol
 tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol = {}
 
--- Calculate size of: Future Option Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.root.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strike_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.size
-
-  return index
-end
+-- Size: Future Option Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.root.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strike_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.size
 
 -- Display: Future Option Symbol
 tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.display = function(packet, parent, length)
@@ -4870,68 +4633,36 @@ end
 -- Future Options Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message = {}
 
--- Calculate size of: Future Options Summary Message
-tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_interest.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.opening_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.high_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.low_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.reason.size
-
-  return index
-end
+-- Size: Future Options Summary Message
+tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_interest.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.opening_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.high_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.low_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.reason.size
 
 -- Display: Future Options Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.display = function(packet, parent, length)
@@ -5180,70 +4911,37 @@ end
 -- Option Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message = {}
 
--- Calculate size of: Option Summary Message
-tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_interest.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.high_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.low_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_marker.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.closing_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.reason.size
-
-  return index
-end
+-- Size: Option Summary Message
+tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_interest.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.high_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.low_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_marker.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.closing_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.reason.size
 
 -- Display: Option Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.display = function(packet, parent, length)
@@ -5553,32 +5251,18 @@ end
 -- Strategy Auction Beginning Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_beginning_message = {}
 
--- Calculate size of: Strategy Auction Beginning Message
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_beginning_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.size
-
-  return index
-end
+-- Size: Strategy Auction Beginning Message
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_beginning_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.size
 
 -- Display: Strategy Auction Beginning Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_beginning_message.display = function(packet, parent, length)
@@ -5643,32 +5327,18 @@ end
 -- Option Auction Beginning Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_auction_beginning_message = {}
 
--- Calculate size of: Option Auction Beginning Message
-tmx_mx_sola_multicast_hsvf_v1_14.option_auction_beginning_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.size
-
-  return index
-end
+-- Size: Option Auction Beginning Message
+tmx_mx_sola_multicast_hsvf_v1_14.option_auction_beginning_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.size
 
 -- Display: Option Auction Beginning Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_auction_beginning_message.display = function(packet, parent, length)
@@ -5881,24 +5551,14 @@ end
 -- Strategy Instrument Leg
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg = {}
 
--- Calculate size of: Strategy Instrument Leg
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.leg_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.size
-
-  return index
-end
+-- Size: Strategy Instrument Leg
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.leg_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.size
 
 -- Display: Strategy Instrument Leg
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg.display = function(packet, parent, length)
@@ -6542,20 +6202,12 @@ end
 -- Associated Product
 tmx_mx_sola_multicast_hsvf_v1_14.associated_product = {}
 
--- Calculate size of: Associated Product
-tmx_mx_sola_multicast_hsvf_v1_14.associated_product.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.root.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size
-
-  return index
-end
+-- Size: Associated Product
+tmx_mx_sola_multicast_hsvf_v1_14.associated_product.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.root.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size
 
 -- Display: Associated Product
 tmx_mx_sola_multicast_hsvf_v1_14.associated_product.display = function(packet, parent, length)
@@ -6836,58 +6488,31 @@ end
 -- Futures Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message = {}
 
--- Calculate size of: Futures Instrument Keys Message
-tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.contract_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_value.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.currency.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.associated_product.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.size
-
-  return index
-end
+-- Size: Futures Instrument Keys Message
+tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_product.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.contract_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_value.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.currency.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.associated_product.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.size
 
 -- Display: Futures Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message.display = function(packet, parent, length)
@@ -6991,22 +6616,13 @@ end
 -- Underlying Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.underlying_instrument_keys_message = {}
 
--- Calculate size of: Underlying Instrument Keys Message
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size
-
-  return index
-end
+-- Size: Underlying Instrument Keys Message
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_instrument_keys_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size
 
 -- Display: Underlying Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.underlying_instrument_keys_message.display = function(packet, parent, length)
@@ -7153,62 +6769,33 @@ end
 -- Future Options Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message = {}
 
--- Calculate size of: Future Options Instrument Keys Message
-tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.contract_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_value.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.currency.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.size
-
-  return index
-end
+-- Size: Future Options Instrument Keys Message
+tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.contract_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_value.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.currency.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.size
 
 -- Display: Future Options Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.display = function(packet, parent, length)
@@ -7376,60 +6963,32 @@ end
 -- Option Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message = {}
 
--- Calculate size of: Option Instrument Keys Message
-tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_type.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_marker.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.contract_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_value.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.currency.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.size
-
-  return index
-end
+-- Size: Option Instrument Keys Message
+tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_type.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_marker.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.contract_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_value.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.currency.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.size
 
 -- Display: Option Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.display = function(packet, parent, length)
@@ -7587,28 +7146,16 @@ end
 -- Strategy Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_cancellation_message = {}
 
--- Calculate size of: Strategy Trade Cancellation Message
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  return index
-end
+-- Size: Strategy Trade Cancellation Message
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_cancellation_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
 -- Display: Strategy Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_cancellation_message.display = function(packet, parent, length)
@@ -7667,28 +7214,16 @@ end
 -- Future Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message = {}
 
--- Calculate size of: Future Trade Cancellation Message
-tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  return index
-end
+-- Size: Future Trade Cancellation Message
+tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_product.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
 -- Display: Future Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message.display = function(packet, parent, length)
@@ -7821,28 +7356,16 @@ end
 -- Future Options Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message = {}
 
--- Calculate size of: Future Options Trade Cancellation Message
-tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  return index
-end
+-- Size: Future Options Trade Cancellation Message
+tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
 -- Display: Future Options Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message.display = function(packet, parent, length)
@@ -7901,28 +7424,16 @@ end
 -- Option Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message = {}
 
--- Calculate size of: Option Trade Cancellation Message
-tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  return index
-end
+-- Size: Option Trade Cancellation Message
+tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
 -- Display: Option Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message.display = function(packet, parent, length)
@@ -8050,34 +7561,19 @@ end
 -- Strategy Market Depth Level
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level = {}
 
--- Calculate size of: Strategy Market Depth Level
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.size
-
-  return index
-end
+-- Size: Strategy Market Depth Level
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.size
 
 -- Display: Strategy Market Depth Level
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level.display = function(packet, parent, length)
@@ -8300,30 +7796,17 @@ end
 -- Market Depth Level
 tmx_mx_sola_multicast_hsvf_v1_14.market_depth_level = {}
 
--- Calculate size of: Market Depth Level
-tmx_mx_sola_multicast_hsvf_v1_14.market_depth_level.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.size
-
-  return index
-end
+-- Size: Market Depth Level
+tmx_mx_sola_multicast_hsvf_v1_14.market_depth_level.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.size
 
 -- Display: Market Depth Level
 tmx_mx_sola_multicast_hsvf_v1_14.market_depth_level.display = function(packet, parent, length)
@@ -8397,7 +7880,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_market_depth_message.size = function(bu
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size(buffer, offset + index)
+  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
 
@@ -8461,7 +7944,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_market_depth_message.size = func
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size(buffer, offset + index)
+  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
 
@@ -8525,7 +8008,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_market_depth_message.size = function(buf
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
+  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
 
@@ -8583,34 +8066,19 @@ end
 -- Strategy Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_quote_message = {}
 
--- Calculate size of: Strategy Quote Message
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
-
-  return index
-end
+-- Size: Strategy Quote Message
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_quote_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
 
 -- Display: Strategy Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_quote_message.display = function(packet, parent, length)
@@ -8678,30 +8146,17 @@ end
 -- Futures Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_quote_message = {}
 
--- Calculate size of: Futures Quote Message
-tmx_mx_sola_multicast_hsvf_v1_14.futures_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
-
-  return index
-end
+-- Size: Futures Quote Message
+tmx_mx_sola_multicast_hsvf_v1_14.futures_quote_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_product.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
 
 -- Display: Futures Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_quote_message.display = function(packet, parent, length)
@@ -8763,30 +8218,17 @@ end
 -- Future Options Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_quote_message = {}
 
--- Calculate size of: Future Options Quote Message
-tmx_mx_sola_multicast_hsvf_v1_14.future_options_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
-
-  return index
-end
+-- Size: Future Options Quote Message
+tmx_mx_sola_multicast_hsvf_v1_14.future_options_quote_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
 
 -- Display: Future Options Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_quote_message.display = function(packet, parent, length)
@@ -8848,30 +8290,17 @@ end
 -- Option Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_quote_message = {}
 
--- Calculate size of: Option Quote Message
-tmx_mx_sola_multicast_hsvf_v1_14.option_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
-
-  return index
-end
+-- Size: Option Quote Message
+tmx_mx_sola_multicast_hsvf_v1_14.option_quote_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
 
 -- Display: Option Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_quote_message.display = function(packet, parent, length)
@@ -9018,20 +8447,12 @@ end
 -- Instrument Schedule Notice Strategy Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_strategy_message = {}
 
--- Calculate size of: Instrument Schedule Notice Strategy Message
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_strategy_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.series_status.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size
-
-  return index
-end
+-- Size: Instrument Schedule Notice Strategy Message
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_strategy_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.series_status.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size
 
 -- Display: Instrument Schedule Notice Strategy Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_strategy_message.display = function(packet, parent, length)
@@ -9078,20 +8499,12 @@ end
 -- Instrument Schedule Notice Future Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_future_message = {}
 
--- Calculate size of: Instrument Schedule Notice Future Message
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_future_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.series_status.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size
-
-  return index
-end
+-- Size: Instrument Schedule Notice Future Message
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_future_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_product.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.series_status.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size
 
 -- Display: Instrument Schedule Notice Future Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_future_message.display = function(packet, parent, length)
@@ -9138,20 +8551,12 @@ end
 -- Instrument Schedule Notice Futures Option Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_futures_option_message = {}
 
--- Calculate size of: Instrument Schedule Notice Futures Option Message
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_futures_option_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.series_status.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size
-
-  return index
-end
+-- Size: Instrument Schedule Notice Futures Option Message
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_futures_option_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.series_status.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size
 
 -- Display: Instrument Schedule Notice Futures Option Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_futures_option_message.display = function(packet, parent, length)
@@ -9198,20 +8603,12 @@ end
 -- Instrument Schedule Notice Option Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_option_message = {}
 
--- Calculate size of: Instrument Schedule Notice Option Message
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_option_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.series_status.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size
-
-  return index
-end
+-- Size: Instrument Schedule Notice Option Message
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_option_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.series_status.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size
 
 -- Display: Instrument Schedule Notice Option Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_option_message.display = function(packet, parent, length)
@@ -9314,20 +8711,12 @@ end
 -- Strategy Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_request_for_quote_message = {}
 
--- Calculate size of: Strategy Request For Quote Message
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_request_for_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size
-
-  return index
-end
+-- Size: Strategy Request For Quote Message
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_request_for_quote_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size
 
 -- Display: Strategy Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_request_for_quote_message.display = function(packet, parent, length)
@@ -9374,20 +8763,12 @@ end
 -- Future Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_request_for_quote_message = {}
 
--- Calculate size of: Future Request For Quote Message
-tmx_mx_sola_multicast_hsvf_v1_14.future_request_for_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size
-
-  return index
-end
+-- Size: Future Request For Quote Message
+tmx_mx_sola_multicast_hsvf_v1_14.future_request_for_quote_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_product.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size
 
 -- Display: Future Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_request_for_quote_message.display = function(packet, parent, length)
@@ -9434,20 +8815,12 @@ end
 -- Future Options Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_request_for_quote_message = {}
 
--- Calculate size of: Future Options Request For Quote Message
-tmx_mx_sola_multicast_hsvf_v1_14.future_options_request_for_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size
-
-  return index
-end
+-- Size: Future Options Request For Quote Message
+tmx_mx_sola_multicast_hsvf_v1_14.future_options_request_for_quote_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size
 
 -- Display: Future Options Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_request_for_quote_message.display = function(packet, parent, length)
@@ -9494,20 +8867,12 @@ end
 -- Option Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_request_for_quote_message = {}
 
--- Calculate size of: Option Request For Quote Message
-tmx_mx_sola_multicast_hsvf_v1_14.option_request_for_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size
-
-  return index
-end
+-- Size: Option Request For Quote Message
+tmx_mx_sola_multicast_hsvf_v1_14.option_request_for_quote_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size
 
 -- Display: Option Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_request_for_quote_message.display = function(packet, parent, length)
@@ -9554,36 +8919,20 @@ end
 -- Strategy Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message = {}
 
--- Calculate size of: Strategy Trade Message
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.symbol.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  return index
-end
+-- Size: Strategy Trade Message
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
 -- Display: Strategy Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.display = function(packet, parent, length)
@@ -9654,34 +9003,19 @@ end
 -- Futures Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message = {}
 
--- Calculate size of: Futures Trade Message
-tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_product.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  return index
-end
+-- Size: Futures Trade Message
+tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_product.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
 -- Display: Futures Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.display = function(packet, parent, length)
@@ -9795,34 +9129,19 @@ end
 -- Future Options Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message = {}
 
--- Calculate size of: Future Options Trade Message
-tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  return index
-end
+-- Size: Future Options Trade Message
+tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
 -- Display: Future Options Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message.display = function(packet, parent, length)
@@ -9890,34 +9209,19 @@ end
 -- Option Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message = {}
 
--- Calculate size of: Option Trade Message
-tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size(buffer, offset + index)
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-
-  return index
-end
+-- Size: Option Trade Message
+tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
 -- Display: Option Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message.display = function(packet, parent, length)
@@ -9985,71 +9289,71 @@ end
 -- Message Body
 tmx_mx_sola_multicast_hsvf_v1_14.message_body = {}
 
--- Calculate runtime size of: Message Body
+-- Size: Message Body
 tmx_mx_sola_multicast_hsvf_v1_14.message_body.size = function(buffer, offset, message_type)
   -- Size of Option Trade Message
   if message_type == "C" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message.size
   end
   -- Size of Future Options Trade Message
   if message_type == "CB" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message.size
   end
   -- Size of Futures Trade Message
   if message_type == "CF" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.size
   end
   -- Size of Strategy Trade Message
   if message_type == "CS" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.size
   end
   -- Size of Option Request For Quote Message
   if message_type == "D" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.option_request_for_quote_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.option_request_for_quote_message.size
   end
   -- Size of Future Options Request For Quote Message
   if message_type == "DB" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_request_for_quote_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_request_for_quote_message.size
   end
   -- Size of Future Request For Quote Message
   if message_type == "DF" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.future_request_for_quote_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.future_request_for_quote_message.size
   end
   -- Size of Strategy Request For Quote Message
   if message_type == "DS" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_request_for_quote_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_request_for_quote_message.size
   end
   -- Size of Instrument Schedule Notice Option Message
   if message_type == "E" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_option_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_option_message.size
   end
   -- Size of Instrument Schedule Notice Futures Option Message
   if message_type == "EB" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_futures_option_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_futures_option_message.size
   end
   -- Size of Instrument Schedule Notice Future Message
   if message_type == "EF" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_future_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_future_message.size
   end
   -- Size of Instrument Schedule Notice Strategy Message
   if message_type == "ES" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_strategy_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_strategy_message.size
   end
   -- Size of Option Quote Message
   if message_type == "F" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.option_quote_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.option_quote_message.size
   end
   -- Size of Future Options Quote Message
   if message_type == "FB" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_quote_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_quote_message.size
   end
   -- Size of Futures Quote Message
   if message_type == "FF" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.futures_quote_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.futures_quote_message.size
   end
   -- Size of Strategy Quote Message
   if message_type == "FS" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_quote_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_quote_message.size
   end
   -- Size of Option Market Depth Message
   if message_type == "H" then
@@ -10069,35 +9373,35 @@ tmx_mx_sola_multicast_hsvf_v1_14.message_body.size = function(buffer, offset, me
   end
   -- Size of Option Trade Cancellation Message
   if message_type == "I" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message.size
   end
   -- Size of Future Options Trade Cancellation Message
   if message_type == "IB" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message.size
   end
   -- Size of Future Trade Cancellation Message
   if message_type == "IF" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message.size
   end
   -- Size of Strategy Trade Cancellation Message
   if message_type == "IS" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_cancellation_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_cancellation_message.size
   end
   -- Size of Option Instrument Keys Message
   if message_type == "J" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.size
   end
   -- Size of Future Options Instrument Keys Message
   if message_type == "JB" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.size
   end
   -- Size of Underlying Instrument Keys Message
   if message_type == "JE" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.underlying_instrument_keys_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.underlying_instrument_keys_message.size
   end
   -- Size of Futures Instrument Keys Message
   if message_type == "JF" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message.size
   end
   -- Size of Strategy Instrument Keys Message
   if message_type == "JS" then
@@ -10105,71 +9409,71 @@ tmx_mx_sola_multicast_hsvf_v1_14.message_body.size = function(buffer, offset, me
   end
   -- Size of Option Auction Beginning Message
   if message_type == "M" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.option_auction_beginning_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.option_auction_beginning_message.size
   end
   -- Size of Strategy Auction Beginning Message
   if message_type == "MS" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_beginning_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_beginning_message.size
   end
   -- Size of Option Summary Message
   if message_type == "N" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.size
   end
   -- Size of Future Options Summary Message
   if message_type == "NB" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.size
   end
   -- Size of Futures Summary Message
   if message_type == "NF" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.size
   end
   -- Size of Strategy Summary Message
   if message_type == "NS" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.size
   end
   -- Size of Option Initial And Improvement Order Message
   if message_type == "O" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.option_initial_and_improvement_order_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.option_initial_and_improvement_order_message.size
   end
   -- Size of Strategy Initial And Improvement Order Message
   if message_type == "OS" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_initial_and_improvement_order_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_initial_and_improvement_order_message.size
   end
   -- Size of Beginning Of Options Summary Message
   if message_type == "Q" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_options_summary_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_options_summary_message.size
   end
   -- Size of Beginning Of Future Options Summary Message
   if message_type == "QB" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_future_options_summary_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_future_options_summary_message.size
   end
   -- Size of Beginning Of Futures Summary Message
   if message_type == "QF" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_futures_summary_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_futures_summary_message.size
   end
   -- Size of Beginning Of Strategy Summary Message
   if message_type == "QS" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_strategy_summary_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_strategy_summary_message.size
   end
   -- Size of Option Auction Ending Message
   if message_type == "T" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.option_auction_ending_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.option_auction_ending_message.size
   end
   -- Size of Strategy Auction Ending Message
   if message_type == "TS" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message.size
   end
   -- Size of Futures Trade Correction Message
   if message_type == "XF" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.size
   end
   -- Size of Group Status Message
   if message_type == "GR" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.group_status_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.group_status_message.size
   end
   -- Size of Group Status Strategies Message
   if message_type == "GS" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.group_status_strategies_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.group_status_strategies_message.size
   end
   -- Size of Future Deliverables Message
   if message_type == "XF" then
@@ -10181,7 +9485,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.message_body.size = function(buffer, offset, me
   end
   -- Size of End Of Sales Message
   if message_type == "S" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message.size
   end
   -- Size of Tick Table Message
   if message_type == "TT" then
@@ -10189,15 +9493,15 @@ tmx_mx_sola_multicast_hsvf_v1_14.message_body.size = function(buffer, offset, me
   end
   -- Size of End Of Transmission Message
   if message_type == "U" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.end_of_transmission_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.end_of_transmission_message.size
   end
   -- Size of Circuit Assurance Message
   if message_type == "V" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.circuit_assurance_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.circuit_assurance_message.size
   end
   -- Size of Start Of Day Message
   if message_type == "SD" then
-    return tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message.size(buffer, offset)
+    return tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message.size
   end
 
   return 0
@@ -10683,18 +9987,11 @@ end
 -- Message Header
 tmx_mx_sola_multicast_hsvf_v1_14.message_header = {}
 
--- Calculate size of: Message Header
-tmx_mx_sola_multicast_hsvf_v1_14.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.message_type.size
-
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.size
-
-  return index
-end
+-- Size: Message Header
+tmx_mx_sola_multicast_hsvf_v1_14.message_header.size =
+  tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.message_type.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.size
 
 -- Display: Message Header
 tmx_mx_sola_multicast_hsvf_v1_14.message_header.display = function(packet, parent, length)
@@ -10855,7 +10152,7 @@ end
 omi_tmx_mx_sola_multicast_hsvf_v1_14:register_heuristic("udp", omi_tmx_mx_sola_multicast_hsvf_v1_14_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -10871,7 +10168,7 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14:register_heuristic("udp", omi_tmx_mx_sola_m
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

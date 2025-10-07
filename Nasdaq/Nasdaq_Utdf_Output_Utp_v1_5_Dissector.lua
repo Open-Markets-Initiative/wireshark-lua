@@ -619,22 +619,13 @@ end
 -- Message Info
 nasdaq_utdf_output_utp_v1_5.message_info = {}
 
--- Calculate size of: Message Info
-nasdaq_utdf_output_utp_v1_5.message_info.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_originator_id.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.sub_market_center_id.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.sip_timestamp.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.participant_timestamp.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.participant_token.size
-
-  return index
-end
+-- Size: Message Info
+nasdaq_utdf_output_utp_v1_5.message_info.size =
+  nasdaq_utdf_output_utp_v1_5.market_center_originator_id.size + 
+  nasdaq_utdf_output_utp_v1_5.sub_market_center_id.size + 
+  nasdaq_utdf_output_utp_v1_5.sip_timestamp.size + 
+  nasdaq_utdf_output_utp_v1_5.participant_timestamp.size + 
+  nasdaq_utdf_output_utp_v1_5.participant_token.size
 
 -- Display: Message Info
 nasdaq_utdf_output_utp_v1_5.message_info.display = function(packet, parent, length)
@@ -999,7 +990,7 @@ end
 -- Control Payload
 nasdaq_utdf_output_utp_v1_5.control_payload = {}
 
--- Calculate runtime size of: Control Payload
+-- Size: Control Payload
 nasdaq_utdf_output_utp_v1_5.control_payload.size = function(buffer, offset, control_message_type)
   -- Size of Start Of Day Message
   if control_message_type == "I" then
@@ -1234,16 +1225,10 @@ end
 -- Market Center Volume Attachment
 nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment = {}
 
--- Calculate size of: Market Center Volume Attachment
-nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_identifier.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.current_market_center_volume.size
-
-  return index
-end
+-- Size: Market Center Volume Attachment
+nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment.size =
+  nasdaq_utdf_output_utp_v1_5.market_center_identifier.size + 
+  nasdaq_utdf_output_utp_v1_5.current_market_center_volume.size
 
 -- Display: Market Center Volume Attachment
 nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment.display = function(packet, parent, length)
@@ -1392,7 +1377,7 @@ end
 -- Volume Payload
 nasdaq_utdf_output_utp_v1_5.volume_payload = {}
 
--- Calculate runtime size of: Volume Payload
+-- Size: Volume Payload
 nasdaq_utdf_output_utp_v1_5.volume_payload.size = function(buffer, offset, volume_message_type)
   -- Size of Total Consolidated And Market Center Volume Message
   if volume_message_type == "M" then
@@ -1655,24 +1640,14 @@ end
 -- Market Center Closing Price And Volume Summary
 nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary = {}
 
--- Calculate size of: Market Center Closing Price And Volume Summary
-nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_identifier.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_closing_price.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_volume.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_participant_high_price.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_participant_low_price.size
-
-  return index
-end
+-- Size: Market Center Closing Price And Volume Summary
+nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary.size =
+  nasdaq_utdf_output_utp_v1_5.market_center_identifier.size + 
+  nasdaq_utdf_output_utp_v1_5.market_center_closing_price.size + 
+  nasdaq_utdf_output_utp_v1_5.market_center_volume.size + 
+  nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.size + 
+  nasdaq_utdf_output_utp_v1_5.market_participant_high_price.size + 
+  nasdaq_utdf_output_utp_v1_5.market_participant_low_price.size
 
 -- Display: Market Center Closing Price And Volume Summary
 nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary.display = function(packet, parent, length)
@@ -3264,7 +3239,7 @@ end
 -- Administrative Payload
 nasdaq_utdf_output_utp_v1_5.administrative_payload = {}
 
--- Calculate runtime size of: Administrative Payload
+-- Size: Administrative Payload
 nasdaq_utdf_output_utp_v1_5.administrative_payload.size = function(buffer, offset, administrative_message_type)
   -- Size of General Administrative Message
   if administrative_message_type == "A" then
@@ -3788,20 +3763,12 @@ end
 -- Sale Condition
 nasdaq_utdf_output_utp_v1_5.sale_condition = {}
 
--- Calculate size of: Sale Condition
-nasdaq_utdf_output_utp_v1_5.sale_condition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_1.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_2.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_3.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_4.size
-
-  return index
-end
+-- Size: Sale Condition
+nasdaq_utdf_output_utp_v1_5.sale_condition.size =
+  nasdaq_utdf_output_utp_v1_5.level_1.size + 
+  nasdaq_utdf_output_utp_v1_5.level_2.size + 
+  nasdaq_utdf_output_utp_v1_5.level_3.size + 
+  nasdaq_utdf_output_utp_v1_5.level_4.size
 
 -- Display: Sale Condition
 nasdaq_utdf_output_utp_v1_5.sale_condition.display = function(packet, parent, length)
@@ -4254,20 +4221,12 @@ end
 -- Corrected Sale Condition
 nasdaq_utdf_output_utp_v1_5.corrected_sale_condition = {}
 
--- Calculate size of: Corrected Sale Condition
-nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_1.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_2.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_3.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_4.size
-
-  return index
-end
+-- Size: Corrected Sale Condition
+nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.size =
+  nasdaq_utdf_output_utp_v1_5.level_1.size + 
+  nasdaq_utdf_output_utp_v1_5.level_2.size + 
+  nasdaq_utdf_output_utp_v1_5.level_3.size + 
+  nasdaq_utdf_output_utp_v1_5.level_4.size
 
 -- Display: Corrected Sale Condition
 nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.display = function(packet, parent, length)
@@ -4435,20 +4394,12 @@ end
 -- Original Sale Condition
 nasdaq_utdf_output_utp_v1_5.original_sale_condition = {}
 
--- Calculate size of: Original Sale Condition
-nasdaq_utdf_output_utp_v1_5.original_sale_condition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_1.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_2.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_3.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_4.size
-
-  return index
-end
+-- Size: Original Sale Condition
+nasdaq_utdf_output_utp_v1_5.original_sale_condition.size =
+  nasdaq_utdf_output_utp_v1_5.level_1.size + 
+  nasdaq_utdf_output_utp_v1_5.level_2.size + 
+  nasdaq_utdf_output_utp_v1_5.level_3.size + 
+  nasdaq_utdf_output_utp_v1_5.level_4.size
 
 -- Display: Original Sale Condition
 nasdaq_utdf_output_utp_v1_5.original_sale_condition.display = function(packet, parent, length)
@@ -5059,7 +5010,7 @@ end
 -- Trade Payload
 nasdaq_utdf_output_utp_v1_5.trade_payload = {}
 
--- Calculate runtime size of: Trade Payload
+-- Size: Trade Payload
 nasdaq_utdf_output_utp_v1_5.trade_payload.size = function(buffer, offset, trade_message_type)
   -- Size of Trade Report Message Short Form Message
   if trade_message_type == "A" then
@@ -5226,7 +5177,7 @@ end
 -- Payload
 nasdaq_utdf_output_utp_v1_5.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 nasdaq_utdf_output_utp_v1_5.payload.size = function(buffer, offset, message_category)
   -- Size of Trade
   if message_category == "T" then
@@ -5367,18 +5318,11 @@ end
 -- Message Header
 nasdaq_utdf_output_utp_v1_5.message_header = {}
 
--- Calculate size of: Message Header
-nasdaq_utdf_output_utp_v1_5.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.message_length.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.version.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.message_category.size
-
-  return index
-end
+-- Size: Message Header
+nasdaq_utdf_output_utp_v1_5.message_header.size =
+  nasdaq_utdf_output_utp_v1_5.message_length.size + 
+  nasdaq_utdf_output_utp_v1_5.version.size + 
+  nasdaq_utdf_output_utp_v1_5.message_category.size
 
 -- Display: Message Header
 nasdaq_utdf_output_utp_v1_5.message_header.display = function(packet, parent, length)
@@ -5542,18 +5486,11 @@ end
 -- Packet Header
 nasdaq_utdf_output_utp_v1_5.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_utdf_output_utp_v1_5.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.session.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.sequence.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.count.size
-
-  return index
-end
+-- Size: Packet Header
+nasdaq_utdf_output_utp_v1_5.packet_header.size =
+  nasdaq_utdf_output_utp_v1_5.session.size + 
+  nasdaq_utdf_output_utp_v1_5.sequence.size + 
+  nasdaq_utdf_output_utp_v1_5.count.size
 
 -- Display: Packet Header
 nasdaq_utdf_output_utp_v1_5.packet_header.display = function(packet, parent, length)
@@ -5674,7 +5611,7 @@ end
 omi_nasdaq_utdf_output_utp_v1_5:register_heuristic("udp", omi_nasdaq_utdf_output_utp_v1_5_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -5690,7 +5627,7 @@ omi_nasdaq_utdf_output_utp_v1_5:register_heuristic("udp", omi_nasdaq_utdf_output
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

@@ -335,14 +335,9 @@ end
 -- Trade Now Message
 nasdaq_bxequities_orders_ouch_v4_2.trade_now_message = {}
 
--- Calculate size of: Trade Now Message
-nasdaq_bxequities_orders_ouch_v4_2.trade_now_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  return index
-end
+-- Size: Trade Now Message
+nasdaq_bxequities_orders_ouch_v4_2.trade_now_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size
 
 -- Display: Trade Now Message
 nasdaq_bxequities_orders_ouch_v4_2.trade_now_message.display = function(packet, parent, length)
@@ -439,18 +434,11 @@ end
 -- Modify Order Message
 nasdaq_bxequities_orders_ouch_v4_2.modify_order_message = {}
 
--- Calculate size of: Modify Order Message
-nasdaq_bxequities_orders_ouch_v4_2.modify_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.buy_sell_indicator.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.shares.size
-
-  return index
-end
+-- Size: Modify Order Message
+nasdaq_bxequities_orders_ouch_v4_2.modify_order_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.buy_sell_indicator.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.shares.size
 
 -- Display: Modify Order Message
 nasdaq_bxequities_orders_ouch_v4_2.modify_order_message.display = function(packet, parent, length)
@@ -494,16 +482,10 @@ end
 -- Cancel Order Message
 nasdaq_bxequities_orders_ouch_v4_2.cancel_order_message = {}
 
--- Calculate size of: Cancel Order Message
-nasdaq_bxequities_orders_ouch_v4_2.cancel_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.shares.size
-
-  return index
-end
+-- Size: Cancel Order Message
+nasdaq_bxequities_orders_ouch_v4_2.cancel_order_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.shares.size
 
 -- Display: Cancel Order Message
 nasdaq_bxequities_orders_ouch_v4_2.cancel_order_message.display = function(packet, parent, length)
@@ -752,28 +734,16 @@ end
 -- Replace Order Message
 nasdaq_bxequities_orders_ouch_v4_2.replace_order_message = {}
 
--- Calculate size of: Replace Order Message
-nasdaq_bxequities_orders_ouch_v4_2.replace_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.existing_order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.replacement_order_token_token_14.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.shares.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.price.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.time_in_force.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.display.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.minimum_quantity.size
-
-  return index
-end
+-- Size: Replace Order Message
+nasdaq_bxequities_orders_ouch_v4_2.replace_order_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.existing_order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.replacement_order_token_token_14.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.shares.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.price.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.time_in_force.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.display.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.minimum_quantity.size
 
 -- Display: Replace Order Message
 nasdaq_bxequities_orders_ouch_v4_2.replace_order_message.display = function(packet, parent, length)
@@ -950,36 +920,20 @@ end
 -- Enter Order Message
 nasdaq_bxequities_orders_ouch_v4_2.enter_order_message = {}
 
--- Calculate size of: Enter Order Message
-nasdaq_bxequities_orders_ouch_v4_2.enter_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.buy_sell_indicator.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.shares.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.stock.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.price.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.time_in_force.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.firm.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.display.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.capacity.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.minimum_quantity.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.cross_type.size
-
-  return index
-end
+-- Size: Enter Order Message
+nasdaq_bxequities_orders_ouch_v4_2.enter_order_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.buy_sell_indicator.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.shares.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.stock.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.price.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.time_in_force.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.firm.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.display.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.capacity.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.minimum_quantity.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.cross_type.size
 
 -- Display: Enter Order Message
 nasdaq_bxequities_orders_ouch_v4_2.enter_order_message.display = function(packet, parent, length)
@@ -1050,27 +1004,27 @@ end
 -- Unsequenced Message
 nasdaq_bxequities_orders_ouch_v4_2.unsequenced_message = {}
 
--- Calculate runtime size of: Unsequenced Message
+-- Size: Unsequenced Message
 nasdaq_bxequities_orders_ouch_v4_2.unsequenced_message.size = function(buffer, offset, unsequenced_message_type)
   -- Size of Enter Order Message
   if unsequenced_message_type == "O" then
-    return nasdaq_bxequities_orders_ouch_v4_2.enter_order_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.enter_order_message.size
   end
   -- Size of Replace Order Message
   if unsequenced_message_type == "U" then
-    return nasdaq_bxequities_orders_ouch_v4_2.replace_order_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.replace_order_message.size
   end
   -- Size of Cancel Order Message
   if unsequenced_message_type == "X" then
-    return nasdaq_bxequities_orders_ouch_v4_2.cancel_order_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.cancel_order_message.size
   end
   -- Size of Modify Order Message
   if unsequenced_message_type == "M" then
-    return nasdaq_bxequities_orders_ouch_v4_2.modify_order_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.modify_order_message.size
   end
   -- Size of Trade Now Message
   if unsequenced_message_type == "N" then
-    return nasdaq_bxequities_orders_ouch_v4_2.trade_now_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.trade_now_message.size
   end
 
   return 0
@@ -1309,20 +1263,12 @@ end
 -- Login Request Packet
 nasdaq_bxequities_orders_ouch_v4_2.login_request_packet = {}
 
--- Calculate size of: Login Request Packet
-nasdaq_bxequities_orders_ouch_v4_2.login_request_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.username.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.password.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.requested_session.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.requested_sequence_number.size
-
-  return index
-end
+-- Size: Login Request Packet
+nasdaq_bxequities_orders_ouch_v4_2.login_request_packet.size =
+  nasdaq_bxequities_orders_ouch_v4_2.username.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.password.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.requested_session.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.requested_sequence_number.size
 
 -- Display: Login Request Packet
 nasdaq_bxequities_orders_ouch_v4_2.login_request_packet.display = function(packet, parent, length)
@@ -1392,20 +1338,12 @@ end
 -- Order Modified Message
 nasdaq_bxequities_orders_ouch_v4_2.order_modified_message = {}
 
--- Calculate size of: Order Modified Message
-nasdaq_bxequities_orders_ouch_v4_2.order_modified_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.buy_sell_indicator.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.shares.size
-
-  return index
-end
+-- Size: Order Modified Message
+nasdaq_bxequities_orders_ouch_v4_2.order_modified_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.buy_sell_indicator.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.shares.size
 
 -- Display: Order Modified Message
 nasdaq_bxequities_orders_ouch_v4_2.order_modified_message.display = function(packet, parent, length)
@@ -1475,22 +1413,13 @@ end
 -- Order Priority Update Message
 nasdaq_bxequities_orders_ouch_v4_2.order_priority_update_message = {}
 
--- Calculate size of: Order Priority Update Message
-nasdaq_bxequities_orders_ouch_v4_2.order_priority_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.price.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.display.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_reference_number.size
-
-  return index
-end
+-- Size: Order Priority Update Message
+nasdaq_bxequities_orders_ouch_v4_2.order_priority_update_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.price.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.display.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_reference_number.size
 
 -- Display: Order Priority Update Message
 nasdaq_bxequities_orders_ouch_v4_2.order_priority_update_message.display = function(packet, parent, length)
@@ -1540,16 +1469,10 @@ end
 -- Cancel Reject Message
 nasdaq_bxequities_orders_ouch_v4_2.cancel_reject_message = {}
 
--- Calculate size of: Cancel Reject Message
-nasdaq_bxequities_orders_ouch_v4_2.cancel_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  return index
-end
+-- Size: Cancel Reject Message
+nasdaq_bxequities_orders_ouch_v4_2.cancel_reject_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size
 
 -- Display: Cancel Reject Message
 nasdaq_bxequities_orders_ouch_v4_2.cancel_reject_message.display = function(packet, parent, length)
@@ -1590,16 +1513,10 @@ end
 -- Cancel Pending Message
 nasdaq_bxequities_orders_ouch_v4_2.cancel_pending_message = {}
 
--- Calculate size of: Cancel Pending Message
-nasdaq_bxequities_orders_ouch_v4_2.cancel_pending_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  return index
-end
+-- Size: Cancel Pending Message
+nasdaq_bxequities_orders_ouch_v4_2.cancel_pending_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size
 
 -- Display: Cancel Pending Message
 nasdaq_bxequities_orders_ouch_v4_2.cancel_pending_message.display = function(packet, parent, length)
@@ -1745,18 +1662,11 @@ end
 -- Rejected Message
 nasdaq_bxequities_orders_ouch_v4_2.rejected_message = {}
 
--- Calculate size of: Rejected Message
-nasdaq_bxequities_orders_ouch_v4_2.rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.rejected_reason.size
-
-  return index
-end
+-- Size: Rejected Message
+nasdaq_bxequities_orders_ouch_v4_2.rejected_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.rejected_reason.size
 
 -- Display: Rejected Message
 nasdaq_bxequities_orders_ouch_v4_2.rejected_message.display = function(packet, parent, length)
@@ -1859,20 +1769,12 @@ end
 -- Broken Trade Message
 nasdaq_bxequities_orders_ouch_v4_2.broken_trade_message = {}
 
--- Calculate size of: Broken Trade Message
-nasdaq_bxequities_orders_ouch_v4_2.broken_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.match_number.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.broken_trade_reason.size
-
-  return index
-end
+-- Size: Broken Trade Message
+nasdaq_bxequities_orders_ouch_v4_2.broken_trade_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.match_number.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.broken_trade_reason.size
 
 -- Display: Broken Trade Message
 nasdaq_bxequities_orders_ouch_v4_2.broken_trade_message.display = function(packet, parent, length)
@@ -2028,24 +1930,14 @@ end
 -- Executed Message
 nasdaq_bxequities_orders_ouch_v4_2.executed_message = {}
 
--- Calculate size of: Executed Message
-nasdaq_bxequities_orders_ouch_v4_2.executed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.executed_shares.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.execution_price.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.liquidity_flag.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.match_number.size
-
-  return index
-end
+-- Size: Executed Message
+nasdaq_bxequities_orders_ouch_v4_2.executed_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.executed_shares.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.execution_price.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.liquidity_flag.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.match_number.size
 
 -- Display: Executed Message
 nasdaq_bxequities_orders_ouch_v4_2.executed_message.display = function(packet, parent, length)
@@ -2167,26 +2059,15 @@ end
 -- Aiq Canceled Message
 nasdaq_bxequities_orders_ouch_v4_2.aiq_canceled_message = {}
 
--- Calculate size of: Aiq Canceled Message
-nasdaq_bxequities_orders_ouch_v4_2.aiq_canceled_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.decrement_shares.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.aiq_canceled_reason.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.quantity_prevented_from_trading.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.execution_price.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.liquidity_flag.size
-
-  return index
-end
+-- Size: Aiq Canceled Message
+nasdaq_bxequities_orders_ouch_v4_2.aiq_canceled_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.decrement_shares.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.aiq_canceled_reason.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.quantity_prevented_from_trading.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.execution_price.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.liquidity_flag.size
 
 -- Display: Aiq Canceled Message
 nasdaq_bxequities_orders_ouch_v4_2.aiq_canceled_message.display = function(packet, parent, length)
@@ -2290,20 +2171,12 @@ end
 -- Canceled Message
 nasdaq_bxequities_orders_ouch_v4_2.canceled_message = {}
 
--- Calculate size of: Canceled Message
-nasdaq_bxequities_orders_ouch_v4_2.canceled_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.decrement_shares.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.canceled_reason.size
-
-  return index
-end
+-- Size: Canceled Message
+nasdaq_bxequities_orders_ouch_v4_2.canceled_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.decrement_shares.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.canceled_reason.size
 
 -- Display: Canceled Message
 nasdaq_bxequities_orders_ouch_v4_2.canceled_message.display = function(packet, parent, length)
@@ -2468,46 +2341,25 @@ end
 -- Replaced Message
 nasdaq_bxequities_orders_ouch_v4_2.replaced_message = {}
 
--- Calculate size of: Replaced Message
-nasdaq_bxequities_orders_ouch_v4_2.replaced_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.buy_sell_indicator.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.shares.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.stock.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.price.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.time_in_force.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.firm.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.display.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_reference_number.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.capacity.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.minimum_quantity.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.cross_type.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_state.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.previous_order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.bbo_weight_indicator.size
-
-  return index
-end
+-- Size: Replaced Message
+nasdaq_bxequities_orders_ouch_v4_2.replaced_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.buy_sell_indicator.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.shares.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.stock.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.price.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.time_in_force.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.firm.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.display.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_reference_number.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.capacity.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.minimum_quantity.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.cross_type.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_state.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.previous_order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.bbo_weight_indicator.size
 
 -- Display: Replaced Message
 nasdaq_bxequities_orders_ouch_v4_2.replaced_message.display = function(packet, parent, length)
@@ -2593,44 +2445,24 @@ end
 -- Accepted Message
 nasdaq_bxequities_orders_ouch_v4_2.accepted_message = {}
 
--- Calculate size of: Accepted Message
-nasdaq_bxequities_orders_ouch_v4_2.accepted_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_token.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.buy_sell_indicator.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.shares.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.stock.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.price.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.time_in_force.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.firm.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.display.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_reference_number.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.capacity.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.minimum_quantity.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.cross_type.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.order_state.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.bbo_weight_indicator.size
-
-  return index
-end
+-- Size: Accepted Message
+nasdaq_bxequities_orders_ouch_v4_2.accepted_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.buy_sell_indicator.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.shares.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.stock.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.price.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.time_in_force.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.firm.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.display.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_reference_number.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.capacity.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.minimum_quantity.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.cross_type.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.order_state.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.bbo_weight_indicator.size
 
 -- Display: Accepted Message
 nasdaq_bxequities_orders_ouch_v4_2.accepted_message.display = function(packet, parent, length)
@@ -2743,16 +2575,10 @@ end
 -- System Event Message
 nasdaq_bxequities_orders_ouch_v4_2.system_event_message = {}
 
--- Calculate size of: System Event Message
-nasdaq_bxequities_orders_ouch_v4_2.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.timestamp.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.event_code.size
-
-  return index
-end
+-- Size: System Event Message
+nasdaq_bxequities_orders_ouch_v4_2.system_event_message.size =
+  nasdaq_bxequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.event_code.size
 
 -- Display: System Event Message
 nasdaq_bxequities_orders_ouch_v4_2.system_event_message.display = function(packet, parent, length)
@@ -2793,55 +2619,55 @@ end
 -- Sequenced Message
 nasdaq_bxequities_orders_ouch_v4_2.sequenced_message = {}
 
--- Calculate runtime size of: Sequenced Message
+-- Size: Sequenced Message
 nasdaq_bxequities_orders_ouch_v4_2.sequenced_message.size = function(buffer, offset, sequenced_message_type)
   -- Size of System Event Message
   if sequenced_message_type == "S" then
-    return nasdaq_bxequities_orders_ouch_v4_2.system_event_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.system_event_message.size
   end
   -- Size of Accepted Message
   if sequenced_message_type == "A" then
-    return nasdaq_bxequities_orders_ouch_v4_2.accepted_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.accepted_message.size
   end
   -- Size of Replaced Message
   if sequenced_message_type == "U" then
-    return nasdaq_bxequities_orders_ouch_v4_2.replaced_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.replaced_message.size
   end
   -- Size of Canceled Message
   if sequenced_message_type == "C" then
-    return nasdaq_bxequities_orders_ouch_v4_2.canceled_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.canceled_message.size
   end
   -- Size of Aiq Canceled Message
   if sequenced_message_type == "D" then
-    return nasdaq_bxequities_orders_ouch_v4_2.aiq_canceled_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.aiq_canceled_message.size
   end
   -- Size of Executed Message
   if sequenced_message_type == "E" then
-    return nasdaq_bxequities_orders_ouch_v4_2.executed_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.executed_message.size
   end
   -- Size of Broken Trade Message
   if sequenced_message_type == "B" then
-    return nasdaq_bxequities_orders_ouch_v4_2.broken_trade_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.broken_trade_message.size
   end
   -- Size of Rejected Message
   if sequenced_message_type == "J" then
-    return nasdaq_bxequities_orders_ouch_v4_2.rejected_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.rejected_message.size
   end
   -- Size of Cancel Pending Message
   if sequenced_message_type == "P" then
-    return nasdaq_bxequities_orders_ouch_v4_2.cancel_pending_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.cancel_pending_message.size
   end
   -- Size of Cancel Reject Message
   if sequenced_message_type == "I" then
-    return nasdaq_bxequities_orders_ouch_v4_2.cancel_reject_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.cancel_reject_message.size
   end
   -- Size of Order Priority Update Message
   if sequenced_message_type == "T" then
-    return nasdaq_bxequities_orders_ouch_v4_2.order_priority_update_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.order_priority_update_message.size
   end
   -- Size of Order Modified Message
   if sequenced_message_type == "M" then
-    return nasdaq_bxequities_orders_ouch_v4_2.order_modified_message.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.order_modified_message.size
   end
 
   return 0
@@ -3060,14 +2886,9 @@ end
 -- Login Rejected Packet
 nasdaq_bxequities_orders_ouch_v4_2.login_rejected_packet = {}
 
--- Calculate size of: Login Rejected Packet
-nasdaq_bxequities_orders_ouch_v4_2.login_rejected_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.reject_reason_code.size
-
-  return index
-end
+-- Size: Login Rejected Packet
+nasdaq_bxequities_orders_ouch_v4_2.login_rejected_packet.size =
+  nasdaq_bxequities_orders_ouch_v4_2.reject_reason_code.size
 
 -- Display: Login Rejected Packet
 nasdaq_bxequities_orders_ouch_v4_2.login_rejected_packet.display = function(packet, parent, length)
@@ -3151,16 +2972,10 @@ end
 -- Login Accepted Packet
 nasdaq_bxequities_orders_ouch_v4_2.login_accepted_packet = {}
 
--- Calculate size of: Login Accepted Packet
-nasdaq_bxequities_orders_ouch_v4_2.login_accepted_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.session.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.sequence_number.size
-
-  return index
-end
+-- Size: Login Accepted Packet
+nasdaq_bxequities_orders_ouch_v4_2.login_accepted_packet.size =
+  nasdaq_bxequities_orders_ouch_v4_2.session.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.sequence_number.size
 
 -- Display: Login Accepted Packet
 nasdaq_bxequities_orders_ouch_v4_2.login_accepted_packet.display = function(packet, parent, length)
@@ -3224,14 +3039,9 @@ end
 -- Debug Packet
 nasdaq_bxequities_orders_ouch_v4_2.debug_packet = {}
 
--- Calculate size of: Debug Packet
-nasdaq_bxequities_orders_ouch_v4_2.debug_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.text.size
-
-  return index
-end
+-- Size: Debug Packet
+nasdaq_bxequities_orders_ouch_v4_2.debug_packet.size =
+  nasdaq_bxequities_orders_ouch_v4_2.text.size
 
 -- Display: Debug Packet
 nasdaq_bxequities_orders_ouch_v4_2.debug_packet.display = function(packet, parent, length)
@@ -3269,19 +3079,19 @@ end
 -- Payload
 nasdaq_bxequities_orders_ouch_v4_2.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 nasdaq_bxequities_orders_ouch_v4_2.payload.size = function(buffer, offset, packet_type)
   -- Size of Debug Packet
   if packet_type == "+" then
-    return nasdaq_bxequities_orders_ouch_v4_2.debug_packet.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.debug_packet.size
   end
   -- Size of Login Accepted Packet
   if packet_type == "A" then
-    return nasdaq_bxequities_orders_ouch_v4_2.login_accepted_packet.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.login_accepted_packet.size
   end
   -- Size of Login Rejected Packet
   if packet_type == "J" then
-    return nasdaq_bxequities_orders_ouch_v4_2.login_rejected_packet.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.login_rejected_packet.size
   end
   -- Size of Sequenced Data Packet
   if packet_type == "S" then
@@ -3289,7 +3099,7 @@ nasdaq_bxequities_orders_ouch_v4_2.payload.size = function(buffer, offset, packe
   end
   -- Size of Login Request Packet
   if packet_type == "L" then
-    return nasdaq_bxequities_orders_ouch_v4_2.login_request_packet.size(buffer, offset)
+    return nasdaq_bxequities_orders_ouch_v4_2.login_request_packet.size
   end
   -- Size of Unsequenced Data Packet
   if packet_type == "U" then
@@ -3434,16 +3244,10 @@ end
 -- Packet Header
 nasdaq_bxequities_orders_ouch_v4_2.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_bxequities_orders_ouch_v4_2.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.packet_length.size
-
-  index = index + nasdaq_bxequities_orders_ouch_v4_2.packet_type.size
-
-  return index
-end
+-- Size: Packet Header
+nasdaq_bxequities_orders_ouch_v4_2.packet_header.size =
+  nasdaq_bxequities_orders_ouch_v4_2.packet_length.size + 
+  nasdaq_bxequities_orders_ouch_v4_2.packet_type.size
 
 -- Display: Packet Header
 nasdaq_bxequities_orders_ouch_v4_2.packet_header.display = function(packet, parent, length)
@@ -3532,7 +3336,7 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < nasdaq_bxequities_orders_ouch_v4_2.packet_header.size(buffer, index) then
+  if remaining < nasdaq_bxequities_orders_ouch_v4_2.packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -3628,7 +3432,7 @@ end
 omi_nasdaq_bxequities_orders_ouch_v4_2:register_heuristic("tcp", omi_nasdaq_bxequities_orders_ouch_v4_2_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -3644,7 +3448,7 @@ omi_nasdaq_bxequities_orders_ouch_v4_2:register_heuristic("tcp", omi_nasdaq_bxeq
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

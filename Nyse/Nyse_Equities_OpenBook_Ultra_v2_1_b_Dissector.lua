@@ -173,14 +173,9 @@ end
 -- Sequence Number Reset Message
 nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message = {}
 
--- Calculate size of: Sequence Number Reset Message
-nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.size
-
-  return index
-end
+-- Size: Sequence Number Reset Message
+nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size =
+  nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.size
 
 -- Display: Sequence Number Reset Message
 nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.display = function(packet, parent, length)
@@ -445,30 +440,17 @@ end
 -- Delta Price Point
 nyse_equities_openbook_ultra_v2_1_b.delta_price_point = {}
 
--- Calculate size of: Delta Price Point
-nyse_equities_openbook_ultra_v2_1_b.delta_price_point.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.price_numerator.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.volume.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.chg_qty.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.num_orders.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.side.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.reason_code.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.link_id_1.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.link_id_2.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.link_id_3.size
-
-  return index
-end
+-- Size: Delta Price Point
+nyse_equities_openbook_ultra_v2_1_b.delta_price_point.size =
+  nyse_equities_openbook_ultra_v2_1_b.price_numerator.size + 
+  nyse_equities_openbook_ultra_v2_1_b.volume.size + 
+  nyse_equities_openbook_ultra_v2_1_b.chg_qty.size + 
+  nyse_equities_openbook_ultra_v2_1_b.num_orders.size + 
+  nyse_equities_openbook_ultra_v2_1_b.side.size + 
+  nyse_equities_openbook_ultra_v2_1_b.reason_code.size + 
+  nyse_equities_openbook_ultra_v2_1_b.link_id_1.size + 
+  nyse_equities_openbook_ultra_v2_1_b.link_id_2.size + 
+  nyse_equities_openbook_ultra_v2_1_b.link_id_3.size
 
 -- Display: Delta Price Point
 nyse_equities_openbook_ultra_v2_1_b.delta_price_point.display = function(packet, parent, length)
@@ -828,7 +810,7 @@ end
 -- Delta Update Messages
 nyse_equities_openbook_ultra_v2_1_b.delta_update_messages = {}
 
--- Size Of: Delta Update Messages
+-- Size: Delta Update Messages
 nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.size = function(buffer, offset)
   return buffer:len() - offset
 end
@@ -897,22 +879,13 @@ end
 -- Full Price Point
 nyse_equities_openbook_ultra_v2_1_b.full_price_point = {}
 
--- Calculate size of: Full Price Point
-nyse_equities_openbook_ultra_v2_1_b.full_price_point.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.price_numerator.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.volume.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.num_orders.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.side.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.reserved_1.size
-
-  return index
-end
+-- Size: Full Price Point
+nyse_equities_openbook_ultra_v2_1_b.full_price_point.size =
+  nyse_equities_openbook_ultra_v2_1_b.price_numerator.size + 
+  nyse_equities_openbook_ultra_v2_1_b.volume.size + 
+  nyse_equities_openbook_ultra_v2_1_b.num_orders.size + 
+  nyse_equities_openbook_ultra_v2_1_b.side.size + 
+  nyse_equities_openbook_ultra_v2_1_b.reserved_1.size
 
 -- Display: Full Price Point
 nyse_equities_openbook_ultra_v2_1_b.full_price_point.display = function(packet, parent, length)
@@ -1134,7 +1107,7 @@ end
 -- Full Update Messages
 nyse_equities_openbook_ultra_v2_1_b.full_update_messages = {}
 
--- Size Of: Full Update Messages
+-- Size: Full Update Messages
 nyse_equities_openbook_ultra_v2_1_b.full_update_messages.size = function(buffer, offset)
   return buffer:len() - offset
 end
@@ -1180,7 +1153,7 @@ end
 -- Payload
 nyse_equities_openbook_ultra_v2_1_b.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 nyse_equities_openbook_ultra_v2_1_b.payload.size = function(buffer, offset, message_type)
   -- Size of Full Update Messages
   if message_type == 230 then
@@ -1192,7 +1165,7 @@ nyse_equities_openbook_ultra_v2_1_b.payload.size = function(buffer, offset, mess
   end
   -- Size of Sequence Number Reset Message
   if message_type == 1 then
-    return nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size(buffer, offset)
+    return nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size
   end
   -- Size of Heartbeat Message
   if message_type == 2 then
@@ -1448,28 +1421,16 @@ end
 -- Packet Header
 nyse_equities_openbook_ultra_v2_1_b.packet_header = {}
 
--- Calculate size of: Packet Header
-nyse_equities_openbook_ultra_v2_1_b.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.packet_size.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.message_type.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.sequence_number.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.timestamp.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.product_id.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.message_count.size
-
-  index = index + nyse_equities_openbook_ultra_v2_1_b.link_flag.size
-
-  return index
-end
+-- Size: Packet Header
+nyse_equities_openbook_ultra_v2_1_b.packet_header.size =
+  nyse_equities_openbook_ultra_v2_1_b.packet_size.size + 
+  nyse_equities_openbook_ultra_v2_1_b.message_type.size + 
+  nyse_equities_openbook_ultra_v2_1_b.sequence_number.size + 
+  nyse_equities_openbook_ultra_v2_1_b.timestamp.size + 
+  nyse_equities_openbook_ultra_v2_1_b.product_id.size + 
+  nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.size + 
+  nyse_equities_openbook_ultra_v2_1_b.message_count.size + 
+  nyse_equities_openbook_ultra_v2_1_b.link_flag.size
 
 -- Display: Packet Header
 nyse_equities_openbook_ultra_v2_1_b.packet_header.display = function(packet, parent, length)
@@ -1610,7 +1571,7 @@ end
 omi_nyse_equities_openbook_ultra_v2_1_b:register_heuristic("udp", omi_nyse_equities_openbook_ultra_v2_1_b_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -1626,7 +1587,7 @@ omi_nyse_equities_openbook_ultra_v2_1_b:register_heuristic("udp", omi_nyse_equit
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

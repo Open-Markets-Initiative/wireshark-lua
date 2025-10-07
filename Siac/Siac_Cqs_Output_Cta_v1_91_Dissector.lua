@@ -539,18 +539,11 @@ end
 -- National Best Offer Short Appendage
 siac_cqs_output_cta_v1_91.national_best_offer_short_appendage = {}
 
--- Calculate size of: National Best Offer Short Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_participant_id.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_price_short.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_size_short.size
-
-  return index
-end
+-- Size: National Best Offer Short Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.size =
+  siac_cqs_output_cta_v1_91.best_offer_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_offer_price_short.size + 
+  siac_cqs_output_cta_v1_91.best_offer_size_short.size
 
 -- Display: National Best Offer Short Appendage
 siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.display = function(packet, parent, length)
@@ -724,18 +717,11 @@ end
 -- National Best Bid Short Appendage
 siac_cqs_output_cta_v1_91.national_best_bid_short_appendage = {}
 
--- Calculate size of: National Best Bid Short Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_participant_id.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_price_short.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_size_short.size
-
-  return index
-end
+-- Size: National Best Bid Short Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.size =
+  siac_cqs_output_cta_v1_91.best_bid_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_bid_price_short.size + 
+  siac_cqs_output_cta_v1_91.best_bid_size_short.size
 
 -- Display: National Best Bid Short Appendage
 siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.display = function(packet, parent, length)
@@ -877,22 +863,13 @@ end
 -- National Best Offer Long Appendage
 siac_cqs_output_cta_v1_91.national_best_offer_long_appendage = {}
 
--- Calculate size of: National Best Offer Long Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_participant_id.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_quote_condition.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_price_long.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_size_long.size
-
-  index = index + siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size
-
-  return index
-end
+-- Size: National Best Offer Long Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.size =
+  siac_cqs_output_cta_v1_91.best_offer_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_offer_quote_condition.size + 
+  siac_cqs_output_cta_v1_91.best_offer_price_long.size + 
+  siac_cqs_output_cta_v1_91.best_offer_size_long.size + 
+  siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size
 
 -- Display: National Best Offer Long Appendage
 siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.display = function(packet, parent, length)
@@ -1040,22 +1017,13 @@ end
 -- National Best Bid Long Appendage
 siac_cqs_output_cta_v1_91.national_best_bid_long_appendage = {}
 
--- Calculate size of: National Best Bid Long Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_participant_id.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_quote_condition.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_price_long.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_size_long.size
-
-  index = index + siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.size
-
-  return index
-end
+-- Size: National Best Bid Long Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.size =
+  siac_cqs_output_cta_v1_91.best_bid_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_bid_quote_condition.size + 
+  siac_cqs_output_cta_v1_91.best_bid_price_long.size + 
+  siac_cqs_output_cta_v1_91.best_bid_size_long.size + 
+  siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.size
 
 -- Display: National Best Bid Long Appendage
 siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.display = function(packet, parent, length)
@@ -1541,16 +1509,10 @@ end
 -- Adf Timestamp
 siac_cqs_output_cta_v1_91.adf_timestamp = {}
 
--- Calculate size of: Adf Timestamp
-siac_cqs_output_cta_v1_91.adf_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.seconds.size
-
-  index = index + siac_cqs_output_cta_v1_91.nanoseconds.size
-
-  return index
-end
+-- Size: Adf Timestamp
+siac_cqs_output_cta_v1_91.adf_timestamp.size =
+  siac_cqs_output_cta_v1_91.seconds.size + 
+  siac_cqs_output_cta_v1_91.nanoseconds.size
 
 -- Display: Adf Timestamp
 siac_cqs_output_cta_v1_91.adf_timestamp.display = function(packet, parent, length)
@@ -2233,16 +2195,10 @@ end
 -- Participant Timestamp
 siac_cqs_output_cta_v1_91.participant_timestamp = {}
 
--- Calculate size of: Participant Timestamp
-siac_cqs_output_cta_v1_91.participant_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.seconds.size
-
-  index = index + siac_cqs_output_cta_v1_91.nanoseconds.size
-
-  return index
-end
+-- Size: Participant Timestamp
+siac_cqs_output_cta_v1_91.participant_timestamp.size =
+  siac_cqs_output_cta_v1_91.seconds.size + 
+  siac_cqs_output_cta_v1_91.nanoseconds.size
 
 -- Display: Participant Timestamp
 siac_cqs_output_cta_v1_91.participant_timestamp.display = function(packet, parent, length)
@@ -3182,7 +3138,7 @@ end
 -- Quote Payload
 siac_cqs_output_cta_v1_91.quote_payload = {}
 
--- Calculate runtime size of: Quote Payload
+-- Size: Quote Payload
 siac_cqs_output_cta_v1_91.quote_payload.size = function(buffer, offset, quote_message_type)
   -- Size of Auction Status Message
   if quote_message_type == "A" then
@@ -3539,7 +3495,7 @@ end
 -- Market Status Payload
 siac_cqs_output_cta_v1_91.market_status_payload = {}
 
--- Calculate runtime size of: Market Status Payload
+-- Size: Market Status Payload
 siac_cqs_output_cta_v1_91.market_status_payload.size = function(buffer, offset, market_status_message_type)
   -- Size of Market Wide Circuit Breaker Decline Level Status Message
   if market_status_message_type == "M" then
@@ -4186,7 +4142,7 @@ end
 -- Control Payload
 siac_cqs_output_cta_v1_91.control_payload = {}
 
--- Calculate runtime size of: Control Payload
+-- Size: Control Payload
 siac_cqs_output_cta_v1_91.control_payload.size = function(buffer, offset, control_message_type)
   -- Size of Start Of Day Message
   if control_message_type == "A" then
@@ -4457,7 +4413,7 @@ end
 -- Administrative Payload
 siac_cqs_output_cta_v1_91.administrative_payload = {}
 
--- Calculate runtime size of: Administrative Payload
+-- Size: Administrative Payload
 siac_cqs_output_cta_v1_91.administrative_payload.size = function(buffer, offset, administrative_message_type)
   -- Size of Administrative Unformatted Message
   if administrative_message_type == "H" then
@@ -4580,7 +4536,7 @@ end
 -- Payload
 siac_cqs_output_cta_v1_91.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 siac_cqs_output_cta_v1_91.payload.size = function(buffer, offset, message_category)
   -- Size of Administrative
   if message_category == "A" then
@@ -4711,16 +4667,10 @@ end
 -- Message Header
 siac_cqs_output_cta_v1_91.message_header = {}
 
--- Calculate size of: Message Header
-siac_cqs_output_cta_v1_91.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.message_length.size
-
-  index = index + siac_cqs_output_cta_v1_91.message_category.size
-
-  return index
-end
+-- Size: Message Header
+siac_cqs_output_cta_v1_91.message_header.size =
+  siac_cqs_output_cta_v1_91.message_length.size + 
+  siac_cqs_output_cta_v1_91.message_category.size
 
 -- Display: Message Header
 siac_cqs_output_cta_v1_91.message_header.display = function(packet, parent, length)
@@ -4835,16 +4785,10 @@ end
 -- Sip Block Timestamp
 siac_cqs_output_cta_v1_91.sip_block_timestamp = {}
 
--- Calculate size of: Sip Block Timestamp
-siac_cqs_output_cta_v1_91.sip_block_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.seconds.size
-
-  index = index + siac_cqs_output_cta_v1_91.nanoseconds.size
-
-  return index
-end
+-- Size: Sip Block Timestamp
+siac_cqs_output_cta_v1_91.sip_block_timestamp.size =
+  siac_cqs_output_cta_v1_91.seconds.size + 
+  siac_cqs_output_cta_v1_91.nanoseconds.size
 
 -- Display: Sip Block Timestamp
 siac_cqs_output_cta_v1_91.sip_block_timestamp.display = function(packet, parent, length)
@@ -5030,28 +4974,16 @@ end
 -- Block Header
 siac_cqs_output_cta_v1_91.block_header = {}
 
--- Calculate size of: Block Header
-siac_cqs_output_cta_v1_91.block_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.version.size
-
-  index = index + siac_cqs_output_cta_v1_91.block_size.size
-
-  index = index + siac_cqs_output_cta_v1_91.data_feed_indicator.size
-
-  index = index + siac_cqs_output_cta_v1_91.retransmission_indicator.size
-
-  index = index + siac_cqs_output_cta_v1_91.block_sequence_number.size
-
-  index = index + siac_cqs_output_cta_v1_91.messages_in_block.size
-
-  index = index + siac_cqs_output_cta_v1_91.sip_block_timestamp.size(buffer, offset + index)
-
-  index = index + siac_cqs_output_cta_v1_91.block_checksum.size
-
-  return index
-end
+-- Size: Block Header
+siac_cqs_output_cta_v1_91.block_header.size =
+  siac_cqs_output_cta_v1_91.version.size + 
+  siac_cqs_output_cta_v1_91.block_size.size + 
+  siac_cqs_output_cta_v1_91.data_feed_indicator.size + 
+  siac_cqs_output_cta_v1_91.retransmission_indicator.size + 
+  siac_cqs_output_cta_v1_91.block_sequence_number.size + 
+  siac_cqs_output_cta_v1_91.messages_in_block.size + 
+  siac_cqs_output_cta_v1_91.sip_block_timestamp.size + 
+  siac_cqs_output_cta_v1_91.block_checksum.size
 
 -- Display: Block Header
 siac_cqs_output_cta_v1_91.block_header.display = function(packet, parent, length)
@@ -5193,7 +5125,7 @@ end
 omi_siac_cqs_output_cta_v1_91:register_heuristic("udp", omi_siac_cqs_output_cta_v1_91_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -5209,7 +5141,7 @@ omi_siac_cqs_output_cta_v1_91:register_heuristic("udp", omi_siac_cqs_output_cta_
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

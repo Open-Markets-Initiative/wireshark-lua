@@ -1709,20 +1709,12 @@ end
 -- Xetra En Light Target Parties Comp
 eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp = {}
 
--- Calculate size of: Xetra En Light Target Parties Comp
-eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.target_party_executing_firm.size
-
-  index = index + eurex_cash_eti_t7_v12_0.target_party_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_1.size
-
-  return index
-end
+-- Size: Xetra En Light Target Parties Comp
+eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.size =
+  eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.target_party_executing_firm.size + 
+  eurex_cash_eti_t7_v12_0.target_party_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.pad_1.size
 
 -- Display: Xetra En Light Target Parties Comp
 eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.display = function(packet, parent, length)
@@ -2927,16 +2919,10 @@ end
 -- Request Header Comp
 eurex_cash_eti_t7_v12_0.request_header_comp = {}
 
--- Calculate size of: Request Header Comp
-eurex_cash_eti_t7_v12_0.request_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.msg_seq_num.size
-
-  index = index + eurex_cash_eti_t7_v12_0.sender_sub_id.size
-
-  return index
-end
+-- Size: Request Header Comp
+eurex_cash_eti_t7_v12_0.request_header_comp.size =
+  eurex_cash_eti_t7_v12_0.msg_seq_num.size + 
+  eurex_cash_eti_t7_v12_0.sender_sub_id.size
 
 -- Display: Request Header Comp
 eurex_cash_eti_t7_v12_0.request_header_comp.display = function(packet, parent, length)
@@ -3520,28 +3506,16 @@ end
 -- Rbc Header Comp
 eurex_cash_eti_t7_v12_0.rbc_header_comp = {}
 
--- Calculate size of: Rbc Header Comp
-eurex_cash_eti_t7_v12_0.rbc_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_seq_num.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_sub_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.partition_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_resend_flag.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.last_fragment.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_7.size
-
-  return index
-end
+-- Size: Rbc Header Comp
+eurex_cash_eti_t7_v12_0.rbc_header_comp.size =
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.appl_seq_num.size + 
+  eurex_cash_eti_t7_v12_0.appl_sub_id.size + 
+  eurex_cash_eti_t7_v12_0.partition_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_resend_flag.size + 
+  eurex_cash_eti_t7_v12_0.appl_id.size + 
+  eurex_cash_eti_t7_v12_0.last_fragment.size + 
+  eurex_cash_eti_t7_v12_0.pad_7.size
 
 -- Display: Rbc Header Comp
 eurex_cash_eti_t7_v12_0.rbc_header_comp.display = function(packet, parent, length)
@@ -3711,20 +3685,12 @@ end
 -- Response Header Comp
 eurex_cash_eti_t7_v12_0.response_header_comp = {}
 
--- Calculate size of: Response Header Comp
-eurex_cash_eti_t7_v12_0.response_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.request_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.msg_seq_num.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_4.size
-
-  return index
-end
+-- Size: Response Header Comp
+eurex_cash_eti_t7_v12_0.response_header_comp.size =
+  eurex_cash_eti_t7_v12_0.request_time.size + 
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.msg_seq_num.size + 
+  eurex_cash_eti_t7_v12_0.pad_4.size
 
 -- Display: Response Header Comp
 eurex_cash_eti_t7_v12_0.response_header_comp.display = function(packet, parent, length)
@@ -4294,46 +4260,25 @@ end
 -- Srqs Quote Entry Grp Comp
 eurex_cash_eti_t7_v12_0.srqs_quote_entry_grp_comp = {}
 
--- Calculate size of: Srqs Quote Entry Grp Comp
-eurex_cash_eti_t7_v12_0.srqs_quote_entry_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.transact_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.expire_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.secondary_quote_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.bid_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.bid_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.offer_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.offer_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_id_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.negotiation_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quoting_status.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quoting_frequency.size
-
-  index = index + eurex_cash_eti_t7_v12_0.firm_negotiation_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_firm.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_entering_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_1.size
-
-  return index
-end
+-- Size: Srqs Quote Entry Grp Comp
+eurex_cash_eti_t7_v12_0.srqs_quote_entry_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.transact_time.size + 
+  eurex_cash_eti_t7_v12_0.expire_time.size + 
+  eurex_cash_eti_t7_v12_0.quote_id.size + 
+  eurex_cash_eti_t7_v12_0.secondary_quote_id.size + 
+  eurex_cash_eti_t7_v12_0.bid_px.size + 
+  eurex_cash_eti_t7_v12_0.bid_size.size + 
+  eurex_cash_eti_t7_v12_0.offer_px.size + 
+  eurex_cash_eti_t7_v12_0.offer_size.size + 
+  eurex_cash_eti_t7_v12_0.party_id_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.negotiation_id.size + 
+  eurex_cash_eti_t7_v12_0.quoting_status.size + 
+  eurex_cash_eti_t7_v12_0.quoting_frequency.size + 
+  eurex_cash_eti_t7_v12_0.firm_negotiation_id.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_firm.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.party_entering_trader.size + 
+  eurex_cash_eti_t7_v12_0.pad_1.size
 
 -- Display: Srqs Quote Entry Grp Comp
 eurex_cash_eti_t7_v12_0.srqs_quote_entry_grp_comp.display = function(packet, parent, length)
@@ -7189,26 +7134,15 @@ end
 -- Order Book Item Grp Comp
 eurex_cash_eti_t7_v12_0.order_book_item_grp_comp = {}
 
--- Calculate size of: Order Book Item Grp Comp
-eurex_cash_eti_t7_v12_0.order_book_item_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.best_bid_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.best_bid_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.best_offer_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.best_offer_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.md_book_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.md_sub_book_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_6.size
-
-  return index
-end
+-- Size: Order Book Item Grp Comp
+eurex_cash_eti_t7_v12_0.order_book_item_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.best_bid_px.size + 
+  eurex_cash_eti_t7_v12_0.best_bid_size.size + 
+  eurex_cash_eti_t7_v12_0.best_offer_px.size + 
+  eurex_cash_eti_t7_v12_0.best_offer_size.size + 
+  eurex_cash_eti_t7_v12_0.md_book_type.size + 
+  eurex_cash_eti_t7_v12_0.md_sub_book_type.size + 
+  eurex_cash_eti_t7_v12_0.pad_6.size
 
 -- Display: Order Book Item Grp Comp
 eurex_cash_eti_t7_v12_0.order_book_item_grp_comp.display = function(packet, parent, length)
@@ -9004,32 +8938,18 @@ end
 -- Rbc Header Me Comp
 eurex_cash_eti_t7_v12_0.rbc_header_me_comp = {}
 
--- Calculate size of: Rbc Header Me Comp
-eurex_cash_eti_t7_v12_0.rbc_header_me_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size
-
-  index = index + eurex_cash_eti_t7_v12_0.notification_in.size
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_sub_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.partition_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_msg_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_resend_flag.size
-
-  index = index + eurex_cash_eti_t7_v12_0.last_fragment.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_7.size
-
-  return index
-end
+-- Size: Rbc Header Me Comp
+eurex_cash_eti_t7_v12_0.rbc_header_me_comp.size =
+  eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size + 
+  eurex_cash_eti_t7_v12_0.notification_in.size + 
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.appl_sub_id.size + 
+  eurex_cash_eti_t7_v12_0.partition_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_msg_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_resend_flag.size + 
+  eurex_cash_eti_t7_v12_0.last_fragment.size + 
+  eurex_cash_eti_t7_v12_0.pad_7.size
 
 -- Display: Rbc Header Me Comp
 eurex_cash_eti_t7_v12_0.rbc_header_me_comp.display = function(packet, parent, length)
@@ -11412,14 +11332,9 @@ end
 -- Notif Header Comp
 eurex_cash_eti_t7_v12_0.notif_header_comp = {}
 
--- Calculate size of: Notif Header Comp
-eurex_cash_eti_t7_v12_0.notif_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  return index
-end
+-- Size: Notif Header Comp
+eurex_cash_eti_t7_v12_0.notif_header_comp.size =
+  eurex_cash_eti_t7_v12_0.sending_time.size
 
 -- Display: Notif Header Comp
 eurex_cash_eti_t7_v12_0.notif_header_comp.display = function(packet, parent, length)
@@ -12513,28 +12428,16 @@ end
 -- Side Alloc Grp Bc Comp
 eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp = {}
 
--- Calculate size of: Side Alloc Grp Bc Comp
-eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.alloc_qty.size
-
-  index = index + eurex_cash_eti_t7_v12_0.individual_alloc_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_firm.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.side.size
-
-  index = index + eurex_cash_eti_t7_v12_0.trade_alloc_status.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_3.size
-
-  return index
-end
+-- Size: Side Alloc Grp Bc Comp
+eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp.size =
+  eurex_cash_eti_t7_v12_0.alloc_qty.size + 
+  eurex_cash_eti_t7_v12_0.individual_alloc_id.size + 
+  eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_firm.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.side.size + 
+  eurex_cash_eti_t7_v12_0.trade_alloc_status.size + 
+  eurex_cash_eti_t7_v12_0.pad_3.size
 
 -- Display: Side Alloc Grp Bc Comp
 eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp.display = function(packet, parent, length)
@@ -13433,28 +13336,16 @@ end
 -- Nr Response Header Me Comp
 eurex_cash_eti_t7_v12_0.nr_response_header_me_comp = {}
 
--- Calculate size of: Nr Response Header Me Comp
-eurex_cash_eti_t7_v12_0.nr_response_header_me_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.request_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size
-
-  index = index + eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size
-
-  index = index + eurex_cash_eti_t7_v12_0.response_in.size
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.msg_seq_num.size
-
-  index = index + eurex_cash_eti_t7_v12_0.last_fragment.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_3.size
-
-  return index
-end
+-- Size: Nr Response Header Me Comp
+eurex_cash_eti_t7_v12_0.nr_response_header_me_comp.size =
+  eurex_cash_eti_t7_v12_0.request_time.size + 
+  eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size + 
+  eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size + 
+  eurex_cash_eti_t7_v12_0.response_in.size + 
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.msg_seq_num.size + 
+  eurex_cash_eti_t7_v12_0.last_fragment.size + 
+  eurex_cash_eti_t7_v12_0.pad_3.size
 
 -- Display: Nr Response Header Me Comp
 eurex_cash_eti_t7_v12_0.nr_response_header_me_comp.display = function(packet, parent, length)
@@ -14199,24 +14090,14 @@ end
 -- Fills Grp Comp
 eurex_cash_eti_t7_v12_0.fills_grp_comp = {}
 
--- Calculate size of: Fills Grp Comp
-eurex_cash_eti_t7_v12_0.fills_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.fill_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.fill_qty.size
-
-  index = index + eurex_cash_eti_t7_v12_0.fill_match_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.fill_exec_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.fill_liquidity_ind.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_7.size
-
-  return index
-end
+-- Size: Fills Grp Comp
+eurex_cash_eti_t7_v12_0.fills_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.fill_px.size + 
+  eurex_cash_eti_t7_v12_0.fill_qty.size + 
+  eurex_cash_eti_t7_v12_0.fill_match_id.size + 
+  eurex_cash_eti_t7_v12_0.fill_exec_id.size + 
+  eurex_cash_eti_t7_v12_0.fill_liquidity_ind.size + 
+  eurex_cash_eti_t7_v12_0.pad_7.size
 
 -- Display: Fills Grp Comp
 eurex_cash_eti_t7_v12_0.fills_grp_comp.display = function(packet, parent, length)
@@ -15070,16 +14951,10 @@ end
 -- Not Affected Orders Grp Comp
 eurex_cash_eti_t7_v12_0.not_affected_orders_grp_comp = {}
 
--- Calculate size of: Not Affected Orders Grp Comp
-eurex_cash_eti_t7_v12_0.not_affected_orders_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.not_affected_order_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.size
-
-  return index
-end
+-- Size: Not Affected Orders Grp Comp
+eurex_cash_eti_t7_v12_0.not_affected_orders_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.not_affected_order_id.size + 
+  eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.size
 
 -- Display: Not Affected Orders Grp Comp
 eurex_cash_eti_t7_v12_0.not_affected_orders_grp_comp.display = function(packet, parent, length)
@@ -15182,16 +15057,10 @@ end
 -- Affected Ord Grp Comp
 eurex_cash_eti_t7_v12_0.affected_ord_grp_comp = {}
 
--- Calculate size of: Affected Ord Grp Comp
-eurex_cash_eti_t7_v12_0.affected_ord_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.affected_order_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.size
-
-  return index
-end
+-- Size: Affected Ord Grp Comp
+eurex_cash_eti_t7_v12_0.affected_ord_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.affected_order_id.size + 
+  eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.size
 
 -- Display: Affected Ord Grp Comp
 eurex_cash_eti_t7_v12_0.affected_ord_grp_comp.display = function(packet, parent, length)
@@ -15868,22 +15737,13 @@ end
 -- Nrbc Header Comp
 eurex_cash_eti_t7_v12_0.nrbc_header_comp = {}
 
--- Calculate size of: Nrbc Header Comp
-eurex_cash_eti_t7_v12_0.nrbc_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_sub_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.last_fragment.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_2.size
-
-  return index
-end
+-- Size: Nrbc Header Comp
+eurex_cash_eti_t7_v12_0.nrbc_header_comp.size =
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.appl_sub_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_id.size + 
+  eurex_cash_eti_t7_v12_0.last_fragment.size + 
+  eurex_cash_eti_t7_v12_0.pad_2.size
 
 -- Display: Nrbc Header Comp
 eurex_cash_eti_t7_v12_0.nrbc_header_comp.display = function(packet, parent, length)
@@ -17754,36 +17614,20 @@ end
 -- Quote Event Grp Comp
 eurex_cash_eti_t7_v12_0.quote_event_grp_comp = {}
 
--- Calculate size of: Quote Event Grp Comp
-eurex_cash_eti_t7_v12_0.quote_event_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.security_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_qty.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_msg_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_match_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_exec_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_side.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.size
-
-  index = index + eurex_cash_eti_t7_v12_0.bbo_setting.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_reason.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_3.size
-
-  return index
-end
+-- Size: Quote Event Grp Comp
+eurex_cash_eti_t7_v12_0.quote_event_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.security_id.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_px.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_qty.size + 
+  eurex_cash_eti_t7_v12_0.quote_msg_id.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_match_id.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_exec_id.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_type.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_side.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.size + 
+  eurex_cash_eti_t7_v12_0.bbo_setting.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_reason.size + 
+  eurex_cash_eti_t7_v12_0.pad_3.size
 
 -- Display: Quote Event Grp Comp
 eurex_cash_eti_t7_v12_0.quote_event_grp_comp.display = function(packet, parent, length)
@@ -17981,14 +17825,9 @@ end
 -- Not Affected Securities Grp Comp
 eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp = {}
 
--- Calculate size of: Not Affected Securities Grp Comp
-eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.not_affected_security_id.size
-
-  return index
-end
+-- Size: Not Affected Securities Grp Comp
+eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.not_affected_security_id.size
 
 -- Display: Not Affected Securities Grp Comp
 eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp.display = function(packet, parent, length)
@@ -18382,18 +18221,11 @@ end
 -- Risk Limit Amount Grp Comp
 eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp = {}
 
--- Calculate size of: Risk Limit Amount Grp Comp
-eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_amount.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_7.size
-
-  return index
-end
+-- Size: Risk Limit Amount Grp Comp
+eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.risk_limit_amount.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_type.size + 
+  eurex_cash_eti_t7_v12_0.pad_7.size
 
 -- Display: Risk Limit Amount Grp Comp
 eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp.display = function(packet, parent, length)
@@ -18809,30 +18641,17 @@ end
 -- Risk Limits Rpt Grp Comp
 eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp = {}
 
--- Calculate size of: Risk Limits Rpt Grp Comp
-eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_amount.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_open_amount.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.size
-
-  index = index + eurex_cash_eti_t7_v12_0.activation_date.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_group.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_6.size
-
-  return index
-end
+-- Size: Risk Limits Rpt Grp Comp
+eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.risk_limit_amount.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_open_amount.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.size + 
+  eurex_cash_eti_t7_v12_0.activation_date.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_type.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_group.size + 
+  eurex_cash_eti_t7_v12_0.pad_6.size
 
 -- Display: Risk Limits Rpt Grp Comp
 eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp.display = function(packet, parent, length)
@@ -19729,22 +19548,13 @@ end
 -- Order Event Grp Comp
 eurex_cash_eti_t7_v12_0.order_event_grp_comp = {}
 
--- Calculate size of: Order Event Grp Comp
-eurex_cash_eti_t7_v12_0.order_event_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.order_event_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.order_event_qty.size
-
-  index = index + eurex_cash_eti_t7_v12_0.order_event_match_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.order_event_reason.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_3.size
-
-  return index
-end
+-- Size: Order Event Grp Comp
+eurex_cash_eti_t7_v12_0.order_event_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.order_event_px.size + 
+  eurex_cash_eti_t7_v12_0.order_event_qty.size + 
+  eurex_cash_eti_t7_v12_0.order_event_match_id.size + 
+  eurex_cash_eti_t7_v12_0.order_event_reason.size + 
+  eurex_cash_eti_t7_v12_0.pad_3.size
 
 -- Display: Order Event Grp Comp
 eurex_cash_eti_t7_v12_0.order_event_grp_comp.display = function(packet, parent, length)
@@ -19933,32 +19743,18 @@ end
 -- Response Header Me Comp
 eurex_cash_eti_t7_v12_0.response_header_me_comp = {}
 
--- Calculate size of: Response Header Me Comp
-eurex_cash_eti_t7_v12_0.response_header_me_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.request_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size
-
-  index = index + eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size
-
-  index = index + eurex_cash_eti_t7_v12_0.response_in.size
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.msg_seq_num.size
-
-  index = index + eurex_cash_eti_t7_v12_0.partition_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_msg_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.last_fragment.size
-
-  return index
-end
+-- Size: Response Header Me Comp
+eurex_cash_eti_t7_v12_0.response_header_me_comp.size =
+  eurex_cash_eti_t7_v12_0.request_time.size + 
+  eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size + 
+  eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size + 
+  eurex_cash_eti_t7_v12_0.response_in.size + 
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.msg_seq_num.size + 
+  eurex_cash_eti_t7_v12_0.partition_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_msg_id.size + 
+  eurex_cash_eti_t7_v12_0.last_fragment.size
 
 -- Display: Response Header Me Comp
 eurex_cash_eti_t7_v12_0.response_header_me_comp.display = function(packet, parent, length)
@@ -21355,26 +21151,15 @@ end
 -- Side Alloc Grp Comp
 eurex_cash_eti_t7_v12_0.side_alloc_grp_comp = {}
 
--- Calculate size of: Side Alloc Grp Comp
-eurex_cash_eti_t7_v12_0.side_alloc_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.alloc_qty.size
-
-  index = index + eurex_cash_eti_t7_v12_0.individual_alloc_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.side.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_firm.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_4.size
-
-  return index
-end
+-- Size: Side Alloc Grp Comp
+eurex_cash_eti_t7_v12_0.side_alloc_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.alloc_qty.size + 
+  eurex_cash_eti_t7_v12_0.individual_alloc_id.size + 
+  eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size + 
+  eurex_cash_eti_t7_v12_0.side.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_firm.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.pad_4.size
 
 -- Display: Side Alloc Grp Comp
 eurex_cash_eti_t7_v12_0.side_alloc_grp_comp.display = function(packet, parent, length)
@@ -22360,24 +22145,14 @@ end
 -- Quote Entry Ack Grp Comp
 eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp = {}
 
--- Calculate size of: Quote Entry Ack Grp Comp
-eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.security_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.cxl_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_entry_status.size
-
-  index = index + eurex_cash_eti_t7_v12_0.side.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_2.size
-
-  return index
-end
+-- Size: Quote Entry Ack Grp Comp
+eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.security_id.size + 
+  eurex_cash_eti_t7_v12_0.cxl_size.size + 
+  eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.size + 
+  eurex_cash_eti_t7_v12_0.quote_entry_status.size + 
+  eurex_cash_eti_t7_v12_0.side.size + 
+  eurex_cash_eti_t7_v12_0.pad_2.size
 
 -- Display: Quote Entry Ack Grp Comp
 eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp.display = function(packet, parent, length)
@@ -22563,22 +22338,13 @@ end
 -- Quote Entry Grp Comp
 eurex_cash_eti_t7_v12_0.quote_entry_grp_comp = {}
 
--- Calculate size of: Quote Entry Grp Comp
-eurex_cash_eti_t7_v12_0.quote_entry_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.security_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.bid_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.bid_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.offer_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.offer_size.size
-
-  return index
-end
+-- Size: Quote Entry Grp Comp
+eurex_cash_eti_t7_v12_0.quote_entry_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.security_id.size + 
+  eurex_cash_eti_t7_v12_0.bid_px.size + 
+  eurex_cash_eti_t7_v12_0.bid_size.size + 
+  eurex_cash_eti_t7_v12_0.offer_px.size + 
+  eurex_cash_eti_t7_v12_0.offer_size.size
 
 -- Display: Quote Entry Grp Comp
 eurex_cash_eti_t7_v12_0.quote_entry_grp_comp.display = function(packet, parent, length)
@@ -23972,20 +23738,12 @@ end
 -- Security Status Event Grp Comp
 eurex_cash_eti_t7_v12_0.security_status_event_grp_comp = {}
 
--- Calculate size of: Security Status Event Grp Comp
-eurex_cash_eti_t7_v12_0.security_status_event_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.event_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.event_date.size
-
-  index = index + eurex_cash_eti_t7_v12_0.event_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_3.size
-
-  return index
-end
+-- Size: Security Status Event Grp Comp
+eurex_cash_eti_t7_v12_0.security_status_event_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.event_px.size + 
+  eurex_cash_eti_t7_v12_0.event_date.size + 
+  eurex_cash_eti_t7_v12_0.event_type.size + 
+  eurex_cash_eti_t7_v12_0.pad_3.size
 
 -- Display: Security Status Event Grp Comp
 eurex_cash_eti_t7_v12_0.security_status_event_grp_comp.display = function(packet, parent, length)
@@ -24521,24 +24279,14 @@ end
 -- Party Details Grp Comp
 eurex_cash_eti_t7_v12_0.party_details_grp_comp = {}
 
--- Calculate size of: Party Details Grp Comp
-eurex_cash_eti_t7_v12_0.party_details_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_detail_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_detail_status.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_detail_desk_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_1.size
-
-  return index
-end
+-- Size: Party Details Grp Comp
+eurex_cash_eti_t7_v12_0.party_details_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.party_detail_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.size + 
+  eurex_cash_eti_t7_v12_0.party_detail_status.size + 
+  eurex_cash_eti_t7_v12_0.party_detail_desk_id.size + 
+  eurex_cash_eti_t7_v12_0.pad_1.size
 
 -- Display: Party Details Grp Comp
 eurex_cash_eti_t7_v12_0.party_details_grp_comp.display = function(packet, parent, length)
@@ -24836,20 +24584,12 @@ end
 -- Sessions Grp Comp
 eurex_cash_eti_t7_v12_0.sessions_grp_comp = {}
 
--- Calculate size of: Sessions Grp Comp
-eurex_cash_eti_t7_v12_0.sessions_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.party_id_session_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.session_mode.size
-
-  index = index + eurex_cash_eti_t7_v12_0.session_sub_mode.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_2.size
-
-  return index
-end
+-- Size: Sessions Grp Comp
+eurex_cash_eti_t7_v12_0.sessions_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.party_id_session_id.size + 
+  eurex_cash_eti_t7_v12_0.session_mode.size + 
+  eurex_cash_eti_t7_v12_0.session_sub_mode.size + 
+  eurex_cash_eti_t7_v12_0.pad_2.size
 
 -- Display: Sessions Grp Comp
 eurex_cash_eti_t7_v12_0.sessions_grp_comp.display = function(packet, parent, length)
@@ -25131,22 +24871,13 @@ end
 -- Enrichment Rules Grp Comp
 eurex_cash_eti_t7_v12_0.enrichment_rules_grp_comp = {}
 
--- Calculate size of: Enrichment Rules Grp Comp
-eurex_cash_eti_t7_v12_0.enrichment_rules_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.enrichment_rule_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.free_text_1.size
-
-  index = index + eurex_cash_eti_t7_v12_0.free_text_2.size
-
-  index = index + eurex_cash_eti_t7_v12_0.free_text_4.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_6.size
-
-  return index
-end
+-- Size: Enrichment Rules Grp Comp
+eurex_cash_eti_t7_v12_0.enrichment_rules_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.enrichment_rule_id.size + 
+  eurex_cash_eti_t7_v12_0.free_text_1.size + 
+  eurex_cash_eti_t7_v12_0.free_text_2.size + 
+  eurex_cash_eti_t7_v12_0.free_text_4.size + 
+  eurex_cash_eti_t7_v12_0.pad_6.size
 
 -- Display: Enrichment Rules Grp Comp
 eurex_cash_eti_t7_v12_0.enrichment_rules_grp_comp.display = function(packet, parent, length)
@@ -26603,16 +26334,10 @@ end
 -- Affected Order Requests Grp Comp
 eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp = {}
 
--- Calculate size of: Affected Order Requests Grp Comp
-eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.affected_order_request_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_4.size
-
-  return index
-end
+-- Size: Affected Order Requests Grp Comp
+eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.affected_order_request_id.size + 
+  eurex_cash_eti_t7_v12_0.pad_4.size
 
 -- Display: Affected Order Requests Grp Comp
 eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp.display = function(packet, parent, length)
@@ -27427,7 +27152,7 @@ end
 -- Payload
 eurex_cash_eti_t7_v12_0.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 eurex_cash_eti_t7_v12_0.payload.size = function(buffer, offset, template_id)
   -- Size of Approve Tes Trade Request
   if template_id == 10603 then
@@ -28974,16 +28699,10 @@ end
 -- Message Header
 eurex_cash_eti_t7_v12_0.message_header = {}
 
--- Calculate size of: Message Header
-eurex_cash_eti_t7_v12_0.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.body_len.size
-
-  index = index + eurex_cash_eti_t7_v12_0.template_id.size
-
-  return index
-end
+-- Size: Message Header
+eurex_cash_eti_t7_v12_0.message_header.size =
+  eurex_cash_eti_t7_v12_0.body_len.size + 
+  eurex_cash_eti_t7_v12_0.template_id.size
 
 -- Display: Message Header
 eurex_cash_eti_t7_v12_0.message_header.display = function(packet, parent, length)
@@ -29072,7 +28791,7 @@ local message_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < eurex_cash_eti_t7_v12_0.message_header.size(buffer, index) then
+  if remaining < eurex_cash_eti_t7_v12_0.message_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -29168,7 +28887,7 @@ end
 omi_eurex_cash_eti_t7_v12_0:register_heuristic("tcp", omi_eurex_cash_eti_t7_v12_0_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -29184,7 +28903,7 @@ omi_eurex_cash_eti_t7_v12_0:register_heuristic("tcp", omi_eurex_cash_eti_t7_v12_
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

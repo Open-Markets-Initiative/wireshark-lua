@@ -535,40 +535,22 @@ end
 -- Systematic Internaliser Quotes
 lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes = {}
 
--- Calculate size of: Systematic Internaliser Quotes
-lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.order_id.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.side.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.size.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.instrument.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.price.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.yield.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.participant.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.reserved_10.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.currency.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.venue_of_publication.size
-
-  return index
-end
+-- Size: Systematic Internaliser Quotes
+lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.size =
+  lseg_tradeecho_level2_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_level2_gtp_v24_4.order_id.size + 
+  lseg_tradeecho_level2_gtp_v24_4.side.size + 
+  lseg_tradeecho_level2_gtp_v24_4.size.size + 
+  lseg_tradeecho_level2_gtp_v24_4.instrument.size + 
+  lseg_tradeecho_level2_gtp_v24_4.price.size + 
+  lseg_tradeecho_level2_gtp_v24_4.yield.size + 
+  lseg_tradeecho_level2_gtp_v24_4.source_venue.size + 
+  lseg_tradeecho_level2_gtp_v24_4.order_book_type.size + 
+  lseg_tradeecho_level2_gtp_v24_4.participant.size + 
+  lseg_tradeecho_level2_gtp_v24_4.order_book_type.size + 
+  lseg_tradeecho_level2_gtp_v24_4.reserved_10.size + 
+  lseg_tradeecho_level2_gtp_v24_4.currency.size + 
+  lseg_tradeecho_level2_gtp_v24_4.venue_of_publication.size
 
 -- Display: Systematic Internaliser Quotes
 lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.display = function(packet, parent, length)
@@ -645,20 +627,12 @@ end
 -- Order Book Clear
 lseg_tradeecho_level2_gtp_v24_4.order_book_clear = {}
 
--- Calculate size of: Order Book Clear
-lseg_tradeecho_level2_gtp_v24_4.order_book_clear.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.instrument.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
-
-  return index
-end
+-- Size: Order Book Clear
+lseg_tradeecho_level2_gtp_v24_4.order_book_clear.size =
+  lseg_tradeecho_level2_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_level2_gtp_v24_4.source_venue.size + 
+  lseg_tradeecho_level2_gtp_v24_4.instrument.size + 
+  lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
 
 -- Display: Order Book Clear
 lseg_tradeecho_level2_gtp_v24_4.order_book_clear.display = function(packet, parent, length)
@@ -790,30 +764,17 @@ end
 -- Order Delete
 lseg_tradeecho_level2_gtp_v24_4.order_delete = {}
 
--- Calculate size of: Order Delete
-lseg_tradeecho_level2_gtp_v24_4.order_delete.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.order_id.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.instrument.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.side.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.previous_price.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.previous_quantity.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.transaction_time.size
-
-  return index
-end
+-- Size: Order Delete
+lseg_tradeecho_level2_gtp_v24_4.order_delete.size =
+  lseg_tradeecho_level2_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_level2_gtp_v24_4.order_id.size + 
+  lseg_tradeecho_level2_gtp_v24_4.instrument.size + 
+  lseg_tradeecho_level2_gtp_v24_4.side.size + 
+  lseg_tradeecho_level2_gtp_v24_4.order_book_type.size + 
+  lseg_tradeecho_level2_gtp_v24_4.source_venue.size + 
+  lseg_tradeecho_level2_gtp_v24_4.previous_price.size + 
+  lseg_tradeecho_level2_gtp_v24_4.previous_quantity.size + 
+  lseg_tradeecho_level2_gtp_v24_4.transaction_time.size
 
 -- Display: Order Delete
 lseg_tradeecho_level2_gtp_v24_4.order_delete.display = function(packet, parent, length)
@@ -961,26 +922,15 @@ end
 -- Instrument Status
 lseg_tradeecho_level2_gtp_v24_4.instrument_status = {}
 
--- Calculate size of: Instrument Status
-lseg_tradeecho_level2_gtp_v24_4.instrument_status.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.instrument.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.trading_status.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.session_change_reason.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.new_end_time.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
-
-  return index
-end
+-- Size: Instrument Status
+lseg_tradeecho_level2_gtp_v24_4.instrument_status.size =
+  lseg_tradeecho_level2_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_level2_gtp_v24_4.instrument.size + 
+  lseg_tradeecho_level2_gtp_v24_4.source_venue.size + 
+  lseg_tradeecho_level2_gtp_v24_4.trading_status.size + 
+  lseg_tradeecho_level2_gtp_v24_4.session_change_reason.size + 
+  lseg_tradeecho_level2_gtp_v24_4.new_end_time.size + 
+  lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
 
 -- Display: Instrument Status
 lseg_tradeecho_level2_gtp_v24_4.instrument_status.display = function(packet, parent, length)
@@ -1362,44 +1312,24 @@ end
 -- Instrument Directory
 lseg_tradeecho_level2_gtp_v24_4.instrument_directory = {}
 
--- Calculate size of: Instrument Directory
-lseg_tradeecho_level2_gtp_v24_4.instrument_directory.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.instrument.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.isin.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.allowed_book_types.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.venue_instrument_id.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.tick_id.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.price_band_tolerances.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.static_circuit_breaker_tolerances.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.segment.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.reserved_23.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.currency.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.reserved_5.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.average_daily_turnover.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.reserved_25.size
-
-  return index
-end
+-- Size: Instrument Directory
+lseg_tradeecho_level2_gtp_v24_4.instrument_directory.size =
+  lseg_tradeecho_level2_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_level2_gtp_v24_4.instrument.size + 
+  lseg_tradeecho_level2_gtp_v24_4.isin.size + 
+  lseg_tradeecho_level2_gtp_v24_4.allowed_book_types.size + 
+  lseg_tradeecho_level2_gtp_v24_4.source_venue.size + 
+  lseg_tradeecho_level2_gtp_v24_4.venue_instrument_id.size + 
+  lseg_tradeecho_level2_gtp_v24_4.tick_id.size + 
+  lseg_tradeecho_level2_gtp_v24_4.price_band_tolerances.size + 
+  lseg_tradeecho_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.size + 
+  lseg_tradeecho_level2_gtp_v24_4.static_circuit_breaker_tolerances.size + 
+  lseg_tradeecho_level2_gtp_v24_4.segment.size + 
+  lseg_tradeecho_level2_gtp_v24_4.reserved_23.size + 
+  lseg_tradeecho_level2_gtp_v24_4.currency.size + 
+  lseg_tradeecho_level2_gtp_v24_4.reserved_5.size + 
+  lseg_tradeecho_level2_gtp_v24_4.average_daily_turnover.size + 
+  lseg_tradeecho_level2_gtp_v24_4.reserved_25.size
 
 -- Display: Instrument Directory
 lseg_tradeecho_level2_gtp_v24_4.instrument_directory.display = function(packet, parent, length)
@@ -1515,18 +1445,11 @@ end
 -- System Event
 lseg_tradeecho_level2_gtp_v24_4.system_event = {}
 
--- Calculate size of: System Event
-lseg_tradeecho_level2_gtp_v24_4.system_event.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.event_code.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
-
-  return index
-end
+-- Size: System Event
+lseg_tradeecho_level2_gtp_v24_4.system_event.size =
+  lseg_tradeecho_level2_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_level2_gtp_v24_4.event_code.size + 
+  lseg_tradeecho_level2_gtp_v24_4.source_venue.size
 
 -- Display: System Event
 lseg_tradeecho_level2_gtp_v24_4.system_event.display = function(packet, parent, length)
@@ -1570,31 +1493,31 @@ end
 -- Payload
 lseg_tradeecho_level2_gtp_v24_4.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 lseg_tradeecho_level2_gtp_v24_4.payload.size = function(buffer, offset, message_type)
   -- Size of System Event
   if message_type == 0x53 then
-    return lseg_tradeecho_level2_gtp_v24_4.system_event.size(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.system_event.size
   end
   -- Size of Instrument Directory
   if message_type == 0x70 then
-    return lseg_tradeecho_level2_gtp_v24_4.instrument_directory.size(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.instrument_directory.size
   end
   -- Size of Instrument Status
   if message_type == 0x48 then
-    return lseg_tradeecho_level2_gtp_v24_4.instrument_status.size(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.instrument_status.size
   end
   -- Size of Order Delete
   if message_type == 0x44 then
-    return lseg_tradeecho_level2_gtp_v24_4.order_delete.size(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.order_delete.size
   end
   -- Size of Order Book Clear
   if message_type == 0x79 then
-    return lseg_tradeecho_level2_gtp_v24_4.order_book_clear.size(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.order_book_clear.size
   end
   -- Size of Systematic Internaliser Quotes
   if message_type == 0x47 then
-    return lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.size(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.size
   end
 
   return 0
@@ -1723,16 +1646,10 @@ end
 -- Message Header
 lseg_tradeecho_level2_gtp_v24_4.message_header = {}
 
--- Calculate size of: Message Header
-lseg_tradeecho_level2_gtp_v24_4.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.message_length.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.message_type.size
-
-  return index
-end
+-- Size: Message Header
+lseg_tradeecho_level2_gtp_v24_4.message_header.size =
+  lseg_tradeecho_level2_gtp_v24_4.message_length.size + 
+  lseg_tradeecho_level2_gtp_v24_4.message_type.size
 
 -- Display: Message Header
 lseg_tradeecho_level2_gtp_v24_4.message_header.display = function(packet, parent, length)
@@ -1777,7 +1694,7 @@ lseg_tradeecho_level2_gtp_v24_4.message = {}
 lseg_tradeecho_level2_gtp_v24_4.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4.message_header.size(buffer, offset + index)
+  index = index + lseg_tradeecho_level2_gtp_v24_4.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1922,20 +1839,12 @@ end
 -- Unit Header
 lseg_tradeecho_level2_gtp_v24_4.unit_header = {}
 
--- Calculate size of: Unit Header
-lseg_tradeecho_level2_gtp_v24_4.unit_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.length.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.message_count.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.market_data_group.size
-
-  index = index + lseg_tradeecho_level2_gtp_v24_4.sequence_number.size
-
-  return index
-end
+-- Size: Unit Header
+lseg_tradeecho_level2_gtp_v24_4.unit_header.size =
+  lseg_tradeecho_level2_gtp_v24_4.length.size + 
+  lseg_tradeecho_level2_gtp_v24_4.message_count.size + 
+  lseg_tradeecho_level2_gtp_v24_4.market_data_group.size + 
+  lseg_tradeecho_level2_gtp_v24_4.sequence_number.size
 
 -- Display: Unit Header
 lseg_tradeecho_level2_gtp_v24_4.unit_header.display = function(packet, parent, length)
@@ -2051,7 +1960,7 @@ end
 omi_lseg_tradeecho_level2_gtp_v24_4:register_heuristic("udp", omi_lseg_tradeecho_level2_gtp_v24_4_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -2067,7 +1976,7 @@ omi_lseg_tradeecho_level2_gtp_v24_4:register_heuristic("udp", omi_lseg_tradeecho
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory

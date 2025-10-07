@@ -2049,160 +2049,82 @@ end
 -- Mifid Ii Trade Report
 lseg_tradeecho_mifid_gtp_v24_4.mifid_ii_trade_report = {}
 
--- Calculate size of: Mifid Ii Trade Report
-lseg_tradeecho_mifid_gtp_v24_4.mifid_ii_trade_report.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.instrument.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.transaction_identification_code.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.total_number_of_transactions.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.reserved_8.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.source_venue.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.mi_fid_price.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.mi_fid_quantity.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.mi_fid_trading_date_and_time.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.instrument_identification_code_type.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.instrument_identification_code.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.price_notation.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.price_currency.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.notional_amount.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.notional_currency.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.venue_of_execution.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.venue_of_execution.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.publication_date_and_time.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.benchmark_transaction_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.agency_cross_trade_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.non_price_forming_transactions_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.non_price_contribution_to_discovery.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.special_dividend_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.pt_deferral_reason_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.reference_price_transaction_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.nt_liquidity_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.nt_price_conditions_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.algo_transaction_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.pt_illiquid_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.price_improvement_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.cancellation_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.amendment_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.duplicate_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.exchange_for_physicals_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.limited_details_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.ld_full_details_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.daily_aggregated_transaction_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.da_full_details_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.volume_omission_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.vo_full_details_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.four_weeks_aggregation_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.fa_full_details_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.indefinite_aggregation_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.volume_omission_for_sovereign_debt_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.consecutive_aggregation_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.reserved_1.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.venue_type.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.venue_book_definition_id.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.venue_measurement_unit_notation.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.quantity_in_measurement_unit.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.transaction_to_be_cleared.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.emission_allowance_type.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.venue_of_publication.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.market_mechanism.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.trading_mode.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.transaction_category.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.negotiation_indicator.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.agency_cross_indicator.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.modification_indicator.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.reference_price_indicator.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.special_dividend_indicator.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.off_book_automated_indicator.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.price_formation_indicator.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.algorithmic_indicator.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.post_trade_deferral_reason.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.deferral_enrichment_type.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.duplicative_indicator.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.thirdcountry_trading_venue_of_execution.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.portfolio_transaction_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.contingent_transaction_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.price_conditions.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.market_closing_price_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.nt_large_in_scale_flag.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.nt_pre_trade_transparency_flag.size
-
-  return index
-end
+-- Size: Mifid Ii Trade Report
+lseg_tradeecho_mifid_gtp_v24_4.mifid_ii_trade_report.size =
+  lseg_tradeecho_mifid_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.instrument.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.transaction_identification_code.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.total_number_of_transactions.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.reserved_8.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.source_venue.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.mi_fid_price.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.mi_fid_quantity.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.mi_fid_trading_date_and_time.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.instrument_identification_code_type.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.instrument_identification_code.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.price_notation.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.price_currency.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.notional_amount.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.notional_currency.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.venue_of_execution.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.venue_of_execution.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.publication_date_and_time.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.benchmark_transaction_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.agency_cross_trade_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.non_price_forming_transactions_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.non_price_contribution_to_discovery.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.special_dividend_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.pt_deferral_reason_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.reference_price_transaction_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.nt_liquidity_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.nt_price_conditions_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.algo_transaction_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.pt_illiquid_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.price_improvement_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.cancellation_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.amendment_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.duplicate_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.exchange_for_physicals_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.limited_details_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.ld_full_details_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.daily_aggregated_transaction_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.da_full_details_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.volume_omission_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.vo_full_details_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.four_weeks_aggregation_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.fa_full_details_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.indefinite_aggregation_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.volume_omission_for_sovereign_debt_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.consecutive_aggregation_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.reserved_1.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.venue_type.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.venue_book_definition_id.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.venue_measurement_unit_notation.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.quantity_in_measurement_unit.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.transaction_to_be_cleared.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.emission_allowance_type.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.venue_of_publication.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.market_mechanism.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.trading_mode.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.transaction_category.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.negotiation_indicator.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.agency_cross_indicator.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.modification_indicator.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.reference_price_indicator.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.special_dividend_indicator.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.off_book_automated_indicator.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.price_formation_indicator.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.algorithmic_indicator.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.post_trade_deferral_reason.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.deferral_enrichment_type.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.duplicative_indicator.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.thirdcountry_trading_venue_of_execution.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.portfolio_transaction_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.contingent_transaction_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.price_conditions.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.market_closing_price_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.nt_large_in_scale_flag.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.nt_pre_trade_transparency_flag.size
 
 -- Display: Mifid Ii Trade Report
 lseg_tradeecho_mifid_gtp_v24_4.mifid_ii_trade_report.display = function(packet, parent, length)
@@ -2679,34 +2601,19 @@ end
 -- Statistics
 lseg_tradeecho_mifid_gtp_v24_4.statistics = {}
 
--- Calculate size of: Statistics
-lseg_tradeecho_mifid_gtp_v24_4.statistics.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.instrument.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.source_venue.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.volume.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.volume_onbook_only.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.vwap.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.vwap_onbook_only.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.number_of_trades.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.number_of_trades_onbook_only.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.turnover.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.turnover_onbook_only.size
-
-  return index
-end
+-- Size: Statistics
+lseg_tradeecho_mifid_gtp_v24_4.statistics.size =
+  lseg_tradeecho_mifid_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.instrument.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.source_venue.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.volume.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.volume_onbook_only.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.vwap.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.vwap_onbook_only.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.number_of_trades.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.number_of_trades_onbook_only.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.turnover.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.turnover_onbook_only.size
 
 -- Display: Statistics
 lseg_tradeecho_mifid_gtp_v24_4.statistics.display = function(packet, parent, length)
@@ -2890,26 +2797,15 @@ end
 -- Instrument Status
 lseg_tradeecho_mifid_gtp_v24_4.instrument_status = {}
 
--- Calculate size of: Instrument Status
-lseg_tradeecho_mifid_gtp_v24_4.instrument_status.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.instrument.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.source_venue.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.trading_status.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.session_change_reason.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.new_end_time.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.order_book_type.size
-
-  return index
-end
+-- Size: Instrument Status
+lseg_tradeecho_mifid_gtp_v24_4.instrument_status.size =
+  lseg_tradeecho_mifid_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.instrument.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.source_venue.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.trading_status.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.session_change_reason.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.new_end_time.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.order_book_type.size
 
 -- Display: Instrument Status
 lseg_tradeecho_mifid_gtp_v24_4.instrument_status.display = function(packet, parent, length)
@@ -3314,44 +3210,24 @@ end
 -- Instrument Directory
 lseg_tradeecho_mifid_gtp_v24_4.instrument_directory = {}
 
--- Calculate size of: Instrument Directory
-lseg_tradeecho_mifid_gtp_v24_4.instrument_directory.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.instrument.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.isin.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.allowed_book_types.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.source_venue.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.venue_instrument_id.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.tick_id.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.price_band_tolerances.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.static_circuit_breaker_tolerances.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.segment.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.reserved_23.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.currency.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.reserved_5.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.average_daily_turnover.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.reserved_25.size
-
-  return index
-end
+-- Size: Instrument Directory
+lseg_tradeecho_mifid_gtp_v24_4.instrument_directory.size =
+  lseg_tradeecho_mifid_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.instrument.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.isin.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.allowed_book_types.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.source_venue.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.venue_instrument_id.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.tick_id.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.price_band_tolerances.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.dynamic_circuit_breaker_tolerances.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.static_circuit_breaker_tolerances.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.segment.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.reserved_23.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.currency.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.reserved_5.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.average_daily_turnover.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.reserved_25.size
 
 -- Display: Instrument Directory
 lseg_tradeecho_mifid_gtp_v24_4.instrument_directory.display = function(packet, parent, length)
@@ -3467,18 +3343,11 @@ end
 -- System Event
 lseg_tradeecho_mifid_gtp_v24_4.system_event = {}
 
--- Calculate size of: System Event
-lseg_tradeecho_mifid_gtp_v24_4.system_event.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.timestamp.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.event_code.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.source_venue.size
-
-  return index
-end
+-- Size: System Event
+lseg_tradeecho_mifid_gtp_v24_4.system_event.size =
+  lseg_tradeecho_mifid_gtp_v24_4.timestamp.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.event_code.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.source_venue.size
 
 -- Display: System Event
 lseg_tradeecho_mifid_gtp_v24_4.system_event.display = function(packet, parent, length)
@@ -3522,27 +3391,27 @@ end
 -- Payload
 lseg_tradeecho_mifid_gtp_v24_4.payload = {}
 
--- Calculate runtime size of: Payload
+-- Size: Payload
 lseg_tradeecho_mifid_gtp_v24_4.payload.size = function(buffer, offset, message_type)
   -- Size of System Event
   if message_type == 0x53 then
-    return lseg_tradeecho_mifid_gtp_v24_4.system_event.size(buffer, offset)
+    return lseg_tradeecho_mifid_gtp_v24_4.system_event.size
   end
   -- Size of Instrument Directory
   if message_type == 0x70 then
-    return lseg_tradeecho_mifid_gtp_v24_4.instrument_directory.size(buffer, offset)
+    return lseg_tradeecho_mifid_gtp_v24_4.instrument_directory.size
   end
   -- Size of Instrument Status
   if message_type == 0x48 then
-    return lseg_tradeecho_mifid_gtp_v24_4.instrument_status.size(buffer, offset)
+    return lseg_tradeecho_mifid_gtp_v24_4.instrument_status.size
   end
   -- Size of Statistics
   if message_type == 0x77 then
-    return lseg_tradeecho_mifid_gtp_v24_4.statistics.size(buffer, offset)
+    return lseg_tradeecho_mifid_gtp_v24_4.statistics.size
   end
   -- Size of Mifid Ii Trade Report
   if message_type == 0x54 then
-    return lseg_tradeecho_mifid_gtp_v24_4.mifid_ii_trade_report.size(buffer, offset)
+    return lseg_tradeecho_mifid_gtp_v24_4.mifid_ii_trade_report.size
   end
 
   return 0
@@ -3664,16 +3533,10 @@ end
 -- Message Header
 lseg_tradeecho_mifid_gtp_v24_4.message_header = {}
 
--- Calculate size of: Message Header
-lseg_tradeecho_mifid_gtp_v24_4.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.message_length.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.message_type.size
-
-  return index
-end
+-- Size: Message Header
+lseg_tradeecho_mifid_gtp_v24_4.message_header.size =
+  lseg_tradeecho_mifid_gtp_v24_4.message_length.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.message_type.size
 
 -- Display: Message Header
 lseg_tradeecho_mifid_gtp_v24_4.message_header.display = function(packet, parent, length)
@@ -3718,7 +3581,7 @@ lseg_tradeecho_mifid_gtp_v24_4.message = {}
 lseg_tradeecho_mifid_gtp_v24_4.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.message_header.size(buffer, offset + index)
+  index = index + lseg_tradeecho_mifid_gtp_v24_4.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3863,20 +3726,12 @@ end
 -- Unit Header
 lseg_tradeecho_mifid_gtp_v24_4.unit_header = {}
 
--- Calculate size of: Unit Header
-lseg_tradeecho_mifid_gtp_v24_4.unit_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.length.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.message_count.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.market_data_group.size
-
-  index = index + lseg_tradeecho_mifid_gtp_v24_4.sequence_number.size
-
-  return index
-end
+-- Size: Unit Header
+lseg_tradeecho_mifid_gtp_v24_4.unit_header.size =
+  lseg_tradeecho_mifid_gtp_v24_4.length.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.message_count.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.market_data_group.size + 
+  lseg_tradeecho_mifid_gtp_v24_4.sequence_number.size
 
 -- Display: Unit Header
 lseg_tradeecho_mifid_gtp_v24_4.unit_header.display = function(packet, parent, length)
@@ -3992,7 +3847,7 @@ end
 omi_lseg_tradeecho_mifid_gtp_v24_4:register_heuristic("udp", omi_lseg_tradeecho_mifid_gtp_v24_4_heuristic)
 
 -----------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross platform dissection solution.
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- 
@@ -4008,7 +3863,7 @@ omi_lseg_tradeecho_mifid_gtp_v24_4:register_heuristic("udp", omi_lseg_tradeecho_
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
--- This script was generated by the Open Markets Initiative (Omi).
+-- This dissector script was generated by The Open Markets Initiative (Omi).
 -- 
 -- For full Omi information:
 -- https://github.com/Open-Markets-Initiative/Directory
