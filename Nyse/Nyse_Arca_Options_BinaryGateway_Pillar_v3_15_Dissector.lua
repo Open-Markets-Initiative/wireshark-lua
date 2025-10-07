@@ -681,18 +681,11 @@ end
 -- Complex Leg Ack
 nyse_arca_options_binarygateway_pillar_v3_15.complex_leg_ack = {}
 
--- Calculate size of: Complex Leg Ack
-nyse_arca_options_binarygateway_pillar_v3_15.complex_leg_ack.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.leg_symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.leg_ratio_qty.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.leg_side.size
-
-  return index
-end
+-- Size: Complex Leg Ack
+nyse_arca_options_binarygateway_pillar_v3_15.complex_leg_ack.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.leg_symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.leg_ratio_qty.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.leg_side.size
 
 -- Display: Complex Leg Ack
 nyse_arca_options_binarygateway_pillar_v3_15.complex_leg_ack.display = function(packet, parent, length)
@@ -2005,16 +1998,10 @@ end
 -- Seq Msg Header
 nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header = {}
 
--- Calculate size of: Seq Msg Header
-nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_length.size
-
-  return index
-end
+-- Size: Seq Msg Header
+nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_length.size
 
 -- Display: Seq Msg Header
 nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.display = function(packet, parent, length)
@@ -2055,7 +2042,7 @@ end
 -- Complex Series Request Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement = {}
 
--- Size Of: Complex Series Request Acknowledgement
+-- Size: Complex Series Request Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.size = function(buffer, offset)
   local index = 0
 
@@ -2920,68 +2907,36 @@ end
 -- Risk Control Alert
 nyse_arca_options_binarygateway_pillar_v3_15.risk_control_alert = {}
 
--- Calculate size of: Risk Control Alert
-nyse_arca_options_binarygateway_pillar_v3_15.risk_control_alert.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mp_sub_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.floor_broker_firm_crd.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.clearing_number.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_user_crd.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_user_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_control_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.time_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.percentage_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.count_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.breach_action_response.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.ioc_attribution.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_1.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_2.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_3.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_4.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.count_calculation.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_action_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.threshold_breach_level.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.blocked_by_breach_indicator.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.blocked_by_kill_switch_indicator.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reinstatement_requiredby_self.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reinstatement_requiredby_other.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reserved_200.size
-
-  return index
-end
+-- Size: Risk Control Alert
+nyse_arca_options_binarygateway_pillar_v3_15.risk_control_alert.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mp_sub_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.floor_broker_firm_crd.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.clearing_number.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_user_crd.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_user_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_control_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.time_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.percentage_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.count_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.breach_action_response.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.ioc_attribution.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_1.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_2.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_3.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_4.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.count_calculation.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_action_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.threshold_breach_level.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.blocked_by_breach_indicator.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.blocked_by_kill_switch_indicator.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reinstatement_requiredby_self.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reinstatement_requiredby_other.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reserved_200.size
 
 -- Display: Risk Control Alert
 nyse_arca_options_binarygateway_pillar_v3_15.risk_control_alert.display = function(packet, parent, length)
@@ -3160,72 +3115,38 @@ end
 -- Risk Control Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.risk_control_acknowledgement = {}
 
--- Calculate size of: Risk Control Acknowledgement
-nyse_arca_options_binarygateway_pillar_v3_15.risk_control_acknowledgement.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mp_sub_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.floor_broker_firm_crd.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.clearing_number.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_ack_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_user_crd.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_user_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_control_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_control_activation.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_action_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.time_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.percentage_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.count_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.breach_action_response.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.ioc_attribution.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_1.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_2.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_3.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_4.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.count_calculation.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.blocked_by_breach_indicator.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.blocked_by_kill_switch_indicator.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reinstatement_requiredby_self.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reinstatement_requiredby_other.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reserved_200.size
-
-  return index
-end
+-- Size: Risk Control Acknowledgement
+nyse_arca_options_binarygateway_pillar_v3_15.risk_control_acknowledgement.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mp_sub_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.floor_broker_firm_crd.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.clearing_number.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_ack_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_user_crd.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_user_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_control_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_control_activation.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_action_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.time_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.percentage_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.count_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.breach_action_response.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.ioc_attribution.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_1.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_2.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_3.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_calculation_4.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.count_calculation.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.blocked_by_breach_indicator.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.blocked_by_kill_switch_indicator.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reinstatement_requiredby_self.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reinstatement_requiredby_other.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reserved_200.size
 
 -- Display: Risk Control Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.risk_control_acknowledgement.display = function(packet, parent, length)
@@ -3469,30 +3390,17 @@ end
 -- Application Layer Reject
 nyse_arca_options_binarygateway_pillar_v3_15.application_layer_reject = {}
 
--- Calculate size of: Application Layer Reject
-nyse_arca_options_binarygateway_pillar_v3_15.application_layer_reject.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reason_code.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reject_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.user_data.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reserved_4.size
-
-  return index
-end
+-- Size: Application Layer Reject
+nyse_arca_options_binarygateway_pillar_v3_15.application_layer_reject.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reason_code.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reject_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.user_data.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reserved_4.size
 
 -- Display: Application Layer Reject
 nyse_arca_options_binarygateway_pillar_v3_15.application_layer_reject.display = function(packet, parent, length)
@@ -3728,16 +3636,10 @@ end
 -- Stream Id
 nyse_arca_options_binarygateway_pillar_v3_15.stream_id = {}
 
--- Calculate size of: Stream Id
-nyse_arca_options_binarygateway_pillar_v3_15.stream_id.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.sess.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.user.size
-
-  return index
-end
+-- Size: Stream Id
+nyse_arca_options_binarygateway_pillar_v3_15.stream_id.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.sess.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.user.size
 
 -- Display: Stream Id
 nyse_arca_options_binarygateway_pillar_v3_15.stream_id.display = function(packet, parent, length)
@@ -3778,16 +3680,10 @@ end
 -- Refseqmsgid
 nyse_arca_options_binarygateway_pillar_v3_15.refseqmsgid = {}
 
--- Calculate size of: Refseqmsgid
-nyse_arca_options_binarygateway_pillar_v3_15.refseqmsgid.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.stream_id.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq.size
-
-  return index
-end
+-- Size: Refseqmsgid
+nyse_arca_options_binarygateway_pillar_v3_15.refseqmsgid.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.stream_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.seq.size
 
 -- Display: Refseqmsgid
 nyse_arca_options_binarygateway_pillar_v3_15.refseqmsgid.display = function(packet, parent, length)
@@ -3851,38 +3747,21 @@ end
 -- Trade Bust Or Correct
 nyse_arca_options_binarygateway_pillar_v3_15.trade_bust_or_correct = {}
 
--- Calculate size of: Trade Bust Or Correct
-nyse_arca_options_binarygateway_pillar_v3_15.trade_bust_or_correct.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.refseqmsgid.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.deal_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.last_px.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.last_qty.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reason_code.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.user_data.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.bust_correct_indicator.size
-
-  return index
-end
+-- Size: Trade Bust Or Correct
+nyse_arca_options_binarygateway_pillar_v3_15.trade_bust_or_correct.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.refseqmsgid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.deal_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.last_px.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.last_qty.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reason_code.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.user_data.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.bust_correct_indicator.size
 
 -- Display: Trade Bust Or Correct
 nyse_arca_options_binarygateway_pillar_v3_15.trade_bust_or_correct.display = function(packet, parent, length)
@@ -4164,16 +4043,10 @@ end
 -- Sub Msg Header
 nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header = {}
 
--- Calculate size of: Sub Msg Header
-nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_length.size
-
-  return index
-end
+-- Size: Sub Msg Header
+nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_length.size
 
 -- Display: Sub Msg Header
 nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.display = function(packet, parent, length)
@@ -4214,26 +4087,15 @@ end
 -- Optional Order Add On
 nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on = {}
 
--- Calculate size of: Optional Order Add On
-nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.stop_px.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.max_floor.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.deliver_to_comp_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.clearing_firm.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.optional_data.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.clearing_account.size
-
-  return index
-end
+-- Size: Optional Order Add On
+nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.stop_px.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.max_floor.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.deliver_to_comp_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.clearing_firm.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.optional_data.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.clearing_account.size
 
 -- Display: Optional Order Add On
 nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.display = function(packet, parent, length)
@@ -4921,7 +4783,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.execution_report = {}
 nyse_arca_options_binarygateway_pillar_v3_15.execution_report.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
+  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size
 
   index = index + nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size
 
@@ -4988,7 +4850,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.execution_report.size = function(bu
   local seq_msg_length = buffer(offset + index - 134, 2):le_uint()
 
   if seq_msg_length ~= 100 then
-    index = index + nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size(buffer, offset + index)
+    index = index + nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size
 
   end
 
@@ -5331,36 +5193,20 @@ end
 -- Order Priority Update Acknowledgment
 nyse_arca_options_binarygateway_pillar_v3_15.order_priority_update_acknowledgment = {}
 
--- Calculate size of: Order Priority Update Acknowledgment
-nyse_arca_options_binarygateway_pillar_v3_15.order_priority_update_acknowledgment.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.working_price.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_qty.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.working_away_from_display.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.pre_liquidity_indicator.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.ack_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.user_data.size
-
-  return index
-end
+-- Size: Order Priority Update Acknowledgment
+nyse_arca_options_binarygateway_pillar_v3_15.order_priority_update_acknowledgment.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.working_price.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_qty.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.working_away_from_display.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.pre_liquidity_indicator.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.ack_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.user_data.size
 
 -- Display: Order Priority Update Acknowledgment
 nyse_arca_options_binarygateway_pillar_v3_15.order_priority_update_acknowledgment.display = function(packet, parent, length)
@@ -5696,56 +5542,30 @@ end
 -- Order Request Acknowledgment
 nyse_arca_options_binarygateway_pillar_v3_15.order_request_acknowledgment = {}
 
--- Calculate size of: Order Request Acknowledgment
-nyse_arca_options_binarygateway_pillar_v3_15.order_request_acknowledgment.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.ref_cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.orig_cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.price_price_8.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_qty.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.leaves_qty.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.side_u_81.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.locate_reqd.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reason_code.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.ack_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.flow_indicator.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.user_data.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.group_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.target_cancel_username.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.target_cancel_mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.bulk_action.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cancel_scope.size
-
-  return index
-end
+-- Size: Order Request Acknowledgment
+nyse_arca_options_binarygateway_pillar_v3_15.order_request_acknowledgment.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.ref_cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.orig_cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.price_price_8.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_qty.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.leaves_qty.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.side_u_81.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.locate_reqd.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reason_code.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.ack_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.flow_indicator.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.user_data.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.group_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.target_cancel_username.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.target_cancel_mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.bulk_action.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cancel_scope.size
 
 -- Display: Order Request Acknowledgment
 nyse_arca_options_binarygateway_pillar_v3_15.order_request_acknowledgment.display = function(packet, parent, length)
@@ -5892,26 +5712,15 @@ end
 -- Quote Ack
 nyse_arca_options_binarygateway_pillar_v3_15.quote_ack = {}
 
--- Calculate size of: Quote Ack
-nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.series_index.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.side_u_81.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.ack_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.price_price_8.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.quantity.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reason_code.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.working_away_from_display.size
-
-  return index
-end
+-- Size: Quote Ack
+nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.series_index.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.side_u_81.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.ack_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.price_price_8.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.quantity.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reason_code.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.working_away_from_display.size
 
 -- Display: Quote Ack
 nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.display = function(buffer, offset, value, packet, parent)
@@ -6044,7 +5853,7 @@ end
 -- Bulk Quote Acknowledgment
 nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment = {}
 
--- Size Of: Bulk Quote Acknowledgment
+-- Size: Bulk Quote Acknowledgment
 nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.size = function(buffer, offset)
   local index = 0
 
@@ -6313,7 +6122,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement = {}
 nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
+  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size
 
   index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
 
@@ -6362,7 +6171,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.size = functi
   local seq_msg_length = buffer(offset + index - 139, 2):le_uint()
 
   if seq_msg_length ~= 100 then
-    index = index + nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size(buffer, offset + index)
+    index = index + nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size
 
   end
 
@@ -6914,46 +6723,25 @@ end
 -- Session Configuration Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_acknowledgement = {}
 
--- Calculate size of: Session Configuration Acknowledgement
-nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_acknowledgement.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.user_session_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.user_session_status.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.username.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mic.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cancel_on_disconnect.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.throttle_preference.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.throttle_window.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.throttle_threshold.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_eligibility.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.max_order_quantity.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.self_trade_prevention.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_priority_update_ack_subscription.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.ack_status.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.bold_designation.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reserved_49.size
-
-  return index
-end
+-- Size: Session Configuration Acknowledgement
+nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_acknowledgement.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.user_session_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.user_session_status.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.username.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mic.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cancel_on_disconnect.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.throttle_preference.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.throttle_window.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.throttle_threshold.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_eligibility.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.max_order_quantity.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.self_trade_prevention.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_priority_update_ack_subscription.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.ack_status.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.bold_designation.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reserved_49.size
 
 -- Display: Session Configuration Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_acknowledgement.display = function(packet, parent, length)
@@ -7157,30 +6945,17 @@ end
 -- Options Market Maker Symbol Appointment Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.options_market_maker_symbol_appointment_reference_data = {}
 
--- Calculate size of: Options Market Maker Symbol Appointment Reference Data
-nyse_arca_options_binarygateway_pillar_v3_15.options_market_maker_symbol_appointment_reference_data.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.nyse_symbol.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mm_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.appointment_status.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reserved_50.size
-
-  return index
-end
+-- Size: Options Market Maker Symbol Appointment Reference Data
+nyse_arca_options_binarygateway_pillar_v3_15.options_market_maker_symbol_appointment_reference_data.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.nyse_symbol.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mm_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.appointment_status.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reserved_50.size
 
 -- Display: Options Market Maker Symbol Appointment Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.options_market_maker_symbol_appointment_reference_data.display = function(packet, parent, length)
@@ -7275,24 +7050,14 @@ end
 -- Mpid Configuration
 nyse_arca_options_binarygateway_pillar_v3_15.mpid_configuration = {}
 
--- Calculate size of: Mpid Configuration
-nyse_arca_options_binarygateway_pillar_v3_15.mpid_configuration.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid_status.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.username.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reserved_50.size
-
-  return index
-end
+-- Size: Mpid Configuration
+nyse_arca_options_binarygateway_pillar_v3_15.mpid_configuration.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid_status.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.username.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reserved_50.size
 
 -- Display: Mpid Configuration
 nyse_arca_options_binarygateway_pillar_v3_15.mpid_configuration.display = function(packet, parent, length)
@@ -7478,22 +7243,13 @@ end
 -- Mpv Level Definition
 nyse_arca_options_binarygateway_pillar_v3_15.mpv_level_definition = {}
 
--- Calculate size of: Mpv Level Definition
-nyse_arca_options_binarygateway_pillar_v3_15.mpv_level_definition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpv_level_name.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.price_u_price_8.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.quoting_mpv.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.trading_mpv.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpv_class_id.size
-
-  return index
-end
+-- Size: Mpv Level Definition
+nyse_arca_options_binarygateway_pillar_v3_15.mpv_level_definition.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.mpv_level_name.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.price_u_price_8.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.quoting_mpv.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.trading_mpv.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpv_class_id.size
 
 -- Display: Mpv Level Definition
 nyse_arca_options_binarygateway_pillar_v3_15.mpv_level_definition.display = function(packet, parent, length)
@@ -7543,7 +7299,7 @@ end
 -- Minimum Price Variant Level Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data = {}
 
--- Size Of: Minimum Price Variant Level Reference Data
+-- Size: Minimum Price Variant Level Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data.size = function(buffer, offset)
   local index = 0
 
@@ -7676,24 +7432,14 @@ end
 -- Minimum Price Variant Class Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_class_reference_data = {}
 
--- Calculate size of: Minimum Price Variant Class Reference Data
-nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_class_reference_data.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpv_class_name.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpv_class_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.rpimpv.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.luldmpv.size
-
-  return index
-end
+-- Size: Minimum Price Variant Class Reference Data
+nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_class_reference_data.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpv_class_name.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpv_class_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.rpimpv.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.luldmpv.size
 
 -- Display: Minimum Price Variant Class Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_class_reference_data.display = function(packet, parent, length)
@@ -7746,14 +7492,9 @@ end
 -- Sequenced Filler
 nyse_arca_options_binarygateway_pillar_v3_15.sequenced_filler = {}
 
--- Calculate size of: Sequenced Filler
-nyse_arca_options_binarygateway_pillar_v3_15.sequenced_filler.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Sequenced Filler
+nyse_arca_options_binarygateway_pillar_v3_15.sequenced_filler.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size
 
 -- Display: Sequenced Filler
 nyse_arca_options_binarygateway_pillar_v3_15.sequenced_filler.display = function(packet, parent, length)
@@ -8016,34 +7757,19 @@ end
 -- Underlying Symbol Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.underlying_symbol_reference_data = {}
 
--- Calculate size of: Underlying Symbol Reference Data
-nyse_arca_options_binarygateway_pillar_v3_15.underlying_symbol_reference_data.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.nyse_symbol.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.listed_mic.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.underlying_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.max_order_price.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpv_class_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.test_symbol_indicator.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.channel_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.legal_width_multiplier.size
-
-  return index
-end
+-- Size: Underlying Symbol Reference Data
+nyse_arca_options_binarygateway_pillar_v3_15.underlying_symbol_reference_data.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.transact_time.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.nyse_symbol.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.listed_mic.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.underlying_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.max_order_price.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpv_class_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.test_symbol_indicator.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.channel_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.legal_width_multiplier.size
 
 -- Display: Underlying Symbol Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.underlying_symbol_reference_data.display = function(packet, parent, length)
@@ -8111,18 +7837,11 @@ end
 -- Complex Leg
 nyse_arca_options_binarygateway_pillar_v3_15.complex_leg = {}
 
--- Calculate size of: Complex Leg
-nyse_arca_options_binarygateway_pillar_v3_15.complex_leg.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.leg_symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.leg_ratio_qty.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.leg_side.size
-
-  return index
-end
+-- Size: Complex Leg
+nyse_arca_options_binarygateway_pillar_v3_15.complex_leg.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.leg_symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.leg_ratio_qty.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.leg_side.size
 
 -- Display: Complex Leg
 nyse_arca_options_binarygateway_pillar_v3_15.complex_leg.display = function(packet, parent, length)
@@ -8166,7 +7885,7 @@ end
 -- New Complex Series Request
 nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request = {}
 
--- Size Of: New Complex Series Request
+-- Size: New Complex Series Request
 nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.size = function(buffer, offset)
   local index = 0
 
@@ -8221,38 +7940,21 @@ end
 -- Risk Action Request
 nyse_arca_options_binarygateway_pillar_v3_15.risk_action_request = {}
 
--- Calculate size of: Risk Action Request
-nyse_arca_options_binarygateway_pillar_v3_15.risk_action_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mp_sub_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.floor_broker_firm_crd.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.clearing_number.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_user_crd.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_user_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_control_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_action_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reserved_200.size
-
-  return index
-end
+-- Size: Risk Action Request
+nyse_arca_options_binarygateway_pillar_v3_15.risk_action_request.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mp_sub_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.floor_broker_firm_crd.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.clearing_number.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_user_crd.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_user_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_control_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_action_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reserved_200.size
 
 -- Display: Risk Action Request
 nyse_arca_options_binarygateway_pillar_v3_15.risk_action_request.display = function(packet, parent, length)
@@ -8362,50 +8064,27 @@ end
 -- Risk Limit Update Request
 nyse_arca_options_binarygateway_pillar_v3_15.risk_limit_update_request = {}
 
--- Calculate size of: Risk Limit Update Request
-nyse_arca_options_binarygateway_pillar_v3_15.risk_limit_update_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mp_sub_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.floor_broker_firm_crd.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.clearing_number.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_user_crd.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_user_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_control_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.risk_control_activation.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.usd_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.time_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.percentage_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.count_limit.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.breach_action_request.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.ioc_attribution.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reserved_200.size
-
-  return index
-end
+-- Size: Risk Limit Update Request
+nyse_arca_options_binarygateway_pillar_v3_15.risk_limit_update_request.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mp_sub_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.floor_broker_firm_crd.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.clearing_number.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_user_crd.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_user_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_control_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.risk_control_activation.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.usd_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.time_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.percentage_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.count_limit.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.breach_action_request.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.ioc_attribution.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reserved_200.size
 
 -- Display: Risk Limit Update Request
 nyse_arca_options_binarygateway_pillar_v3_15.risk_limit_update_request.display = function(packet, parent, length)
@@ -8524,36 +8203,20 @@ end
 -- Bulk Cancel Request
 nyse_arca_options_binarygateway_pillar_v3_15.bulk_cancel_request = {}
 
--- Calculate size of: Bulk Cancel Request
-nyse_arca_options_binarygateway_pillar_v3_15.bulk_cancel_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mm_sent_time.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.side_u_81.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.group_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.target_cancel_username.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.bulk_action.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cancel_scope.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.target_cancel_mpid.size
-
-  return index
-end
+-- Size: Bulk Cancel Request
+nyse_arca_options_binarygateway_pillar_v3_15.bulk_cancel_request.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mm_sent_time.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.side_u_81.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.group_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.target_cancel_username.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.bulk_action.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cancel_scope.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.target_cancel_mpid.size
 
 -- Display: Bulk Cancel Request
 nyse_arca_options_binarygateway_pillar_v3_15.bulk_cancel_request.display = function(packet, parent, length)
@@ -8628,7 +8291,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.covered = {}
 nyse_arca_options_binarygateway_pillar_v3_15.covered.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.size(buffer, offset + index)
+  index = index + nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.size
 
   index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
 
@@ -8659,7 +8322,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.covered.size = function(buffer, off
   local seq_msg_length = buffer(offset + index - 102, 2):le_uint()
 
   if seq_msg_length ~= 100 then
-    index = index + nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size(buffer, offset + index)
+    index = index + nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size
 
   end
 
@@ -8748,40 +8411,22 @@ end
 -- Exposed
 nyse_arca_options_binarygateway_pillar_v3_15.exposed = {}
 
--- Calculate size of: Exposed
-nyse_arca_options_binarygateway_pillar_v3_15.exposed.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mp_sub_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.orig_cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.price_price_8.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_qty.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.min_qty.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.user_data.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.leg_open_close.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.auction_id.size
-
-  return index
-end
+-- Size: Exposed
+nyse_arca_options_binarygateway_pillar_v3_15.exposed.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.market_maker.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mp_sub_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.orig_cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.price_price_8.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_qty.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.min_qty.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.user_data.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.leg_open_close.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.auction_id.size
 
 -- Display: Exposed
 nyse_arca_options_binarygateway_pillar_v3_15.exposed.display = function(packet, parent, length)
@@ -9064,7 +8709,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross = {}
 nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
+  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size
 
   index = index + nyse_arca_options_binarygateway_pillar_v3_15.cross_id.size
 
@@ -9080,7 +8725,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.size = function(buf
 
   index = index + nyse_arca_options_binarygateway_pillar_v3_15.reserved_16.size
 
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.exposed.size(buffer, offset + index)
+  index = index + nyse_arca_options_binarygateway_pillar_v3_15.exposed.size
 
   index = index + nyse_arca_options_binarygateway_pillar_v3_15.covered.size(buffer, offset + index)
 
@@ -9168,20 +8813,12 @@ end
 -- Bulk Quote
 nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote = {}
 
--- Calculate size of: Bulk Quote
-nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.series_index.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.bit_field_quote_inst.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.price_price_8.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_qty.size
-
-  return index
-end
+-- Size: Bulk Quote
+nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.series_index.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.bit_field_quote_inst.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.price_price_8.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_qty.size
 
 -- Display: Bulk Quote
 nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote.display = function(packet, parent, length)
@@ -9228,7 +8865,7 @@ end
 -- New Bulk Quote
 nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote = {}
 
--- Size Of: New Bulk Quote
+-- Size: New Bulk Quote
 nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.size = function(buffer, offset)
   local index = 0
 
@@ -9298,28 +8935,16 @@ end
 -- Order Modify Request
 nyse_arca_options_binarygateway_pillar_v3_15.order_modify_request = {}
 
--- Calculate size of: Order Modify Request
-nyse_arca_options_binarygateway_pillar_v3_15.order_modify_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.orig_cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_qty.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.side_u_81.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.locate_reqd.size
-
-  return index
-end
+-- Size: Order Modify Request
+nyse_arca_options_binarygateway_pillar_v3_15.order_modify_request.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.orig_cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_qty.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.side_u_81.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.locate_reqd.size
 
 -- Display: Order Modify Request
 nyse_arca_options_binarygateway_pillar_v3_15.order_modify_request.display = function(packet, parent, length)
@@ -9378,22 +9003,13 @@ end
 -- Order Cancel Request
 nyse_arca_options_binarygateway_pillar_v3_15.order_cancel_request = {}
 
--- Calculate size of: Order Cancel Request
-nyse_arca_options_binarygateway_pillar_v3_15.order_cancel_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.mpid.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.orig_cl_ord_id.size
-
-  return index
-end
+-- Size: Order Cancel Request
+nyse_arca_options_binarygateway_pillar_v3_15.order_cancel_request.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.mpid.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.orig_cl_ord_id.size
 
 -- Display: Order Cancel Request
 nyse_arca_options_binarygateway_pillar_v3_15.order_cancel_request.display = function(packet, parent, length)
@@ -9447,7 +9063,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.order_request = {}
 nyse_arca_options_binarygateway_pillar_v3_15.order_request.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
+  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size
 
   index = index + nyse_arca_options_binarygateway_pillar_v3_15.symbol_id.size
 
@@ -9478,7 +9094,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.order_request.size = function(buffe
   local seq_msg_length = buffer(offset + index - 102, 2):le_uint()
 
   if seq_msg_length ~= 100 then
-    index = index + nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size(buffer, offset + index)
+    index = index + nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size
 
   end
 
@@ -9567,28 +9183,16 @@ end
 -- Session Configuration Request Message
 nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_request_message = {}
 
--- Calculate size of: Session Configuration Request Message
-nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.username.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.cancel_on_disconnect.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.throttle_preference.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.self_trade_prevention.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.order_priority_update_ack_subscription.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.bold_designation.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.reserved_49.size
-
-  return index
-end
+-- Size: Session Configuration Request Message
+nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_request_message.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.username.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.cancel_on_disconnect.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.throttle_preference.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.self_trade_prevention.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.order_priority_update_ack_subscription.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.bold_designation.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.reserved_49.size
 
 -- Display: Session Configuration Request Message
 nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_request_message.display = function(packet, parent, length)
@@ -9934,16 +9538,10 @@ end
 -- Seqmsgid
 nyse_arca_options_binarygateway_pillar_v3_15.seqmsgid = {}
 
--- Calculate size of: Seqmsgid
-nyse_arca_options_binarygateway_pillar_v3_15.seqmsgid.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.stream_id.size(buffer, offset + index)
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.seq.size
-
-  return index
-end
+-- Size: Seqmsgid
+nyse_arca_options_binarygateway_pillar_v3_15.seqmsgid.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.stream_id.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.seq.size
 
 -- Display: Seqmsgid
 nyse_arca_options_binarygateway_pillar_v3_15.seqmsgid.display = function(packet, parent, length)
@@ -10058,16 +9656,10 @@ end
 -- Msg Header
 nyse_arca_options_binarygateway_pillar_v3_15.msg_header = {}
 
--- Calculate size of: Msg Header
-nyse_arca_options_binarygateway_pillar_v3_15.msg_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.msg_type.size
-
-  index = index + nyse_arca_options_binarygateway_pillar_v3_15.msg_length.size
-
-  return index
-end
+-- Size: Msg Header
+nyse_arca_options_binarygateway_pillar_v3_15.msg_header.size =
+  nyse_arca_options_binarygateway_pillar_v3_15.msg_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.msg_length.size
 
 -- Display: Msg Header
 nyse_arca_options_binarygateway_pillar_v3_15.msg_header.display = function(packet, parent, length)

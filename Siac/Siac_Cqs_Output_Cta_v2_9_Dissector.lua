@@ -528,18 +528,11 @@ end
 -- National Best Offer Short Appendage
 siac_cqs_output_cta_v2_9.national_best_offer_short_appendage = {}
 
--- Calculate size of: National Best Offer Short Appendage
-siac_cqs_output_cta_v2_9.national_best_offer_short_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v2_9.best_offer_participant_id.size
-
-  index = index + siac_cqs_output_cta_v2_9.best_offer_price_short.size
-
-  index = index + siac_cqs_output_cta_v2_9.best_offer_size_short.size
-
-  return index
-end
+-- Size: National Best Offer Short Appendage
+siac_cqs_output_cta_v2_9.national_best_offer_short_appendage.size =
+  siac_cqs_output_cta_v2_9.best_offer_participant_id.size + 
+  siac_cqs_output_cta_v2_9.best_offer_price_short.size + 
+  siac_cqs_output_cta_v2_9.best_offer_size_short.size
 
 -- Display: National Best Offer Short Appendage
 siac_cqs_output_cta_v2_9.national_best_offer_short_appendage.display = function(packet, parent, length)
@@ -719,18 +712,11 @@ end
 -- National Best Bid Short Appendage
 siac_cqs_output_cta_v2_9.national_best_bid_short_appendage = {}
 
--- Calculate size of: National Best Bid Short Appendage
-siac_cqs_output_cta_v2_9.national_best_bid_short_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v2_9.best_bid_participant_id.size
-
-  index = index + siac_cqs_output_cta_v2_9.best_bid_price_short.size
-
-  index = index + siac_cqs_output_cta_v2_9.best_bid_size_short.size
-
-  return index
-end
+-- Size: National Best Bid Short Appendage
+siac_cqs_output_cta_v2_9.national_best_bid_short_appendage.size =
+  siac_cqs_output_cta_v2_9.best_bid_participant_id.size + 
+  siac_cqs_output_cta_v2_9.best_bid_price_short.size + 
+  siac_cqs_output_cta_v2_9.best_bid_size_short.size
 
 -- Display: National Best Bid Short Appendage
 siac_cqs_output_cta_v2_9.national_best_bid_short_appendage.display = function(packet, parent, length)
@@ -915,22 +901,13 @@ end
 -- National Best Offer Long Appendage
 siac_cqs_output_cta_v2_9.national_best_offer_long_appendage = {}
 
--- Calculate size of: National Best Offer Long Appendage
-siac_cqs_output_cta_v2_9.national_best_offer_long_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v2_9.best_offer_participant_id.size
-
-  index = index + siac_cqs_output_cta_v2_9.best_offer_quote_condition.size
-
-  index = index + siac_cqs_output_cta_v2_9.best_offer_price_long.size
-
-  index = index + siac_cqs_output_cta_v2_9.best_offer_size_long.size
-
-  index = index + siac_cqs_output_cta_v2_9.finra_best_offer_market_maker_id.size
-
-  return index
-end
+-- Size: National Best Offer Long Appendage
+siac_cqs_output_cta_v2_9.national_best_offer_long_appendage.size =
+  siac_cqs_output_cta_v2_9.best_offer_participant_id.size + 
+  siac_cqs_output_cta_v2_9.best_offer_quote_condition.size + 
+  siac_cqs_output_cta_v2_9.best_offer_price_long.size + 
+  siac_cqs_output_cta_v2_9.best_offer_size_long.size + 
+  siac_cqs_output_cta_v2_9.finra_best_offer_market_maker_id.size
 
 -- Display: National Best Offer Long Appendage
 siac_cqs_output_cta_v2_9.national_best_offer_long_appendage.display = function(packet, parent, length)
@@ -1121,22 +1098,13 @@ end
 -- National Best Bid Long Appendage
 siac_cqs_output_cta_v2_9.national_best_bid_long_appendage = {}
 
--- Calculate size of: National Best Bid Long Appendage
-siac_cqs_output_cta_v2_9.national_best_bid_long_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v2_9.best_bid_participant_id.size
-
-  index = index + siac_cqs_output_cta_v2_9.best_bid_quote_condition.size
-
-  index = index + siac_cqs_output_cta_v2_9.best_bid_price_long.size
-
-  index = index + siac_cqs_output_cta_v2_9.best_bid_size_long.size
-
-  index = index + siac_cqs_output_cta_v2_9.finra_best_bid_market_maker_id.size
-
-  return index
-end
+-- Size: National Best Bid Long Appendage
+siac_cqs_output_cta_v2_9.national_best_bid_long_appendage.size =
+  siac_cqs_output_cta_v2_9.best_bid_participant_id.size + 
+  siac_cqs_output_cta_v2_9.best_bid_quote_condition.size + 
+  siac_cqs_output_cta_v2_9.best_bid_price_long.size + 
+  siac_cqs_output_cta_v2_9.best_bid_size_long.size + 
+  siac_cqs_output_cta_v2_9.finra_best_bid_market_maker_id.size
 
 -- Display: National Best Bid Long Appendage
 siac_cqs_output_cta_v2_9.national_best_bid_long_appendage.display = function(packet, parent, length)
@@ -1631,16 +1599,10 @@ end
 -- Adf Timestamp
 siac_cqs_output_cta_v2_9.adf_timestamp = {}
 
--- Calculate size of: Adf Timestamp
-siac_cqs_output_cta_v2_9.adf_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v2_9.seconds.size
-
-  index = index + siac_cqs_output_cta_v2_9.nanoseconds.size
-
-  return index
-end
+-- Size: Adf Timestamp
+siac_cqs_output_cta_v2_9.adf_timestamp.size =
+  siac_cqs_output_cta_v2_9.seconds.size + 
+  siac_cqs_output_cta_v2_9.nanoseconds.size
 
 -- Display: Adf Timestamp
 siac_cqs_output_cta_v2_9.adf_timestamp.display = function(packet, parent, length)
@@ -2430,16 +2392,10 @@ end
 -- Participant Timestamp
 siac_cqs_output_cta_v2_9.participant_timestamp = {}
 
--- Calculate size of: Participant Timestamp
-siac_cqs_output_cta_v2_9.participant_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v2_9.seconds.size
-
-  index = index + siac_cqs_output_cta_v2_9.nanoseconds.size
-
-  return index
-end
+-- Size: Participant Timestamp
+siac_cqs_output_cta_v2_9.participant_timestamp.size =
+  siac_cqs_output_cta_v2_9.seconds.size + 
+  siac_cqs_output_cta_v2_9.nanoseconds.size
 
 -- Display: Participant Timestamp
 siac_cqs_output_cta_v2_9.participant_timestamp.display = function(packet, parent, length)
@@ -4876,16 +4832,10 @@ end
 -- Message Header
 siac_cqs_output_cta_v2_9.message_header = {}
 
--- Calculate size of: Message Header
-siac_cqs_output_cta_v2_9.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v2_9.message_length.size
-
-  index = index + siac_cqs_output_cta_v2_9.message_category.size
-
-  return index
-end
+-- Size: Message Header
+siac_cqs_output_cta_v2_9.message_header.size =
+  siac_cqs_output_cta_v2_9.message_length.size + 
+  siac_cqs_output_cta_v2_9.message_category.size
 
 -- Display: Message Header
 siac_cqs_output_cta_v2_9.message_header.display = function(packet, parent, length)
@@ -5000,16 +4950,10 @@ end
 -- Sip Block Timestamp
 siac_cqs_output_cta_v2_9.sip_block_timestamp = {}
 
--- Calculate size of: Sip Block Timestamp
-siac_cqs_output_cta_v2_9.sip_block_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v2_9.seconds.size
-
-  index = index + siac_cqs_output_cta_v2_9.nanoseconds.size
-
-  return index
-end
+-- Size: Sip Block Timestamp
+siac_cqs_output_cta_v2_9.sip_block_timestamp.size =
+  siac_cqs_output_cta_v2_9.seconds.size + 
+  siac_cqs_output_cta_v2_9.nanoseconds.size
 
 -- Display: Sip Block Timestamp
 siac_cqs_output_cta_v2_9.sip_block_timestamp.display = function(packet, parent, length)
@@ -5195,28 +5139,16 @@ end
 -- Block Header
 siac_cqs_output_cta_v2_9.block_header = {}
 
--- Calculate size of: Block Header
-siac_cqs_output_cta_v2_9.block_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v2_9.version.size
-
-  index = index + siac_cqs_output_cta_v2_9.block_size.size
-
-  index = index + siac_cqs_output_cta_v2_9.data_feed_indicator.size
-
-  index = index + siac_cqs_output_cta_v2_9.retransmission_indicator.size
-
-  index = index + siac_cqs_output_cta_v2_9.block_sequence_number.size
-
-  index = index + siac_cqs_output_cta_v2_9.messages_in_block.size
-
-  index = index + siac_cqs_output_cta_v2_9.sip_block_timestamp.size(buffer, offset + index)
-
-  index = index + siac_cqs_output_cta_v2_9.block_checksum.size
-
-  return index
-end
+-- Size: Block Header
+siac_cqs_output_cta_v2_9.block_header.size =
+  siac_cqs_output_cta_v2_9.version.size + 
+  siac_cqs_output_cta_v2_9.block_size.size + 
+  siac_cqs_output_cta_v2_9.data_feed_indicator.size + 
+  siac_cqs_output_cta_v2_9.retransmission_indicator.size + 
+  siac_cqs_output_cta_v2_9.block_sequence_number.size + 
+  siac_cqs_output_cta_v2_9.messages_in_block.size + 
+  siac_cqs_output_cta_v2_9.sip_block_timestamp.size + 
+  siac_cqs_output_cta_v2_9.block_checksum.size
 
 -- Display: Block Header
 siac_cqs_output_cta_v2_9.block_header.display = function(packet, parent, length)

@@ -260,16 +260,10 @@ end
 -- Auction Response
 nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response = {}
 
--- Calculate size of: Auction Response
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.size
-
-  return index
-end
+-- Size: Auction Response
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.size =
+  nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.size
 
 -- Display: Auction Response
 nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.display = function(packet, parent, length)
@@ -820,34 +814,19 @@ end
 -- Order On Book Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message = {}
 
--- Calculate size of: Order On Book Message
-nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.side.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.price.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.size.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.giveup.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.cmta.size
-
-  return index
-end
+-- Size: Order On Book Message
+nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message.size =
+  nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.side.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.price.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.size.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.giveup.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.cmta.size
 
 -- Display: Order On Book Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message.display = function(packet, parent, length)
@@ -1020,24 +999,14 @@ end
 -- Opening Imbalance Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message = {}
 
--- Calculate size of: Opening Imbalance Message
-nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.size
-
-  return index
-end
+-- Size: Opening Imbalance Message
+nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message.size =
+  nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.size
 
 -- Display: Opening Imbalance Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message.display = function(packet, parent, length)
@@ -1120,18 +1089,11 @@ end
 -- Security Open Closed Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message = {}
 
--- Calculate size of: Security Open Closed Message
-nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.size
-
-  return index
-end
+-- Size: Security Open Closed Message
+nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message.size =
+  nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.size
 
 -- Display: Security Open Closed Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message.display = function(packet, parent, length)
@@ -1205,18 +1167,11 @@ end
 -- Trading Action Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message = {}
 
--- Calculate size of: Trading Action Message
-nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.size
-
-  return index
-end
+-- Size: Trading Action Message
+nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.size =
+  nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.size
 
 -- Display: Trading Action Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.display = function(packet, parent, length)
@@ -1639,44 +1594,24 @@ end
 -- Option Directory Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message = {}
 
--- Calculate size of: Option Directory Message
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.source.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.size
-
-  return index
-end
+-- Size: Option Directory Message
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message.size =
+  nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.source.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.size
 
 -- Display: Option Directory Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message.display = function(packet, parent, length)
@@ -1922,26 +1857,15 @@ end
 -- System Event Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message = {}
 
--- Calculate size of: System Event Message
-nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.version.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.size
-
-  return index
-end
+-- Size: System Event Message
+nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message.size =
+  nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.version.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.size
 
 -- Display: System Event Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message.display = function(packet, parent, length)
@@ -2161,16 +2085,10 @@ end
 -- Message Header
 nasdaq_iseoptions_orderfeed_itch_v1_1.message_header = {}
 
--- Calculate size of: Message Header
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.size
-
-  return index
-end
+-- Size: Message Header
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_header.size =
+  nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.size
 
 -- Display: Message Header
 nasdaq_iseoptions_orderfeed_itch_v1_1.message_header.display = function(packet, parent, length)
@@ -2347,18 +2265,11 @@ end
 -- Packet Header
 nasdaq_iseoptions_orderfeed_itch_v1_1.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_iseoptions_orderfeed_itch_v1_1.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.session.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.size
-
-  index = index + nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.size
-
-  return index
-end
+-- Size: Packet Header
+nasdaq_iseoptions_orderfeed_itch_v1_1.packet_header.size =
+  nasdaq_iseoptions_orderfeed_itch_v1_1.session.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.size
 
 -- Display: Packet Header
 nasdaq_iseoptions_orderfeed_itch_v1_1.packet_header.display = function(packet, parent, length)

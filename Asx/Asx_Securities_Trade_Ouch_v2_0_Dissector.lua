@@ -341,18 +341,11 @@ end
 -- Cancel By Order Id Message
 asx_securities_trade_ouch_v2_0.cancel_by_order_id_message = {}
 
--- Calculate size of: Cancel By Order Id Message
-asx_securities_trade_ouch_v2_0.cancel_by_order_id_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.order_book_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.side.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_id.size
-
-  return index
-end
+-- Size: Cancel By Order Id Message
+asx_securities_trade_ouch_v2_0.cancel_by_order_id_message.size =
+  asx_securities_trade_ouch_v2_0.order_book_id.size + 
+  asx_securities_trade_ouch_v2_0.side.size + 
+  asx_securities_trade_ouch_v2_0.order_id.size
 
 -- Display: Cancel By Order Id Message
 asx_securities_trade_ouch_v2_0.cancel_by_order_id_message.display = function(packet, parent, length)
@@ -419,14 +412,9 @@ end
 -- Cancel Order Message
 asx_securities_trade_ouch_v2_0.cancel_order_message = {}
 
--- Calculate size of: Cancel Order Message
-asx_securities_trade_ouch_v2_0.cancel_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.order_token.size
-
-  return index
-end
+-- Size: Cancel Order Message
+asx_securities_trade_ouch_v2_0.cancel_order_message.size =
+  asx_securities_trade_ouch_v2_0.order_token.size
 
 -- Display: Cancel Order Message
 asx_securities_trade_ouch_v2_0.cancel_order_message.display = function(packet, parent, length)
@@ -855,44 +843,24 @@ end
 -- Replace Order Message
 asx_securities_trade_ouch_v2_0.replace_order_message = {}
 
--- Calculate size of: Replace Order Message
-asx_securities_trade_ouch_v2_0.replace_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.existing_order_token.size
-
-  index = index + asx_securities_trade_ouch_v2_0.replacement_order_token.size
-
-  index = index + asx_securities_trade_ouch_v2_0.quantity.size
-
-  index = index + asx_securities_trade_ouch_v2_0.price.size
-
-  index = index + asx_securities_trade_ouch_v2_0.open_close.size
-
-  index = index + asx_securities_trade_ouch_v2_0.client_account.size
-
-  index = index + asx_securities_trade_ouch_v2_0.customer_info.size
-
-  index = index + asx_securities_trade_ouch_v2_0.exchange_info.size
-
-  index = index + asx_securities_trade_ouch_v2_0.capacity_of_participant.size
-
-  index = index + asx_securities_trade_ouch_v2_0.directed_wholesale.size
-
-  index = index + asx_securities_trade_ouch_v2_0.execution_venue.size
-
-  index = index + asx_securities_trade_ouch_v2_0.intermediary_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_origin.size
-
-  index = index + asx_securities_trade_ouch_v2_0.filler.size
-
-  index = index + asx_securities_trade_ouch_v2_0.short_sell_quantity.size
-
-  index = index + asx_securities_trade_ouch_v2_0.minimum_acceptable_quantity.size
-
-  return index
-end
+-- Size: Replace Order Message
+asx_securities_trade_ouch_v2_0.replace_order_message.size =
+  asx_securities_trade_ouch_v2_0.existing_order_token.size + 
+  asx_securities_trade_ouch_v2_0.replacement_order_token.size + 
+  asx_securities_trade_ouch_v2_0.quantity.size + 
+  asx_securities_trade_ouch_v2_0.price.size + 
+  asx_securities_trade_ouch_v2_0.open_close.size + 
+  asx_securities_trade_ouch_v2_0.client_account.size + 
+  asx_securities_trade_ouch_v2_0.customer_info.size + 
+  asx_securities_trade_ouch_v2_0.exchange_info.size + 
+  asx_securities_trade_ouch_v2_0.capacity_of_participant.size + 
+  asx_securities_trade_ouch_v2_0.directed_wholesale.size + 
+  asx_securities_trade_ouch_v2_0.execution_venue.size + 
+  asx_securities_trade_ouch_v2_0.intermediary_id.size + 
+  asx_securities_trade_ouch_v2_0.order_origin.size + 
+  asx_securities_trade_ouch_v2_0.filler.size + 
+  asx_securities_trade_ouch_v2_0.short_sell_quantity.size + 
+  asx_securities_trade_ouch_v2_0.minimum_acceptable_quantity.size
 
 -- Display: Replace Order Message
 asx_securities_trade_ouch_v2_0.replace_order_message.display = function(packet, parent, length)
@@ -1108,54 +1076,29 @@ end
 -- Enter Order Message
 asx_securities_trade_ouch_v2_0.enter_order_message = {}
 
--- Calculate size of: Enter Order Message
-asx_securities_trade_ouch_v2_0.enter_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.order_token.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_book_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.side.size
-
-  index = index + asx_securities_trade_ouch_v2_0.quantity.size
-
-  index = index + asx_securities_trade_ouch_v2_0.price.size
-
-  index = index + asx_securities_trade_ouch_v2_0.time_in_force.size
-
-  index = index + asx_securities_trade_ouch_v2_0.open_close.size
-
-  index = index + asx_securities_trade_ouch_v2_0.client_account.size
-
-  index = index + asx_securities_trade_ouch_v2_0.customer_info.size
-
-  index = index + asx_securities_trade_ouch_v2_0.exchange_info.size
-
-  index = index + asx_securities_trade_ouch_v2_0.clearing_participant.size
-
-  index = index + asx_securities_trade_ouch_v2_0.crossing_key.size
-
-  index = index + asx_securities_trade_ouch_v2_0.capacity_of_participant.size
-
-  index = index + asx_securities_trade_ouch_v2_0.directed_wholesale.size
-
-  index = index + asx_securities_trade_ouch_v2_0.execution_venue.size
-
-  index = index + asx_securities_trade_ouch_v2_0.intermediary_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_origin.size
-
-  index = index + asx_securities_trade_ouch_v2_0.filler.size
-
-  index = index + asx_securities_trade_ouch_v2_0.ouch_order_type.size
-
-  index = index + asx_securities_trade_ouch_v2_0.short_sell_quantity.size
-
-  index = index + asx_securities_trade_ouch_v2_0.minimum_acceptable_quantity.size
-
-  return index
-end
+-- Size: Enter Order Message
+asx_securities_trade_ouch_v2_0.enter_order_message.size =
+  asx_securities_trade_ouch_v2_0.order_token.size + 
+  asx_securities_trade_ouch_v2_0.order_book_id.size + 
+  asx_securities_trade_ouch_v2_0.side.size + 
+  asx_securities_trade_ouch_v2_0.quantity.size + 
+  asx_securities_trade_ouch_v2_0.price.size + 
+  asx_securities_trade_ouch_v2_0.time_in_force.size + 
+  asx_securities_trade_ouch_v2_0.open_close.size + 
+  asx_securities_trade_ouch_v2_0.client_account.size + 
+  asx_securities_trade_ouch_v2_0.customer_info.size + 
+  asx_securities_trade_ouch_v2_0.exchange_info.size + 
+  asx_securities_trade_ouch_v2_0.clearing_participant.size + 
+  asx_securities_trade_ouch_v2_0.crossing_key.size + 
+  asx_securities_trade_ouch_v2_0.capacity_of_participant.size + 
+  asx_securities_trade_ouch_v2_0.directed_wholesale.size + 
+  asx_securities_trade_ouch_v2_0.execution_venue.size + 
+  asx_securities_trade_ouch_v2_0.intermediary_id.size + 
+  asx_securities_trade_ouch_v2_0.order_origin.size + 
+  asx_securities_trade_ouch_v2_0.filler.size + 
+  asx_securities_trade_ouch_v2_0.ouch_order_type.size + 
+  asx_securities_trade_ouch_v2_0.short_sell_quantity.size + 
+  asx_securities_trade_ouch_v2_0.minimum_acceptable_quantity.size
 
 -- Display: Enter Order Message
 asx_securities_trade_ouch_v2_0.enter_order_message.display = function(packet, parent, length)
@@ -1501,20 +1444,12 @@ end
 -- Login Request Packet
 asx_securities_trade_ouch_v2_0.login_request_packet = {}
 
--- Calculate size of: Login Request Packet
-asx_securities_trade_ouch_v2_0.login_request_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.username.size
-
-  index = index + asx_securities_trade_ouch_v2_0.password.size
-
-  index = index + asx_securities_trade_ouch_v2_0.requested_session.size
-
-  index = index + asx_securities_trade_ouch_v2_0.requested_sequence_number.size
-
-  return index
-end
+-- Size: Login Request Packet
+asx_securities_trade_ouch_v2_0.login_request_packet.size =
+  asx_securities_trade_ouch_v2_0.username.size + 
+  asx_securities_trade_ouch_v2_0.password.size + 
+  asx_securities_trade_ouch_v2_0.requested_session.size + 
+  asx_securities_trade_ouch_v2_0.requested_sequence_number.size
 
 -- Display: Login Request Packet
 asx_securities_trade_ouch_v2_0.login_request_packet.display = function(packet, parent, length)
@@ -1705,28 +1640,16 @@ end
 -- Order Executed Message
 asx_securities_trade_ouch_v2_0.order_executed_message = {}
 
--- Calculate size of: Order Executed Message
-asx_securities_trade_ouch_v2_0.order_executed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.timestamp_nanoseconds.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_token.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_book_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.traded_quantity.size
-
-  index = index + asx_securities_trade_ouch_v2_0.trade_price.size
-
-  index = index + asx_securities_trade_ouch_v2_0.match_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.deal_source.size
-
-  index = index + asx_securities_trade_ouch_v2_0.match_attributes.size
-
-  return index
-end
+-- Size: Order Executed Message
+asx_securities_trade_ouch_v2_0.order_executed_message.size =
+  asx_securities_trade_ouch_v2_0.timestamp_nanoseconds.size + 
+  asx_securities_trade_ouch_v2_0.order_token.size + 
+  asx_securities_trade_ouch_v2_0.order_book_id.size + 
+  asx_securities_trade_ouch_v2_0.traded_quantity.size + 
+  asx_securities_trade_ouch_v2_0.trade_price.size + 
+  asx_securities_trade_ouch_v2_0.match_id.size + 
+  asx_securities_trade_ouch_v2_0.deal_source.size + 
+  asx_securities_trade_ouch_v2_0.match_attributes.size
 
 -- Display: Order Executed Message
 asx_securities_trade_ouch_v2_0.order_executed_message.display = function(packet, parent, length)
@@ -1830,24 +1753,14 @@ end
 -- Order Cancelled Message
 asx_securities_trade_ouch_v2_0.order_cancelled_message = {}
 
--- Calculate size of: Order Cancelled Message
-asx_securities_trade_ouch_v2_0.order_cancelled_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.timestamp_nanoseconds.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_token.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_book_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.side.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.reason.size
-
-  return index
-end
+-- Size: Order Cancelled Message
+asx_securities_trade_ouch_v2_0.order_cancelled_message.size =
+  asx_securities_trade_ouch_v2_0.timestamp_nanoseconds.size + 
+  asx_securities_trade_ouch_v2_0.order_token.size + 
+  asx_securities_trade_ouch_v2_0.order_book_id.size + 
+  asx_securities_trade_ouch_v2_0.side.size + 
+  asx_securities_trade_ouch_v2_0.order_id.size + 
+  asx_securities_trade_ouch_v2_0.reason.size
 
 -- Display: Order Cancelled Message
 asx_securities_trade_ouch_v2_0.order_cancelled_message.display = function(packet, parent, length)
@@ -1956,62 +1869,33 @@ end
 -- Order Replaced Message
 asx_securities_trade_ouch_v2_0.order_replaced_message = {}
 
--- Calculate size of: Order Replaced Message
-asx_securities_trade_ouch_v2_0.order_replaced_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.timestamp_nanoseconds.size
-
-  index = index + asx_securities_trade_ouch_v2_0.replacement_order_token.size
-
-  index = index + asx_securities_trade_ouch_v2_0.previous_order_token.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_book_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.side.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.quantity.size
-
-  index = index + asx_securities_trade_ouch_v2_0.price.size
-
-  index = index + asx_securities_trade_ouch_v2_0.time_in_force.size
-
-  index = index + asx_securities_trade_ouch_v2_0.open_close.size
-
-  index = index + asx_securities_trade_ouch_v2_0.client_account.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_state.size
-
-  index = index + asx_securities_trade_ouch_v2_0.customer_info.size
-
-  index = index + asx_securities_trade_ouch_v2_0.exchange_info.size
-
-  index = index + asx_securities_trade_ouch_v2_0.clearing_participant.size
-
-  index = index + asx_securities_trade_ouch_v2_0.crossing_key.size
-
-  index = index + asx_securities_trade_ouch_v2_0.capacity_of_participant.size
-
-  index = index + asx_securities_trade_ouch_v2_0.directed_wholesale.size
-
-  index = index + asx_securities_trade_ouch_v2_0.execution_venue.size
-
-  index = index + asx_securities_trade_ouch_v2_0.intermediary_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_origin.size
-
-  index = index + asx_securities_trade_ouch_v2_0.filler.size
-
-  index = index + asx_securities_trade_ouch_v2_0.ouch_order_type.size
-
-  index = index + asx_securities_trade_ouch_v2_0.short_sell_quantity.size
-
-  index = index + asx_securities_trade_ouch_v2_0.minimum_acceptable_quantity.size
-
-  return index
-end
+-- Size: Order Replaced Message
+asx_securities_trade_ouch_v2_0.order_replaced_message.size =
+  asx_securities_trade_ouch_v2_0.timestamp_nanoseconds.size + 
+  asx_securities_trade_ouch_v2_0.replacement_order_token.size + 
+  asx_securities_trade_ouch_v2_0.previous_order_token.size + 
+  asx_securities_trade_ouch_v2_0.order_book_id.size + 
+  asx_securities_trade_ouch_v2_0.side.size + 
+  asx_securities_trade_ouch_v2_0.order_id.size + 
+  asx_securities_trade_ouch_v2_0.quantity.size + 
+  asx_securities_trade_ouch_v2_0.price.size + 
+  asx_securities_trade_ouch_v2_0.time_in_force.size + 
+  asx_securities_trade_ouch_v2_0.open_close.size + 
+  asx_securities_trade_ouch_v2_0.client_account.size + 
+  asx_securities_trade_ouch_v2_0.order_state.size + 
+  asx_securities_trade_ouch_v2_0.customer_info.size + 
+  asx_securities_trade_ouch_v2_0.exchange_info.size + 
+  asx_securities_trade_ouch_v2_0.clearing_participant.size + 
+  asx_securities_trade_ouch_v2_0.crossing_key.size + 
+  asx_securities_trade_ouch_v2_0.capacity_of_participant.size + 
+  asx_securities_trade_ouch_v2_0.directed_wholesale.size + 
+  asx_securities_trade_ouch_v2_0.execution_venue.size + 
+  asx_securities_trade_ouch_v2_0.intermediary_id.size + 
+  asx_securities_trade_ouch_v2_0.order_origin.size + 
+  asx_securities_trade_ouch_v2_0.filler.size + 
+  asx_securities_trade_ouch_v2_0.ouch_order_type.size + 
+  asx_securities_trade_ouch_v2_0.short_sell_quantity.size + 
+  asx_securities_trade_ouch_v2_0.minimum_acceptable_quantity.size
 
 -- Display: Order Replaced Message
 asx_securities_trade_ouch_v2_0.order_replaced_message.display = function(packet, parent, length)
@@ -2144,18 +2028,11 @@ end
 -- Order Rejected Message
 asx_securities_trade_ouch_v2_0.order_rejected_message = {}
 
--- Calculate size of: Order Rejected Message
-asx_securities_trade_ouch_v2_0.order_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.timestamp_nanoseconds.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_token.size
-
-  index = index + asx_securities_trade_ouch_v2_0.reject_code.size
-
-  return index
-end
+-- Size: Order Rejected Message
+asx_securities_trade_ouch_v2_0.order_rejected_message.size =
+  asx_securities_trade_ouch_v2_0.timestamp_nanoseconds.size + 
+  asx_securities_trade_ouch_v2_0.order_token.size + 
+  asx_securities_trade_ouch_v2_0.reject_code.size
 
 -- Display: Order Rejected Message
 asx_securities_trade_ouch_v2_0.order_rejected_message.display = function(packet, parent, length)
@@ -2199,60 +2076,32 @@ end
 -- Order Accepted Message
 asx_securities_trade_ouch_v2_0.order_accepted_message = {}
 
--- Calculate size of: Order Accepted Message
-asx_securities_trade_ouch_v2_0.order_accepted_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.timestamp_nanoseconds.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_token.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_book_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.side.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.quantity.size
-
-  index = index + asx_securities_trade_ouch_v2_0.price.size
-
-  index = index + asx_securities_trade_ouch_v2_0.time_in_force.size
-
-  index = index + asx_securities_trade_ouch_v2_0.open_close.size
-
-  index = index + asx_securities_trade_ouch_v2_0.client_account.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_state.size
-
-  index = index + asx_securities_trade_ouch_v2_0.customer_info.size
-
-  index = index + asx_securities_trade_ouch_v2_0.exchange_info.size
-
-  index = index + asx_securities_trade_ouch_v2_0.clearing_participant.size
-
-  index = index + asx_securities_trade_ouch_v2_0.crossing_key.size
-
-  index = index + asx_securities_trade_ouch_v2_0.capacity_of_participant.size
-
-  index = index + asx_securities_trade_ouch_v2_0.directed_wholesale.size
-
-  index = index + asx_securities_trade_ouch_v2_0.execution_venue.size
-
-  index = index + asx_securities_trade_ouch_v2_0.intermediary_id.size
-
-  index = index + asx_securities_trade_ouch_v2_0.order_origin.size
-
-  index = index + asx_securities_trade_ouch_v2_0.filler.size
-
-  index = index + asx_securities_trade_ouch_v2_0.ouch_order_type.size
-
-  index = index + asx_securities_trade_ouch_v2_0.short_sell_quantity.size
-
-  index = index + asx_securities_trade_ouch_v2_0.minimum_acceptable_quantity.size
-
-  return index
-end
+-- Size: Order Accepted Message
+asx_securities_trade_ouch_v2_0.order_accepted_message.size =
+  asx_securities_trade_ouch_v2_0.timestamp_nanoseconds.size + 
+  asx_securities_trade_ouch_v2_0.order_token.size + 
+  asx_securities_trade_ouch_v2_0.order_book_id.size + 
+  asx_securities_trade_ouch_v2_0.side.size + 
+  asx_securities_trade_ouch_v2_0.order_id.size + 
+  asx_securities_trade_ouch_v2_0.quantity.size + 
+  asx_securities_trade_ouch_v2_0.price.size + 
+  asx_securities_trade_ouch_v2_0.time_in_force.size + 
+  asx_securities_trade_ouch_v2_0.open_close.size + 
+  asx_securities_trade_ouch_v2_0.client_account.size + 
+  asx_securities_trade_ouch_v2_0.order_state.size + 
+  asx_securities_trade_ouch_v2_0.customer_info.size + 
+  asx_securities_trade_ouch_v2_0.exchange_info.size + 
+  asx_securities_trade_ouch_v2_0.clearing_participant.size + 
+  asx_securities_trade_ouch_v2_0.crossing_key.size + 
+  asx_securities_trade_ouch_v2_0.capacity_of_participant.size + 
+  asx_securities_trade_ouch_v2_0.directed_wholesale.size + 
+  asx_securities_trade_ouch_v2_0.execution_venue.size + 
+  asx_securities_trade_ouch_v2_0.intermediary_id.size + 
+  asx_securities_trade_ouch_v2_0.order_origin.size + 
+  asx_securities_trade_ouch_v2_0.filler.size + 
+  asx_securities_trade_ouch_v2_0.ouch_order_type.size + 
+  asx_securities_trade_ouch_v2_0.short_sell_quantity.size + 
+  asx_securities_trade_ouch_v2_0.minimum_acceptable_quantity.size
 
 -- Display: Order Accepted Message
 asx_securities_trade_ouch_v2_0.order_accepted_message.display = function(packet, parent, length)
@@ -2549,14 +2398,9 @@ end
 -- Login Rejected Packet
 asx_securities_trade_ouch_v2_0.login_rejected_packet = {}
 
--- Calculate size of: Login Rejected Packet
-asx_securities_trade_ouch_v2_0.login_rejected_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.reject_reason_code.size
-
-  return index
-end
+-- Size: Login Rejected Packet
+asx_securities_trade_ouch_v2_0.login_rejected_packet.size =
+  asx_securities_trade_ouch_v2_0.reject_reason_code.size
 
 -- Display: Login Rejected Packet
 asx_securities_trade_ouch_v2_0.login_rejected_packet.display = function(packet, parent, length)
@@ -2640,16 +2484,10 @@ end
 -- Login Accepted Packet
 asx_securities_trade_ouch_v2_0.login_accepted_packet = {}
 
--- Calculate size of: Login Accepted Packet
-asx_securities_trade_ouch_v2_0.login_accepted_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.session.size
-
-  index = index + asx_securities_trade_ouch_v2_0.sequence_number.size
-
-  return index
-end
+-- Size: Login Accepted Packet
+asx_securities_trade_ouch_v2_0.login_accepted_packet.size =
+  asx_securities_trade_ouch_v2_0.session.size + 
+  asx_securities_trade_ouch_v2_0.sequence_number.size
 
 -- Display: Login Accepted Packet
 asx_securities_trade_ouch_v2_0.login_accepted_packet.display = function(packet, parent, length)
@@ -2713,14 +2551,9 @@ end
 -- Debug Packet
 asx_securities_trade_ouch_v2_0.debug_packet = {}
 
--- Calculate size of: Debug Packet
-asx_securities_trade_ouch_v2_0.debug_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.text.size
-
-  return index
-end
+-- Size: Debug Packet
+asx_securities_trade_ouch_v2_0.debug_packet.size =
+  asx_securities_trade_ouch_v2_0.text.size
 
 -- Display: Debug Packet
 asx_securities_trade_ouch_v2_0.debug_packet.display = function(packet, parent, length)
@@ -2923,16 +2756,10 @@ end
 -- Packet Header
 asx_securities_trade_ouch_v2_0.packet_header = {}
 
--- Calculate size of: Packet Header
-asx_securities_trade_ouch_v2_0.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + asx_securities_trade_ouch_v2_0.packet_length.size
-
-  index = index + asx_securities_trade_ouch_v2_0.packet_type.size
-
-  return index
-end
+-- Size: Packet Header
+asx_securities_trade_ouch_v2_0.packet_header.size =
+  asx_securities_trade_ouch_v2_0.packet_length.size + 
+  asx_securities_trade_ouch_v2_0.packet_type.size
 
 -- Display: Packet Header
 asx_securities_trade_ouch_v2_0.packet_header.display = function(packet, parent, length)
@@ -3021,7 +2848,7 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < asx_securities_trade_ouch_v2_0.packet_header.size(buffer, index) then
+  if remaining < asx_securities_trade_ouch_v2_0.packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

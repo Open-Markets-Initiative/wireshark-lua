@@ -165,16 +165,10 @@ end
 -- Message Header
 otc_markets_headers_ats_v1_0.message_header = {}
 
--- Calculate size of: Message Header
-otc_markets_headers_ats_v1_0.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + otc_markets_headers_ats_v1_0.message_size.size
-
-  index = index + otc_markets_headers_ats_v1_0.message_type.size
-
-  return index
-end
+-- Size: Message Header
+otc_markets_headers_ats_v1_0.message_header.size =
+  otc_markets_headers_ats_v1_0.message_size.size + 
+  otc_markets_headers_ats_v1_0.message_type.size
 
 -- Display: Message Header
 otc_markets_headers_ats_v1_0.message_header.display = function(packet, parent, length)
@@ -418,22 +412,13 @@ end
 -- Packet Header
 otc_markets_headers_ats_v1_0.packet_header = {}
 
--- Calculate size of: Packet Header
-otc_markets_headers_ats_v1_0.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + otc_markets_headers_ats_v1_0.packet_size.size
-
-  index = index + otc_markets_headers_ats_v1_0.seq_num.size
-
-  index = index + otc_markets_headers_ats_v1_0.packet_flag.size
-
-  index = index + otc_markets_headers_ats_v1_0.messages.size
-
-  index = index + otc_markets_headers_ats_v1_0.packet_milli.size
-
-  return index
-end
+-- Size: Packet Header
+otc_markets_headers_ats_v1_0.packet_header.size =
+  otc_markets_headers_ats_v1_0.packet_size.size + 
+  otc_markets_headers_ats_v1_0.seq_num.size + 
+  otc_markets_headers_ats_v1_0.packet_flag.size + 
+  otc_markets_headers_ats_v1_0.messages.size + 
+  otc_markets_headers_ats_v1_0.packet_milli.size
 
 -- Display: Packet Header
 otc_markets_headers_ats_v1_0.packet_header.display = function(packet, parent, length)

@@ -536,18 +536,11 @@ end
 -- Event Resend Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_reject_message = {}
 
--- Calculate size of: Event Resend Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.resend_reject_reason.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_reject_details.size
-
-  return index
-end
+-- Size: Event Resend Reject Message
+coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_reject_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.resend_reject_reason.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_reject_details.size
 
 -- Display: Event Resend Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_reject_message.display = function(packet, parent, length)
@@ -614,16 +607,10 @@ end
 -- Event Resend Complete Message
 coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_complete_message = {}
 
--- Calculate size of: Event Resend Complete Message
-coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_complete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.resent_event_count.size
-
-  return index
-end
+-- Size: Event Resend Complete Message
+coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_complete_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.resent_event_count.size
 
 -- Display: Event Resend Complete Message
 coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_complete_message.display = function(packet, parent, length)
@@ -710,18 +697,11 @@ end
 -- Event Resend Request Message
 coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_request_message = {}
 
--- Calculate size of: Event Resend Request Message
-coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.begin_exec_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.end_exec_id.size
-
-  return index
-end
+-- Size: Event Resend Request Message
+coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_request_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.begin_exec_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.end_exec_id.size
 
 -- Display: Event Resend Request Message
 coinbase_derivatives_ordersapi_sbe_v1_4.event_resend_request_message.display = function(packet, parent, length)
@@ -815,18 +795,11 @@ end
 -- Last Exec Id Message
 coinbase_derivatives_ordersapi_sbe_v1_4.last_exec_id_message = {}
 
--- Calculate size of: Last Exec Id Message
-coinbase_derivatives_ordersapi_sbe_v1_4.last_exec_id_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.last_exec_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  return index
-end
+-- Size: Last Exec Id Message
+coinbase_derivatives_ordersapi_sbe_v1_4.last_exec_id_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.last_exec_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
 
 -- Display: Last Exec Id Message
 coinbase_derivatives_ordersapi_sbe_v1_4.last_exec_id_message.display = function(packet, parent, length)
@@ -870,14 +843,9 @@ end
 -- Last Exec Id Request Message
 coinbase_derivatives_ordersapi_sbe_v1_4.last_exec_id_request_message = {}
 
--- Calculate size of: Last Exec Id Request Message
-coinbase_derivatives_ordersapi_sbe_v1_4.last_exec_id_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  return index
-end
+-- Size: Last Exec Id Request Message
+coinbase_derivatives_ordersapi_sbe_v1_4.last_exec_id_request_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
 
 -- Display: Last Exec Id Request Message
 coinbase_derivatives_ordersapi_sbe_v1_4.last_exec_id_request_message.display = function(packet, parent, length)
@@ -1245,42 +1213,23 @@ end
 -- Spread Order Filled Message
 coinbase_derivatives_ordersapi_sbe_v1_4.spread_order_filled_message = {}
 
--- Calculate size of: Spread Order Filled Message
-coinbase_derivatives_ordersapi_sbe_v1_4.spread_order_filled_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.match_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.filled_vwap.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.total_filled.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.available_qty.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.fill_price.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.leg_1_fill_price.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.leg_2_fill_price.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.fill_qty.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.is_aggressor.size
-
-  return index
-end
+-- Size: Spread Order Filled Message
+coinbase_derivatives_ordersapi_sbe_v1_4.spread_order_filled_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.match_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.filled_vwap.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.total_filled.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.available_qty.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.fill_price.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.leg_1_fill_price.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.leg_2_fill_price.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.fill_qty.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.is_aggressor.size
 
 -- Display: Spread Order Filled Message
 coinbase_derivatives_ordersapi_sbe_v1_4.spread_order_filled_message.display = function(packet, parent, length)
@@ -1360,38 +1309,21 @@ end
 -- Order Filled Message
 coinbase_derivatives_ordersapi_sbe_v1_4.order_filled_message = {}
 
--- Calculate size of: Order Filled Message
-coinbase_derivatives_ordersapi_sbe_v1_4.order_filled_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.match_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.filled_vwap.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.total_filled.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.available_qty.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.fill_price.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.fill_qty.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.is_aggressor.size
-
-  return index
-end
+-- Size: Order Filled Message
+coinbase_derivatives_ordersapi_sbe_v1_4.order_filled_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.match_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.filled_vwap.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.total_filled.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.available_qty.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.fill_price.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.fill_qty.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.is_aggressor.size
 
 -- Display: Order Filled Message
 coinbase_derivatives_ordersapi_sbe_v1_4.order_filled_message.display = function(packet, parent, length)
@@ -1504,18 +1436,11 @@ end
 -- Unlock Trading Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_reject_message = {}
 
--- Calculate size of: Unlock Trading Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.error_message.size
-
-  return index
-end
+-- Size: Unlock Trading Reject Message
+coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_reject_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.error_message.size
 
 -- Display: Unlock Trading Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_reject_message.display = function(packet, parent, length)
@@ -1582,18 +1507,11 @@ end
 -- Unlock Trading Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_ack_message = {}
 
--- Calculate size of: Unlock Trading Ack Message
-coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_ack_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.num_users_affected.size
-
-  return index
-end
+-- Size: Unlock Trading Ack Message
+coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_ack_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.num_users_affected.size
 
 -- Display: Unlock Trading Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_ack_message.display = function(packet, parent, length)
@@ -1667,16 +1585,10 @@ end
 -- Unlock Trading Message
 coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_message = {}
 
--- Calculate size of: Unlock Trading Message
-coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.current_session_only.size
-
-  return index
-end
+-- Size: Unlock Trading Message
+coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.current_session_only.size
 
 -- Display: Unlock Trading Message
 coinbase_derivatives_ordersapi_sbe_v1_4.unlock_trading_message.display = function(packet, parent, length)
@@ -1717,18 +1629,11 @@ end
 -- Mass Cancel Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_reject_message = {}
 
--- Calculate size of: Mass Cancel Order Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.error_message.size
-
-  return index
-end
+-- Size: Mass Cancel Order Reject Message
+coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_reject_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.error_message.size
 
 -- Display: Mass Cancel Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_reject_message.display = function(packet, parent, length)
@@ -1855,24 +1760,14 @@ end
 -- Mass Cancel Order Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_ack_message = {}
 
--- Calculate size of: Mass Cancel Order Ack Message
-coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_ack_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.canceled_count.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.only_current_session.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.trading_lock_applied.size
-
-  return index
-end
+-- Size: Mass Cancel Order Ack Message
+coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_ack_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.canceled_count.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.only_current_session.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.trading_lock_applied.size
 
 -- Display: Mass Cancel Order Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_ack_message.display = function(packet, parent, length)
@@ -2014,24 +1909,14 @@ end
 -- Mass Cancel Order Message
 coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_message = {}
 
--- Calculate size of: Mass Cancel Order Message
-coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.limit_price.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.side.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.current_session_only.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.request_trading_lock.size
-
-  return index
-end
+-- Size: Mass Cancel Order Message
+coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.limit_price.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.side.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.current_session_only.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.request_trading_lock.size
 
 -- Display: Mass Cancel Order Message
 coinbase_derivatives_ordersapi_sbe_v1_4.mass_cancel_order_message.display = function(packet, parent, length)
@@ -2184,24 +2069,14 @@ end
 -- Cancel Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_reject_message = {}
 
--- Calculate size of: Cancel Order Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.order_id_optional.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_reject_reason.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_reject_details.size
-
-  return index
-end
+-- Size: Cancel Order Reject Message
+coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_reject_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.order_id_optional.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_reject_reason.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_reject_details.size
 
 -- Display: Cancel Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_reject_message.display = function(packet, parent, length)
@@ -2332,30 +2207,17 @@ end
 -- Order Canceled Message
 coinbase_derivatives_ordersapi_sbe_v1_4.order_canceled_message = {}
 
--- Calculate size of: Order Canceled Message
-coinbase_derivatives_ordersapi_sbe_v1_4.order_canceled_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.receive_time.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.total_filled.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.cancel_reason.size
-
-  return index
-end
+-- Size: Order Canceled Message
+coinbase_derivatives_ordersapi_sbe_v1_4.order_canceled_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.receive_time.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.total_filled.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.cancel_reason.size
 
 -- Display: Order Canceled Message
 coinbase_derivatives_ordersapi_sbe_v1_4.order_canceled_message.display = function(packet, parent, length)
@@ -2417,18 +2279,11 @@ end
 -- Cancel Order Message
 coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_message = {}
 
--- Calculate size of: Cancel Order Message
-coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
-
-  return index
-end
+-- Size: Cancel Order Message
+coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
 
 -- Display: Cancel Order Message
 coinbase_derivatives_ordersapi_sbe_v1_4.cancel_order_message.display = function(packet, parent, length)
@@ -2472,30 +2327,17 @@ end
 -- Order Replaced Message
 coinbase_derivatives_ordersapi_sbe_v1_4.order_replaced_message = {}
 
--- Calculate size of: Order Replaced Message
-coinbase_derivatives_ordersapi_sbe_v1_4.order_replaced_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.receive_time.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.total_filled.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.available_qty.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
-
-  return index
-end
+-- Size: Order Replaced Message
+coinbase_derivatives_ordersapi_sbe_v1_4.order_replaced_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.receive_time.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.total_filled.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.available_qty.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
 
 -- Display: Order Replaced Message
 coinbase_derivatives_ordersapi_sbe_v1_4.order_replaced_message.display = function(packet, parent, length)
@@ -2635,24 +2477,14 @@ end
 -- Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_4.order_reject_message = {}
 
--- Calculate size of: Order Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_4.order_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.order_id_optional.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.order_reject_reason.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.order_reject_details.size
-
-  return index
-end
+-- Size: Order Reject Message
+coinbase_derivatives_ordersapi_sbe_v1_4.order_reject_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.order_id_optional.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.order_reject_reason.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.order_reject_details.size
 
 -- Display: Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_4.order_reject_message.display = function(packet, parent, length)
@@ -2756,26 +2588,15 @@ end
 -- Stream Order Message
 coinbase_derivatives_ordersapi_sbe_v1_4.stream_order_message = {}
 
--- Calculate size of: Stream Order Message
-coinbase_derivatives_ordersapi_sbe_v1_4.stream_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.last_processed_fill_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.limit_price.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.quantity.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.side.size
-
-  return index
-end
+-- Size: Stream Order Message
+coinbase_derivatives_ordersapi_sbe_v1_4.stream_order_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.last_processed_fill_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.limit_price.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.quantity.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.side.size
 
 -- Display: Stream Order Message
 coinbase_derivatives_ordersapi_sbe_v1_4.stream_order_message.display = function(packet, parent, length)
@@ -2898,22 +2719,13 @@ end
 -- Replace Order Message
 coinbase_derivatives_ordersapi_sbe_v1_4.replace_order_message = {}
 
--- Calculate size of: Replace Order Message
-coinbase_derivatives_ordersapi_sbe_v1_4.replace_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.new_limit_price.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.new_quantity.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
-
-  return index
-end
+-- Size: Replace Order Message
+coinbase_derivatives_ordersapi_sbe_v1_4.replace_order_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.new_limit_price.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.new_quantity.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
 
 -- Display: Replace Order Message
 coinbase_derivatives_ordersapi_sbe_v1_4.replace_order_message.display = function(packet, parent, length)
@@ -2963,24 +2775,14 @@ end
 -- Order Entered Message
 coinbase_derivatives_ordersapi_sbe_v1_4.order_entered_message = {}
 
--- Calculate size of: Order Entered Message
-coinbase_derivatives_ordersapi_sbe_v1_4.order_entered_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.receive_time.size
-
-  return index
-end
+-- Size: Order Entered Message
+coinbase_derivatives_ordersapi_sbe_v1_4.order_entered_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.timestamp.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.exec_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.receive_time.size
 
 -- Display: Order Entered Message
 coinbase_derivatives_ordersapi_sbe_v1_4.order_entered_message.display = function(packet, parent, length)
@@ -3033,24 +2835,14 @@ end
 -- New Order Message
 coinbase_derivatives_ordersapi_sbe_v1_4.new_order_message = {}
 
--- Calculate size of: New Order Message
-coinbase_derivatives_ordersapi_sbe_v1_4.new_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.limit_price.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.quantity.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.side.size
-
-  return index
-end
+-- Size: New Order Message
+coinbase_derivatives_ordersapi_sbe_v1_4.new_order_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.client_order_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.limit_price.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.quantity.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.side.size
 
 -- Display: New Order Message
 coinbase_derivatives_ordersapi_sbe_v1_4.new_order_message.display = function(packet, parent, length)
@@ -3103,14 +2895,9 @@ end
 -- Set Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_4.set_ack_message = {}
 
--- Calculate size of: Set Ack Message
-coinbase_derivatives_ordersapi_sbe_v1_4.set_ack_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  return index
-end
+-- Size: Set Ack Message
+coinbase_derivatives_ordersapi_sbe_v1_4.set_ack_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
 
 -- Display: Set Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_4.set_ack_message.display = function(packet, parent, length)
@@ -3187,16 +2974,10 @@ end
 -- Set Trader Message
 coinbase_derivatives_ordersapi_sbe_v1_4.set_trader_message = {}
 
--- Calculate size of: Set Trader Message
-coinbase_derivatives_ordersapi_sbe_v1_4.set_trader_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.trader.size
-
-  return index
-end
+-- Size: Set Trader Message
+coinbase_derivatives_ordersapi_sbe_v1_4.set_trader_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.trader.size
 
 -- Display: Set Trader Message
 coinbase_derivatives_ordersapi_sbe_v1_4.set_trader_message.display = function(packet, parent, length)
@@ -3276,16 +3057,10 @@ end
 -- Set Account Message
 coinbase_derivatives_ordersapi_sbe_v1_4.set_account_message = {}
 
--- Calculate size of: Set Account Message
-coinbase_derivatives_ordersapi_sbe_v1_4.set_account_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.account.size
-
-  return index
-end
+-- Size: Set Account Message
+coinbase_derivatives_ordersapi_sbe_v1_4.set_account_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.account.size
 
 -- Display: Set Account Message
 coinbase_derivatives_ordersapi_sbe_v1_4.set_account_message.display = function(packet, parent, length)
@@ -3490,26 +3265,15 @@ end
 -- Instrument Info Message
 coinbase_derivatives_ordersapi_sbe_v1_4.instrument_info_message = {}
 
--- Calculate size of: Instrument Info Message
-coinbase_derivatives_ordersapi_sbe_v1_4.instrument_info_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.security_type.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.instrument_status.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.is_last_message.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.reserved_byte.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.symbol.size
-
-  return index
-end
+-- Size: Instrument Info Message
+coinbase_derivatives_ordersapi_sbe_v1_4.instrument_info_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.security_type.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.instrument_status.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.is_last_message.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.reserved_byte.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.symbol.size
 
 -- Display: Instrument Info Message
 coinbase_derivatives_ordersapi_sbe_v1_4.instrument_info_message.display = function(packet, parent, length)
@@ -3565,14 +3329,9 @@ end
 -- Instrument Info Request Message
 coinbase_derivatives_ordersapi_sbe_v1_4.instrument_info_request_message = {}
 
--- Calculate size of: Instrument Info Request Message
-coinbase_derivatives_ordersapi_sbe_v1_4.instrument_info_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  return index
-end
+-- Size: Instrument Info Request Message
+coinbase_derivatives_ordersapi_sbe_v1_4.instrument_info_request_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
 
 -- Display: Instrument Info Request Message
 coinbase_derivatives_ordersapi_sbe_v1_4.instrument_info_request_message.display = function(packet, parent, length)
@@ -3670,8 +3429,8 @@ coinbase_derivatives_ordersapi_sbe_v1_4.data.size = function(buffer, offset)
 end
 
 -- Display: Data
-coinbase_derivatives_ordersapi_sbe_v1_4.data.display = function(packet, parent, length)
-  return ""
+coinbase_derivatives_ordersapi_sbe_v1_4.data.display = function(buffer, offset, value, packet, parent)
+  return "Data: "..value
 end
 
 -- Dissect Fields: Data
@@ -3697,12 +3456,13 @@ end
 
 -- Dissect: Data
 coinbase_derivatives_ordersapi_sbe_v1_4.data.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add element to protocol tree
   if show.data then
     local length = coinbase_derivatives_ordersapi_sbe_v1_4.data.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_4.data.display(buffer, packet, parent)
-    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.data, range, display)
+    local value = range:bytes():tohex(false, " ")
+    local display = coinbase_derivatives_ordersapi_sbe_v1_4.data.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.data, range, value, display)
   end
 
   return coinbase_derivatives_ordersapi_sbe_v1_4.data.fields(buffer, offset, packet, parent)
@@ -3954,16 +3714,10 @@ end
 -- Gap Fill Message
 coinbase_derivatives_ordersapi_sbe_v1_4.gap_fill_message = {}
 
--- Calculate size of: Gap Fill Message
-coinbase_derivatives_ordersapi_sbe_v1_4.gap_fill_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.new_sequence_number.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.gap_fill_padding.size
-
-  return index
-end
+-- Size: Gap Fill Message
+coinbase_derivatives_ordersapi_sbe_v1_4.gap_fill_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.new_sequence_number.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.gap_fill_padding.size
 
 -- Display: Gap Fill Message
 coinbase_derivatives_ordersapi_sbe_v1_4.gap_fill_message.display = function(packet, parent, length)
@@ -4050,16 +3804,10 @@ end
 -- Resend Request Message
 coinbase_derivatives_ordersapi_sbe_v1_4.resend_request_message = {}
 
--- Calculate size of: Resend Request Message
-coinbase_derivatives_ordersapi_sbe_v1_4.resend_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.from_sequence_number.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.to_sequence_number.size
-
-  return index
-end
+-- Size: Resend Request Message
+coinbase_derivatives_ordersapi_sbe_v1_4.resend_request_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.from_sequence_number.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.to_sequence_number.size
 
 -- Display: Resend Request Message
 coinbase_derivatives_ordersapi_sbe_v1_4.resend_request_message.display = function(packet, parent, length)
@@ -4100,14 +3848,9 @@ end
 -- Test Request Message
 coinbase_derivatives_ordersapi_sbe_v1_4.test_request_message = {}
 
--- Calculate size of: Test Request Message
-coinbase_derivatives_ordersapi_sbe_v1_4.test_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  return index
-end
+-- Size: Test Request Message
+coinbase_derivatives_ordersapi_sbe_v1_4.test_request_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
 
 -- Display: Test Request Message
 coinbase_derivatives_ordersapi_sbe_v1_4.test_request_message.display = function(packet, parent, length)
@@ -4145,14 +3888,9 @@ end
 -- Heartbeat Message
 coinbase_derivatives_ordersapi_sbe_v1_4.heartbeat_message = {}
 
--- Calculate size of: Heartbeat Message
-coinbase_derivatives_ordersapi_sbe_v1_4.heartbeat_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
-
-  return index
-end
+-- Size: Heartbeat Message
+coinbase_derivatives_ordersapi_sbe_v1_4.heartbeat_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.correlation_id.size
 
 -- Display: Heartbeat Message
 coinbase_derivatives_ordersapi_sbe_v1_4.heartbeat_message.display = function(packet, parent, length)
@@ -4229,14 +3967,9 @@ end
 -- Logged Out Message
 coinbase_derivatives_ordersapi_sbe_v1_4.logged_out_message = {}
 
--- Calculate size of: Logged Out Message
-coinbase_derivatives_ordersapi_sbe_v1_4.logged_out_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.reason.size
-
-  return index
-end
+-- Size: Logged Out Message
+coinbase_derivatives_ordersapi_sbe_v1_4.logged_out_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.reason.size
 
 -- Display: Logged Out Message
 coinbase_derivatives_ordersapi_sbe_v1_4.logged_out_message.display = function(packet, parent, length)
@@ -4274,14 +4007,9 @@ end
 -- Logout Message
 coinbase_derivatives_ordersapi_sbe_v1_4.logout_message = {}
 
--- Calculate size of: Logout Message
-coinbase_derivatives_ordersapi_sbe_v1_4.logout_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.reason.size
-
-  return index
-end
+-- Size: Logout Message
+coinbase_derivatives_ordersapi_sbe_v1_4.logout_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.reason.size
 
 -- Display: Logout Message
 coinbase_derivatives_ordersapi_sbe_v1_4.logout_message.display = function(packet, parent, length)
@@ -4342,14 +4070,9 @@ end
 -- Logon Conf Message
 coinbase_derivatives_ordersapi_sbe_v1_4.logon_conf_message = {}
 
--- Calculate size of: Logon Conf Message
-coinbase_derivatives_ordersapi_sbe_v1_4.logon_conf_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.heartbeat_interval_seconds.size
-
-  return index
-end
+-- Size: Logon Conf Message
+coinbase_derivatives_ordersapi_sbe_v1_4.logon_conf_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.heartbeat_interval_seconds.size
 
 -- Display: Logon Conf Message
 coinbase_derivatives_ordersapi_sbe_v1_4.logon_conf_message.display = function(packet, parent, length)
@@ -4495,18 +4218,11 @@ end
 -- Logon Message
 coinbase_derivatives_ordersapi_sbe_v1_4.logon_message = {}
 
--- Calculate size of: Logon Message
-coinbase_derivatives_ordersapi_sbe_v1_4.logon_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.username.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.password.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.reset_seq_num.size
-
-  return index
-end
+-- Size: Logon Message
+coinbase_derivatives_ordersapi_sbe_v1_4.logon_message.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.username.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.password.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.reset_seq_num.size
 
 -- Display: Logon Message
 coinbase_derivatives_ordersapi_sbe_v1_4.logon_message.display = function(packet, parent, length)
@@ -5255,34 +4971,19 @@ end
 -- Message Header
 coinbase_derivatives_ordersapi_sbe_v1_4.message_header = {}
 
--- Calculate size of: Message Header
-coinbase_derivatives_ordersapi_sbe_v1_4.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.protocol_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.message_flags.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.message_length.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.sequence_number.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.last_processed_seq_no.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.reserved.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.send_time_epoch_nanos.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.block_length.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.template_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.schema_id.size
-
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.version.size
-
-  return index
-end
+-- Size: Message Header
+coinbase_derivatives_ordersapi_sbe_v1_4.message_header.size =
+  coinbase_derivatives_ordersapi_sbe_v1_4.protocol_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.message_flags.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.message_length.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.sequence_number.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.last_processed_seq_no.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.reserved.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.send_time_epoch_nanos.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.block_length.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.template_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.schema_id.size + 
+  coinbase_derivatives_ordersapi_sbe_v1_4.version.size
 
 -- Display: Message Header
 coinbase_derivatives_ordersapi_sbe_v1_4.message_header.display = function(packet, parent, length)
@@ -5415,7 +5116,7 @@ local sbe_message_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < coinbase_derivatives_ordersapi_sbe_v1_4.message_header.size(buffer, index) then
+  if remaining < coinbase_derivatives_ordersapi_sbe_v1_4.message_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

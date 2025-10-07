@@ -295,20 +295,12 @@ end
 -- Sequence Number Reset Message
 nyse_options_complexfeed_xdp_v1_3_a.sequence_number_reset_message = {}
 
--- Calculate size of: Sequence Number Reset Message
-nyse_options_complexfeed_xdp_v1_3_a.sequence_number_reset_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.product_id.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.channel_id.size
-
-  return index
-end
+-- Size: Sequence Number Reset Message
+nyse_options_complexfeed_xdp_v1_3_a.sequence_number_reset_message.size =
+  nyse_options_complexfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.product_id.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.channel_id.size
 
 -- Display: Sequence Number Reset Message
 nyse_options_complexfeed_xdp_v1_3_a.sequence_number_reset_message.display = function(packet, parent, length)
@@ -401,16 +393,10 @@ end
 -- Stream Id Message
 nyse_options_complexfeed_xdp_v1_3_a.stream_id_message = {}
 
--- Calculate size of: Stream Id Message
-nyse_options_complexfeed_xdp_v1_3_a.stream_id_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.stream_id.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Stream Id Message
+nyse_options_complexfeed_xdp_v1_3_a.stream_id_message.size =
+  nyse_options_complexfeed_xdp_v1_3_a.stream_id.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Stream Id Message
 nyse_options_complexfeed_xdp_v1_3_a.stream_id_message.display = function(packet, parent, length)
@@ -557,20 +543,12 @@ end
 -- Leg Definition
 nyse_options_complexfeed_xdp_v1_3_a.leg_definition = {}
 
--- Calculate size of: Leg Definition
-nyse_options_complexfeed_xdp_v1_3_a.leg_definition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.symbol_index.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.leg_ratio_qty.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.side.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.leg_security_type.size
-
-  return index
-end
+-- Size: Leg Definition
+nyse_options_complexfeed_xdp_v1_3_a.leg_definition.size =
+  nyse_options_complexfeed_xdp_v1_3_a.symbol_index.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.leg_ratio_qty.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.side.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.leg_security_type.size
 
 -- Display: Leg Definition
 nyse_options_complexfeed_xdp_v1_3_a.leg_definition.display = function(packet, parent, length)
@@ -1036,32 +1014,18 @@ end
 -- Refresh Complex Trade Message
 nyse_options_complexfeed_xdp_v1_3_a.refresh_complex_trade_message = {}
 
--- Calculate size of: Refresh Complex Trade Message
-nyse_options_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.complex_index.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.trade_id.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.price.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.volume_4.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.trade_cond_1.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.trade_cond_2.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Refresh Complex Trade Message
+nyse_options_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.size =
+  nyse_options_complexfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.complex_index.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.trade_id.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.price.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.volume_4.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.trade_cond_1.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.trade_cond_2.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Refresh Complex Trade Message
 nyse_options_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.display = function(packet, parent, length)
@@ -1303,38 +1267,21 @@ end
 -- Refresh Complex Quote Message
 nyse_options_complexfeed_xdp_v1_3_a.refresh_complex_quote_message = {}
 
--- Calculate size of: Refresh Complex Quote Message
-nyse_options_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.complex_index.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.ask_price.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.bid_price.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.ask_volume.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.bid_volume.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.ask_customer_volume.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.bid_customer_volume.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.quote_condition.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.reserved_1.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Refresh Complex Quote Message
+nyse_options_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.size =
+  nyse_options_complexfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.complex_index.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.ask_price.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.bid_price.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.ask_volume.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.bid_volume.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.ask_customer_volume.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.bid_customer_volume.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.quote_condition.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.reserved_1.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Refresh Complex Quote Message
 nyse_options_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.display = function(packet, parent, length)
@@ -1479,26 +1426,15 @@ end
 -- Complex Status Message
 nyse_options_complexfeed_xdp_v1_3_a.complex_status_message = {}
 
--- Calculate size of: Complex Status Message
-nyse_options_complexfeed_xdp_v1_3_a.complex_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.complex_index.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.security_status.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.halt_condition.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Complex Status Message
+nyse_options_complexfeed_xdp_v1_3_a.complex_status_message.size =
+  nyse_options_complexfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.complex_index.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.security_status.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.halt_condition.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Complex Status Message
 nyse_options_complexfeed_xdp_v1_3_a.complex_status_message.display = function(packet, parent, length)
@@ -1600,28 +1536,16 @@ end
 -- Complex Cube Rfq Message
 nyse_options_complexfeed_xdp_v1_3_a.complex_cube_rfq_message = {}
 
--- Calculate size of: Complex Cube Rfq Message
-nyse_options_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_ns.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.complex_index.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.side.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.reserved_1.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.volume_2.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.price.size
-
-  return index
-end
+-- Size: Complex Cube Rfq Message
+nyse_options_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.size =
+  nyse_options_complexfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.source_ns.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.complex_index.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.side.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.reserved_1.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.volume_2.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.price.size
 
 -- Display: Complex Cube Rfq Message
 nyse_options_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.display = function(packet, parent, length)
@@ -1680,28 +1604,16 @@ end
 -- Complex Crossing Rfq Message
 nyse_options_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message = {}
 
--- Calculate size of: Complex Crossing Rfq Message
-nyse_options_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_ns.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.complex_index.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.side.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.reserved_1.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.volume_2.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.price.size
-
-  return index
-end
+-- Size: Complex Crossing Rfq Message
+nyse_options_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.size =
+  nyse_options_complexfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.source_ns.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.complex_index.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.side.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.reserved_1.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.volume_2.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.price.size
 
 -- Display: Complex Crossing Rfq Message
 nyse_options_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.display = function(packet, parent, length)
@@ -1760,32 +1672,18 @@ end
 -- Complex Trade Message
 nyse_options_complexfeed_xdp_v1_3_a.complex_trade_message = {}
 
--- Calculate size of: Complex Trade Message
-nyse_options_complexfeed_xdp_v1_3_a.complex_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.complex_index.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.trade_id.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.price.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.volume_4.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.trade_cond_1.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.trade_cond_2.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Complex Trade Message
+nyse_options_complexfeed_xdp_v1_3_a.complex_trade_message.size =
+  nyse_options_complexfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.complex_index.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.trade_id.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.price.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.volume_4.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.trade_cond_1.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.trade_cond_2.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Complex Trade Message
 nyse_options_complexfeed_xdp_v1_3_a.complex_trade_message.display = function(packet, parent, length)
@@ -1850,38 +1748,21 @@ end
 -- Complex Quote Message
 nyse_options_complexfeed_xdp_v1_3_a.complex_quote_message = {}
 
--- Calculate size of: Complex Quote Message
-nyse_options_complexfeed_xdp_v1_3_a.complex_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.complex_index.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.ask_price.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.bid_price.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.ask_volume.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.bid_volume.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.ask_customer_volume.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.bid_customer_volume.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.quote_condition.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.reserved_1.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Complex Quote Message
+nyse_options_complexfeed_xdp_v1_3_a.complex_quote_message.size =
+  nyse_options_complexfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.complex_index.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.ask_price.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.bid_price.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.ask_volume.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.bid_volume.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.ask_customer_volume.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.bid_customer_volume.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.quote_condition.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.reserved_1.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Complex Quote Message
 nyse_options_complexfeed_xdp_v1_3_a.complex_quote_message.display = function(packet, parent, length)
@@ -2152,16 +2033,10 @@ end
 -- Message Header
 nyse_options_complexfeed_xdp_v1_3_a.message_header = {}
 
--- Calculate size of: Message Header
-nyse_options_complexfeed_xdp_v1_3_a.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.message_size.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.message_type.size
-
-  return index
-end
+-- Size: Message Header
+nyse_options_complexfeed_xdp_v1_3_a.message_header.size =
+  nyse_options_complexfeed_xdp_v1_3_a.message_size.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.message_type.size
 
 -- Display: Message Header
 nyse_options_complexfeed_xdp_v1_3_a.message_header.display = function(packet, parent, length)
@@ -2206,7 +2081,7 @@ nyse_options_complexfeed_xdp_v1_3_a.message = {}
 nyse_options_complexfeed_xdp_v1_3_a.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.message_header.size(buffer, offset + index)
+  index = index + nyse_options_complexfeed_xdp_v1_3_a.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2431,24 +2306,14 @@ end
 -- Packet Header
 nyse_options_complexfeed_xdp_v1_3_a.packet_header = {}
 
--- Calculate size of: Packet Header
-nyse_options_complexfeed_xdp_v1_3_a.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.packet_size.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.delivery_flag.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.message_count.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.sequence_number.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.timestamp.size
-
-  index = index + nyse_options_complexfeed_xdp_v1_3_a.nanoseconds.size
-
-  return index
-end
+-- Size: Packet Header
+nyse_options_complexfeed_xdp_v1_3_a.packet_header.size =
+  nyse_options_complexfeed_xdp_v1_3_a.packet_size.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.delivery_flag.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.message_count.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.sequence_number.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.timestamp.size + 
+  nyse_options_complexfeed_xdp_v1_3_a.nanoseconds.size
 
 -- Display: Packet Header
 nyse_options_complexfeed_xdp_v1_3_a.packet_header.display = function(packet, parent, length)

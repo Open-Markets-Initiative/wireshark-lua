@@ -313,22 +313,13 @@ end
 -- Market At Close
 a2x_equities_rtmdf_amd_v1_3_2.market_at_close = {}
 
--- Calculate size of: Market At Close
-a2x_equities_rtmdf_amd_v1_3_2.market_at_close.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.indicative_price.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.closing_buy_qty.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.closing_sell_qty.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
-
-  return index
-end
+-- Size: Market At Close
+a2x_equities_rtmdf_amd_v1_3_2.market_at_close.size =
+  a2x_equities_rtmdf_amd_v1_3_2.security_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.indicative_price.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.closing_buy_qty.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.closing_sell_qty.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
 
 -- Display: Market At Close
 a2x_equities_rtmdf_amd_v1_3_2.market_at_close.display = function(packet, parent, length)
@@ -401,20 +392,12 @@ end
 -- Auction On Demand Message
 a2x_equities_rtmdf_amd_v1_3_2.auction_on_demand_message = {}
 
--- Calculate size of: Auction On Demand Message
-a2x_equities_rtmdf_amd_v1_3_2.auction_on_demand_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.indicative_price.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.match_vol.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
-
-  return index
-end
+-- Size: Auction On Demand Message
+a2x_equities_rtmdf_amd_v1_3_2.auction_on_demand_message.size =
+  a2x_equities_rtmdf_amd_v1_3_2.security_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.indicative_price.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.match_vol.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
 
 -- Display: Auction On Demand Message
 a2x_equities_rtmdf_amd_v1_3_2.auction_on_demand_message.display = function(packet, parent, length)
@@ -556,20 +539,12 @@ end
 -- Security Status Message
 a2x_equities_rtmdf_amd_v1_3_2.security_status_message = {}
 
--- Calculate size of: Security Status Message
-a2x_equities_rtmdf_amd_v1_3_2.security_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.trading_status.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.market_flags.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
-
-  return index
-end
+-- Size: Security Status Message
+a2x_equities_rtmdf_amd_v1_3_2.security_status_message.size =
+  a2x_equities_rtmdf_amd_v1_3_2.security_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.trading_status.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.market_flags.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
 
 -- Display: Security Status Message
 a2x_equities_rtmdf_amd_v1_3_2.security_status_message.display = function(packet, parent, length)
@@ -861,26 +836,15 @@ end
 -- Security Definition Message
 a2x_equities_rtmdf_amd_v1_3_2.security_definition_message = {}
 
--- Calculate size of: Security Definition Message
-a2x_equities_rtmdf_amd_v1_3_2.security_definition_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.umtf.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.isin.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.currency.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.mic.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.tick_table_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.security_flags.size
-
-  return index
-end
+-- Size: Security Definition Message
+a2x_equities_rtmdf_amd_v1_3_2.security_definition_message.size =
+  a2x_equities_rtmdf_amd_v1_3_2.security_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.umtf.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.isin.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.currency.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.mic.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.tick_table_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.security_flags.size
 
 -- Display: Security Definition Message
 a2x_equities_rtmdf_amd_v1_3_2.security_definition_message.display = function(packet, parent, length)
@@ -1021,20 +985,12 @@ end
 -- Tick Table Data Message
 a2x_equities_rtmdf_amd_v1_3_2.tick_table_data_message = {}
 
--- Calculate size of: Tick Table Data Message
-a2x_equities_rtmdf_amd_v1_3_2.tick_table_data_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.tick_table_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.name.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.threshold.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.tick_size.size
-
-  return index
-end
+-- Size: Tick Table Data Message
+a2x_equities_rtmdf_amd_v1_3_2.tick_table_data_message.size =
+  a2x_equities_rtmdf_amd_v1_3_2.tick_table_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.name.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.threshold.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.tick_size.size
 
 -- Display: Tick Table Data Message
 a2x_equities_rtmdf_amd_v1_3_2.tick_table_data_message.display = function(packet, parent, length)
@@ -1150,22 +1106,13 @@ end
 -- Trade Bust Message
 a2x_equities_rtmdf_amd_v1_3_2.trade_bust_message = {}
 
--- Calculate size of: Trade Bust Message
-a2x_equities_rtmdf_amd_v1_3_2.trade_bust_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.quantity.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.price.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.trade_ref.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
-
-  return index
-end
+-- Size: Trade Bust Message
+a2x_equities_rtmdf_amd_v1_3_2.trade_bust_message.size =
+  a2x_equities_rtmdf_amd_v1_3_2.security_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.quantity.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.price.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.trade_ref.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
 
 -- Display: Trade Bust Message
 a2x_equities_rtmdf_amd_v1_3_2.trade_bust_message.display = function(packet, parent, length)
@@ -1280,26 +1227,15 @@ end
 -- Trade Message
 a2x_equities_rtmdf_amd_v1_3_2.trade_message = {}
 
--- Calculate size of: Trade Message
-a2x_equities_rtmdf_amd_v1_3_2.trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.trade_type.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.quantity.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.price.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.order_ref.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.trade_ref.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
-
-  return index
-end
+-- Size: Trade Message
+a2x_equities_rtmdf_amd_v1_3_2.trade_message.size =
+  a2x_equities_rtmdf_amd_v1_3_2.security_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.trade_type.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.quantity.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.price.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.order_ref.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.trade_ref.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
 
 -- Display: Trade Message
 a2x_equities_rtmdf_amd_v1_3_2.trade_message.display = function(packet, parent, length)
@@ -1355,22 +1291,13 @@ end
 -- Order Modify Message
 a2x_equities_rtmdf_amd_v1_3_2.order_modify_message = {}
 
--- Calculate size of: Order Modify Message
-a2x_equities_rtmdf_amd_v1_3_2.order_modify_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.quantity.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.price.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.order_ref.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
-
-  return index
-end
+-- Size: Order Modify Message
+a2x_equities_rtmdf_amd_v1_3_2.order_modify_message.size =
+  a2x_equities_rtmdf_amd_v1_3_2.security_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.quantity.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.price.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.order_ref.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
 
 -- Display: Order Modify Message
 a2x_equities_rtmdf_amd_v1_3_2.order_modify_message.display = function(packet, parent, length)
@@ -1420,18 +1347,11 @@ end
 -- Order Cancel Message
 a2x_equities_rtmdf_amd_v1_3_2.order_cancel_message = {}
 
--- Calculate size of: Order Cancel Message
-a2x_equities_rtmdf_amd_v1_3_2.order_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.order_ref.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
-
-  return index
-end
+-- Size: Order Cancel Message
+a2x_equities_rtmdf_amd_v1_3_2.order_cancel_message.size =
+  a2x_equities_rtmdf_amd_v1_3_2.security_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.order_ref.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
 
 -- Display: Order Cancel Message
 a2x_equities_rtmdf_amd_v1_3_2.order_cancel_message.display = function(packet, parent, length)
@@ -1505,24 +1425,14 @@ end
 -- Order Add Message
 a2x_equities_rtmdf_amd_v1_3_2.order_add_message = {}
 
--- Calculate size of: Order Add Message
-a2x_equities_rtmdf_amd_v1_3_2.order_add_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.security_id.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.side.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.quantity.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.price.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.order_ref.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
-
-  return index
-end
+-- Size: Order Add Message
+a2x_equities_rtmdf_amd_v1_3_2.order_add_message.size =
+  a2x_equities_rtmdf_amd_v1_3_2.security_id.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.side.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.quantity.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.price.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.order_ref.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.timestamp.size
 
 -- Display: Order Add Message
 a2x_equities_rtmdf_amd_v1_3_2.order_add_message.display = function(packet, parent, length)
@@ -1805,18 +1715,11 @@ end
 -- Message Header
 a2x_equities_rtmdf_amd_v1_3_2.message_header = {}
 
--- Calculate size of: Message Header
-a2x_equities_rtmdf_amd_v1_3_2.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.msg_type.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.msg_length.size
-
-  index = index + a2x_equities_rtmdf_amd_v1_3_2.seq_no.size
-
-  return index
-end
+-- Size: Message Header
+a2x_equities_rtmdf_amd_v1_3_2.message_header.size =
+  a2x_equities_rtmdf_amd_v1_3_2.msg_type.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.msg_length.size + 
+  a2x_equities_rtmdf_amd_v1_3_2.seq_no.size
 
 -- Display: Message Header
 a2x_equities_rtmdf_amd_v1_3_2.message_header.display = function(packet, parent, length)

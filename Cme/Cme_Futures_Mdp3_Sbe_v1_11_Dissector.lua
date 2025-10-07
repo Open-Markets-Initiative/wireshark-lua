@@ -1064,26 +1064,15 @@ end
 -- Collateral Market Value Group
 cme_futures_mdp3_sbe_v1_11.collateral_market_value_group = {}
 
--- Calculate size of: Collateral Market Value Group
-cme_futures_mdp3_sbe_v1_11.collateral_market_value_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.underlying_security_alt_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.underlying_security_alt_id_source.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.collateral_market_price.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.dirty_price.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.underlying_instrument_guid.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_stream_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_2.size
-
-  return index
-end
+-- Size: Collateral Market Value Group
+cme_futures_mdp3_sbe_v1_11.collateral_market_value_group.size =
+  cme_futures_mdp3_sbe_v1_11.underlying_security_alt_id.size + 
+  cme_futures_mdp3_sbe_v1_11.underlying_security_alt_id_source.size + 
+  cme_futures_mdp3_sbe_v1_11.collateral_market_price.size + 
+  cme_futures_mdp3_sbe_v1_11.dirty_price.size + 
+  cme_futures_mdp3_sbe_v1_11.underlying_instrument_guid.size + 
+  cme_futures_mdp3_sbe_v1_11.md_stream_id.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_2.size
 
 -- Display: Collateral Market Value Group
 cme_futures_mdp3_sbe_v1_11.collateral_market_value_group.display = function(packet, parent, length)
@@ -1191,16 +1180,10 @@ end
 -- Group Size
 cme_futures_mdp3_sbe_v1_11.group_size = {}
 
--- Calculate size of: Group Size
-cme_futures_mdp3_sbe_v1_11.group_size.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.block_length.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.num_in_group.size
-
-  return index
-end
+-- Size: Group Size
+cme_futures_mdp3_sbe_v1_11.group_size.size =
+  cme_futures_mdp3_sbe_v1_11.block_length.size + 
+  cme_futures_mdp3_sbe_v1_11.num_in_group.size
 
 -- Display: Group Size
 cme_futures_mdp3_sbe_v1_11.group_size.display = function(packet, parent, length)
@@ -1245,7 +1228,7 @@ cme_futures_mdp3_sbe_v1_11.collateral_market_value_groups = {}
 cme_futures_mdp3_sbe_v1_11.collateral_market_value_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local collateral_market_value_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1848,30 +1831,17 @@ end
 -- Snapshot Full Refresh Tcp Group
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_group = {}
 
--- Calculate size of: Snapshot Full Refresh Tcp Group
-cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.tradeable_size.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_price_level_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.open_close_settl_flag.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_type_.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.trading_reference_date.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.settl_price_type.size
-
-  return index
-end
+-- Size: Snapshot Full Refresh Tcp Group
+cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_group.size =
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.tradeable_size.size + 
+  cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_price_level_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.open_close_settl_flag.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_type_.size + 
+  cme_futures_mdp3_sbe_v1_11.trading_reference_date.size + 
+  cme_futures_mdp3_sbe_v1_11.settl_price_type.size
 
 -- Display: Snapshot Full Refresh Tcp Group
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_group.display = function(packet, parent, length)
@@ -1943,7 +1913,7 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_groups = {}
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local snapshot_full_refresh_tcp_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2287,18 +2257,11 @@ end
 -- Security Status Workup Order Group
 cme_futures_mdp3_sbe_v1_11.security_status_workup_order_group = {}
 
--- Calculate size of: Security Status Workup Order Group
-cme_futures_mdp3_sbe_v1_11.security_status_workup_order_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.order_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.side.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.aggressor_indicator.size
-
-  return index
-end
+-- Size: Security Status Workup Order Group
+cme_futures_mdp3_sbe_v1_11.security_status_workup_order_group.size =
+  cme_futures_mdp3_sbe_v1_11.order_id.size + 
+  cme_futures_mdp3_sbe_v1_11.side.size + 
+  cme_futures_mdp3_sbe_v1_11.aggressor_indicator.size
 
 -- Display: Security Status Workup Order Group
 cme_futures_mdp3_sbe_v1_11.security_status_workup_order_group.display = function(packet, parent, length)
@@ -2352,7 +2315,7 @@ cme_futures_mdp3_sbe_v1_11.security_status_workup_order_groups = {}
 cme_futures_mdp3_sbe_v1_11.security_status_workup_order_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local security_status_workup_order_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2786,22 +2749,13 @@ end
 -- Snapshot Refresh Top Orders Group
 cme_futures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_group = {}
 
--- Calculate size of: Snapshot Refresh Top Orders Group
-cme_futures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.order_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_order_priority.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_display_qty.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_type_book.size
-
-  return index
-end
+-- Size: Snapshot Refresh Top Orders Group
+cme_futures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_group.size =
+  cme_futures_mdp3_sbe_v1_11.order_id.size + 
+  cme_futures_mdp3_sbe_v1_11.md_order_priority.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px.size + 
+  cme_futures_mdp3_sbe_v1_11.md_display_qty.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_type_book.size
 
 -- Display: Snapshot Refresh Top Orders Group
 cme_futures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_group.display = function(packet, parent, length)
@@ -2861,7 +2815,7 @@ cme_futures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_groups = {}
 cme_futures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local snapshot_refresh_top_orders_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3026,16 +2980,10 @@ end
 -- Related Instruments Group
 cme_futures_mdp3_sbe_v1_11.related_instruments_group = {}
 
--- Calculate size of: Related Instruments Group
-cme_futures_mdp3_sbe_v1_11.related_instruments_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.related_security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.related_symbol.size
-
-  return index
-end
+-- Size: Related Instruments Group
+cme_futures_mdp3_sbe_v1_11.related_instruments_group.size =
+  cme_futures_mdp3_sbe_v1_11.related_security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.related_symbol.size
 
 -- Display: Related Instruments Group
 cme_futures_mdp3_sbe_v1_11.related_instruments_group.display = function(packet, parent, length)
@@ -3086,7 +3034,7 @@ cme_futures_mdp3_sbe_v1_11.related_instruments_groups = {}
 cme_futures_mdp3_sbe_v1_11.related_instruments_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local related_instruments_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3196,16 +3144,10 @@ end
 -- Underlyings Group
 cme_futures_mdp3_sbe_v1_11.underlyings_group = {}
 
--- Calculate size of: Underlyings Group
-cme_futures_mdp3_sbe_v1_11.underlyings_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.underlying_security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.underlying_symbol.size
-
-  return index
-end
+-- Size: Underlyings Group
+cme_futures_mdp3_sbe_v1_11.underlyings_group.size =
+  cme_futures_mdp3_sbe_v1_11.underlying_security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.underlying_symbol.size
 
 -- Display: Underlyings Group
 cme_futures_mdp3_sbe_v1_11.underlyings_group.display = function(packet, parent, length)
@@ -3256,7 +3198,7 @@ cme_futures_mdp3_sbe_v1_11.underlyings_groups = {}
 cme_futures_mdp3_sbe_v1_11.underlyings_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3366,16 +3308,10 @@ end
 -- Lot Type Rules Group
 cme_futures_mdp3_sbe_v1_11.lot_type_rules_group = {}
 
--- Calculate size of: Lot Type Rules Group
-cme_futures_mdp3_sbe_v1_11.lot_type_rules_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.lot_type.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.min_lot_size.size
-
-  return index
-end
+-- Size: Lot Type Rules Group
+cme_futures_mdp3_sbe_v1_11.lot_type_rules_group.size =
+  cme_futures_mdp3_sbe_v1_11.lot_type.size + 
+  cme_futures_mdp3_sbe_v1_11.min_lot_size.size
 
 -- Display: Lot Type Rules Group
 cme_futures_mdp3_sbe_v1_11.lot_type_rules_group.display = function(packet, parent, length)
@@ -3426,7 +3362,7 @@ cme_futures_mdp3_sbe_v1_11.lot_type_rules_groups = {}
 cme_futures_mdp3_sbe_v1_11.lot_type_rules_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local lot_type_rules_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3677,14 +3613,9 @@ end
 -- Inst Attrib Group
 cme_futures_mdp3_sbe_v1_11.inst_attrib_group = {}
 
--- Calculate size of: Inst Attrib Group
-cme_futures_mdp3_sbe_v1_11.inst_attrib_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.inst_attrib_value.size
-
-  return index
-end
+-- Size: Inst Attrib Group
+cme_futures_mdp3_sbe_v1_11.inst_attrib_group.size =
+  cme_futures_mdp3_sbe_v1_11.inst_attrib_value.size
 
 -- Display: Inst Attrib Group
 cme_futures_mdp3_sbe_v1_11.inst_attrib_group.display = function(packet, parent, length)
@@ -3732,7 +3663,7 @@ cme_futures_mdp3_sbe_v1_11.inst_attrib_groups = {}
 cme_futures_mdp3_sbe_v1_11.inst_attrib_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local inst_attrib_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3842,16 +3773,10 @@ end
 -- M D Feed Types Group
 cme_futures_mdp3_sbe_v1_11.m_d_feed_types_group = {}
 
--- Calculate size of: M D Feed Types Group
-cme_futures_mdp3_sbe_v1_11.m_d_feed_types_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_feed_type.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.market_depth.size
-
-  return index
-end
+-- Size: M D Feed Types Group
+cme_futures_mdp3_sbe_v1_11.m_d_feed_types_group.size =
+  cme_futures_mdp3_sbe_v1_11.md_feed_type.size + 
+  cme_futures_mdp3_sbe_v1_11.market_depth.size
 
 -- Display: M D Feed Types Group
 cme_futures_mdp3_sbe_v1_11.m_d_feed_types_group.display = function(packet, parent, length)
@@ -3902,7 +3827,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_feed_types_groups = {}
 cme_futures_mdp3_sbe_v1_11.m_d_feed_types_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local m_d_feed_types_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4007,16 +3932,10 @@ end
 -- Events Group
 cme_futures_mdp3_sbe_v1_11.events_group = {}
 
--- Calculate size of: Events Group
-cme_futures_mdp3_sbe_v1_11.events_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.event_type.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.event_time.size
-
-  return index
-end
+-- Size: Events Group
+cme_futures_mdp3_sbe_v1_11.events_group.size =
+  cme_futures_mdp3_sbe_v1_11.event_type.size + 
+  cme_futures_mdp3_sbe_v1_11.event_time.size
 
 -- Display: Events Group
 cme_futures_mdp3_sbe_v1_11.events_group.display = function(packet, parent, length)
@@ -4067,7 +3986,7 @@ cme_futures_mdp3_sbe_v1_11.events_groups = {}
 cme_futures_mdp3_sbe_v1_11.events_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local events_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -6731,22 +6650,13 @@ end
 -- M D Instrument Definition Spread Leg Group
 cme_futures_mdp3_sbe_v1_11.m_d_instrument_definition_spread_leg_group = {}
 
--- Calculate size of: M D Instrument Definition Spread Leg Group
-cme_futures_mdp3_sbe_v1_11.m_d_instrument_definition_spread_leg_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.leg_security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.leg_side.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.leg_ratio_qty.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.leg_price.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.leg_option_delta.size
-
-  return index
-end
+-- Size: M D Instrument Definition Spread Leg Group
+cme_futures_mdp3_sbe_v1_11.m_d_instrument_definition_spread_leg_group.size =
+  cme_futures_mdp3_sbe_v1_11.leg_security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.leg_side.size + 
+  cme_futures_mdp3_sbe_v1_11.leg_ratio_qty.size + 
+  cme_futures_mdp3_sbe_v1_11.leg_price.size + 
+  cme_futures_mdp3_sbe_v1_11.leg_option_delta.size
 
 -- Display: M D Instrument Definition Spread Leg Group
 cme_futures_mdp3_sbe_v1_11.m_d_instrument_definition_spread_leg_group.display = function(packet, parent, length)
@@ -6806,7 +6716,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_instrument_definition_spread_leg_groups = {}
 cme_futures_mdp3_sbe_v1_11.m_d_instrument_definition_spread_leg_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local m_d_instrument_definition_spread_leg_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -7128,20 +7038,12 @@ end
 -- Maturity Month Year
 cme_futures_mdp3_sbe_v1_11.maturity_month_year = {}
 
--- Calculate size of: Maturity Month Year
-cme_futures_mdp3_sbe_v1_11.maturity_month_year.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.year.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.month.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.day.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.week.size
-
-  return index
-end
+-- Size: Maturity Month Year
+cme_futures_mdp3_sbe_v1_11.maturity_month_year.size =
+  cme_futures_mdp3_sbe_v1_11.year.size + 
+  cme_futures_mdp3_sbe_v1_11.month.size + 
+  cme_futures_mdp3_sbe_v1_11.day.size + 
+  cme_futures_mdp3_sbe_v1_11.week.size
 
 -- Display: Maturity Month Year
 cme_futures_mdp3_sbe_v1_11.maturity_month_year.display = function(packet, parent, length)
@@ -7250,7 +7152,7 @@ cme_futures_mdp3_sbe_v1_11.md_instrument_definition_spread.size = function(buffe
 
   index = index + cme_futures_mdp3_sbe_v1_11.cfi_code.size
 
-  index = index + cme_futures_mdp3_sbe_v1_11.maturity_month_year.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.maturity_month_year.size
 
   index = index + cme_futures_mdp3_sbe_v1_11.currency.size
 
@@ -7674,7 +7576,7 @@ cme_futures_mdp3_sbe_v1_11.md_instrument_definition_option.size = function(buffe
 
   index = index + cme_futures_mdp3_sbe_v1_11.put_or_call.size
 
-  index = index + cme_futures_mdp3_sbe_v1_11.maturity_month_year.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.maturity_month_year.size
 
   index = index + cme_futures_mdp3_sbe_v1_11.currency.size
 
@@ -8120,7 +8022,7 @@ cme_futures_mdp3_sbe_v1_11.md_instrument_definition_future.size = function(buffe
 
   index = index + cme_futures_mdp3_sbe_v1_11.cfi_code.size
 
-  index = index + cme_futures_mdp3_sbe_v1_11.maturity_month_year.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.maturity_month_year.size
 
   index = index + cme_futures_mdp3_sbe_v1_11.currency.size
 
@@ -8394,22 +8296,13 @@ end
 -- Snapshot Full Refresh Order Book Group
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_group = {}
 
--- Calculate size of: Snapshot Full Refresh Order Book Group
-cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.order_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_order_priority_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_display_qty.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_type_book.size
-
-  return index
-end
+-- Size: Snapshot Full Refresh Order Book Group
+cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_group.size =
+  cme_futures_mdp3_sbe_v1_11.order_id.size + 
+  cme_futures_mdp3_sbe_v1_11.md_order_priority_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px.size + 
+  cme_futures_mdp3_sbe_v1_11.md_display_qty.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_type_book.size
 
 -- Display: Snapshot Full Refresh Order Book Group
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_group.display = function(packet, parent, length)
@@ -8469,7 +8362,7 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_groups = {}
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local snapshot_full_refresh_order_book_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -8679,28 +8572,16 @@ end
 -- Snapshot Full Refresh Group
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_group = {}
 
--- Calculate size of: Snapshot Full Refresh Group
-cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_price_level_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.trading_reference_date.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.open_close_settl_flag.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.settl_price_type.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_type_.size
-
-  return index
-end
+-- Size: Snapshot Full Refresh Group
+cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_group.size =
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_price_level_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.trading_reference_date.size + 
+  cme_futures_mdp3_sbe_v1_11.open_close_settl_flag.size + 
+  cme_futures_mdp3_sbe_v1_11.settl_price_type.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_type_.size
 
 -- Display: Snapshot Full Refresh Group
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_group.display = function(packet, parent, length)
@@ -8769,7 +8650,7 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_groups = {}
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local snapshot_full_refresh_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -9055,28 +8936,16 @@ end
 -- M D Incremental Refresh Session Statistics Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_session_statistics_group = {}
 
--- Calculate size of: M D Incremental Refresh Session Statistics Group
-cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_session_statistics_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.rpt_seq.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.open_close_settl_flag.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_update_action.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_type_statistics.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_1.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Session Statistics Group
+cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_session_statistics_group.size =
+  cme_futures_mdp3_sbe_v1_11.md_entry_px.size + 
+  cme_futures_mdp3_sbe_v1_11.security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.rpt_seq.size + 
+  cme_futures_mdp3_sbe_v1_11.open_close_settl_flag.size + 
+  cme_futures_mdp3_sbe_v1_11.md_update_action.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_type_statistics.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_1.size
 
 -- Display: M D Incremental Refresh Session Statistics Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_session_statistics_group.display = function(packet, parent, length)
@@ -9145,7 +9014,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_session_statistics_groups = {
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_session_statistics_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_session_statistics_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -9248,22 +9117,13 @@ end
 -- M D Incremental Refresh Limits Banding Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_limits_banding_group = {}
 
--- Calculate size of: M D Incremental Refresh Limits Banding Group
-cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_limits_banding_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.high_limit_price.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.low_limit_price.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.max_price_variation.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.rpt_seq.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Limits Banding Group
+cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_limits_banding_group.size =
+  cme_futures_mdp3_sbe_v1_11.high_limit_price.size + 
+  cme_futures_mdp3_sbe_v1_11.low_limit_price.size + 
+  cme_futures_mdp3_sbe_v1_11.max_price_variation.size + 
+  cme_futures_mdp3_sbe_v1_11.security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.rpt_seq.size
 
 -- Display: M D Incremental Refresh Limits Banding Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_limits_banding_group.display = function(packet, parent, length)
@@ -9323,7 +9183,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_limits_banding_groups = {}
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_limits_banding_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_limits_banding_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -9498,30 +9358,17 @@ end
 -- M D Incremental Refresh Daily Statistics Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_daily_statistics_group = {}
 
--- Calculate size of: M D Incremental Refresh Daily Statistics Group
-cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_daily_statistics_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.rpt_seq.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.trading_reference_date.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.settl_price_type.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_update_action.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_type_daily_statistics.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_7.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Daily Statistics Group
+cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_daily_statistics_group.size =
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.rpt_seq.size + 
+  cme_futures_mdp3_sbe_v1_11.trading_reference_date.size + 
+  cme_futures_mdp3_sbe_v1_11.settl_price_type.size + 
+  cme_futures_mdp3_sbe_v1_11.md_update_action.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_type_daily_statistics.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_7.size
 
 -- Display: M D Incremental Refresh Daily Statistics Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_daily_statistics_group.display = function(packet, parent, length)
@@ -9593,7 +9440,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_daily_statistics_groups = {}
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_daily_statistics_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_daily_statistics_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -9742,18 +9589,11 @@ end
 -- M D Incremental Refresh Trade Summary Order Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_order_group = {}
 
--- Calculate size of: M D Incremental Refresh Trade Summary Order Group
-cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_order_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.order_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.last_qty.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_4.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Trade Summary Order Group
+cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_order_group.size =
+  cme_futures_mdp3_sbe_v1_11.order_id.size + 
+  cme_futures_mdp3_sbe_v1_11.last_qty.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_4.size
 
 -- Display: M D Incremental Refresh Trade Summary Order Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_order_group.display = function(packet, parent, length)
@@ -9826,18 +9666,11 @@ end
 -- Group Size 8 Byte
 cme_futures_mdp3_sbe_v1_11.group_size_8_byte = {}
 
--- Calculate size of: Group Size 8 Byte
-cme_futures_mdp3_sbe_v1_11.group_size_8_byte.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.block_length.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_5.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.num_in_group.size
-
-  return index
-end
+-- Size: Group Size 8 Byte
+cme_futures_mdp3_sbe_v1_11.group_size_8_byte.size =
+  cme_futures_mdp3_sbe_v1_11.block_length.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_5.size + 
+  cme_futures_mdp3_sbe_v1_11.num_in_group.size
 
 -- Display: Group Size 8 Byte
 cme_futures_mdp3_sbe_v1_11.group_size_8_byte.display = function(packet, parent, length)
@@ -9885,7 +9718,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_order_groups = 
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_order_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size_8_byte.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size_8_byte.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_trade_summary_order_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10043,30 +9876,17 @@ end
 -- M D Incremental Refresh Trade Summary Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_group = {}
 
--- Calculate size of: M D Incremental Refresh Trade Summary Group
-cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_size.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.rpt_seq.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.number_of_orders.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.aggressor_side.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_update_action.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_trade_entry_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_2.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Trade Summary Group
+cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_group.size =
+  cme_futures_mdp3_sbe_v1_11.md_entry_px.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size.size + 
+  cme_futures_mdp3_sbe_v1_11.security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.rpt_seq.size + 
+  cme_futures_mdp3_sbe_v1_11.number_of_orders.size + 
+  cme_futures_mdp3_sbe_v1_11.aggressor_side.size + 
+  cme_futures_mdp3_sbe_v1_11.md_update_action.size + 
+  cme_futures_mdp3_sbe_v1_11.md_trade_entry_id.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_2.size
 
 -- Display: M D Incremental Refresh Trade Summary Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_group.display = function(packet, parent, length)
@@ -10138,7 +9958,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_groups = {}
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_trade_summary_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_trade_summary_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10325,28 +10145,16 @@ end
 -- M D Incremental Refresh Order Book Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_order_book_group = {}
 
--- Calculate size of: M D Incremental Refresh Order Book Group
-cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_order_book_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.order_id_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_order_priority_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_display_qty_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_update_action.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_type_book.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_6.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Order Book Group
+cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_order_book_group.size =
+  cme_futures_mdp3_sbe_v1_11.order_id_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_order_priority_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_display_qty_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.md_update_action.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_type_book.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_6.size
 
 -- Display: M D Incremental Refresh Order Book Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_order_book_group.display = function(packet, parent, length)
@@ -10415,7 +10223,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_order_book_groups = {}
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_order_book_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_order_book_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10579,24 +10387,14 @@ end
 -- M D Incremental Refresh Book Order Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_order_group = {}
 
--- Calculate size of: M D Incremental Refresh Book Order Group
-cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_order_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.order_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_order_priority_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_display_qty_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.reference_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.order_update_action.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_2.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Book Order Group
+cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_order_group.size =
+  cme_futures_mdp3_sbe_v1_11.order_id.size + 
+  cme_futures_mdp3_sbe_v1_11.md_order_priority_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_display_qty_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.reference_id.size + 
+  cme_futures_mdp3_sbe_v1_11.order_update_action.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_2.size
 
 -- Display: M D Incremental Refresh Book Order Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_order_group.display = function(packet, parent, length)
@@ -10659,7 +10457,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_order_groups = {}
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_order_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size_8_byte.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size_8_byte.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_book_order_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10730,32 +10528,18 @@ end
 -- M D Incremental Refresh Book Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_group = {}
 
--- Calculate size of: M D Incremental Refresh Book Group
-cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.rpt_seq.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_price_level.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_update_action.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_type_book.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.tradeable_size.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_1.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Book Group
+cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_group.size =
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.rpt_seq.size + 
+  cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_price_level.size + 
+  cme_futures_mdp3_sbe_v1_11.md_update_action.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_type_book.size + 
+  cme_futures_mdp3_sbe_v1_11.tradeable_size.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_1.size
 
 -- Display: M D Incremental Refresh Book Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_group.display = function(packet, parent, length)
@@ -10830,7 +10614,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_groups = {}
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_book_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_book_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -11017,24 +10801,14 @@ end
 -- Related Sym Group
 cme_futures_mdp3_sbe_v1_11.related_sym_group = {}
 
--- Calculate size of: Related Sym Group
-cme_futures_mdp3_sbe_v1_11.related_sym_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.symbol.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.order_qty.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.quote_type.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.side_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_2.size
-
-  return index
-end
+-- Size: Related Sym Group
+cme_futures_mdp3_sbe_v1_11.related_sym_group.size =
+  cme_futures_mdp3_sbe_v1_11.symbol.size + 
+  cme_futures_mdp3_sbe_v1_11.security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.order_qty.size + 
+  cme_futures_mdp3_sbe_v1_11.quote_type.size + 
+  cme_futures_mdp3_sbe_v1_11.side_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_2.size
 
 -- Display: Related Sym Group
 cme_futures_mdp3_sbe_v1_11.related_sym_group.display = function(packet, parent, length)
@@ -11097,7 +10871,7 @@ cme_futures_mdp3_sbe_v1_11.related_sym_groups = {}
 cme_futures_mdp3_sbe_v1_11.related_sym_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local related_sym_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -11267,22 +11041,13 @@ end
 -- M D Incremental Refresh Volume Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_volume_group = {}
 
--- Calculate size of: M D Incremental Refresh Volume Group
-cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_volume_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_size.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.rpt_seq.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.md_update_action.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.padding_3.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Volume Group
+cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_volume_group.size =
+  cme_futures_mdp3_sbe_v1_11.md_entry_size.size + 
+  cme_futures_mdp3_sbe_v1_11.security_id.size + 
+  cme_futures_mdp3_sbe_v1_11.rpt_seq.size + 
+  cme_futures_mdp3_sbe_v1_11.md_update_action.size + 
+  cme_futures_mdp3_sbe_v1_11.padding_3.size
 
 -- Display: M D Incremental Refresh Volume Group
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_volume_group.display = function(packet, parent, length)
@@ -11342,7 +11107,7 @@ cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_volume_groups = {}
 cme_futures_mdp3_sbe_v1_11.m_d_incremental_refresh_volume_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_volume_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -11539,30 +11304,17 @@ end
 -- Security Status
 cme_futures_mdp3_sbe_v1_11.security_status = {}
 
--- Calculate size of: Security Status
-cme_futures_mdp3_sbe_v1_11.security_status.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.transact_time.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_group.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.asset.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_id_optional.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.trade_date.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.match_event_indicator.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_trading_status.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.halt_reason.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.security_trading_event.size
-
-  return index
-end
+-- Size: Security Status
+cme_futures_mdp3_sbe_v1_11.security_status.size =
+  cme_futures_mdp3_sbe_v1_11.transact_time.size + 
+  cme_futures_mdp3_sbe_v1_11.security_group.size + 
+  cme_futures_mdp3_sbe_v1_11.asset.size + 
+  cme_futures_mdp3_sbe_v1_11.security_id_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.trade_date.size + 
+  cme_futures_mdp3_sbe_v1_11.match_event_indicator.size + 
+  cme_futures_mdp3_sbe_v1_11.security_trading_status.size + 
+  cme_futures_mdp3_sbe_v1_11.halt_reason.size + 
+  cme_futures_mdp3_sbe_v1_11.security_trading_event.size
 
 -- Display: Security Status
 cme_futures_mdp3_sbe_v1_11.security_status.display = function(packet, parent, length)
@@ -11663,14 +11415,9 @@ end
 -- Admin Logout
 cme_futures_mdp3_sbe_v1_11.admin_logout = {}
 
--- Calculate size of: Admin Logout
-cme_futures_mdp3_sbe_v1_11.admin_logout.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.text.size
-
-  return index
-end
+-- Size: Admin Logout
+cme_futures_mdp3_sbe_v1_11.admin_logout.size =
+  cme_futures_mdp3_sbe_v1_11.text.size
 
 -- Display: Admin Logout
 cme_futures_mdp3_sbe_v1_11.admin_logout.display = function(packet, parent, length)
@@ -11731,14 +11478,9 @@ end
 -- Admin Login
 cme_futures_mdp3_sbe_v1_11.admin_login = {}
 
--- Calculate size of: Admin Login
-cme_futures_mdp3_sbe_v1_11.admin_login.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.heart_bt_int.size
-
-  return index
-end
+-- Size: Admin Login
+cme_futures_mdp3_sbe_v1_11.admin_login.size =
+  cme_futures_mdp3_sbe_v1_11.heart_bt_int.size
 
 -- Display: Admin Login
 cme_futures_mdp3_sbe_v1_11.admin_login.display = function(packet, parent, length)
@@ -11776,14 +11518,9 @@ end
 -- Channel Reset Group
 cme_futures_mdp3_sbe_v1_11.channel_reset_group = {}
 
--- Calculate size of: Channel Reset Group
-cme_futures_mdp3_sbe_v1_11.channel_reset_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.appl_id.size
-
-  return index
-end
+-- Size: Channel Reset Group
+cme_futures_mdp3_sbe_v1_11.channel_reset_group.size =
+  cme_futures_mdp3_sbe_v1_11.appl_id.size
 
 -- Display: Channel Reset Group
 cme_futures_mdp3_sbe_v1_11.channel_reset_group.display = function(packet, parent, length)
@@ -11831,7 +11568,7 @@ cme_futures_mdp3_sbe_v1_11.channel_reset_groups = {}
 cme_futures_mdp3_sbe_v1_11.channel_reset_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.group_size.size
 
   -- Calculate field size from count
   local channel_reset_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -12302,20 +12039,12 @@ end
 -- Message Header
 cme_futures_mdp3_sbe_v1_11.message_header = {}
 
--- Calculate size of: Message Header
-cme_futures_mdp3_sbe_v1_11.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.block_length.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.template_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.schema_id.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.version.size
-
-  return index
-end
+-- Size: Message Header
+cme_futures_mdp3_sbe_v1_11.message_header.size =
+  cme_futures_mdp3_sbe_v1_11.block_length.size + 
+  cme_futures_mdp3_sbe_v1_11.template_id.size + 
+  cme_futures_mdp3_sbe_v1_11.schema_id.size + 
+  cme_futures_mdp3_sbe_v1_11.version.size
 
 -- Display: Message Header
 cme_futures_mdp3_sbe_v1_11.message_header.display = function(packet, parent, length)
@@ -12391,7 +12120,7 @@ cme_futures_mdp3_sbe_v1_11.message.size = function(buffer, offset)
 
   index = index + cme_futures_mdp3_sbe_v1_11.message_size.size
 
-  index = index + cme_futures_mdp3_sbe_v1_11.message_header.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_11.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -12491,16 +12220,10 @@ end
 -- Binary Packet Header
 cme_futures_mdp3_sbe_v1_11.binary_packet_header = {}
 
--- Calculate size of: Binary Packet Header
-cme_futures_mdp3_sbe_v1_11.binary_packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_11.message_sequence_number.size
-
-  index = index + cme_futures_mdp3_sbe_v1_11.sending_time.size
-
-  return index
-end
+-- Size: Binary Packet Header
+cme_futures_mdp3_sbe_v1_11.binary_packet_header.size =
+  cme_futures_mdp3_sbe_v1_11.message_sequence_number.size + 
+  cme_futures_mdp3_sbe_v1_11.sending_time.size
 
 -- Display: Binary Packet Header
 cme_futures_mdp3_sbe_v1_11.binary_packet_header.display = function(packet, parent, length)

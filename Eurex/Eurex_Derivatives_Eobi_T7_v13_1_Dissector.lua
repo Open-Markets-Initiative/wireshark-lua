@@ -629,20 +629,12 @@ end
 -- Md Trade Entry Grp Comp
 eurex_derivatives_eobi_t7_v13_1.md_trade_entry_grp_comp = {}
 
--- Calculate size of: Md Trade Entry Grp Comp
-eurex_derivatives_eobi_t7_v13_1.md_trade_entry_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.md_entry_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.md_entry_size.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.md_entry_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_7.size
-
-  return index
-end
+-- Size: Md Trade Entry Grp Comp
+eurex_derivatives_eobi_t7_v13_1.md_trade_entry_grp_comp.size =
+  eurex_derivatives_eobi_t7_v13_1.md_entry_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.md_entry_size.size + 
+  eurex_derivatives_eobi_t7_v13_1.md_entry_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_7.size
 
 -- Display: Md Trade Entry Grp Comp
 eurex_derivatives_eobi_t7_v13_1.md_trade_entry_grp_comp.display = function(packet, parent, length)
@@ -1249,34 +1241,19 @@ end
 -- Trade Report
 eurex_derivatives_eobi_t7_v13_1.trade_report = {}
 
--- Calculate size of: Trade Report
-eurex_derivatives_eobi_t7_v13_1.trade_report.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_match_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.match_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.match_sub_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.algorithmic_trade_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_1.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trade_condition.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_6.size
-
-  return index
-end
+-- Size: Trade Report
+eurex_derivatives_eobi_t7_v13_1.trade_report.size =
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.trd_match_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.match_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.match_sub_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.algorithmic_trade_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_1.size + 
+  eurex_derivatives_eobi_t7_v13_1.trade_condition.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_6.size
 
 -- Display: Trade Report
 eurex_derivatives_eobi_t7_v13_1.trade_report.display = function(packet, parent, length)
@@ -1579,30 +1556,17 @@ end
 -- Top Of Book
 eurex_derivatives_eobi_t7_v13_1.top_of_book = {}
 
--- Calculate size of: Top Of Book
-eurex_derivatives_eobi_t7_v13_1.top_of_book.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.bid_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.offer_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.bid_size.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.offer_size.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.number_of_buy_orders.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.number_of_sell_orders.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_4.size
-
-  return index
-end
+-- Size: Top Of Book
+eurex_derivatives_eobi_t7_v13_1.top_of_book.size =
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.bid_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.offer_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.bid_size.size + 
+  eurex_derivatives_eobi_t7_v13_1.offer_size.size + 
+  eurex_derivatives_eobi_t7_v13_1.number_of_buy_orders.size + 
+  eurex_derivatives_eobi_t7_v13_1.number_of_sell_orders.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_4.size
 
 -- Display: Top Of Book
 eurex_derivatives_eobi_t7_v13_1.top_of_book.display = function(packet, parent, length)
@@ -1922,42 +1886,23 @@ end
 -- Tes Trade Report
 eurex_derivatives_eobi_t7_v13_1.tes_trade_report = {}
 
--- Calculate size of: Tes Trade Report
-eurex_derivatives_eobi_t7_v13_1.tes_trade_report.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_match_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trade_condition.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.multi_leg_reporting_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.multi_leg_price_model.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_6.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.non_disclosed_trade_volume.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trans_bkd_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.number_of_buy_sides.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.number_of_sell_sides.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_4.size
-
-  return index
-end
+-- Size: Tes Trade Report
+eurex_derivatives_eobi_t7_v13_1.tes_trade_report.size =
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.trd_match_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.trd_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.trade_condition.size + 
+  eurex_derivatives_eobi_t7_v13_1.multi_leg_reporting_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.multi_leg_price_model.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_6.size + 
+  eurex_derivatives_eobi_t7_v13_1.non_disclosed_trade_volume.size + 
+  eurex_derivatives_eobi_t7_v13_1.trans_bkd_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.number_of_buy_sides.size + 
+  eurex_derivatives_eobi_t7_v13_1.number_of_sell_sides.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_4.size
 
 -- Display: Tes Trade Report
 eurex_derivatives_eobi_t7_v13_1.tes_trade_report.display = function(packet, parent, length)
@@ -2262,26 +2207,15 @@ end
 -- Order Details Comp
 eurex_derivatives_eobi_t7_v13_1.order_details_comp = {}
 
--- Calculate size of: Order Details Comp
-eurex_derivatives_eobi_t7_v13_1.order_details_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_time_priority.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.display_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.side.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.ord_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.hhi_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_5.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.price.size
-
-  return index
-end
+-- Size: Order Details Comp
+eurex_derivatives_eobi_t7_v13_1.order_details_comp.size =
+  eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_time_priority.size + 
+  eurex_derivatives_eobi_t7_v13_1.display_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.side.size + 
+  eurex_derivatives_eobi_t7_v13_1.ord_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.hhi_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_5.size + 
+  eurex_derivatives_eobi_t7_v13_1.price.size
 
 -- Display: Order Details Comp
 eurex_derivatives_eobi_t7_v13_1.order_details_comp.display = function(packet, parent, length)
@@ -2337,14 +2271,9 @@ end
 -- Snapshot Order
 eurex_derivatives_eobi_t7_v13_1.snapshot_order = {}
 
--- Calculate size of: Snapshot Order
-eurex_derivatives_eobi_t7_v13_1.snapshot_order.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.order_details_comp.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Snapshot Order
+eurex_derivatives_eobi_t7_v13_1.snapshot_order.size =
+  eurex_derivatives_eobi_t7_v13_1.order_details_comp.size
 
 -- Display: Snapshot Order
 eurex_derivatives_eobi_t7_v13_1.snapshot_order.display = function(packet, parent, length)
@@ -2382,22 +2311,13 @@ end
 -- Quote Request
 eurex_derivatives_eobi_t7_v13_1.quote_request = {}
 
--- Calculate size of: Quote Request
-eurex_derivatives_eobi_t7_v13_1.quote_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.side.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_7.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  return index
-end
+-- Size: Quote Request
+eurex_derivatives_eobi_t7_v13_1.quote_request.size =
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.side.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_7.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size
 
 -- Display: Quote Request
 eurex_derivatives_eobi_t7_v13_1.quote_request.display = function(packet, parent, length)
@@ -2700,28 +2620,16 @@ end
 -- Product Summary
 eurex_derivatives_eobi_t7_v13_1.product_summary = {}
 
--- Calculate size of: Product Summary
-eurex_derivatives_eobi_t7_v13_1.product_summary.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_msg_seq_num_processed.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trading_session_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trading_session_sub_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trad_ses_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.market_condition.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.fast_market_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.tes_trad_ses_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_6.size
-
-  return index
-end
+-- Size: Product Summary
+eurex_derivatives_eobi_t7_v13_1.product_summary.size =
+  eurex_derivatives_eobi_t7_v13_1.last_msg_seq_num_processed.size + 
+  eurex_derivatives_eobi_t7_v13_1.trading_session_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.trading_session_sub_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.trad_ses_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.market_condition.size + 
+  eurex_derivatives_eobi_t7_v13_1.fast_market_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.tes_trad_ses_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_6.size
 
 -- Display: Product Summary
 eurex_derivatives_eobi_t7_v13_1.product_summary.display = function(packet, parent, length)
@@ -2803,28 +2711,16 @@ end
 -- Product State Change
 eurex_derivatives_eobi_t7_v13_1.product_state_change = {}
 
--- Calculate size of: Product State Change
-eurex_derivatives_eobi_t7_v13_1.product_state_change.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trading_session_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trading_session_sub_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trad_ses_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.market_condition.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.fast_market_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.tes_trad_ses_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_2.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  return index
-end
+-- Size: Product State Change
+eurex_derivatives_eobi_t7_v13_1.product_state_change.size =
+  eurex_derivatives_eobi_t7_v13_1.trading_session_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.trading_session_sub_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.trad_ses_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.market_condition.size + 
+  eurex_derivatives_eobi_t7_v13_1.fast_market_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.tes_trad_ses_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_2.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size
 
 -- Display: Product State Change
 eurex_derivatives_eobi_t7_v13_1.product_state_change.display = function(packet, parent, length)
@@ -2883,32 +2779,18 @@ end
 -- Partial Order Execution
 eurex_derivatives_eobi_t7_v13_1.partial_order_execution = {}
 
--- Calculate size of: Partial Order Execution
-eurex_derivatives_eobi_t7_v13_1.partial_order_execution.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.side.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.ord_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.algorithmic_trade_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.hhi_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_match_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.price.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_time_priority.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_px.size
-
-  return index
-end
+-- Size: Partial Order Execution
+eurex_derivatives_eobi_t7_v13_1.partial_order_execution.size =
+  eurex_derivatives_eobi_t7_v13_1.side.size + 
+  eurex_derivatives_eobi_t7_v13_1.ord_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.algorithmic_trade_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.hhi_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.trd_match_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.price.size + 
+  eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_time_priority.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_px.size
 
 -- Display: Partial Order Execution
 eurex_derivatives_eobi_t7_v13_1.partial_order_execution.display = function(packet, parent, length)
@@ -3043,22 +2925,13 @@ end
 -- Order Modify Same Prio
 eurex_derivatives_eobi_t7_v13_1.order_modify_same_prio = {}
 
--- Calculate size of: Order Modify Same Prio
-eurex_derivatives_eobi_t7_v13_1.order_modify_same_prio.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.request_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.prev_display_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.order_details_comp.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Order Modify Same Prio
+eurex_derivatives_eobi_t7_v13_1.order_modify_same_prio.size =
+  eurex_derivatives_eobi_t7_v13_1.request_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.prev_display_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.order_details_comp.size
 
 -- Display: Order Modify Same Prio
 eurex_derivatives_eobi_t7_v13_1.order_modify_same_prio.display = function(packet, parent, length)
@@ -3208,28 +3081,16 @@ end
 -- Order Modify
 eurex_derivatives_eobi_t7_v13_1.order_modify = {}
 
--- Calculate size of: Order Modify
-eurex_derivatives_eobi_t7_v13_1.order_modify.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.request_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_prev_time_priority.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.prev_price.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.prev_display_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.order_details_comp.size(buffer, offset + index)
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.prev_price_hhi_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_7.size
-
-  return index
-end
+-- Size: Order Modify
+eurex_derivatives_eobi_t7_v13_1.order_modify.size =
+  eurex_derivatives_eobi_t7_v13_1.request_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_prev_time_priority.size + 
+  eurex_derivatives_eobi_t7_v13_1.prev_price.size + 
+  eurex_derivatives_eobi_t7_v13_1.prev_display_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.order_details_comp.size + 
+  eurex_derivatives_eobi_t7_v13_1.prev_price_hhi_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_7.size
 
 -- Display: Order Modify
 eurex_derivatives_eobi_t7_v13_1.order_modify.display = function(packet, parent, length)
@@ -3288,16 +3149,10 @@ end
 -- Order Mass Delete
 eurex_derivatives_eobi_t7_v13_1.order_mass_delete = {}
 
--- Calculate size of: Order Mass Delete
-eurex_derivatives_eobi_t7_v13_1.order_mass_delete.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  return index
-end
+-- Size: Order Mass Delete
+eurex_derivatives_eobi_t7_v13_1.order_mass_delete.size =
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size
 
 -- Display: Order Mass Delete
 eurex_derivatives_eobi_t7_v13_1.order_mass_delete.display = function(packet, parent, length)
@@ -3338,20 +3193,12 @@ end
 -- Order Delete
 eurex_derivatives_eobi_t7_v13_1.order_delete = {}
 
--- Calculate size of: Order Delete
-eurex_derivatives_eobi_t7_v13_1.order_delete.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.request_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.order_details_comp.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Order Delete
+eurex_derivatives_eobi_t7_v13_1.order_delete.size =
+  eurex_derivatives_eobi_t7_v13_1.request_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.order_details_comp.size
 
 -- Display: Order Delete
 eurex_derivatives_eobi_t7_v13_1.order_delete.display = function(packet, parent, length)
@@ -3398,18 +3245,11 @@ end
 -- Order Add
 eurex_derivatives_eobi_t7_v13_1.order_add = {}
 
--- Calculate size of: Order Add
-eurex_derivatives_eobi_t7_v13_1.order_add.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.request_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.order_details_comp.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Order Add
+eurex_derivatives_eobi_t7_v13_1.order_add.size =
+  eurex_derivatives_eobi_t7_v13_1.request_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.order_details_comp.size
 
 -- Display: Order Add
 eurex_derivatives_eobi_t7_v13_1.order_add.display = function(packet, parent, length)
@@ -3780,32 +3620,18 @@ end
 -- Sec Mass Stat Grp Comp
 eurex_derivatives_eobi_t7_v13_1.sec_mass_stat_grp_comp = {}
 
--- Calculate size of: Sec Mass Stat Grp Comp
-eurex_derivatives_eobi_t7_v13_1.sec_mass_stat_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.high_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.low_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_trading_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.market_condition.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_trading_event.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.sold_out_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.tes_security_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_2.size
-
-  return index
-end
+-- Size: Sec Mass Stat Grp Comp
+eurex_derivatives_eobi_t7_v13_1.sec_mass_stat_grp_comp.size =
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.high_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.low_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_trading_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.market_condition.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_trading_event.size + 
+  eurex_derivatives_eobi_t7_v13_1.sold_out_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.tes_security_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_2.size
 
 -- Display: Sec Mass Stat Grp Comp
 eurex_derivatives_eobi_t7_v13_1.sec_mass_stat_grp_comp.display = function(packet, parent, length)
@@ -4392,30 +4218,17 @@ end
 -- Md Instrument Entry Grp Comp
 eurex_derivatives_eobi_t7_v13_1.md_instrument_entry_grp_comp = {}
 
--- Calculate size of: Md Instrument Entry Grp Comp
-eurex_derivatives_eobi_t7_v13_1.md_instrument_entry_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.md_entry_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.md_entry_size.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.md_origin_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.md_entry_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trade_condition.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.multi_leg_reporting_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.multi_leg_price_model.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.non_disclosed_trade_volume.size
-
-  return index
-end
+-- Size: Md Instrument Entry Grp Comp
+eurex_derivatives_eobi_t7_v13_1.md_instrument_entry_grp_comp.size =
+  eurex_derivatives_eobi_t7_v13_1.md_entry_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.md_entry_size.size + 
+  eurex_derivatives_eobi_t7_v13_1.md_origin_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.md_entry_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.trade_condition.size + 
+  eurex_derivatives_eobi_t7_v13_1.trd_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.multi_leg_reporting_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.multi_leg_price_model.size + 
+  eurex_derivatives_eobi_t7_v13_1.non_disclosed_trade_volume.size
 
 -- Display: Md Instrument Entry Grp Comp
 eurex_derivatives_eobi_t7_v13_1.md_instrument_entry_grp_comp.display = function(packet, parent, length)
@@ -4735,38 +4548,21 @@ end
 -- Instrument State Change
 eurex_derivatives_eobi_t7_v13_1.instrument_state_change = {}
 
--- Calculate size of: Instrument State Change
-eurex_derivatives_eobi_t7_v13_1.instrument_state_change.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_trading_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.market_condition.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.fast_market_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_trading_event.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.sold_out_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_2.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.high_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.low_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.tes_security_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_7.size
-
-  return index
-end
+-- Size: Instrument State Change
+eurex_derivatives_eobi_t7_v13_1.instrument_state_change.size =
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_trading_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.market_condition.size + 
+  eurex_derivatives_eobi_t7_v13_1.fast_market_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_trading_event.size + 
+  eurex_derivatives_eobi_t7_v13_1.sold_out_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_2.size + 
+  eurex_derivatives_eobi_t7_v13_1.high_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.low_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.tes_security_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_7.size
 
 -- Display: Instrument State Change
 eurex_derivatives_eobi_t7_v13_1.instrument_state_change.display = function(packet, parent, length)
@@ -4840,16 +4636,10 @@ end
 -- Heartbeat
 eurex_derivatives_eobi_t7_v13_1.heartbeat = {}
 
--- Calculate size of: Heartbeat
-eurex_derivatives_eobi_t7_v13_1.heartbeat.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_msg_seq_num_processed.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_4.size
-
-  return index
-end
+-- Size: Heartbeat
+eurex_derivatives_eobi_t7_v13_1.heartbeat.size =
+  eurex_derivatives_eobi_t7_v13_1.last_msg_seq_num_processed.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_4.size
 
 -- Display: Heartbeat
 eurex_derivatives_eobi_t7_v13_1.heartbeat.display = function(packet, parent, length)
@@ -4890,32 +4680,18 @@ end
 -- Full Order Execution
 eurex_derivatives_eobi_t7_v13_1.full_order_execution = {}
 
--- Calculate size of: Full Order Execution
-eurex_derivatives_eobi_t7_v13_1.full_order_execution.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.side.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.ord_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.algorithmic_trade_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.hhi_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_match_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.price.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_time_priority.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_px.size
-
-  return index
-end
+-- Size: Full Order Execution
+eurex_derivatives_eobi_t7_v13_1.full_order_execution.size =
+  eurex_derivatives_eobi_t7_v13_1.side.size + 
+  eurex_derivatives_eobi_t7_v13_1.ord_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.algorithmic_trade_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.hhi_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.trd_match_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.price.size + 
+  eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_time_priority.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_px.size
 
 -- Display: Full Order Execution
 eurex_derivatives_eobi_t7_v13_1.full_order_execution.display = function(packet, parent, length)
@@ -5089,18 +4865,11 @@ end
 -- Remaining Order Details Comp
 eurex_derivatives_eobi_t7_v13_1.remaining_order_details_comp = {}
 
--- Calculate size of: Remaining Order Details Comp
-eurex_derivatives_eobi_t7_v13_1.remaining_order_details_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_prev_time_priority.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.display_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.price.size
-
-  return index
-end
+-- Size: Remaining Order Details Comp
+eurex_derivatives_eobi_t7_v13_1.remaining_order_details_comp.size =
+  eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_prev_time_priority.size + 
+  eurex_derivatives_eobi_t7_v13_1.display_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.price.size
 
 -- Display: Remaining Order Details Comp
 eurex_derivatives_eobi_t7_v13_1.remaining_order_details_comp.display = function(packet, parent, length)
@@ -5259,40 +5028,22 @@ end
 -- Execution Summary
 eurex_derivatives_eobi_t7_v13_1.execution_summary = {}
 
--- Calculate size of: Execution Summary
-eurex_derivatives_eobi_t7_v13_1.execution_summary.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.request_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.exec_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.aggressor_side.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_1.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trade_condition.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trading_hhi_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_3.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.remaining_order_details_comp.size(buffer, offset + index)
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.resting_hidden_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.resting_cxl_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.aggressor_time.size
-
-  return index
-end
+-- Size: Execution Summary
+eurex_derivatives_eobi_t7_v13_1.execution_summary.size =
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.request_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.exec_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.aggressor_side.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_1.size + 
+  eurex_derivatives_eobi_t7_v13_1.trade_condition.size + 
+  eurex_derivatives_eobi_t7_v13_1.trading_hhi_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_3.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.remaining_order_details_comp.size + 
+  eurex_derivatives_eobi_t7_v13_1.resting_hidden_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.resting_cxl_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.aggressor_time.size
 
 -- Display: Execution Summary
 eurex_derivatives_eobi_t7_v13_1.execution_summary.display = function(packet, parent, length)
@@ -5432,28 +5183,16 @@ end
 -- Cross Request
 eurex_derivatives_eobi_t7_v13_1.cross_request = {}
 
--- Calculate size of: Cross Request
-eurex_derivatives_eobi_t7_v13_1.cross_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.side.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.cross_request_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.input_source.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_5.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  return index
-end
+-- Size: Cross Request
+eurex_derivatives_eobi_t7_v13_1.cross_request.size =
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.side.size + 
+  eurex_derivatives_eobi_t7_v13_1.cross_request_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.input_source.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_5.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size
 
 -- Display: Cross Request
 eurex_derivatives_eobi_t7_v13_1.cross_request.display = function(packet, parent, length)
@@ -5584,28 +5323,16 @@ end
 -- Auction Clearing Price
 eurex_derivatives_eobi_t7_v13_1.auction_clearing_price = {}
 
--- Calculate size of: Auction Clearing Price
-eurex_derivatives_eobi_t7_v13_1.auction_clearing_price.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.last_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.imbalance_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_trading_status.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.potential_security_trading_event.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_6.size
-
-  return index
-end
+-- Size: Auction Clearing Price
+eurex_derivatives_eobi_t7_v13_1.auction_clearing_price.size =
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.last_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.imbalance_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_trading_status.size + 
+  eurex_derivatives_eobi_t7_v13_1.potential_security_trading_event.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_6.size
 
 -- Display: Auction Clearing Price
 eurex_derivatives_eobi_t7_v13_1.auction_clearing_price.display = function(packet, parent, length)
@@ -5724,32 +5451,18 @@ end
 -- Auction Bbo
 eurex_derivatives_eobi_t7_v13_1.auction_bbo = {}
 
--- Calculate size of: Auction Bbo
-eurex_derivatives_eobi_t7_v13_1.auction_bbo.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.bid_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.offer_px.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.bid_size.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.offer_size.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.potential_security_trading_event.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.bid_ord_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.offer_ord_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_5.size
-
-  return index
-end
+-- Size: Auction Bbo
+eurex_derivatives_eobi_t7_v13_1.auction_bbo.size =
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.bid_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.offer_px.size + 
+  eurex_derivatives_eobi_t7_v13_1.bid_size.size + 
+  eurex_derivatives_eobi_t7_v13_1.offer_size.size + 
+  eurex_derivatives_eobi_t7_v13_1.potential_security_trading_event.size + 
+  eurex_derivatives_eobi_t7_v13_1.bid_ord_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.offer_ord_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_5.size
 
 -- Display: Auction Bbo
 eurex_derivatives_eobi_t7_v13_1.auction_bbo.display = function(packet, parent, length)
@@ -5842,14 +5555,9 @@ end
 -- Related Instrument Grp Comp
 eurex_derivatives_eobi_t7_v13_1.related_instrument_grp_comp = {}
 
--- Calculate size of: Related Instrument Grp Comp
-eurex_derivatives_eobi_t7_v13_1.related_instrument_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.related_security_id.size
-
-  return index
-end
+-- Size: Related Instrument Grp Comp
+eurex_derivatives_eobi_t7_v13_1.related_instrument_grp_comp.size =
+  eurex_derivatives_eobi_t7_v13_1.related_security_id.size
 
 -- Display: Related Instrument Grp Comp
 eurex_derivatives_eobi_t7_v13_1.related_instrument_grp_comp.display = function(packet, parent, length)
@@ -5979,28 +5687,16 @@ end
 -- Add Scaled Simple Instrument
 eurex_derivatives_eobi_t7_v13_1.add_scaled_simple_instrument = {}
 
--- Calculate size of: Add Scaled Simple Instrument
-eurex_derivatives_eobi_t7_v13_1.add_scaled_simple_instrument.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_desc.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_1.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.quantity_scaling_factor.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_4.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.related_instrument_grp_comp.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Add Scaled Simple Instrument
+eurex_derivatives_eobi_t7_v13_1.add_scaled_simple_instrument.size =
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_desc.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_1.size + 
+  eurex_derivatives_eobi_t7_v13_1.quantity_scaling_factor.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_4.size + 
+  eurex_derivatives_eobi_t7_v13_1.related_instrument_grp_comp.size
 
 -- Display: Add Scaled Simple Instrument
 eurex_derivatives_eobi_t7_v13_1.add_scaled_simple_instrument.display = function(packet, parent, length)
@@ -6309,38 +6005,21 @@ end
 -- Add Flexible Instrument
 eurex_derivatives_eobi_t7_v13_1.add_flexible_instrument = {}
 
--- Calculate size of: Add Flexible Instrument
-eurex_derivatives_eobi_t7_v13_1.add_flexible_instrument.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_desc.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.put_or_call.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.exercise_style.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.settl_method.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.maturity_date.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.strike_price.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.opt_attribute.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.contract_date.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.security_reference_data_supplement.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_4.size
-
-  return index
-end
+-- Size: Add Flexible Instrument
+eurex_derivatives_eobi_t7_v13_1.add_flexible_instrument.size =
+  eurex_derivatives_eobi_t7_v13_1.security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_desc.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.put_or_call.size + 
+  eurex_derivatives_eobi_t7_v13_1.exercise_style.size + 
+  eurex_derivatives_eobi_t7_v13_1.settl_method.size + 
+  eurex_derivatives_eobi_t7_v13_1.maturity_date.size + 
+  eurex_derivatives_eobi_t7_v13_1.strike_price.size + 
+  eurex_derivatives_eobi_t7_v13_1.opt_attribute.size + 
+  eurex_derivatives_eobi_t7_v13_1.contract_date.size + 
+  eurex_derivatives_eobi_t7_v13_1.security_reference_data_supplement.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_4.size
 
 -- Display: Add Flexible Instrument
 eurex_derivatives_eobi_t7_v13_1.add_flexible_instrument.display = function(packet, parent, length)
@@ -6711,32 +6390,18 @@ end
 -- Instrmt Leg Grp Comp
 eurex_derivatives_eobi_t7_v13_1.instrmt_leg_grp_comp = {}
 
--- Calculate size of: Instrmt Leg Grp Comp
-eurex_derivatives_eobi_t7_v13_1.instrmt_leg_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.leg_symbol.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_4.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.leg_security_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.leg_price.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.leg_ratio_qty.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.leg_security_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.leg_side.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.related_price_type.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.trading_style.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.related_price.size
-
-  return index
-end
+-- Size: Instrmt Leg Grp Comp
+eurex_derivatives_eobi_t7_v13_1.instrmt_leg_grp_comp.size =
+  eurex_derivatives_eobi_t7_v13_1.leg_symbol.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_4.size + 
+  eurex_derivatives_eobi_t7_v13_1.leg_security_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.leg_price.size + 
+  eurex_derivatives_eobi_t7_v13_1.leg_ratio_qty.size + 
+  eurex_derivatives_eobi_t7_v13_1.leg_security_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.leg_side.size + 
+  eurex_derivatives_eobi_t7_v13_1.related_price_type.size + 
+  eurex_derivatives_eobi_t7_v13_1.trading_style.size + 
+  eurex_derivatives_eobi_t7_v13_1.related_price.size
 
 -- Display: Instrmt Leg Grp Comp
 eurex_derivatives_eobi_t7_v13_1.instrmt_leg_grp_comp.display = function(packet, parent, length)
@@ -7435,18 +7100,11 @@ end
 -- Message Header Comp
 eurex_derivatives_eobi_t7_v13_1.message_header_comp = {}
 
--- Calculate size of: Message Header Comp
-eurex_derivatives_eobi_t7_v13_1.message_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.body_len.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.template_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.msg_seq_num.size
-
-  return index
-end
+-- Size: Message Header Comp
+eurex_derivatives_eobi_t7_v13_1.message_header_comp.size =
+  eurex_derivatives_eobi_t7_v13_1.body_len.size + 
+  eurex_derivatives_eobi_t7_v13_1.template_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.msg_seq_num.size
 
 -- Display: Message Header Comp
 eurex_derivatives_eobi_t7_v13_1.message_header_comp.display = function(packet, parent, length)
@@ -7754,18 +7412,11 @@ end
 -- Packet Info
 eurex_derivatives_eobi_t7_v13_1.packet_info = {}
 
--- Calculate size of: Packet Info
-eurex_derivatives_eobi_t7_v13_1.packet_info.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.header_length.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.packet_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.packet_sequence_number.size
-
-  return index
-end
+-- Size: Packet Info
+eurex_derivatives_eobi_t7_v13_1.packet_info.size =
+  eurex_derivatives_eobi_t7_v13_1.header_length.size + 
+  eurex_derivatives_eobi_t7_v13_1.packet_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.packet_sequence_number.size
 
 -- Display: Packet Info
 eurex_derivatives_eobi_t7_v13_1.packet_info.display = function(packet, parent, length)
@@ -7809,28 +7460,16 @@ end
 -- Packet Header
 eurex_derivatives_eobi_t7_v13_1.packet_header = {}
 
--- Calculate size of: Packet Header
-eurex_derivatives_eobi_t7_v13_1.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.packet_info.size(buffer, offset + index)
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.appl_seq_num.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.market_segment_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.partition_id.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.completion_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.appl_seq_reset_indicator.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.pad_5.size
-
-  index = index + eurex_derivatives_eobi_t7_v13_1.transact_time.size
-
-  return index
-end
+-- Size: Packet Header
+eurex_derivatives_eobi_t7_v13_1.packet_header.size =
+  eurex_derivatives_eobi_t7_v13_1.packet_info.size + 
+  eurex_derivatives_eobi_t7_v13_1.appl_seq_num.size + 
+  eurex_derivatives_eobi_t7_v13_1.market_segment_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.partition_id.size + 
+  eurex_derivatives_eobi_t7_v13_1.completion_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.appl_seq_reset_indicator.size + 
+  eurex_derivatives_eobi_t7_v13_1.pad_5.size + 
+  eurex_derivatives_eobi_t7_v13_1.transact_time.size
 
 -- Display: Packet Header
 eurex_derivatives_eobi_t7_v13_1.packet_header.display = function(packet, parent, length)

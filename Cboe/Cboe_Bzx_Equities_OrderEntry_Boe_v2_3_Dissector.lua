@@ -26695,16 +26695,10 @@ end
 -- Unit Sequence
 cboe_bzx_equities_orderentry_boe_v2_3.unit_sequence = {}
 
--- Calculate size of: Unit Sequence
-cboe_bzx_equities_orderentry_boe_v2_3.unit_sequence.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_bzx_equities_orderentry_boe_v2_3.unit_number.size
-
-  index = index + cboe_bzx_equities_orderentry_boe_v2_3.sequence_number.size
-
-  return index
-end
+-- Size: Unit Sequence
+cboe_bzx_equities_orderentry_boe_v2_3.unit_sequence.size =
+  cboe_bzx_equities_orderentry_boe_v2_3.unit_number.size + 
+  cboe_bzx_equities_orderentry_boe_v2_3.sequence_number.size
 
 -- Display: Unit Sequence
 cboe_bzx_equities_orderentry_boe_v2_3.unit_sequence.display = function(packet, parent, length)
@@ -30020,16 +30014,10 @@ end
 -- Param Header
 cboe_bzx_equities_orderentry_boe_v2_3.param_header = {}
 
--- Calculate size of: Param Header
-cboe_bzx_equities_orderentry_boe_v2_3.param_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_bzx_equities_orderentry_boe_v2_3.param_group_length.size
-
-  index = index + cboe_bzx_equities_orderentry_boe_v2_3.param_group_type.size
-
-  return index
-end
+-- Size: Param Header
+cboe_bzx_equities_orderentry_boe_v2_3.param_header.size =
+  cboe_bzx_equities_orderentry_boe_v2_3.param_group_length.size + 
+  cboe_bzx_equities_orderentry_boe_v2_3.param_group_type.size
 
 -- Display: Param Header
 cboe_bzx_equities_orderentry_boe_v2_3.param_header.display = function(packet, parent, length)
@@ -30797,22 +30785,13 @@ end
 -- Message Header
 cboe_bzx_equities_orderentry_boe_v2_3.message_header = {}
 
--- Calculate size of: Message Header
-cboe_bzx_equities_orderentry_boe_v2_3.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_bzx_equities_orderentry_boe_v2_3.start_of_message.size
-
-  index = index + cboe_bzx_equities_orderentry_boe_v2_3.message_length.size
-
-  index = index + cboe_bzx_equities_orderentry_boe_v2_3.message_type.size
-
-  index = index + cboe_bzx_equities_orderentry_boe_v2_3.matching_unit.size
-
-  index = index + cboe_bzx_equities_orderentry_boe_v2_3.sequence_number.size
-
-  return index
-end
+-- Size: Message Header
+cboe_bzx_equities_orderentry_boe_v2_3.message_header.size =
+  cboe_bzx_equities_orderentry_boe_v2_3.start_of_message.size + 
+  cboe_bzx_equities_orderentry_boe_v2_3.message_length.size + 
+  cboe_bzx_equities_orderentry_boe_v2_3.message_type.size + 
+  cboe_bzx_equities_orderentry_boe_v2_3.matching_unit.size + 
+  cboe_bzx_equities_orderentry_boe_v2_3.sequence_number.size
 
 -- Display: Message Header
 cboe_bzx_equities_orderentry_boe_v2_3.message_header.display = function(packet, parent, length)

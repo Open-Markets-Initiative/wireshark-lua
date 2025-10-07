@@ -555,32 +555,18 @@ end
 -- Statistics Update Message
 lseg_turquoise_level1_gtp_v24_4.statistics_update_message = {}
 
--- Calculate size of: Statistics Update Message
-lseg_turquoise_level1_gtp_v24_4.statistics_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.timestamp.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.instrument.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.source_venue.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.statistic_type.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.statistic_price.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.statistic_size.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.auction_type.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.imbalance_quantity.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.auction_info.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.opening_closing_price_indicator.size
-
-  return index
-end
+-- Size: Statistics Update Message
+lseg_turquoise_level1_gtp_v24_4.statistics_update_message.size =
+  lseg_turquoise_level1_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_level1_gtp_v24_4.instrument.size + 
+  lseg_turquoise_level1_gtp_v24_4.source_venue.size + 
+  lseg_turquoise_level1_gtp_v24_4.statistic_type.size + 
+  lseg_turquoise_level1_gtp_v24_4.statistic_price.size + 
+  lseg_turquoise_level1_gtp_v24_4.statistic_size.size + 
+  lseg_turquoise_level1_gtp_v24_4.auction_type.size + 
+  lseg_turquoise_level1_gtp_v24_4.imbalance_quantity.size + 
+  lseg_turquoise_level1_gtp_v24_4.auction_info.size + 
+  lseg_turquoise_level1_gtp_v24_4.opening_closing_price_indicator.size
 
 -- Display: Statistics Update Message
 lseg_turquoise_level1_gtp_v24_4.statistics_update_message.display = function(packet, parent, length)
@@ -865,34 +851,19 @@ end
 -- Statistics Message
 lseg_turquoise_level1_gtp_v24_4.statistics_message = {}
 
--- Calculate size of: Statistics Message
-lseg_turquoise_level1_gtp_v24_4.statistics_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.timestamp.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.instrument.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.source_venue.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.volume.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.volume_onbook_only.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.vwap.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.vwap_onbook_only.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.number_of_trades.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.number_of_trades_onbook_only.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.turnover.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.turnover_onbook_only.size
-
-  return index
-end
+-- Size: Statistics Message
+lseg_turquoise_level1_gtp_v24_4.statistics_message.size =
+  lseg_turquoise_level1_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_level1_gtp_v24_4.instrument.size + 
+  lseg_turquoise_level1_gtp_v24_4.source_venue.size + 
+  lseg_turquoise_level1_gtp_v24_4.volume.size + 
+  lseg_turquoise_level1_gtp_v24_4.volume_onbook_only.size + 
+  lseg_turquoise_level1_gtp_v24_4.vwap.size + 
+  lseg_turquoise_level1_gtp_v24_4.vwap_onbook_only.size + 
+  lseg_turquoise_level1_gtp_v24_4.number_of_trades.size + 
+  lseg_turquoise_level1_gtp_v24_4.number_of_trades_onbook_only.size + 
+  lseg_turquoise_level1_gtp_v24_4.turnover.size + 
+  lseg_turquoise_level1_gtp_v24_4.turnover_onbook_only.size
 
 -- Display: Statistics Message
 lseg_turquoise_level1_gtp_v24_4.statistics_message.display = function(packet, parent, length)
@@ -1186,34 +1157,19 @@ end
 -- Trade Cross Message
 lseg_turquoise_level1_gtp_v24_4.trade_cross_message = {}
 
--- Calculate size of: Trade Cross Message
-lseg_turquoise_level1_gtp_v24_4.trade_cross_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.timestamp.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.transaction_time.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.source_venue.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.executed_size.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.instrument.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.price.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.reserved_8.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.trade_id.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.cross_id.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.cross_type.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.trade_flags.size
-
-  return index
-end
+-- Size: Trade Cross Message
+lseg_turquoise_level1_gtp_v24_4.trade_cross_message.size =
+  lseg_turquoise_level1_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_level1_gtp_v24_4.transaction_time.size + 
+  lseg_turquoise_level1_gtp_v24_4.source_venue.size + 
+  lseg_turquoise_level1_gtp_v24_4.executed_size.size + 
+  lseg_turquoise_level1_gtp_v24_4.instrument.size + 
+  lseg_turquoise_level1_gtp_v24_4.price.size + 
+  lseg_turquoise_level1_gtp_v24_4.reserved_8.size + 
+  lseg_turquoise_level1_gtp_v24_4.trade_id.size + 
+  lseg_turquoise_level1_gtp_v24_4.cross_id.size + 
+  lseg_turquoise_level1_gtp_v24_4.cross_type.size + 
+  lseg_turquoise_level1_gtp_v24_4.trade_flags.size
 
 -- Display: Trade Cross Message
 lseg_turquoise_level1_gtp_v24_4.trade_cross_message.display = function(packet, parent, length)
@@ -1461,38 +1417,21 @@ end
 -- Trade Message
 lseg_turquoise_level1_gtp_v24_4.trade_message = {}
 
--- Calculate size of: Trade Message
-lseg_turquoise_level1_gtp_v24_4.trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.timestamp.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.transaction_time.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.source_venue.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.executed_size.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.instrument.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.price.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.reserved_8.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.trade_id.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.trade_type.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.auction_type.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.order_flags.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.hidden_execution_indicator.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.trade_qualifier.size
-
-  return index
-end
+-- Size: Trade Message
+lseg_turquoise_level1_gtp_v24_4.trade_message.size =
+  lseg_turquoise_level1_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_level1_gtp_v24_4.transaction_time.size + 
+  lseg_turquoise_level1_gtp_v24_4.source_venue.size + 
+  lseg_turquoise_level1_gtp_v24_4.executed_size.size + 
+  lseg_turquoise_level1_gtp_v24_4.instrument.size + 
+  lseg_turquoise_level1_gtp_v24_4.price.size + 
+  lseg_turquoise_level1_gtp_v24_4.reserved_8.size + 
+  lseg_turquoise_level1_gtp_v24_4.trade_id.size + 
+  lseg_turquoise_level1_gtp_v24_4.trade_type.size + 
+  lseg_turquoise_level1_gtp_v24_4.auction_type.size + 
+  lseg_turquoise_level1_gtp_v24_4.order_flags.size + 
+  lseg_turquoise_level1_gtp_v24_4.hidden_execution_indicator.size + 
+  lseg_turquoise_level1_gtp_v24_4.trade_qualifier.size
 
 -- Display: Trade Message
 lseg_turquoise_level1_gtp_v24_4.trade_message.display = function(packet, parent, length)
@@ -1593,20 +1532,12 @@ end
 -- Order Book Clear Message
 lseg_turquoise_level1_gtp_v24_4.order_book_clear_message = {}
 
--- Calculate size of: Order Book Clear Message
-lseg_turquoise_level1_gtp_v24_4.order_book_clear_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.timestamp.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.source_venue.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.instrument.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.order_book_type.size
-
-  return index
-end
+-- Size: Order Book Clear Message
+lseg_turquoise_level1_gtp_v24_4.order_book_clear_message.size =
+  lseg_turquoise_level1_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_level1_gtp_v24_4.source_venue.size + 
+  lseg_turquoise_level1_gtp_v24_4.instrument.size + 
+  lseg_turquoise_level1_gtp_v24_4.order_book_type.size
 
 -- Display: Order Book Clear Message
 lseg_turquoise_level1_gtp_v24_4.order_book_clear_message.display = function(packet, parent, length)
@@ -1885,36 +1816,20 @@ end
 -- Top Of Book Message
 lseg_turquoise_level1_gtp_v24_4.top_of_book_message = {}
 
--- Calculate size of: Top Of Book Message
-lseg_turquoise_level1_gtp_v24_4.top_of_book_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.timestamp.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.instrument.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.source_venue.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.bid_market_size.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.bid_limit_price.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.bid_field.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.bid_limit_size.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.offer_market_size.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.offer_limit_price.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.offer_field.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.offer_limit_size.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.order_book_type.size
-
-  return index
-end
+-- Size: Top Of Book Message
+lseg_turquoise_level1_gtp_v24_4.top_of_book_message.size =
+  lseg_turquoise_level1_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_level1_gtp_v24_4.instrument.size + 
+  lseg_turquoise_level1_gtp_v24_4.source_venue.size + 
+  lseg_turquoise_level1_gtp_v24_4.bid_market_size.size + 
+  lseg_turquoise_level1_gtp_v24_4.bid_limit_price.size + 
+  lseg_turquoise_level1_gtp_v24_4.bid_field.size + 
+  lseg_turquoise_level1_gtp_v24_4.bid_limit_size.size + 
+  lseg_turquoise_level1_gtp_v24_4.offer_market_size.size + 
+  lseg_turquoise_level1_gtp_v24_4.offer_limit_price.size + 
+  lseg_turquoise_level1_gtp_v24_4.offer_field.size + 
+  lseg_turquoise_level1_gtp_v24_4.offer_limit_size.size + 
+  lseg_turquoise_level1_gtp_v24_4.order_book_type.size
 
 -- Display: Top Of Book Message
 lseg_turquoise_level1_gtp_v24_4.top_of_book_message.display = function(packet, parent, length)
@@ -2104,26 +2019,15 @@ end
 -- Instrument Status Message
 lseg_turquoise_level1_gtp_v24_4.instrument_status_message = {}
 
--- Calculate size of: Instrument Status Message
-lseg_turquoise_level1_gtp_v24_4.instrument_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.timestamp.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.instrument.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.source_venue.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.trading_status.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.session_change_reason.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.new_end_time.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.order_book_type.size
-
-  return index
-end
+-- Size: Instrument Status Message
+lseg_turquoise_level1_gtp_v24_4.instrument_status_message.size =
+  lseg_turquoise_level1_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_level1_gtp_v24_4.instrument.size + 
+  lseg_turquoise_level1_gtp_v24_4.source_venue.size + 
+  lseg_turquoise_level1_gtp_v24_4.trading_status.size + 
+  lseg_turquoise_level1_gtp_v24_4.session_change_reason.size + 
+  lseg_turquoise_level1_gtp_v24_4.new_end_time.size + 
+  lseg_turquoise_level1_gtp_v24_4.order_book_type.size
 
 -- Display: Instrument Status Message
 lseg_turquoise_level1_gtp_v24_4.instrument_status_message.display = function(packet, parent, length)
@@ -2472,40 +2376,22 @@ end
 -- Instrument Directory Message
 lseg_turquoise_level1_gtp_v24_4.instrument_directory_message = {}
 
--- Calculate size of: Instrument Directory Message
-lseg_turquoise_level1_gtp_v24_4.instrument_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.timestamp.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.instrument.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.isin.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.allowed_book_types.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.source_venue.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.venue_instrument_id.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.tick_id.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.price_band_tolerances.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.static_circuit_breaker_tolerances.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.segment.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.reserved_23.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.currency.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.reserved_38.size
-
-  return index
-end
+-- Size: Instrument Directory Message
+lseg_turquoise_level1_gtp_v24_4.instrument_directory_message.size =
+  lseg_turquoise_level1_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_level1_gtp_v24_4.instrument.size + 
+  lseg_turquoise_level1_gtp_v24_4.isin.size + 
+  lseg_turquoise_level1_gtp_v24_4.allowed_book_types.size + 
+  lseg_turquoise_level1_gtp_v24_4.source_venue.size + 
+  lseg_turquoise_level1_gtp_v24_4.venue_instrument_id.size + 
+  lseg_turquoise_level1_gtp_v24_4.tick_id.size + 
+  lseg_turquoise_level1_gtp_v24_4.price_band_tolerances.size + 
+  lseg_turquoise_level1_gtp_v24_4.dynamic_circuit_breaker_tolerances.size + 
+  lseg_turquoise_level1_gtp_v24_4.static_circuit_breaker_tolerances.size + 
+  lseg_turquoise_level1_gtp_v24_4.segment.size + 
+  lseg_turquoise_level1_gtp_v24_4.reserved_23.size + 
+  lseg_turquoise_level1_gtp_v24_4.currency.size + 
+  lseg_turquoise_level1_gtp_v24_4.reserved_38.size
 
 -- Display: Instrument Directory Message
 lseg_turquoise_level1_gtp_v24_4.instrument_directory_message.display = function(packet, parent, length)
@@ -2612,18 +2498,11 @@ end
 -- System Event Message
 lseg_turquoise_level1_gtp_v24_4.system_event_message = {}
 
--- Calculate size of: System Event Message
-lseg_turquoise_level1_gtp_v24_4.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.timestamp.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.event_code.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.source_venue.size
-
-  return index
-end
+-- Size: System Event Message
+lseg_turquoise_level1_gtp_v24_4.system_event_message.size =
+  lseg_turquoise_level1_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_level1_gtp_v24_4.event_code.size + 
+  lseg_turquoise_level1_gtp_v24_4.source_venue.size
 
 -- Display: System Event Message
 lseg_turquoise_level1_gtp_v24_4.system_event_message.display = function(packet, parent, length)
@@ -2853,16 +2732,10 @@ end
 -- Message Header
 lseg_turquoise_level1_gtp_v24_4.message_header = {}
 
--- Calculate size of: Message Header
-lseg_turquoise_level1_gtp_v24_4.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.message_length.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.message_type.size
-
-  return index
-end
+-- Size: Message Header
+lseg_turquoise_level1_gtp_v24_4.message_header.size =
+  lseg_turquoise_level1_gtp_v24_4.message_length.size + 
+  lseg_turquoise_level1_gtp_v24_4.message_type.size
 
 -- Display: Message Header
 lseg_turquoise_level1_gtp_v24_4.message_header.display = function(packet, parent, length)
@@ -2907,7 +2780,7 @@ lseg_turquoise_level1_gtp_v24_4.message = {}
 lseg_turquoise_level1_gtp_v24_4.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_turquoise_level1_gtp_v24_4.message_header.size(buffer, offset + index)
+  index = index + lseg_turquoise_level1_gtp_v24_4.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3052,20 +2925,12 @@ end
 -- Unit Header
 lseg_turquoise_level1_gtp_v24_4.unit_header = {}
 
--- Calculate size of: Unit Header
-lseg_turquoise_level1_gtp_v24_4.unit_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.length.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.message_count.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.market_data_group.size
-
-  index = index + lseg_turquoise_level1_gtp_v24_4.sequence_number.size
-
-  return index
-end
+-- Size: Unit Header
+lseg_turquoise_level1_gtp_v24_4.unit_header.size =
+  lseg_turquoise_level1_gtp_v24_4.length.size + 
+  lseg_turquoise_level1_gtp_v24_4.message_count.size + 
+  lseg_turquoise_level1_gtp_v24_4.market_data_group.size + 
+  lseg_turquoise_level1_gtp_v24_4.sequence_number.size
 
 -- Display: Unit Header
 lseg_turquoise_level1_gtp_v24_4.unit_header.display = function(packet, parent, length)

@@ -462,30 +462,17 @@ end
 -- Quote Message
 nyse_equities_bbo_pillar_v2_5_b.quote_message = {}
 
--- Calculate size of: Quote Message
-nyse_equities_bbo_pillar_v2_5_b.quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_time_ns.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.symbol_index.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.ask_price.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.ask_volume.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.bid_price.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.bid_volume.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.quote_condition.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.rpi_indicator.size
-
-  return index
-end
+-- Size: Quote Message
+nyse_equities_bbo_pillar_v2_5_b.quote_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.source_time_ns.size + 
+  nyse_equities_bbo_pillar_v2_5_b.symbol_index.size + 
+  nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.ask_price.size + 
+  nyse_equities_bbo_pillar_v2_5_b.ask_volume.size + 
+  nyse_equities_bbo_pillar_v2_5_b.bid_price.size + 
+  nyse_equities_bbo_pillar_v2_5_b.bid_volume.size + 
+  nyse_equities_bbo_pillar_v2_5_b.quote_condition.size + 
+  nyse_equities_bbo_pillar_v2_5_b.rpi_indicator.size
 
 -- Display: Quote Message
 nyse_equities_bbo_pillar_v2_5_b.quote_message.display = function(packet, parent, length)
@@ -639,20 +626,12 @@ end
 -- Refresh Header Message
 nyse_equities_bbo_pillar_v2_5_b.refresh_header_message = {}
 
--- Calculate size of: Refresh Header Message
-nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.last_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.size
-
-  return index
-end
+-- Size: Refresh Header Message
+nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.size + 
+  nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.size + 
+  nyse_equities_bbo_pillar_v2_5_b.last_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.size
 
 -- Display: Refresh Header Message
 nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.display = function(packet, parent, length)
@@ -1116,42 +1095,23 @@ end
 -- Security Status Message
 nyse_equities_bbo_pillar_v2_5_b.security_status_message = {}
 
--- Calculate size of: Security Status Message
-nyse_equities_bbo_pillar_v2_5_b.security_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_time.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_time_ns.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.symbol_index.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.security_status.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.halt_condition.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.reserved_4.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.price_1.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.price_2.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_exchange_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.time.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.ssr_state.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.market_state.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.session_state.size
-
-  return index
-end
+-- Size: Security Status Message
+nyse_equities_bbo_pillar_v2_5_b.security_status_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.source_time.size + 
+  nyse_equities_bbo_pillar_v2_5_b.source_time_ns.size + 
+  nyse_equities_bbo_pillar_v2_5_b.symbol_index.size + 
+  nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.security_status.size + 
+  nyse_equities_bbo_pillar_v2_5_b.halt_condition.size + 
+  nyse_equities_bbo_pillar_v2_5_b.reserved_4.size + 
+  nyse_equities_bbo_pillar_v2_5_b.price_1.size + 
+  nyse_equities_bbo_pillar_v2_5_b.price_2.size + 
+  nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_exchange_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.size + 
+  nyse_equities_bbo_pillar_v2_5_b.time.size + 
+  nyse_equities_bbo_pillar_v2_5_b.ssr_state.size + 
+  nyse_equities_bbo_pillar_v2_5_b.market_state.size + 
+  nyse_equities_bbo_pillar_v2_5_b.session_state.size
 
 -- Display: Security Status Message
 nyse_equities_bbo_pillar_v2_5_b.security_status_message.display = function(packet, parent, length)
@@ -1254,20 +1214,12 @@ end
 -- Symbol Clear Message
 nyse_equities_bbo_pillar_v2_5_b.symbol_clear_message = {}
 
--- Calculate size of: Symbol Clear Message
-nyse_equities_bbo_pillar_v2_5_b.symbol_clear_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_time.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_time_ns.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.symbol_index.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.size
-
-  return index
-end
+-- Size: Symbol Clear Message
+nyse_equities_bbo_pillar_v2_5_b.symbol_clear_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.source_time.size + 
+  nyse_equities_bbo_pillar_v2_5_b.source_time_ns.size + 
+  nyse_equities_bbo_pillar_v2_5_b.symbol_index.size + 
+  nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.size
 
 -- Display: Symbol Clear Message
 nyse_equities_bbo_pillar_v2_5_b.symbol_clear_message.display = function(packet, parent, length)
@@ -1406,20 +1358,12 @@ end
 -- Message Unavailable Message
 nyse_equities_bbo_pillar_v2_5_b.message_unavailable_message = {}
 
--- Calculate size of: Message Unavailable Message
-nyse_equities_bbo_pillar_v2_5_b.message_unavailable_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.end_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.product_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.channel_id.size
-
-  return index
-end
+-- Size: Message Unavailable Message
+nyse_equities_bbo_pillar_v2_5_b.message_unavailable_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.end_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.product_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.channel_id.size
 
 -- Display: Message Unavailable Message
 nyse_equities_bbo_pillar_v2_5_b.message_unavailable_message.display = function(packet, parent, length)
@@ -1489,20 +1433,12 @@ end
 -- Refresh Request Message
 nyse_equities_bbo_pillar_v2_5_b.refresh_request_message = {}
 
--- Calculate size of: Refresh Request Message
-nyse_equities_bbo_pillar_v2_5_b.refresh_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.symbol_index.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.product_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.channel_id.size
-
-  return index
-end
+-- Size: Refresh Request Message
+nyse_equities_bbo_pillar_v2_5_b.refresh_request_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.symbol_index.size + 
+  nyse_equities_bbo_pillar_v2_5_b.source_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.product_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.channel_id.size
 
 -- Display: Refresh Request Message
 nyse_equities_bbo_pillar_v2_5_b.refresh_request_message.display = function(packet, parent, length)
@@ -1576,22 +1512,13 @@ end
 -- Symbol Index Mapping Request Message
 nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_request_message = {}
 
--- Calculate size of: Symbol Index Mapping Request Message
-nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.symbol_index.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.product_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.channel_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.retransmit_method.size
-
-  return index
-end
+-- Size: Symbol Index Mapping Request Message
+nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_request_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.symbol_index.size + 
+  nyse_equities_bbo_pillar_v2_5_b.source_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.product_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.channel_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.retransmit_method.size
 
 -- Display: Symbol Index Mapping Request Message
 nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_request_message.display = function(packet, parent, length)
@@ -1641,14 +1568,9 @@ end
 -- Heartbeat Response Message
 nyse_equities_bbo_pillar_v2_5_b.heartbeat_response_message = {}
 
--- Calculate size of: Heartbeat Response Message
-nyse_equities_bbo_pillar_v2_5_b.heartbeat_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_id.size
-
-  return index
-end
+-- Size: Heartbeat Response Message
+nyse_equities_bbo_pillar_v2_5_b.heartbeat_response_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.source_id.size
 
 -- Display: Heartbeat Response Message
 nyse_equities_bbo_pillar_v2_5_b.heartbeat_response_message.display = function(packet, parent, length)
@@ -1732,26 +1654,15 @@ end
 -- Request Response Message
 nyse_equities_bbo_pillar_v2_5_b.request_response_message = {}
 
--- Calculate size of: Request Response Message
-nyse_equities_bbo_pillar_v2_5_b.request_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.request_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.end_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.product_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.channel_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.status.size
-
-  return index
-end
+-- Size: Request Response Message
+nyse_equities_bbo_pillar_v2_5_b.request_response_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.request_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.end_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.source_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.product_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.channel_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.status.size
 
 -- Display: Request Response Message
 nyse_equities_bbo_pillar_v2_5_b.request_response_message.display = function(packet, parent, length)
@@ -1807,22 +1718,13 @@ end
 -- Retransmission Request Message
 nyse_equities_bbo_pillar_v2_5_b.retransmission_request_message = {}
 
--- Calculate size of: Retransmission Request Message
-nyse_equities_bbo_pillar_v2_5_b.retransmission_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.end_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.product_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.channel_id.size
-
-  return index
-end
+-- Size: Retransmission Request Message
+nyse_equities_bbo_pillar_v2_5_b.retransmission_request_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.end_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.source_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.product_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.channel_id.size
 
 -- Display: Retransmission Request Message
 nyse_equities_bbo_pillar_v2_5_b.retransmission_request_message.display = function(packet, parent, length)
@@ -2322,44 +2224,24 @@ end
 -- Symbol Index Mapping Message
 nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_message = {}
 
--- Calculate size of: Symbol Index Mapping Message
-nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.symbol_index.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.symbol.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.reserved_1.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.market_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.system_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.exchange_code.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.price_scale_code.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.security_type.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.lot_size.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.prev_close_price.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.price_resolution.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.round_lot.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.mpv.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.reserved_2.size
-
-  return index
-end
+-- Size: Symbol Index Mapping Message
+nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.symbol_index.size + 
+  nyse_equities_bbo_pillar_v2_5_b.symbol.size + 
+  nyse_equities_bbo_pillar_v2_5_b.reserved_1.size + 
+  nyse_equities_bbo_pillar_v2_5_b.market_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.system_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.exchange_code.size + 
+  nyse_equities_bbo_pillar_v2_5_b.price_scale_code.size + 
+  nyse_equities_bbo_pillar_v2_5_b.security_type.size + 
+  nyse_equities_bbo_pillar_v2_5_b.lot_size.size + 
+  nyse_equities_bbo_pillar_v2_5_b.prev_close_price.size + 
+  nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.size + 
+  nyse_equities_bbo_pillar_v2_5_b.price_resolution.size + 
+  nyse_equities_bbo_pillar_v2_5_b.round_lot.size + 
+  nyse_equities_bbo_pillar_v2_5_b.mpv.size + 
+  nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.size + 
+  nyse_equities_bbo_pillar_v2_5_b.reserved_2.size
 
 -- Display: Symbol Index Mapping Message
 nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -2465,18 +2347,11 @@ end
 -- Source Time Reference Message
 nyse_equities_bbo_pillar_v2_5_b.source_time_reference_message = {}
 
--- Calculate size of: Source Time Reference Message
-nyse_equities_bbo_pillar_v2_5_b.source_time_reference_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_time.size
-
-  return index
-end
+-- Size: Source Time Reference Message
+nyse_equities_bbo_pillar_v2_5_b.source_time_reference_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.source_time.size
 
 -- Display: Source Time Reference Message
 nyse_equities_bbo_pillar_v2_5_b.source_time_reference_message.display = function(packet, parent, length)
@@ -2520,20 +2395,12 @@ end
 -- Sequence Number Reset Message
 nyse_equities_bbo_pillar_v2_5_b.sequence_number_reset_message = {}
 
--- Calculate size of: Sequence Number Reset Message
-nyse_equities_bbo_pillar_v2_5_b.sequence_number_reset_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_time.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.source_time_ns.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.product_id.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.channel_id.size
-
-  return index
-end
+-- Size: Sequence Number Reset Message
+nyse_equities_bbo_pillar_v2_5_b.sequence_number_reset_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.source_time.size + 
+  nyse_equities_bbo_pillar_v2_5_b.source_time_ns.size + 
+  nyse_equities_bbo_pillar_v2_5_b.product_id.size + 
+  nyse_equities_bbo_pillar_v2_5_b.channel_id.size
 
 -- Display: Sequence Number Reset Message
 nyse_equities_bbo_pillar_v2_5_b.sequence_number_reset_message.display = function(packet, parent, length)
@@ -2810,16 +2677,10 @@ end
 -- Message Header
 nyse_equities_bbo_pillar_v2_5_b.message_header = {}
 
--- Calculate size of: Message Header
-nyse_equities_bbo_pillar_v2_5_b.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.message_size.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.message_type.size
-
-  return index
-end
+-- Size: Message Header
+nyse_equities_bbo_pillar_v2_5_b.message_header.size =
+  nyse_equities_bbo_pillar_v2_5_b.message_size.size + 
+  nyse_equities_bbo_pillar_v2_5_b.message_type.size
 
 -- Display: Message Header
 nyse_equities_bbo_pillar_v2_5_b.message_header.display = function(packet, parent, length)
@@ -3083,24 +2944,14 @@ end
 -- Packet Header
 nyse_equities_bbo_pillar_v2_5_b.packet_header = {}
 
--- Calculate size of: Packet Header
-nyse_equities_bbo_pillar_v2_5_b.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.packet_size.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.delivery_flag.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.message_count.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.sequence_number.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.timestamp.size
-
-  index = index + nyse_equities_bbo_pillar_v2_5_b.nanoseconds.size
-
-  return index
-end
+-- Size: Packet Header
+nyse_equities_bbo_pillar_v2_5_b.packet_header.size =
+  nyse_equities_bbo_pillar_v2_5_b.packet_size.size + 
+  nyse_equities_bbo_pillar_v2_5_b.delivery_flag.size + 
+  nyse_equities_bbo_pillar_v2_5_b.message_count.size + 
+  nyse_equities_bbo_pillar_v2_5_b.sequence_number.size + 
+  nyse_equities_bbo_pillar_v2_5_b.timestamp.size + 
+  nyse_equities_bbo_pillar_v2_5_b.nanoseconds.size
 
 -- Display: Packet Header
 nyse_equities_bbo_pillar_v2_5_b.packet_header.display = function(packet, parent, length)

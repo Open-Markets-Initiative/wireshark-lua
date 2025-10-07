@@ -531,18 +531,11 @@ end
 -- Reset Risk Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.reset_risk_acknowledgement_message = {}
 
--- Calculate size of: Reset Risk Acknowledgement Message
-cboe_futures_orderentry_boe3_v1_0.reset_risk_acknowledgement_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.risk_status_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.risk_reset_result.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.request_received_time.size
-
-  return index
-end
+-- Size: Reset Risk Acknowledgement Message
+cboe_futures_orderentry_boe3_v1_0.reset_risk_acknowledgement_message.size =
+  cboe_futures_orderentry_boe3_v1_0.risk_status_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.risk_reset_result.size + 
+  cboe_futures_orderentry_boe3_v1_0.request_received_time.size
 
 -- Display: Reset Risk Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.reset_risk_acknowledgement_message.display = function(packet, parent, length)
@@ -753,26 +746,15 @@ end
 -- Variance Quote Restatement Message
 cboe_futures_orderentry_boe3_v1_0.variance_quote_restatement_message = {}
 
--- Calculate size of: Variance Quote Restatement Message
-cboe_futures_orderentry_boe3_v1_0.variance_quote_restatement_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_update_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.exec_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_size.size
-
-  return index
-end
+-- Size: Variance Quote Restatement Message
+cboe_futures_orderentry_boe3_v1_0.variance_quote_restatement_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_update_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.exec_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_price.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_size.size
 
 -- Display: Variance Quote Restatement Message
 cboe_futures_orderentry_boe3_v1_0.variance_quote_restatement_message.display = function(packet, parent, length)
@@ -828,24 +810,14 @@ end
 -- Tas Quote Restatement Message
 cboe_futures_orderentry_boe3_v1_0.tas_quote_restatement_message = {}
 
--- Calculate size of: Tas Quote Restatement Message
-cboe_futures_orderentry_boe3_v1_0.tas_quote_restatement_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_update_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.exec_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_price.size
-
-  return index
-end
+-- Size: Tas Quote Restatement Message
+cboe_futures_orderentry_boe3_v1_0.tas_quote_restatement_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_update_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.exec_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_price.size
 
 -- Display: Tas Quote Restatement Message
 cboe_futures_orderentry_boe3_v1_0.tas_quote_restatement_message.display = function(packet, parent, length)
@@ -1047,24 +1019,14 @@ end
 -- Quote Cancelled Message
 cboe_futures_orderentry_boe3_v1_0.quote_cancelled_message = {}
 
--- Calculate size of: Quote Cancelled Message
-cboe_futures_orderentry_boe3_v1_0.quote_cancelled_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_update_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.side.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cancel_reason.size
-
-  return index
-end
+-- Size: Quote Cancelled Message
+cboe_futures_orderentry_boe3_v1_0.quote_cancelled_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_update_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.side.size + 
+  cboe_futures_orderentry_boe3_v1_0.cancel_reason.size
 
 -- Display: Quote Cancelled Message
 cboe_futures_orderentry_boe3_v1_0.quote_cancelled_message.display = function(packet, parent, length)
@@ -1304,38 +1266,21 @@ end
 -- Quote Execution Message
 cboe_futures_orderentry_boe3_v1_0.quote_execution_message = {}
 
--- Calculate size of: Quote Execution Message
-cboe_futures_orderentry_boe3_v1_0.quote_execution_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_update_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.exec_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.last_shares.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.last_px.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.leaves_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.side.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.fee_code.size
-
-  return index
-end
+-- Size: Quote Execution Message
+cboe_futures_orderentry_boe3_v1_0.quote_execution_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_update_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.exec_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.last_shares.size + 
+  cboe_futures_orderentry_boe3_v1_0.last_px.size + 
+  cboe_futures_orderentry_boe3_v1_0.leaves_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.side.size + 
+  cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.fee_code.size
 
 -- Display: Quote Execution Message
 cboe_futures_orderentry_boe3_v1_0.quote_execution_message.display = function(packet, parent, length)
@@ -1468,28 +1413,16 @@ end
 -- Quote Restated Message
 cboe_futures_orderentry_boe3_v1_0.quote_restated_message = {}
 
--- Calculate size of: Quote Restated Message
-cboe_futures_orderentry_boe3_v1_0.quote_restated_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_update_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.leaves_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.working_price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.side.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.restatement_reason.size
-
-  return index
-end
+-- Size: Quote Restated Message
+cboe_futures_orderentry_boe3_v1_0.quote_restated_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_update_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.leaves_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.working_price.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.side.size + 
+  cboe_futures_orderentry_boe3_v1_0.restatement_reason.size
 
 -- Display: Quote Restated Message
 cboe_futures_orderentry_boe3_v1_0.quote_restated_message.display = function(packet, parent, length)
@@ -1653,18 +1586,11 @@ end
 -- Quote Update Rejected Message
 cboe_futures_orderentry_boe3_v1_0.quote_update_rejected_message = {}
 
--- Calculate size of: Quote Update Rejected Message
-cboe_futures_orderentry_boe3_v1_0.quote_update_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_update_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.size
-
-  return index
-end
+-- Size: Quote Update Rejected Message
+cboe_futures_orderentry_boe3_v1_0.quote_update_rejected_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_update_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.size
 
 -- Display: Quote Update Rejected Message
 cboe_futures_orderentry_boe3_v1_0.quote_update_rejected_message.display = function(packet, parent, length)
@@ -1780,18 +1706,11 @@ end
 -- Quote Update Acknowledgement Group
 cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_group = {}
 
--- Calculate size of: Quote Update Acknowledgement Group
-cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_result.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size
-
-  return index
-end
+-- Size: Quote Update Acknowledgement Group
+cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_group.size =
+  cboe_futures_orderentry_boe3_v1_0.order_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.quote_result.size + 
+  cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size
 
 -- Display: Quote Update Acknowledgement Group
 cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_group.display = function(packet, parent, length)
@@ -2105,46 +2024,25 @@ end
 -- Variance Restatement Message
 cboe_futures_orderentry_boe3_v1_0.variance_restatement_message = {}
 
--- Calculate size of: Variance Restatement Message
-cboe_futures_orderentry_boe3_v1_0.variance_restatement_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.exec_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.side.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.maturity_date.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.last_shares.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.last_px.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.fee_code.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.trade_date.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_size.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.size
-
-  return index
-end
+-- Size: Variance Restatement Message
+cboe_futures_orderentry_boe3_v1_0.variance_restatement_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.exec_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.side.size + 
+  cboe_futures_orderentry_boe3_v1_0.price.size + 
+  cboe_futures_orderentry_boe3_v1_0.symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.maturity_date.size + 
+  cboe_futures_orderentry_boe3_v1_0.last_shares.size + 
+  cboe_futures_orderentry_boe3_v1_0.last_px.size + 
+  cboe_futures_orderentry_boe3_v1_0.fee_code.size + 
+  cboe_futures_orderentry_boe3_v1_0.trade_date.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_price.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_size.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.size + 
+  cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.size
 
 -- Display: Variance Restatement Message
 cboe_futures_orderentry_boe3_v1_0.variance_restatement_message.display = function(packet, parent, length)
@@ -2230,44 +2128,24 @@ end
 -- Tas Restatement Message
 cboe_futures_orderentry_boe3_v1_0.tas_restatement_message = {}
 
--- Calculate size of: Tas Restatement Message
-cboe_futures_orderentry_boe3_v1_0.tas_restatement_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.exec_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.side.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.maturity_date.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.last_shares.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.last_px.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.fee_code.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.trade_date.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.size
-
-  return index
-end
+-- Size: Tas Restatement Message
+cboe_futures_orderentry_boe3_v1_0.tas_restatement_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.exec_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.side.size + 
+  cboe_futures_orderentry_boe3_v1_0.price.size + 
+  cboe_futures_orderentry_boe3_v1_0.symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.maturity_date.size + 
+  cboe_futures_orderentry_boe3_v1_0.last_shares.size + 
+  cboe_futures_orderentry_boe3_v1_0.last_px.size + 
+  cboe_futures_orderentry_boe3_v1_0.fee_code.size + 
+  cboe_futures_orderentry_boe3_v1_0.trade_date.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_price.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.size + 
+  cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.size
 
 -- Display: Tas Restatement Message
 cboe_futures_orderentry_boe3_v1_0.tas_restatement_message.display = function(packet, parent, length)
@@ -2537,44 +2415,24 @@ end
 -- Trade Cancel Or Correct Message
 cboe_futures_orderentry_boe3_v1_0.trade_cancel_or_correct_message = {}
 
--- Calculate size of: Trade Cancel Or Correct Message
-cboe_futures_orderentry_boe3_v1_0.trade_cancel_or_correct_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.exec_ref_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.side.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_account.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.last_shares.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.last_px.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.corrected_price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.orig_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.capacity.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.maturity_date.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.open_close.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cmta_number.size
-
-  return index
-end
+-- Size: Trade Cancel Or Correct Message
+cboe_futures_orderentry_boe3_v1_0.trade_cancel_or_correct_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.exec_ref_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.side.size + 
+  cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_account.size + 
+  cboe_futures_orderentry_boe3_v1_0.last_shares.size + 
+  cboe_futures_orderentry_boe3_v1_0.last_px.size + 
+  cboe_futures_orderentry_boe3_v1_0.corrected_price.size + 
+  cboe_futures_orderentry_boe3_v1_0.orig_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.capacity.size + 
+  cboe_futures_orderentry_boe3_v1_0.maturity_date.size + 
+  cboe_futures_orderentry_boe3_v1_0.open_close.size + 
+  cboe_futures_orderentry_boe3_v1_0.cmta_number.size
 
 -- Display: Trade Cancel Or Correct Message
 cboe_futures_orderentry_boe3_v1_0.trade_cancel_or_correct_message.display = function(packet, parent, length)
@@ -2799,20 +2657,12 @@ end
 -- Purge Rejected Message
 cboe_futures_orderentry_boe3_v1_0.purge_rejected_message = {}
 
--- Calculate size of: Purge Rejected Message
-cboe_futures_orderentry_boe3_v1_0.purge_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.text.size
-
-  return index
-end
+-- Size: Purge Rejected Message
+cboe_futures_orderentry_boe3_v1_0.purge_rejected_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.size + 
+  cboe_futures_orderentry_boe3_v1_0.text.size
 
 -- Display: Purge Rejected Message
 cboe_futures_orderentry_boe3_v1_0.purge_rejected_message.display = function(packet, parent, length)
@@ -2882,20 +2732,12 @@ end
 -- Purge Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.purge_acknowledgement_message = {}
 
--- Calculate size of: Purge Acknowledgement Message
-cboe_futures_orderentry_boe3_v1_0.purge_acknowledgement_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.request_received_time.size
-
-  return index
-end
+-- Size: Purge Acknowledgement Message
+cboe_futures_orderentry_boe3_v1_0.purge_acknowledgement_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.size + 
+  cboe_futures_orderentry_boe3_v1_0.request_received_time.size
 
 -- Display: Purge Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.purge_acknowledgement_message.display = function(packet, parent, length)
@@ -3038,20 +2880,12 @@ end
 -- Mass Cancel Rejected Message
 cboe_futures_orderentry_boe3_v1_0.mass_cancel_rejected_message = {}
 
--- Calculate size of: Mass Cancel Rejected Message
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.text.size
-
-  return index
-end
+-- Size: Mass Cancel Rejected Message
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_rejected_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.size + 
+  cboe_futures_orderentry_boe3_v1_0.text.size
 
 -- Display: Mass Cancel Rejected Message
 cboe_futures_orderentry_boe3_v1_0.mass_cancel_rejected_message.display = function(packet, parent, length)
@@ -3098,20 +2932,12 @@ end
 -- Mass Cancel Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.mass_cancel_acknowledgement_message = {}
 
--- Calculate size of: Mass Cancel Acknowledgement Message
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_acknowledgement_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.request_received_time.size
-
-  return index
-end
+-- Size: Mass Cancel Acknowledgement Message
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_acknowledgement_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.size + 
+  cboe_futures_orderentry_boe3_v1_0.request_received_time.size
 
 -- Display: Mass Cancel Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.mass_cancel_acknowledgement_message.display = function(packet, parent, length)
@@ -3254,22 +3080,13 @@ end
 -- Cancel Rejected Message
 cboe_futures_orderentry_boe3_v1_0.cancel_rejected_message = {}
 
--- Calculate size of: Cancel Rejected Message
-cboe_futures_orderentry_boe3_v1_0.cancel_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.text.size
-
-  return index
-end
+-- Size: Cancel Rejected Message
+cboe_futures_orderentry_boe3_v1_0.cancel_rejected_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.size + 
+  cboe_futures_orderentry_boe3_v1_0.text.size
 
 -- Display: Cancel Rejected Message
 cboe_futures_orderentry_boe3_v1_0.cancel_rejected_message.display = function(packet, parent, length)
@@ -3319,22 +3136,13 @@ end
 -- Order Cancelled Message
 cboe_futures_orderentry_boe3_v1_0.order_cancelled_message = {}
 
--- Calculate size of: Order Cancelled Message
-cboe_futures_orderentry_boe3_v1_0.order_cancelled_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cancel_reason.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.request_received_time.size
-
-  return index
-end
+-- Size: Order Cancelled Message
+cboe_futures_orderentry_boe3_v1_0.order_cancelled_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.cancel_reason.size + 
+  cboe_futures_orderentry_boe3_v1_0.request_received_time.size
 
 -- Display: Order Cancelled Message
 cboe_futures_orderentry_boe3_v1_0.order_cancelled_message.display = function(packet, parent, length)
@@ -3414,48 +3222,26 @@ end
 -- Order Execution Message
 cboe_futures_orderentry_boe3_v1_0.order_execution_message = {}
 
--- Calculate size of: Order Execution Message
-cboe_futures_orderentry_boe3_v1_0.order_execution_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.exec_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.last_shares.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.last_px.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.leaves_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.side.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.maturity_date.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.fee_code.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.trade_date.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_size.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.pending_status.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.size
-
-  return index
-end
+-- Size: Order Execution Message
+cboe_futures_orderentry_boe3_v1_0.order_execution_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.exec_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.last_shares.size + 
+  cboe_futures_orderentry_boe3_v1_0.last_px.size + 
+  cboe_futures_orderentry_boe3_v1_0.leaves_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.side.size + 
+  cboe_futures_orderentry_boe3_v1_0.symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.maturity_date.size + 
+  cboe_futures_orderentry_boe3_v1_0.fee_code.size + 
+  cboe_futures_orderentry_boe3_v1_0.trade_date.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_size.size + 
+  cboe_futures_orderentry_boe3_v1_0.pending_status.size + 
+  cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.size + 
+  cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.size
 
 -- Display: Order Execution Message
 cboe_futures_orderentry_boe3_v1_0.order_execution_message.display = function(packet, parent, length)
@@ -3663,24 +3449,14 @@ end
 -- Modify Rejected Message
 cboe_futures_orderentry_boe3_v1_0.modify_rejected_message = {}
 
--- Calculate size of: Modify Rejected Message
-cboe_futures_orderentry_boe3_v1_0.modify_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.text.size
-
-  return index
-end
+-- Size: Modify Rejected Message
+cboe_futures_orderentry_boe3_v1_0.modify_rejected_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.size + 
+  cboe_futures_orderentry_boe3_v1_0.text.size
 
 -- Display: Modify Rejected Message
 cboe_futures_orderentry_boe3_v1_0.modify_rejected_message.display = function(packet, parent, length)
@@ -3886,40 +3662,22 @@ end
 -- Order Modified Message
 cboe_futures_orderentry_boe3_v1_0.order_modified_message = {}
 
--- Calculate size of: Order Modified Message
-cboe_futures_orderentry_boe3_v1_0.order_modified_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.ord_type.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.leaves_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.stop_px.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.request_received_time.size
-
-  return index
-end
+-- Size: Order Modified Message
+cboe_futures_orderentry_boe3_v1_0.order_modified_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.price.size + 
+  cboe_futures_orderentry_boe3_v1_0.ord_type.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.leaves_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.stop_px.size + 
+  cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size + 
+  cboe_futures_orderentry_boe3_v1_0.request_received_time.size
 
 -- Display: Order Modified Message
 cboe_futures_orderentry_boe3_v1_0.order_modified_message.display = function(packet, parent, length)
@@ -4092,22 +3850,13 @@ end
 -- Order Rejected Message
 cboe_futures_orderentry_boe3_v1_0.order_rejected_message = {}
 
--- Calculate size of: Order Rejected Message
-cboe_futures_orderentry_boe3_v1_0.order_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_reject_reason.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.text.size
-
-  return index
-end
+-- Size: Order Rejected Message
+cboe_futures_orderentry_boe3_v1_0.order_rejected_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_reject_reason.size + 
+  cboe_futures_orderentry_boe3_v1_0.text.size
 
 -- Display: Order Rejected Message
 cboe_futures_orderentry_boe3_v1_0.order_rejected_message.display = function(packet, parent, length)
@@ -4381,18 +4130,11 @@ end
 -- Prevent Match
 cboe_futures_orderentry_boe3_v1_0.prevent_match = {}
 
--- Calculate size of: Prevent Match
-cboe_futures_orderentry_boe3_v1_0.prevent_match.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.mtp_modifier.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.unique_id_level.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.trading_group_id.size
-
-  return index
-end
+-- Size: Prevent Match
+cboe_futures_orderentry_boe3_v1_0.prevent_match.size =
+  cboe_futures_orderentry_boe3_v1_0.mtp_modifier.size + 
+  cboe_futures_orderentry_boe3_v1_0.unique_id_level.size + 
+  cboe_futures_orderentry_boe3_v1_0.trading_group_id.size
 
 -- Display: Prevent Match
 cboe_futures_orderentry_boe3_v1_0.prevent_match.display = function(buffer, offset, value, packet, parent)
@@ -4517,72 +4259,38 @@ end
 -- Order Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.order_acknowledgement_message = {}
 
--- Calculate size of: Order Acknowledgement Message
-cboe_futures_orderentry_boe3_v1_0.order_acknowledgement_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.side.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.ord_type.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.time_in_force.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.min_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.capacity.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.account.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_account.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.prevent_match.size(buffer, offset + index)
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.maturity_date.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.open_close.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.leaves_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.expire_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.stop_px.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cmta_number.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cti_code.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.oeo_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cum_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.request_received_time.size
-
-  return index
-end
+-- Size: Order Acknowledgement Message
+cboe_futures_orderentry_boe3_v1_0.order_acknowledgement_message.size =
+  cboe_futures_orderentry_boe3_v1_0.transaction_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.side.size + 
+  cboe_futures_orderentry_boe3_v1_0.price.size + 
+  cboe_futures_orderentry_boe3_v1_0.ord_type.size + 
+  cboe_futures_orderentry_boe3_v1_0.time_in_force.size + 
+  cboe_futures_orderentry_boe3_v1_0.min_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.capacity.size + 
+  cboe_futures_orderentry_boe3_v1_0.account.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_account.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.prevent_match.size + 
+  cboe_futures_orderentry_boe3_v1_0.maturity_date.size + 
+  cboe_futures_orderentry_boe3_v1_0.open_close.size + 
+  cboe_futures_orderentry_boe3_v1_0.leaves_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.expire_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.stop_px.size + 
+  cboe_futures_orderentry_boe3_v1_0.cmta_number.size + 
+  cboe_futures_orderentry_boe3_v1_0.cti_code.size + 
+  cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.oeo_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.cum_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size + 
+  cboe_futures_orderentry_boe3_v1_0.request_received_time.size
 
 -- Display: Order Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.order_acknowledgement_message.display = function(packet, parent, length)
@@ -4795,22 +4503,13 @@ end
 -- Reset Risk Message
 cboe_futures_orderentry_boe3_v1_0.reset_risk_message = {}
 
--- Calculate size of: Reset Risk Message
-cboe_futures_orderentry_boe3_v1_0.reset_risk_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.risk_status_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.risk_reset.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.product_name.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.custom_group_id.size
-
-  return index
-end
+-- Size: Reset Risk Message
+cboe_futures_orderentry_boe3_v1_0.reset_risk_message.size =
+  cboe_futures_orderentry_boe3_v1_0.risk_status_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.risk_reset.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.product_name.size + 
+  cboe_futures_orderentry_boe3_v1_0.custom_group_id.size
 
 -- Display: Reset Risk Message
 cboe_futures_orderentry_boe3_v1_0.reset_risk_message.display = function(packet, parent, length)
@@ -4860,22 +4559,13 @@ end
 -- Quote Update Group
 cboe_futures_orderentry_boe3_v1_0.quote_update_group = {}
 
--- Calculate size of: Quote Update Group
-cboe_futures_orderentry_boe3_v1_0.quote_update_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.quote_symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.side.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.open_close.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_qty.size
-
-  return index
-end
+-- Size: Quote Update Group
+cboe_futures_orderentry_boe3_v1_0.quote_update_group.size =
+  cboe_futures_orderentry_boe3_v1_0.quote_symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.side.size + 
+  cboe_futures_orderentry_boe3_v1_0.open_close.size + 
+  cboe_futures_orderentry_boe3_v1_0.price.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_qty.size
 
 -- Display: Quote Update Group
 cboe_futures_orderentry_boe3_v1_0.quote_update_group.display = function(packet, parent, length)
@@ -5267,24 +4957,14 @@ end
 -- Mass Cancel Inst
 cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst = {}
 
--- Calculate size of: Mass Cancel Inst
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.lockout_instruction.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.instruction_details.size
-
-  return index
-end
+-- Size: Mass Cancel Inst
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.size =
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.size + 
+  cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.size + 
+  cboe_futures_orderentry_boe3_v1_0.lockout_instruction.size + 
+  cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.size + 
+  cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.size + 
+  cboe_futures_orderentry_boe3_v1_0.instruction_details.size
 
 -- Display: Mass Cancel Inst
 cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.display = function(buffer, offset, value, packet, parent)
@@ -5343,7 +5023,7 @@ cboe_futures_orderentry_boe3_v1_0.purge_orders_message.size = function(buffer, o
 
   index = index + cboe_futures_orderentry_boe3_v1_0.product_name.size
 
-  index = index + cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.size(buffer, offset + index)
+  index = index + cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.size
 
   index = index + cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size
 
@@ -5412,24 +5092,14 @@ end
 -- Mass Cancel Order Message
 cboe_futures_orderentry_boe3_v1_0.mass_cancel_order_message = {}
 
--- Calculate size of: Mass Cancel Order Message
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.product_name.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.size(buffer, offset + index)
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.oeo_id.size
-
-  return index
-end
+-- Size: Mass Cancel Order Message
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_order_message.size =
+  cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.product_name.size + 
+  cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.size + 
+  cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.oeo_id.size
 
 -- Display: Mass Cancel Order Message
 cboe_futures_orderentry_boe3_v1_0.mass_cancel_order_message.display = function(packet, parent, length)
@@ -5482,20 +5152,12 @@ end
 -- Cancel Order Message
 cboe_futures_orderentry_boe3_v1_0.cancel_order_message = {}
 
--- Calculate size of: Cancel Order Message
-cboe_futures_orderentry_boe3_v1_0.cancel_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.oeo_id.size
-
-  return index
-end
+-- Size: Cancel Order Message
+cboe_futures_orderentry_boe3_v1_0.cancel_order_message.size =
+  cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.oeo_id.size
 
 -- Display: Cancel Order Message
 cboe_futures_orderentry_boe3_v1_0.cancel_order_message.display = function(packet, parent, length)
@@ -5572,36 +5234,20 @@ end
 -- Modify Order Message
 cboe_futures_orderentry_boe3_v1_0.modify_order_message = {}
 
--- Calculate size of: Modify Order Message
-cboe_futures_orderentry_boe3_v1_0.modify_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.ord_type.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.stop_px.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.oeo_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size
-
-  return index
-end
+-- Size: Modify Order Message
+cboe_futures_orderentry_boe3_v1_0.modify_order_message.size =
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.price.size + 
+  cboe_futures_orderentry_boe3_v1_0.ord_type.size + 
+  cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.size + 
+  cboe_futures_orderentry_boe3_v1_0.stop_px.size + 
+  cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.oeo_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size
 
 -- Display: Modify Order Message
 cboe_futures_orderentry_boe3_v1_0.modify_order_message.display = function(packet, parent, length)
@@ -5672,60 +5318,32 @@ end
 -- New Order Message
 cboe_futures_orderentry_boe3_v1_0.new_order_message = {}
 
--- Calculate size of: New Order Message
-cboe_futures_orderentry_boe3_v1_0.new_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.side.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.order_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.clearing_account.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.price.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.ord_type.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.time_in_force.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.min_qty.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.symbol.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.capacity.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.account.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.prevent_match.size(buffer, offset + index)
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.expire_time.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.maturity_date.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.open_close.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cmta_number.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.stop_px.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.custom_group_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cti_code.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.oeo_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size
-
-  return index
-end
+-- Size: New Order Message
+cboe_futures_orderentry_boe3_v1_0.new_order_message.size =
+  cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.side.size + 
+  cboe_futures_orderentry_boe3_v1_0.order_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_futures_orderentry_boe3_v1_0.clearing_account.size + 
+  cboe_futures_orderentry_boe3_v1_0.price.size + 
+  cboe_futures_orderentry_boe3_v1_0.ord_type.size + 
+  cboe_futures_orderentry_boe3_v1_0.time_in_force.size + 
+  cboe_futures_orderentry_boe3_v1_0.min_qty.size + 
+  cboe_futures_orderentry_boe3_v1_0.symbol.size + 
+  cboe_futures_orderentry_boe3_v1_0.capacity.size + 
+  cboe_futures_orderentry_boe3_v1_0.account.size + 
+  cboe_futures_orderentry_boe3_v1_0.prevent_match.size + 
+  cboe_futures_orderentry_boe3_v1_0.expire_time.size + 
+  cboe_futures_orderentry_boe3_v1_0.maturity_date.size + 
+  cboe_futures_orderentry_boe3_v1_0.open_close.size + 
+  cboe_futures_orderentry_boe3_v1_0.cmta_number.size + 
+  cboe_futures_orderentry_boe3_v1_0.stop_px.size + 
+  cboe_futures_orderentry_boe3_v1_0.custom_group_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.cti_code.size + 
+  cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size + 
+  cboe_futures_orderentry_boe3_v1_0.oeo_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size + 
+  cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size
 
 -- Display: New Order Message
 cboe_futures_orderentry_boe3_v1_0.new_order_message.display = function(packet, parent, length)
@@ -5888,16 +5506,10 @@ end
 -- Logout Response Message
 cboe_futures_orderentry_boe3_v1_0.logout_response_message = {}
 
--- Calculate size of: Logout Response Message
-cboe_futures_orderentry_boe3_v1_0.logout_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.logout_reason.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.logout_reason_text.size
-
-  return index
-end
+-- Size: Logout Response Message
+cboe_futures_orderentry_boe3_v1_0.logout_response_message.size =
+  cboe_futures_orderentry_boe3_v1_0.logout_reason.size + 
+  cboe_futures_orderentry_boe3_v1_0.logout_reason_text.size
 
 -- Display: Logout Response Message
 cboe_futures_orderentry_boe3_v1_0.logout_response_message.display = function(packet, parent, length)
@@ -5984,16 +5596,10 @@ end
 -- Unit Sequence
 cboe_futures_orderentry_boe3_v1_0.unit_sequence = {}
 
--- Calculate size of: Unit Sequence
-cboe_futures_orderentry_boe3_v1_0.unit_sequence.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.unit_number.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.sequence_number.size
-
-  return index
-end
+-- Size: Unit Sequence
+cboe_futures_orderentry_boe3_v1_0.unit_sequence.size =
+  cboe_futures_orderentry_boe3_v1_0.unit_number.size + 
+  cboe_futures_orderentry_boe3_v1_0.sequence_number.size
 
 -- Display: Unit Sequence
 cboe_futures_orderentry_boe3_v1_0.unit_sequence.display = function(packet, parent, length)
@@ -6940,24 +6546,14 @@ end
 -- Message Header
 cboe_futures_orderentry_boe3_v1_0.message_header = {}
 
--- Calculate size of: Message Header
-cboe_futures_orderentry_boe3_v1_0.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.start_of_message.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.message_length.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.message_type.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.matching_unit.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.reserved_field.size
-
-  index = index + cboe_futures_orderentry_boe3_v1_0.sequence_number.size
-
-  return index
-end
+-- Size: Message Header
+cboe_futures_orderentry_boe3_v1_0.message_header.size =
+  cboe_futures_orderentry_boe3_v1_0.start_of_message.size + 
+  cboe_futures_orderentry_boe3_v1_0.message_length.size + 
+  cboe_futures_orderentry_boe3_v1_0.message_type.size + 
+  cboe_futures_orderentry_boe3_v1_0.matching_unit.size + 
+  cboe_futures_orderentry_boe3_v1_0.reserved_field.size + 
+  cboe_futures_orderentry_boe3_v1_0.sequence_number.size
 
 -- Display: Message Header
 cboe_futures_orderentry_boe3_v1_0.message_header.display = function(packet, parent, length)

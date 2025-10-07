@@ -476,26 +476,15 @@ end
 -- Underlying Value Bid And Offer Message
 siac_opra_recipient_obi_v4_0.underlying_value_bid_and_offer_message = {}
 
--- Calculate size of: Underlying Value Bid And Offer Message
-siac_opra_recipient_obi_v4_0.underlying_value_bid_and_offer_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.message_indicator.size
-
-  index = index + siac_opra_recipient_obi_v4_0.transaction_id.size
-
-  index = index + siac_opra_recipient_obi_v4_0.security_symbol.size
-
-  index = index + siac_opra_recipient_obi_v4_0.reserved_1.size
-
-  index = index + siac_opra_recipient_obi_v4_0.index_value_denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.bid_index_value.size
-
-  index = index + siac_opra_recipient_obi_v4_0.offer_index_value.size
-
-  return index
-end
+-- Size: Underlying Value Bid And Offer Message
+siac_opra_recipient_obi_v4_0.underlying_value_bid_and_offer_message.size =
+  siac_opra_recipient_obi_v4_0.message_indicator.size + 
+  siac_opra_recipient_obi_v4_0.transaction_id.size + 
+  siac_opra_recipient_obi_v4_0.security_symbol.size + 
+  siac_opra_recipient_obi_v4_0.reserved_1.size + 
+  siac_opra_recipient_obi_v4_0.index_value_denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.bid_index_value.size + 
+  siac_opra_recipient_obi_v4_0.offer_index_value.size
 
 -- Display: Underlying Value Bid And Offer Message
 siac_opra_recipient_obi_v4_0.underlying_value_bid_and_offer_message.display = function(packet, parent, length)
@@ -597,26 +586,15 @@ end
 -- Underlying Value Last Sale Message
 siac_opra_recipient_obi_v4_0.underlying_value_last_sale_message = {}
 
--- Calculate size of: Underlying Value Last Sale Message
-siac_opra_recipient_obi_v4_0.underlying_value_last_sale_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.message_indicator.size
-
-  index = index + siac_opra_recipient_obi_v4_0.transaction_id.size
-
-  index = index + siac_opra_recipient_obi_v4_0.security_symbol.size
-
-  index = index + siac_opra_recipient_obi_v4_0.reserved_1.size
-
-  index = index + siac_opra_recipient_obi_v4_0.index_value_denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.index_value.size
-
-  index = index + siac_opra_recipient_obi_v4_0.reserved_4.size
-
-  return index
-end
+-- Size: Underlying Value Last Sale Message
+siac_opra_recipient_obi_v4_0.underlying_value_last_sale_message.size =
+  siac_opra_recipient_obi_v4_0.message_indicator.size + 
+  siac_opra_recipient_obi_v4_0.transaction_id.size + 
+  siac_opra_recipient_obi_v4_0.security_symbol.size + 
+  siac_opra_recipient_obi_v4_0.reserved_1.size + 
+  siac_opra_recipient_obi_v4_0.index_value_denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.index_value.size + 
+  siac_opra_recipient_obi_v4_0.reserved_4.size
 
 -- Display: Underlying Value Last Sale Message
 siac_opra_recipient_obi_v4_0.underlying_value_last_sale_message.display = function(packet, parent, length)
@@ -1206,20 +1184,12 @@ end
 -- Best Offer Appendage
 siac_opra_recipient_obi_v4_0.best_offer_appendage = {}
 
--- Calculate size of: Best Offer Appendage
-siac_opra_recipient_obi_v4_0.best_offer_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.participant_id.size
-
-  index = index + siac_opra_recipient_obi_v4_0.denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.size.size
-
-  return index
-end
+-- Size: Best Offer Appendage
+siac_opra_recipient_obi_v4_0.best_offer_appendage.size =
+  siac_opra_recipient_obi_v4_0.participant_id.size + 
+  siac_opra_recipient_obi_v4_0.denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.price.size + 
+  siac_opra_recipient_obi_v4_0.size.size
 
 -- Display: Best Offer Appendage
 siac_opra_recipient_obi_v4_0.best_offer_appendage.display = function(packet, parent, length)
@@ -1266,20 +1236,12 @@ end
 -- Best Bid Appendage
 siac_opra_recipient_obi_v4_0.best_bid_appendage = {}
 
--- Calculate size of: Best Bid Appendage
-siac_opra_recipient_obi_v4_0.best_bid_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.participant_id.size
-
-  index = index + siac_opra_recipient_obi_v4_0.denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.size.size
-
-  return index
-end
+-- Size: Best Bid Appendage
+siac_opra_recipient_obi_v4_0.best_bid_appendage.size =
+  siac_opra_recipient_obi_v4_0.participant_id.size + 
+  siac_opra_recipient_obi_v4_0.denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.price.size + 
+  siac_opra_recipient_obi_v4_0.size.size
 
 -- Display: Best Bid Appendage
 siac_opra_recipient_obi_v4_0.best_bid_appendage.display = function(packet, parent, length)
@@ -1583,18 +1545,11 @@ end
 -- Expiration Block
 siac_opra_recipient_obi_v4_0.expiration_block = {}
 
--- Calculate size of: Expiration Block
-siac_opra_recipient_obi_v4_0.expiration_block.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.expiration_month.size
-
-  index = index + siac_opra_recipient_obi_v4_0.expiration_day.size
-
-  index = index + siac_opra_recipient_obi_v4_0.expiration_year.size
-
-  return index
-end
+-- Size: Expiration Block
+siac_opra_recipient_obi_v4_0.expiration_block.size =
+  siac_opra_recipient_obi_v4_0.expiration_month.size + 
+  siac_opra_recipient_obi_v4_0.expiration_day.size + 
+  siac_opra_recipient_obi_v4_0.expiration_year.size
 
 -- Display: Expiration Block
 siac_opra_recipient_obi_v4_0.expiration_block.display = function(packet, parent, length)
@@ -1805,7 +1760,7 @@ siac_opra_recipient_obi_v4_0.short_equity_and_index_quote_message.size = functio
 
   index = index + siac_opra_recipient_obi_v4_0.security_symbol_short.size
 
-  index = index + siac_opra_recipient_obi_v4_0.expiration_block.size(buffer, offset + index)
+  index = index + siac_opra_recipient_obi_v4_0.expiration_block.size
 
   index = index + siac_opra_recipient_obi_v4_0.strike_price_short.size
 
@@ -1820,14 +1775,14 @@ siac_opra_recipient_obi_v4_0.short_equity_and_index_quote_message.size = functio
   local bbo_indicator = buffer(offset + index - 26, 1):string()
 
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
-    index = index + siac_opra_recipient_obi_v4_0.best_bid_appendage.size(buffer, offset + index)
+    index = index + siac_opra_recipient_obi_v4_0.best_bid_appendage.size
 
   end
 
   local bbo_indicator = buffer(offset + index - 36, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
-    index = index + siac_opra_recipient_obi_v4_0.best_offer_appendage.size(buffer, offset + index)
+    index = index + siac_opra_recipient_obi_v4_0.best_offer_appendage.size
 
   end
 
@@ -2254,28 +2209,16 @@ end
 -- Best Bid And Offer Appendage
 siac_opra_recipient_obi_v4_0.best_bid_and_offer_appendage = {}
 
--- Calculate size of: Best Bid And Offer Appendage
-siac_opra_recipient_obi_v4_0.best_bid_and_offer_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.best_bid_participant_id.size
-
-  index = index + siac_opra_recipient_obi_v4_0.best_bid_denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.best_bid_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.best_bid_size.size
-
-  index = index + siac_opra_recipient_obi_v4_0.best_offer_participant_id.size
-
-  index = index + siac_opra_recipient_obi_v4_0.best_offer_denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.best_offer_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.best_offer_size.size
-
-  return index
-end
+-- Size: Best Bid And Offer Appendage
+siac_opra_recipient_obi_v4_0.best_bid_and_offer_appendage.size =
+  siac_opra_recipient_obi_v4_0.best_bid_participant_id.size + 
+  siac_opra_recipient_obi_v4_0.best_bid_denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.best_bid_price.size + 
+  siac_opra_recipient_obi_v4_0.best_bid_size.size + 
+  siac_opra_recipient_obi_v4_0.best_offer_participant_id.size + 
+  siac_opra_recipient_obi_v4_0.best_offer_denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.best_offer_price.size + 
+  siac_opra_recipient_obi_v4_0.best_offer_size.size
 
 -- Display: Best Bid And Offer Appendage
 siac_opra_recipient_obi_v4_0.best_bid_and_offer_appendage.display = function(packet, parent, length)
@@ -2553,7 +2496,7 @@ siac_opra_recipient_obi_v4_0.long_equity_and_index_quote_message.size = function
 
   index = index + siac_opra_recipient_obi_v4_0.reserved_1.size
 
-  index = index + siac_opra_recipient_obi_v4_0.expiration_block.size(buffer, offset + index)
+  index = index + siac_opra_recipient_obi_v4_0.expiration_block.size
 
   index = index + siac_opra_recipient_obi_v4_0.strike_price_denominator_code.size
 
@@ -2572,21 +2515,21 @@ siac_opra_recipient_obi_v4_0.long_equity_and_index_quote_message.size = function
   local bbo_indicator = buffer(offset + index - 40, 1):string()
 
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
-    index = index + siac_opra_recipient_obi_v4_0.best_bid_appendage.size(buffer, offset + index)
+    index = index + siac_opra_recipient_obi_v4_0.best_bid_appendage.size
 
   end
 
   local bbo_indicator = buffer(offset + index - 50, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
-    index = index + siac_opra_recipient_obi_v4_0.best_offer_appendage.size(buffer, offset + index)
+    index = index + siac_opra_recipient_obi_v4_0.best_offer_appendage.size
 
   end
 
   local bbo_indicator = buffer(offset + index - 60, 1):string()
 
   if bbo_indicator == "O" then
-    index = index + siac_opra_recipient_obi_v4_0.best_bid_and_offer_appendage.size(buffer, offset + index)
+    index = index + siac_opra_recipient_obi_v4_0.best_bid_and_offer_appendage.size
 
   end
 
@@ -2922,52 +2865,28 @@ end
 -- Equity And Index End Of Day Summary Message
 siac_opra_recipient_obi_v4_0.equity_and_index_end_of_day_summary_message = {}
 
--- Calculate size of: Equity And Index End Of Day Summary Message
-siac_opra_recipient_obi_v4_0.equity_and_index_end_of_day_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.message_type.size
-
-  index = index + siac_opra_recipient_obi_v4_0.message_indicator.size
-
-  index = index + siac_opra_recipient_obi_v4_0.transaction_id.size
-
-  index = index + siac_opra_recipient_obi_v4_0.security_symbol.size
-
-  index = index + siac_opra_recipient_obi_v4_0.reserved_1.size
-
-  index = index + siac_opra_recipient_obi_v4_0.expiration_block.size(buffer, offset + index)
-
-  index = index + siac_opra_recipient_obi_v4_0.strike_price_denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.strike_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.volume.size
-
-  index = index + siac_opra_recipient_obi_v4_0.open_interest_volume.size
-
-  index = index + siac_opra_recipient_obi_v4_0.premium_price_denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.open_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.high_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.low_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.last_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.net_change.size
-
-  index = index + siac_opra_recipient_obi_v4_0.underlying_price_denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.underlying_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.bid_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.offer_price.size
-
-  return index
-end
+-- Size: Equity And Index End Of Day Summary Message
+siac_opra_recipient_obi_v4_0.equity_and_index_end_of_day_summary_message.size =
+  siac_opra_recipient_obi_v4_0.message_type.size + 
+  siac_opra_recipient_obi_v4_0.message_indicator.size + 
+  siac_opra_recipient_obi_v4_0.transaction_id.size + 
+  siac_opra_recipient_obi_v4_0.security_symbol.size + 
+  siac_opra_recipient_obi_v4_0.reserved_1.size + 
+  siac_opra_recipient_obi_v4_0.expiration_block.size + 
+  siac_opra_recipient_obi_v4_0.strike_price_denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.strike_price.size + 
+  siac_opra_recipient_obi_v4_0.volume.size + 
+  siac_opra_recipient_obi_v4_0.open_interest_volume.size + 
+  siac_opra_recipient_obi_v4_0.premium_price_denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.open_price.size + 
+  siac_opra_recipient_obi_v4_0.high_price.size + 
+  siac_opra_recipient_obi_v4_0.low_price.size + 
+  siac_opra_recipient_obi_v4_0.last_price.size + 
+  siac_opra_recipient_obi_v4_0.net_change.size + 
+  siac_opra_recipient_obi_v4_0.underlying_price_denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.underlying_price.size + 
+  siac_opra_recipient_obi_v4_0.bid_price.size + 
+  siac_opra_recipient_obi_v4_0.offer_price.size
 
 -- Display: Equity And Index End Of Day Summary Message
 siac_opra_recipient_obi_v4_0.equity_and_index_end_of_day_summary_message.display = function(packet, parent, length)
@@ -3062,30 +2981,17 @@ end
 -- Open Interest Message
 siac_opra_recipient_obi_v4_0.open_interest_message = {}
 
--- Calculate size of: Open Interest Message
-siac_opra_recipient_obi_v4_0.open_interest_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.message_type.size
-
-  index = index + siac_opra_recipient_obi_v4_0.message_indicator.size
-
-  index = index + siac_opra_recipient_obi_v4_0.transaction_id.size
-
-  index = index + siac_opra_recipient_obi_v4_0.security_symbol.size
-
-  index = index + siac_opra_recipient_obi_v4_0.reserved_1.size
-
-  index = index + siac_opra_recipient_obi_v4_0.expiration_block.size(buffer, offset + index)
-
-  index = index + siac_opra_recipient_obi_v4_0.strike_price_denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.strike_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.open_interest_volume.size
-
-  return index
-end
+-- Size: Open Interest Message
+siac_opra_recipient_obi_v4_0.open_interest_message.size =
+  siac_opra_recipient_obi_v4_0.message_type.size + 
+  siac_opra_recipient_obi_v4_0.message_indicator.size + 
+  siac_opra_recipient_obi_v4_0.transaction_id.size + 
+  siac_opra_recipient_obi_v4_0.security_symbol.size + 
+  siac_opra_recipient_obi_v4_0.reserved_1.size + 
+  siac_opra_recipient_obi_v4_0.expiration_block.size + 
+  siac_opra_recipient_obi_v4_0.strike_price_denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.strike_price.size + 
+  siac_opra_recipient_obi_v4_0.open_interest_volume.size
 
 -- Display: Open Interest Message
 siac_opra_recipient_obi_v4_0.open_interest_message.display = function(packet, parent, length)
@@ -3283,38 +3189,21 @@ end
 -- Equity And Index Last Sale Message
 siac_opra_recipient_obi_v4_0.equity_and_index_last_sale_message = {}
 
--- Calculate size of: Equity And Index Last Sale Message
-siac_opra_recipient_obi_v4_0.equity_and_index_last_sale_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.trade_message_type.size
-
-  index = index + siac_opra_recipient_obi_v4_0.message_indicator.size
-
-  index = index + siac_opra_recipient_obi_v4_0.transaction_id.size
-
-  index = index + siac_opra_recipient_obi_v4_0.security_symbol.size
-
-  index = index + siac_opra_recipient_obi_v4_0.reserved_1.size
-
-  index = index + siac_opra_recipient_obi_v4_0.expiration_block.size(buffer, offset + index)
-
-  index = index + siac_opra_recipient_obi_v4_0.strike_price_denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.strike_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.volume.size
-
-  index = index + siac_opra_recipient_obi_v4_0.premium_price_denominator_code.size
-
-  index = index + siac_opra_recipient_obi_v4_0.premium_price.size
-
-  index = index + siac_opra_recipient_obi_v4_0.trade_identifier.size
-
-  index = index + siac_opra_recipient_obi_v4_0.reserved_4.size
-
-  return index
-end
+-- Size: Equity And Index Last Sale Message
+siac_opra_recipient_obi_v4_0.equity_and_index_last_sale_message.size =
+  siac_opra_recipient_obi_v4_0.trade_message_type.size + 
+  siac_opra_recipient_obi_v4_0.message_indicator.size + 
+  siac_opra_recipient_obi_v4_0.transaction_id.size + 
+  siac_opra_recipient_obi_v4_0.security_symbol.size + 
+  siac_opra_recipient_obi_v4_0.reserved_1.size + 
+  siac_opra_recipient_obi_v4_0.expiration_block.size + 
+  siac_opra_recipient_obi_v4_0.strike_price_denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.strike_price.size + 
+  siac_opra_recipient_obi_v4_0.volume.size + 
+  siac_opra_recipient_obi_v4_0.premium_price_denominator_code.size + 
+  siac_opra_recipient_obi_v4_0.premium_price.size + 
+  siac_opra_recipient_obi_v4_0.trade_identifier.size + 
+  siac_opra_recipient_obi_v4_0.reserved_4.size
 
 -- Display: Equity And Index Last Sale Message
 siac_opra_recipient_obi_v4_0.equity_and_index_last_sale_message.display = function(packet, parent, length)
@@ -3668,16 +3557,10 @@ end
 -- Block Timestamp
 siac_opra_recipient_obi_v4_0.block_timestamp = {}
 
--- Calculate size of: Block Timestamp
-siac_opra_recipient_obi_v4_0.block_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.seconds.size
-
-  index = index + siac_opra_recipient_obi_v4_0.nanoseconds.size
-
-  return index
-end
+-- Size: Block Timestamp
+siac_opra_recipient_obi_v4_0.block_timestamp.size =
+  siac_opra_recipient_obi_v4_0.seconds.size + 
+  siac_opra_recipient_obi_v4_0.nanoseconds.size
 
 -- Display: Block Timestamp
 siac_opra_recipient_obi_v4_0.block_timestamp.display = function(packet, parent, length)
@@ -3886,30 +3769,17 @@ end
 -- Block Header
 siac_opra_recipient_obi_v4_0.block_header = {}
 
--- Calculate size of: Block Header
-siac_opra_recipient_obi_v4_0.block_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v4_0.version.size
-
-  index = index + siac_opra_recipient_obi_v4_0.block_size.size
-
-  index = index + siac_opra_recipient_obi_v4_0.data_feed_indicator.size
-
-  index = index + siac_opra_recipient_obi_v4_0.retransmission_indicator.size
-
-  index = index + siac_opra_recipient_obi_v4_0.session_indicator.size
-
-  index = index + siac_opra_recipient_obi_v4_0.block_sequence_number.size
-
-  index = index + siac_opra_recipient_obi_v4_0.messages_in_block.size
-
-  index = index + siac_opra_recipient_obi_v4_0.block_timestamp.size(buffer, offset + index)
-
-  index = index + siac_opra_recipient_obi_v4_0.block_checksum.size
-
-  return index
-end
+-- Size: Block Header
+siac_opra_recipient_obi_v4_0.block_header.size =
+  siac_opra_recipient_obi_v4_0.version.size + 
+  siac_opra_recipient_obi_v4_0.block_size.size + 
+  siac_opra_recipient_obi_v4_0.data_feed_indicator.size + 
+  siac_opra_recipient_obi_v4_0.retransmission_indicator.size + 
+  siac_opra_recipient_obi_v4_0.session_indicator.size + 
+  siac_opra_recipient_obi_v4_0.block_sequence_number.size + 
+  siac_opra_recipient_obi_v4_0.messages_in_block.size + 
+  siac_opra_recipient_obi_v4_0.block_timestamp.size + 
+  siac_opra_recipient_obi_v4_0.block_checksum.size
 
 -- Display: Block Header
 siac_opra_recipient_obi_v4_0.block_header.display = function(packet, parent, length)

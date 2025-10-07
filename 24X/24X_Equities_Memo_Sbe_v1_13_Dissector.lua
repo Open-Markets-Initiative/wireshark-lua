@@ -811,30 +811,17 @@ end
 -- Mass Cancel Reject Message
 n24x_equities_memo_sbe_v1_13.mass_cancel_reject_message = {}
 
--- Calculate size of: Mass Cancel Reject Message
-n24x_equities_memo_sbe_v1_13.mass_cancel_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.sending_time.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.clordid.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.symbol.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.symbol_sfx.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.side_optional.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.lower_than_price.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.higher_than_price.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.cancel_group_id.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size
-
-  return index
-end
+-- Size: Mass Cancel Reject Message
+n24x_equities_memo_sbe_v1_13.mass_cancel_reject_message.size =
+  n24x_equities_memo_sbe_v1_13.sending_time.size + 
+  n24x_equities_memo_sbe_v1_13.clordid.size + 
+  n24x_equities_memo_sbe_v1_13.symbol.size + 
+  n24x_equities_memo_sbe_v1_13.symbol_sfx.size + 
+  n24x_equities_memo_sbe_v1_13.side_optional.size + 
+  n24x_equities_memo_sbe_v1_13.lower_than_price.size + 
+  n24x_equities_memo_sbe_v1_13.higher_than_price.size + 
+  n24x_equities_memo_sbe_v1_13.cancel_group_id.size + 
+  n24x_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size
 
 -- Display: Mass Cancel Reject Message
 n24x_equities_memo_sbe_v1_13.mass_cancel_reject_message.display = function(packet, parent, length)
@@ -1119,22 +1106,13 @@ end
 -- Order Cancel Reject Message
 n24x_equities_memo_sbe_v1_13.order_cancel_reject_message = {}
 
--- Calculate size of: Order Cancel Reject Message
-n24x_equities_memo_sbe_v1_13.order_cancel_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.sending_time.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.clordid.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.cxl_rej_response_to.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.cxl_rej_reason.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.link_id_optional.size
-
-  return index
-end
+-- Size: Order Cancel Reject Message
+n24x_equities_memo_sbe_v1_13.order_cancel_reject_message.size =
+  n24x_equities_memo_sbe_v1_13.sending_time.size + 
+  n24x_equities_memo_sbe_v1_13.clordid.size + 
+  n24x_equities_memo_sbe_v1_13.cxl_rej_response_to.size + 
+  n24x_equities_memo_sbe_v1_13.cxl_rej_reason.size + 
+  n24x_equities_memo_sbe_v1_13.link_id_optional.size
 
 -- Display: Order Cancel Reject Message
 n24x_equities_memo_sbe_v1_13.order_cancel_reject_message.display = function(packet, parent, length)
@@ -1286,18 +1264,11 @@ end
 -- Parties Group
 n24x_equities_memo_sbe_v1_13.parties_group = {}
 
--- Calculate size of: Parties Group
-n24x_equities_memo_sbe_v1_13.parties_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.party_id_source.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.party_role.size
-
-  return index
-end
+-- Size: Parties Group
+n24x_equities_memo_sbe_v1_13.parties_group.size =
+  n24x_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size + 
+  n24x_equities_memo_sbe_v1_13.party_id_source.size + 
+  n24x_equities_memo_sbe_v1_13.party_role.size
 
 -- Display: Parties Group
 n24x_equities_memo_sbe_v1_13.parties_group.display = function(packet, parent, length)
@@ -1393,16 +1364,10 @@ end
 -- Repeating Group Dimensions
 n24x_equities_memo_sbe_v1_13.repeating_group_dimensions = {}
 
--- Calculate size of: Repeating Group Dimensions
-n24x_equities_memo_sbe_v1_13.repeating_group_dimensions.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.block_length_uint_8.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.num_in_group.size
-
-  return index
-end
+-- Size: Repeating Group Dimensions
+n24x_equities_memo_sbe_v1_13.repeating_group_dimensions.size =
+  n24x_equities_memo_sbe_v1_13.block_length_uint_8.size + 
+  n24x_equities_memo_sbe_v1_13.num_in_group.size
 
 -- Display: Repeating Group Dimensions
 n24x_equities_memo_sbe_v1_13.repeating_group_dimensions.display = function(packet, parent, length)
@@ -1447,7 +1412,7 @@ n24x_equities_memo_sbe_v1_13.parties_groups = {}
 n24x_equities_memo_sbe_v1_13.parties_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memo_sbe_v1_13.repeating_group_dimensions.size(buffer, offset + index)
+  index = index + n24x_equities_memo_sbe_v1_13.repeating_group_dimensions.size
 
   -- Calculate field size from count
   local parties_group_count = buffer(offset + index - 1, 1):uint()
@@ -2839,16 +2804,10 @@ end
 -- Mass Cancel Done Message
 n24x_equities_memo_sbe_v1_13.mass_cancel_done_message = {}
 
--- Calculate size of: Mass Cancel Done Message
-n24x_equities_memo_sbe_v1_13.mass_cancel_done_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.sending_time.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.clordid.size
-
-  return index
-end
+-- Size: Mass Cancel Done Message
+n24x_equities_memo_sbe_v1_13.mass_cancel_done_message.size =
+  n24x_equities_memo_sbe_v1_13.sending_time.size + 
+  n24x_equities_memo_sbe_v1_13.clordid.size
 
 -- Display: Mass Cancel Done Message
 n24x_equities_memo_sbe_v1_13.mass_cancel_done_message.display = function(packet, parent, length)
@@ -3071,28 +3030,16 @@ end
 -- Pending Mass Cancel Message
 n24x_equities_memo_sbe_v1_13.pending_mass_cancel_message = {}
 
--- Calculate size of: Pending Mass Cancel Message
-n24x_equities_memo_sbe_v1_13.pending_mass_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.sending_time.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.clordid.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.symbol.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.symbol_sfx.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.side_optional.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.lower_than_price.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.higher_than_price.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.cancel_group_id.size
-
-  return index
-end
+-- Size: Pending Mass Cancel Message
+n24x_equities_memo_sbe_v1_13.pending_mass_cancel_message.size =
+  n24x_equities_memo_sbe_v1_13.sending_time.size + 
+  n24x_equities_memo_sbe_v1_13.clordid.size + 
+  n24x_equities_memo_sbe_v1_13.symbol.size + 
+  n24x_equities_memo_sbe_v1_13.symbol_sfx.size + 
+  n24x_equities_memo_sbe_v1_13.side_optional.size + 
+  n24x_equities_memo_sbe_v1_13.lower_than_price.size + 
+  n24x_equities_memo_sbe_v1_13.higher_than_price.size + 
+  n24x_equities_memo_sbe_v1_13.cancel_group_id.size
 
 -- Display: Pending Mass Cancel Message
 n24x_equities_memo_sbe_v1_13.pending_mass_cancel_message.display = function(packet, parent, length)
@@ -4973,26 +4920,15 @@ end
 -- Mass Cancel Request Message
 n24x_equities_memo_sbe_v1_13.mass_cancel_request_message = {}
 
--- Calculate size of: Mass Cancel Request Message
-n24x_equities_memo_sbe_v1_13.mass_cancel_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.clordid.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.symbol.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.symbol_sfx.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.side_optional.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.lower_than_price.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.higher_than_price.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.cancel_group_id.size
-
-  return index
-end
+-- Size: Mass Cancel Request Message
+n24x_equities_memo_sbe_v1_13.mass_cancel_request_message.size =
+  n24x_equities_memo_sbe_v1_13.clordid.size + 
+  n24x_equities_memo_sbe_v1_13.symbol.size + 
+  n24x_equities_memo_sbe_v1_13.symbol_sfx.size + 
+  n24x_equities_memo_sbe_v1_13.side_optional.size + 
+  n24x_equities_memo_sbe_v1_13.lower_than_price.size + 
+  n24x_equities_memo_sbe_v1_13.higher_than_price.size + 
+  n24x_equities_memo_sbe_v1_13.cancel_group_id.size
 
 -- Display: Mass Cancel Request Message
 n24x_equities_memo_sbe_v1_13.mass_cancel_request_message.display = function(packet, parent, length)
@@ -5076,22 +5012,13 @@ end
 -- Order Cancel Request Message
 n24x_equities_memo_sbe_v1_13.order_cancel_request_message = {}
 
--- Calculate size of: Order Cancel Request Message
-n24x_equities_memo_sbe_v1_13.order_cancel_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.origclordid_optional.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.order_id_optional.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.clordid.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.symbol.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.symbol_sfx.size
-
-  return index
-end
+-- Size: Order Cancel Request Message
+n24x_equities_memo_sbe_v1_13.order_cancel_request_message.size =
+  n24x_equities_memo_sbe_v1_13.origclordid_optional.size + 
+  n24x_equities_memo_sbe_v1_13.order_id_optional.size + 
+  n24x_equities_memo_sbe_v1_13.clordid.size + 
+  n24x_equities_memo_sbe_v1_13.symbol.size + 
+  n24x_equities_memo_sbe_v1_13.symbol_sfx.size
 
 -- Display: Order Cancel Request Message
 n24x_equities_memo_sbe_v1_13.order_cancel_request_message.display = function(packet, parent, length)
@@ -5180,36 +5107,20 @@ end
 -- Order Cancel Replace Request Message
 n24x_equities_memo_sbe_v1_13.order_cancel_replace_request_message = {}
 
--- Calculate size of: Order Cancel Replace Request Message
-n24x_equities_memo_sbe_v1_13.order_cancel_replace_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.origclordid.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.clordid.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.symbol.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.symbol_sfx.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.side.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.order_qty.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.ord_type.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.price.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.display_qty.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.locate_reqd.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.link_id_optional.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.locate_broker_optional.size
-
-  return index
-end
+-- Size: Order Cancel Replace Request Message
+n24x_equities_memo_sbe_v1_13.order_cancel_replace_request_message.size =
+  n24x_equities_memo_sbe_v1_13.origclordid.size + 
+  n24x_equities_memo_sbe_v1_13.clordid.size + 
+  n24x_equities_memo_sbe_v1_13.symbol.size + 
+  n24x_equities_memo_sbe_v1_13.symbol_sfx.size + 
+  n24x_equities_memo_sbe_v1_13.side.size + 
+  n24x_equities_memo_sbe_v1_13.order_qty.size + 
+  n24x_equities_memo_sbe_v1_13.ord_type.size + 
+  n24x_equities_memo_sbe_v1_13.price.size + 
+  n24x_equities_memo_sbe_v1_13.display_qty.size + 
+  n24x_equities_memo_sbe_v1_13.locate_reqd.size + 
+  n24x_equities_memo_sbe_v1_13.link_id_optional.size + 
+  n24x_equities_memo_sbe_v1_13.locate_broker_optional.size
 
 -- Display: Order Cancel Replace Request Message
 n24x_equities_memo_sbe_v1_13.order_cancel_replace_request_message.display = function(packet, parent, length)
@@ -5838,20 +5749,12 @@ end
 -- Sbe Header
 n24x_equities_memo_sbe_v1_13.sbe_header = {}
 
--- Calculate size of: Sbe Header
-n24x_equities_memo_sbe_v1_13.sbe_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.block_length.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.template_id.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.schema_id.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.version.size
-
-  return index
-end
+-- Size: Sbe Header
+n24x_equities_memo_sbe_v1_13.sbe_header.size =
+  n24x_equities_memo_sbe_v1_13.block_length.size + 
+  n24x_equities_memo_sbe_v1_13.template_id.size + 
+  n24x_equities_memo_sbe_v1_13.schema_id.size + 
+  n24x_equities_memo_sbe_v1_13.version.size
 
 -- Display: Sbe Header
 n24x_equities_memo_sbe_v1_13.sbe_header.display = function(packet, parent, length)
@@ -6013,14 +5916,9 @@ end
 -- Stream Complete Message
 n24x_equities_memo_sbe_v1_13.stream_complete_message = {}
 
--- Calculate size of: Stream Complete Message
-n24x_equities_memo_sbe_v1_13.stream_complete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.total_sequence_count.size
-
-  return index
-end
+-- Size: Stream Complete Message
+n24x_equities_memo_sbe_v1_13.stream_complete_message.size =
+  n24x_equities_memo_sbe_v1_13.total_sequence_count.size
 
 -- Display: Stream Complete Message
 n24x_equities_memo_sbe_v1_13.stream_complete_message.display = function(packet, parent, length)
@@ -6091,14 +5989,9 @@ end
 -- Stream Rejected Message
 n24x_equities_memo_sbe_v1_13.stream_rejected_message = {}
 
--- Calculate size of: Stream Rejected Message
-n24x_equities_memo_sbe_v1_13.stream_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.stream_reject_code.size
-
-  return index
-end
+-- Size: Stream Rejected Message
+n24x_equities_memo_sbe_v1_13.stream_rejected_message.size =
+  n24x_equities_memo_sbe_v1_13.stream_reject_code.size
 
 -- Display: Stream Rejected Message
 n24x_equities_memo_sbe_v1_13.stream_rejected_message.display = function(packet, parent, length)
@@ -6182,16 +6075,10 @@ end
 -- Stream Begin Message
 n24x_equities_memo_sbe_v1_13.stream_begin_message = {}
 
--- Calculate size of: Stream Begin Message
-n24x_equities_memo_sbe_v1_13.stream_begin_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.next_sequence_number.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.max_sequence_number.size
-
-  return index
-end
+-- Size: Stream Begin Message
+n24x_equities_memo_sbe_v1_13.stream_begin_message.size =
+  n24x_equities_memo_sbe_v1_13.next_sequence_number.size + 
+  n24x_equities_memo_sbe_v1_13.max_sequence_number.size
 
 -- Display: Stream Begin Message
 n24x_equities_memo_sbe_v1_13.stream_begin_message.display = function(packet, parent, length)
@@ -6255,14 +6142,9 @@ end
 -- Replay Complete Message
 n24x_equities_memo_sbe_v1_13.replay_complete_message = {}
 
--- Calculate size of: Replay Complete Message
-n24x_equities_memo_sbe_v1_13.replay_complete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.message_count.size
-
-  return index
-end
+-- Size: Replay Complete Message
+n24x_equities_memo_sbe_v1_13.replay_complete_message.size =
+  n24x_equities_memo_sbe_v1_13.message_count.size
 
 -- Display: Replay Complete Message
 n24x_equities_memo_sbe_v1_13.replay_complete_message.display = function(packet, parent, length)
@@ -6336,14 +6218,9 @@ end
 -- Replay Rejected Message
 n24x_equities_memo_sbe_v1_13.replay_rejected_message = {}
 
--- Calculate size of: Replay Rejected Message
-n24x_equities_memo_sbe_v1_13.replay_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.replay_reject_code.size
-
-  return index
-end
+-- Size: Replay Rejected Message
+n24x_equities_memo_sbe_v1_13.replay_rejected_message.size =
+  n24x_equities_memo_sbe_v1_13.replay_reject_code.size
 
 -- Display: Replay Rejected Message
 n24x_equities_memo_sbe_v1_13.replay_rejected_message.display = function(packet, parent, length)
@@ -6404,16 +6281,10 @@ end
 -- Replay Begin Message
 n24x_equities_memo_sbe_v1_13.replay_begin_message = {}
 
--- Calculate size of: Replay Begin Message
-n24x_equities_memo_sbe_v1_13.replay_begin_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.next_sequence_number.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.pending_message_count.size
-
-  return index
-end
+-- Size: Replay Begin Message
+n24x_equities_memo_sbe_v1_13.replay_begin_message.size =
+  n24x_equities_memo_sbe_v1_13.next_sequence_number.size + 
+  n24x_equities_memo_sbe_v1_13.pending_message_count.size
 
 -- Display: Replay Begin Message
 n24x_equities_memo_sbe_v1_13.replay_begin_message.display = function(packet, parent, length)
@@ -6477,14 +6348,9 @@ end
 -- Start Of Session Message
 n24x_equities_memo_sbe_v1_13.start_of_session_message = {}
 
--- Calculate size of: Start Of Session Message
-n24x_equities_memo_sbe_v1_13.start_of_session_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.session_id.size
-
-  return index
-end
+-- Size: Start Of Session Message
+n24x_equities_memo_sbe_v1_13.start_of_session_message.size =
+  n24x_equities_memo_sbe_v1_13.session_id.size
 
 -- Display: Start Of Session Message
 n24x_equities_memo_sbe_v1_13.start_of_session_message.display = function(packet, parent, length)
@@ -6558,14 +6424,9 @@ end
 -- Login Rejected Message
 n24x_equities_memo_sbe_v1_13.login_rejected_message = {}
 
--- Calculate size of: Login Rejected Message
-n24x_equities_memo_sbe_v1_13.login_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.login_reject_code.size
-
-  return index
-end
+-- Size: Login Rejected Message
+n24x_equities_memo_sbe_v1_13.login_rejected_message.size =
+  n24x_equities_memo_sbe_v1_13.login_reject_code.size
 
 -- Display: Login Rejected Message
 n24x_equities_memo_sbe_v1_13.login_rejected_message.display = function(packet, parent, length)
@@ -6636,14 +6497,9 @@ end
 -- Login Accepted Message
 n24x_equities_memo_sbe_v1_13.login_accepted_message = {}
 
--- Calculate size of: Login Accepted Message
-n24x_equities_memo_sbe_v1_13.login_accepted_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.supported_request_mode.size
-
-  return index
-end
+-- Size: Login Accepted Message
+n24x_equities_memo_sbe_v1_13.login_accepted_message.size =
+  n24x_equities_memo_sbe_v1_13.supported_request_mode.size
 
 -- Display: Login Accepted Message
 n24x_equities_memo_sbe_v1_13.login_accepted_message.display = function(packet, parent, length)
@@ -6728,16 +6584,10 @@ end
 -- Stream Request Message
 n24x_equities_memo_sbe_v1_13.stream_request_message = {}
 
--- Calculate size of: Stream Request Message
-n24x_equities_memo_sbe_v1_13.stream_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.session_id.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.next_sequence_number.size
-
-  return index
-end
+-- Size: Stream Request Message
+n24x_equities_memo_sbe_v1_13.stream_request_message.size =
+  n24x_equities_memo_sbe_v1_13.session_id.size + 
+  n24x_equities_memo_sbe_v1_13.next_sequence_number.size
 
 -- Display: Stream Request Message
 n24x_equities_memo_sbe_v1_13.stream_request_message.display = function(packet, parent, length)
@@ -6778,14 +6628,9 @@ end
 -- Replay All Request Message
 n24x_equities_memo_sbe_v1_13.replay_all_request_message = {}
 
--- Calculate size of: Replay All Request Message
-n24x_equities_memo_sbe_v1_13.replay_all_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.session_id.size
-
-  return index
-end
+-- Size: Replay All Request Message
+n24x_equities_memo_sbe_v1_13.replay_all_request_message.size =
+  n24x_equities_memo_sbe_v1_13.session_id.size
 
 -- Display: Replay All Request Message
 n24x_equities_memo_sbe_v1_13.replay_all_request_message.display = function(packet, parent, length)
@@ -6846,18 +6691,11 @@ end
 -- Replay Request Message
 n24x_equities_memo_sbe_v1_13.replay_request_message = {}
 
--- Calculate size of: Replay Request Message
-n24x_equities_memo_sbe_v1_13.replay_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.session_id.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.next_sequence_number.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.count.size
-
-  return index
-end
+-- Size: Replay Request Message
+n24x_equities_memo_sbe_v1_13.replay_request_message.size =
+  n24x_equities_memo_sbe_v1_13.session_id.size + 
+  n24x_equities_memo_sbe_v1_13.next_sequence_number.size + 
+  n24x_equities_memo_sbe_v1_13.count.size
 
 -- Display: Replay Request Message
 n24x_equities_memo_sbe_v1_13.replay_request_message.display = function(packet, parent, length)
@@ -6947,16 +6785,10 @@ end
 -- Login Request Message
 n24x_equities_memo_sbe_v1_13.login_request_message = {}
 
--- Calculate size of: Login Request Message
-n24x_equities_memo_sbe_v1_13.login_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.token_type.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.token.size
-
-  return index
-end
+-- Size: Login Request Message
+n24x_equities_memo_sbe_v1_13.login_request_message.size =
+  n24x_equities_memo_sbe_v1_13.token_type.size + 
+  n24x_equities_memo_sbe_v1_13.token.size
 
 -- Display: Login Request Message
 n24x_equities_memo_sbe_v1_13.login_request_message.display = function(packet, parent, length)
@@ -7252,16 +7084,10 @@ end
 -- Common Header
 n24x_equities_memo_sbe_v1_13.common_header = {}
 
--- Calculate size of: Common Header
-n24x_equities_memo_sbe_v1_13.common_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13.message_type.size
-
-  index = index + n24x_equities_memo_sbe_v1_13.message_length.size
-
-  return index
-end
+-- Size: Common Header
+n24x_equities_memo_sbe_v1_13.common_header.size =
+  n24x_equities_memo_sbe_v1_13.message_type.size + 
+  n24x_equities_memo_sbe_v1_13.message_length.size
 
 -- Display: Common Header
 n24x_equities_memo_sbe_v1_13.common_header.display = function(packet, parent, length)

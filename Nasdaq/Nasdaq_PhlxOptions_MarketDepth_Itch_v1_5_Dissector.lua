@@ -626,32 +626,18 @@ end
 -- Auction Notification Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message = {}
 
--- Calculate size of: Auction Notification Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_type.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.paired_contracts.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_direction.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_volume.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.customer_indicator.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.size
-
-  return index
-end
+-- Size: Auction Notification Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_type.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.paired_contracts.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_direction.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_volume.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.customer_indicator.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.size
 
 -- Display: Auction Notification Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.display = function(packet, parent, length)
@@ -762,18 +748,11 @@ end
 -- Broken Trade Order Execution Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message = {}
 
--- Calculate size of: Broken Trade Order Execution Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
-
-  return index
-end
+-- Size: Broken Trade Order Execution Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
 
 -- Display: Broken Trade Order Execution Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.display = function(packet, parent, length)
@@ -896,26 +875,15 @@ end
 -- Options Cross Trade Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message = {}
 
--- Calculate size of: Options Cross Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_type.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
-
-  return index
-end
+-- Size: Options Cross Trade Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_type.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
 -- Display: Options Cross Trade Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.display = function(packet, parent, length)
@@ -1004,26 +972,15 @@ end
 -- Non Auction Options Trade Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message = {}
 
--- Calculate size of: Non Auction Options Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.trade_indicator.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
-
-  return index
-end
+-- Size: Non Auction Options Trade Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.trade_indicator.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
 -- Display: Non Auction Options Trade Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.display = function(packet, parent, length)
@@ -1225,18 +1182,11 @@ end
 -- Quote Delete Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message = {}
 
--- Calculate size of: Quote Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
-
-  return index
-end
+-- Size: Quote Delete Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
 
 -- Display: Quote Delete Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.display = function(packet, parent, length)
@@ -1418,30 +1368,17 @@ end
 -- Quote Replace Long Form Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message = {}
 
--- Calculate size of: Quote Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.size
-
-  return index
-end
+-- Size: Quote Replace Long Form Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.size
 
 -- Display: Quote Replace Long Form Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.display = function(packet, parent, length)
@@ -1607,30 +1544,17 @@ end
 -- Quote Replace Short Form Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message = {}
 
--- Calculate size of: Quote Replace Short Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.size
-
-  return index
-end
+-- Size: Quote Replace Short Form Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.size
 
 -- Display: Quote Replace Short Form Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.display = function(packet, parent, length)
@@ -1751,22 +1675,13 @@ end
 -- Single Side Update Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message = {}
 
--- Calculate size of: Single Side Update Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.change_reason.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
-
-  return index
-end
+-- Size: Single Side Update Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.change_reason.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
 -- Display: Single Side Update Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.display = function(packet, parent, length)
@@ -1816,16 +1731,10 @@ end
 -- Single Side Delete Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message = {}
 
--- Calculate size of: Single Side Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
-
-  return index
-end
+-- Size: Single Side Delete Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
 
 -- Display: Single Side Delete Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.display = function(packet, parent, length)
@@ -1935,24 +1844,14 @@ end
 -- Single Side Replace Long Form Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message = {}
 
--- Calculate size of: Single Side Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
-
-  return index
-end
+-- Size: Single Side Replace Long Form Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
 
 -- Display: Single Side Replace Long Form Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.display = function(packet, parent, length)
@@ -2057,24 +1956,14 @@ end
 -- Order Replace Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form = {}
 
--- Calculate size of: Order Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
-
-  return index
-end
+-- Size: Order Replace Message Short Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
 
 -- Display: Order Replace Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.display = function(packet, parent, length)
@@ -2127,22 +2016,13 @@ end
 -- Single Side Replace Message Long Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form = {}
 
--- Calculate size of: Single Side Replace Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
-
-  return index
-end
+-- Size: Single Side Replace Message Long Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
 -- Display: Single Side Replace Message Long Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.display = function(packet, parent, length)
@@ -2192,22 +2072,13 @@ end
 -- Single Side Replace Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form = {}
 
--- Calculate size of: Single Side Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size
-
-  return index
-end
+-- Size: Single Side Replace Message Short Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size
 
 -- Display: Single Side Replace Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.display = function(packet, parent, length)
@@ -2280,18 +2151,11 @@ end
 -- Single Side Cancel Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message = {}
 
--- Calculate size of: Single Side Cancel Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_contracts.size
-
-  return index
-end
+-- Size: Single Side Cancel Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_contracts.size
 
 -- Display: Single Side Cancel Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.display = function(packet, parent, length)
@@ -2365,26 +2229,15 @@ end
 -- Single Side Executed With Price Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message = {}
 
--- Calculate size of: Single Side Executed With Price Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.printable.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
-
-  return index
-end
+-- Size: Single Side Executed With Price Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.printable.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
 -- Display: Single Side Executed With Price Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.display = function(packet, parent, length)
@@ -2463,22 +2316,13 @@ end
 -- Single Side Executed Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message = {}
 
--- Calculate size of: Single Side Executed Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.executed_contracts.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
-
-  return index
-end
+-- Size: Single Side Executed Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.executed_contracts.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
 
 -- Display: Single Side Executed Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.display = function(packet, parent, length)
@@ -2528,28 +2372,16 @@ end
 -- Add Quote Message Long Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form = {}
 
--- Calculate size of: Add Quote Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.size
-
-  return index
-end
+-- Size: Add Quote Message Long Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.size
 
 -- Display: Add Quote Message Long Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.display = function(packet, parent, length)
@@ -2608,28 +2440,16 @@ end
 -- Add Quote Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form = {}
 
--- Calculate size of: Add Quote Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.size
-
-  return index
-end
+-- Size: Add Quote Message Short Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.size
 
 -- Display: Add Quote Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.display = function(packet, parent, length)
@@ -2753,26 +2573,15 @@ end
 -- Add Order Message Long Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form = {}
 
--- Calculate size of: Add Order Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
-
-  return index
-end
+-- Size: Add Order Message Long Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
 
 -- Display: Add Order Message Long Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.display = function(packet, parent, length)
@@ -2828,26 +2637,15 @@ end
 -- Add Order Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form = {}
 
--- Calculate size of: Add Order Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
-
-  return index
-end
+-- Size: Add Order Message Short Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
 
 -- Display: Add Order Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.display = function(packet, parent, length)
@@ -2933,18 +2731,11 @@ end
 -- Security Open Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message = {}
 
--- Calculate size of: Security Open Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.open_state.size
-
-  return index
-end
+-- Size: Security Open Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.open_state.size
 
 -- Display: Security Open Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.display = function(packet, parent, length)
@@ -3024,18 +2815,11 @@ end
 -- Trading Action Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message = {}
 
--- Calculate size of: Trading Action Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.current_trading_state.size
-
-  return index
-end
+-- Size: Trading Action Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.current_trading_state.size
 
 -- Display: Trading Action Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.display = function(packet, parent, length)
@@ -3372,38 +3156,21 @@ end
 -- Option Directory Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message = {}
 
--- Calculate size of: Option Directory Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.security_symbol.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_year.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_month.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_date.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.explicit_strike_price.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_type.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.source.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.underlying_symbol.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.options_closing_type.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.tradable.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.mpv.size
-
-  return index
-end
+-- Size: Option Directory Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.security_symbol.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_year.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_month.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_date.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.explicit_strike_price.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.option_type.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.source.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.underlying_symbol.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.options_closing_type.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.tradable.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.mpv.size
 
 -- Display: Option Directory Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.display = function(packet, parent, length)
@@ -3500,16 +3267,10 @@ end
 -- Base Reference Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message = {}
 
--- Calculate size of: Base Reference Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_number.size
-
-  return index
-end
+-- Size: Base Reference Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_number.size
 
 -- Display: Base Reference Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.display = function(packet, parent, length)
@@ -3573,16 +3334,10 @@ end
 -- System Event Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message = {}
 
--- Calculate size of: System Event Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.event_code.size
-
-  return index
-end
+-- Size: System Event Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.event_code.size
 
 -- Display: System Event Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.display = function(packet, parent, length)
@@ -3646,14 +3401,9 @@ end
 -- Seconds Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message = {}
 
--- Calculate size of: Seconds Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.second.size
-
-  return index
-end
+-- Size: Seconds Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.second.size
 
 -- Display: Seconds Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.display = function(packet, parent, length)
@@ -4075,16 +3825,10 @@ end
 -- Message Header
 nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header = {}
 
--- Calculate size of: Message Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.message_length.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.message_type.size
-
-  return index
-end
+-- Size: Message Header
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.message_length.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.message_type.size
 
 -- Display: Message Header
 nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.display = function(packet, parent, length)
@@ -4261,18 +4005,11 @@ end
 -- Packet Header
 nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.session.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.sequence_number.size
-
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.message_count.size
-
-  return index
-end
+-- Size: Packet Header
+nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.size =
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.session.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.sequence_number.size + 
+  nasdaq_phlxoptions_marketdepth_itch_v1_5.message_count.size
 
 -- Display: Packet Header
 nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.display = function(packet, parent, length)

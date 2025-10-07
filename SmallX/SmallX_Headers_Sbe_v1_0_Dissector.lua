@@ -207,20 +207,12 @@ end
 -- Message Header
 smallx_headers_sbe_v1_0.message_header = {}
 
--- Calculate size of: Message Header
-smallx_headers_sbe_v1_0.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_headers_sbe_v1_0.block_length.size
-
-  index = index + smallx_headers_sbe_v1_0.template_id.size
-
-  index = index + smallx_headers_sbe_v1_0.schema_id.size
-
-  index = index + smallx_headers_sbe_v1_0.version.size
-
-  return index
-end
+-- Size: Message Header
+smallx_headers_sbe_v1_0.message_header.size =
+  smallx_headers_sbe_v1_0.block_length.size + 
+  smallx_headers_sbe_v1_0.template_id.size + 
+  smallx_headers_sbe_v1_0.schema_id.size + 
+  smallx_headers_sbe_v1_0.version.size
 
 -- Display: Message Header
 smallx_headers_sbe_v1_0.message_header.display = function(packet, parent, length)
@@ -509,24 +501,14 @@ end
 -- Packet Header
 smallx_headers_sbe_v1_0.packet_header = {}
 
--- Calculate size of: Packet Header
-smallx_headers_sbe_v1_0.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_headers_sbe_v1_0.channel_id.size
-
-  index = index + smallx_headers_sbe_v1_0.incarnation.size
-
-  index = index + smallx_headers_sbe_v1_0.source.size
-
-  index = index + smallx_headers_sbe_v1_0.packet_flags.size
-
-  index = index + smallx_headers_sbe_v1_0.message_sequence.size
-
-  index = index + smallx_headers_sbe_v1_0.message_count.size
-
-  return index
-end
+-- Size: Packet Header
+smallx_headers_sbe_v1_0.packet_header.size =
+  smallx_headers_sbe_v1_0.channel_id.size + 
+  smallx_headers_sbe_v1_0.incarnation.size + 
+  smallx_headers_sbe_v1_0.source.size + 
+  smallx_headers_sbe_v1_0.packet_flags.size + 
+  smallx_headers_sbe_v1_0.message_sequence.size + 
+  smallx_headers_sbe_v1_0.message_count.size
 
 -- Display: Packet Header
 smallx_headers_sbe_v1_0.packet_header.display = function(packet, parent, length)

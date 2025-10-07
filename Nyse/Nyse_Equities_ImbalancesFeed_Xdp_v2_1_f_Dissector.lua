@@ -741,52 +741,28 @@ end
 -- Imbalance Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.imbalance_message = {}
 
--- Calculate size of: Imbalance Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.imbalance_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time_ns.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_seq_num.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.reference_price.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.paired_qty.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.total_imbalance_qty.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.market_imbalance_qty.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.auction_time.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.auction_type.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.imbalance_side.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.continuous_book_clearing_price.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.closing_only_clearing_price.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.ssr_filing_price.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.indicative_match_price.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.upper_collar.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.lower_collar.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.auction_status.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.freeze_status.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.num_extensions.size
-
-  return index
-end
+-- Size: Imbalance Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.imbalance_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time_ns.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_seq_num.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.reference_price.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.paired_qty.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.total_imbalance_qty.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.market_imbalance_qty.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.auction_time.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.auction_type.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.imbalance_side.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.continuous_book_clearing_price.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.closing_only_clearing_price.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.ssr_filing_price.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.indicative_match_price.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.upper_collar.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.lower_collar.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.auction_status.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.freeze_status.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.num_extensions.size
 
 -- Display: Imbalance Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.imbalance_message.display = function(packet, parent, length)
@@ -973,20 +949,12 @@ end
 -- Refresh Header Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.refresh_header_message = {}
 
--- Calculate size of: Refresh Header Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.refresh_header_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.current_refresh_pkt.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.total_refresh_pkts.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.last_seq_num.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.last_symbol_seq_num.size
-
-  return index
-end
+-- Size: Refresh Header Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.refresh_header_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.current_refresh_pkt.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.total_refresh_pkts.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.last_seq_num.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.last_symbol_seq_num.size
 
 -- Display: Refresh Header Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.refresh_header_message.display = function(packet, parent, length)
@@ -1286,42 +1254,23 @@ end
 -- Security Status Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.security_status_message = {}
 
--- Calculate size of: Security Status Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.security_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time_ns.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_seq_num.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.security_status.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.halt_condition.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.reserved_4.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.price_1.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.price_2.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.ssr_triggering_exchange_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.ssr_triggering_volume.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.time.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.ssr_state.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.market_state.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.session_state.size
-
-  return index
-end
+-- Size: Security Status Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.security_status_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time_ns.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_seq_num.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.security_status.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.halt_condition.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.reserved_4.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.price_1.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.price_2.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.ssr_triggering_exchange_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.ssr_triggering_volume.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.time.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.ssr_state.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.market_state.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.session_state.size
 
 -- Display: Security Status Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.security_status_message.display = function(packet, parent, length)
@@ -1424,20 +1373,12 @@ end
 -- Symbol Clear Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_clear_message = {}
 
--- Calculate size of: Symbol Clear Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_clear_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time_ns.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.next_source_seq_num.size
-
-  return index
-end
+-- Size: Symbol Clear Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_clear_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time_ns.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.next_source_seq_num.size
 
 -- Display: Symbol Clear Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_clear_message.display = function(packet, parent, length)
@@ -1576,20 +1517,12 @@ end
 -- Message Unavailable Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.message_unavailable_message = {}
 
--- Calculate size of: Message Unavailable Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.message_unavailable_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.begin_seq_num.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.end_seq_num.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size
-
-  return index
-end
+-- Size: Message Unavailable Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.message_unavailable_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.begin_seq_num.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.end_seq_num.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size
 
 -- Display: Message Unavailable Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.message_unavailable_message.display = function(packet, parent, length)
@@ -1659,20 +1592,12 @@ end
 -- Refresh Request Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.refresh_request_message = {}
 
--- Calculate size of: Refresh Request Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.refresh_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size
-
-  return index
-end
+-- Size: Refresh Request Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.refresh_request_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size
 
 -- Display: Refresh Request Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.refresh_request_message.display = function(packet, parent, length)
@@ -1742,22 +1667,13 @@ end
 -- Symbol Index Mapping Request Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_request_message = {}
 
--- Calculate size of: Symbol Index Mapping Request Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.retransmit_method.size
-
-  return index
-end
+-- Size: Symbol Index Mapping Request Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_request_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.retransmit_method.size
 
 -- Display: Symbol Index Mapping Request Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_request_message.display = function(packet, parent, length)
@@ -1807,14 +1723,9 @@ end
 -- Heartbeat Response Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.heartbeat_response_message = {}
 
--- Calculate size of: Heartbeat Response Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.heartbeat_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_id.size
-
-  return index
-end
+-- Size: Heartbeat Response Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.heartbeat_response_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_id.size
 
 -- Display: Heartbeat Response Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.heartbeat_response_message.display = function(packet, parent, length)
@@ -1898,26 +1809,15 @@ end
 -- Request Response Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.request_response_message = {}
 
--- Calculate size of: Request Response Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.request_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.request_seq_num.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.begin_seq_num.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.end_seq_num.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.status.size
-
-  return index
-end
+-- Size: Request Response Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.request_response_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.request_seq_num.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.begin_seq_num.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.end_seq_num.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.status.size
 
 -- Display: Request Response Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.request_response_message.display = function(packet, parent, length)
@@ -1973,22 +1873,13 @@ end
 -- Retransmission Request Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.retransmission_request_message = {}
 
--- Calculate size of: Retransmission Request Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.retransmission_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.begin_seq_num.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.end_seq_num.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size
-
-  return index
-end
+-- Size: Retransmission Request Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.retransmission_request_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.begin_seq_num.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.end_seq_num.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size
 
 -- Display: Retransmission Request Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.retransmission_request_message.display = function(packet, parent, length)
@@ -2383,44 +2274,24 @@ end
 -- Symbol Index Mapping Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_message = {}
 
--- Calculate size of: Symbol Index Mapping Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.reserved_1.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.market_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.system_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.exchange_code.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.price_scale_code.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.security_type.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.lot_size.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.prev_close_price.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.prev_close_volume.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.price_resolution.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.round_lot.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.mpv.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.unit_of_trade.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.reserved_2.size
-
-  return index
-end
+-- Size: Symbol Index Mapping Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.reserved_1.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.market_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.system_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.exchange_code.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.price_scale_code.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.security_type.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.lot_size.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.prev_close_price.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.prev_close_volume.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.price_resolution.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.round_lot.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.mpv.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.unit_of_trade.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.reserved_2.size
 
 -- Display: Symbol Index Mapping Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -2503,20 +2374,12 @@ end
 -- Sequence Number Reset Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.sequence_number_reset_message = {}
 
--- Calculate size of: Sequence Number Reset Message
-nyse_equities_imbalancesfeed_xdp_v2_1_f.sequence_number_reset_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time_ns.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size
-
-  return index
-end
+-- Size: Sequence Number Reset Message
+nyse_equities_imbalancesfeed_xdp_v2_1_f.sequence_number_reset_message.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.source_time_ns.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.product_id.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.channel_id.size
 
 -- Display: Sequence Number Reset Message
 nyse_equities_imbalancesfeed_xdp_v2_1_f.sequence_number_reset_message.display = function(packet, parent, length)
@@ -2782,16 +2645,10 @@ end
 -- Message Header
 nyse_equities_imbalancesfeed_xdp_v2_1_f.message_header = {}
 
--- Calculate size of: Message Header
-nyse_equities_imbalancesfeed_xdp_v2_1_f.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.message_size.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.message_type.size
-
-  return index
-end
+-- Size: Message Header
+nyse_equities_imbalancesfeed_xdp_v2_1_f.message_header.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.message_size.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.message_type.size
 
 -- Display: Message Header
 nyse_equities_imbalancesfeed_xdp_v2_1_f.message_header.display = function(packet, parent, length)
@@ -2836,7 +2693,7 @@ nyse_equities_imbalancesfeed_xdp_v2_1_f.message = {}
 nyse_equities_imbalancesfeed_xdp_v2_1_f.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.message_header.size(buffer, offset + index)
+  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3061,24 +2918,14 @@ end
 -- Packet Header
 nyse_equities_imbalancesfeed_xdp_v2_1_f.packet_header = {}
 
--- Calculate size of: Packet Header
-nyse_equities_imbalancesfeed_xdp_v2_1_f.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.packet_size.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.delivery_flag.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.message_count.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.sequence_number.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.timestamp.size
-
-  index = index + nyse_equities_imbalancesfeed_xdp_v2_1_f.nanoseconds.size
-
-  return index
-end
+-- Size: Packet Header
+nyse_equities_imbalancesfeed_xdp_v2_1_f.packet_header.size =
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.packet_size.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.delivery_flag.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.message_count.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.sequence_number.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.timestamp.size + 
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.nanoseconds.size
 
 -- Display: Packet Header
 nyse_equities_imbalancesfeed_xdp_v2_1_f.packet_header.display = function(packet, parent, length)

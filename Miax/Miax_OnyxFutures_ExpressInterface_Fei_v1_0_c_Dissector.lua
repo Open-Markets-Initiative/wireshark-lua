@@ -593,16 +593,10 @@ end
 -- Retransmission Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request = {}
 
--- Calculate size of: Retransmission Request
-miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.start_sequence_number.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.end_sequence_number.size
-
-  return index
-end
+-- Size: Retransmission Request
+miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.start_sequence_number.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.end_sequence_number.size
 
 -- Display: Retransmission Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.display = function(packet, parent, length)
@@ -734,18 +728,11 @@ end
 -- Login Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.login_response = {}
 
--- Calculate size of: Login Response
-miax_onyxfutures_expressinterface_fei_v1_0_c.login_response.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.login_status.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.session_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.highest_sequence_number.size
-
-  return index
-end
+-- Size: Login Response
+miax_onyxfutures_expressinterface_fei_v1_0_c.login_response.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.login_status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.session_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.highest_sequence_number.size
 
 -- Display: Login Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.login_response.display = function(packet, parent, length)
@@ -927,24 +914,14 @@ end
 -- Login Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.login_request = {}
 
--- Calculate size of: Login Request
-miax_onyxfutures_expressinterface_fei_v1_0_c.login_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_version.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.username.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.computer_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.application_protocol.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.requested_session.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.requested_sequence_number.size
-
-  return index
-end
+-- Size: Login Request
+miax_onyxfutures_expressinterface_fei_v1_0_c.login_request.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_version.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.username.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.computer_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.application_protocol.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.requested_session.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.requested_sequence_number.size
 
 -- Display: Login Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.login_request.display = function(packet, parent, length)
@@ -1171,24 +1148,14 @@ end
 -- Strategy Creation Response Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message = {}
 
--- Calculate size of: Strategy Creation Response Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_string_20.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.status.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.size
-
-  return index
-end
+-- Size: Strategy Creation Response Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_string_20.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.size
 
 -- Display: Strategy Creation Response Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.display = function(packet, parent, length)
@@ -1310,18 +1277,11 @@ end
 -- Strategy Leg
 miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg = {}
 
--- Calculate size of: Strategy Leg
-miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.leg_ratio.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
-
-  return index
-end
+-- Size: Strategy Leg
+miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.leg_ratio.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
 
 -- Display: Strategy Leg
 miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg.display = function(packet, parent, length)
@@ -1601,22 +1561,13 @@ end
 -- Mass Cancel Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response = {}
 
--- Calculate size of: Mass Cancel Response
-miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.status.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
-
-  return index
-end
+-- Size: Mass Cancel Response
+miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
 
 -- Display: Mass Cancel Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.display = function(packet, parent, length)
@@ -1820,36 +1771,20 @@ end
 -- Mass Cancel Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request = {}
 
--- Calculate size of: Mass Cancel Request
-miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.scope.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.action.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.product_group_code.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.product_type.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_9.size
-
-  return index
-end
+-- Size: Mass Cancel Request
+miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.scope.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.action.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.product_group_code.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.product_type.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_9.size
 
 -- Display: Mass Cancel Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request.display = function(packet, parent, length)
@@ -1982,26 +1917,15 @@ end
 -- Cancel Order Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response = {}
 
--- Calculate size of: Cancel Order Response
-miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.status.size
-
-  return index
-end
+-- Size: Cancel Order Response
+miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.status.size
 
 -- Display: Cancel Order Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.display = function(packet, parent, length)
@@ -2096,30 +2020,17 @@ end
 -- Cancel Order Request Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message = {}
 
--- Calculate size of: Cancel Order Request Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
-
-  return index
-end
+-- Size: Cancel Order Request Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
 
 -- Display: Cancel Order Request Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.display = function(packet, parent, length)
@@ -2204,30 +2115,17 @@ end
 -- Modify Order Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response = {}
 
--- Calculate size of: Modify Order Response
-miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.leaves_qty.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.status.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
-
-  return index
-end
+-- Size: Modify Order Response
+miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.leaves_qty.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
 
 -- Display: Modify Order Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.display = function(packet, parent, length)
@@ -2534,44 +2432,24 @@ end
 -- Modify Order Request Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message = {}
 
--- Calculate size of: Modify Order Request Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_s_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_expiry_date.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection_group.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
-
-  return index
-end
+-- Size: Modify Order Request Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_s_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_expiry_date.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection_group.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
 
 -- Display: Modify Order Request Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.display = function(packet, parent, length)
@@ -2681,26 +2559,15 @@ end
 -- New Order Response Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message = {}
 
--- Calculate size of: New Order Response Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.status.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
-
-  return index
-end
+-- Size: New Order Response Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
 
 -- Display: New Order Response Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.display = function(packet, parent, length)
@@ -3077,60 +2944,32 @@ end
 -- New Order Request Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message = {}
 
--- Calculate size of: New Order Request Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.account.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_type.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection_group.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.min_qty.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_expiry_date.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.trading_collar_dollar_value.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.text_memo.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
-
-  return index
-end
+-- Size: New Order Request Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.account.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_type.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection_group.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.min_qty.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_expiry_date.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.trading_collar_dollar_value.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.text_memo.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
 
 -- Display: New Order Request Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.display = function(packet, parent, length)
@@ -3557,32 +3396,18 @@ end
 -- Complex Execution Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification = {}
 
--- Calculate size of: Complex Execution Notification
-miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.complex_trade_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.trade_date.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.last_net_price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.last_size.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
-
-  return index
-end
+-- Size: Complex Execution Notification
+miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.complex_trade_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.trade_date.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.last_net_price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.last_size.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
 
 -- Display: Complex Execution Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.display = function(packet, parent, length)
@@ -3807,52 +3632,28 @@ end
 -- Simple Execution Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification = {}
 
--- Calculate size of: Simple Execution Notification
-miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.simple_trade_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.complex_trade_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.execution_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.trade_date.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.correction_number.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.trade_status.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.last_price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.last_size.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.text_memo.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.liquidity_indicator.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
-
-  return index
-end
+-- Size: Simple Execution Notification
+miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.simple_trade_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.complex_trade_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.execution_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.trade_date.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.correction_number.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.trade_status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.last_price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.last_size.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.text_memo.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.liquidity_indicator.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
 
 -- Display: Simple Execution Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.display = function(packet, parent, length)
@@ -3970,22 +3771,13 @@ end
 -- Order Status Update Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification = {}
 
--- Calculate size of: Order Status Update Notification
-miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.update_status.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
-
-  return index
-end
+-- Size: Order Status Update Notification
+miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.update_status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
 
 -- Display: Order Status Update Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.display = function(packet, parent, length)
@@ -4058,38 +3850,21 @@ end
 -- Cancel Reduce Size Order Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notification = {}
 
--- Calculate size of: Cancel Reduce Size Order Notification
-miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notification.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.leaves_qty.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reason.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.last_price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.last_size.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
-
-  return index
-end
+-- Size: Cancel Reduce Size Order Notification
+miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notification.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.leaves_qty.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reason.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.last_price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.last_size.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
 
 -- Display: Cancel Reduce Size Order Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notification.display = function(packet, parent, length)
@@ -4163,50 +3938,27 @@ end
 -- Modify Order Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification = {}
 
--- Calculate size of: Modify Order Notification
-miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.leaves_qty.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_s_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_expiry_date.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection_group.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
-
-  return index
-end
+-- Size: Modify Order Notification
+miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.leaves_qty.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_s_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_expiry_date.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection_group.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
 
 -- Display: Modify Order Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.display = function(packet, parent, length)
@@ -4298,64 +4050,34 @@ end
 -- New Order Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification = {}
 
--- Calculate size of: New Order Notification
-miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.account.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_u_4.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_type.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection_group.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.min_qty.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.order_expiry_date.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.trading_collar_dollar_value.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.text_memo.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
-
-  return index
-end
+-- Size: New Order Notification
+miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.account.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_type.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection_group.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.min_qty.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_expiry_date.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.trading_collar_dollar_value.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.text_memo.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
 
 -- Display: New Order Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.display = function(packet, parent, length)
@@ -4514,22 +4236,13 @@ end
 -- System State Notification Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message = {}
 
--- Calculate size of: System State Notification Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.version.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.session_id.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.system_status.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
-
-  return index
-end
+-- Size: System State Notification Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.version.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.session_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.system_status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
 
 -- Display: System State Notification Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.display = function(packet, parent, length)
@@ -5053,16 +4766,10 @@ end
 -- Packet Header
 miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header = {}
 
--- Calculate size of: Packet Header
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.packet_length.size
-
-  index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.packet_type.size
-
-  return index
-end
+-- Size: Packet Header
+miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.packet_length.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.packet_type.size
 
 -- Display: Packet Header
 miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.display = function(packet, parent, length)
@@ -5151,7 +4858,7 @@ local sesm_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.size(buffer, index) then
+  if remaining < miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

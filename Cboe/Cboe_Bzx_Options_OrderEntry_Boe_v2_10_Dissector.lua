@@ -21595,20 +21595,12 @@ end
 -- Quote Result Group
 cboe_bzx_options_orderentry_boe_v2_10.quote_result_group = {}
 
--- Calculate size of: Quote Result Group
-cboe_bzx_options_orderentry_boe_v2_10.quote_result_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.order_id.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.quote_result.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.quote_liquidity_indicator.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.reserved_6.size
-
-  return index
-end
+-- Size: Quote Result Group
+cboe_bzx_options_orderentry_boe_v2_10.quote_result_group.size =
+  cboe_bzx_options_orderentry_boe_v2_10.order_id.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.quote_result.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.quote_liquidity_indicator.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.reserved_6.size
 
 -- Display: Quote Result Group
 cboe_bzx_options_orderentry_boe_v2_10.quote_result_group.display = function(packet, parent, length)
@@ -24564,24 +24556,14 @@ end
 -- Short Quote Update
 cboe_bzx_options_orderentry_boe_v2_10.short_quote_update = {}
 
--- Calculate size of: Short Quote Update
-cboe_bzx_options_orderentry_boe_v2_10.short_quote_update.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.symbol.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.side.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.open_close.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.price.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.order_qty.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.reserved_2.size
-
-  return index
-end
+-- Size: Short Quote Update
+cboe_bzx_options_orderentry_boe_v2_10.short_quote_update.size =
+  cboe_bzx_options_orderentry_boe_v2_10.symbol.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.side.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.open_close.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.price.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.order_qty.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.reserved_2.size
 
 -- Display: Short Quote Update
 cboe_bzx_options_orderentry_boe_v2_10.short_quote_update.display = function(packet, parent, length)
@@ -24845,24 +24827,14 @@ end
 -- Quote Update
 cboe_bzx_options_orderentry_boe_v2_10.quote_update = {}
 
--- Calculate size of: Quote Update
-cboe_bzx_options_orderentry_boe_v2_10.quote_update.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.symbol.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.side.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.open_close.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.price.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.order_qty.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.reserved_12.size
-
-  return index
-end
+-- Size: Quote Update
+cboe_bzx_options_orderentry_boe_v2_10.quote_update.size =
+  cboe_bzx_options_orderentry_boe_v2_10.symbol.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.side.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.open_close.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.price.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.order_qty.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.reserved_12.size
 
 -- Display: Quote Update
 cboe_bzx_options_orderentry_boe_v2_10.quote_update.display = function(packet, parent, length)
@@ -26898,16 +26870,10 @@ end
 -- Unit Sequence
 cboe_bzx_options_orderentry_boe_v2_10.unit_sequence = {}
 
--- Calculate size of: Unit Sequence
-cboe_bzx_options_orderentry_boe_v2_10.unit_sequence.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.unit_number.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.sequence_number.size
-
-  return index
-end
+-- Size: Unit Sequence
+cboe_bzx_options_orderentry_boe_v2_10.unit_sequence.size =
+  cboe_bzx_options_orderentry_boe_v2_10.unit_number.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.sequence_number.size
 
 -- Display: Unit Sequence
 cboe_bzx_options_orderentry_boe_v2_10.unit_sequence.display = function(packet, parent, length)
@@ -31375,16 +31341,10 @@ end
 -- Param Header
 cboe_bzx_options_orderentry_boe_v2_10.param_header = {}
 
--- Calculate size of: Param Header
-cboe_bzx_options_orderentry_boe_v2_10.param_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.param_group_length.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.param_group_type.size
-
-  return index
-end
+-- Size: Param Header
+cboe_bzx_options_orderentry_boe_v2_10.param_header.size =
+  cboe_bzx_options_orderentry_boe_v2_10.param_group_length.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.param_group_type.size
 
 -- Display: Param Header
 cboe_bzx_options_orderentry_boe_v2_10.param_header.display = function(packet, parent, length)
@@ -32251,22 +32211,13 @@ end
 -- Message Header
 cboe_bzx_options_orderentry_boe_v2_10.message_header = {}
 
--- Calculate size of: Message Header
-cboe_bzx_options_orderentry_boe_v2_10.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.start_of_message.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.message_length.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.message_type.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.matching_unit.size
-
-  index = index + cboe_bzx_options_orderentry_boe_v2_10.sequence_number.size
-
-  return index
-end
+-- Size: Message Header
+cboe_bzx_options_orderentry_boe_v2_10.message_header.size =
+  cboe_bzx_options_orderentry_boe_v2_10.start_of_message.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.message_length.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.message_type.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.matching_unit.size + 
+  cboe_bzx_options_orderentry_boe_v2_10.sequence_number.size
 
 -- Display: Message Header
 cboe_bzx_options_orderentry_boe_v2_10.message_header.display = function(packet, parent, length)

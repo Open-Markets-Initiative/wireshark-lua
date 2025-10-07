@@ -180,14 +180,9 @@ end
 -- End Of Session Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.end_of_session_message = {}
 
--- Calculate size of: End Of Session Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.end_of_session_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.timestamp.size
-
-  return index
-end
+-- Size: End Of Session Message
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.end_of_session_message.size =
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.timestamp.size
 
 -- Display: End Of Session Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.end_of_session_message.display = function(packet, parent, length)
@@ -294,18 +289,11 @@ end
 -- Symbol Mapping Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message = {}
 
--- Calculate size of: Symbol Mapping Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.feed_symbol.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.osi_symbol.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.symbol_condition.size
-
-  return index
-end
+-- Size: Symbol Mapping Message
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.size =
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.feed_symbol.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.osi_symbol.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.symbol_condition.size
 
 -- Display: Symbol Mapping Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.display = function(packet, parent, length)
@@ -470,22 +458,13 @@ end
 -- Auction Trade Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_trade_message = {}
 
--- Calculate size of: Auction Trade Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_offset.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_id.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.execution_id.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.price.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.contracts.size
-
-  return index
-end
+-- Size: Auction Trade Message
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_trade_message.size =
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_offset.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_id.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.execution_id.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.price.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.contracts.size
 
 -- Display: Auction Trade Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_trade_message.display = function(packet, parent, length)
@@ -535,16 +514,10 @@ end
 -- Auction Cancel Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_cancel_message = {}
 
--- Calculate size of: Auction Cancel Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_offset.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_id.size
-
-  return index
-end
+-- Size: Auction Cancel Message
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_cancel_message.size =
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_offset.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_id.size
 
 -- Display: Auction Cancel Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_cancel_message.display = function(packet, parent, length)
@@ -744,32 +717,18 @@ end
 -- Auction Notification Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_notification_message = {}
 
--- Calculate size of: Auction Notification Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_offset.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.symbol.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_id.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_type.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.side.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.price.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.contracts.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.customer_indicator.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.participant_id.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_end_offset.size
-
-  return index
-end
+-- Size: Auction Notification Message
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_notification_message.size =
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_offset.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.symbol.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_id.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_type.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.side.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.price.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.contracts.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.customer_indicator.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.participant_id.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_end_offset.size
 
 -- Display: Auction Notification Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.auction_notification_message.display = function(packet, parent, length)
@@ -834,14 +793,9 @@ end
 -- Unit Clear Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.unit_clear_message = {}
 
--- Calculate size of: Unit Clear Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.unit_clear_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_offset.size
-
-  return index
-end
+-- Size: Unit Clear Message
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.unit_clear_message.size =
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_offset.size
 
 -- Display: Unit Clear Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.unit_clear_message.display = function(packet, parent, length)
@@ -902,14 +856,9 @@ end
 -- Time Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_message = {}
 
--- Calculate size of: Time Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.time.size
-
-  return index
-end
+-- Size: Time Message
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_message.size =
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.time.size
 
 -- Display: Time Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.time_message.display = function(packet, parent, length)
@@ -1111,16 +1060,10 @@ end
 -- Message Header
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.message_header = {}
 
--- Calculate size of: Message Header
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.message_length.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.message_type.size
-
-  return index
-end
+-- Size: Message Header
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.message_header.size =
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.message_length.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.message_type.size
 
 -- Display: Message Header
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.message_header.display = function(packet, parent, length)
@@ -1304,20 +1247,12 @@ end
 -- Packet Header
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.packet_header = {}
 
--- Calculate size of: Packet Header
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.length.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.count.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.unit.size
-
-  index = index + cboe_edgx_options_auctionfeed_pitch_v1_1_1.sequence.size
-
-  return index
-end
+-- Size: Packet Header
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.packet_header.size =
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.length.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.count.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.unit.size + 
+  cboe_edgx_options_auctionfeed_pitch_v1_1_1.sequence.size
 
 -- Display: Packet Header
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.packet_header.display = function(packet, parent, length)

@@ -17,7 +17,7 @@ local cme_brokertec_ust_sbe_v10_1 = {}
 -- Cme BrokerTec Ust Sbe 10.1 Fields
 omi_cme_brokertec_ust_sbe_v10_1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.brokertec.ust.sbe.v10.1.binarypacketheader", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.block_length = ProtoField.new("Block Length", "cme.brokertec.ust.sbe.v10.1.blocklength", ftypes.UINT16)
-omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.brokertec.ust.sbe.v10.1.couponrate", ftypes.FLOAT)
+omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.brokertec.ust.sbe.v10.1.couponrate", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.exponent = ProtoField.new("Exponent", "cme.brokertec.ust.sbe.v10.1.exponent", ftypes.INT8)
 omi_cme_brokertec_ust_sbe_v10_1.fields.group_size = ProtoField.new("Group Size", "cme.brokertec.ust.sbe.v10.1.groupsize", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_group = ProtoField.new("M D Incremental Refresh Btec Group", "cme.brokertec.ust.sbe.v10.1.mdincrementalrefreshbtecgroup", ftypes.STRING)
@@ -25,7 +25,7 @@ omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_groups = Pro
 omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_int_32 = ProtoField.new("Mantissa int 32", "cme.brokertec.ust.sbe.v10.1.mantissaint32", ftypes.INT32)
 omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_int_64 = ProtoField.new("Mantissa int 64", "cme.brokertec.ust.sbe.v10.1.mantissaint64", ftypes.INT64)
 omi_cme_brokertec_ust_sbe_v10_1.fields.maturity_date = ProtoField.new("Maturity Date", "cme.brokertec.ust.sbe.v10.1.maturitydate", ftypes.UINT16)
-omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.brokertec.ust.sbe.v10.1.mdentrypx", ftypes.DOUBLE)
+omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.brokertec.ust.sbe.v10.1.mdentrypx", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.brokertec.ust.sbe.v10.1.mdentrysize", ftypes.UINT32)
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.brokertec.ust.sbe.v10.1.mdentrytype", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_price_level = ProtoField.new("Md Price Level", "cme.brokertec.ust.sbe.v10.1.mdpricelevel", ftypes.UINT8)
@@ -142,6 +142,38 @@ function omi_cme_brokertec_ust_sbe_v10_1.prefs_changed()
   if changed then
     reload()
   end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- Convert exponent to decimal
+factor = function(value)
+  if value == nil then
+    return nil
+  elseif value == -1 then
+    return 10
+  elseif value == -2 then
+    return 100
+  elseif value == -3 then
+    return 1000
+  elseif value == -4 then
+    return 10000
+  elseif value == -5 then
+    return 100000
+  elseif value == -6 then
+    return 1000000
+  elseif value == -7 then
+    return 10000000
+  elseif value == -8 then
+    return 100000000
+  elseif value == -9 then
+    return 1000000000
+  end
+
+  return 1
 end
 
 
@@ -272,19 +304,17 @@ end
 -- Coupon Rate
 cme_brokertec_ust_sbe_v10_1.coupon_rate = {}
 
--- Calculate size of: Coupon Rate
-cme_brokertec_ust_sbe_v10_1.coupon_rate.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_brokertec_ust_sbe_v10_1.mantissa_int_32.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.exponent.size
-
-  return index
-end
+-- Size: Coupon Rate
+cme_brokertec_ust_sbe_v10_1.coupon_rate.size =
+  cme_brokertec_ust_sbe_v10_1.mantissa_int_32.size + 
+  cme_brokertec_ust_sbe_v10_1.exponent.size
 
 -- Display: Coupon Rate
-cme_brokertec_ust_sbe_v10_1.coupon_rate.display = function(buffer, offset, value, packet, parent)
+cme_brokertec_ust_sbe_v10_1.coupon_rate.display = function(raw, value)
+  if raw ~= nil then
+    return "Coupon Rate: No Value"
+  end
+
   return "Coupon Rate: "..value
 end
 
@@ -298,21 +328,28 @@ cme_brokertec_ust_sbe_v10_1.coupon_rate.fields = function(buffer, offset, packet
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_brokertec_ust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local coupon_rate = mantissa_int_32 / factor( exponent )
+
+  return index, coupon_rate
 end
 
 -- Dissect: Coupon Rate
 cme_brokertec_ust_sbe_v10_1.coupon_rate.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.coupon_rate then
-    local length = cme_brokertec_ust_sbe_v10_1.coupon_rate.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:float()
-    local display = cme_brokertec_ust_sbe_v10_1.coupon_rate.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate, buffer(offset, 0))
+    local index, value = cme_brokertec_ust_sbe_v10_1.coupon_rate.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1.coupon_rate.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return cme_brokertec_ust_sbe_v10_1.coupon_rate.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1.coupon_rate.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Alt Id Source
@@ -572,19 +609,17 @@ end
 -- Md Entry Px
 cme_brokertec_ust_sbe_v10_1.md_entry_px = {}
 
--- Calculate size of: Md Entry Px
-cme_brokertec_ust_sbe_v10_1.md_entry_px.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_brokertec_ust_sbe_v10_1.mantissa_int_64.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.exponent.size
-
-  return index
-end
+-- Size: Md Entry Px
+cme_brokertec_ust_sbe_v10_1.md_entry_px.size =
+  cme_brokertec_ust_sbe_v10_1.mantissa_int_64.size + 
+  cme_brokertec_ust_sbe_v10_1.exponent.size
 
 -- Display: Md Entry Px
-cme_brokertec_ust_sbe_v10_1.md_entry_px.display = function(buffer, offset, value, packet, parent)
+cme_brokertec_ust_sbe_v10_1.md_entry_px.display = function(raw, value)
+  if raw ~= nil then
+    return "Md Entry Px: No Value"
+  end
+
   return "Md Entry Px: "..value
 end
 
@@ -598,21 +633,28 @@ cme_brokertec_ust_sbe_v10_1.md_entry_px.fields = function(buffer, offset, packet
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_brokertec_ust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local md_entry_px = mantissa_int_64 / factor( exponent )
+
+  return index, md_entry_px
 end
 
 -- Dissect: Md Entry Px
 cme_brokertec_ust_sbe_v10_1.md_entry_px.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.md_entry_px then
-    local length = cme_brokertec_ust_sbe_v10_1.md_entry_px.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:float()
-    local display = cme_brokertec_ust_sbe_v10_1.md_entry_px.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px, buffer(offset, 0))
+    local index, value = cme_brokertec_ust_sbe_v10_1.md_entry_px.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1.md_entry_px.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return cme_brokertec_ust_sbe_v10_1.md_entry_px.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1.md_entry_px.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Entry Type
@@ -721,38 +763,21 @@ end
 -- M D Incremental Refresh Btec Group
 cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group = {}
 
--- Calculate size of: M D Incremental Refresh Btec Group
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_brokertec_ust_sbe_v10_1.md_update_action.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.md_entry_type.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.md_entry_px.size(buffer, offset + index)
-
-  index = index + cme_brokertec_ust_sbe_v10_1.md_entry_size.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.md_price_level.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.trade_volume.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.symbol.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.maturity_date.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.security_alt_id.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.security_alt_id_source.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.coupon_rate.size(buffer, offset + index)
-
-  index = index + cme_brokertec_ust_sbe_v10_1.trade_condition.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.price_type.size
-
-  return index
-end
+-- Size: M D Incremental Refresh Btec Group
+cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.size =
+  cme_brokertec_ust_sbe_v10_1.md_update_action.size + 
+  cme_brokertec_ust_sbe_v10_1.md_entry_type.size + 
+  cme_brokertec_ust_sbe_v10_1.md_entry_px.size + 
+  cme_brokertec_ust_sbe_v10_1.md_entry_size.size + 
+  cme_brokertec_ust_sbe_v10_1.md_price_level.size + 
+  cme_brokertec_ust_sbe_v10_1.trade_volume.size + 
+  cme_brokertec_ust_sbe_v10_1.symbol.size + 
+  cme_brokertec_ust_sbe_v10_1.maturity_date.size + 
+  cme_brokertec_ust_sbe_v10_1.security_alt_id.size + 
+  cme_brokertec_ust_sbe_v10_1.security_alt_id_source.size + 
+  cme_brokertec_ust_sbe_v10_1.coupon_rate.size + 
+  cme_brokertec_ust_sbe_v10_1.trade_condition.size + 
+  cme_brokertec_ust_sbe_v10_1.price_type.size
 
 -- Display: M D Incremental Refresh Btec Group
 cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.display = function(packet, parent, length)
@@ -878,16 +903,10 @@ end
 -- Group Size
 cme_brokertec_ust_sbe_v10_1.group_size = {}
 
--- Calculate size of: Group Size
-cme_brokertec_ust_sbe_v10_1.group_size.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_brokertec_ust_sbe_v10_1.block_length.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.size
-
-  return index
-end
+-- Size: Group Size
+cme_brokertec_ust_sbe_v10_1.group_size.size =
+  cme_brokertec_ust_sbe_v10_1.block_length.size + 
+  cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.size
 
 -- Display: Group Size
 cme_brokertec_ust_sbe_v10_1.group_size.display = function(packet, parent, length)
@@ -932,7 +951,7 @@ cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups = {}
 cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_brokertec_ust_sbe_v10_1.group_size.size(buffer, offset + index)
+  index = index + cme_brokertec_ust_sbe_v10_1.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_btec_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1216,20 +1235,12 @@ end
 -- Message Header
 cme_brokertec_ust_sbe_v10_1.message_header = {}
 
--- Calculate size of: Message Header
-cme_brokertec_ust_sbe_v10_1.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_brokertec_ust_sbe_v10_1.block_length.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.template_id.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.schema_id.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.version.size
-
-  return index
-end
+-- Size: Message Header
+cme_brokertec_ust_sbe_v10_1.message_header.size =
+  cme_brokertec_ust_sbe_v10_1.block_length.size + 
+  cme_brokertec_ust_sbe_v10_1.template_id.size + 
+  cme_brokertec_ust_sbe_v10_1.schema_id.size + 
+  cme_brokertec_ust_sbe_v10_1.version.size
 
 -- Display: Message Header
 cme_brokertec_ust_sbe_v10_1.message_header.display = function(packet, parent, length)
@@ -1305,7 +1316,7 @@ cme_brokertec_ust_sbe_v10_1.message.size = function(buffer, offset)
 
   index = index + cme_brokertec_ust_sbe_v10_1.message_size.size
 
-  index = index + cme_brokertec_ust_sbe_v10_1.message_header.size(buffer, offset + index)
+  index = index + cme_brokertec_ust_sbe_v10_1.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1405,16 +1416,10 @@ end
 -- Binary Packet Header
 cme_brokertec_ust_sbe_v10_1.binary_packet_header = {}
 
--- Calculate size of: Binary Packet Header
-cme_brokertec_ust_sbe_v10_1.binary_packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_brokertec_ust_sbe_v10_1.message_sequence_number.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.sending_time.size
-
-  return index
-end
+-- Size: Binary Packet Header
+cme_brokertec_ust_sbe_v10_1.binary_packet_header.size =
+  cme_brokertec_ust_sbe_v10_1.message_sequence_number.size + 
+  cme_brokertec_ust_sbe_v10_1.sending_time.size
 
 -- Display: Binary Packet Header
 cme_brokertec_ust_sbe_v10_1.binary_packet_header.display = function(packet, parent, length)

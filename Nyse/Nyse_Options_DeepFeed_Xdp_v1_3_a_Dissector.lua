@@ -296,20 +296,12 @@ end
 -- Sequence Number Reset Message
 nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message = {}
 
--- Calculate size of: Sequence Number Reset Message
-nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.product_id.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.channel_id.size
-
-  return index
-end
+-- Size: Sequence Number Reset Message
+nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.product_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.channel_id.size
 
 -- Display: Sequence Number Reset Message
 nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.display = function(packet, parent, length)
@@ -402,16 +394,10 @@ end
 -- Stream Id Message
 nyse_options_deepfeed_xdp_v1_3_a.stream_id_message = {}
 
--- Calculate size of: Stream Id Message
-nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.stream_id.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Stream Id Message
+nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.stream_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Stream Id Message
 nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.display = function(packet, parent, length)
@@ -809,44 +795,24 @@ end
 -- Series Index Mapping Message
 nyse_options_deepfeed_xdp_v1_3_a.series_index_mapping_message = {}
 
--- Calculate size of: Series Index Mapping Message
-nyse_options_deepfeed_xdp_v1_3_a.series_index_mapping_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.series_index.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.channel_id.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_a_1.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.market_id.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.system_id.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.stream_id.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.underlying_index.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.contract_multiplier.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.maturity_date.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.put_or_call.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.strike_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.group_id.size
-
-  return index
-end
+-- Size: Series Index Mapping Message
+nyse_options_deepfeed_xdp_v1_3_a.series_index_mapping_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.series_index.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.channel_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_a_1.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.market_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.system_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.stream_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.underlying_index.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.contract_multiplier.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.maturity_date.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.put_or_call.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.strike_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.group_id.size
 
 -- Display: Series Index Mapping Message
 nyse_options_deepfeed_xdp_v1_3_a.series_index_mapping_message.display = function(packet, parent, length)
@@ -1099,32 +1065,18 @@ end
 -- Underlying Index Mapping Message
 nyse_options_deepfeed_xdp_v1_3_a.underlying_index_mapping_message = {}
 
--- Calculate size of: Underlying Index Mapping Message
-nyse_options_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.underlying_index.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.channel_id.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.market_id.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.system_id.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.exchange_code.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.security_type.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.price_resolution.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size
-
-  return index
-end
+-- Size: Underlying Index Mapping Message
+nyse_options_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.underlying_index.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.channel_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.market_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.system_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.exchange_code.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.security_type.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.price_resolution.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size
 
 -- Display: Underlying Index Mapping Message
 nyse_options_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.display = function(packet, parent, length)
@@ -1458,44 +1410,24 @@ end
 -- Refresh Outright Market Depth Sell Message
 nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message = {}
 
--- Calculate size of: Refresh Outright Market Depth Sell Message
-nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.series_index.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Refresh Outright Market Depth Sell Message
+nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.series_index.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Refresh Outright Market Depth Sell Message
 nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.display = function(packet, parent, length)
@@ -1601,44 +1533,24 @@ end
 -- Refresh Outright Market Depth Buy Message
 nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message = {}
 
--- Calculate size of: Refresh Outright Market Depth Buy Message
-nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_ns.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.series_index.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Refresh Outright Market Depth Buy Message
+nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.source_ns.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.series_index.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Refresh Outright Market Depth Buy Message
 nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.display = function(packet, parent, length)
@@ -1792,26 +1704,15 @@ end
 -- Outright Series Status Message
 nyse_options_deepfeed_xdp_v1_3_a.outright_series_status_message = {}
 
--- Calculate size of: Outright Series Status Message
-nyse_options_deepfeed_xdp_v1_3_a.outright_series_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.series_index.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.security_status.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.halt_condition.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Outright Series Status Message
+nyse_options_deepfeed_xdp_v1_3_a.outright_series_status_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.series_index.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.security_status.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.halt_condition.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Outright Series Status Message
 nyse_options_deepfeed_xdp_v1_3_a.outright_series_status_message.display = function(packet, parent, length)
@@ -1890,26 +1791,15 @@ end
 -- Underlying Status Message
 nyse_options_deepfeed_xdp_v1_3_a.underlying_status_message = {}
 
--- Calculate size of: Underlying Status Message
-nyse_options_deepfeed_xdp_v1_3_a.underlying_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.underlying_index.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.security_status.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.halt_condition.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Underlying Status Message
+nyse_options_deepfeed_xdp_v1_3_a.underlying_status_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.underlying_index.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.security_status.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.halt_condition.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Underlying Status Message
 nyse_options_deepfeed_xdp_v1_3_a.underlying_status_message.display = function(packet, parent, length)
@@ -1965,44 +1855,24 @@ end
 -- Outright Market Depth Sell Message
 nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message = {}
 
--- Calculate size of: Outright Market Depth Sell Message
-nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_ns.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.series_index.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Outright Market Depth Sell Message
+nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.source_ns.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.series_index.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Outright Market Depth Sell Message
 nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.display = function(packet, parent, length)
@@ -2154,44 +2024,24 @@ end
 -- Outright Market Depth Buy Message
 nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message = {}
 
--- Calculate size of: Outright Market Depth Buy Message
-nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_time.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.source_ns.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.series_index.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
-
-  return index
-end
+-- Size: Outright Market Depth Buy Message
+nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.source_ns.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.series_index.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Outright Market Depth Buy Message
 nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.display = function(packet, parent, length)
@@ -2471,16 +2321,10 @@ end
 -- Message Header
 nyse_options_deepfeed_xdp_v1_3_a.message_header = {}
 
--- Calculate size of: Message Header
-nyse_options_deepfeed_xdp_v1_3_a.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.message_size.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.message_type.size
-
-  return index
-end
+-- Size: Message Header
+nyse_options_deepfeed_xdp_v1_3_a.message_header.size =
+  nyse_options_deepfeed_xdp_v1_3_a.message_size.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.message_type.size
 
 -- Display: Message Header
 nyse_options_deepfeed_xdp_v1_3_a.message_header.display = function(packet, parent, length)
@@ -2525,7 +2369,7 @@ nyse_options_deepfeed_xdp_v1_3_a.message = {}
 nyse_options_deepfeed_xdp_v1_3_a.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.message_header.size(buffer, offset + index)
+  index = index + nyse_options_deepfeed_xdp_v1_3_a.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2750,24 +2594,14 @@ end
 -- Packet Header
 nyse_options_deepfeed_xdp_v1_3_a.packet_header = {}
 
--- Calculate size of: Packet Header
-nyse_options_deepfeed_xdp_v1_3_a.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.packet_size.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.message_count.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.sequence_number.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.timestamp.size
-
-  index = index + nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.size
-
-  return index
-end
+-- Size: Packet Header
+nyse_options_deepfeed_xdp_v1_3_a.packet_header.size =
+  nyse_options_deepfeed_xdp_v1_3_a.packet_size.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.message_count.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.sequence_number.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.timestamp.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.size
 
 -- Display: Packet Header
 nyse_options_deepfeed_xdp_v1_3_a.packet_header.display = function(packet, parent, length)

@@ -280,18 +280,11 @@ end
 -- Reject Message
 coinbase_derivatives_session_tcp_v1_2.reject_message = {}
 
--- Calculate size of: Reject Message
-coinbase_derivatives_session_tcp_v1_2.reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.ref_sequence_number.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.reason_reject_reason.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.details.size
-
-  return index
-end
+-- Size: Reject Message
+coinbase_derivatives_session_tcp_v1_2.reject_message.size =
+  coinbase_derivatives_session_tcp_v1_2.ref_sequence_number.size + 
+  coinbase_derivatives_session_tcp_v1_2.reason_reject_reason.size + 
+  coinbase_derivatives_session_tcp_v1_2.details.size
 
 -- Display: Reject Message
 coinbase_derivatives_session_tcp_v1_2.reject_message.display = function(packet, parent, length)
@@ -469,16 +462,10 @@ end
 -- Resend Request Message
 coinbase_derivatives_session_tcp_v1_2.resend_request_message = {}
 
--- Calculate size of: Resend Request Message
-coinbase_derivatives_session_tcp_v1_2.resend_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.from_sequence_number.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.to_sequence_number.size
-
-  return index
-end
+-- Size: Resend Request Message
+coinbase_derivatives_session_tcp_v1_2.resend_request_message.size =
+  coinbase_derivatives_session_tcp_v1_2.from_sequence_number.size + 
+  coinbase_derivatives_session_tcp_v1_2.to_sequence_number.size
 
 -- Display: Resend Request Message
 coinbase_derivatives_session_tcp_v1_2.resend_request_message.display = function(packet, parent, length)
@@ -542,14 +529,9 @@ end
 -- Test Request Message
 coinbase_derivatives_session_tcp_v1_2.test_request_message = {}
 
--- Calculate size of: Test Request Message
-coinbase_derivatives_session_tcp_v1_2.test_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.correlation_id.size
-
-  return index
-end
+-- Size: Test Request Message
+coinbase_derivatives_session_tcp_v1_2.test_request_message.size =
+  coinbase_derivatives_session_tcp_v1_2.correlation_id.size
 
 -- Display: Test Request Message
 coinbase_derivatives_session_tcp_v1_2.test_request_message.display = function(packet, parent, length)
@@ -587,14 +569,9 @@ end
 -- Heartbeat Message
 coinbase_derivatives_session_tcp_v1_2.heartbeat_message = {}
 
--- Calculate size of: Heartbeat Message
-coinbase_derivatives_session_tcp_v1_2.heartbeat_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.correlation_id.size
-
-  return index
-end
+-- Size: Heartbeat Message
+coinbase_derivatives_session_tcp_v1_2.heartbeat_message.size =
+  coinbase_derivatives_session_tcp_v1_2.correlation_id.size
 
 -- Display: Heartbeat Message
 coinbase_derivatives_session_tcp_v1_2.heartbeat_message.display = function(packet, parent, length)
@@ -671,14 +648,9 @@ end
 -- Logged Out Message
 coinbase_derivatives_session_tcp_v1_2.logged_out_message = {}
 
--- Calculate size of: Logged Out Message
-coinbase_derivatives_session_tcp_v1_2.logged_out_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.reason_string_64.size
-
-  return index
-end
+-- Size: Logged Out Message
+coinbase_derivatives_session_tcp_v1_2.logged_out_message.size =
+  coinbase_derivatives_session_tcp_v1_2.reason_string_64.size
 
 -- Display: Logged Out Message
 coinbase_derivatives_session_tcp_v1_2.logged_out_message.display = function(packet, parent, length)
@@ -716,14 +688,9 @@ end
 -- Logout Message
 coinbase_derivatives_session_tcp_v1_2.logout_message = {}
 
--- Calculate size of: Logout Message
-coinbase_derivatives_session_tcp_v1_2.logout_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.reason_string_64.size
-
-  return index
-end
+-- Size: Logout Message
+coinbase_derivatives_session_tcp_v1_2.logout_message.size =
+  coinbase_derivatives_session_tcp_v1_2.reason_string_64.size
 
 -- Display: Logout Message
 coinbase_derivatives_session_tcp_v1_2.logout_message.display = function(packet, parent, length)
@@ -784,14 +751,9 @@ end
 -- Logon Conf Message
 coinbase_derivatives_session_tcp_v1_2.logon_conf_message = {}
 
--- Calculate size of: Logon Conf Message
-coinbase_derivatives_session_tcp_v1_2.logon_conf_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.size
-
-  return index
-end
+-- Size: Logon Conf Message
+coinbase_derivatives_session_tcp_v1_2.logon_conf_message.size =
+  coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.size
 
 -- Display: Logon Conf Message
 coinbase_derivatives_session_tcp_v1_2.logon_conf_message.display = function(packet, parent, length)
@@ -937,18 +899,11 @@ end
 -- Logon Message
 coinbase_derivatives_session_tcp_v1_2.logon_message = {}
 
--- Calculate size of: Logon Message
-coinbase_derivatives_session_tcp_v1_2.logon_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.username.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.password.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.reset_seq_num.size
-
-  return index
-end
+-- Size: Logon Message
+coinbase_derivatives_session_tcp_v1_2.logon_message.size =
+  coinbase_derivatives_session_tcp_v1_2.username.size + 
+  coinbase_derivatives_session_tcp_v1_2.password.size + 
+  coinbase_derivatives_session_tcp_v1_2.reset_seq_num.size
 
 -- Display: Logon Message
 coinbase_derivatives_session_tcp_v1_2.logon_message.display = function(packet, parent, length)
@@ -1389,34 +1344,19 @@ end
 -- Message Header
 coinbase_derivatives_session_tcp_v1_2.message_header = {}
 
--- Calculate size of: Message Header
-coinbase_derivatives_session_tcp_v1_2.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.protocol_id.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.flags.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.message_length.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.sequence_number.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.reserved.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.block_length.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.template_id.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.schema_id.size
-
-  index = index + coinbase_derivatives_session_tcp_v1_2.version.size
-
-  return index
-end
+-- Size: Message Header
+coinbase_derivatives_session_tcp_v1_2.message_header.size =
+  coinbase_derivatives_session_tcp_v1_2.protocol_id.size + 
+  coinbase_derivatives_session_tcp_v1_2.flags.size + 
+  coinbase_derivatives_session_tcp_v1_2.message_length.size + 
+  coinbase_derivatives_session_tcp_v1_2.sequence_number.size + 
+  coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.size + 
+  coinbase_derivatives_session_tcp_v1_2.reserved.size + 
+  coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.size + 
+  coinbase_derivatives_session_tcp_v1_2.block_length.size + 
+  coinbase_derivatives_session_tcp_v1_2.template_id.size + 
+  coinbase_derivatives_session_tcp_v1_2.schema_id.size + 
+  coinbase_derivatives_session_tcp_v1_2.version.size
 
 -- Display: Message Header
 coinbase_derivatives_session_tcp_v1_2.message_header.display = function(packet, parent, length)
@@ -1549,7 +1489,7 @@ local sbe_message_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < coinbase_derivatives_session_tcp_v1_2.message_header.size(buffer, index) then
+  if remaining < coinbase_derivatives_session_tcp_v1_2.message_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

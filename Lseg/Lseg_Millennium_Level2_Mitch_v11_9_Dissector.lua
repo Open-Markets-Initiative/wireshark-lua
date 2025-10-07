@@ -405,24 +405,14 @@ end
 -- Top Of Book Message
 lseg_millennium_level2_mitch_v11_9.top_of_book_message = {}
 
--- Calculate size of: Top Of Book Message
-lseg_millennium_level2_mitch_v11_9.top_of_book_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.buy_limit_price.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.buy_limit_size.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.sell_limit_price.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.sell_limit_size.size
-
-  return index
-end
+-- Size: Top Of Book Message
+lseg_millennium_level2_mitch_v11_9.top_of_book_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
+  lseg_millennium_level2_mitch_v11_9.buy_limit_price.size + 
+  lseg_millennium_level2_mitch_v11_9.buy_limit_size.size + 
+  lseg_millennium_level2_mitch_v11_9.sell_limit_price.size + 
+  lseg_millennium_level2_mitch_v11_9.sell_limit_size.size
 
 -- Display: Top Of Book Message
 lseg_millennium_level2_mitch_v11_9.top_of_book_message.display = function(packet, parent, length)
@@ -645,28 +635,16 @@ end
 -- Statistics Message
 lseg_millennium_level2_mitch_v11_9.statistics_message = {}
 
--- Calculate size of: Statistics Message
-lseg_millennium_level2_mitch_v11_9.statistics_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_a.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_b.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.statistic_type.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.price.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_byte.size
-
-  return index
-end
+-- Size: Statistics Message
+lseg_millennium_level2_mitch_v11_9.statistics_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
+  lseg_millennium_level2_mitch_v11_9.statistic_type.size + 
+  lseg_millennium_level2_mitch_v11_9.price.size + 
+  lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_byte.size
 
 -- Display: Statistics Message
 lseg_millennium_level2_mitch_v11_9.statistics_message.display = function(packet, parent, length)
@@ -816,30 +794,17 @@ end
 -- Auction Info Message
 lseg_millennium_level2_mitch_v11_9.auction_info_message = {}
 
--- Calculate size of: Auction Info Message
-lseg_millennium_level2_mitch_v11_9.auction_info_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.paired_quantity.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_uint_32.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_byte.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_a.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_b.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.price.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.auction_type.size
-
-  return index
-end
+-- Size: Auction Info Message
+lseg_millennium_level2_mitch_v11_9.auction_info_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.paired_quantity.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_uint_32.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_byte.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
+  lseg_millennium_level2_mitch_v11_9.price.size + 
+  lseg_millennium_level2_mitch_v11_9.auction_type.size
 
 -- Display: Auction Info Message
 lseg_millennium_level2_mitch_v11_9.auction_info_message.display = function(packet, parent, length)
@@ -996,30 +961,17 @@ end
 -- Auction Trade Message
 lseg_millennium_level2_mitch_v11_9.auction_trade_message = {}
 
--- Calculate size of: Auction Trade Message
-lseg_millennium_level2_mitch_v11_9.auction_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.quantity.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_a.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_b.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.price.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.trade_match_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.auction_type.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.pt_mod_flags.size
-
-  return index
-end
+-- Size: Auction Trade Message
+lseg_millennium_level2_mitch_v11_9.auction_trade_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.quantity.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
+  lseg_millennium_level2_mitch_v11_9.price.size + 
+  lseg_millennium_level2_mitch_v11_9.trade_match_id.size + 
+  lseg_millennium_level2_mitch_v11_9.auction_type.size + 
+  lseg_millennium_level2_mitch_v11_9.pt_mod_flags.size
 
 -- Display: Auction Trade Message
 lseg_millennium_level2_mitch_v11_9.auction_trade_message.display = function(packet, parent, length)
@@ -1173,32 +1125,18 @@ end
 -- Trade Message
 lseg_millennium_level2_mitch_v11_9.trade_message = {}
 
--- Calculate size of: Trade Message
-lseg_millennium_level2_mitch_v11_9.trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.executed_quantity.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_a.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_b.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.price.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.trade_match_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.cross_type.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.sub_book.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.pt_mod_flags.size
-
-  return index
-end
+-- Size: Trade Message
+lseg_millennium_level2_mitch_v11_9.trade_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.executed_quantity.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
+  lseg_millennium_level2_mitch_v11_9.price.size + 
+  lseg_millennium_level2_mitch_v11_9.trade_match_id.size + 
+  lseg_millennium_level2_mitch_v11_9.cross_type.size + 
+  lseg_millennium_level2_mitch_v11_9.sub_book.size + 
+  lseg_millennium_level2_mitch_v11_9.pt_mod_flags.size
 
 -- Display: Trade Message
 lseg_millennium_level2_mitch_v11_9.trade_message.display = function(packet, parent, length)
@@ -1339,26 +1277,15 @@ end
 -- Order Executed With Price Size Message
 lseg_millennium_level2_mitch_v11_9.order_executed_with_price_size_message = {}
 
--- Calculate size of: Order Executed With Price Size Message
-lseg_millennium_level2_mitch_v11_9.order_executed_with_price_size_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.order_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.executed_quantity.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.display_quantity.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.trade_match_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.printable.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.price.size
-
-  return index
-end
+-- Size: Order Executed With Price Size Message
+lseg_millennium_level2_mitch_v11_9.order_executed_with_price_size_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.order_id.size + 
+  lseg_millennium_level2_mitch_v11_9.executed_quantity.size + 
+  lseg_millennium_level2_mitch_v11_9.display_quantity.size + 
+  lseg_millennium_level2_mitch_v11_9.trade_match_id.size + 
+  lseg_millennium_level2_mitch_v11_9.printable.size + 
+  lseg_millennium_level2_mitch_v11_9.price.size
 
 -- Display: Order Executed With Price Size Message
 lseg_millennium_level2_mitch_v11_9.order_executed_with_price_size_message.display = function(packet, parent, length)
@@ -1414,20 +1341,12 @@ end
 -- Order Executed Message
 lseg_millennium_level2_mitch_v11_9.order_executed_message = {}
 
--- Calculate size of: Order Executed Message
-lseg_millennium_level2_mitch_v11_9.order_executed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.order_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.executed_quantity.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.trade_match_id.size
-
-  return index
-end
+-- Size: Order Executed Message
+lseg_millennium_level2_mitch_v11_9.order_executed_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.order_id.size + 
+  lseg_millennium_level2_mitch_v11_9.executed_quantity.size + 
+  lseg_millennium_level2_mitch_v11_9.trade_match_id.size
 
 -- Display: Order Executed Message
 lseg_millennium_level2_mitch_v11_9.order_executed_message.display = function(packet, parent, length)
@@ -1544,22 +1463,13 @@ end
 -- Order Book Clear Message
 lseg_millennium_level2_mitch_v11_9.order_book_clear_message = {}
 
--- Calculate size of: Order Book Clear Message
-lseg_millennium_level2_mitch_v11_9.order_book_clear_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_a.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_b.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.flags.size
-
-  return index
-end
+-- Size: Order Book Clear Message
+lseg_millennium_level2_mitch_v11_9.order_book_clear_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
+  lseg_millennium_level2_mitch_v11_9.flags.size
 
 -- Display: Order Book Clear Message
 lseg_millennium_level2_mitch_v11_9.order_book_clear_message.display = function(packet, parent, length)
@@ -1655,22 +1565,13 @@ end
 -- Order Modified Message
 lseg_millennium_level2_mitch_v11_9.order_modified_message = {}
 
--- Calculate size of: Order Modified Message
-lseg_millennium_level2_mitch_v11_9.order_modified_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.order_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.new_quantity.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.new_price.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.flags.size
-
-  return index
-end
+-- Size: Order Modified Message
+lseg_millennium_level2_mitch_v11_9.order_modified_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.order_id.size + 
+  lseg_millennium_level2_mitch_v11_9.new_quantity.size + 
+  lseg_millennium_level2_mitch_v11_9.new_price.size + 
+  lseg_millennium_level2_mitch_v11_9.flags.size
 
 -- Display: Order Modified Message
 lseg_millennium_level2_mitch_v11_9.order_modified_message.display = function(packet, parent, length)
@@ -1720,20 +1621,12 @@ end
 -- Order Deleted Message
 lseg_millennium_level2_mitch_v11_9.order_deleted_message = {}
 
--- Calculate size of: Order Deleted Message
-lseg_millennium_level2_mitch_v11_9.order_deleted_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.order_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.flags.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  return index
-end
+-- Size: Order Deleted Message
+lseg_millennium_level2_mitch_v11_9.order_deleted_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.order_id.size + 
+  lseg_millennium_level2_mitch_v11_9.flags.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size
 
 -- Display: Order Deleted Message
 lseg_millennium_level2_mitch_v11_9.order_deleted_message.display = function(packet, parent, length)
@@ -1833,32 +1726,18 @@ end
 -- Add Attributed Order Message
 lseg_millennium_level2_mitch_v11_9.add_attributed_order_message = {}
 
--- Calculate size of: Add Attributed Order Message
-lseg_millennium_level2_mitch_v11_9.add_attributed_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.order_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.side.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.quantity.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_a.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_b.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.price.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.attribution.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.flags.size
-
-  return index
-end
+-- Size: Add Attributed Order Message
+lseg_millennium_level2_mitch_v11_9.add_attributed_order_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.order_id.size + 
+  lseg_millennium_level2_mitch_v11_9.side.size + 
+  lseg_millennium_level2_mitch_v11_9.quantity.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
+  lseg_millennium_level2_mitch_v11_9.price.size + 
+  lseg_millennium_level2_mitch_v11_9.attribution.size + 
+  lseg_millennium_level2_mitch_v11_9.flags.size
 
 -- Display: Add Attributed Order Message
 lseg_millennium_level2_mitch_v11_9.add_attributed_order_message.display = function(packet, parent, length)
@@ -1946,32 +1825,18 @@ end
 -- Add Order Message
 lseg_millennium_level2_mitch_v11_9.add_order_message = {}
 
--- Calculate size of: Add Order Message
-lseg_millennium_level2_mitch_v11_9.add_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.order_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.side.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.quantity.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_a.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_b.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.price.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.flags.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_alpha.size
-
-  return index
-end
+-- Size: Add Order Message
+lseg_millennium_level2_mitch_v11_9.add_order_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.order_id.size + 
+  lseg_millennium_level2_mitch_v11_9.side.size + 
+  lseg_millennium_level2_mitch_v11_9.quantity.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
+  lseg_millennium_level2_mitch_v11_9.price.size + 
+  lseg_millennium_level2_mitch_v11_9.flags.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_alpha.size
 
 -- Display: Add Order Message
 lseg_millennium_level2_mitch_v11_9.add_order_message.display = function(packet, parent, length)
@@ -2244,32 +2109,18 @@ end
 -- Symbol Status Message
 lseg_millennium_level2_mitch_v11_9.symbol_status_message = {}
 
--- Calculate size of: Symbol Status Message
-lseg_millennium_level2_mitch_v11_9.symbol_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_a.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_b.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.trading_status.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.symbol_status_flags.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reason.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.session_change_reason.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.new_end_time.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.book_type.size
-
-  return index
-end
+-- Size: Symbol Status Message
+lseg_millennium_level2_mitch_v11_9.symbol_status_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
+  lseg_millennium_level2_mitch_v11_9.trading_status.size + 
+  lseg_millennium_level2_mitch_v11_9.symbol_status_flags.size + 
+  lseg_millennium_level2_mitch_v11_9.reason.size + 
+  lseg_millennium_level2_mitch_v11_9.session_change_reason.size + 
+  lseg_millennium_level2_mitch_v11_9.new_end_time.size + 
+  lseg_millennium_level2_mitch_v11_9.book_type.size
 
 -- Display: Symbol Status Message
 lseg_millennium_level2_mitch_v11_9.symbol_status_message.display = function(packet, parent, length)
@@ -2508,38 +2359,21 @@ end
 -- Symbol Directory Message
 lseg_millennium_level2_mitch_v11_9.symbol_directory_message = {}
 
--- Calculate size of: Symbol Directory Message
-lseg_millennium_level2_mitch_v11_9.symbol_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.instrument_id.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_a.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_b.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.symbol_status.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.isin.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.sedol.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.segment.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.underlying.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.currency.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_byte.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.reserved_alpha.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.previous_close_price.size
-
-  return index
-end
+-- Size: Symbol Directory Message
+lseg_millennium_level2_mitch_v11_9.symbol_directory_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
+  lseg_millennium_level2_mitch_v11_9.symbol_status.size + 
+  lseg_millennium_level2_mitch_v11_9.isin.size + 
+  lseg_millennium_level2_mitch_v11_9.sedol.size + 
+  lseg_millennium_level2_mitch_v11_9.segment.size + 
+  lseg_millennium_level2_mitch_v11_9.underlying.size + 
+  lseg_millennium_level2_mitch_v11_9.currency.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_byte.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_alpha.size + 
+  lseg_millennium_level2_mitch_v11_9.previous_close_price.size
 
 -- Display: Symbol Directory Message
 lseg_millennium_level2_mitch_v11_9.symbol_directory_message.display = function(packet, parent, length)
@@ -2643,16 +2477,10 @@ end
 -- System Event Message
 lseg_millennium_level2_mitch_v11_9.system_event_message = {}
 
--- Calculate size of: System Event Message
-lseg_millennium_level2_mitch_v11_9.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.nanosecond.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.event_code.size
-
-  return index
-end
+-- Size: System Event Message
+lseg_millennium_level2_mitch_v11_9.system_event_message.size =
+  lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
+  lseg_millennium_level2_mitch_v11_9.event_code.size
 
 -- Display: System Event Message
 lseg_millennium_level2_mitch_v11_9.system_event_message.display = function(packet, parent, length)
@@ -2716,14 +2544,9 @@ end
 -- Time Message
 lseg_millennium_level2_mitch_v11_9.time_message = {}
 
--- Calculate size of: Time Message
-lseg_millennium_level2_mitch_v11_9.time_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.seconds.size
-
-  return index
-end
+-- Size: Time Message
+lseg_millennium_level2_mitch_v11_9.time_message.size =
+  lseg_millennium_level2_mitch_v11_9.seconds.size
 
 -- Display: Time Message
 lseg_millennium_level2_mitch_v11_9.time_message.display = function(packet, parent, length)
@@ -3024,16 +2847,10 @@ end
 -- Message Header
 lseg_millennium_level2_mitch_v11_9.message_header = {}
 
--- Calculate size of: Message Header
-lseg_millennium_level2_mitch_v11_9.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.message_length.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.message_type.size
-
-  return index
-end
+-- Size: Message Header
+lseg_millennium_level2_mitch_v11_9.message_header.size =
+  lseg_millennium_level2_mitch_v11_9.message_length.size + 
+  lseg_millennium_level2_mitch_v11_9.message_type.size
 
 -- Display: Message Header
 lseg_millennium_level2_mitch_v11_9.message_header.display = function(packet, parent, length)
@@ -3078,7 +2895,7 @@ lseg_millennium_level2_mitch_v11_9.message = {}
 lseg_millennium_level2_mitch_v11_9.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_millennium_level2_mitch_v11_9.message_header.size(buffer, offset + index)
+  index = index + lseg_millennium_level2_mitch_v11_9.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3223,20 +3040,12 @@ end
 -- Unit Header
 lseg_millennium_level2_mitch_v11_9.unit_header = {}
 
--- Calculate size of: Unit Header
-lseg_millennium_level2_mitch_v11_9.unit_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.length.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.message_count.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.market_data_group.size
-
-  index = index + lseg_millennium_level2_mitch_v11_9.sequence_number.size
-
-  return index
-end
+-- Size: Unit Header
+lseg_millennium_level2_mitch_v11_9.unit_header.size =
+  lseg_millennium_level2_mitch_v11_9.length.size + 
+  lseg_millennium_level2_mitch_v11_9.message_count.size + 
+  lseg_millennium_level2_mitch_v11_9.market_data_group.size + 
+  lseg_millennium_level2_mitch_v11_9.sequence_number.size
 
 -- Display: Unit Header
 lseg_millennium_level2_mitch_v11_9.unit_header.display = function(packet, parent, length)

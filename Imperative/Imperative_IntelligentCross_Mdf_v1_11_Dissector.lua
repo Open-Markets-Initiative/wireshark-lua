@@ -271,18 +271,11 @@ end
 -- Trade Break Message
 imperative_intelligentcross_mdf_v1_11.trade_break_message = {}
 
--- Calculate size of: Trade Break Message
-imperative_intelligentcross_mdf_v1_11.trade_break_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.execution_id.size
-
-  return index
-end
+-- Size: Trade Break Message
+imperative_intelligentcross_mdf_v1_11.trade_break_message.size =
+  imperative_intelligentcross_mdf_v1_11.symbol_id.size + 
+  imperative_intelligentcross_mdf_v1_11.timestamp.size + 
+  imperative_intelligentcross_mdf_v1_11.execution_id.size
 
 -- Display: Trade Break Message
 imperative_intelligentcross_mdf_v1_11.trade_break_message.display = function(packet, parent, length)
@@ -447,28 +440,16 @@ end
 -- Trade Message
 imperative_intelligentcross_mdf_v1_11.trade_message = {}
 
--- Calculate size of: Trade Message
-imperative_intelligentcross_mdf_v1_11.trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.reserved_8.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.reserved_1.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.shares.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.price.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.execution_id.size
-
-  return index
-end
+-- Size: Trade Message
+imperative_intelligentcross_mdf_v1_11.trade_message.size =
+  imperative_intelligentcross_mdf_v1_11.symbol_id.size + 
+  imperative_intelligentcross_mdf_v1_11.timestamp.size + 
+  imperative_intelligentcross_mdf_v1_11.reserved_8.size + 
+  imperative_intelligentcross_mdf_v1_11.reserved_1.size + 
+  imperative_intelligentcross_mdf_v1_11.shares.size + 
+  imperative_intelligentcross_mdf_v1_11.symbol.size + 
+  imperative_intelligentcross_mdf_v1_11.price.size + 
+  imperative_intelligentcross_mdf_v1_11.execution_id.size
 
 -- Display: Trade Message
 imperative_intelligentcross_mdf_v1_11.trade_message.display = function(packet, parent, length)
@@ -550,26 +531,15 @@ end
 -- Order Executed Message
 imperative_intelligentcross_mdf_v1_11.order_executed_message = {}
 
--- Calculate size of: Order Executed Message
-imperative_intelligentcross_mdf_v1_11.order_executed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.order_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.shares.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.execution_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.reserved_1.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.price.size
-
-  return index
-end
+-- Size: Order Executed Message
+imperative_intelligentcross_mdf_v1_11.order_executed_message.size =
+  imperative_intelligentcross_mdf_v1_11.symbol_id.size + 
+  imperative_intelligentcross_mdf_v1_11.timestamp.size + 
+  imperative_intelligentcross_mdf_v1_11.order_id.size + 
+  imperative_intelligentcross_mdf_v1_11.shares.size + 
+  imperative_intelligentcross_mdf_v1_11.execution_id.size + 
+  imperative_intelligentcross_mdf_v1_11.reserved_1.size + 
+  imperative_intelligentcross_mdf_v1_11.price.size
 
 -- Display: Order Executed Message
 imperative_intelligentcross_mdf_v1_11.order_executed_message.display = function(packet, parent, length)
@@ -625,22 +595,13 @@ end
 -- Order Updated Message
 imperative_intelligentcross_mdf_v1_11.order_updated_message = {}
 
--- Calculate size of: Order Updated Message
-imperative_intelligentcross_mdf_v1_11.order_updated_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.order_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.shares.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.price.size
-
-  return index
-end
+-- Size: Order Updated Message
+imperative_intelligentcross_mdf_v1_11.order_updated_message.size =
+  imperative_intelligentcross_mdf_v1_11.symbol_id.size + 
+  imperative_intelligentcross_mdf_v1_11.timestamp.size + 
+  imperative_intelligentcross_mdf_v1_11.order_id.size + 
+  imperative_intelligentcross_mdf_v1_11.shares.size + 
+  imperative_intelligentcross_mdf_v1_11.price.size
 
 -- Display: Order Updated Message
 imperative_intelligentcross_mdf_v1_11.order_updated_message.display = function(packet, parent, length)
@@ -690,18 +651,11 @@ end
 -- Order Cancel All Message
 imperative_intelligentcross_mdf_v1_11.order_cancel_all_message = {}
 
--- Calculate size of: Order Cancel All Message
-imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.order_id.size
-
-  return index
-end
+-- Size: Order Cancel All Message
+imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.size =
+  imperative_intelligentcross_mdf_v1_11.symbol_id.size + 
+  imperative_intelligentcross_mdf_v1_11.timestamp.size + 
+  imperative_intelligentcross_mdf_v1_11.order_id.size
 
 -- Display: Order Cancel All Message
 imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.display = function(packet, parent, length)
@@ -768,20 +722,12 @@ end
 -- Order Partial Cancel Message
 imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message = {}
 
--- Calculate size of: Order Partial Cancel Message
-imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.order_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.shares_canceled.size
-
-  return index
-end
+-- Size: Order Partial Cancel Message
+imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.size =
+  imperative_intelligentcross_mdf_v1_11.symbol_id.size + 
+  imperative_intelligentcross_mdf_v1_11.timestamp.size + 
+  imperative_intelligentcross_mdf_v1_11.order_id.size + 
+  imperative_intelligentcross_mdf_v1_11.shares_canceled.size
 
 -- Display: Order Partial Cancel Message
 imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.display = function(packet, parent, length)
@@ -884,28 +830,16 @@ end
 -- New Order Add Message
 imperative_intelligentcross_mdf_v1_11.new_order_add_message = {}
 
--- Calculate size of: New Order Add Message
-imperative_intelligentcross_mdf_v1_11.new_order_add_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.order_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.side.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.shares.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.price.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.reserved_4.size
-
-  return index
-end
+-- Size: New Order Add Message
+imperative_intelligentcross_mdf_v1_11.new_order_add_message.size =
+  imperative_intelligentcross_mdf_v1_11.symbol_id.size + 
+  imperative_intelligentcross_mdf_v1_11.timestamp.size + 
+  imperative_intelligentcross_mdf_v1_11.order_id.size + 
+  imperative_intelligentcross_mdf_v1_11.side.size + 
+  imperative_intelligentcross_mdf_v1_11.shares.size + 
+  imperative_intelligentcross_mdf_v1_11.symbol.size + 
+  imperative_intelligentcross_mdf_v1_11.price.size + 
+  imperative_intelligentcross_mdf_v1_11.reserved_4.size
 
 -- Display: New Order Add Message
 imperative_intelligentcross_mdf_v1_11.new_order_add_message.display = function(packet, parent, length)
@@ -1023,24 +957,14 @@ end
 -- Symbol State Message
 imperative_intelligentcross_mdf_v1_11.symbol_state_message = {}
 
--- Calculate size of: Symbol State Message
-imperative_intelligentcross_mdf_v1_11.symbol_state_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.state.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.reserved_1.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.info.size
-
-  return index
-end
+-- Size: Symbol State Message
+imperative_intelligentcross_mdf_v1_11.symbol_state_message.size =
+  imperative_intelligentcross_mdf_v1_11.symbol_id.size + 
+  imperative_intelligentcross_mdf_v1_11.timestamp.size + 
+  imperative_intelligentcross_mdf_v1_11.symbol.size + 
+  imperative_intelligentcross_mdf_v1_11.state.size + 
+  imperative_intelligentcross_mdf_v1_11.reserved_1.size + 
+  imperative_intelligentcross_mdf_v1_11.info.size
 
 -- Display: Symbol State Message
 imperative_intelligentcross_mdf_v1_11.symbol_state_message.display = function(packet, parent, length)
@@ -1158,24 +1082,14 @@ end
 -- Symbol Information Message
 imperative_intelligentcross_mdf_v1_11.symbol_information_message = {}
 
--- Calculate size of: Symbol Information Message
-imperative_intelligentcross_mdf_v1_11.symbol_information_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.symbol.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.listing_market.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.reserved_1.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.round_lot_size.size
-
-  return index
-end
+-- Size: Symbol Information Message
+imperative_intelligentcross_mdf_v1_11.symbol_information_message.size =
+  imperative_intelligentcross_mdf_v1_11.symbol_id.size + 
+  imperative_intelligentcross_mdf_v1_11.timestamp.size + 
+  imperative_intelligentcross_mdf_v1_11.symbol.size + 
+  imperative_intelligentcross_mdf_v1_11.listing_market.size + 
+  imperative_intelligentcross_mdf_v1_11.reserved_1.size + 
+  imperative_intelligentcross_mdf_v1_11.round_lot_size.size
 
 -- Display: Symbol Information Message
 imperative_intelligentcross_mdf_v1_11.symbol_information_message.display = function(packet, parent, length)
@@ -1290,18 +1204,11 @@ end
 -- Market Event Message
 imperative_intelligentcross_mdf_v1_11.market_event_message = {}
 
--- Calculate size of: Market Event Message
-imperative_intelligentcross_mdf_v1_11.market_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.reserved_2.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.event.size
-
-  return index
-end
+-- Size: Market Event Message
+imperative_intelligentcross_mdf_v1_11.market_event_message.size =
+  imperative_intelligentcross_mdf_v1_11.reserved_2.size + 
+  imperative_intelligentcross_mdf_v1_11.timestamp.size + 
+  imperative_intelligentcross_mdf_v1_11.event.size
 
 -- Display: Market Event Message
 imperative_intelligentcross_mdf_v1_11.market_event_message.display = function(packet, parent, length)
@@ -1542,16 +1449,10 @@ end
 -- Message Header
 imperative_intelligentcross_mdf_v1_11.message_header = {}
 
--- Calculate size of: Message Header
-imperative_intelligentcross_mdf_v1_11.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.length.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.message_type.size
-
-  return index
-end
+-- Size: Message Header
+imperative_intelligentcross_mdf_v1_11.message_header.size =
+  imperative_intelligentcross_mdf_v1_11.length.size + 
+  imperative_intelligentcross_mdf_v1_11.message_type.size
 
 -- Display: Message Header
 imperative_intelligentcross_mdf_v1_11.message_header.display = function(packet, parent, length)
@@ -1596,7 +1497,7 @@ imperative_intelligentcross_mdf_v1_11.message = {}
 imperative_intelligentcross_mdf_v1_11.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11.message_header.size(buffer, offset + index)
+  index = index + imperative_intelligentcross_mdf_v1_11.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1746,20 +1647,12 @@ end
 -- Packet Header
 imperative_intelligentcross_mdf_v1_11.packet_header = {}
 
--- Calculate size of: Packet Header
-imperative_intelligentcross_mdf_v1_11.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_mdf_v1_11.market_day_identifier.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.feed_identifier.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.sequence.size
-
-  index = index + imperative_intelligentcross_mdf_v1_11.count.size
-
-  return index
-end
+-- Size: Packet Header
+imperative_intelligentcross_mdf_v1_11.packet_header.size =
+  imperative_intelligentcross_mdf_v1_11.market_day_identifier.size + 
+  imperative_intelligentcross_mdf_v1_11.feed_identifier.size + 
+  imperative_intelligentcross_mdf_v1_11.sequence.size + 
+  imperative_intelligentcross_mdf_v1_11.count.size
 
 -- Display: Packet Header
 imperative_intelligentcross_mdf_v1_11.packet_header.display = function(packet, parent, length)
