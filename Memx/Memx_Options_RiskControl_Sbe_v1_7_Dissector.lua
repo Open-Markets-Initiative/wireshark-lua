@@ -9748,7 +9748,11 @@ memx_options_riskcontrol_sbe_v1_7.version.size = 2
 
 -- Display: Version
 memx_options_riskcontrol_sbe_v1_7.version.display = function(value)
-  return "Version: "..value
+  if value == 263 then
+    return "Version: Version 1.7"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -9771,7 +9775,11 @@ memx_options_riskcontrol_sbe_v1_7.schema_id.size = 1
 
 -- Display: Schema Id
 memx_options_riskcontrol_sbe_v1_7.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 12 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

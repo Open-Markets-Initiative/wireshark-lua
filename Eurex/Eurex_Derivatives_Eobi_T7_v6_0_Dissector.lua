@@ -4643,7 +4643,11 @@ eurex_derivatives_eobi_t7_v6_0.packet_id.size = 2
 
 -- Display: Packet Id
 eurex_derivatives_eobi_t7_v6_0.packet_id.display = function(value)
-  return "Packet Id: "..value
+  if value == 13002 then
+    return "Packet Id: Packet Id"
+  end
+
+  return "Packet Id: Unknown("..value..")"
 end
 
 -- Dissect: Packet Id

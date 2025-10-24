@@ -2605,7 +2605,11 @@ currenex_forex_orderservice_cbp_v26_0.soh.size = 1
 
 -- Display: Soh
 currenex_forex_orderservice_cbp_v26_0.soh.display = function(value)
-  return "Soh: "..value
+  if value == 1 then
+    return "Soh: Soh"
+  end
+
+  return "Soh: Unknown("..value..")"
 end
 
 -- Dissect: Soh

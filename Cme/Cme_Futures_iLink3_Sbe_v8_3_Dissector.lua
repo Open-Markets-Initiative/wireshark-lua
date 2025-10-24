@@ -17225,7 +17225,11 @@ cme_futures_ilink3_sbe_v8_3.version.size = 2
 
 -- Display: Version
 cme_futures_ilink3_sbe_v8_3.version.display = function(value)
-  return "Version: "..value
+  if value == 3 then
+    return "Version: Version"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -17248,7 +17252,11 @@ cme_futures_ilink3_sbe_v8_3.schema_id.size = 2
 
 -- Display: Schema Id
 cme_futures_ilink3_sbe_v8_3.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 8 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

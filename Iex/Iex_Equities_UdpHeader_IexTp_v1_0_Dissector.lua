@@ -17,7 +17,7 @@ local iex_equities_udpheader_iextp_v1_0 = {}
 -- Iex Equities UdpHeader IexTp 1.0 Fields
 omi_iex_equities_udpheader_iextp_v1_0.fields.channel_id = ProtoField.new("Channel Id", "iex.equities.udpheader.iextp.v1.0.channelid", ftypes.UINT32)
 omi_iex_equities_udpheader_iextp_v1_0.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.equities.udpheader.iextp.v1.0.firstmessagesequencenumber", ftypes.UINT64)
-omi_iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header = ProtoField.new("Iex Tp Header", "iex.equities.udpheader.iextp.v1.0.iextpheader", ftypes.STRING)
+omi_iex_equities_udpheader_iextp_v1_0.fields.iextp_header = ProtoField.new("Iextp Header", "iex.equities.udpheader.iextp.v1.0.iextpheader", ftypes.STRING)
 omi_iex_equities_udpheader_iextp_v1_0.fields.message = ProtoField.new("Message", "iex.equities.udpheader.iextp.v1.0.message", ftypes.STRING)
 omi_iex_equities_udpheader_iextp_v1_0.fields.message_count = ProtoField.new("Message Count", "iex.equities.udpheader.iextp.v1.0.messagecount", ftypes.UINT16)
 omi_iex_equities_udpheader_iextp_v1_0.fields.message_data = ProtoField.new("Message Data", "iex.equities.udpheader.iextp.v1.0.messagedata", ftypes.BYTES)
@@ -43,13 +43,13 @@ omi_iex_equities_udpheader_iextp_v1_0.fields.message_index = ProtoField.new("Mes
 local show = {}
 
 -- Iex Equities UdpHeader IexTp 1.0 Element Dissection Options
-show.iex_tp_header = true
+show.iextp_header = true
 show.message = true
 show.message_header = true
 show.packet = true
 
 -- Register Iex Equities UdpHeader IexTp 1.0 Show Options
-omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iex_tp_header = Pref.bool("Show Iex Tp Header", show.iex_tp_header, "Parse and add Iex Tp Header to protocol tree")
+omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iextp_header = Pref.bool("Show Iextp Header", show.iextp_header, "Parse and add Iextp Header to protocol tree")
 omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_iex_equities_udpheader_iextp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -59,8 +59,8 @@ function omi_iex_equities_udpheader_iextp_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.iex_tp_header ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iex_tp_header then
-    show.iex_tp_header = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iex_tp_header
+  if show.iextp_header ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iextp_header then
+    show.iextp_header = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iextp_header
     changed = true
   end
   if show.message ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message then
@@ -484,11 +484,11 @@ iex_equities_udpheader_iextp_v1_0.version.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Iex Tp Header
-iex_equities_udpheader_iextp_v1_0.iex_tp_header = {}
+-- Iextp Header
+iex_equities_udpheader_iextp_v1_0.iextp_header = {}
 
--- Size: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0.iex_tp_header.size =
+-- Size: Iextp Header
+iex_equities_udpheader_iextp_v1_0.iextp_header.size =
   iex_equities_udpheader_iextp_v1_0.version.size + 
   iex_equities_udpheader_iextp_v1_0.reserved.size + 
   iex_equities_udpheader_iextp_v1_0.message_protocol_id.size + 
@@ -500,13 +500,13 @@ iex_equities_udpheader_iextp_v1_0.iex_tp_header.size =
   iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size + 
   iex_equities_udpheader_iextp_v1_0.send_time.size
 
--- Display: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0.iex_tp_header.display = function(packet, parent, length)
+-- Display: Iextp Header
+iex_equities_udpheader_iextp_v1_0.iextp_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0.iex_tp_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Iextp Header
+iex_equities_udpheader_iextp_v1_0.iextp_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
@@ -542,21 +542,21 @@ iex_equities_udpheader_iextp_v1_0.iex_tp_header.fields = function(buffer, offset
   return index
 end
 
--- Dissect: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0.iex_tp_header.dissect = function(buffer, offset, packet, parent)
-  if show.iex_tp_header then
+-- Dissect: Iextp Header
+iex_equities_udpheader_iextp_v1_0.iextp_header.dissect = function(buffer, offset, packet, parent)
+  if show.iextp_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header, buffer(offset, 0))
-    local index = iex_equities_udpheader_iextp_v1_0.iex_tp_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.iextp_header, buffer(offset, 0))
+    local index = iex_equities_udpheader_iextp_v1_0.iextp_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = iex_equities_udpheader_iextp_v1_0.iex_tp_header.display(packet, parent, length)
+    local display = iex_equities_udpheader_iextp_v1_0.iextp_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_equities_udpheader_iextp_v1_0.iex_tp_header.fields(buffer, offset, packet, parent)
+    return iex_equities_udpheader_iextp_v1_0.iextp_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -567,8 +567,8 @@ iex_equities_udpheader_iextp_v1_0.packet = {}
 iex_equities_udpheader_iextp_v1_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Iex Tp Header: Struct of 10 fields
-  index, iex_tp_header = iex_equities_udpheader_iextp_v1_0.iex_tp_header.dissect(buffer, index, packet, parent)
+  -- Iextp Header: Struct of 10 fields
+  index, iextp_header = iex_equities_udpheader_iextp_v1_0.iextp_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
   local message_count = buffer(index - 26, 2):le_uint()

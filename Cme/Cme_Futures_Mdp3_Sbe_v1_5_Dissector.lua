@@ -8222,7 +8222,11 @@ cme_futures_mdp3_sbe_v1_5.version.size = 2
 
 -- Display: Version
 cme_futures_mdp3_sbe_v1_5.version.display = function(value)
-  return "Version: "..value
+  if value == 5 then
+    return "Version: Version"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -8245,7 +8249,11 @@ cme_futures_mdp3_sbe_v1_5.schema_id.size = 2
 
 -- Display: Schema Id
 cme_futures_mdp3_sbe_v1_5.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 1 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

@@ -4947,7 +4947,11 @@ memx_equities_memo_sbe_v1_10.version.size = 2
 
 -- Display: Version
 memx_equities_memo_sbe_v1_10.version.display = function(value)
-  return "Version: "..value
+  if value == 266 then
+    return "Version: Version 1.10"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -4970,7 +4974,11 @@ memx_equities_memo_sbe_v1_10.schema_id.size = 1
 
 -- Display: Schema Id
 memx_equities_memo_sbe_v1_10.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 1 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

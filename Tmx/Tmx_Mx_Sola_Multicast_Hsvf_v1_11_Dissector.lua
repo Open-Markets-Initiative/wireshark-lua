@@ -11408,7 +11408,11 @@ tmx_mx_sola_multicast_hsvf_v1_11.hsvf_stx.size = 1
 
 -- Display: Hsvf Stx
 tmx_mx_sola_multicast_hsvf_v1_11.hsvf_stx.display = function(value)
-  return "Hsvf Stx: "..value
+  if value == 2 then
+    return "Hsvf Stx: Stx"
+  end
+
+  return "Hsvf Stx: Unknown("..value..")"
 end
 
 -- Dissect: Hsvf Stx

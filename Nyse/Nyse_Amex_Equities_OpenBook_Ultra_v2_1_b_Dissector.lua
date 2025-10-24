@@ -1304,7 +1304,11 @@ nyse_amex_equities_openbook_ultra_v2_1_b.product_id.size = 1
 
 -- Display: Product Id
 nyse_amex_equities_openbook_ultra_v2_1_b.product_id.display = function(value)
-  return "Product Id: "..value
+  if value == 62 then
+    return "Product Id: Amex OpenBook Ultra"
+  end
+
+  return "Product Id: Unknown("..value..")"
 end
 
 -- Dissect: Product Id

@@ -5035,7 +5035,11 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.version.size = 2
 
 -- Display: Version
 coinbase_derivatives_marketdataapi_sbe_v1_7.version.display = function(value)
-  return "Version: "..value
+  if value == 7 then
+    return "Version: Version 1.7"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -5058,7 +5062,11 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.schema_id.size = 2
 
 -- Display: Schema Id
 coinbase_derivatives_marketdataapi_sbe_v1_7.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 1201 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

@@ -1747,7 +1747,11 @@ memx_equities_memoirdepthfeed_sbe_v1_1.version.size = 2
 
 -- Display: Version
 memx_equities_memoirdepthfeed_sbe_v1_1.version.display = function(value)
-  return "Version: "..value
+  if value == 1 then
+    return "Version: Version 1.0.0"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -1770,7 +1774,11 @@ memx_equities_memoirdepthfeed_sbe_v1_1.schema_id.size = 1
 
 -- Display: Schema Id
 memx_equities_memoirdepthfeed_sbe_v1_1.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 2 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

@@ -3751,7 +3751,11 @@ siac_opra_recipient_obi_v4_0.version.size = 1
 
 -- Display: Version
 siac_opra_recipient_obi_v4_0.version.display = function(value)
-  return "Version: "..value
+  if value == 5 then
+    return "Version: Version"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version

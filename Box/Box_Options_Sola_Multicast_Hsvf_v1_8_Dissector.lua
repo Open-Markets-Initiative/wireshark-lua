@@ -6796,7 +6796,11 @@ box_options_sola_multicast_hsvf_v1_8.hsvf_stx.size = 1
 
 -- Display: Hsvf Stx
 box_options_sola_multicast_hsvf_v1_8.hsvf_stx.display = function(value)
-  return "Hsvf Stx: "..value
+  if value == 2 then
+    return "Hsvf Stx: Stx"
+  end
+
+  return "Hsvf Stx: Unknown("..value..")"
 end
 
 -- Dissect: Hsvf Stx

@@ -5567,7 +5567,11 @@ boats_equities_memo_sbe_v1_13.version.size = 2
 
 -- Display: Version
 boats_equities_memo_sbe_v1_13.version.display = function(value)
-  return "Version: "..value
+  if value == 269 then
+    return "Version: Version 1.13"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -5590,7 +5594,11 @@ boats_equities_memo_sbe_v1_13.schema_id.size = 1
 
 -- Display: Schema Id
 boats_equities_memo_sbe_v1_13.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 1 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

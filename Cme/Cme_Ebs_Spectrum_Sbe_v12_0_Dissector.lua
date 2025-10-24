@@ -1667,7 +1667,11 @@ cme_ebs_spectrum_sbe_v12_0.version.size = 2
 
 -- Display: Version
 cme_ebs_spectrum_sbe_v12_0.version.display = function(value)
-  return "Version: "..value
+  if value == 0 then
+    return "Version: Version"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -1690,7 +1694,11 @@ cme_ebs_spectrum_sbe_v12_0.schema_id.size = 2
 
 -- Display: Schema Id
 cme_ebs_spectrum_sbe_v12_0.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 12 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

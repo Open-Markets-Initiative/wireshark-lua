@@ -29,7 +29,7 @@ omi_iex_equities_tops_iextp_v1_6_6.fields.etp = ProtoField.new("Etp", "iex.equit
 omi_iex_equities_tops_iextp_v1_6_6.fields.extended_hours = ProtoField.new("Extended Hours", "iex.equities.tops.iextp.v1.6.6.extendedhours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_iex_equities_tops_iextp_v1_6_6.fields.extension_number = ProtoField.new("Extension Number", "iex.equities.tops.iextp.v1.6.6.extensionnumber", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_6_6.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.equities.tops.iextp.v1.6.6.firstmessagesequencenumber", ftypes.UINT64)
-omi_iex_equities_tops_iextp_v1_6_6.fields.iex_tp_header = ProtoField.new("Iex Tp Header", "iex.equities.tops.iextp.v1.6.6.iextpheader", ftypes.STRING)
+omi_iex_equities_tops_iextp_v1_6_6.fields.iextp_header = ProtoField.new("Iextp Header", "iex.equities.tops.iextp.v1.6.6.iextpheader", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_6_6.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "iex.equities.tops.iextp.v1.6.6.imbalanceshares", ftypes.UINT32)
 omi_iex_equities_tops_iextp_v1_6_6.fields.imbalance_side = ProtoField.new("Imbalance Side", "iex.equities.tops.iextp.v1.6.6.imbalanceside", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_6_6.fields.indicative_clearing_price = ProtoField.new("Indicative Clearing Price", "iex.equities.tops.iextp.v1.6.6.indicativeclearingprice", ftypes.DOUBLE)
@@ -106,7 +106,7 @@ local show = {}
 
 -- Iex Equities Tops IexTp 1.6.6 Element Dissection Options
 show.auction_information_message = true
-show.iex_tp_header = true
+show.iextp_header = true
 show.message = true
 show.message_header = true
 show.official_price_message = true
@@ -127,7 +127,7 @@ show.message_data = false
 
 -- Register Iex Equities Tops IexTp 1.6.6 Show Options
 omi_iex_equities_tops_iextp_v1_6_6.prefs.show_auction_information_message = Pref.bool("Show Auction Information Message", show.auction_information_message, "Parse and add Auction Information Message to protocol tree")
-omi_iex_equities_tops_iextp_v1_6_6.prefs.show_iex_tp_header = Pref.bool("Show Iex Tp Header", show.iex_tp_header, "Parse and add Iex Tp Header to protocol tree")
+omi_iex_equities_tops_iextp_v1_6_6.prefs.show_iextp_header = Pref.bool("Show Iextp Header", show.iextp_header, "Parse and add Iextp Header to protocol tree")
 omi_iex_equities_tops_iextp_v1_6_6.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_iex_equities_tops_iextp_v1_6_6.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_iex_equities_tops_iextp_v1_6_6.prefs.show_official_price_message = Pref.bool("Show Official Price Message", show.official_price_message, "Parse and add Official Price Message to protocol tree")
@@ -155,8 +155,8 @@ function omi_iex_equities_tops_iextp_v1_6_6.prefs_changed()
     show.auction_information_message = omi_iex_equities_tops_iextp_v1_6_6.prefs.show_auction_information_message
     changed = true
   end
-  if show.iex_tp_header ~= omi_iex_equities_tops_iextp_v1_6_6.prefs.show_iex_tp_header then
-    show.iex_tp_header = omi_iex_equities_tops_iextp_v1_6_6.prefs.show_iex_tp_header
+  if show.iextp_header ~= omi_iex_equities_tops_iextp_v1_6_6.prefs.show_iextp_header then
+    show.iextp_header = omi_iex_equities_tops_iextp_v1_6_6.prefs.show_iextp_header
     changed = true
   end
   if show.message ~= omi_iex_equities_tops_iextp_v1_6_6.prefs.show_message then
@@ -2488,7 +2488,11 @@ iex_equities_tops_iextp_v1_6_6.message_protocol_id.size = 2
 
 -- Display: Message Protocol Id
 iex_equities_tops_iextp_v1_6_6.message_protocol_id.display = function(value)
-  return "Message Protocol Id: "..value
+  if value == 32771 then
+    return "Message Protocol Id: Iex Tops"
+  end
+
+  return "Message Protocol Id: Unknown("..value..")"
 end
 
 -- Dissect: Message Protocol Id
@@ -2549,11 +2553,11 @@ iex_equities_tops_iextp_v1_6_6.version.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Iex Tp Header
-iex_equities_tops_iextp_v1_6_6.iex_tp_header = {}
+-- Iextp Header
+iex_equities_tops_iextp_v1_6_6.iextp_header = {}
 
--- Size: Iex Tp Header
-iex_equities_tops_iextp_v1_6_6.iex_tp_header.size =
+-- Size: Iextp Header
+iex_equities_tops_iextp_v1_6_6.iextp_header.size =
   iex_equities_tops_iextp_v1_6_6.version.size + 
   iex_equities_tops_iextp_v1_6_6.reserved.size + 
   iex_equities_tops_iextp_v1_6_6.message_protocol_id.size + 
@@ -2565,13 +2569,13 @@ iex_equities_tops_iextp_v1_6_6.iex_tp_header.size =
   iex_equities_tops_iextp_v1_6_6.first_message_sequence_number.size + 
   iex_equities_tops_iextp_v1_6_6.send_time.size
 
--- Display: Iex Tp Header
-iex_equities_tops_iextp_v1_6_6.iex_tp_header.display = function(packet, parent, length)
+-- Display: Iextp Header
+iex_equities_tops_iextp_v1_6_6.iextp_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Iex Tp Header
-iex_equities_tops_iextp_v1_6_6.iex_tp_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Iextp Header
+iex_equities_tops_iextp_v1_6_6.iextp_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
@@ -2580,7 +2584,7 @@ iex_equities_tops_iextp_v1_6_6.iex_tp_header.fields = function(buffer, offset, p
   -- Reserved: 1 Byte
   index, reserved = iex_equities_tops_iextp_v1_6_6.reserved.dissect(buffer, index, packet, parent)
 
-  -- Message Protocol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Message Protocol Id: 2 Byte Unsigned Fixed Width Integer Static
   index, message_protocol_id = iex_equities_tops_iextp_v1_6_6.message_protocol_id.dissect(buffer, index, packet, parent)
 
   -- Channel Id: 4 Byte Unsigned Fixed Width Integer
@@ -2607,21 +2611,21 @@ iex_equities_tops_iextp_v1_6_6.iex_tp_header.fields = function(buffer, offset, p
   return index
 end
 
--- Dissect: Iex Tp Header
-iex_equities_tops_iextp_v1_6_6.iex_tp_header.dissect = function(buffer, offset, packet, parent)
-  if show.iex_tp_header then
+-- Dissect: Iextp Header
+iex_equities_tops_iextp_v1_6_6.iextp_header.dissect = function(buffer, offset, packet, parent)
+  if show.iextp_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_equities_tops_iextp_v1_6_6.fields.iex_tp_header, buffer(offset, 0))
-    local index = iex_equities_tops_iextp_v1_6_6.iex_tp_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_iex_equities_tops_iextp_v1_6_6.fields.iextp_header, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6.iextp_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = iex_equities_tops_iextp_v1_6_6.iex_tp_header.display(packet, parent, length)
+    local display = iex_equities_tops_iextp_v1_6_6.iextp_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_equities_tops_iextp_v1_6_6.iex_tp_header.fields(buffer, offset, packet, parent)
+    return iex_equities_tops_iextp_v1_6_6.iextp_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2632,8 +2636,8 @@ iex_equities_tops_iextp_v1_6_6.packet = {}
 iex_equities_tops_iextp_v1_6_6.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Iex Tp Header: Struct of 10 fields
-  index, iex_tp_header = iex_equities_tops_iextp_v1_6_6.iex_tp_header.dissect(buffer, index, packet, parent)
+  -- Iextp Header: Struct of 10 fields
+  index, iextp_header = iex_equities_tops_iextp_v1_6_6.iextp_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
   local message_count = buffer(index - 26, 2):le_uint()
@@ -2689,10 +2693,25 @@ iex_equities_tops_iextp_v1_6_6.packet.requiredsize = function(buffer)
   return true
 end
 
+-- Verify Message Protocol Id Field
+iex_equities_tops_iextp_v1_6_6.message_protocol_id.verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(2, 2):le_uint()
+
+  if value == 32771 then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Iex Equities Tops IexTp 1.6.6
 local function omi_iex_equities_tops_iextp_v1_6_6_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not iex_equities_tops_iextp_v1_6_6.packet.requiredsize(buffer) then return false end
+
+  -- Verify Message Protocol Id
+  if not iex_equities_tops_iextp_v1_6_6.message_protocol_id.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_iex_equities_tops_iextp_v1_6_6

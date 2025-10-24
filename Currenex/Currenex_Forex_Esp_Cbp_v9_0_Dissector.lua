@@ -1650,7 +1650,11 @@ currenex_forex_esp_cbp_v9_0.itch_soh.size = 1
 
 -- Display: Itch Soh
 currenex_forex_esp_cbp_v9_0.itch_soh.display = function(value)
-  return "Itch Soh: "..value
+  if value == 1 then
+    return "Itch Soh: Soh"
+  end
+
+  return "Itch Soh: Unknown("..value..")"
 end
 
 -- Dissect: Itch Soh

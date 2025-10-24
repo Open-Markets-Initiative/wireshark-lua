@@ -13533,7 +13533,11 @@ b3_equities_binaryentrypoint_sbe_v8_0.version.size = 2
 
 -- Display: Version
 b3_equities_binaryentrypoint_sbe_v8_0.version.display = function(value)
-  return "Version: "..value
+  if value == 2 then
+    return "Version: Version 8.0.0"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -13556,7 +13560,11 @@ b3_equities_binaryentrypoint_sbe_v8_0.schema_id.size = 2
 
 -- Display: Schema Id
 b3_equities_binaryentrypoint_sbe_v8_0.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 1 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

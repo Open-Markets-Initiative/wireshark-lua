@@ -18633,7 +18633,11 @@ euronext_optiq_orderentrygateway_sbe_v5_21.version.size = 2
 
 -- Display: Version
 euronext_optiq_orderentrygateway_sbe_v5_21.version.display = function(value)
-  return "Version: "..value
+  if value == 321 then
+    return "Version: Version 5.21.0"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -18656,7 +18660,11 @@ euronext_optiq_orderentrygateway_sbe_v5_21.schema_id.size = 2
 
 -- Display: Schema Id
 euronext_optiq_orderentrygateway_sbe_v5_21.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 0 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

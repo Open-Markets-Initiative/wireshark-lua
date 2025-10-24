@@ -9324,7 +9324,11 @@ b3_equities_binaryumdf_sbe_v1_8.version.size = 2
 
 -- Display: Version
 b3_equities_binaryumdf_sbe_v1_8.version.display = function(value)
-  return "Version: "..value
+  if value == 9 then
+    return "Version: Version 1.8.0"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -9347,7 +9351,11 @@ b3_equities_binaryumdf_sbe_v1_8.schema_id.size = 2
 
 -- Display: Schema Id
 b3_equities_binaryumdf_sbe_v1_8.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 2 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

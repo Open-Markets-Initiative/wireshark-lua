@@ -204,7 +204,11 @@ cboe_europe_lastsale_apf_v1_7.soup_lf.size = 1
 
 -- Display: Soup Lf
 cboe_europe_lastsale_apf_v1_7.soup_lf.display = function(value)
-  return "Soup Lf: "..value
+  if value == 10 then
+    return "Soup Lf: Line Feed"
+  end
+
+  return "Soup Lf: Unknown("..value..")"
 end
 
 -- Dissect: Soup Lf

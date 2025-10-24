@@ -5218,7 +5218,11 @@ coinbase_derivatives_ordersapi_sbe_v1_8.version.size = 2
 
 -- Display: Version
 coinbase_derivatives_ordersapi_sbe_v1_8.version.display = function(value)
-  return "Version: "..value
+  if value == 2 then
+    return "Version: Version 1.2"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -5241,7 +5245,11 @@ coinbase_derivatives_ordersapi_sbe_v1_8.schema_id.size = 2
 
 -- Display: Schema Id
 coinbase_derivatives_ordersapi_sbe_v1_8.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 1100 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id

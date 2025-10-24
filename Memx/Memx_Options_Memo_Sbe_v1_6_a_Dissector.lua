@@ -7386,7 +7386,11 @@ memx_options_memo_sbe_v1_6_a.version.size = 2
 
 -- Display: Version
 memx_options_memo_sbe_v1_6_a.version.display = function(value)
-  return "Version: "..value
+  if value == 262 then
+    return "Version: Version 1.6"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -7409,7 +7413,11 @@ memx_options_memo_sbe_v1_6_a.schema_id.size = 1
 
 -- Display: Schema Id
 memx_options_memo_sbe_v1_6_a.schema_id.display = function(value)
-  return "Schema Id: "..value
+  if value == 9 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id
