@@ -5,7 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Orion | [Headers][Hkex.Orion.Headers.Udp.v1.0.Dissector] | Udp | [1.0][Hkex.Orion.Headers.Udp.v1.0.Dissector] | 1/31/2013 | 517 | [Header][Omi.Glossary.Status.Header] | [Unavailable][Omi.Glossary.Testing.Unavailable] | [url][Hkex.Orion.Headers.Udp.v1.0.Url] |
+| Orion | [Headers][Hkex.Orion.Headers.Udp.v1.0.Dissector] | Udp | [1.0][Hkex.Orion.Headers.Udp.v1.0.Dissector] | 1/31/2013 | 517 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Orion.Headers.Udp.v1.0.Url] |
 
 
 Hkex: [website](https://www.hkex.com.hk "Go to Hong Kong Exchanges and Clearing")
