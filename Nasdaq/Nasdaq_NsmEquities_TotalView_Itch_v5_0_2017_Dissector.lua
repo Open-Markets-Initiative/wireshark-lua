@@ -3094,7 +3094,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_sub_type.display = function(va
     return "Issue Sub Type: Commodity Futures Trust Shares (CF)"
   end
   if value == "CL" then
-    return "Issue Sub Type: Currency Trust Shares (CL)"
+    return "Issue Sub Type: Commodity Linked Securities (CL)"
   end
   if value == "CM" then
     return "Issue Sub Type: Commodity Index Trust Shares (CM)"
