@@ -17,13 +17,13 @@ local hkex_orion_headers_udp_v1_0 = {}
 -- Hkex Orion Headers Udp 1.0 Fields
 omi_hkex_orion_headers_udp_v1_0.fields.compression_mode = ProtoField.new("Compression Mode", "hkex.orion.headers.udp.v1.0.compressionmode", ftypes.UINT8)
 omi_hkex_orion_headers_udp_v1_0.fields.message = ProtoField.new("Message", "hkex.orion.headers.udp.v1.0.message", ftypes.STRING)
-omi_hkex_orion_headers_udp_v1_0.fields.message_data = ProtoField.new("Message Data", "hkex.orion.headers.udp.v1.0.messagedata", ftypes.BYTES)
 omi_hkex_orion_headers_udp_v1_0.fields.msg_count = ProtoField.new("Msg Count", "hkex.orion.headers.udp.v1.0.msgcount", ftypes.UINT8)
 omi_hkex_orion_headers_udp_v1_0.fields.msg_header = ProtoField.new("Msg Header", "hkex.orion.headers.udp.v1.0.msgheader", ftypes.STRING)
 omi_hkex_orion_headers_udp_v1_0.fields.msg_size = ProtoField.new("Msg Size", "hkex.orion.headers.udp.v1.0.msgsize", ftypes.UINT16)
 omi_hkex_orion_headers_udp_v1_0.fields.msg_type = ProtoField.new("Msg Type", "hkex.orion.headers.udp.v1.0.msgtype", ftypes.UINT16)
 omi_hkex_orion_headers_udp_v1_0.fields.packet = ProtoField.new("Packet", "hkex.orion.headers.udp.v1.0.packet", ftypes.STRING)
 omi_hkex_orion_headers_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "hkex.orion.headers.udp.v1.0.packetheader", ftypes.STRING)
+omi_hkex_orion_headers_udp_v1_0.fields.payload = ProtoField.new("Payload", "hkex.orion.headers.udp.v1.0.payload", ftypes.BYTES)
 omi_hkex_orion_headers_udp_v1_0.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.orion.headers.udp.v1.0.pktsize", ftypes.UINT16)
 omi_hkex_orion_headers_udp_v1_0.fields.send_time = ProtoField.new("Send Time", "hkex.orion.headers.udp.v1.0.sendtime", ftypes.UINT64)
 omi_hkex_orion_headers_udp_v1_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.orion.headers.udp.v1.0.seqnum", ftypes.UINT32)
@@ -82,25 +82,25 @@ end
 -- Dissect Hkex Orion Headers Udp 1.0
 -----------------------------------------------------------------------
 
--- Message Data
-hkex_orion_headers_udp_v1_0.message_data = {}
+-- Payload
+hkex_orion_headers_udp_v1_0.payload = {}
 
--- Size: Message Data
-hkex_orion_headers_udp_v1_0.message_data.size = 0
+-- Size: Payload
+hkex_orion_headers_udp_v1_0.payload.size = 0
 
--- Display: Message Data
-hkex_orion_headers_udp_v1_0.message_data.display = function(value)
-  return "Message Data: "..value
+-- Display: Payload
+hkex_orion_headers_udp_v1_0.payload.display = function(value)
+  return "Payload: "..value
 end
 
--- Dissect: Message Data
-hkex_orion_headers_udp_v1_0.message_data.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_orion_headers_udp_v1_0.message_data.size
+-- Dissect: Payload
+hkex_orion_headers_udp_v1_0.payload.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_orion_headers_udp_v1_0.payload.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = hkex_orion_headers_udp_v1_0.message_data.display(value, buffer, offset, packet, parent)
+  local display = hkex_orion_headers_udp_v1_0.payload.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.message_data, range, value, display)
+  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.payload, range, value, display)
 
   return offset + length, value
 end
@@ -216,8 +216,8 @@ hkex_orion_headers_udp_v1_0.message.fields = function(buffer, offset, packet, pa
   -- Msg Header: Struct of 2 fields
   index, msg_header = hkex_orion_headers_udp_v1_0.msg_header.dissect(buffer, index, packet, parent)
 
-  -- Message Data: 0 Byte
-  index, message_data = hkex_orion_headers_udp_v1_0.message_data.dissect(buffer, index, packet, parent)
+  -- Payload: 0 Byte
+  index, payload = hkex_orion_headers_udp_v1_0.payload.dissect(buffer, index, packet, parent)
 
   return index
 end
