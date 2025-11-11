@@ -18,10 +18,9 @@ local hkex_derivatives_fulltick_omd_v1_47 = {}
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.actual_start_date = ProtoField.new("Actual Start Date", "hkex.derivatives.fulltick.omd.v1.47.actualstartdate", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.derivatives.fulltick.omd.v1.47.actualstarttime", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.alert_id = ProtoField.new("Alert Id", "hkex.derivatives.fulltick.omd.v1.47.alertid", ftypes.UINT16)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "hkex.derivatives.fulltick.omd.v1.47.beginseqnum", ftypes.UINT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.bid_ask_flag = ProtoField.new("Bid Ask Flag", "hkex.derivatives.fulltick.omd.v1.47.bidaskflag", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "hkex.derivatives.fulltick.omd.v1.47.calculatedopeningprice", ftypes.INT32)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.channel_id = ProtoField.new("Channel Id", "hkex.derivatives.fulltick.omd.v1.47.channelid", ftypes.UINT16)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.calculated_opening_quantity = ProtoField.new("Calculated Opening Quantity", "hkex.derivatives.fulltick.omd.v1.47.calculatedopeningquantity", ftypes.UINT64)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.combo_group_id = ProtoField.new("Combo Group Id", "hkex.derivatives.fulltick.omd.v1.47.combogroupid", ftypes.UINT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.commodity_code = ProtoField.new("Commodity Code", "hkex.derivatives.fulltick.omd.v1.47.commoditycode", ftypes.UINT16)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.compression_mode = ProtoField.new("Compression Mode", "hkex.derivatives.fulltick.omd.v1.47.compressionmode", ftypes.UINT8)
@@ -29,11 +28,10 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.content = ProtoField.new("Content
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_info = ProtoField.new("Deal Info", "hkex.derivatives.fulltick.omd.v1.47.dealinfo", ftypes.UINT16)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_type = ProtoField.new("Deal Type", "hkex.derivatives.fulltick.omd.v1.47.dealtype", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.disaster_recovery_status = ProtoField.new("Disaster Recovery Status", "hkex.derivatives.fulltick.omd.v1.47.disasterrecoverystatus", ftypes.UINT32)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.end_seq_num = ProtoField.new("End Seq Num", "hkex.derivatives.fulltick.omd.v1.47.endseqnum", ftypes.UINT32)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.fille = ProtoField.new("Fille", "hkex.derivatives.fulltick.omd.v1.47.fille", ftypes.STRING)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler = ProtoField.new("Filler", "hkex.derivatives.fulltick.omd.v1.47.filler", ftypes.STRING)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_2_string = ProtoField.new("Filler 2 String", "hkex.derivatives.fulltick.omd.v1.47.filler2string", ftypes.STRING)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_3_string = ProtoField.new("Filler 3 String", "hkex.derivatives.fulltick.omd.v1.47.filler3string", ftypes.STRING)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_1 = ProtoField.new("Filler 1", "hkex.derivatives.fulltick.omd.v1.47.filler1", ftypes.STRING)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_2 = ProtoField.new("Filler 2", "hkex.derivatives.fulltick.omd.v1.47.filler2", ftypes.STRING)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_3 = ProtoField.new("Filler 3", "hkex.derivatives.fulltick.omd.v1.47.filler3", ftypes.STRING)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_4 = ProtoField.new("Filler 4", "hkex.derivatives.fulltick.omd.v1.47.filler4", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.header = ProtoField.new("Header", "hkex.derivatives.fulltick.omd.v1.47.header", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.info_type = ProtoField.new("Info Type", "hkex.derivatives.fulltick.omd.v1.47.infotype", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.instrument = ProtoField.new("Instrument", "hkex.derivatives.fulltick.omd.v1.47.instrument", ftypes.UINT8)
@@ -62,13 +60,11 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.planned_start_date = ProtoField.n
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.derivatives.fulltick.omd.v1.47.plannedstarttime", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.price = ProtoField.new("Price", "hkex.derivatives.fulltick.omd.v1.47.price", ftypes.INT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.priority = ProtoField.new("Priority", "hkex.derivatives.fulltick.omd.v1.47.priority", ftypes.UINT8)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.quantity = ProtoField.new("Quantity", "hkex.derivatives.fulltick.omd.v1.47.quantity", ftypes.UINT64)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.derivatives.fulltick.omd.v1.47.retransstatus", ftypes.UINT8)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.quantity = ProtoField.new("Quantity", "hkex.derivatives.fulltick.omd.v1.47.quantity", ftypes.UINT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.seconds_to_state_change = ProtoField.new("Seconds To State Change", "hkex.derivatives.fulltick.omd.v1.47.secondstostatechange", ftypes.UINT16)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.send_time = ProtoField.new("Send Time", "hkex.derivatives.fulltick.omd.v1.47.sendtime", ftypes.UINT64)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.seq_num = ProtoField.new("Seq Num", "hkex.derivatives.fulltick.omd.v1.47.seqnum", ftypes.UINT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.series_status = ProtoField.new("Series Status", "hkex.derivatives.fulltick.omd.v1.47.seriesstatus", ftypes.UINT8)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.session_status = ProtoField.new("Session Status", "hkex.derivatives.fulltick.omd.v1.47.sessionstatus", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.side = ProtoField.new("Side", "hkex.derivatives.fulltick.omd.v1.47.side", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.source = ProtoField.new("Source", "hkex.derivatives.fulltick.omd.v1.47.source", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.state = ProtoField.new("State", "hkex.derivatives.fulltick.omd.v1.47.state", ftypes.UINT16)
@@ -77,9 +73,9 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.suspended = ProtoField.new("Suspe
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.suspension_indicator = ProtoField.new("Suspension Indicator", "hkex.derivatives.fulltick.omd.v1.47.suspensionindicator", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_condition = ProtoField.new("Trade Condition", "hkex.derivatives.fulltick.omd.v1.47.tradecondition", ftypes.UINT16)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_id = ProtoField.new("Trade Id", "hkex.derivatives.fulltick.omd.v1.47.tradeid", ftypes.UINT64)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_quantity = ProtoField.new("Trade Quantity", "hkex.derivatives.fulltick.omd.v1.47.tradequantity", ftypes.UINT64)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_state = ProtoField.new("Trade State", "hkex.derivatives.fulltick.omd.v1.47.tradestate", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_time = ProtoField.new("Trade Time", "hkex.derivatives.fulltick.omd.v1.47.tradetime", ftypes.UINT64)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.username = ProtoField.new("Username", "hkex.derivatives.fulltick.omd.v1.47.username", ftypes.STRING)
 
 -- Hkex Derivatives FullTick Omd 1.47 messages
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.add_order_message = ProtoField.new("Add Order Message", "hkex.derivatives.fulltick.omd.v1.47.addordermessage", ftypes.STRING)
@@ -87,22 +83,19 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.calculated_opening_price_message 
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.commodity_status_message = ProtoField.new("Commodity Status Message", "hkex.derivatives.fulltick.omd.v1.47.commoditystatusmessage", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.delete_order_message = ProtoField.new("Delete Order Message", "hkex.derivatives.fulltick.omd.v1.47.deleteordermessage", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.disaster_recovery_signal_message = ProtoField.new("Disaster Recovery Signal Message", "hkex.derivatives.fulltick.omd.v1.47.disasterrecoverysignalmessage", ftypes.STRING)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.logon = ProtoField.new("Logon", "hkex.derivatives.fulltick.omd.v1.47.logon", ftypes.STRING)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.logon_response = ProtoField.new("Logon Response", "hkex.derivatives.fulltick.omd.v1.47.logonresponse", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_alert_message = ProtoField.new("Market Alert Message", "hkex.derivatives.fulltick.omd.v1.47.marketalertmessage", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_status_message = ProtoField.new("Market Status Message", "hkex.derivatives.fulltick.omd.v1.47.marketstatusmessage", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.modify_order_message = ProtoField.new("Modify Order Message", "hkex.derivatives.fulltick.omd.v1.47.modifyordermessage", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.orderbook_clear_message = ProtoField.new("Orderbook Clear Message", "hkex.derivatives.fulltick.omd.v1.47.orderbookclearmessage", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.quote_request = ProtoField.new("Quote Request", "hkex.derivatives.fulltick.omd.v1.47.quoterequest", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.refresh_complete = ProtoField.new("Refresh Complete", "hkex.derivatives.fulltick.omd.v1.47.refreshcomplete", ftypes.STRING)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.retransmission_request = ProtoField.new("Retransmission Request", "hkex.derivatives.fulltick.omd.v1.47.retransmissionrequest", ftypes.STRING)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.retransmission_response = ProtoField.new("Retransmission Response", "hkex.derivatives.fulltick.omd.v1.47.retransmissionresponse", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.sequence_reset = ProtoField.new("Sequence Reset", "hkex.derivatives.fulltick.omd.v1.47.sequencereset", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.series_status_message = ProtoField.new("Series Status Message", "hkex.derivatives.fulltick.omd.v1.47.seriesstatusmessage", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_amendment_message = ProtoField.new("Trade Amendment Message", "hkex.derivatives.fulltick.omd.v1.47.tradeamendmentmessage", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_message = ProtoField.new("Trade Message", "hkex.derivatives.fulltick.omd.v1.47.trademessage", ftypes.STRING)
 
 -- Hkex Derivatives FullTick Omd 1.47 generated fields
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.content_index = ProtoField.new("Content Index", "hkex.derivatives.fulltick.omd.v1.47.contentindex", ftypes.UINT16)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.message_index = ProtoField.new("Message Index", "hkex.derivatives.fulltick.omd.v1.47.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -117,8 +110,6 @@ show.calculated_opening_price_message = true
 show.commodity_status_message = true
 show.delete_order_message = true
 show.disaster_recovery_signal_message = true
-show.logon = true
-show.logon_response = true
 show.market_alert_message = true
 show.market_status_message = true
 show.message = true
@@ -129,8 +120,6 @@ show.packet = true
 show.packet_header = true
 show.quote_request = true
 show.refresh_complete = true
-show.retransmission_request = true
-show.retransmission_response = true
 show.sequence_reset = true
 show.series_status_message = true
 show.trade_amendment_message = true
@@ -143,8 +132,6 @@ omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_calculated_opening_price_mess
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_commodity_status_message = Pref.bool("Show Commodity Status Message", show.commodity_status_message, "Parse and add Commodity Status Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_disaster_recovery_signal_message = Pref.bool("Show Disaster Recovery Signal Message", show.disaster_recovery_signal_message, "Parse and add Disaster Recovery Signal Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_logon = Pref.bool("Show Logon", show.logon, "Parse and add Logon to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_logon_response = Pref.bool("Show Logon Response", show.logon_response, "Parse and add Logon Response to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_alert_message = Pref.bool("Show Market Alert Message", show.market_alert_message, "Parse and add Market Alert Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_status_message = Pref.bool("Show Market Status Message", show.market_status_message, "Parse and add Market Status Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -155,8 +142,6 @@ omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet = Pref.bool("Show Pack
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_refresh_complete = Pref.bool("Show Refresh Complete", show.refresh_complete, "Parse and add Refresh Complete to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_retransmission_response = Pref.bool("Show Retransmission Response", show.retransmission_response, "Parse and add Retransmission Response to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_sequence_reset = Pref.bool("Show Sequence Reset", show.sequence_reset, "Parse and add Sequence Reset to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_status_message = Pref.bool("Show Series Status Message", show.series_status_message, "Parse and add Series Status Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_amendment_message = Pref.bool("Show Trade Amendment Message", show.trade_amendment_message, "Parse and add Trade Amendment Message to protocol tree")
@@ -186,14 +171,6 @@ function omi_hkex_derivatives_fulltick_omd_v1_47.prefs_changed()
   end
   if show.disaster_recovery_signal_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_disaster_recovery_signal_message then
     show.disaster_recovery_signal_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_disaster_recovery_signal_message
-    changed = true
-  end
-  if show.logon ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_logon then
-    show.logon = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_logon
-    changed = true
-  end
-  if show.logon_response ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_logon_response then
-    show.logon_response = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_logon_response
     changed = true
   end
   if show.market_alert_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_alert_message then
@@ -234,14 +211,6 @@ function omi_hkex_derivatives_fulltick_omd_v1_47.prefs_changed()
   end
   if show.refresh_complete ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_refresh_complete then
     show.refresh_complete = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_refresh_complete
-    changed = true
-  end
-  if show.retransmission_request ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_retransmission_request then
-    show.retransmission_request = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_retransmission_request
-    changed = true
-  end
-  if show.retransmission_response ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_retransmission_response then
-    show.retransmission_response = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_retransmission_response
     changed = true
   end
   if show.sequence_reset ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_sequence_reset then
@@ -376,7 +345,14 @@ hkex_derivatives_fulltick_omd_v1_47.last_fragment.size = 1
 
 -- Display: Last Fragment
 hkex_derivatives_fulltick_omd_v1_47.last_fragment.display = function(value)
-  return "Last Fragment: "..value
+  if value == "Y" then
+    return "Last Fragment: Complete (Y)"
+  end
+  if value == "M" then
+    return "Last Fragment: Not Complete (M)"
+  end
+
+  return "Last Fragment: Unknown("..value..")"
 end
 
 -- Dissect: Last Fragment
@@ -414,25 +390,25 @@ hkex_derivatives_fulltick_omd_v1_47.header.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Filler
-hkex_derivatives_fulltick_omd_v1_47.filler = {}
+-- Filler 1
+hkex_derivatives_fulltick_omd_v1_47.filler_1 = {}
 
--- Size: Filler
-hkex_derivatives_fulltick_omd_v1_47.filler.size = 1
+-- Size: Filler 1
+hkex_derivatives_fulltick_omd_v1_47.filler_1.size = 1
 
--- Display: Filler
-hkex_derivatives_fulltick_omd_v1_47.filler.display = function(value)
-  return "Filler: "..value
+-- Display: Filler 1
+hkex_derivatives_fulltick_omd_v1_47.filler_1.display = function(value)
+  return "Filler 1: "..value
 end
 
--- Dissect: Filler
-hkex_derivatives_fulltick_omd_v1_47.filler.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.filler.size
+-- Dissect: Filler 1
+hkex_derivatives_fulltick_omd_v1_47.filler_1.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.filler_1.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = hkex_derivatives_fulltick_omd_v1_47.filler.display(value, buffer, offset, packet, parent)
+  local display = hkex_derivatives_fulltick_omd_v1_47.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler, range, value, display)
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_1, range, value, display)
 
   return offset + length, value
 end
@@ -445,7 +421,14 @@ hkex_derivatives_fulltick_omd_v1_47.source.size = 1
 
 -- Display: Source
 hkex_derivatives_fulltick_omd_v1_47.source.display = function(value)
-  return "Source: "..value
+  if value == "H" then
+    return "Source: Trading System (H)"
+  end
+  if value == "M" then
+    return "Source: Other Market Alerts (M)"
+  end
+
+  return "Source: Unknown("..value..")"
 end
 
 -- Dissect: Source
@@ -486,17 +469,32 @@ end
 -- Market Alert Message
 hkex_derivatives_fulltick_omd_v1_47.market_alert_message = {}
 
--- Size: Market Alert Message
-hkex_derivatives_fulltick_omd_v1_47.market_alert_message.size =
-  hkex_derivatives_fulltick_omd_v1_47.alert_id.size + 
-  hkex_derivatives_fulltick_omd_v1_47.source.size + 
-  hkex_derivatives_fulltick_omd_v1_47.filler.size + 
-  hkex_derivatives_fulltick_omd_v1_47.header.size + 
-  hkex_derivatives_fulltick_omd_v1_47.last_fragment.size + 
-  hkex_derivatives_fulltick_omd_v1_47.info_type.size + 
-  hkex_derivatives_fulltick_omd_v1_47.priority.size + 
-  hkex_derivatives_fulltick_omd_v1_47.no_lines.size + 
-  hkex_derivatives_fulltick_omd_v1_47.content.size
+-- Calculate size of: Market Alert Message
+hkex_derivatives_fulltick_omd_v1_47.market_alert_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + hkex_derivatives_fulltick_omd_v1_47.alert_id.size
+
+  index = index + hkex_derivatives_fulltick_omd_v1_47.source.size
+
+  index = index + hkex_derivatives_fulltick_omd_v1_47.filler_1.size
+
+  index = index + hkex_derivatives_fulltick_omd_v1_47.header.size
+
+  index = index + hkex_derivatives_fulltick_omd_v1_47.last_fragment.size
+
+  index = index + hkex_derivatives_fulltick_omd_v1_47.info_type.size
+
+  index = index + hkex_derivatives_fulltick_omd_v1_47.priority.size
+
+  index = index + hkex_derivatives_fulltick_omd_v1_47.no_lines.size
+
+  -- Calculate field size from count
+  local content_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + content_count * 320
+
+  return index
+end
 
 -- Display: Market Alert Message
 hkex_derivatives_fulltick_omd_v1_47.market_alert_message.display = function(packet, parent, length)
@@ -513,8 +511,8 @@ hkex_derivatives_fulltick_omd_v1_47.market_alert_message.fields = function(buffe
   -- Source: String
   index, source = hkex_derivatives_fulltick_omd_v1_47.source.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = hkex_derivatives_fulltick_omd_v1_47.filler.dissect(buffer, index, packet, parent)
+  -- Filler 1: String
+  index, filler_1 = hkex_derivatives_fulltick_omd_v1_47.filler_1.dissect(buffer, index, packet, parent)
 
   -- Header: Binary
   index, header = hkex_derivatives_fulltick_omd_v1_47.header.dissect(buffer, index, packet, parent)
@@ -531,49 +529,69 @@ hkex_derivatives_fulltick_omd_v1_47.market_alert_message.fields = function(buffe
   -- No Lines: Uint8
   index, no_lines = hkex_derivatives_fulltick_omd_v1_47.no_lines.dissect(buffer, index, packet, parent)
 
-  -- Content: Binary
-  index, content = hkex_derivatives_fulltick_omd_v1_47.content.dissect(buffer, index, packet, parent)
+  -- Repeating: Content
+  for content_index = 1, no_lines do
+    index, content = hkex_derivatives_fulltick_omd_v1_47.content.dissect(buffer, index, packet, parent, content_index)
+  end
 
   return index
 end
 
 -- Dissect: Market Alert Message
 hkex_derivatives_fulltick_omd_v1_47.market_alert_message.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
   if show.market_alert_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_alert_message, buffer(offset, 0))
-    local index = hkex_derivatives_fulltick_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_fulltick_omd_v1_47.market_alert_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_fulltick_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
+    local length = hkex_derivatives_fulltick_omd_v1_47.market_alert_message.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = hkex_derivatives_fulltick_omd_v1_47.market_alert_message.display(buffer, packet, parent)
+    parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_alert_message, range, display)
   end
+
+  return hkex_derivatives_fulltick_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
 end
 
--- Quantity
-hkex_derivatives_fulltick_omd_v1_47.quantity = {}
+-- Calculated Opening Quantity
+hkex_derivatives_fulltick_omd_v1_47.calculated_opening_quantity = {}
 
--- Size: Quantity
-hkex_derivatives_fulltick_omd_v1_47.quantity.size = 8
+-- Size: Calculated Opening Quantity
+hkex_derivatives_fulltick_omd_v1_47.calculated_opening_quantity.size = 8
 
--- Display: Quantity
-hkex_derivatives_fulltick_omd_v1_47.quantity.display = function(value)
-  return "Quantity: "..value
+-- Display: Calculated Opening Quantity
+hkex_derivatives_fulltick_omd_v1_47.calculated_opening_quantity.display = function(value)
+  return "Calculated Opening Quantity: "..value
 end
 
--- Dissect: Quantity
-hkex_derivatives_fulltick_omd_v1_47.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.quantity.size
+-- Dissect: Calculated Opening Quantity
+hkex_derivatives_fulltick_omd_v1_47.calculated_opening_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.calculated_opening_quantity.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_derivatives_fulltick_omd_v1_47.quantity.display(value, buffer, offset, packet, parent)
+  local display = hkex_derivatives_fulltick_omd_v1_47.calculated_opening_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.quantity, range, value, display)
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.calculated_opening_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 4
+hkex_derivatives_fulltick_omd_v1_47.filler_4 = {}
+
+-- Size: Filler 4
+hkex_derivatives_fulltick_omd_v1_47.filler_4.size = 4
+
+-- Display: Filler 4
+hkex_derivatives_fulltick_omd_v1_47.filler_4.display = function(value)
+  return "Filler 4: "..value
+end
+
+-- Dissect: Filler 4
+hkex_derivatives_fulltick_omd_v1_47.filler_4.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.filler_4.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_derivatives_fulltick_omd_v1_47.filler_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_4, range, value, display)
 
   return offset + length, value
 end
@@ -631,8 +649,8 @@ hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price_message = {}
 hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price_message.size =
   hkex_derivatives_fulltick_omd_v1_47.orderbook_id.size + 
   hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price.size + 
-  hkex_derivatives_fulltick_omd_v1_47.filler.size + 
-  hkex_derivatives_fulltick_omd_v1_47.quantity.size
+  hkex_derivatives_fulltick_omd_v1_47.filler_4.size + 
+  hkex_derivatives_fulltick_omd_v1_47.calculated_opening_quantity.size
 
 -- Display: Calculated Opening Price Message
 hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price_message.display = function(packet, parent, length)
@@ -649,11 +667,11 @@ hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price_message.fields = fu
   -- Calculated Opening Price: Int32
   index, calculated_opening_price = hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = hkex_derivatives_fulltick_omd_v1_47.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = hkex_derivatives_fulltick_omd_v1_47.filler_4.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Uint64
-  index, quantity = hkex_derivatives_fulltick_omd_v1_47.quantity.dissect(buffer, index, packet, parent)
+  -- Calculated Opening Quantity: Uint64
+  index, calculated_opening_quantity = hkex_derivatives_fulltick_omd_v1_47.calculated_opening_quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -674,6 +692,29 @@ hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price_message.dissect = f
     -- Skip element, add fields directly
     return hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Filler 3
+hkex_derivatives_fulltick_omd_v1_47.filler_3 = {}
+
+-- Size: Filler 3
+hkex_derivatives_fulltick_omd_v1_47.filler_3.size = 3
+
+-- Display: Filler 3
+hkex_derivatives_fulltick_omd_v1_47.filler_3.display = function(value)
+  return "Filler 3: "..value
+end
+
+-- Dissect: Filler 3
+hkex_derivatives_fulltick_omd_v1_47.filler_3.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.filler_3.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_derivatives_fulltick_omd_v1_47.filler_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_3, range, value, display)
+
+  return offset + length, value
 end
 
 -- Trade State
@@ -728,6 +769,29 @@ hkex_derivatives_fulltick_omd_v1_47.trade_time.dissect = function(buffer, offset
   local display = hkex_derivatives_fulltick_omd_v1_47.trade_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Quantity
+hkex_derivatives_fulltick_omd_v1_47.trade_quantity = {}
+
+-- Size: Trade Quantity
+hkex_derivatives_fulltick_omd_v1_47.trade_quantity.size = 8
+
+-- Display: Trade Quantity
+hkex_derivatives_fulltick_omd_v1_47.trade_quantity.display = function(value)
+  return "Trade Quantity: "..value
+end
+
+-- Dissect: Trade Quantity
+hkex_derivatives_fulltick_omd_v1_47.trade_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.trade_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_derivatives_fulltick_omd_v1_47.trade_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -809,10 +873,10 @@ hkex_derivatives_fulltick_omd_v1_47.trade_amendment_message.size =
   hkex_derivatives_fulltick_omd_v1_47.trade_id.size + 
   hkex_derivatives_fulltick_omd_v1_47.combo_group_id.size + 
   hkex_derivatives_fulltick_omd_v1_47.price.size + 
-  hkex_derivatives_fulltick_omd_v1_47.quantity.size + 
+  hkex_derivatives_fulltick_omd_v1_47.trade_quantity.size + 
   hkex_derivatives_fulltick_omd_v1_47.trade_time.size + 
   hkex_derivatives_fulltick_omd_v1_47.trade_state.size + 
-  hkex_derivatives_fulltick_omd_v1_47.filler.size
+  hkex_derivatives_fulltick_omd_v1_47.filler_3.size
 
 -- Display: Trade Amendment Message
 hkex_derivatives_fulltick_omd_v1_47.trade_amendment_message.display = function(packet, parent, length)
@@ -832,8 +896,8 @@ hkex_derivatives_fulltick_omd_v1_47.trade_amendment_message.fields = function(bu
   -- Price: Int32
   index, price = hkex_derivatives_fulltick_omd_v1_47.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Uint64
-  index, quantity = hkex_derivatives_fulltick_omd_v1_47.quantity.dissect(buffer, index, packet, parent)
+  -- Trade Quantity: Uint64
+  index, trade_quantity = hkex_derivatives_fulltick_omd_v1_47.trade_quantity.dissect(buffer, index, packet, parent)
 
   -- Trade Time: Uint64
   index, trade_time = hkex_derivatives_fulltick_omd_v1_47.trade_time.dissect(buffer, index, packet, parent)
@@ -841,8 +905,8 @@ hkex_derivatives_fulltick_omd_v1_47.trade_amendment_message.fields = function(bu
   -- Trade State: Uint8
   index, trade_state = hkex_derivatives_fulltick_omd_v1_47.trade_state.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = hkex_derivatives_fulltick_omd_v1_47.filler.dissect(buffer, index, packet, parent)
+  -- Filler 3: String
+  index, filler_3 = hkex_derivatives_fulltick_omd_v1_47.filler_3.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -863,6 +927,29 @@ hkex_derivatives_fulltick_omd_v1_47.trade_amendment_message.dissect = function(b
     -- Skip element, add fields directly
     return hkex_derivatives_fulltick_omd_v1_47.trade_amendment_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Filler 2
+hkex_derivatives_fulltick_omd_v1_47.filler_2 = {}
+
+-- Size: Filler 2
+hkex_derivatives_fulltick_omd_v1_47.filler_2.size = 2
+
+-- Display: Filler 2
+hkex_derivatives_fulltick_omd_v1_47.filler_2.display = function(value)
+  return "Filler 2: "..value
+end
+
+-- Dissect: Filler 2
+hkex_derivatives_fulltick_omd_v1_47.filler_2.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.filler_2.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_derivatives_fulltick_omd_v1_47.filler_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_2, range, value, display)
+
+  return offset + length, value
 end
 
 -- Deal Info
@@ -1001,8 +1088,8 @@ hkex_derivatives_fulltick_omd_v1_47.trade_message.size =
   hkex_derivatives_fulltick_omd_v1_47.deal_type.size + 
   hkex_derivatives_fulltick_omd_v1_47.trade_condition.size + 
   hkex_derivatives_fulltick_omd_v1_47.deal_info.size + 
-  hkex_derivatives_fulltick_omd_v1_47.filler.size + 
-  hkex_derivatives_fulltick_omd_v1_47.quantity.size + 
+  hkex_derivatives_fulltick_omd_v1_47.filler_2.size + 
+  hkex_derivatives_fulltick_omd_v1_47.trade_quantity.size + 
   hkex_derivatives_fulltick_omd_v1_47.trade_time.size
 
 -- Display: Trade Message
@@ -1041,11 +1128,11 @@ hkex_derivatives_fulltick_omd_v1_47.trade_message.fields = function(buffer, offs
   -- Deal Info: Uint16
   index, deal_info = hkex_derivatives_fulltick_omd_v1_47.deal_info.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = hkex_derivatives_fulltick_omd_v1_47.filler.dissect(buffer, index, packet, parent)
+  -- Filler 2: String
+  index, filler_2 = hkex_derivatives_fulltick_omd_v1_47.filler_2.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Uint64
-  index, quantity = hkex_derivatives_fulltick_omd_v1_47.quantity.dissect(buffer, index, packet, parent)
+  -- Trade Quantity: Uint64
+  index, trade_quantity = hkex_derivatives_fulltick_omd_v1_47.trade_quantity.dissect(buffer, index, packet, parent)
 
   -- Trade Time: Uint64
   index, trade_time = hkex_derivatives_fulltick_omd_v1_47.trade_time.dissect(buffer, index, packet, parent)
@@ -1069,29 +1156,6 @@ hkex_derivatives_fulltick_omd_v1_47.trade_message.dissect = function(buffer, off
     -- Skip element, add fields directly
     return hkex_derivatives_fulltick_omd_v1_47.trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Fille
-hkex_derivatives_fulltick_omd_v1_47.fille = {}
-
--- Size: Fille
-hkex_derivatives_fulltick_omd_v1_47.fille.size = 3
-
--- Display: Fille
-hkex_derivatives_fulltick_omd_v1_47.fille.display = function(value)
-  return "Fille: "..value
-end
-
--- Dissect: Fille
-hkex_derivatives_fulltick_omd_v1_47.fille.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.fille.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = hkex_derivatives_fulltick_omd_v1_47.fille.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.fille, range, value, display)
-
-  return offset + length, value
 end
 
 -- Bid Ask Flag
@@ -1148,7 +1212,7 @@ hkex_derivatives_fulltick_omd_v1_47.quote_request.size =
   hkex_derivatives_fulltick_omd_v1_47.orderbook_id.size + 
   hkex_derivatives_fulltick_omd_v1_47.number_of_lots.size + 
   hkex_derivatives_fulltick_omd_v1_47.bid_ask_flag.size + 
-  hkex_derivatives_fulltick_omd_v1_47.fille.size
+  hkex_derivatives_fulltick_omd_v1_47.filler_3.size
 
 -- Display: Quote Request
 hkex_derivatives_fulltick_omd_v1_47.quote_request.display = function(packet, parent, length)
@@ -1168,8 +1232,8 @@ hkex_derivatives_fulltick_omd_v1_47.quote_request.fields = function(buffer, offs
   -- Bid Ask Flag: Uint8
   index, bid_ask_flag = hkex_derivatives_fulltick_omd_v1_47.bid_ask_flag.dissect(buffer, index, packet, parent)
 
-  -- Fille: String
-  index, fille = hkex_derivatives_fulltick_omd_v1_47.fille.dissect(buffer, index, packet, parent)
+  -- Filler 3: String
+  index, filler_3 = hkex_derivatives_fulltick_omd_v1_47.filler_3.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1240,7 +1304,7 @@ hkex_derivatives_fulltick_omd_v1_47.delete_order_message.size =
   hkex_derivatives_fulltick_omd_v1_47.orderbook_id.size + 
   hkex_derivatives_fulltick_omd_v1_47.order_id.size + 
   hkex_derivatives_fulltick_omd_v1_47.side.size + 
-  hkex_derivatives_fulltick_omd_v1_47.filler.size
+  hkex_derivatives_fulltick_omd_v1_47.filler_1.size
 
 -- Display: Delete Order Message
 hkex_derivatives_fulltick_omd_v1_47.delete_order_message.display = function(packet, parent, length)
@@ -1260,8 +1324,8 @@ hkex_derivatives_fulltick_omd_v1_47.delete_order_message.fields = function(buffe
   -- Side: Uint8
   index, side = hkex_derivatives_fulltick_omd_v1_47.side.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = hkex_derivatives_fulltick_omd_v1_47.filler.dissect(buffer, index, packet, parent)
+  -- Filler 1: String
+  index, filler_1 = hkex_derivatives_fulltick_omd_v1_47.filler_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1330,6 +1394,29 @@ hkex_derivatives_fulltick_omd_v1_47.order_type.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Quantity
+hkex_derivatives_fulltick_omd_v1_47.quantity = {}
+
+-- Size: Quantity
+hkex_derivatives_fulltick_omd_v1_47.quantity.size = 4
+
+-- Display: Quantity
+hkex_derivatives_fulltick_omd_v1_47.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+hkex_derivatives_fulltick_omd_v1_47.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_derivatives_fulltick_omd_v1_47.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
 -- Modify Order Message
 hkex_derivatives_fulltick_omd_v1_47.modify_order_message = {}
 
@@ -1361,7 +1448,7 @@ hkex_derivatives_fulltick_omd_v1_47.modify_order_message.fields = function(buffe
   -- Price: Int32
   index, price = hkex_derivatives_fulltick_omd_v1_47.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Uint64
+  -- Quantity: Uint32
   index, quantity = hkex_derivatives_fulltick_omd_v1_47.quantity.dissect(buffer, index, packet, parent)
 
   -- Side: Uint8
@@ -1449,7 +1536,7 @@ hkex_derivatives_fulltick_omd_v1_47.add_order_message.fields = function(buffer, 
   -- Price: Int32
   index, price = hkex_derivatives_fulltick_omd_v1_47.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Uint64
+  -- Quantity: Uint32
   index, quantity = hkex_derivatives_fulltick_omd_v1_47.quantity.dissect(buffer, index, packet, parent)
 
   -- Side: Uint8
@@ -1513,7 +1600,6 @@ hkex_derivatives_fulltick_omd_v1_47.refresh_complete = {}
 
 -- Size: Refresh Complete
 hkex_derivatives_fulltick_omd_v1_47.refresh_complete.size =
-  hkex_derivatives_fulltick_omd_v1_47.last_seq_num.size + 
   hkex_derivatives_fulltick_omd_v1_47.last_seq_num.size
 
 -- Display: Refresh Complete
@@ -1524,9 +1610,6 @@ end
 -- Dissect Fields: Refresh Complete
 hkex_derivatives_fulltick_omd_v1_47.refresh_complete.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Last Seq Num: Uint32
-  index, last_seq_num = hkex_derivatives_fulltick_omd_v1_47.last_seq_num.dissect(buffer, index, packet, parent)
 
   -- Last Seq Num: Uint32
   index, last_seq_num = hkex_derivatives_fulltick_omd_v1_47.last_seq_num.dissect(buffer, index, packet, parent)
@@ -1549,336 +1632,6 @@ hkex_derivatives_fulltick_omd_v1_47.refresh_complete.dissect = function(buffer, 
   else
     -- Skip element, add fields directly
     return hkex_derivatives_fulltick_omd_v1_47.refresh_complete.fields(buffer, offset, packet, parent)
-  end
-end
-
--- End Seq Num
-hkex_derivatives_fulltick_omd_v1_47.end_seq_num = {}
-
--- Size: End Seq Num
-hkex_derivatives_fulltick_omd_v1_47.end_seq_num.size = 4
-
--- Display: End Seq Num
-hkex_derivatives_fulltick_omd_v1_47.end_seq_num.display = function(value)
-  return "End Seq Num: "..value
-end
-
--- Dissect: End Seq Num
-hkex_derivatives_fulltick_omd_v1_47.end_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.end_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.end_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.end_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Begin Seq Num
-hkex_derivatives_fulltick_omd_v1_47.begin_seq_num = {}
-
--- Size: Begin Seq Num
-hkex_derivatives_fulltick_omd_v1_47.begin_seq_num.size = 4
-
--- Display: Begin Seq Num
-hkex_derivatives_fulltick_omd_v1_47.begin_seq_num.display = function(value)
-  return "Begin Seq Num: "..value
-end
-
--- Dissect: Begin Seq Num
-hkex_derivatives_fulltick_omd_v1_47.begin_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.begin_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.begin_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.begin_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Retrans Status
-hkex_derivatives_fulltick_omd_v1_47.retrans_status = {}
-
--- Size: Retrans Status
-hkex_derivatives_fulltick_omd_v1_47.retrans_status.size = 1
-
--- Display: Retrans Status
-hkex_derivatives_fulltick_omd_v1_47.retrans_status.display = function(value)
-  return "Retrans Status: "..value
-end
-
--- Dissect: Retrans Status
-hkex_derivatives_fulltick_omd_v1_47.retrans_status.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.retrans_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.retrans_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.retrans_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Channel Id
-hkex_derivatives_fulltick_omd_v1_47.channel_id = {}
-
--- Size: Channel Id
-hkex_derivatives_fulltick_omd_v1_47.channel_id.size = 2
-
--- Display: Channel Id
-hkex_derivatives_fulltick_omd_v1_47.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-hkex_derivatives_fulltick_omd_v1_47.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.channel_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Retransmission Response
-hkex_derivatives_fulltick_omd_v1_47.retransmission_response = {}
-
--- Size: Retransmission Response
-hkex_derivatives_fulltick_omd_v1_47.retransmission_response.size =
-  hkex_derivatives_fulltick_omd_v1_47.channel_id.size + 
-  hkex_derivatives_fulltick_omd_v1_47.retrans_status.size + 
-  hkex_derivatives_fulltick_omd_v1_47.begin_seq_num.size + 
-  hkex_derivatives_fulltick_omd_v1_47.end_seq_num.size + 
-  hkex_derivatives_fulltick_omd_v1_47.end_seq_num.size
-
--- Display: Retransmission Response
-hkex_derivatives_fulltick_omd_v1_47.retransmission_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmission Response
-hkex_derivatives_fulltick_omd_v1_47.retransmission_response.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Channel Id: Uint16
-  index, channel_id = hkex_derivatives_fulltick_omd_v1_47.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Retrans Status: Uint8
-  index, retrans_status = hkex_derivatives_fulltick_omd_v1_47.retrans_status.dissect(buffer, index, packet, parent)
-
-  -- Begin Seq Num: Uint32
-  index, begin_seq_num = hkex_derivatives_fulltick_omd_v1_47.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Uint32
-  index, end_seq_num = hkex_derivatives_fulltick_omd_v1_47.end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Uint32
-  index, end_seq_num = hkex_derivatives_fulltick_omd_v1_47.end_seq_num.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmission Response
-hkex_derivatives_fulltick_omd_v1_47.retransmission_response.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_response then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.retransmission_response, buffer(offset, 0))
-    local index = hkex_derivatives_fulltick_omd_v1_47.retransmission_response.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_fulltick_omd_v1_47.retransmission_response.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_fulltick_omd_v1_47.retransmission_response.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Retransmission Request
-hkex_derivatives_fulltick_omd_v1_47.retransmission_request = {}
-
--- Size: Retransmission Request
-hkex_derivatives_fulltick_omd_v1_47.retransmission_request.size =
-  hkex_derivatives_fulltick_omd_v1_47.channel_id.size + 
-  hkex_derivatives_fulltick_omd_v1_47.begin_seq_num.size + 
-  hkex_derivatives_fulltick_omd_v1_47.end_seq_num.size + 
-  hkex_derivatives_fulltick_omd_v1_47.end_seq_num.size
-
--- Display: Retransmission Request
-hkex_derivatives_fulltick_omd_v1_47.retransmission_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmission Request
-hkex_derivatives_fulltick_omd_v1_47.retransmission_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Channel Id: Uint16
-  index, channel_id = hkex_derivatives_fulltick_omd_v1_47.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Begin Seq Num: Uint32
-  index, begin_seq_num = hkex_derivatives_fulltick_omd_v1_47.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Uint32
-  index, end_seq_num = hkex_derivatives_fulltick_omd_v1_47.end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Uint32
-  index, end_seq_num = hkex_derivatives_fulltick_omd_v1_47.end_seq_num.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmission Request
-hkex_derivatives_fulltick_omd_v1_47.retransmission_request.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.retransmission_request, buffer(offset, 0))
-    local index = hkex_derivatives_fulltick_omd_v1_47.retransmission_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_fulltick_omd_v1_47.retransmission_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_fulltick_omd_v1_47.retransmission_request.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Session Status
-hkex_derivatives_fulltick_omd_v1_47.session_status = {}
-
--- Size: Session Status
-hkex_derivatives_fulltick_omd_v1_47.session_status.size = 1
-
--- Display: Session Status
-hkex_derivatives_fulltick_omd_v1_47.session_status.display = function(value)
-  return "Session Status: "..value
-end
-
--- Dissect: Session Status
-hkex_derivatives_fulltick_omd_v1_47.session_status.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.session_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.session_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.session_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Logon Response
-hkex_derivatives_fulltick_omd_v1_47.logon_response = {}
-
--- Size: Logon Response
-hkex_derivatives_fulltick_omd_v1_47.logon_response.size =
-  hkex_derivatives_fulltick_omd_v1_47.session_status.size + 
-  hkex_derivatives_fulltick_omd_v1_47.session_status.size
-
--- Display: Logon Response
-hkex_derivatives_fulltick_omd_v1_47.logon_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logon Response
-hkex_derivatives_fulltick_omd_v1_47.logon_response.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Session Status: Uint8
-  index, session_status = hkex_derivatives_fulltick_omd_v1_47.session_status.dissect(buffer, index, packet, parent)
-
-  -- Session Status: Uint8
-  index, session_status = hkex_derivatives_fulltick_omd_v1_47.session_status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logon Response
-hkex_derivatives_fulltick_omd_v1_47.logon_response.dissect = function(buffer, offset, packet, parent)
-  if show.logon_response then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.logon_response, buffer(offset, 0))
-    local index = hkex_derivatives_fulltick_omd_v1_47.logon_response.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_fulltick_omd_v1_47.logon_response.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_fulltick_omd_v1_47.logon_response.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Username
-hkex_derivatives_fulltick_omd_v1_47.username = {}
-
--- Size: Username
-hkex_derivatives_fulltick_omd_v1_47.username.size = 12
-
--- Display: Username
-hkex_derivatives_fulltick_omd_v1_47.username.display = function(value)
-  return "Username: "..value
-end
-
--- Dissect: Username
-hkex_derivatives_fulltick_omd_v1_47.username.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.username.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = hkex_derivatives_fulltick_omd_v1_47.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.username, range, value, display)
-
-  return offset + length, value
-end
-
--- Logon
-hkex_derivatives_fulltick_omd_v1_47.logon = {}
-
--- Size: Logon
-hkex_derivatives_fulltick_omd_v1_47.logon.size =
-  hkex_derivatives_fulltick_omd_v1_47.username.size
-
--- Display: Logon
-hkex_derivatives_fulltick_omd_v1_47.logon.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logon
-hkex_derivatives_fulltick_omd_v1_47.logon.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: String
-  index, username = hkex_derivatives_fulltick_omd_v1_47.username.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logon
-hkex_derivatives_fulltick_omd_v1_47.logon.dissect = function(buffer, offset, packet, parent)
-  if show.logon then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.logon, buffer(offset, 0))
-    local index = hkex_derivatives_fulltick_omd_v1_47.logon.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_fulltick_omd_v1_47.logon.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_fulltick_omd_v1_47.logon.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1999,29 +1752,6 @@ hkex_derivatives_fulltick_omd_v1_47.commodity_status_message.dissect = function(
   end
 end
 
--- Filler 2 String
-hkex_derivatives_fulltick_omd_v1_47.filler_2_string = {}
-
--- Size: Filler 2 String
-hkex_derivatives_fulltick_omd_v1_47.filler_2_string.size = 2
-
--- Display: Filler 2 String
-hkex_derivatives_fulltick_omd_v1_47.filler_2_string.display = function(value)
-  return "Filler 2 String: "..value
-end
-
--- Dissect: Filler 2 String
-hkex_derivatives_fulltick_omd_v1_47.filler_2_string.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.filler_2_string.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = hkex_derivatives_fulltick_omd_v1_47.filler_2_string.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_2_string, range, value, display)
-
-  return offset + length, value
-end
-
 -- Series Status
 hkex_derivatives_fulltick_omd_v1_47.series_status = {}
 
@@ -2076,7 +1806,7 @@ hkex_derivatives_fulltick_omd_v1_47.series_status_message.size =
   hkex_derivatives_fulltick_omd_v1_47.orderbook_id.size + 
   hkex_derivatives_fulltick_omd_v1_47.suspension_indicator.size + 
   hkex_derivatives_fulltick_omd_v1_47.series_status.size + 
-  hkex_derivatives_fulltick_omd_v1_47.filler_2_string.size
+  hkex_derivatives_fulltick_omd_v1_47.filler_2.size
 
 -- Display: Series Status Message
 hkex_derivatives_fulltick_omd_v1_47.series_status_message.display = function(packet, parent, length)
@@ -2096,8 +1826,8 @@ hkex_derivatives_fulltick_omd_v1_47.series_status_message.fields = function(buff
   -- Series Status: Uint8
   index, series_status = hkex_derivatives_fulltick_omd_v1_47.series_status.dissect(buffer, index, packet, parent)
 
-  -- Filler 2 String: String
-  index, filler_2_string = hkex_derivatives_fulltick_omd_v1_47.filler_2_string.dissect(buffer, index, packet, parent)
+  -- Filler 2: String
+  index, filler_2 = hkex_derivatives_fulltick_omd_v1_47.filler_2.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2118,29 +1848,6 @@ hkex_derivatives_fulltick_omd_v1_47.series_status_message.dissect = function(buf
     -- Skip element, add fields directly
     return hkex_derivatives_fulltick_omd_v1_47.series_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Filler 3 String
-hkex_derivatives_fulltick_omd_v1_47.filler_3_string = {}
-
--- Size: Filler 3 String
-hkex_derivatives_fulltick_omd_v1_47.filler_3_string.size = 3
-
--- Display: Filler 3 String
-hkex_derivatives_fulltick_omd_v1_47.filler_3_string.display = function(value)
-  return "Filler 3 String: "..value
-end
-
--- Dissect: Filler 3 String
-hkex_derivatives_fulltick_omd_v1_47.filler_3_string.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.filler_3_string.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = hkex_derivatives_fulltick_omd_v1_47.filler_3_string.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_3_string, range, value, display)
-
-  return offset + length, value
 end
 
 -- State
@@ -2360,7 +2067,7 @@ hkex_derivatives_fulltick_omd_v1_47.market_status_message.size =
   hkex_derivatives_fulltick_omd_v1_47.instrument.size + 
   hkex_derivatives_fulltick_omd_v1_47.orderbook_id.size + 
   hkex_derivatives_fulltick_omd_v1_47.commodity_code.size + 
-  hkex_derivatives_fulltick_omd_v1_47.filler_2_string.size + 
+  hkex_derivatives_fulltick_omd_v1_47.filler_2.size + 
   hkex_derivatives_fulltick_omd_v1_47.actual_start_date.size + 
   hkex_derivatives_fulltick_omd_v1_47.actual_start_time.size + 
   hkex_derivatives_fulltick_omd_v1_47.planned_start_date.size + 
@@ -2368,7 +2075,7 @@ hkex_derivatives_fulltick_omd_v1_47.market_status_message.size =
   hkex_derivatives_fulltick_omd_v1_47.seconds_to_state_change.size + 
   hkex_derivatives_fulltick_omd_v1_47.state.size + 
   hkex_derivatives_fulltick_omd_v1_47.priority.size + 
-  hkex_derivatives_fulltick_omd_v1_47.filler_3_string.size
+  hkex_derivatives_fulltick_omd_v1_47.filler_3.size
 
 -- Display: Market Status Message
 hkex_derivatives_fulltick_omd_v1_47.market_status_message.display = function(packet, parent, length)
@@ -2394,8 +2101,8 @@ hkex_derivatives_fulltick_omd_v1_47.market_status_message.fields = function(buff
   -- Commodity Code: Uint16
   index, commodity_code = hkex_derivatives_fulltick_omd_v1_47.commodity_code.dissect(buffer, index, packet, parent)
 
-  -- Filler 2 String: String
-  index, filler_2_string = hkex_derivatives_fulltick_omd_v1_47.filler_2_string.dissect(buffer, index, packet, parent)
+  -- Filler 2: String
+  index, filler_2 = hkex_derivatives_fulltick_omd_v1_47.filler_2.dissect(buffer, index, packet, parent)
 
   -- Actual Start Date: String
   index, actual_start_date = hkex_derivatives_fulltick_omd_v1_47.actual_start_date.dissect(buffer, index, packet, parent)
@@ -2418,8 +2125,8 @@ hkex_derivatives_fulltick_omd_v1_47.market_status_message.fields = function(buff
   -- Priority: Uint8
   index, priority = hkex_derivatives_fulltick_omd_v1_47.priority.dissect(buffer, index, packet, parent)
 
-  -- Filler 3 String: String
-  index, filler_3_string = hkex_derivatives_fulltick_omd_v1_47.filler_3_string.dissect(buffer, index, packet, parent)
+  -- Filler 3: String
+  index, filler_3 = hkex_derivatives_fulltick_omd_v1_47.filler_3.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2593,22 +2300,6 @@ hkex_derivatives_fulltick_omd_v1_47.payload.size = function(buffer, offset, msg_
   if msg_type == 322 then
     return hkex_derivatives_fulltick_omd_v1_47.commodity_status_message.size
   end
-  -- Size of Logon
-  if msg_type == 101 then
-    return hkex_derivatives_fulltick_omd_v1_47.logon.size
-  end
-  -- Size of Logon Response
-  if msg_type == 102 then
-    return hkex_derivatives_fulltick_omd_v1_47.logon_response.size
-  end
-  -- Size of Retransmission Request
-  if msg_type == 201 then
-    return hkex_derivatives_fulltick_omd_v1_47.retransmission_request.size
-  end
-  -- Size of Retransmission Response
-  if msg_type == 202 then
-    return hkex_derivatives_fulltick_omd_v1_47.retransmission_response.size
-  end
   -- Size of Refresh Complete
   if msg_type == 203 then
     return hkex_derivatives_fulltick_omd_v1_47.refresh_complete.size
@@ -2647,7 +2338,7 @@ hkex_derivatives_fulltick_omd_v1_47.payload.size = function(buffer, offset, msg_
   end
   -- Size of Market Alert Message
   if msg_type == 323 then
-    return hkex_derivatives_fulltick_omd_v1_47.market_alert_message.size
+    return hkex_derivatives_fulltick_omd_v1_47.market_alert_message.size(buffer, offset)
   end
 
   return 0
@@ -2679,22 +2370,6 @@ hkex_derivatives_fulltick_omd_v1_47.payload.branches = function(buffer, offset, 
   -- Dissect Commodity Status Message
   if msg_type == 322 then
     return hkex_derivatives_fulltick_omd_v1_47.commodity_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon
-  if msg_type == 101 then
-    return hkex_derivatives_fulltick_omd_v1_47.logon.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response
-  if msg_type == 102 then
-    return hkex_derivatives_fulltick_omd_v1_47.logon_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if msg_type == 201 then
-    return hkex_derivatives_fulltick_omd_v1_47.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Response
-  if msg_type == 202 then
-    return hkex_derivatives_fulltick_omd_v1_47.retransmission_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Complete
   if msg_type == 203 then
@@ -2782,18 +2457,6 @@ hkex_derivatives_fulltick_omd_v1_47.msg_type.display = function(value)
   end
   if value == 322 then
     return "Msg Type: Commodity Status Message (322)"
-  end
-  if value == 101 then
-    return "Msg Type: Logon (101)"
-  end
-  if value == 102 then
-    return "Msg Type: Logon Response (102)"
-  end
-  if value == 201 then
-    return "Msg Type: Retransmission Request (201)"
-  end
-  if value == 202 then
-    return "Msg Type: Retransmission Response (202)"
   end
   if value == 203 then
     return "Msg Type: Refresh Complete (203)"
@@ -2884,7 +2547,7 @@ hkex_derivatives_fulltick_omd_v1_47.msg_header.fields = function(buffer, offset,
   -- Msg Size: 2 Byte Unsigned Fixed Width Integer
   index, msg_size = hkex_derivatives_fulltick_omd_v1_47.msg_size.dissect(buffer, index, packet, parent)
 
-  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 19 values
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 15 values
   index, msg_type = hkex_derivatives_fulltick_omd_v1_47.msg_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -2932,7 +2595,7 @@ hkex_derivatives_fulltick_omd_v1_47.message.fields = function(buffer, offset, pa
   -- Dependency element: Msg Type
   local msg_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 19 branches
+  -- Payload: Runtime Type with 15 branches
   index = hkex_derivatives_fulltick_omd_v1_47.payload.dissect(buffer, index, packet, parent, msg_type)
 
   return index
@@ -3219,7 +2882,7 @@ omi_hkex_derivatives_fulltick_omd_v1_47:register_heuristic("udp", omi_hkex_deriv
 --   Organization: Hong Kong Exchanges and Clearing
 --   Version: 1.47
 --   Date: Tuesday, October 14, 2025
---   Specification: HKEX_OMD_Derivatives_Binary_Interface_Specifications_v1-47.pdf.pdf
+--   Specification: HKEX_OMD_Derivatives_Binary_Interface_Specifications_v1-47.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0
