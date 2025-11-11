@@ -299,7 +299,23 @@ hkex_derivatives_fulltick_omd_v1_47.priority.size = 1
 
 -- Display: Priority
 hkex_derivatives_fulltick_omd_v1_47.priority.display = function(value)
-  return "Priority: "..value
+  if value == 0 then
+    return "Priority: Not Specified (0)"
+  end
+  if value == 1 then
+    return "Priority: Low (1)"
+  end
+  if value == 2 then
+    return "Priority: Medium (2)"
+  end
+  if value == 3 then
+    return "Priority: High (3)"
+  end
+  if value == 4 then
+    return "Priority: Critical (4)"
+  end
+
+  return "Priority: Unknown("..value..")"
 end
 
 -- Dissect: Priority
@@ -322,7 +338,23 @@ hkex_derivatives_fulltick_omd_v1_47.info_type.size = 1
 
 -- Display: Info Type
 hkex_derivatives_fulltick_omd_v1_47.info_type.display = function(value)
-  return "Info Type: "..value
+  if value == 0 then
+    return "Info Type: Not Specified (0)"
+  end
+  if value == 1 then
+    return "Info Type: Company Announcement (1)"
+  end
+  if value == 2 then
+    return "Info Type: Market Message (2)"
+  end
+  if value == 3 then
+    return "Info Type: Static Line (3)"
+  end
+  if value == 4 then
+    return "Info Type: Notice Received (4)"
+  end
+
+  return "Info Type: Unknown("..value..")"
 end
 
 -- Dissect: Info Type
