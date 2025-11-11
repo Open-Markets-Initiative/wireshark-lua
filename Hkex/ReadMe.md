@@ -5,8 +5,10 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Derivatives | [FullTick][Hkex.Derivatives.FullTick.Omd.v1.47.Dissector] | Omd | [1.47][Hkex.Derivatives.FullTick.Omd.v1.47.Dissector] | 10/14/2025 | 2929 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.FullTick.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.FullTick.Omd.v1.47.Pdf] |
+| Derivatives | [FullTick][Hkex.Derivatives.FullTick.Omd.v1.47.Dissector] | Omd | [1.47][Hkex.Derivatives.FullTick.Omd.v1.47.Dissector] | 10/14/2025 | 4491 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.FullTick.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.FullTick.Omd.v1.47.Pdf] |
 | Derivatives | [Lite][Hkex.Derivatives.Lite.Omd.v1.47.Dissector] | Omd | [1.47][Hkex.Derivatives.Lite.Omd.v1.47.Dissector] | 10/14/2025 | 4492 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Lite.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.Lite.Omd.v1.47.Pdf] |
+| Derivatives | [Premium][Hkex.Derivatives.Premium.Omd.v1.47.Dissector] | Omd | [1.47][Hkex.Derivatives.Premium.Omd.v1.47.Dissector] | 10/14/2025 | 4972 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Premium.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.Premium.Omd.v1.47.Pdf] |
+| Derivatives | [Standard][Hkex.Derivatives.Standard.Omd.v1.47.Dissector] | Omd | [1.47][Hkex.Derivatives.Standard.Omd.v1.47.Dissector] | 10/14/2025 | 4492 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Standard.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.Standard.Omd.v1.47.Pdf] |
 | Orion | [Headers][Hkex.Orion.Headers.Udp.v1.0.Dissector] | Udp | [1.0][Hkex.Orion.Headers.Udp.v1.0.Dissector] | 1/31/2013 | 517 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Orion.Headers.Udp.v1.0.Url] |
 
 
@@ -30,6 +32,12 @@ Hkex: [website](https://www.hkex.com.hk "Go to Hong Kong Exchanges and Clearing"
 [Hkex.Derivatives.Lite.Omd.v1.47.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Hkex/Hkex_Derivatives_Lite_Omd_v1_47_Dissector.lua "Hkex Derivatives Lite Omd v1.47 Wireshark Dissector"
 [Hkex.Derivatives.Lite.Omd.v1.47.Url]: https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Reference-Materials/Technical-Documents "Hong Kong Exchanges and Clearing 1.47 Url"
 [Hkex.Derivatives.Lite.Omd.v1.47.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Specifications/Derivatives/Hkex.Derivatives.Orion.Omd.v1.47.pdf "Hong Kong Exchanges and Clearing 1.47 Pdf"
+[Hkex.Derivatives.Standard.Omd.v1.47.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Hkex/Hkex_Derivatives_Standard_Omd_v1_47_Dissector.lua "Hkex Derivatives Standard Omd v1.47 Wireshark Dissector"
+[Hkex.Derivatives.Standard.Omd.v1.47.Url]: https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Reference-Materials/Technical-Documents "Hong Kong Exchanges and Clearing 1.47 Url"
+[Hkex.Derivatives.Standard.Omd.v1.47.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Specifications/Derivatives/Hkex.Derivatives.Orion.Omd.v1.47.pdf "Hong Kong Exchanges and Clearing 1.47 Pdf"
+[Hkex.Derivatives.Premium.Omd.v1.47.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Hkex/Hkex_Derivatives_Premium_Omd_v1_47_Dissector.lua "Hkex Derivatives Premium Omd v1.47 Wireshark Dissector"
+[Hkex.Derivatives.Premium.Omd.v1.47.Url]: https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Reference-Materials/Technical-Documents "Hong Kong Exchanges and Clearing 1.47 Url"
+[Hkex.Derivatives.Premium.Omd.v1.47.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Specifications/Derivatives/Hkex.Derivatives.Orion.Omd.v1.47.pdf "Hong Kong Exchanges and Clearing 1.47 Pdf"
 [Hkex.Derivatives.FullTick.Omd.v1.47.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Hkex/Hkex_Derivatives_FullTick_Omd_v1_47_Dissector.lua "Hkex Derivatives FullTick Omd v1.47 Wireshark Dissector"
 [Hkex.Derivatives.FullTick.Omd.v1.47.Url]: https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Reference-Materials/Technical-Documents "Hong Kong Exchanges and Clearing 1.47 Url"
 [Hkex.Derivatives.FullTick.Omd.v1.47.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Specifications/Derivatives/Hkex.Derivatives.Orion.Omd.v1.47.pdf "Hong Kong Exchanges and Clearing 1.47 Pdf"
