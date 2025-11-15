@@ -17,7 +17,7 @@ local hkex_derivatives_standard_omd_v1_47 = {}
 -- Hkex Derivatives Standard Omd 1.47 Fields
 omi_hkex_derivatives_standard_omd_v1_47.fields.actual_start_date = ProtoField.new("Actual Start Date", "hkex.derivatives.standard.omd.v1.47.actualstartdate", ftypes.STRING)
 omi_hkex_derivatives_standard_omd_v1_47.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.derivatives.standard.omd.v1.47.actualstarttime", ftypes.STRING)
-omi_hkex_derivatives_standard_omd_v1_47.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.derivatives.standard.omd.v1.47.aggregatequantity", ftypes.INT64)
+omi_hkex_derivatives_standard_omd_v1_47.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.derivatives.standard.omd.v1.47.aggregatequantity", ftypes.UINT64)
 omi_hkex_derivatives_standard_omd_v1_47.fields.alert_id = ProtoField.new("Alert Id", "hkex.derivatives.standard.omd.v1.47.alertid", ftypes.UINT16)
 omi_hkex_derivatives_standard_omd_v1_47.fields.base_currency = ProtoField.new("Base Currency", "hkex.derivatives.standard.omd.v1.47.basecurrency", ftypes.STRING)
 omi_hkex_derivatives_standard_omd_v1_47.fields.bid_ask_flag = ProtoField.new("Bid Ask Flag", "hkex.derivatives.standard.omd.v1.47.bidaskflag", ftypes.UINT8)
@@ -1138,7 +1138,7 @@ end
 hkex_derivatives_standard_omd_v1_47.aggregate_quantity.dissect = function(buffer, offset, packet, parent)
   local length = hkex_derivatives_standard_omd_v1_47.aggregate_quantity.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local value = range:le_uint64()
   local display = hkex_derivatives_standard_omd_v1_47.aggregate_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_derivatives_standard_omd_v1_47.fields.aggregate_quantity, range, value, display)
@@ -1281,7 +1281,7 @@ hkex_derivatives_standard_omd_v1_47.trade_statistics_message.fields = function(b
   -- Filler 2: String
   index, filler_2 = hkex_derivatives_standard_omd_v1_47.filler_2.dissect(buffer, index, packet, parent)
 
-  -- Aggregate Quantity: Int64
+  -- Aggregate Quantity: Uint64
   index, aggregate_quantity = hkex_derivatives_standard_omd_v1_47.aggregate_quantity.dissect(buffer, index, packet, parent)
 
   -- Open: Int32
@@ -1588,7 +1588,7 @@ hkex_derivatives_standard_omd_v1_47.book_entry.fields = function(buffer, offset,
     iteration:set_generated()
   end
 
-  -- Aggregate Quantity: Int64
+  -- Aggregate Quantity: Uint64
   index, aggregate_quantity = hkex_derivatives_standard_omd_v1_47.aggregate_quantity.dissect(buffer, index, packet, parent)
 
   -- Price: Int32
@@ -2718,11 +2718,9 @@ hkex_derivatives_standard_omd_v1_47.series_definition_extended_message.size =
   hkex_derivatives_standard_omd_v1_47.series_status.size + 
   hkex_derivatives_standard_omd_v1_47.effective_tomorrow.size + 
   hkex_derivatives_standard_omd_v1_47.price_quotation_factor.size + 
-  hkex_derivatives_standard_omd_v1_47.price_quotation_factor.size + 
   hkex_derivatives_standard_omd_v1_47.price_method.size + 
   hkex_derivatives_standard_omd_v1_47.filler_1.size + 
   hkex_derivatives_standard_omd_v1_47.effective_exp_date.size + 
-  hkex_derivatives_standard_omd_v1_47.date_time_last_trading.size + 
   hkex_derivatives_standard_omd_v1_47.date_time_last_trading.size + 
   hkex_derivatives_standard_omd_v1_47.date_time_first_trading.size
 
@@ -2777,9 +2775,6 @@ hkex_derivatives_standard_omd_v1_47.series_definition_extended_message.fields = 
   -- Price Quotation Factor: Int32
   index, price_quotation_factor = hkex_derivatives_standard_omd_v1_47.price_quotation_factor.dissect(buffer, index, packet, parent)
 
-  -- Price Quotation Factor: Int32
-  index, price_quotation_factor = hkex_derivatives_standard_omd_v1_47.price_quotation_factor.dissect(buffer, index, packet, parent)
-
   -- Price Method: Uint8
   index, price_method = hkex_derivatives_standard_omd_v1_47.price_method.dissect(buffer, index, packet, parent)
 
@@ -2788,9 +2783,6 @@ hkex_derivatives_standard_omd_v1_47.series_definition_extended_message.fields = 
 
   -- Effective Exp Date: String
   index, effective_exp_date = hkex_derivatives_standard_omd_v1_47.effective_exp_date.dissect(buffer, index, packet, parent)
-
-  -- Date Time Last Trading: Int64
-  index, date_time_last_trading = hkex_derivatives_standard_omd_v1_47.date_time_last_trading.dissect(buffer, index, packet, parent)
 
   -- Date Time Last Trading: Int64
   index, date_time_last_trading = hkex_derivatives_standard_omd_v1_47.date_time_last_trading.dissect(buffer, index, packet, parent)
@@ -3324,9 +3316,7 @@ hkex_derivatives_standard_omd_v1_47.class_definition_message.size =
   hkex_derivatives_standard_omd_v1_47.contract_size.size + 
   hkex_derivatives_standard_omd_v1_47.decimal_in_strike_price.size + 
   hkex_derivatives_standard_omd_v1_47.decimal_in_contract_size.size + 
-  hkex_derivatives_standard_omd_v1_47.decimal_in_contract_size.size + 
   hkex_derivatives_standard_omd_v1_47.decimal_in_premium.size + 
-  hkex_derivatives_standard_omd_v1_47.ranking_type.size + 
   hkex_derivatives_standard_omd_v1_47.ranking_type.size + 
   hkex_derivatives_standard_omd_v1_47.tradable.size + 
   hkex_derivatives_standard_omd_v1_47.premium_unit.size + 
@@ -3378,14 +3368,8 @@ hkex_derivatives_standard_omd_v1_47.class_definition_message.fields = function(b
   -- Decimal In Contract Size: Uint16
   index, decimal_in_contract_size = hkex_derivatives_standard_omd_v1_47.decimal_in_contract_size.dissect(buffer, index, packet, parent)
 
-  -- Decimal In Contract Size: Uint16
-  index, decimal_in_contract_size = hkex_derivatives_standard_omd_v1_47.decimal_in_contract_size.dissect(buffer, index, packet, parent)
-
   -- Decimal In Premium: Uint16
   index, decimal_in_premium = hkex_derivatives_standard_omd_v1_47.decimal_in_premium.dissect(buffer, index, packet, parent)
-
-  -- Ranking Type: Uint16
-  index, ranking_type = hkex_derivatives_standard_omd_v1_47.ranking_type.dissect(buffer, index, packet, parent)
 
   -- Ranking Type: Uint16
   index, ranking_type = hkex_derivatives_standard_omd_v1_47.ranking_type.dissect(buffer, index, packet, parent)

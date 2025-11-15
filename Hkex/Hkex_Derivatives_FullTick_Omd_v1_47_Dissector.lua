@@ -2684,11 +2684,9 @@ hkex_derivatives_fulltick_omd_v1_47.series_definition_extended_message.size =
   hkex_derivatives_fulltick_omd_v1_47.series_status.size + 
   hkex_derivatives_fulltick_omd_v1_47.effective_tomorrow.size + 
   hkex_derivatives_fulltick_omd_v1_47.price_quotation_factor.size + 
-  hkex_derivatives_fulltick_omd_v1_47.price_quotation_factor.size + 
   hkex_derivatives_fulltick_omd_v1_47.price_method.size + 
   hkex_derivatives_fulltick_omd_v1_47.filler_1.size + 
   hkex_derivatives_fulltick_omd_v1_47.effective_exp_date.size + 
-  hkex_derivatives_fulltick_omd_v1_47.date_time_last_trading.size + 
   hkex_derivatives_fulltick_omd_v1_47.date_time_last_trading.size + 
   hkex_derivatives_fulltick_omd_v1_47.date_time_first_trading.size
 
@@ -2743,9 +2741,6 @@ hkex_derivatives_fulltick_omd_v1_47.series_definition_extended_message.fields = 
   -- Price Quotation Factor: Int32
   index, price_quotation_factor = hkex_derivatives_fulltick_omd_v1_47.price_quotation_factor.dissect(buffer, index, packet, parent)
 
-  -- Price Quotation Factor: Int32
-  index, price_quotation_factor = hkex_derivatives_fulltick_omd_v1_47.price_quotation_factor.dissect(buffer, index, packet, parent)
-
   -- Price Method: Uint8
   index, price_method = hkex_derivatives_fulltick_omd_v1_47.price_method.dissect(buffer, index, packet, parent)
 
@@ -2754,9 +2749,6 @@ hkex_derivatives_fulltick_omd_v1_47.series_definition_extended_message.fields = 
 
   -- Effective Exp Date: String
   index, effective_exp_date = hkex_derivatives_fulltick_omd_v1_47.effective_exp_date.dissect(buffer, index, packet, parent)
-
-  -- Date Time Last Trading: Int64
-  index, date_time_last_trading = hkex_derivatives_fulltick_omd_v1_47.date_time_last_trading.dissect(buffer, index, packet, parent)
 
   -- Date Time Last Trading: Int64
   index, date_time_last_trading = hkex_derivatives_fulltick_omd_v1_47.date_time_last_trading.dissect(buffer, index, packet, parent)
@@ -3290,9 +3282,7 @@ hkex_derivatives_fulltick_omd_v1_47.class_definition_message.size =
   hkex_derivatives_fulltick_omd_v1_47.contract_size.size + 
   hkex_derivatives_fulltick_omd_v1_47.decimal_in_strike_price.size + 
   hkex_derivatives_fulltick_omd_v1_47.decimal_in_contract_size.size + 
-  hkex_derivatives_fulltick_omd_v1_47.decimal_in_contract_size.size + 
   hkex_derivatives_fulltick_omd_v1_47.decimal_in_premium.size + 
-  hkex_derivatives_fulltick_omd_v1_47.ranking_type.size + 
   hkex_derivatives_fulltick_omd_v1_47.ranking_type.size + 
   hkex_derivatives_fulltick_omd_v1_47.tradable.size + 
   hkex_derivatives_fulltick_omd_v1_47.premium_unit.size + 
@@ -3344,14 +3334,8 @@ hkex_derivatives_fulltick_omd_v1_47.class_definition_message.fields = function(b
   -- Decimal In Contract Size: Uint16
   index, decimal_in_contract_size = hkex_derivatives_fulltick_omd_v1_47.decimal_in_contract_size.dissect(buffer, index, packet, parent)
 
-  -- Decimal In Contract Size: Uint16
-  index, decimal_in_contract_size = hkex_derivatives_fulltick_omd_v1_47.decimal_in_contract_size.dissect(buffer, index, packet, parent)
-
   -- Decimal In Premium: Uint16
   index, decimal_in_premium = hkex_derivatives_fulltick_omd_v1_47.decimal_in_premium.dissect(buffer, index, packet, parent)
-
-  -- Ranking Type: Uint16
-  index, ranking_type = hkex_derivatives_fulltick_omd_v1_47.ranking_type.dissect(buffer, index, packet, parent)
 
   -- Ranking Type: Uint16
   index, ranking_type = hkex_derivatives_fulltick_omd_v1_47.ranking_type.dissect(buffer, index, packet, parent)
