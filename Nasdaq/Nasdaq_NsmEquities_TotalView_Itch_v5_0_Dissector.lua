@@ -3510,10 +3510,10 @@ nasdaq_nsmequities_totalview_itch_v5_0.ipo_flag.size = 1
 -- Display: Ipo Flag
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_flag.display = function(value)
   if value == "Y" then
-    return "Ipo Flag: Set Up For Ipo Realease (Y)"
+    return "Ipo Flag: Set Up For Ipo Release (Y)"
   end
   if value == "N" then
-    return "Ipo Flag: Not Set Up For Ipo Realease (N)"
+    return "Ipo Flag: Not Set Up For Ipo Release (N)"
   end
   if value == " " then
     return "Ipo Flag: Not Available (<whitespace>)"
@@ -3636,7 +3636,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.issue_sub_type.display = function(value)
     return "Issue Sub Type: Currency Trust Shares (CT)"
   end
   if value == "CU" then
-    return "Issue Sub Type: Commodity Currency­ Linked Securities (CU)"
+    return "Issue Sub Type: Commodity Currency Linked Securities (CU)"
   end
   if value == "CW" then
     return "Issue Sub Type: Currency Warrants (CW)"
@@ -3645,13 +3645,13 @@ nasdaq_nsmequities_totalview_itch_v5_0.issue_sub_type.display = function(value)
     return "Issue Sub Type: Global Depositary Shares (D)"
   end
   if value == "E" then
-    return "Issue Sub Type: Etf­ Portfolio Depositary Receipt (E)"
+    return "Issue Sub Type: Etf Portfolio Depositary Receipt (E)"
   end
   if value == "EG" then
     return "Issue Sub Type: Equity Gold Shares (EG)"
   end
   if value == "EI" then
-    return "Issue Sub Type: Etn­ Equity Index Linked Securities (EI)"
+    return "Issue Sub Type: Etn Equity Index Linked Securities (EI)"
   end
   if value == "EM" then
     return "Issue Sub Type: Next Shares Exchange Traded Managed Fund (EM)"
@@ -3666,16 +3666,16 @@ nasdaq_nsmequities_totalview_itch_v5_0.issue_sub_type.display = function(value)
     return "Issue Sub Type: Holdrs (F)"
   end
   if value == "FI" then
-    return "Issue Sub Type: Etn­ Fixed Income Linked Securities (FI)"
+    return "Issue Sub Type: Etn Fixed Income Linked Securities (FI)"
   end
   if value == "FL" then
-    return "Issue Sub Type: Etn Futures­ Linked Securities (FL)"
+    return "Issue Sub Type: Etn Futures Linked Securities (FL)"
   end
   if value == "G" then
     return "Issue Sub Type: Global Shares (G)"
   end
   if value == "I" then
-    return "Issue Sub Type: Etf­ Index Fund Shares (I)"
+    return "Issue Sub Type: Etf Index Fund Shares (I)"
   end
   if value == "IR" then
     return "Issue Sub Type: Interest Rate (IR)"
@@ -3702,7 +3702,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.issue_sub_type.display = function(value)
     return "Issue Sub Type: Managed Fund Shares (MF)"
   end
   if value == "ML" then
-    return "Issue Sub Type: Etn Multi­ Factor Index­ Linked Securities (ML)"
+    return "Issue Sub Type: Etn Multi Factor Index Linked Securities (ML)"
   end
   if value == "MT" then
     return "Issue Sub Type: Managed Trust Securities (MT)"
@@ -3723,22 +3723,22 @@ nasdaq_nsmequities_totalview_itch_v5_0.issue_sub_type.display = function(value)
     return "Issue Sub Type: Partnership Units (PU)"
   end
   if value == "Q" then
-    return "Issue Sub Type: Closed­ End Funds (Q)"
+    return "Issue Sub Type: Closed End Funds (Q)"
   end
   if value == "R" then
     return "Issue Sub Type: Reg S (R)"
   end
   if value == "RC" then
-    return "Issue Sub Type: Commodity­ Redeemable Commodity­ Linked Securities (RC)"
+    return "Issue Sub Type: Commodity Redeemable Commodity Linked Securities (RC)"
   end
   if value == "RF" then
-    return "Issue Sub Type: Etn­ Redeemable Futures­ Linked Securities (RF)"
+    return "Issue Sub Type: Etn Redeemable Futures Linked Securities (RF)"
   end
   if value == "RT" then
     return "Issue Sub Type: Reit (RT)"
   end
   if value == "RU" then
-    return "Issue Sub Type: Commodity­ Redeemable Currency­ Linked Securities (RU)"
+    return "Issue Sub Type: Commodity Redeemable Currency Linked Securities (RU)"
   end
   if value == "S" then
     return "Issue Sub Type: Seed (S)"
