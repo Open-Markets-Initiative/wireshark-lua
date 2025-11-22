@@ -120,13 +120,12 @@ omi_cme_futures_mdp3_sbe_v1_5.fields.md_security_trading_status = ProtoField.new
 omi_cme_futures_mdp3_sbe_v1_5.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.mdp3.sbe.v1.5.mdupdateaction", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_5.fields.message = ProtoField.new("Message", "cme.futures.mdp3.sbe.v1.5.message", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_5.fields.message_header = ProtoField.new("Message Header", "cme.futures.mdp3.sbe.v1.5.messageheader", ftypes.STRING)
-omi_cme_futures_mdp3_sbe_v1_5.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.mdp3.sbe.v1.5.messagesequencenumber", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_5.fields.message_size = ProtoField.new("Message Size", "cme.futures.mdp3.sbe.v1.5.messagesize", ftypes.UINT16)
 omi_cme_futures_mdp3_sbe_v1_5.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.futures.mdp3.sbe.v1.5.mincabprice", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_5.fields.min_lot_size = ProtoField.new("Min Lot Size", "cme.futures.mdp3.sbe.v1.5.minlotsize", ftypes.DOUBLE)
+omi_cme_futures_mdp3_sbe_v1_5.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.futures.mdp3.sbe.v1.5.minpriceincrement", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_5.fields.min_price_increment_amount = ProtoField.new("Min Price Increment Amount", "cme.futures.mdp3.sbe.v1.5.minpriceincrementamount", ftypes.DOUBLE)
-omi_cme_futures_mdp3_sbe_v1_5.fields.min_price_increment_price = ProtoField.new("Min Price Increment Price", "cme.futures.mdp3.sbe.v1.5.minpriceincrementprice", ftypes.DOUBLE)
-omi_cme_futures_mdp3_sbe_v1_5.fields.min_price_increment_pricenull = ProtoField.new("Min Price Increment Pricenull", "cme.futures.mdp3.sbe.v1.5.minpriceincrementpricenull", ftypes.DOUBLE)
+omi_cme_futures_mdp3_sbe_v1_5.fields.min_price_increment_optional = ProtoField.new("Min Price Increment Optional", "cme.futures.mdp3.sbe.v1.5.minpriceincrementoptional", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_5.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "cme.futures.mdp3.sbe.v1.5.mintradevol", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_5.fields.month = ProtoField.new("Month", "cme.futures.mdp3.sbe.v1.5.month", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_5.fields.negative_price_outright_eligible = ProtoField.new("Negative Price Outright Eligible", "cme.futures.mdp3.sbe.v1.5.negativepriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00040000)
@@ -142,6 +141,7 @@ omi_cme_futures_mdp3_sbe_v1_5.fields.order_qty = ProtoField.new("Order Qty", "cm
 omi_cme_futures_mdp3_sbe_v1_5.fields.original_contract_size = ProtoField.new("Original Contract Size", "cme.futures.mdp3.sbe.v1.5.originalcontractsize", ftypes.INT32)
 omi_cme_futures_mdp3_sbe_v1_5.fields.otc_eligible = ProtoField.new("Otc Eligible", "cme.futures.mdp3.sbe.v1.5.otceligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x80000000)
 omi_cme_futures_mdp3_sbe_v1_5.fields.packet = ProtoField.new("Packet", "cme.futures.mdp3.sbe.v1.5.packet", ftypes.STRING)
+omi_cme_futures_mdp3_sbe_v1_5.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.futures.mdp3.sbe.v1.5.packetsequencenumber", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_5.fields.padding_2 = ProtoField.new("Padding 2", "cme.futures.mdp3.sbe.v1.5.padding2", ftypes.BYTES)
 omi_cme_futures_mdp3_sbe_v1_5.fields.padding_3 = ProtoField.new("Padding 3", "cme.futures.mdp3.sbe.v1.5.padding3", ftypes.BYTES)
 omi_cme_futures_mdp3_sbe_v1_5.fields.padding_4 = ProtoField.new("Padding 4", "cme.futures.mdp3.sbe.v1.5.padding4", ftypes.BYTES)
@@ -2991,24 +2991,24 @@ cme_futures_mdp3_sbe_v1_5.min_price_increment_amount.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Min Price Increment Pricenull
-cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull = {}
+-- Min Price Increment Optional
+cme_futures_mdp3_sbe_v1_5.min_price_increment_optional = {}
 
--- Size: Min Price Increment Pricenull
-cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull.size = 8
+-- Size: Min Price Increment Optional
+cme_futures_mdp3_sbe_v1_5.min_price_increment_optional.size = 8
 
--- Display: Min Price Increment Pricenull
-cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull.display = function(raw, value)
+-- Display: Min Price Increment Optional
+cme_futures_mdp3_sbe_v1_5.min_price_increment_optional.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Min Price Increment Pricenull: No Value"
+    return "Min Price Increment Optional: No Value"
   end
 
-  return "Min Price Increment Pricenull: "..value
+  return "Min Price Increment Optional: "..value
 end
 
--- Translate: Min Price Increment Pricenull
-cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull.translate = function(raw)
+-- Translate: Min Price Increment Optional
+cme_futures_mdp3_sbe_v1_5.min_price_increment_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -3017,15 +3017,15 @@ cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull.translate = function(raw
   return raw:tonumber()/10000000
 end
 
--- Dissect: Min Price Increment Pricenull
-cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull.size
+-- Dissect: Min Price Increment Optional
+cme_futures_mdp3_sbe_v1_5.min_price_increment_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_mdp3_sbe_v1_5.min_price_increment_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull.translate(raw)
-  local display = cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull.display(raw, value, buffer, offset, packet, parent)
+  local value = cme_futures_mdp3_sbe_v1_5.min_price_increment_optional.translate(raw)
+  local display = cme_futures_mdp3_sbe_v1_5.min_price_increment_optional.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_mdp3_sbe_v1_5.fields.min_price_increment_pricenull, range, value, display)
+  parent:add(omi_cme_futures_mdp3_sbe_v1_5.fields.min_price_increment_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3831,7 +3831,7 @@ cme_futures_mdp3_sbe_v1_5.md_security_trading_status.display = function(value)
     return "Md Security Trading Status: Not Available For Trading (18)"
   end
   if value == 20 then
-    return "Md Security Trading Status: Unknownor Invalid (20)"
+    return "Md Security Trading Status: unknown Or Invalid (20)"
   end
   if value == 21 then
     return "Md Security Trading Status: Pre Open (21)"
@@ -4022,7 +4022,7 @@ cme_futures_mdp3_sbe_v1_5.md_instrument_definition_option.size = function(buffer
 
   index = index + cme_futures_mdp3_sbe_v1_5.max_trade_vol.size
 
-  index = index + cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull.size
+  index = index + cme_futures_mdp3_sbe_v1_5.min_price_increment_optional.size
 
   index = index + cme_futures_mdp3_sbe_v1_5.min_price_increment_amount.size
 
@@ -4151,8 +4151,8 @@ cme_futures_mdp3_sbe_v1_5.md_instrument_definition_option.fields = function(buff
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = cme_futures_mdp3_sbe_v1_5.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Pricenull: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment_pricenull = cme_futures_mdp3_sbe_v1_5.min_price_increment_pricenull.dissect(buffer, index, packet, parent)
+  -- Min Price Increment Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_price_increment_optional = cme_futures_mdp3_sbe_v1_5.min_price_increment_optional.dissect(buffer, index, packet, parent)
 
   -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer Nullable
   index, min_price_increment_amount = cme_futures_mdp3_sbe_v1_5.min_price_increment_amount.dissect(buffer, index, packet, parent)
@@ -6970,31 +6970,31 @@ cme_futures_mdp3_sbe_v1_5.price_ratio.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Min Price Increment Price
-cme_futures_mdp3_sbe_v1_5.min_price_increment_price = {}
+-- Min Price Increment
+cme_futures_mdp3_sbe_v1_5.min_price_increment = {}
 
--- Size: Min Price Increment Price
-cme_futures_mdp3_sbe_v1_5.min_price_increment_price.size = 8
+-- Size: Min Price Increment
+cme_futures_mdp3_sbe_v1_5.min_price_increment.size = 8
 
--- Display: Min Price Increment Price
-cme_futures_mdp3_sbe_v1_5.min_price_increment_price.display = function(value)
-  return "Min Price Increment Price: "..value
+-- Display: Min Price Increment
+cme_futures_mdp3_sbe_v1_5.min_price_increment.display = function(value)
+  return "Min Price Increment: "..value
 end
 
--- Translate: Min Price Increment Price
-cme_futures_mdp3_sbe_v1_5.min_price_increment_price.translate = function(raw)
+-- Translate: Min Price Increment
+cme_futures_mdp3_sbe_v1_5.min_price_increment.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
--- Dissect: Min Price Increment Price
-cme_futures_mdp3_sbe_v1_5.min_price_increment_price.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_mdp3_sbe_v1_5.min_price_increment_price.size
+-- Dissect: Min Price Increment
+cme_futures_mdp3_sbe_v1_5.min_price_increment.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_mdp3_sbe_v1_5.min_price_increment.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cme_futures_mdp3_sbe_v1_5.min_price_increment_price.translate(raw)
-  local display = cme_futures_mdp3_sbe_v1_5.min_price_increment_price.display(value, buffer, offset, packet, parent)
+  local value = cme_futures_mdp3_sbe_v1_5.min_price_increment.translate(raw)
+  local display = cme_futures_mdp3_sbe_v1_5.min_price_increment.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_mdp3_sbe_v1_5.fields.min_price_increment_price, range, value, display)
+  parent:add(omi_cme_futures_mdp3_sbe_v1_5.fields.min_price_increment, range, value, display)
 
   return offset + length, value
 end
@@ -7117,7 +7117,7 @@ cme_futures_mdp3_sbe_v1_5.md_instrument_definition_spread.size = function(buffer
 
   index = index + cme_futures_mdp3_sbe_v1_5.max_trade_vol.size
 
-  index = index + cme_futures_mdp3_sbe_v1_5.min_price_increment_price.size
+  index = index + cme_futures_mdp3_sbe_v1_5.min_price_increment.size
 
   index = index + cme_futures_mdp3_sbe_v1_5.display_factor.size
 
@@ -7235,8 +7235,8 @@ cme_futures_mdp3_sbe_v1_5.md_instrument_definition_spread.fields = function(buff
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = cme_futures_mdp3_sbe_v1_5.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Price: 8 Byte Signed Fixed Width Integer
-  index, min_price_increment_price = cme_futures_mdp3_sbe_v1_5.min_price_increment_price.dissect(buffer, index, packet, parent)
+  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
+  index, min_price_increment = cme_futures_mdp3_sbe_v1_5.min_price_increment.dissect(buffer, index, packet, parent)
 
   -- Display Factor: 8 Byte Signed Fixed Width Integer
   index, display_factor = cme_futures_mdp3_sbe_v1_5.display_factor.dissect(buffer, index, packet, parent)
@@ -7528,7 +7528,7 @@ cme_futures_mdp3_sbe_v1_5.md_instrument_definition_future.size = function(buffer
 
   index = index + cme_futures_mdp3_sbe_v1_5.max_trade_vol.size
 
-  index = index + cme_futures_mdp3_sbe_v1_5.min_price_increment_price.size
+  index = index + cme_futures_mdp3_sbe_v1_5.min_price_increment.size
 
   index = index + cme_futures_mdp3_sbe_v1_5.display_factor.size
 
@@ -7655,8 +7655,8 @@ cme_futures_mdp3_sbe_v1_5.md_instrument_definition_future.fields = function(buff
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = cme_futures_mdp3_sbe_v1_5.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Price: 8 Byte Signed Fixed Width Integer
-  index, min_price_increment_price = cme_futures_mdp3_sbe_v1_5.min_price_increment_price.dissect(buffer, index, packet, parent)
+  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
+  index, min_price_increment = cme_futures_mdp3_sbe_v1_5.min_price_increment.dissect(buffer, index, packet, parent)
 
   -- Display Factor: 8 Byte Signed Fixed Width Integer
   index, display_factor = cme_futures_mdp3_sbe_v1_5.display_factor.dissect(buffer, index, packet, parent)
@@ -8501,25 +8501,25 @@ cme_futures_mdp3_sbe_v1_5.sending_time.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Message Sequence Number
-cme_futures_mdp3_sbe_v1_5.message_sequence_number = {}
+-- Packet Sequence Number
+cme_futures_mdp3_sbe_v1_5.packet_sequence_number = {}
 
--- Size: Message Sequence Number
-cme_futures_mdp3_sbe_v1_5.message_sequence_number.size = 4
+-- Size: Packet Sequence Number
+cme_futures_mdp3_sbe_v1_5.packet_sequence_number.size = 4
 
--- Display: Message Sequence Number
-cme_futures_mdp3_sbe_v1_5.message_sequence_number.display = function(value)
-  return "Message Sequence Number: "..value
+-- Display: Packet Sequence Number
+cme_futures_mdp3_sbe_v1_5.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
 end
 
--- Dissect: Message Sequence Number
-cme_futures_mdp3_sbe_v1_5.message_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_mdp3_sbe_v1_5.message_sequence_number.size
+-- Dissect: Packet Sequence Number
+cme_futures_mdp3_sbe_v1_5.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_mdp3_sbe_v1_5.packet_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_mdp3_sbe_v1_5.message_sequence_number.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_mdp3_sbe_v1_5.packet_sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_mdp3_sbe_v1_5.fields.message_sequence_number, range, value, display)
+  parent:add(omi_cme_futures_mdp3_sbe_v1_5.fields.packet_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -8529,7 +8529,7 @@ cme_futures_mdp3_sbe_v1_5.binary_packet_header = {}
 
 -- Size: Binary Packet Header
 cme_futures_mdp3_sbe_v1_5.binary_packet_header.size =
-  cme_futures_mdp3_sbe_v1_5.message_sequence_number.size + 
+  cme_futures_mdp3_sbe_v1_5.packet_sequence_number.size + 
   cme_futures_mdp3_sbe_v1_5.sending_time.size
 
 -- Display: Binary Packet Header
@@ -8541,8 +8541,8 @@ end
 cme_futures_mdp3_sbe_v1_5.binary_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, message_sequence_number = cme_futures_mdp3_sbe_v1_5.message_sequence_number.dissect(buffer, index, packet, parent)
+  -- Packet Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, packet_sequence_number = cme_futures_mdp3_sbe_v1_5.packet_sequence_number.dissect(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = cme_futures_mdp3_sbe_v1_5.sending_time.dissect(buffer, index, packet, parent)

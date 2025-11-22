@@ -46,7 +46,6 @@ omi_cme_futures_settlements_sbe_v7_0.fields.md_statistic_desc = ProtoField.new("
 omi_cme_futures_settlements_sbe_v7_0.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.settlements.sbe.v7.0.mdupdateaction", ftypes.UINT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.futures.settlements.sbe.v7.0.message", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "cme.futures.settlements.sbe.v7.0.messageheader", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.settlements.sbe.v7.0.messagesequencenumber", ftypes.UINT32)
 omi_cme_futures_settlements_sbe_v7_0.fields.message_size = ProtoField.new("Message Size", "cme.futures.settlements.sbe.v7.0.messagesize", ftypes.UINT16)
 omi_cme_futures_settlements_sbe_v7_0.fields.month = ProtoField.new("Month", "cme.futures.settlements.sbe.v7.0.month", ftypes.UINT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.null_value = ProtoField.new("Null Value", "cme.futures.settlements.sbe.v7.0.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
@@ -54,6 +53,7 @@ omi_cme_futures_settlements_sbe_v7_0.fields.num_in_group_uint_8 = ProtoField.new
 omi_cme_futures_settlements_sbe_v7_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.settlements.sbe.v7.0.openclosesettlflag", ftypes.UINT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.futures.settlements.sbe.v7.0.openinterestqty", ftypes.UINT32)
 omi_cme_futures_settlements_sbe_v7_0.fields.packet = ProtoField.new("Packet", "cme.futures.settlements.sbe.v7.0.packet", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.futures.settlements.sbe.v7.0.packetsequencenumber", ftypes.UINT32)
 omi_cme_futures_settlements_sbe_v7_0.fields.payload = ProtoField.new("Payload", "cme.futures.settlements.sbe.v7.0.payload", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.product_guid = ProtoField.new("Product Guid", "cme.futures.settlements.sbe.v7.0.productguid", ftypes.UINT64)
 omi_cme_futures_settlements_sbe_v7_0.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.settlements.sbe.v7.0.putorcall", ftypes.UINT8)
@@ -2701,25 +2701,25 @@ cme_futures_settlements_sbe_v7_0.sending_time.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Message Sequence Number
-cme_futures_settlements_sbe_v7_0.message_sequence_number = {}
+-- Packet Sequence Number
+cme_futures_settlements_sbe_v7_0.packet_sequence_number = {}
 
--- Size: Message Sequence Number
-cme_futures_settlements_sbe_v7_0.message_sequence_number.size = 4
+-- Size: Packet Sequence Number
+cme_futures_settlements_sbe_v7_0.packet_sequence_number.size = 4
 
--- Display: Message Sequence Number
-cme_futures_settlements_sbe_v7_0.message_sequence_number.display = function(value)
-  return "Message Sequence Number: "..value
+-- Display: Packet Sequence Number
+cme_futures_settlements_sbe_v7_0.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
 end
 
--- Dissect: Message Sequence Number
-cme_futures_settlements_sbe_v7_0.message_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_settlements_sbe_v7_0.message_sequence_number.size
+-- Dissect: Packet Sequence Number
+cme_futures_settlements_sbe_v7_0.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_settlements_sbe_v7_0.packet_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_settlements_sbe_v7_0.message_sequence_number.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_settlements_sbe_v7_0.packet_sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.message_sequence_number, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.packet_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2729,7 +2729,7 @@ cme_futures_settlements_sbe_v7_0.binary_packet_header = {}
 
 -- Size: Binary Packet Header
 cme_futures_settlements_sbe_v7_0.binary_packet_header.size =
-  cme_futures_settlements_sbe_v7_0.message_sequence_number.size + 
+  cme_futures_settlements_sbe_v7_0.packet_sequence_number.size + 
   cme_futures_settlements_sbe_v7_0.sending_time.size
 
 -- Display: Binary Packet Header
@@ -2741,8 +2741,8 @@ end
 cme_futures_settlements_sbe_v7_0.binary_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, message_sequence_number = cme_futures_settlements_sbe_v7_0.message_sequence_number.dissect(buffer, index, packet, parent)
+  -- Packet Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, packet_sequence_number = cme_futures_settlements_sbe_v7_0.packet_sequence_number.dissect(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = cme_futures_settlements_sbe_v7_0.sending_time.dissect(buffer, index, packet, parent)

@@ -183,7 +183,6 @@ omi_cme_futures_mdp3_sbe_v1_13.fields.md_trade_entry_i_d_u_int_32_null = ProtoFi
 omi_cme_futures_mdp3_sbe_v1_13.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.mdp3.sbe.v1.13.mdupdateaction", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_13.fields.message = ProtoField.new("Message", "cme.futures.mdp3.sbe.v1.13.message", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_13.fields.message_header = ProtoField.new("Message Header", "cme.futures.mdp3.sbe.v1.13.messageheader", ftypes.STRING)
-omi_cme_futures_mdp3_sbe_v1_13.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.mdp3.sbe.v1.13.messagesequencenumber", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_13.fields.message_size = ProtoField.new("Message Size", "cme.futures.mdp3.sbe.v1.13.messagesize", ftypes.UINT16)
 omi_cme_futures_mdp3_sbe_v1_13.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.futures.mdp3.sbe.v1.13.mincabprice", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_13.fields.min_lot_size_decimal_qty = ProtoField.new("Min Lot Size Decimal Qty", "cme.futures.mdp3.sbe.v1.13.minlotsizedecimalqty", ftypes.DOUBLE)
@@ -211,6 +210,7 @@ omi_cme_futures_mdp3_sbe_v1_13.fields.order_update_action = ProtoField.new("Orde
 omi_cme_futures_mdp3_sbe_v1_13.fields.original_contract_size = ProtoField.new("Original Contract Size", "cme.futures.mdp3.sbe.v1.13.originalcontractsize", ftypes.INT32)
 omi_cme_futures_mdp3_sbe_v1_13.fields.otc_eligible = ProtoField.new("Otc Eligible", "cme.futures.mdp3.sbe.v1.13.otceligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x80000000)
 omi_cme_futures_mdp3_sbe_v1_13.fields.packet = ProtoField.new("Packet", "cme.futures.mdp3.sbe.v1.13.packet", ftypes.STRING)
+omi_cme_futures_mdp3_sbe_v1_13.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.futures.mdp3.sbe.v1.13.packetsequencenumber", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_13.fields.padding_1 = ProtoField.new("Padding 1", "cme.futures.mdp3.sbe.v1.13.padding1", ftypes.BYTES)
 omi_cme_futures_mdp3_sbe_v1_13.fields.padding_2 = ProtoField.new("Padding 2", "cme.futures.mdp3.sbe.v1.13.padding2", ftypes.BYTES)
 omi_cme_futures_mdp3_sbe_v1_13.fields.padding_3 = ProtoField.new("Padding 3", "cme.futures.mdp3.sbe.v1.13.padding3", ftypes.BYTES)
@@ -1688,7 +1688,7 @@ cme_futures_mdp3_sbe_v1_13.md_security_trading_status.display = function(value)
     return "Md Security Trading Status: Not Available For Trading (18)"
   end
   if value == 20 then
-    return "Md Security Trading Status: Unknownor Invalid (20)"
+    return "Md Security Trading Status: unknown Or Invalid (20)"
   end
   if value == 21 then
     return "Md Security Trading Status: Pre Open (21)"
@@ -15214,25 +15214,25 @@ cme_futures_mdp3_sbe_v1_13.sending_time.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Message Sequence Number
-cme_futures_mdp3_sbe_v1_13.message_sequence_number = {}
+-- Packet Sequence Number
+cme_futures_mdp3_sbe_v1_13.packet_sequence_number = {}
 
--- Size: Message Sequence Number
-cme_futures_mdp3_sbe_v1_13.message_sequence_number.size = 4
+-- Size: Packet Sequence Number
+cme_futures_mdp3_sbe_v1_13.packet_sequence_number.size = 4
 
--- Display: Message Sequence Number
-cme_futures_mdp3_sbe_v1_13.message_sequence_number.display = function(value)
-  return "Message Sequence Number: "..value
+-- Display: Packet Sequence Number
+cme_futures_mdp3_sbe_v1_13.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
 end
 
--- Dissect: Message Sequence Number
-cme_futures_mdp3_sbe_v1_13.message_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_mdp3_sbe_v1_13.message_sequence_number.size
+-- Dissect: Packet Sequence Number
+cme_futures_mdp3_sbe_v1_13.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_mdp3_sbe_v1_13.packet_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_mdp3_sbe_v1_13.message_sequence_number.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_mdp3_sbe_v1_13.packet_sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_mdp3_sbe_v1_13.fields.message_sequence_number, range, value, display)
+  parent:add(omi_cme_futures_mdp3_sbe_v1_13.fields.packet_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -15242,7 +15242,7 @@ cme_futures_mdp3_sbe_v1_13.binary_packet_header = {}
 
 -- Size: Binary Packet Header
 cme_futures_mdp3_sbe_v1_13.binary_packet_header.size =
-  cme_futures_mdp3_sbe_v1_13.message_sequence_number.size + 
+  cme_futures_mdp3_sbe_v1_13.packet_sequence_number.size + 
   cme_futures_mdp3_sbe_v1_13.sending_time.size
 
 -- Display: Binary Packet Header
@@ -15254,8 +15254,8 @@ end
 cme_futures_mdp3_sbe_v1_13.binary_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, message_sequence_number = cme_futures_mdp3_sbe_v1_13.message_sequence_number.dissect(buffer, index, packet, parent)
+  -- Packet Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, packet_sequence_number = cme_futures_mdp3_sbe_v1_13.packet_sequence_number.dissect(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = cme_futures_mdp3_sbe_v1_13.sending_time.dissect(buffer, index, packet, parent)

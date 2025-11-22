@@ -36,11 +36,11 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_type_spectrum_entry_type = ProtoF
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_type_ticker_entry_type = ProtoField.new("Md Entry Type Ticker Entry Type", "cme.ebs.spectrum.sbe.v12.0.mdentrytypetickerentrytype", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.ebs.spectrum.sbe.v12.0.message", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.ebs.spectrum.sbe.v12.0.messageheader", ftypes.STRING)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.ebs.spectrum.sbe.v12.0.messagesequencenumber", ftypes.UINT32)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message_size = ProtoField.new("Message Size", "cme.ebs.spectrum.sbe.v12.0.messagesize", ftypes.UINT16)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.ebs.spectrum.sbe.v12.0.numingroupuint8", ftypes.UINT8)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.ebs.spectrum.sbe.v12.0.openclosesettlflag", ftypes.UINT8)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.packet = ProtoField.new("Packet", "cme.ebs.spectrum.sbe.v12.0.packet", ftypes.STRING)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.ebs.spectrum.sbe.v12.0.packetsequencenumber", ftypes.UINT32)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.payload = ProtoField.new("Payload", "cme.ebs.spectrum.sbe.v12.0.payload", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.schema_id = ProtoField.new("Schema Id", "cme.ebs.spectrum.sbe.v12.0.schemaid", ftypes.UINT16)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.security_id = ProtoField.new("Security Id", "cme.ebs.spectrum.sbe.v12.0.securityid", ftypes.INT32)
@@ -1913,25 +1913,25 @@ cme_ebs_spectrum_sbe_v12_0.sending_time.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Message Sequence Number
-cme_ebs_spectrum_sbe_v12_0.message_sequence_number = {}
+-- Packet Sequence Number
+cme_ebs_spectrum_sbe_v12_0.packet_sequence_number = {}
 
--- Size: Message Sequence Number
-cme_ebs_spectrum_sbe_v12_0.message_sequence_number.size = 4
+-- Size: Packet Sequence Number
+cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.size = 4
 
--- Display: Message Sequence Number
-cme_ebs_spectrum_sbe_v12_0.message_sequence_number.display = function(value)
-  return "Message Sequence Number: "..value
+-- Display: Packet Sequence Number
+cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
 end
 
--- Dissect: Message Sequence Number
-cme_ebs_spectrum_sbe_v12_0.message_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.message_sequence_number.size
+-- Dissect: Packet Sequence Number
+cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.message_sequence_number.display(value, buffer, offset, packet, parent)
+  local display = cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.message_sequence_number, range, value, display)
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.packet_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1941,7 +1941,7 @@ cme_ebs_spectrum_sbe_v12_0.binary_packet_header = {}
 
 -- Size: Binary Packet Header
 cme_ebs_spectrum_sbe_v12_0.binary_packet_header.size =
-  cme_ebs_spectrum_sbe_v12_0.message_sequence_number.size + 
+  cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.size + 
   cme_ebs_spectrum_sbe_v12_0.sending_time.size
 
 -- Display: Binary Packet Header
@@ -1953,8 +1953,8 @@ end
 cme_ebs_spectrum_sbe_v12_0.binary_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, message_sequence_number = cme_ebs_spectrum_sbe_v12_0.message_sequence_number.dissect(buffer, index, packet, parent)
+  -- Packet Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, packet_sequence_number = cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.dissect(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = cme_ebs_spectrum_sbe_v12_0.sending_time.dissect(buffer, index, packet, parent)

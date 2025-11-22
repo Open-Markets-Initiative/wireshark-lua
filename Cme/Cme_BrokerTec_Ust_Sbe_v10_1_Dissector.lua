@@ -32,10 +32,10 @@ omi_cme_brokertec_ust_sbe_v10_1.fields.md_price_level = ProtoField.new("Md Price
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_update_action = ProtoField.new("Md Update Action", "cme.brokertec.ust.sbe.v10.1.mdupdateaction", ftypes.UINT8)
 omi_cme_brokertec_ust_sbe_v10_1.fields.message = ProtoField.new("Message", "cme.brokertec.ust.sbe.v10.1.message", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.message_header = ProtoField.new("Message Header", "cme.brokertec.ust.sbe.v10.1.messageheader", ftypes.STRING)
-omi_cme_brokertec_ust_sbe_v10_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.brokertec.ust.sbe.v10.1.messagesequencenumber", ftypes.UINT32)
 omi_cme_brokertec_ust_sbe_v10_1.fields.message_size = ProtoField.new("Message Size", "cme.brokertec.ust.sbe.v10.1.messagesize", ftypes.UINT16)
 omi_cme_brokertec_ust_sbe_v10_1.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.brokertec.ust.sbe.v10.1.numingroupuint8", ftypes.UINT8)
 omi_cme_brokertec_ust_sbe_v10_1.fields.packet = ProtoField.new("Packet", "cme.brokertec.ust.sbe.v10.1.packet", ftypes.STRING)
+omi_cme_brokertec_ust_sbe_v10_1.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.brokertec.ust.sbe.v10.1.packetsequencenumber", ftypes.UINT32)
 omi_cme_brokertec_ust_sbe_v10_1.fields.payload = ProtoField.new("Payload", "cme.brokertec.ust.sbe.v10.1.payload", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.price_type = ProtoField.new("Price Type", "cme.brokertec.ust.sbe.v10.1.pricetype", ftypes.UINT8)
 omi_cme_brokertec_ust_sbe_v10_1.fields.schema_id = ProtoField.new("Schema Id", "cme.brokertec.ust.sbe.v10.1.schemaid", ftypes.UINT16)
@@ -1398,25 +1398,25 @@ cme_brokertec_ust_sbe_v10_1.sending_time.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Message Sequence Number
-cme_brokertec_ust_sbe_v10_1.message_sequence_number = {}
+-- Packet Sequence Number
+cme_brokertec_ust_sbe_v10_1.packet_sequence_number = {}
 
--- Size: Message Sequence Number
-cme_brokertec_ust_sbe_v10_1.message_sequence_number.size = 4
+-- Size: Packet Sequence Number
+cme_brokertec_ust_sbe_v10_1.packet_sequence_number.size = 4
 
--- Display: Message Sequence Number
-cme_brokertec_ust_sbe_v10_1.message_sequence_number.display = function(value)
-  return "Message Sequence Number: "..value
+-- Display: Packet Sequence Number
+cme_brokertec_ust_sbe_v10_1.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
 end
 
--- Dissect: Message Sequence Number
-cme_brokertec_ust_sbe_v10_1.message_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.message_sequence_number.size
+-- Dissect: Packet Sequence Number
+cme_brokertec_ust_sbe_v10_1.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.packet_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.message_sequence_number.display(value, buffer, offset, packet, parent)
+  local display = cme_brokertec_ust_sbe_v10_1.packet_sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.message_sequence_number, range, value, display)
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.packet_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1426,7 +1426,7 @@ cme_brokertec_ust_sbe_v10_1.binary_packet_header = {}
 
 -- Size: Binary Packet Header
 cme_brokertec_ust_sbe_v10_1.binary_packet_header.size =
-  cme_brokertec_ust_sbe_v10_1.message_sequence_number.size + 
+  cme_brokertec_ust_sbe_v10_1.packet_sequence_number.size + 
   cme_brokertec_ust_sbe_v10_1.sending_time.size
 
 -- Display: Binary Packet Header
@@ -1438,8 +1438,8 @@ end
 cme_brokertec_ust_sbe_v10_1.binary_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, message_sequence_number = cme_brokertec_ust_sbe_v10_1.message_sequence_number.dissect(buffer, index, packet, parent)
+  -- Packet Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, packet_sequence_number = cme_brokertec_ust_sbe_v10_1.packet_sequence_number.dissect(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = cme_brokertec_ust_sbe_v10_1.sending_time.dissect(buffer, index, packet, parent)

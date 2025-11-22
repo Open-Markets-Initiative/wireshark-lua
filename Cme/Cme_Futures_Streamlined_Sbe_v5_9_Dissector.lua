@@ -126,7 +126,6 @@ omi_cme_futures_streamlined_sbe_v5_9.fields.md_update_action = ProtoField.new("M
 omi_cme_futures_streamlined_sbe_v5_9.fields.md_update_action_char = ProtoField.new("Md Update Action Char", "cme.futures.streamlined.sbe.v5.9.mdupdateactionchar", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.message = ProtoField.new("Message", "cme.futures.streamlined.sbe.v5.9.message", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.message_header = ProtoField.new("Message Header", "cme.futures.streamlined.sbe.v5.9.messageheader", ftypes.STRING)
-omi_cme_futures_streamlined_sbe_v5_9.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.streamlined.sbe.v5.9.messagesequencenumber", ftypes.UINT32)
 omi_cme_futures_streamlined_sbe_v5_9.fields.message_size = ProtoField.new("Message Size", "cme.futures.streamlined.sbe.v5.9.messagesize", ftypes.UINT16)
 omi_cme_futures_streamlined_sbe_v5_9.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.futures.streamlined.sbe.v5.9.minpriceincrement", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.min_price_increment_optional = ProtoField.new("Min Price Increment Optional", "cme.futures.streamlined.sbe.v5.9.minpriceincrementoptional", ftypes.STRING)
@@ -148,6 +147,7 @@ omi_cme_futures_streamlined_sbe_v5_9.fields.open_close_settl_flag = ProtoField.n
 omi_cme_futures_streamlined_sbe_v5_9.fields.orig_time = ProtoField.new("Orig Time", "cme.futures.streamlined.sbe.v5.9.origtime", ftypes.UINT64)
 omi_cme_futures_streamlined_sbe_v5_9.fields.p_v_01 = ProtoField.new("P V 01", "cme.futures.streamlined.sbe.v5.9.pv01", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.packet = ProtoField.new("Packet", "cme.futures.streamlined.sbe.v5.9.packet", ftypes.STRING)
+omi_cme_futures_streamlined_sbe_v5_9.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.futures.streamlined.sbe.v5.9.packetsequencenumber", ftypes.UINT32)
 omi_cme_futures_streamlined_sbe_v5_9.fields.payload = ProtoField.new("Payload", "cme.futures.streamlined.sbe.v5.9.payload", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.percent_trading = ProtoField.new("Percent Trading", "cme.futures.streamlined.sbe.v5.9.percenttrading", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.previous_eris_pai = ProtoField.new("Previous Eris Pai", "cme.futures.streamlined.sbe.v5.9.previouserispai", ftypes.STRING)
@@ -10641,25 +10641,25 @@ cme_futures_streamlined_sbe_v5_9.sending_time.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Message Sequence Number
-cme_futures_streamlined_sbe_v5_9.message_sequence_number = {}
+-- Packet Sequence Number
+cme_futures_streamlined_sbe_v5_9.packet_sequence_number = {}
 
--- Size: Message Sequence Number
-cme_futures_streamlined_sbe_v5_9.message_sequence_number.size = 4
+-- Size: Packet Sequence Number
+cme_futures_streamlined_sbe_v5_9.packet_sequence_number.size = 4
 
--- Display: Message Sequence Number
-cme_futures_streamlined_sbe_v5_9.message_sequence_number.display = function(value)
-  return "Message Sequence Number: "..value
+-- Display: Packet Sequence Number
+cme_futures_streamlined_sbe_v5_9.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
 end
 
--- Dissect: Message Sequence Number
-cme_futures_streamlined_sbe_v5_9.message_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.message_sequence_number.size
+-- Dissect: Packet Sequence Number
+cme_futures_streamlined_sbe_v5_9.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.packet_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.message_sequence_number.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_streamlined_sbe_v5_9.packet_sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.message_sequence_number, range, value, display)
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.packet_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -10669,7 +10669,7 @@ cme_futures_streamlined_sbe_v5_9.binary_packet_header = {}
 
 -- Size: Binary Packet Header
 cme_futures_streamlined_sbe_v5_9.binary_packet_header.size =
-  cme_futures_streamlined_sbe_v5_9.message_sequence_number.size + 
+  cme_futures_streamlined_sbe_v5_9.packet_sequence_number.size + 
   cme_futures_streamlined_sbe_v5_9.sending_time.size
 
 -- Display: Binary Packet Header
@@ -10681,8 +10681,8 @@ end
 cme_futures_streamlined_sbe_v5_9.binary_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, message_sequence_number = cme_futures_streamlined_sbe_v5_9.message_sequence_number.dissect(buffer, index, packet, parent)
+  -- Packet Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, packet_sequence_number = cme_futures_streamlined_sbe_v5_9.packet_sequence_number.dissect(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = cme_futures_streamlined_sbe_v5_9.sending_time.dissect(buffer, index, packet, parent)
