@@ -18,8 +18,10 @@ local hkex_derivatives_fulltick_omd_v1_47 = {}
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.actual_start_date = ProtoField.new("Actual Start Date", "hkex.derivatives.fulltick.omd.v1.47.actualstartdate", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.derivatives.fulltick.omd.v1.47.actualstarttime", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.alert_id = ProtoField.new("Alert Id", "hkex.derivatives.fulltick.omd.v1.47.alertid", ftypes.UINT16)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.bait_or_implied_order = ProtoField.new("Bait Or Implied Order", "hkex.derivatives.fulltick.omd.v1.47.baitorimpliedorder", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x2000)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.base_currency = ProtoField.new("Base Currency", "hkex.derivatives.fulltick.omd.v1.47.basecurrency", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.bid_ask_flag = ProtoField.new("Bid Ask Flag", "hkex.derivatives.fulltick.omd.v1.47.bidaskflag", ftypes.UINT8)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.buy_write = ProtoField.new("Buy Write", "hkex.derivatives.fulltick.omd.v1.47.buywrite", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "hkex.derivatives.fulltick.omd.v1.47.calculatedopeningprice", ftypes.INT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.calculated_opening_quantity = ProtoField.new("Calculated Opening Quantity", "hkex.derivatives.fulltick.omd.v1.47.calculatedopeningquantity", ftypes.UINT64)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.combo_group_id = ProtoField.new("Combo Group Id", "hkex.derivatives.fulltick.omd.v1.47.combogroupid", ftypes.UINT32)
@@ -31,11 +33,12 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.compression_mode = ProtoField.new
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.content = ProtoField.new("Content", "hkex.derivatives.fulltick.omd.v1.47.content", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.contract_size = ProtoField.new("Contract Size", "hkex.derivatives.fulltick.omd.v1.47.contractsize", ftypes.UINT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.contract_size_extended = ProtoField.new("Contract Size Extended", "hkex.derivatives.fulltick.omd.v1.47.contractsizeextended", ftypes.INT64)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.convert_to_aggressive = ProtoField.new("Convert To Aggressive", "hkex.derivatives.fulltick.omd.v1.47.converttoaggressive", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x1000)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.country = ProtoField.new("Country", "hkex.derivatives.fulltick.omd.v1.47.country", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.date_time_first_trading = ProtoField.new("Date Time First Trading", "hkex.derivatives.fulltick.omd.v1.47.datetimefirsttrading", ftypes.INT64)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.date_time_last_trading = ProtoField.new("Date Time Last Trading", "hkex.derivatives.fulltick.omd.v1.47.datetimelasttrading", ftypes.INT64)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_info = ProtoField.new("Deal Info", "hkex.derivatives.fulltick.omd.v1.47.dealinfo", ftypes.UINT16)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_type = ProtoField.new("Deal Type", "hkex.derivatives.fulltick.omd.v1.47.dealtype", ftypes.UINT8)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_info_uint_162 = ProtoField.new("Deal Info Uint 162", "hkex.derivatives.fulltick.omd.v1.47.dealinfouint162", ftypes.UINT16)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_type = ProtoField.new("Deal Type", "hkex.derivatives.fulltick.omd.v1.47.dealtype", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.decimal_in_contract_size = ProtoField.new("Decimal In Contract Size", "hkex.derivatives.fulltick.omd.v1.47.decimalincontractsize", ftypes.UINT16)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.decimal_in_premium = ProtoField.new("Decimal In Premium", "hkex.derivatives.fulltick.omd.v1.47.decimalinpremium", ftypes.UINT16)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.decimal_in_strike_price = ProtoField.new("Decimal In Strike Price", "hkex.derivatives.fulltick.omd.v1.47.decimalinstrikeprice", ftypes.UINT16)
@@ -45,27 +48,32 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.effective_exp_date = ProtoField.n
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.effective_tomorrow = ProtoField.new("Effective Tomorrow", "hkex.derivatives.fulltick.omd.v1.47.effectivetomorrow", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.expiration_date = ProtoField.new("Expiration Date", "hkex.derivatives.fulltick.omd.v1.47.expirationdate", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.expiry_date = ProtoField.new("Expiry Date", "hkex.derivatives.fulltick.omd.v1.47.expirydate", ftypes.UINT16)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.fill_and_kill_immediately = ProtoField.new("Fill And Kill Immediately", "hkex.derivatives.fulltick.omd.v1.47.fillandkillimmediately", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0400)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_1 = ProtoField.new("Filler 1", "hkex.derivatives.fulltick.omd.v1.47.filler1", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_2 = ProtoField.new("Filler 2", "hkex.derivatives.fulltick.omd.v1.47.filler2", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_3 = ProtoField.new("Filler 3", "hkex.derivatives.fulltick.omd.v1.47.filler3", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.filler_4 = ProtoField.new("Filler 4", "hkex.derivatives.fulltick.omd.v1.47.filler4", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.financial_product = ProtoField.new("Financial Product", "hkex.derivatives.fulltick.omd.v1.47.financialproduct", ftypes.UINT8)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.firm_color_disabled = ProtoField.new("Firm Color Disabled", "hkex.derivatives.fulltick.omd.v1.47.firmcolordisabled", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0800)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.force = ProtoField.new("Force", "hkex.derivatives.fulltick.omd.v1.47.force", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.header = ProtoField.new("Header", "hkex.derivatives.fulltick.omd.v1.47.header", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.info_type = ProtoField.new("Info Type", "hkex.derivatives.fulltick.omd.v1.47.infotype", ftypes.UINT8)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.instrument = ProtoField.new("Instrument", "hkex.derivatives.fulltick.omd.v1.47.instrument", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.instrument_class_id = ProtoField.new("Instrument Class Id", "hkex.derivatives.fulltick.omd.v1.47.instrumentclassid", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.instrument_class_name = ProtoField.new("Instrument Class Name", "hkex.derivatives.fulltick.omd.v1.47.instrumentclassname", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.instrument_group = ProtoField.new("Instrument Group", "hkex.derivatives.fulltick.omd.v1.47.instrumentgroup", ftypes.UINT8)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.internal_trade_or_cross = ProtoField.new("Internal Trade Or Cross", "hkex.derivatives.fulltick.omd.v1.47.internaltradeorcross", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.is_fractions = ProtoField.new("Is Fractions", "hkex.derivatives.fulltick.omd.v1.47.isfractions", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.isin_code = ProtoField.new("Isin Code", "hkex.derivatives.fulltick.omd.v1.47.isincode", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.last_fragment = ProtoField.new("Last Fragment", "hkex.derivatives.fulltick.omd.v1.47.lastfragment", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.derivatives.fulltick.omd.v1.47.lastseqnum", ftypes.UINT32)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.late_trade = ProtoField.new("Late Trade", "hkex.derivatives.fulltick.omd.v1.47.latetrade", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.leg_orderbook_id = ProtoField.new("Leg Orderbook Id", "hkex.derivatives.fulltick.omd.v1.47.legorderbookid", ftypes.UINT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.leg_ratio = ProtoField.new("Leg Ratio", "hkex.derivatives.fulltick.omd.v1.47.legratio", ftypes.INT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.leg_side = ProtoField.new("Leg Side", "hkex.derivatives.fulltick.omd.v1.47.legside", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.locked = ProtoField.new("Locked", "hkex.derivatives.fulltick.omd.v1.47.locked", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.lot_type = ProtoField.new("Lot Type", "hkex.derivatives.fulltick.omd.v1.47.lottype", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.market = ProtoField.new("Market", "hkex.derivatives.fulltick.omd.v1.47.market", ftypes.UINT8)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_bid = ProtoField.new("Market Bid", "hkex.derivatives.fulltick.omd.v1.47.marketbid", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.message = ProtoField.new("Message", "hkex.derivatives.fulltick.omd.v1.47.message", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.modifier = ProtoField.new("Modifier", "hkex.derivatives.fulltick.omd.v1.47.modifier", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.msg_count = ProtoField.new("Msg Count", "hkex.derivatives.fulltick.omd.v1.47.msgcount", ftypes.UINT8)
@@ -78,10 +86,13 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.nominal_value = ProtoField.new("N
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.number_of_decimals_price = ProtoField.new("Number Of Decimals Price", "hkex.derivatives.fulltick.omd.v1.47.numberofdecimalsprice", ftypes.UINT16)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.number_of_legs = ProtoField.new("Number Of Legs", "hkex.derivatives.fulltick.omd.v1.47.numberoflegs", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.number_of_lots = ProtoField.new("Number Of Lots", "hkex.derivatives.fulltick.omd.v1.47.numberoflots", ftypes.INT32)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.occurred_at_cross = ProtoField.new("Occurred At Cross", "hkex.derivatives.fulltick.omd.v1.47.occurredatcross", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.off_market = ProtoField.new("Off Market", "hkex.derivatives.fulltick.omd.v1.47.offmarket", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0008)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.order_book_position = ProtoField.new("Order Book Position", "hkex.derivatives.fulltick.omd.v1.47.orderbookposition", ftypes.UINT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.order_id = ProtoField.new("Order Id", "hkex.derivatives.fulltick.omd.v1.47.orderid", ftypes.UINT64)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.order_type = ProtoField.new("Order Type", "hkex.derivatives.fulltick.omd.v1.47.ordertype", ftypes.UINT16)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.order_type = ProtoField.new("Order Type", "hkex.derivatives.fulltick.omd.v1.47.ordertype", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.derivatives.fulltick.omd.v1.47.orderbookid", ftypes.UINT32)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.override_crossing = ProtoField.new("Override Crossing", "hkex.derivatives.fulltick.omd.v1.47.overridecrossing", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0010)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.packet = ProtoField.new("Packet", "hkex.derivatives.fulltick.omd.v1.47.packet", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.packet_header = ProtoField.new("Packet Header", "hkex.derivatives.fulltick.omd.v1.47.packetheader", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.payload = ProtoField.new("Payload", "hkex.derivatives.fulltick.omd.v1.47.payload", ftypes.STRING)
@@ -92,15 +103,19 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.premium_unit = ProtoField.new("Pr
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.price = ProtoField.new("Price", "hkex.derivatives.fulltick.omd.v1.47.price", ftypes.INT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.price_method = ProtoField.new("Price Method", "hkex.derivatives.fulltick.omd.v1.47.pricemethod", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.price_quotation_factor = ProtoField.new("Price Quotation Factor", "hkex.derivatives.fulltick.omd.v1.47.pricequotationfactor", ftypes.INT32)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.price_stabilization = ProtoField.new("Price Stabilization", "hkex.derivatives.fulltick.omd.v1.47.pricestabilization", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0008)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.printable = ProtoField.new("Printable", "hkex.derivatives.fulltick.omd.v1.47.printable", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.priority = ProtoField.new("Priority", "hkex.derivatives.fulltick.omd.v1.47.priority", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.put_or_call = ProtoField.new("Put Or Call", "hkex.derivatives.fulltick.omd.v1.47.putorcall", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.quantity = ProtoField.new("Quantity", "hkex.derivatives.fulltick.omd.v1.47.quantity", ftypes.UINT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.ranking_type = ProtoField.new("Ranking Type", "hkex.derivatives.fulltick.omd.v1.47.rankingtype", ftypes.UINT16)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.reported_trade = ProtoField.new("Reported Trade", "hkex.derivatives.fulltick.omd.v1.47.reportedtrade", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.seconds_to_state_change = ProtoField.new("Seconds To State Change", "hkex.derivatives.fulltick.omd.v1.47.secondstostatechange", ftypes.UINT16)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.send_time = ProtoField.new("Send Time", "hkex.derivatives.fulltick.omd.v1.47.sendtime", ftypes.UINT64)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.seq_num = ProtoField.new("Seq Num", "hkex.derivatives.fulltick.omd.v1.47.seqnum", ftypes.UINT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.series_status = ProtoField.new("Series Status", "hkex.derivatives.fulltick.omd.v1.47.seriesstatus", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.settlement_currency_id = ProtoField.new("Settlement Currency Id", "hkex.derivatives.fulltick.omd.v1.47.settlementcurrencyid", ftypes.STRING)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.short_sell = ProtoField.new("Short Sell", "hkex.derivatives.fulltick.omd.v1.47.shortsell", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.side = ProtoField.new("Side", "hkex.derivatives.fulltick.omd.v1.47.side", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.source = ProtoField.new("Source", "hkex.derivatives.fulltick.omd.v1.47.source", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.state = ProtoField.new("State", "hkex.derivatives.fulltick.omd.v1.47.state", ftypes.UINT16)
@@ -111,13 +126,19 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.suspension_indicator = ProtoField
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.symbol = ProtoField.new("Symbol", "hkex.derivatives.fulltick.omd.v1.47.symbol", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.tick_step_size = ProtoField.new("Tick Step Size", "hkex.derivatives.fulltick.omd.v1.47.tickstepsize", ftypes.INT32)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.tradable = ProtoField.new("Tradable", "hkex.derivatives.fulltick.omd.v1.47.tradable", ftypes.UINT8)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_condition = ProtoField.new("Trade Condition", "hkex.derivatives.fulltick.omd.v1.47.tradecondition", ftypes.UINT16)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_condition = ProtoField.new("Trade Condition", "hkex.derivatives.fulltick.omd.v1.47.tradecondition", ftypes.STRING)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_id = ProtoField.new("Trade Id", "hkex.derivatives.fulltick.omd.v1.47.tradeid", ftypes.UINT64)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_quantity = ProtoField.new("Trade Quantity", "hkex.derivatives.fulltick.omd.v1.47.tradequantity", ftypes.UINT64)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_side = ProtoField.new("Trade Side", "hkex.derivatives.fulltick.omd.v1.47.tradeside", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_state = ProtoField.new("Trade State", "hkex.derivatives.fulltick.omd.v1.47.tradestate", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_time = ProtoField.new("Trade Time", "hkex.derivatives.fulltick.omd.v1.47.tradetime", ftypes.UINT64)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.underlying_price_unit = ProtoField.new("Underlying Price Unit", "hkex.derivatives.fulltick.omd.v1.47.underlyingpriceunit", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.underlying_type = ProtoField.new("Underlying Type", "hkex.derivatives.fulltick.omd.v1.47.underlyingtype", ftypes.UINT8)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.undisclosed = ProtoField.new("Undisclosed", "hkex.derivatives.fulltick.omd.v1.47.undisclosed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0020)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_12 = ProtoField.new("Unused 12", "hkex.derivatives.fulltick.omd.v1.47.unused12", ftypes.UINT16, nil, base.DEC, 0xFFF0)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_2 = ProtoField.new("Unused 2", "hkex.derivatives.fulltick.omd.v1.47.unused2", ftypes.UINT16, nil, base.DEC, 0xC000)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_4 = ProtoField.new("Unused 4", "hkex.derivatives.fulltick.omd.v1.47.unused4", ftypes.UINT16, nil, base.DEC, 0x03C0)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_5 = ProtoField.new("Unused 5", "hkex.derivatives.fulltick.omd.v1.47.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 
 -- Hkex Derivatives FullTick Omd 1.47 messages
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.add_order_message = ProtoField.new("Add Order Message", "hkex.derivatives.fulltick.omd.v1.47.addordermessage", ftypes.STRING)
@@ -158,6 +179,7 @@ show.class_definition_message = true
 show.combination_definition_message = true
 show.commodity_definition_message = true
 show.commodity_status_message = true
+show.deal_type = true
 show.delete_order_message = true
 show.disaster_recovery_signal_message = true
 show.market_alert_message = true
@@ -165,6 +187,7 @@ show.market_status_message = true
 show.message = true
 show.modify_order_message = true
 show.msg_header = true
+show.order_type = true
 show.orderbook_clear_message = true
 show.packet = true
 show.packet_header = true
@@ -175,6 +198,7 @@ show.series_definition_base_message = true
 show.series_definition_extended_message = true
 show.series_status_message = true
 show.trade_amendment_message = true
+show.trade_condition = true
 show.trade_message = true
 show.payload = false
 
@@ -185,6 +209,7 @@ omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_class_definition_message = Pr
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_combination_definition_message = Pref.bool("Show Combination Definition Message", show.combination_definition_message, "Parse and add Combination Definition Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_commodity_definition_message = Pref.bool("Show Commodity Definition Message", show.commodity_definition_message, "Parse and add Commodity Definition Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_commodity_status_message = Pref.bool("Show Commodity Status Message", show.commodity_status_message, "Parse and add Commodity Status Message to protocol tree")
+omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_deal_type = Pref.bool("Show Deal Type", show.deal_type, "Parse and add Deal Type to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_disaster_recovery_signal_message = Pref.bool("Show Disaster Recovery Signal Message", show.disaster_recovery_signal_message, "Parse and add Disaster Recovery Signal Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_alert_message = Pref.bool("Show Market Alert Message", show.market_alert_message, "Parse and add Market Alert Message to protocol tree")
@@ -192,6 +217,7 @@ omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_status_message = Pref.
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
+omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_order_type = Pref.bool("Show Order Type", show.order_type, "Parse and add Order Type to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_orderbook_clear_message = Pref.bool("Show Orderbook Clear Message", show.orderbook_clear_message, "Parse and add Orderbook Clear Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
@@ -202,6 +228,7 @@ omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_definition_base_messag
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_definition_extended_message = Pref.bool("Show Series Definition Extended Message", show.series_definition_extended_message, "Parse and add Series Definition Extended Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_status_message = Pref.bool("Show Series Status Message", show.series_status_message, "Parse and add Series Status Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_amendment_message = Pref.bool("Show Trade Amendment Message", show.trade_amendment_message, "Parse and add Trade Amendment Message to protocol tree")
+omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
@@ -234,6 +261,10 @@ function omi_hkex_derivatives_fulltick_omd_v1_47.prefs_changed()
     show.commodity_status_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_commodity_status_message
     changed = true
   end
+  if show.deal_type ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_deal_type then
+    show.deal_type = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_deal_type
+    changed = true
+  end
   if show.delete_order_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_delete_order_message then
     show.delete_order_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_delete_order_message
     changed = true
@@ -260,6 +291,10 @@ function omi_hkex_derivatives_fulltick_omd_v1_47.prefs_changed()
   end
   if show.msg_header ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_msg_header then
     show.msg_header = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_msg_header
+    changed = true
+  end
+  if show.order_type ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_order_type then
+    show.order_type = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_order_type
     changed = true
   end
   if show.orderbook_clear_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_orderbook_clear_message then
@@ -300,6 +335,10 @@ function omi_hkex_derivatives_fulltick_omd_v1_47.prefs_changed()
   end
   if show.trade_amendment_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_amendment_message then
     show.trade_amendment_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_amendment_message
+    changed = true
+  end
+  if show.trade_condition ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_condition then
+    show.trade_condition = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_condition
     changed = true
   end
   if show.trade_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_message then
@@ -1061,25 +1100,25 @@ hkex_derivatives_fulltick_omd_v1_47.filler_2.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Deal Info
-hkex_derivatives_fulltick_omd_v1_47.deal_info = {}
+-- Deal Info Uint 162
+hkex_derivatives_fulltick_omd_v1_47.deal_info_uint_162 = {}
 
--- Size: Deal Info
-hkex_derivatives_fulltick_omd_v1_47.deal_info.size = 2
+-- Size: Deal Info Uint 162
+hkex_derivatives_fulltick_omd_v1_47.deal_info_uint_162.size = 2
 
--- Display: Deal Info
-hkex_derivatives_fulltick_omd_v1_47.deal_info.display = function(value)
-  return "Deal Info: "..value
+-- Display: Deal Info Uint 162
+hkex_derivatives_fulltick_omd_v1_47.deal_info_uint_162.display = function(value)
+  return "Deal Info Uint 162: "..value
 end
 
--- Dissect: Deal Info
-hkex_derivatives_fulltick_omd_v1_47.deal_info.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.deal_info.size
+-- Dissect: Deal Info Uint 162
+hkex_derivatives_fulltick_omd_v1_47.deal_info_uint_162.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.deal_info_uint_162.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.deal_info.display(value, buffer, offset, packet, parent)
+  local display = hkex_derivatives_fulltick_omd_v1_47.deal_info_uint_162.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_info, range, value, display)
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_info_uint_162, range, value, display)
 
   return offset + length, value
 end
@@ -1091,20 +1130,60 @@ hkex_derivatives_fulltick_omd_v1_47.trade_condition = {}
 hkex_derivatives_fulltick_omd_v1_47.trade_condition.size = 2
 
 -- Display: Trade Condition
-hkex_derivatives_fulltick_omd_v1_47.trade_condition.display = function(value)
-  return "Trade Condition: "..value
+hkex_derivatives_fulltick_omd_v1_47.trade_condition.display = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Off Market flag set?
+  if buffer:bitfield(12) > 0 then
+    display = display.."Off Market|"
+  end
+  -- Is Buy Write flag set?
+  if buffer:bitfield(13) > 0 then
+    display = display.."Buy Write|"
+  end
+  -- Is Internal Trade Or Cross flag set?
+  if buffer:bitfield(14) > 0 then
+    display = display.."Internal Trade Or Cross|"
+  end
+  -- Is Late Trade flag set?
+  if buffer:bitfield(15) > 0 then
+    display = display.."Late Trade|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Trade Condition
+hkex_derivatives_fulltick_omd_v1_47.trade_condition.bits = function(buffer, offset, packet, parent)
+
+  -- Unused 12: 12 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_12, buffer(offset, 2))
+
+  -- Off Market: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.off_market, buffer(offset, 2))
+
+  -- Buy Write: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.buy_write, buffer(offset, 2))
+
+  -- Internal Trade Or Cross: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.internal_trade_or_cross, buffer(offset, 2))
+
+  -- Late Trade: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.late_trade, buffer(offset, 2))
 end
 
 -- Dissect: Trade Condition
 hkex_derivatives_fulltick_omd_v1_47.trade_condition.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.trade_condition.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.trade_condition.display(value, buffer, offset, packet, parent)
+  local size = 2
+  local range = buffer(offset, size)
+  local display = hkex_derivatives_fulltick_omd_v1_47.trade_condition.display(range, packet, parent)
+  local element = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_condition, range, display)
 
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_condition, range, value, display)
+  if show.trade_condition then
+    hkex_derivatives_fulltick_omd_v1_47.trade_condition.bits(buffer, offset, packet, element)
+  end
 
-  return offset + length, value
+  return offset + 2, range
 end
 
 -- Deal Type
@@ -1114,48 +1193,87 @@ hkex_derivatives_fulltick_omd_v1_47.deal_type = {}
 hkex_derivatives_fulltick_omd_v1_47.deal_type.size = 1
 
 -- Display: Deal Type
-hkex_derivatives_fulltick_omd_v1_47.deal_type.display = function(value)
-  return "Deal Type: "..value
+hkex_derivatives_fulltick_omd_v1_47.deal_type.display = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Reported Trade flag set?
+  if buffer:bitfield(5) > 0 then
+    display = display.."Reported Trade|"
+  end
+  -- Is Occurred At Cross flag set?
+  if buffer:bitfield(6) > 0 then
+    display = display.."Occurred At Cross|"
+  end
+  -- Is Printable flag set?
+  if buffer:bitfield(7) > 0 then
+    display = display.."Printable|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Deal Type
+hkex_derivatives_fulltick_omd_v1_47.deal_type.bits = function(buffer, offset, packet, parent)
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_5, buffer(offset, 1))
+
+  -- Reported Trade: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.reported_trade, buffer(offset, 1))
+
+  -- Occurred At Cross: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.occurred_at_cross, buffer(offset, 1))
+
+  -- Printable: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.printable, buffer(offset, 1))
 end
 
 -- Dissect: Deal Type
 hkex_derivatives_fulltick_omd_v1_47.deal_type.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.deal_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.deal_type.display(value, buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = hkex_derivatives_fulltick_omd_v1_47.deal_type.display(range, packet, parent)
+  local element = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_type, range, display)
 
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_type, range, value, display)
+  if show.deal_type then
+    hkex_derivatives_fulltick_omd_v1_47.deal_type.bits(buffer, offset, packet, element)
+  end
 
-  return offset + length, value
+  return offset + 1, range
 end
 
--- Side
-hkex_derivatives_fulltick_omd_v1_47.side = {}
+-- Trade Side
+hkex_derivatives_fulltick_omd_v1_47.trade_side = {}
 
--- Size: Side
-hkex_derivatives_fulltick_omd_v1_47.side.size = 1
+-- Size: Trade Side
+hkex_derivatives_fulltick_omd_v1_47.trade_side.size = 1
 
--- Display: Side
-hkex_derivatives_fulltick_omd_v1_47.side.display = function(value)
+-- Display: Trade Side
+hkex_derivatives_fulltick_omd_v1_47.trade_side.display = function(value)
+  if value == 0 then
+    return "Trade Side: Not Available (0)"
+  end
   if value == 1 then
-    return "Side: Buy (1)"
+    return "Trade Side: Not Defined (1)"
   end
   if value == 2 then
-    return "Side: Sell (2)"
+    return "Trade Side: Buy Order (2)"
+  end
+  if value == 3 then
+    return "Trade Side: Sell Order (3)"
   end
 
-  return "Side: Unknown("..value..")"
+  return "Trade Side: Unknown("..value..")"
 end
 
--- Dissect: Side
-hkex_derivatives_fulltick_omd_v1_47.side.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.side.size
+-- Dissect: Trade Side
+hkex_derivatives_fulltick_omd_v1_47.trade_side.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.trade_side.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.side.display(value, buffer, offset, packet, parent)
+  local display = hkex_derivatives_fulltick_omd_v1_47.trade_side.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.side, range, value, display)
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_side, range, value, display)
 
   return offset + length, value
 end
@@ -1193,10 +1311,10 @@ hkex_derivatives_fulltick_omd_v1_47.trade_message.size =
   hkex_derivatives_fulltick_omd_v1_47.price.size + 
   hkex_derivatives_fulltick_omd_v1_47.trade_id.size + 
   hkex_derivatives_fulltick_omd_v1_47.combo_group_id.size + 
-  hkex_derivatives_fulltick_omd_v1_47.side.size + 
+  hkex_derivatives_fulltick_omd_v1_47.trade_side.size + 
   hkex_derivatives_fulltick_omd_v1_47.deal_type.size + 
   hkex_derivatives_fulltick_omd_v1_47.trade_condition.size + 
-  hkex_derivatives_fulltick_omd_v1_47.deal_info.size + 
+  hkex_derivatives_fulltick_omd_v1_47.deal_info_uint_162.size + 
   hkex_derivatives_fulltick_omd_v1_47.filler_2.size + 
   hkex_derivatives_fulltick_omd_v1_47.trade_quantity.size + 
   hkex_derivatives_fulltick_omd_v1_47.trade_time.size
@@ -1225,17 +1343,17 @@ hkex_derivatives_fulltick_omd_v1_47.trade_message.fields = function(buffer, offs
   -- Combo Group Id: Uint32
   index, combo_group_id = hkex_derivatives_fulltick_omd_v1_47.combo_group_id.dissect(buffer, index, packet, parent)
 
-  -- Side: Uint8
-  index, side = hkex_derivatives_fulltick_omd_v1_47.side.dissect(buffer, index, packet, parent)
+  -- Trade Side: Uint8
+  index, trade_side = hkex_derivatives_fulltick_omd_v1_47.trade_side.dissect(buffer, index, packet, parent)
 
-  -- Deal Type: Uint8
+  -- Deal Type: Struct of 4 fields
   index, deal_type = hkex_derivatives_fulltick_omd_v1_47.deal_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: Uint16
+  -- Trade Condition: Struct of 5 fields
   index, trade_condition = hkex_derivatives_fulltick_omd_v1_47.trade_condition.dissect(buffer, index, packet, parent)
 
-  -- Deal Info: Uint16
-  index, deal_info = hkex_derivatives_fulltick_omd_v1_47.deal_info.dissect(buffer, index, packet, parent)
+  -- Deal Info Uint 162: Uint16
+  index, deal_info_uint_162 = hkex_derivatives_fulltick_omd_v1_47.deal_info_uint_162.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
   index, filler_2 = hkex_derivatives_fulltick_omd_v1_47.filler_2.dissect(buffer, index, packet, parent)
@@ -1275,7 +1393,17 @@ hkex_derivatives_fulltick_omd_v1_47.bid_ask_flag.size = 1
 
 -- Display: Bid Ask Flag
 hkex_derivatives_fulltick_omd_v1_47.bid_ask_flag.display = function(value)
-  return "Bid Ask Flag: "..value
+  if value == 0 then
+    return "Bid Ask Flag: Bid (0)"
+  end
+  if value == 1 then
+    return "Bid Ask Flag: Ask (1)"
+  end
+  if value == 2 then
+    return "Bid Ask Flag: Both (2)"
+  end
+
+  return "Bid Ask Flag: Unknown("..value..")"
 end
 
 -- Dissect: Bid Ask Flag
@@ -1405,6 +1533,36 @@ hkex_derivatives_fulltick_omd_v1_47.orderbook_clear_message.dissect = function(b
   end
 end
 
+-- Side
+hkex_derivatives_fulltick_omd_v1_47.side = {}
+
+-- Size: Side
+hkex_derivatives_fulltick_omd_v1_47.side.size = 1
+
+-- Display: Side
+hkex_derivatives_fulltick_omd_v1_47.side.display = function(value)
+  if value == 1 then
+    return "Side: Bid (1)"
+  end
+  if value == 2 then
+    return "Side: Offer (2)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+hkex_derivatives_fulltick_omd_v1_47.side.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_derivatives_fulltick_omd_v1_47.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
 -- Delete Order Message
 hkex_derivatives_fulltick_omd_v1_47.delete_order_message = {}
 
@@ -1487,20 +1645,105 @@ hkex_derivatives_fulltick_omd_v1_47.order_type = {}
 hkex_derivatives_fulltick_omd_v1_47.order_type.size = 2
 
 -- Display: Order Type
-hkex_derivatives_fulltick_omd_v1_47.order_type.display = function(value)
-  return "Order Type: "..value
+hkex_derivatives_fulltick_omd_v1_47.order_type.display = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Bait Or Implied Order flag set?
+  if buffer:bitfield(2) > 0 then
+    display = display.."Bait Or Implied Order|"
+  end
+  -- Is Convert To Aggressive flag set?
+  if buffer:bitfield(3) > 0 then
+    display = display.."Convert To Aggressive|"
+  end
+  -- Is Firm Color Disabled flag set?
+  if buffer:bitfield(4) > 0 then
+    display = display.."Firm Color Disabled|"
+  end
+  -- Is Fill And Kill Immediately flag set?
+  if buffer:bitfield(5) > 0 then
+    display = display.."Fill And Kill Immediately|"
+  end
+  -- Is Undisclosed flag set?
+  if buffer:bitfield(10) > 0 then
+    display = display.."Undisclosed|"
+  end
+  -- Is Override Crossing flag set?
+  if buffer:bitfield(11) > 0 then
+    display = display.."Override Crossing|"
+  end
+  -- Is Price Stabilization flag set?
+  if buffer:bitfield(12) > 0 then
+    display = display.."Price Stabilization|"
+  end
+  -- Is Market Bid flag set?
+  if buffer:bitfield(13) > 0 then
+    display = display.."Market Bid|"
+  end
+  -- Is Short Sell flag set?
+  if buffer:bitfield(14) > 0 then
+    display = display.."Short Sell|"
+  end
+  -- Is Force flag set?
+  if buffer:bitfield(15) > 0 then
+    display = display.."Force|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Order Type
+hkex_derivatives_fulltick_omd_v1_47.order_type.bits = function(buffer, offset, packet, parent)
+
+  -- Unused 2: 2 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_2, buffer(offset, 2))
+
+  -- Bait Or Implied Order: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.bait_or_implied_order, buffer(offset, 2))
+
+  -- Convert To Aggressive: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.convert_to_aggressive, buffer(offset, 2))
+
+  -- Firm Color Disabled: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.firm_color_disabled, buffer(offset, 2))
+
+  -- Fill And Kill Immediately: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.fill_and_kill_immediately, buffer(offset, 2))
+
+  -- Unused 4: 4 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_4, buffer(offset, 2))
+
+  -- Undisclosed: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.undisclosed, buffer(offset, 2))
+
+  -- Override Crossing: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.override_crossing, buffer(offset, 2))
+
+  -- Price Stabilization: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.price_stabilization, buffer(offset, 2))
+
+  -- Market Bid: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_bid, buffer(offset, 2))
+
+  -- Short Sell: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.short_sell, buffer(offset, 2))
+
+  -- Force: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.force, buffer(offset, 2))
 end
 
 -- Dissect: Order Type
 hkex_derivatives_fulltick_omd_v1_47.order_type.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.order_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.order_type.display(value, buffer, offset, packet, parent)
+  local size = 2
+  local range = buffer(offset, size)
+  local display = hkex_derivatives_fulltick_omd_v1_47.order_type.display(range, packet, parent)
+  local element = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.order_type, range, display)
 
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.order_type, range, value, display)
+  if show.order_type then
+    hkex_derivatives_fulltick_omd_v1_47.order_type.bits(buffer, offset, packet, element)
+  end
 
-  return offset + length, value
+  return offset + 2, range
 end
 
 -- Quantity
@@ -1563,7 +1806,7 @@ hkex_derivatives_fulltick_omd_v1_47.modify_order_message.fields = function(buffe
   -- Side: Uint8
   index, side = hkex_derivatives_fulltick_omd_v1_47.side.dissect(buffer, index, packet, parent)
 
-  -- Order Type: Uint16
+  -- Order Type: Struct of 12 fields
   index, order_type = hkex_derivatives_fulltick_omd_v1_47.order_type.dissect(buffer, index, packet, parent)
 
   -- Order Book Position: Uint32
@@ -1654,7 +1897,7 @@ hkex_derivatives_fulltick_omd_v1_47.add_order_message.fields = function(buffer, 
   -- Lot Type: Uint8
   index, lot_type = hkex_derivatives_fulltick_omd_v1_47.lot_type.dissect(buffer, index, packet, parent)
 
-  -- Order Type: Uint16
+  -- Order Type: Struct of 12 fields
   index, order_type = hkex_derivatives_fulltick_omd_v1_47.order_type.dissect(buffer, index, packet, parent)
 
   -- Order Book Position: Uint32
@@ -1689,7 +1932,14 @@ hkex_derivatives_fulltick_omd_v1_47.locked.size = 1
 
 -- Display: Locked
 hkex_derivatives_fulltick_omd_v1_47.locked.display = function(value)
-  return "Locked: "..value
+  if value == Y then
+    return "Locked: Yes (Y)"
+  end
+  if value == N then
+    return "Locked: No (N)"
+  end
+
+  return "Locked: Unknown("..value..")"
 end
 
 -- Dissect: Locked
@@ -1712,7 +1962,14 @@ hkex_derivatives_fulltick_omd_v1_47.suspended.size = 1
 
 -- Display: Suspended
 hkex_derivatives_fulltick_omd_v1_47.suspended.display = function(value)
-  return "Suspended: "..value
+  if value == "Y" then
+    return "Suspended: Yes (Y)"
+  end
+  if value == "N" then
+    return "Suspended: No (N)"
+  end
+
+  return "Suspended: Unknown("..value..")"
 end
 
 -- Dissect: Suspended
@@ -1806,7 +2063,26 @@ hkex_derivatives_fulltick_omd_v1_47.series_status.size = 1
 
 -- Display: Series Status
 hkex_derivatives_fulltick_omd_v1_47.series_status.display = function(value)
-  return "Series Status: "..value
+  if value == 0 then
+    return "Series Status: Not Available (0)"
+  end
+  if value == 1 then
+    return "Series Status: Active (1)"
+  end
+  if value == 2 then
+    return "Series Status: Suspended (2)"
+  end
+  if value == 3 then
+    return "Series Status: Issued (3)"
+  end
+  if value == 4 then
+    return "Series Status: Delisted (4)"
+  end
+  if value == 5 then
+    return "Series Status: Locked (5)"
+  end
+
+  return "Series Status: Unknown("..value..")"
 end
 
 -- Dissect: Series Status
@@ -1829,7 +2105,17 @@ hkex_derivatives_fulltick_omd_v1_47.suspension_indicator.size = 1
 
 -- Display: Suspension Indicator
 hkex_derivatives_fulltick_omd_v1_47.suspension_indicator.display = function(value)
-  return "Suspension Indicator: "..value
+  if value == 1 then
+    return "Suspension Indicator: Suspended For Trading (1)"
+  end
+  if value == 2 then
+    return "Suspension Indicator: Not Suspended (2)"
+  end
+  if value == 3 then
+    return "Suspension Indicator: Locked (3)"
+  end
+
+  return "Suspension Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Suspension Indicator
@@ -1904,7 +2190,98 @@ hkex_derivatives_fulltick_omd_v1_47.state.size = 2
 
 -- Display: State
 hkex_derivatives_fulltick_omd_v1_47.state.display = function(value)
-  return "State: "..value
+  if value == 1 then
+    return "State: Open Allocation (1)"
+  end
+  if value == 2 then
+    return "State: Market Closed (2)"
+  end
+  if value == 3 then
+    return "State: Market Open (3)"
+  end
+  if value == 4 then
+    return "State: Preopen Session (4)"
+  end
+  if value == 5 then
+    return "State: Preopen Allocation Session (5)"
+  end
+  if value == 6 then
+    return "State: Market Pause (6)"
+  end
+  if value == 7 then
+    return "State: Premarket Activities (7)"
+  end
+  if value == 8 then
+    return "State: Clearing Session Started (8)"
+  end
+  if value == 9 then
+    return "State: Clearing Session Closed (9)"
+  end
+  if value == 10 then
+    return "State: Ahft Market Closed (10)"
+  end
+  if value == 11 then
+    return "State: Ahft Reset Price Information (11)"
+  end
+  if value == 12 then
+    return "State: Ahft Inactive Non Order (12)"
+  end
+  if value == 13 then
+    return "State: Ahft Reset Price Information (13)"
+  end
+  if value == 14 then
+    return "State: Ahft Market Open (14)"
+  end
+  if value == 15 then
+    return "State: Ahft Market Open Price Limit (15)"
+  end
+  if value == 16 then
+    return "State: Ahft Premarket Activities (16)"
+  end
+  if value == 17 then
+    return "State: Market Open With Price Controls (17)"
+  end
+  if value == 18 then
+    return "State: Market Closed Today (18)"
+  end
+  if value == 19 then
+    return "State: Market Open With Dynamic Price Banding Mechanism (19)"
+  end
+  if value == 20 then
+    return "State: Site Failover (20)"
+  end
+  if value == 21 then
+    return "State: Market Closed Today E (21)"
+  end
+  if value == 22 then
+    return "State: Ahft Market Closed E (22)"
+  end
+  if value == 23 then
+    return "State: Market Open With Dpbm And Vcm (23)"
+  end
+  if value == 24 then
+    return "State: Market Open With Vcm (24)"
+  end
+  if value == 25 then
+    return "State: Vcm Cool Off Status With Dynamic Price Banding Mechansim (25)"
+  end
+  if value == 26 then
+    return "State: Vcm Cool Off Status (26)"
+  end
+  if value == 27 then
+    return "State: Reset Counter For Vcm (27)"
+  end
+  if value == 28 then
+    return "State: Halt (28)"
+  end
+  if value == 29 then
+    return "State: Reset Price Information (29)"
+  end
+  if value == 30 then
+    return "State: Block Trade Only (30)"
+  end
+
+  return "State: Unknown("..value..")"
 end
 
 -- Dissect: State
@@ -2034,25 +2411,128 @@ hkex_derivatives_fulltick_omd_v1_47.actual_start_date.dissect = function(buffer,
   return offset + length, value
 end
 
--- Instrument
-hkex_derivatives_fulltick_omd_v1_47.instrument = {}
+-- Instrument Group
+hkex_derivatives_fulltick_omd_v1_47.instrument_group = {}
 
--- Size: Instrument
-hkex_derivatives_fulltick_omd_v1_47.instrument.size = 1
+-- Size: Instrument Group
+hkex_derivatives_fulltick_omd_v1_47.instrument_group.size = 1
 
--- Display: Instrument
-hkex_derivatives_fulltick_omd_v1_47.instrument.display = function(value)
-  return "Instrument: "..value
+-- Display: Instrument Group
+hkex_derivatives_fulltick_omd_v1_47.instrument_group.display = function(value)
+  if value == 4 then
+    return "Instrument Group: Futures (4)"
+  end
+  if value == 6 then
+    return "Instrument Group: American Style Call (6)"
+  end
+  if value == 7 then
+    return "Instrument Group: American Style Put (7)"
+  end
+  if value == 22 then
+    return "Instrument Group: European Style Call (22)"
+  end
+  if value == 23 then
+    return "Instrument Group: European Style Put (23)"
+  end
+  if value == 170 then
+    return "Instrument Group: Options Straddle (170)"
+  end
+  if value == 171 then
+    return "Instrument Group: Options Strangle (171)"
+  end
+  if value == 172 then
+    return "Instrument Group: Synthetic Futures (172)"
+  end
+  if value == 201 then
+    return "Instrument Group: Time Spread Level 1 (201)"
+  end
+  if value == 202 then
+    return "Instrument Group: Time Spread Level 2 (202)"
+  end
+  if value == 203 then
+    return "Instrument Group: Time Spread Level 3 (203)"
+  end
+  if value == 204 then
+    return "Instrument Group: Time Spread Level 4 (204)"
+  end
+  if value == 205 then
+    return "Instrument Group: Time Spread Level 5 (205)"
+  end
+  if value == 206 then
+    return "Instrument Group: Time Spread Level 6 (206)"
+  end
+  if value == 207 then
+    return "Instrument Group: Time Spread Level 7 (207)"
+  end
+  if value == 208 then
+    return "Instrument Group: Time Spread Level 8 (208)"
+  end
+  if value == 209 then
+    return "Instrument Group: Time Spread Level 9 (209)"
+  end
+  if value == 210 then
+    return "Instrument Group: Time Spread Level 10 (210)"
+  end
+  if value == 211 then
+    return "Instrument Group: Time Spread Level 11 (211)"
+  end
+  if value == 212 then
+    return "Instrument Group: Time Spread Level 12 (212)"
+  end
+  if value == 213 then
+    return "Instrument Group: Time Spread Level 13 (213)"
+  end
+  if value == 214 then
+    return "Instrument Group: Time Spread Level 14 (214)"
+  end
+  if value == 215 then
+    return "Instrument Group: Time Spread Level 15 (215)"
+  end
+  if value == 216 then
+    return "Instrument Group: Time Spread Level 16 (216)"
+  end
+  if value == 217 then
+    return "Instrument Group: Time Spread Level 17 (217)"
+  end
+  if value == 218 then
+    return "Instrument Group: Time Spread Level 18 (218)"
+  end
+  if value == 219 then
+    return "Instrument Group: Time Spread Level 19 (219)"
+  end
+  if value == 220 then
+    return "Instrument Group: Time Spread Level 20 (220)"
+  end
+  if value == 221 then
+    return "Instrument Group: Time Spread Level 21 (221)"
+  end
+  if value == 222 then
+    return "Instrument Group: Time Spread Level 22 (222)"
+  end
+  if value == 223 then
+    return "Instrument Group: Time Spread Level 23 (223)"
+  end
+  if value == 250 then
+    return "Instrument Group: Tailor Made Combination (250)"
+  end
+  if value == 254 then
+    return "Instrument Group: Exchange Rate (254)"
+  end
+  if value == 255 then
+    return "Instrument Group: Payment Currency (255)"
+  end
+
+  return "Instrument Group: Unknown("..value..")"
 end
 
--- Dissect: Instrument
-hkex_derivatives_fulltick_omd_v1_47.instrument.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.instrument.size
+-- Dissect: Instrument Group
+hkex_derivatives_fulltick_omd_v1_47.instrument_group.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_fulltick_omd_v1_47.instrument_group.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.instrument.display(value, buffer, offset, packet, parent)
+  local display = hkex_derivatives_fulltick_omd_v1_47.instrument_group.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.instrument, range, value, display)
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.instrument_group, range, value, display)
 
   return offset + length, value
 end
@@ -2065,7 +2545,143 @@ hkex_derivatives_fulltick_omd_v1_47.market.size = 1
 
 -- Display: Market
 hkex_derivatives_fulltick_omd_v1_47.market.display = function(value)
-  return "Market: "..value
+  if value == 1 then
+    return "Market: Cesc Index Futures Options (1)"
+  end
+  if value == 2 then
+    return "Market: Stock Futures (2)"
+  end
+  if value == 3 then
+    return "Market: Three Year Exchange Fund Note Futures (3)"
+  end
+  if value == 16 then
+    return "Market: Mini Hang Seng Index Futures Options (16)"
+  end
+  if value == 18 then
+    return "Market: Weekly Stock Options (18)"
+  end
+  if value == 20 then
+    return "Market: Stock Options (20)"
+  end
+  if value == 24 then
+    return "Market: Hibor (24)"
+  end
+  if value == 27 then
+    return "Market: Dividend Futures (27)"
+  end
+  if value == 32 then
+    return "Market: Physically Settled Options On Futures Contracts On Hang Seng Index Futures (32)"
+  end
+  if value == 34 then
+    return "Market: Hang Seng Index Futures Options (34)"
+  end
+  if value == 35 then
+    return "Market: Flexible Hang Seng Index Options (35)"
+  end
+  if value == 37 then
+    return "Market: Flexible Hang Seng China Enterprises Index Options (37)"
+  end
+  if value == 38 then
+    return "Market: Hang Seng China Enterprises Index Futures Options (38)"
+  end
+  if value == 39 then
+    return "Market: Weekly Hang Seng Index Options (39)"
+  end
+  if value == 40 then
+    return "Market: Physically Settled Options On Futures Contracts On Hang Seng China Enterprises Index Futures (40)"
+  end
+  if value == 51 then
+    return "Market: Hsi Volatility Index Futures (51)"
+  end
+  if value == 60 then
+    return "Market: Sector Index Futures (60)"
+  end
+  if value == 70 then
+    return "Market: Renminbi Currency Futures Options (70)"
+  end
+  if value == 80 then
+    return "Market: Hang Seng Biotech Index Futures (80)"
+  end
+  if value == 83 then
+    return "Market: Physically Settled Options On Futures Contracts On Hang Seng Tech Index Futures Options (83)"
+  end
+  if value == 84 then
+    return "Market: Weekly Hang Seng Tech Index Options (84)"
+  end
+  if value == 86 then
+    return "Market: Hang Seng Tech Index Futures And Options And Hang Seng Index (86)"
+  end
+  if value == 87 then
+    return "Market: Weekly Hang Seng China Enterprises Index Options (87)"
+  end
+  if value == 93 then
+    return "Market: Ibovespa Index Futures (93)"
+  end
+  if value == 96 then
+    return "Market: Sp Bse Sensex Index Futures (96)"
+  end
+  if value == 99 then
+    return "Market: Ftse Or Jse Top 40 Index Futures (99)"
+  end
+  if value == 102 then
+    return "Market: Micex Index Futures (102)"
+  end
+  if value == 108 then
+    return "Market: Msci Ax J Futures (108)"
+  end
+  if value == 111 then
+    return "Market: Physically Settled Usd Silver Futures (111)"
+  end
+  if value == 112 then
+    return "Market: Physically Settled Cnh Silver Futures (112)"
+  end
+  if value == 115 then
+    return "Market: Physically Settled Cnh Gold Futures (115)"
+  end
+  if value == 116 then
+    return "Market: Physically Settled Usd Gold Futures (116)"
+  end
+  if value == 117 then
+    return "Market: Mof T Bond Futures (117)"
+  end
+  if value == 118 then
+    return "Market: Usd Base And Ferrous Futures (118)"
+  end
+  if value == 120 then
+    return "Market: Cnh London Metal Mini Futures (120)"
+  end
+  if value == 122 then
+    return "Market: Cash Settled Rmb Currency Futures (122)"
+  end
+  if value == 125 then
+    return "Market: Cash Settled Cnhusd Futures (125)"
+  end
+  if value == 153 then
+    return "Market: Msci China A 50 Connect Index Futures (153)"
+  end
+  if value == 160 then
+    return "Market: Msci Jpy Index Futures (160)"
+  end
+  if value == 161 then
+    return "Market: Msci Usd Index Futures Ntr (161)"
+  end
+  if value == 163 then
+    return "Market: Msci Usd Index Futures And Options 1 (163)"
+  end
+  if value == 164 then
+    return "Market: Msci Usd Index Futures And Options 2 (164)"
+  end
+  if value == 166 then
+    return "Market: Msci Usd Index Futures And Options 3 (166)"
+  end
+  if value == 168 then
+    return "Market: Msci Usd Index Futures And Options 4 (168)"
+  end
+  if value == 170 then
+    return "Market: Msci Sgd Index Futures (170)"
+  end
+
+  return "Market: Unknown("..value..")"
 end
 
 -- Dissect: Market
@@ -2088,7 +2704,26 @@ hkex_derivatives_fulltick_omd_v1_47.state_level.size = 2
 
 -- Display: State Level
 hkex_derivatives_fulltick_omd_v1_47.state_level.display = function(value)
-  return "State Level: "..value
+  if value == 1 then
+    return "State Level: Market (1)"
+  end
+  if value == 2 then
+    return "State Level: Instrument Type (2)"
+  end
+  if value == 3 then
+    return "State Level: Instrument Class (3)"
+  end
+  if value == 4 then
+    return "State Level: Instrument Series (4)"
+  end
+  if value == 5 then
+    return "State Level: Underlying (5)"
+  end
+  if value == 99 then
+    return "State Level: End Of Business Day (99)"
+  end
+
+  return "State Level: Unknown("..value..")"
 end
 
 -- Dissect: State Level
@@ -2110,7 +2745,7 @@ hkex_derivatives_fulltick_omd_v1_47.market_status_message = {}
 hkex_derivatives_fulltick_omd_v1_47.market_status_message.size =
   hkex_derivatives_fulltick_omd_v1_47.state_level.size + 
   hkex_derivatives_fulltick_omd_v1_47.market.size + 
-  hkex_derivatives_fulltick_omd_v1_47.instrument.size + 
+  hkex_derivatives_fulltick_omd_v1_47.instrument_group.size + 
   hkex_derivatives_fulltick_omd_v1_47.orderbook_id.size + 
   hkex_derivatives_fulltick_omd_v1_47.commodity_code.size + 
   hkex_derivatives_fulltick_omd_v1_47.filler_2.size + 
@@ -2138,8 +2773,8 @@ hkex_derivatives_fulltick_omd_v1_47.market_status_message.fields = function(buff
   -- Market: Uint8
   index, market = hkex_derivatives_fulltick_omd_v1_47.market.dissect(buffer, index, packet, parent)
 
-  -- Instrument: Uint8
-  index, instrument = hkex_derivatives_fulltick_omd_v1_47.instrument.dissect(buffer, index, packet, parent)
+  -- Instrument Group: Uint8
+  index, instrument_group = hkex_derivatives_fulltick_omd_v1_47.instrument_group.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Uint32
   index, orderbook_id = hkex_derivatives_fulltick_omd_v1_47.orderbook_id.dissect(buffer, index, packet, parent)
@@ -2226,7 +2861,17 @@ hkex_derivatives_fulltick_omd_v1_47.leg_side.size = 1
 
 -- Display: Leg Side
 hkex_derivatives_fulltick_omd_v1_47.leg_side.display = function(value)
-  return "Leg Side: "..value
+  if value == "B" then
+    return "Leg Side: As Defined (B)"
+  end
+  if value == "C" then
+    return "Leg Side: Opposite (C)"
+  end
+  if value == "2" then
+    return "Leg Side: Net Value (2)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -2420,7 +3065,17 @@ hkex_derivatives_fulltick_omd_v1_47.price_method.size = 1
 
 -- Display: Price Method
 hkex_derivatives_fulltick_omd_v1_47.price_method.display = function(value)
-  return "Price Method: "..value
+  if value == 0 then
+    return "Price Method: Not Available (0)"
+  end
+  if value == 1 then
+    return "Price Method: Net Price (1)"
+  end
+  if value == 2 then
+    return "Price Method: Net Value (2)"
+  end
+
+  return "Price Method: Unknown("..value..")"
 end
 
 -- Dissect: Price Method
@@ -2466,7 +3121,14 @@ hkex_derivatives_fulltick_omd_v1_47.effective_tomorrow.size = 1
 
 -- Display: Effective Tomorrow
 hkex_derivatives_fulltick_omd_v1_47.effective_tomorrow.display = function(value)
-  return "Effective Tomorrow: "..value
+  if value == 0 then
+    return "Effective Tomorrow: False (0)"
+  end
+  if value == 1 then
+    return "Effective Tomorrow: True (1)"
+  end
+
+  return "Effective Tomorrow: Unknown("..value..")"
 end
 
 -- Dissect: Effective Tomorrow
@@ -2592,29 +3254,6 @@ hkex_derivatives_fulltick_omd_v1_47.modifier.dissect = function(buffer, offset, 
   local display = hkex_derivatives_fulltick_omd_v1_47.modifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.modifier, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Group
-hkex_derivatives_fulltick_omd_v1_47.instrument_group = {}
-
--- Size: Instrument Group
-hkex_derivatives_fulltick_omd_v1_47.instrument_group.size = 1
-
--- Display: Instrument Group
-hkex_derivatives_fulltick_omd_v1_47.instrument_group.display = function(value)
-  return "Instrument Group: "..value
-end
-
--- Dissect: Instrument Group
-hkex_derivatives_fulltick_omd_v1_47.instrument_group.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_fulltick_omd_v1_47.instrument_group.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_fulltick_omd_v1_47.instrument_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.instrument_group, range, value, display)
 
   return offset + length, value
 end
@@ -2785,7 +3424,17 @@ hkex_derivatives_fulltick_omd_v1_47.put_or_call.size = 1
 
 -- Display: Put Or Call
 hkex_derivatives_fulltick_omd_v1_47.put_or_call.display = function(value)
-  return "Put Or Call: "..value
+  if value == 0 then
+    return "Put Or Call: Undefined (0)"
+  end
+  if value == 1 then
+    return "Put Or Call: Call (1)"
+  end
+  if value == 2 then
+    return "Put Or Call: Put (2)"
+  end
+
+  return "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -2900,7 +3549,53 @@ hkex_derivatives_fulltick_omd_v1_47.financial_product.size = 1
 
 -- Display: Financial Product
 hkex_derivatives_fulltick_omd_v1_47.financial_product.display = function(value)
-  return "Financial Product: "..value
+  if value == 1 then
+    return "Financial Product: Option (1)"
+  end
+  if value == 2 then
+    return "Financial Product: Forward (2)"
+  end
+  if value == 3 then
+    return "Financial Product: Future (3)"
+  end
+  if value == 4 then
+    return "Financial Product: Fra (4)"
+  end
+  if value == 5 then
+    return "Financial Product: Cash (5)"
+  end
+  if value == 6 then
+    return "Financial Product: Payment (6)"
+  end
+  if value == 7 then
+    return "Financial Product: Exchange Rate (7)"
+  end
+  if value == 8 then
+    return "Financial Product: Interest Rate Swap (8)"
+  end
+  if value == 9 then
+    return "Financial Product: Repo (9)"
+  end
+  if value == 10 then
+    return "Financial Product: Synthetic Box Leg Reference (10)"
+  end
+  if value == 11 then
+    return "Financial Product: Standard Combination (11)"
+  end
+  if value == 12 then
+    return "Financial Product: Guarantee (12)"
+  end
+  if value == 13 then
+    return "Financial Product: Otc General (13)"
+  end
+  if value == 14 then
+    return "Financial Product: Equity Warrant (14)"
+  end
+  if value == 15 then
+    return "Financial Product: Security Lending (15)"
+  end
+
+  return "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -3045,7 +3740,14 @@ hkex_derivatives_fulltick_omd_v1_47.is_fractions.size = 1
 
 -- Display: Is Fractions
 hkex_derivatives_fulltick_omd_v1_47.is_fractions.display = function(value)
-  return "Is Fractions: "..value
+  if value == "1" then
+    return "Is Fractions: Yes (1)"
+  end
+  if value == "2" then
+    return "Is Fractions: No (2)"
+  end
+
+  return "Is Fractions: Unknown("..value..")"
 end
 
 -- Dissect: Is Fractions
@@ -3137,7 +3839,35 @@ hkex_derivatives_fulltick_omd_v1_47.premium_unit.size = 1
 
 -- Display: Premium Unit
 hkex_derivatives_fulltick_omd_v1_47.premium_unit.display = function(value)
-  return "Premium Unit: "..value
+  if value == 1 then
+    return "Premium Unit: Price (1)"
+  end
+  if value == 2 then
+    return "Premium Unit: Yield (2)"
+  end
+  if value == 3 then
+    return "Premium Unit: Points (3)"
+  end
+  if value == 4 then
+    return "Premium Unit: Yield Diff (4)"
+  end
+  if value == 5 then
+    return "Premium Unit: Imm Index (5)"
+  end
+  if value == 6 then
+    return "Premium Unit: Basis Points (6)"
+  end
+  if value == 7 then
+    return "Premium Unit: Inverted Yield (7)"
+  end
+  if value == 8 then
+    return "Premium Unit: Percentage Of Nominal (8)"
+  end
+  if value == 9 then
+    return "Premium Unit: Dirty Price (9)"
+  end
+
+  return "Premium Unit: Unknown("..value..")"
 end
 
 -- Dissect: Premium Unit
@@ -3160,7 +3890,14 @@ hkex_derivatives_fulltick_omd_v1_47.tradable.size = 1
 
 -- Display: Tradable
 hkex_derivatives_fulltick_omd_v1_47.tradable.display = function(value)
-  return "Tradable: "..value
+  if value == 1 then
+    return "Tradable: Yes (1)"
+  end
+  if value == 2 then
+    return "Tradable: No (2)"
+  end
+
+  return "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -3183,7 +3920,38 @@ hkex_derivatives_fulltick_omd_v1_47.ranking_type.size = 2
 
 -- Display: Ranking Type
 hkex_derivatives_fulltick_omd_v1_47.ranking_type.display = function(value)
-  return "Ranking Type: "..value
+  if value == 1 then
+    return "Ranking Type: Price Then Time (1)"
+  end
+  if value == 2 then
+    return "Ranking Type: Inverted Price Then Time (2)"
+  end
+  if value == 3 then
+    return "Ranking Type: Price Then Traders Then Time (3)"
+  end
+  if value == 4 then
+    return "Ranking Type: Inverted Price Then Traders Then Time (4)"
+  end
+  if value == 5 then
+    return "Ranking Type: Price Then Market Makers Then Time (5)"
+  end
+  if value == 6 then
+    return "Ranking Type: Inverted Price Then Market Makers Then Time (6)"
+  end
+  if value == 7 then
+    return "Ranking Type: Price Then Baits Then Time (7)"
+  end
+  if value == 8 then
+    return "Ranking Type: Inverted Price Then Baits Then Time (8)"
+  end
+  if value == 11 then
+    return "Ranking Type: Price Then Own Orders Then Time (11)"
+  end
+  if value == 12 then
+    return "Ranking Type: Inverted Price Then Own Orders Then Time (12)"
+  end
+
+  return "Ranking Type: Unknown("..value..")"
 end
 
 -- Dissect: Ranking Type
@@ -3422,7 +4190,44 @@ hkex_derivatives_fulltick_omd_v1_47.underlying_type.size = 1
 
 -- Display: Underlying Type
 hkex_derivatives_fulltick_omd_v1_47.underlying_type.display = function(value)
-  return "Underlying Type: "..value
+  if value == 1 then
+    return "Underlying Type: Stock (1)"
+  end
+  if value == 2 then
+    return "Underlying Type: Currency (2)"
+  end
+  if value == 3 then
+    return "Underlying Type: Interest Rate (3)"
+  end
+  if value == 4 then
+    return "Underlying Type: Energy (4)"
+  end
+  if value == 5 then
+    return "Underlying Type: Soft And Agrics (5)"
+  end
+  if value == 6 then
+    return "Underlying Type: Metal (6)"
+  end
+  if value == 7 then
+    return "Underlying Type: Stock Index (7)"
+  end
+  if value == 8 then
+    return "Underlying Type: Currency Index (8)"
+  end
+  if value == 9 then
+    return "Underlying Type: Interest Rate Index (9)"
+  end
+  if value == 10 then
+    return "Underlying Type: Energy Index (10)"
+  end
+  if value == 11 then
+    return "Underlying Type: Softs And Agrics Index (11)"
+  end
+  if value == 12 then
+    return "Underlying Type: Metal Index (12)"
+  end
+
+  return "Underlying Type: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Type
@@ -3491,7 +4296,35 @@ hkex_derivatives_fulltick_omd_v1_47.underlying_price_unit.size = 1
 
 -- Display: Underlying Price Unit
 hkex_derivatives_fulltick_omd_v1_47.underlying_price_unit.display = function(value)
-  return "Underlying Price Unit: "..value
+  if value == 1 then
+    return "Underlying Price Unit: Price (1)"
+  end
+  if value == 2 then
+    return "Underlying Price Unit: Yield (2)"
+  end
+  if value == 3 then
+    return "Underlying Price Unit: Points (3)"
+  end
+  if value == 4 then
+    return "Underlying Price Unit: Yield Diff (4)"
+  end
+  if value == 5 then
+    return "Underlying Price Unit: Imm Index (5)"
+  end
+  if value == 6 then
+    return "Underlying Price Unit: Basis Points (6)"
+  end
+  if value == 7 then
+    return "Underlying Price Unit: Inverted Yield (7)"
+  end
+  if value == 8 then
+    return "Underlying Price Unit: Percentage Of Nominal (8)"
+  end
+  if value == 9 then
+    return "Underlying Price Unit: Dirty Price (9)"
+  end
+
+  return "Underlying Price Unit: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Price Unit
@@ -3680,7 +4513,14 @@ hkex_derivatives_fulltick_omd_v1_47.disaster_recovery_status.size = 4
 
 -- Display: Disaster Recovery Status
 hkex_derivatives_fulltick_omd_v1_47.disaster_recovery_status.display = function(value)
-  return "Disaster Recovery Status: "..value
+  if value == 1 then
+    return "Disaster Recovery Status: In Progress (1)"
+  end
+  if value == 2 then
+    return "Disaster Recovery Status: Completed (2)"
+  end
+
+  return "Disaster Recovery Status: Unknown("..value..")"
 end
 
 -- Dissect: Disaster Recovery Status
