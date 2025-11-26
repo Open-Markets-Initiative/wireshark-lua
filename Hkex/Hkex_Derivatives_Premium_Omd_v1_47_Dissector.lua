@@ -2594,7 +2594,7 @@ hkex_derivatives_premium_omd_v1_47.state.display = function(value)
     return "State: Ahft Inactive Non Order (12)"
   end
   if value == 13 then
-    return "State: Ahft Reset Price Information (13)"
+    return "State: Ahft Reset Price Information For Next Business Day (13)"
   end
   if value == 14 then
     return "State: Ahft Market Open (14)"
