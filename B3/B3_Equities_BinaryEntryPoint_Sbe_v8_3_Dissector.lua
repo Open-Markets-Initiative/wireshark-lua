@@ -132,14 +132,10 @@ omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.mm_protection_reset_boolean_opt
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "b3.equities.binaryentrypoint.sbe.v8.3.msgseqnum", ftypes.UINT32)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.multi_leg_reporting_type = ProtoField.new("Multi Leg Reporting Type", "b3.equities.binaryentrypoint.sbe.v8.3.multilegreportingtype", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.negotiation_reject_code = ProtoField.new("Negotiation Reject Code", "b3.equities.binaryentrypoint.sbe.v8.3.negotiationrejectcode", ftypes.UINT8)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.new_order_cross_message_no_sides_group = ProtoField.new("New Order Cross Message no Sides Group", "b3.equities.binaryentrypoint.sbe.v8.3.newordercrossmessagenosidesgroup", ftypes.STRING)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.new_order_cross_message_no_sides_groups = ProtoField.new("New Order Cross Message no Sides Groups", "b3.equities.binaryentrypoint.sbe.v8.3.newordercrossmessagenosidesgroups", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.next_seq_no = ProtoField.new("Next Seq No", "b3.equities.binaryentrypoint.sbe.v8.3.nextseqno", ftypes.UINT32)
-omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_legs_group = ProtoField.new("No Legs Group", "b3.equities.binaryentrypoint.sbe.v8.3.nolegsgroup", ftypes.STRING)
-omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_legs_groups = ProtoField.new("No Legs Groups", "b3.equities.binaryentrypoint.sbe.v8.3.nolegsgroups", ftypes.STRING)
-omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_positions_group = ProtoField.new("No Positions Group", "b3.equities.binaryentrypoint.sbe.v8.3.nopositionsgroup", ftypes.STRING)
-omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_positions_groups = ProtoField.new("No Positions Groups", "b3.equities.binaryentrypoint.sbe.v8.3.nopositionsgroups", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_related_trades = ProtoField.new("No Related Trades", "b3.equities.binaryentrypoint.sbe.v8.3.norelatedtrades", ftypes.UINT16)
-omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_sides_group = ProtoField.new("No Sides Group", "b3.equities.binaryentrypoint.sbe.v8.3.nosidesgroup", ftypes.STRING)
-omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_sides_groups = ProtoField.new("No Sides Groups", "b3.equities.binaryentrypoint.sbe.v8.3.nosidesgroups", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.num_in_group = ProtoField.new("Num In Group", "b3.equities.binaryentrypoint.sbe.v8.3.numingroup", ftypes.UINT8)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.offset_1_padding_1 = ProtoField.new("Offset 1 Padding 1", "b3.equities.binaryentrypoint.sbe.v8.3.offset1padding1", ftypes.BYTES)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.offset_100_padding_4 = ProtoField.new("Offset 100 Padding 4", "b3.equities.binaryentrypoint.sbe.v8.3.offset100padding4", ftypes.BYTES)
@@ -188,6 +184,8 @@ omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.pos_req_id = ProtoField.new("Po
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.pos_req_id_optional = ProtoField.new("Pos Req Id Optional", "b3.equities.binaryentrypoint.sbe.v8.3.posreqidoptional", ftypes.UINT64)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.pos_trans_type = ProtoField.new("Pos Trans Type", "b3.equities.binaryentrypoint.sbe.v8.3.postranstype", ftypes.UINT8)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.pos_type = ProtoField.new("Pos Type", "b3.equities.binaryentrypoint.sbe.v8.3.postype", ftypes.STRING)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.position_maintenance_report_message_no_positions_group = ProtoField.new("Position Maintenance Report Message no Positions Group", "b3.equities.binaryentrypoint.sbe.v8.3.positionmaintenancereportmessagenopositionsgroup", ftypes.STRING)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.position_maintenance_report_message_no_positions_groups = ProtoField.new("Position Maintenance Report Message no Positions Groups", "b3.equities.binaryentrypoint.sbe.v8.3.positionmaintenancereportmessagenopositionsgroups", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.prefix = ProtoField.new("Prefix", "b3.equities.binaryentrypoint.sbe.v8.3.prefix", ftypes.UINT16)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.price = ProtoField.new("Price", "b3.equities.binaryentrypoint.sbe.v8.3.price", ftypes.DOUBLE)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.price_8 = ProtoField.new("Price 8", "b3.equities.binaryentrypoint.sbe.v8.3.price8", ftypes.DOUBLE)
@@ -200,6 +198,10 @@ omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_id_optional = ProtoField.
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "b3.equities.binaryentrypoint.sbe.v8.3.quoterejectreason", ftypes.UINT32)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_req_id = ProtoField.new("Quote Req Id", "b3.equities.binaryentrypoint.sbe.v8.3.quotereqid", ftypes.UINT64)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_req_id_optional = ProtoField.new("Quote Req Id Optional", "b3.equities.binaryentrypoint.sbe.v8.3.quotereqidoptional", ftypes.UINT64)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_message_no_sides_group = ProtoField.new("Quote Request Message no Sides Group", "b3.equities.binaryentrypoint.sbe.v8.3.quoterequestmessagenosidesgroup", ftypes.STRING)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_message_no_sides_groups = ProtoField.new("Quote Request Message no Sides Groups", "b3.equities.binaryentrypoint.sbe.v8.3.quoterequestmessagenosidesgroups", ftypes.STRING)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_reject_message_no_sides_group = ProtoField.new("Quote Request Reject Message no Sides Group", "b3.equities.binaryentrypoint.sbe.v8.3.quoterequestrejectmessagenosidesgroup", ftypes.STRING)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_reject_message_no_sides_groups = ProtoField.new("Quote Request Reject Message no Sides Groups", "b3.equities.binaryentrypoint.sbe.v8.3.quoterequestrejectmessagenosidesgroups", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_reject_reason = ProtoField.new("Quote Request Reject Reason", "b3.equities.binaryentrypoint.sbe.v8.3.quoterequestrejectreason", ftypes.UINT32)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_status = ProtoField.new("Quote Status", "b3.equities.binaryentrypoint.sbe.v8.3.quotestatus", ftypes.UINT8)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_status_response_to = ProtoField.new("Quote Status Response To", "b3.equities.binaryentrypoint.sbe.v8.3.quotestatusresponseto", ftypes.STRING)
@@ -213,6 +215,8 @@ omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.schema_id = ProtoField.new("Sch
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.secondary_exec_id = ProtoField.new("Secondary Exec Id", "b3.equities.binaryentrypoint.sbe.v8.3.secondaryexecid", ftypes.UINT64)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "b3.equities.binaryentrypoint.sbe.v8.3.secondaryorderid", ftypes.UINT64)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.secondary_order_id_optional = ProtoField.new("Secondary Order Id Optional", "b3.equities.binaryentrypoint.sbe.v8.3.secondaryorderidoptional", ftypes.UINT64)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.security_definition_request_message_no_legs_group = ProtoField.new("Security Definition Request Message no Legs Group", "b3.equities.binaryentrypoint.sbe.v8.3.securitydefinitionrequestmessagenolegsgroup", ftypes.STRING)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.security_definition_request_message_no_legs_groups = ProtoField.new("Security Definition Request Message no Legs Groups", "b3.equities.binaryentrypoint.sbe.v8.3.securitydefinitionrequestmessagenolegsgroups", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.security_id = ProtoField.new("Security Id", "b3.equities.binaryentrypoint.sbe.v8.3.securityid", ftypes.UINT64)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.security_id_optional = ProtoField.new("Security Id Optional", "b3.equities.binaryentrypoint.sbe.v8.3.securityidoptional", ftypes.UINT64)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.security_req_id = ProtoField.new("Security Req Id", "b3.equities.binaryentrypoint.sbe.v8.3.securityreqid", ftypes.UINT64)
@@ -302,9 +306,11 @@ omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.simple_new_order_message = Prot
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.terminate_message = ProtoField.new("Terminate Message", "b3.equities.binaryentrypoint.sbe.v8.3.terminatemessage", ftypes.STRING)
 
 -- B3 Equities BinaryEntryPoint Sbe 8.3 generated fields
-omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_legs_group_index = ProtoField.new("No Legs Group Index", "b3.equities.binaryentrypoint.sbe.v8.3.nolegsgroupindex", ftypes.UINT16)
-omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_positions_group_index = ProtoField.new("No Positions Group Index", "b3.equities.binaryentrypoint.sbe.v8.3.nopositionsgroupindex", ftypes.UINT16)
-omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_sides_group_index = ProtoField.new("No Sides Group Index", "b3.equities.binaryentrypoint.sbe.v8.3.nosidesgroupindex", ftypes.UINT16)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.new_order_cross_message_no_sides_group_index = ProtoField.new("New Order Cross Message no Sides Group Index", "b3.equities.binaryentrypoint.sbe.v8.3.newordercrossmessagenosidesgroupindex", ftypes.UINT16)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.position_maintenance_report_message_no_positions_group_index = ProtoField.new("Position Maintenance Report Message no Positions Group Index", "b3.equities.binaryentrypoint.sbe.v8.3.positionmaintenancereportmessagenopositionsgroupindex", ftypes.UINT16)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_message_no_sides_group_index = ProtoField.new("Quote Request Message no Sides Group Index", "b3.equities.binaryentrypoint.sbe.v8.3.quoterequestmessagenosidesgroupindex", ftypes.UINT16)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_reject_message_no_sides_group_index = ProtoField.new("Quote Request Reject Message no Sides Group Index", "b3.equities.binaryentrypoint.sbe.v8.3.quoterequestrejectmessagenosidesgroupindex", ftypes.UINT16)
+omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.security_definition_request_message_no_legs_group_index = ProtoField.new("Security Definition Request Message no Legs Group Index", "b3.equities.binaryentrypoint.sbe.v8.3.securitydefinitionrequestmessagenolegsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -342,13 +348,9 @@ show.negotiate_message = true
 show.negotiate_reject_message = true
 show.negotiate_response_message = true
 show.new_order_cross_message = true
+show.new_order_cross_message_no_sides_group = true
+show.new_order_cross_message_no_sides_groups = true
 show.new_order_single_message = true
-show.no_legs_group = true
-show.no_legs_groups = true
-show.no_positions_group = true
-show.no_positions_groups = true
-show.no_sides_group = true
-show.no_sides_groups = true
 show.not_applied_message = true
 show.order_cancel_replace_request_message = true
 show.order_cancel_request_message = true
@@ -358,16 +360,24 @@ show.outbound_business_header = true
 show.packet = true
 show.position_maintenance_cancel_request_message = true
 show.position_maintenance_report_message = true
+show.position_maintenance_report_message_no_positions_group = true
+show.position_maintenance_report_message_no_positions_groups = true
 show.position_maintenance_request_message = true
 show.quote_cancel_message = true
 show.quote_message = true
 show.quote_request_message = true
+show.quote_request_message_no_sides_group = true
+show.quote_request_message_no_sides_groups = true
 show.quote_request_reject_message = true
+show.quote_request_reject_message_no_sides_group = true
+show.quote_request_reject_message_no_sides_groups = true
 show.quote_status_report_message = true
 show.retransmission_message = true
 show.retransmit_reject_message = true
 show.retransmit_request_message = true
 show.security_definition_request_message = true
+show.security_definition_request_message_no_legs_group = true
+show.security_definition_request_message_no_legs_groups = true
 show.security_definition_response_message = true
 show.semantic_version = true
 show.sequence_message = true
@@ -409,13 +419,9 @@ omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_negotiate_message = Pref.bo
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_negotiate_reject_message = Pref.bool("Show Negotiate Reject Message", show.negotiate_reject_message, "Parse and add Negotiate Reject Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_negotiate_response_message = Pref.bool("Show Negotiate Response Message", show.negotiate_response_message, "Parse and add Negotiate Response Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_cross_message = Pref.bool("Show New Order Cross Message", show.new_order_cross_message, "Parse and add New Order Cross Message to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_cross_message_no_sides_group = Pref.bool("Show New Order Cross Message no Sides Group", show.new_order_cross_message_no_sides_group, "Parse and add New Order Cross Message no Sides Group to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_cross_message_no_sides_groups = Pref.bool("Show New Order Cross Message no Sides Groups", show.new_order_cross_message_no_sides_groups, "Parse and add New Order Cross Message no Sides Groups to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_single_message = Pref.bool("Show New Order Single Message", show.new_order_single_message, "Parse and add New Order Single Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_legs_group = Pref.bool("Show No Legs Group", show.no_legs_group, "Parse and add No Legs Group to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_legs_groups = Pref.bool("Show No Legs Groups", show.no_legs_groups, "Parse and add No Legs Groups to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_positions_group = Pref.bool("Show No Positions Group", show.no_positions_group, "Parse and add No Positions Group to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_positions_groups = Pref.bool("Show No Positions Groups", show.no_positions_groups, "Parse and add No Positions Groups to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_sides_group = Pref.bool("Show No Sides Group", show.no_sides_group, "Parse and add No Sides Group to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_sides_groups = Pref.bool("Show No Sides Groups", show.no_sides_groups, "Parse and add No Sides Groups to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_not_applied_message = Pref.bool("Show Not Applied Message", show.not_applied_message, "Parse and add Not Applied Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_order_cancel_replace_request_message = Pref.bool("Show Order Cancel Replace Request Message", show.order_cancel_replace_request_message, "Parse and add Order Cancel Replace Request Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
@@ -425,16 +431,24 @@ omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_outbound_business_header = 
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_cancel_request_message = Pref.bool("Show Position Maintenance Cancel Request Message", show.position_maintenance_cancel_request_message, "Parse and add Position Maintenance Cancel Request Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_report_message = Pref.bool("Show Position Maintenance Report Message", show.position_maintenance_report_message, "Parse and add Position Maintenance Report Message to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_report_message_no_positions_group = Pref.bool("Show Position Maintenance Report Message no Positions Group", show.position_maintenance_report_message_no_positions_group, "Parse and add Position Maintenance Report Message no Positions Group to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_report_message_no_positions_groups = Pref.bool("Show Position Maintenance Report Message no Positions Groups", show.position_maintenance_report_message_no_positions_groups, "Parse and add Position Maintenance Report Message no Positions Groups to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_request_message = Pref.bool("Show Position Maintenance Request Message", show.position_maintenance_request_message, "Parse and add Position Maintenance Request Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_cancel_message = Pref.bool("Show Quote Cancel Message", show.quote_cancel_message, "Parse and add Quote Cancel Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_message = Pref.bool("Show Quote Request Message", show.quote_request_message, "Parse and add Quote Request Message to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_message_no_sides_group = Pref.bool("Show Quote Request Message no Sides Group", show.quote_request_message_no_sides_group, "Parse and add Quote Request Message no Sides Group to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_message_no_sides_groups = Pref.bool("Show Quote Request Message no Sides Groups", show.quote_request_message_no_sides_groups, "Parse and add Quote Request Message no Sides Groups to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_reject_message = Pref.bool("Show Quote Request Reject Message", show.quote_request_reject_message, "Parse and add Quote Request Reject Message to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_reject_message_no_sides_group = Pref.bool("Show Quote Request Reject Message no Sides Group", show.quote_request_reject_message_no_sides_group, "Parse and add Quote Request Reject Message no Sides Group to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_reject_message_no_sides_groups = Pref.bool("Show Quote Request Reject Message no Sides Groups", show.quote_request_reject_message_no_sides_groups, "Parse and add Quote Request Reject Message no Sides Groups to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_status_report_message = Pref.bool("Show Quote Status Report Message", show.quote_status_report_message, "Parse and add Quote Status Report Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_retransmission_message = Pref.bool("Show Retransmission Message", show.retransmission_message, "Parse and add Retransmission Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_retransmit_reject_message = Pref.bool("Show Retransmit Reject Message", show.retransmit_reject_message, "Parse and add Retransmit Reject Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_retransmit_request_message = Pref.bool("Show Retransmit Request Message", show.retransmit_request_message, "Parse and add Retransmit Request Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_request_message = Pref.bool("Show Security Definition Request Message", show.security_definition_request_message, "Parse and add Security Definition Request Message to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_request_message_no_legs_group = Pref.bool("Show Security Definition Request Message no Legs Group", show.security_definition_request_message_no_legs_group, "Parse and add Security Definition Request Message no Legs Group to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_request_message_no_legs_groups = Pref.bool("Show Security Definition Request Message no Legs Groups", show.security_definition_request_message_no_legs_groups, "Parse and add Security Definition Request Message no Legs Groups to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_response_message = Pref.bool("Show Security Definition Response Message", show.security_definition_response_message, "Parse and add Security Definition Response Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_semantic_version = Pref.bool("Show Semantic Version", show.semantic_version, "Parse and add Semantic Version to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_sequence_message = Pref.bool("Show Sequence Message", show.sequence_message, "Parse and add Sequence Message to protocol tree")
@@ -567,32 +581,16 @@ function omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs_changed()
     show.new_order_cross_message = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_cross_message
     changed = true
   end
+  if show.new_order_cross_message_no_sides_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_cross_message_no_sides_group then
+    show.new_order_cross_message_no_sides_group = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_cross_message_no_sides_group
+    changed = true
+  end
+  if show.new_order_cross_message_no_sides_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_cross_message_no_sides_groups then
+    show.new_order_cross_message_no_sides_groups = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_cross_message_no_sides_groups
+    changed = true
+  end
   if show.new_order_single_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_single_message then
     show.new_order_single_message = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_new_order_single_message
-    changed = true
-  end
-  if show.no_legs_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_legs_group then
-    show.no_legs_group = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_legs_group
-    changed = true
-  end
-  if show.no_legs_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_legs_groups then
-    show.no_legs_groups = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_legs_groups
-    changed = true
-  end
-  if show.no_positions_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_positions_group then
-    show.no_positions_group = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_positions_group
-    changed = true
-  end
-  if show.no_positions_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_positions_groups then
-    show.no_positions_groups = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_positions_groups
-    changed = true
-  end
-  if show.no_sides_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_sides_group then
-    show.no_sides_group = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_sides_group
-    changed = true
-  end
-  if show.no_sides_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_sides_groups then
-    show.no_sides_groups = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_no_sides_groups
     changed = true
   end
   if show.not_applied_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_not_applied_message then
@@ -631,6 +629,14 @@ function omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs_changed()
     show.position_maintenance_report_message = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_report_message
     changed = true
   end
+  if show.position_maintenance_report_message_no_positions_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_report_message_no_positions_group then
+    show.position_maintenance_report_message_no_positions_group = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_report_message_no_positions_group
+    changed = true
+  end
+  if show.position_maintenance_report_message_no_positions_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_report_message_no_positions_groups then
+    show.position_maintenance_report_message_no_positions_groups = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_report_message_no_positions_groups
+    changed = true
+  end
   if show.position_maintenance_request_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_request_message then
     show.position_maintenance_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_position_maintenance_request_message
     changed = true
@@ -647,8 +653,24 @@ function omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs_changed()
     show.quote_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_message
     changed = true
   end
+  if show.quote_request_message_no_sides_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_message_no_sides_group then
+    show.quote_request_message_no_sides_group = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_message_no_sides_group
+    changed = true
+  end
+  if show.quote_request_message_no_sides_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_message_no_sides_groups then
+    show.quote_request_message_no_sides_groups = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_message_no_sides_groups
+    changed = true
+  end
   if show.quote_request_reject_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_reject_message then
     show.quote_request_reject_message = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_reject_message
+    changed = true
+  end
+  if show.quote_request_reject_message_no_sides_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_reject_message_no_sides_group then
+    show.quote_request_reject_message_no_sides_group = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_reject_message_no_sides_group
+    changed = true
+  end
+  if show.quote_request_reject_message_no_sides_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_reject_message_no_sides_groups then
+    show.quote_request_reject_message_no_sides_groups = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_request_reject_message_no_sides_groups
     changed = true
   end
   if show.quote_status_report_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_quote_status_report_message then
@@ -669,6 +691,14 @@ function omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs_changed()
   end
   if show.security_definition_request_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_request_message then
     show.security_definition_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_request_message
+    changed = true
+  end
+  if show.security_definition_request_message_no_legs_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_request_message_no_legs_group then
+    show.security_definition_request_message_no_legs_group = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_request_message_no_legs_group
+    changed = true
+  end
+  if show.security_definition_request_message_no_legs_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_request_message_no_legs_groups then
+    show.security_definition_request_message_no_legs_groups = omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_request_message_no_legs_groups
     changed = true
   end
   if show.security_definition_response_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_3.prefs.show_security_definition_response_message then
@@ -2940,27 +2970,27 @@ b3_equities_binaryentrypoint_sbe_v8_3.pos_type.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- No Positions Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_positions_group = {}
+-- Position Maintenance Report Message no Positions Group
+b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_group = {}
 
--- Size: No Positions Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_positions_group.size =
+-- Size: Position Maintenance Report Message no Positions Group
+b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_group.size =
   b3_equities_binaryentrypoint_sbe_v8_3.pos_type.size + 
   b3_equities_binaryentrypoint_sbe_v8_3.long_qty_optional.size + 
   b3_equities_binaryentrypoint_sbe_v8_3.short_qty.size
 
--- Display: No Positions Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_positions_group.display = function(packet, parent, length)
+-- Display: Position Maintenance Report Message no Positions Group
+b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Positions Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_positions_group.fields = function(buffer, offset, packet, parent, no_positions_group_index)
+-- Dissect Fields: Position Maintenance Report Message no Positions Group
+b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_group.fields = function(buffer, offset, packet, parent, position_maintenance_report_message_no_positions_group_index)
   local index = offset
 
-  -- Implicit No Positions Group Index
-  if no_positions_group_index ~= nil then
-    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_positions_group_index, no_positions_group_index)
+  -- Implicit Position Maintenance Report Message no Positions Group Index
+  if position_maintenance_report_message_no_positions_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.position_maintenance_report_message_no_positions_group_index, position_maintenance_report_message_no_positions_group_index)
     iteration:set_generated()
   end
 
@@ -2976,21 +3006,21 @@ b3_equities_binaryentrypoint_sbe_v8_3.no_positions_group.fields = function(buffe
   return index
 end
 
--- Dissect: No Positions Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_positions_group.dissect = function(buffer, offset, packet, parent, no_positions_group_index)
-  if show.no_positions_group then
+-- Dissect: Position Maintenance Report Message no Positions Group
+b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_group.dissect = function(buffer, offset, packet, parent, position_maintenance_report_message_no_positions_group_index)
+  if show.position_maintenance_report_message_no_positions_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_positions_group, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_3.no_positions_group.fields(buffer, offset, packet, parent, no_positions_group_index)
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.position_maintenance_report_message_no_positions_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_group.fields(buffer, offset, packet, parent, position_maintenance_report_message_no_positions_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_3.no_positions_group.display(packet, parent, length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_3.no_positions_group.fields(buffer, offset, packet, parent, no_positions_group_index)
+    return b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_group.fields(buffer, offset, packet, parent, position_maintenance_report_message_no_positions_group_index)
   end
 end
 
@@ -3084,29 +3114,29 @@ b3_equities_binaryentrypoint_sbe_v8_3.group_size_encoding.dissect = function(buf
   end
 end
 
--- No Positions Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups = {}
+-- Position Maintenance Report Message no Positions Groups
+b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_groups = {}
 
--- Calculate size of: No Positions Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups.size = function(buffer, offset)
+-- Calculate size of: Position Maintenance Report Message no Positions Groups
+b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.group_size_encoding.size
 
   -- Calculate field size from count
-  local no_positions_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_positions_group_count * 17
+  local position_maintenance_report_message_no_positions_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + position_maintenance_report_message_no_positions_group_count * 17
 
   return index
 end
 
--- Display: No Positions Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups.display = function(packet, parent, length)
+-- Display: Position Maintenance Report Message no Positions Groups
+b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Positions Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Position Maintenance Report Message no Positions Groups
+b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -3115,25 +3145,25 @@ b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups.fields = function(buff
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: No Positions Group
-  for no_positions_group_index = 1, num_in_group do
-    index, no_positions_group = b3_equities_binaryentrypoint_sbe_v8_3.no_positions_group.dissect(buffer, index, packet, parent, no_positions_group_index)
+  -- Repeating: Position Maintenance Report Message no Positions Group
+  for position_maintenance_report_message_no_positions_group_index = 1, num_in_group do
+    index, position_maintenance_report_message_no_positions_group = b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_group.dissect(buffer, index, packet, parent, position_maintenance_report_message_no_positions_group_index)
   end
 
   return index
 end
 
--- Dissect: No Positions Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Position Maintenance Report Message no Positions Groups
+b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.no_positions_groups then
-    local length = b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups.size(buffer, offset)
+  if show.position_maintenance_report_message_no_positions_groups then
+    local length = b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_positions_groups, range, display)
+    local display = b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.position_maintenance_report_message_no_positions_groups, range, display)
   end
 
-  return b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups.fields(buffer, offset, packet, parent)
+  return b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Contrary Instruction Indicator
@@ -3565,7 +3595,7 @@ b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message.size =
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.contrary_instruction_indicator.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_groups.size(buffer, offset + index)
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.desk_id.size(buffer, offset + index)
 
@@ -3636,8 +3666,8 @@ b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message.fields
   -- Contrary Instruction Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, contrary_instruction_indicator = b3_equities_binaryentrypoint_sbe_v8_3.contrary_instruction_indicator.dissect(buffer, index, packet, parent)
 
-  -- No Positions Groups: Struct of 2 fields
-  index, no_positions_groups = b3_equities_binaryentrypoint_sbe_v8_3.no_positions_groups.dissect(buffer, index, packet, parent)
+  -- Position Maintenance Report Message no Positions Groups: Struct of 2 fields
+  index, position_maintenance_report_message_no_positions_groups = b3_equities_binaryentrypoint_sbe_v8_3.position_maintenance_report_message_no_positions_groups.dissect(buffer, index, packet, parent)
 
   -- Desk Id: Struct of 2 fields
   index, desk_id = b3_equities_binaryentrypoint_sbe_v8_3.desk_id.dissect(buffer, index, packet, parent)
@@ -3925,93 +3955,35 @@ b3_equities_binaryentrypoint_sbe_v8_3.trading_sub_account.dissect = function(buf
   return offset + length, value
 end
 
--- Entering Firm Optional
-b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional = {}
+-- Quote Request Reject Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_group = {}
 
--- Size: Entering Firm Optional
-b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.size = 4
-
--- Display: Entering Firm Optional
-b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.display = function(value)
-  return "Entering Firm Optional: "..value
-end
-
--- Dissect: Entering Firm Optional
-b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.entering_firm_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 1 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1 = {}
-
--- Size: Offset 1 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.size = 1
-
--- Display: Offset 1 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.display = function(value)
-  return "Offset 1 Padding 1: "..value
-end
-
--- Dissect: Offset 1 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.offset_1_padding_1, range, value, display)
-
-  return offset + length, value
-end
-
--- No Sides Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_sides_group = {}
-
--- Size: No Sides Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_sides_group.size =
+-- Size: Quote Request Reject Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_group.size =
   b3_equities_binaryentrypoint_sbe_v8_3.side.size + 
-  b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.size + 
   b3_equities_binaryentrypoint_sbe_v8_3.account.size + 
-  b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.size + 
-  b3_equities_binaryentrypoint_sbe_v8_3.clordid.size + 
   b3_equities_binaryentrypoint_sbe_v8_3.trading_sub_account.size
 
--- Display: No Sides Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_sides_group.display = function(packet, parent, length)
+-- Display: Quote Request Reject Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Sides Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_sides_group.fields = function(buffer, offset, packet, parent, no_sides_group_index)
+-- Dissect Fields: Quote Request Reject Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_group.fields = function(buffer, offset, packet, parent, quote_request_reject_message_no_sides_group_index)
   local index = offset
 
-  -- Implicit No Sides Group Index
-  if no_sides_group_index ~= nil then
-    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_sides_group_index, no_sides_group_index)
+  -- Implicit Quote Request Reject Message no Sides Group Index
+  if quote_request_reject_message_no_sides_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_reject_message_no_sides_group_index, quote_request_reject_message_no_sides_group_index)
     iteration:set_generated()
   end
 
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v8_3.side.dissect(buffer, index, packet, parent)
 
-  -- Offset 1 Padding 1: 1 Byte
-  index, offset_1_padding_1 = b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.dissect(buffer, index, packet, parent)
-
   -- Account: 4 Byte Unsigned Fixed Width Integer
   index, account = b3_equities_binaryentrypoint_sbe_v8_3.account.dissect(buffer, index, packet, parent)
-
-  -- Entering Firm Optional: 4 Byte Unsigned Fixed Width Integer
-  index, entering_firm_optional = b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: 8 Byte Unsigned Fixed Width Integer
-  index, clordid = b3_equities_binaryentrypoint_sbe_v8_3.clordid.dissect(buffer, index, packet, parent)
 
   -- Trading Sub Account: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trading_sub_account = b3_equities_binaryentrypoint_sbe_v8_3.trading_sub_account.dissect(buffer, index, packet, parent)
@@ -4019,47 +3991,47 @@ b3_equities_binaryentrypoint_sbe_v8_3.no_sides_group.fields = function(buffer, o
   return index
 end
 
--- Dissect: No Sides Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_sides_group.dissect = function(buffer, offset, packet, parent, no_sides_group_index)
-  if show.no_sides_group then
+-- Dissect: Quote Request Reject Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_group.dissect = function(buffer, offset, packet, parent, quote_request_reject_message_no_sides_group_index)
+  if show.quote_request_reject_message_no_sides_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_sides_group, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_3.no_sides_group.fields(buffer, offset, packet, parent, no_sides_group_index)
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_reject_message_no_sides_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_group.fields(buffer, offset, packet, parent, quote_request_reject_message_no_sides_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_3.no_sides_group.display(packet, parent, length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_3.no_sides_group.fields(buffer, offset, packet, parent, no_sides_group_index)
+    return b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_group.fields(buffer, offset, packet, parent, quote_request_reject_message_no_sides_group_index)
   end
 end
 
--- No Sides Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups = {}
+-- Quote Request Reject Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_groups = {}
 
--- Calculate size of: No Sides Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.size = function(buffer, offset)
+-- Calculate size of: Quote Request Reject Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.group_size_encoding.size
 
   -- Calculate field size from count
-  local no_sides_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_sides_group_count * 22
+  local quote_request_reject_message_no_sides_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_request_reject_message_no_sides_group_count * 9
 
   return index
 end
 
--- Display: No Sides Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.display = function(packet, parent, length)
+-- Display: Quote Request Reject Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Sides Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Request Reject Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -4068,25 +4040,25 @@ b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.fields = function(buffer, 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: No Sides Group
-  for no_sides_group_index = 1, num_in_group do
-    index, no_sides_group = b3_equities_binaryentrypoint_sbe_v8_3.no_sides_group.dissect(buffer, index, packet, parent, no_sides_group_index)
+  -- Repeating: Quote Request Reject Message no Sides Group
+  for quote_request_reject_message_no_sides_group_index = 1, num_in_group do
+    index, quote_request_reject_message_no_sides_group = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_group.dissect(buffer, index, packet, parent, quote_request_reject_message_no_sides_group_index)
   end
 
   return index
 end
 
--- Dissect: No Sides Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Request Reject Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.no_sides_groups then
-    local length = b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.size(buffer, offset)
+  if show.quote_request_reject_message_no_sides_groups then
+    local length = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_sides_groups, range, display)
+    local display = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_reject_message_no_sides_groups, range, display)
   end
 
-  return b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.fields(buffer, offset, packet, parent)
+  return b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Days To Settlement Optional
@@ -4492,7 +4464,7 @@ b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message.size = functi
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.days_to_settlement_optional.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_groups.size(buffer, offset + index)
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.desk_id.size(buffer, offset + index)
 
@@ -4560,8 +4532,8 @@ b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message.fields = func
   -- Days To Settlement Optional: 2 Byte Unsigned Fixed Width Integer
   index, days_to_settlement_optional = b3_equities_binaryentrypoint_sbe_v8_3.days_to_settlement_optional.dissect(buffer, index, packet, parent)
 
-  -- No Sides Groups: Struct of 2 fields
-  index, no_sides_groups = b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.dissect(buffer, index, packet, parent)
+  -- Quote Request Reject Message no Sides Groups: Struct of 2 fields
+  index, quote_request_reject_message_no_sides_groups = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_reject_message_no_sides_groups.dissect(buffer, index, packet, parent)
 
   -- Desk Id: Struct of 2 fields
   index, desk_id = b3_equities_binaryentrypoint_sbe_v8_3.desk_id.dissect(buffer, index, packet, parent)
@@ -5384,6 +5356,112 @@ b3_equities_binaryentrypoint_sbe_v8_3.quote_status_report_message.dissect = func
   return b3_equities_binaryentrypoint_sbe_v8_3.quote_status_report_message.fields(buffer, offset, packet, parent)
 end
 
+-- Quote Request Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_group = {}
+
+-- Size: Quote Request Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_group.size =
+  b3_equities_binaryentrypoint_sbe_v8_3.side.size + 
+  b3_equities_binaryentrypoint_sbe_v8_3.account.size + 
+  b3_equities_binaryentrypoint_sbe_v8_3.trading_sub_account.size
+
+-- Display: Quote Request Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Request Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_group.fields = function(buffer, offset, packet, parent, quote_request_message_no_sides_group_index)
+  local index = offset
+
+  -- Implicit Quote Request Message no Sides Group Index
+  if quote_request_message_no_sides_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_message_no_sides_group_index, quote_request_message_no_sides_group_index)
+    iteration:set_generated()
+  end
+
+  -- Side: 1 Byte Ascii String Enum with 2 values
+  index, side = b3_equities_binaryentrypoint_sbe_v8_3.side.dissect(buffer, index, packet, parent)
+
+  -- Account: 4 Byte Unsigned Fixed Width Integer
+  index, account = b3_equities_binaryentrypoint_sbe_v8_3.account.dissect(buffer, index, packet, parent)
+
+  -- Trading Sub Account: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, trading_sub_account = b3_equities_binaryentrypoint_sbe_v8_3.trading_sub_account.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Request Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_group.dissect = function(buffer, offset, packet, parent, quote_request_message_no_sides_group_index)
+  if show.quote_request_message_no_sides_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_message_no_sides_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_group.fields(buffer, offset, packet, parent, quote_request_message_no_sides_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_group.fields(buffer, offset, packet, parent, quote_request_message_no_sides_group_index)
+  end
+end
+
+-- Quote Request Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_groups = {}
+
+-- Calculate size of: Quote Request Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_3.group_size_encoding.size
+
+  -- Calculate field size from count
+  local quote_request_message_no_sides_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_request_message_no_sides_group_count * 9
+
+  return index
+end
+
+-- Display: Quote Request Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Request Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size Encoding: Struct of 2 fields
+  index, group_size_encoding = b3_equities_binaryentrypoint_sbe_v8_3.group_size_encoding.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Quote Request Message no Sides Group
+  for quote_request_message_no_sides_group_index = 1, num_in_group do
+    index, quote_request_message_no_sides_group = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_group.dissect(buffer, index, packet, parent, quote_request_message_no_sides_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Quote Request Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_groups.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.quote_request_message_no_sides_groups then
+    local length = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_groups.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.quote_request_message_no_sides_groups, range, display)
+  end
+
+  return b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_groups.fields(buffer, offset, packet, parent)
+end
+
 -- Price 8
 b3_equities_binaryentrypoint_sbe_v8_3.price_8 = {}
 
@@ -5452,7 +5530,7 @@ b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message.size = function(buff
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.days_to_settlement.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_groups.size(buffer, offset + index)
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.desk_id.size(buffer, offset + index)
 
@@ -5518,8 +5596,8 @@ b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message.fields = function(bu
   -- Days To Settlement: 2 Byte Unsigned Fixed Width Integer
   index, days_to_settlement = b3_equities_binaryentrypoint_sbe_v8_3.days_to_settlement.dissect(buffer, index, packet, parent)
 
-  -- No Sides Groups: Struct of 2 fields
-  index, no_sides_groups = b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.dissect(buffer, index, packet, parent)
+  -- Quote Request Message no Sides Groups: Struct of 2 fields
+  index, quote_request_message_no_sides_groups = b3_equities_binaryentrypoint_sbe_v8_3.quote_request_message_no_sides_groups.dissect(buffer, index, packet, parent)
 
   -- Desk Id: Struct of 2 fields
   index, desk_id = b3_equities_binaryentrypoint_sbe_v8_3.desk_id.dissect(buffer, index, packet, parent)
@@ -5936,28 +6014,28 @@ b3_equities_binaryentrypoint_sbe_v8_3.leg_symbol.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- No Legs Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_legs_group = {}
+-- Security Definition Request Message no Legs Group
+b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_group = {}
 
--- Size: No Legs Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_legs_group.size =
+-- Size: Security Definition Request Message no Legs Group
+b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_group.size =
   b3_equities_binaryentrypoint_sbe_v8_3.leg_symbol.size + 
   b3_equities_binaryentrypoint_sbe_v8_3.leg_ratio_qty.size + 
   b3_equities_binaryentrypoint_sbe_v8_3.leg_side.size + 
   b3_equities_binaryentrypoint_sbe_v8_3.padding_1.size
 
--- Display: No Legs Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_legs_group.display = function(packet, parent, length)
+-- Display: Security Definition Request Message no Legs Group
+b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Legs Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_legs_group.fields = function(buffer, offset, packet, parent, no_legs_group_index)
+-- Dissect Fields: Security Definition Request Message no Legs Group
+b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_group.fields = function(buffer, offset, packet, parent, security_definition_request_message_no_legs_group_index)
   local index = offset
 
-  -- Implicit No Legs Group Index
-  if no_legs_group_index ~= nil then
-    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_legs_group_index, no_legs_group_index)
+  -- Implicit Security Definition Request Message no Legs Group Index
+  if security_definition_request_message_no_legs_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.security_definition_request_message_no_legs_group_index, security_definition_request_message_no_legs_group_index)
     iteration:set_generated()
   end
 
@@ -5976,47 +6054,47 @@ b3_equities_binaryentrypoint_sbe_v8_3.no_legs_group.fields = function(buffer, of
   return index
 end
 
--- Dissect: No Legs Group
-b3_equities_binaryentrypoint_sbe_v8_3.no_legs_group.dissect = function(buffer, offset, packet, parent, no_legs_group_index)
-  if show.no_legs_group then
+-- Dissect: Security Definition Request Message no Legs Group
+b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_group.dissect = function(buffer, offset, packet, parent, security_definition_request_message_no_legs_group_index)
+  if show.security_definition_request_message_no_legs_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_legs_group, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_3.no_legs_group.fields(buffer, offset, packet, parent, no_legs_group_index)
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.security_definition_request_message_no_legs_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_group.fields(buffer, offset, packet, parent, security_definition_request_message_no_legs_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_3.no_legs_group.display(packet, parent, length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_3.no_legs_group.fields(buffer, offset, packet, parent, no_legs_group_index)
+    return b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_group.fields(buffer, offset, packet, parent, security_definition_request_message_no_legs_group_index)
   end
 end
 
--- No Legs Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups = {}
+-- Security Definition Request Message no Legs Groups
+b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_groups = {}
 
--- Calculate size of: No Legs Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups.size = function(buffer, offset)
+-- Calculate size of: Security Definition Request Message no Legs Groups
+b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.group_size_encoding.size
 
   -- Calculate field size from count
-  local no_legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_legs_group_count * 30
+  local security_definition_request_message_no_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + security_definition_request_message_no_legs_group_count * 30
 
   return index
 end
 
--- Display: No Legs Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups.display = function(packet, parent, length)
+-- Display: Security Definition Request Message no Legs Groups
+b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Legs Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Security Definition Request Message no Legs Groups
+b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -6025,25 +6103,25 @@ b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups.fields = function(buffer, o
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: No Legs Group
-  for no_legs_group_index = 1, num_in_group do
-    index, no_legs_group = b3_equities_binaryentrypoint_sbe_v8_3.no_legs_group.dissect(buffer, index, packet, parent, no_legs_group_index)
+  -- Repeating: Security Definition Request Message no Legs Group
+  for security_definition_request_message_no_legs_group_index = 1, num_in_group do
+    index, security_definition_request_message_no_legs_group = b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_group.dissect(buffer, index, packet, parent, security_definition_request_message_no_legs_group_index)
   end
 
   return index
 end
 
--- Dissect: No Legs Groups
-b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Security Definition Request Message no Legs Groups
+b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.no_legs_groups then
-    local length = b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups.size(buffer, offset)
+  if show.security_definition_request_message_no_legs_groups then
+    local length = b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.no_legs_groups, range, display)
+    local display = b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.security_definition_request_message_no_legs_groups, range, display)
   end
 
-  return b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups.fields(buffer, offset, packet, parent)
+  return b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Security Definition Request Message
@@ -6061,7 +6139,7 @@ b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message.size =
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.entering_trader.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_groups.size(buffer, offset + index)
 
   return index
 end
@@ -6087,8 +6165,8 @@ b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message.fields
   -- Entering Trader: 5 Byte Ascii String
   index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_3.entering_trader.dissect(buffer, index, packet, parent)
 
-  -- No Legs Groups: Struct of 2 fields
-  index, no_legs_groups = b3_equities_binaryentrypoint_sbe_v8_3.no_legs_groups.dissect(buffer, index, packet, parent)
+  -- Security Definition Request Message no Legs Groups: Struct of 2 fields
+  index, security_definition_request_message_no_legs_groups = b3_equities_binaryentrypoint_sbe_v8_3.security_definition_request_message_no_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10992,6 +11070,170 @@ b3_equities_binaryentrypoint_sbe_v8_3.execution_report_new_message.dissect = fun
   return b3_equities_binaryentrypoint_sbe_v8_3.execution_report_new_message.fields(buffer, offset, packet, parent)
 end
 
+-- Entering Firm Optional
+b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional = {}
+
+-- Size: Entering Firm Optional
+b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.size = 4
+
+-- Display: Entering Firm Optional
+b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.display = function(value)
+  return "Entering Firm Optional: "..value
+end
+
+-- Dissect: Entering Firm Optional
+b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.entering_firm_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1 = {}
+
+-- Size: Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.size = 1
+
+-- Display: Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.display = function(value)
+  return "Offset 1 Padding 1: "..value
+end
+
+-- Dissect: Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.offset_1_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Order Cross Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_group = {}
+
+-- Size: New Order Cross Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_group.size =
+  b3_equities_binaryentrypoint_sbe_v8_3.side.size + 
+  b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.size + 
+  b3_equities_binaryentrypoint_sbe_v8_3.account.size + 
+  b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_3.clordid.size + 
+  b3_equities_binaryentrypoint_sbe_v8_3.trading_sub_account.size
+
+-- Display: New Order Cross Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Cross Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_group.fields = function(buffer, offset, packet, parent, new_order_cross_message_no_sides_group_index)
+  local index = offset
+
+  -- Implicit New Order Cross Message no Sides Group Index
+  if new_order_cross_message_no_sides_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.new_order_cross_message_no_sides_group_index, new_order_cross_message_no_sides_group_index)
+    iteration:set_generated()
+  end
+
+  -- Side: 1 Byte Ascii String Enum with 2 values
+  index, side = b3_equities_binaryentrypoint_sbe_v8_3.side.dissect(buffer, index, packet, parent)
+
+  -- Offset 1 Padding 1: 1 Byte
+  index, offset_1_padding_1 = b3_equities_binaryentrypoint_sbe_v8_3.offset_1_padding_1.dissect(buffer, index, packet, parent)
+
+  -- Account: 4 Byte Unsigned Fixed Width Integer
+  index, account = b3_equities_binaryentrypoint_sbe_v8_3.account.dissect(buffer, index, packet, parent)
+
+  -- Entering Firm Optional: 4 Byte Unsigned Fixed Width Integer
+  index, entering_firm_optional = b3_equities_binaryentrypoint_sbe_v8_3.entering_firm_optional.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: 8 Byte Unsigned Fixed Width Integer
+  index, clordid = b3_equities_binaryentrypoint_sbe_v8_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- Trading Sub Account: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, trading_sub_account = b3_equities_binaryentrypoint_sbe_v8_3.trading_sub_account.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Order Cross Message no Sides Group
+b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_group.dissect = function(buffer, offset, packet, parent, new_order_cross_message_no_sides_group_index)
+  if show.new_order_cross_message_no_sides_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.new_order_cross_message_no_sides_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_group.fields(buffer, offset, packet, parent, new_order_cross_message_no_sides_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_group.fields(buffer, offset, packet, parent, new_order_cross_message_no_sides_group_index)
+  end
+end
+
+-- New Order Cross Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_groups = {}
+
+-- Calculate size of: New Order Cross Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_3.group_size_encoding.size
+
+  -- Calculate field size from count
+  local new_order_cross_message_no_sides_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + new_order_cross_message_no_sides_group_count * 22
+
+  return index
+end
+
+-- Display: New Order Cross Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Cross Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size Encoding: Struct of 2 fields
+  index, group_size_encoding = b3_equities_binaryentrypoint_sbe_v8_3.group_size_encoding.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: New Order Cross Message no Sides Group
+  for new_order_cross_message_no_sides_group_index = 1, num_in_group do
+    index, new_order_cross_message_no_sides_group = b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_group.dissect(buffer, index, packet, parent, new_order_cross_message_no_sides_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: New Order Cross Message no Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_groups.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.new_order_cross_message_no_sides_groups then
+    local length = b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_groups.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.new_order_cross_message_no_sides_groups, range, display)
+  end
+
+  return b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_groups.fields(buffer, offset, packet, parent)
+end
+
 -- Max Sweep Qty
 b3_equities_binaryentrypoint_sbe_v8_3.max_sweep_qty = {}
 
@@ -11144,7 +11386,7 @@ b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message.size = function(bu
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.max_sweep_qty.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_groups.size(buffer, offset + index)
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_3.desk_id.size(buffer, offset + index)
 
@@ -11201,8 +11443,8 @@ b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message.fields = function(
   -- Max Sweep Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, max_sweep_qty = b3_equities_binaryentrypoint_sbe_v8_3.max_sweep_qty.dissect(buffer, index, packet, parent)
 
-  -- No Sides Groups: Struct of 2 fields
-  index, no_sides_groups = b3_equities_binaryentrypoint_sbe_v8_3.no_sides_groups.dissect(buffer, index, packet, parent)
+  -- New Order Cross Message no Sides Groups: Struct of 2 fields
+  index, new_order_cross_message_no_sides_groups = b3_equities_binaryentrypoint_sbe_v8_3.new_order_cross_message_no_sides_groups.dissect(buffer, index, packet, parent)
 
   -- Desk Id: Struct of 2 fields
   index, desk_id = b3_equities_binaryentrypoint_sbe_v8_3.desk_id.dissect(buffer, index, packet, parent)

@@ -33,16 +33,23 @@ omi_b3_equities_binaryumdf_sbe_v1_6.fields.currency = ProtoField.new("Currency",
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.cxl_qty = ProtoField.new("Cxl Qty", "b3.equities.binaryumdf.sbe.v1.6.cxlqty", ftypes.INT64)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.dated_date = ProtoField.new("Dated Date", "b3.equities.binaryumdf.sbe.v1.6.dateddate", ftypes.INT32)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.day = ProtoField.new("Day", "b3.equities.binaryumdf.sbe.v1.6.day", ftypes.UINT8)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_instr_attribs_group = ProtoField.new("Deprecated Instr Attribs Group", "b3.equities.binaryumdf.sbe.v1.6.deprecatedinstrattribsgroup", ftypes.STRING)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_instr_attribs_groups = ProtoField.new("Deprecated Instr Attribs Groups", "b3.equities.binaryumdf.sbe.v1.6.deprecatedinstrattribsgroups", ftypes.STRING)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_legs_group = ProtoField.new("Deprecated Legs Group", "b3.equities.binaryumdf.sbe.v1.6.deprecatedlegsgroup", ftypes.STRING)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_legs_groups = ProtoField.new("Deprecated Legs Groups", "b3.equities.binaryumdf.sbe.v1.6.deprecatedlegsgroups", ftypes.STRING)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_underlyings_group = ProtoField.new("Deprecated Underlyings Group", "b3.equities.binaryumdf.sbe.v1.6.deprecatedunderlyingsgroup", ftypes.STRING)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_underlyings_groups = ProtoField.new("Deprecated Underlyings Groups", "b3.equities.binaryumdf.sbe.v1.6.deprecatedunderlyingsgroups", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.encoding_type = ProtoField.new("Encoding Type", "b3.equities.binaryumdf.sbe.v1.6.encodingtype", ftypes.UINT16)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.end_date = ProtoField.new("End Date", "b3.equities.binaryumdf.sbe.v1.6.enddate", ftypes.INT32)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.end_of_event = ProtoField.new("End Of Event", "b3.equities.binaryumdf.sbe.v1.6.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.entering_firm = ProtoField.new("Entering Firm", "b3.equities.binaryumdf.sbe.v1.6.enteringfirm", ftypes.UINT32)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.exercise_style = ProtoField.new("Exercise Style", "b3.equities.binaryumdf.sbe.v1.6.exercisestyle", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.fill_qty = ProtoField.new("Fill Qty", "b3.equities.binaryumdf.sbe.v1.6.fillqty", ftypes.INT64)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.framing_header = ProtoField.new("Framing Header", "b3.equities.binaryumdf.sbe.v1.6.framingheader", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.governance_indicator = ProtoField.new("Governance Indicator", "b3.equities.binaryumdf.sbe.v1.6.governanceindicator", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "b3.equities.binaryumdf.sbe.v1.6.groupsizeencoding", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.headline = ProtoField.new("Headline", "b3.equities.binaryumdf.sbe.v1.6.headline", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.headline_data = ProtoField.new("Headline Data", "b3.equities.binaryumdf.sbe.v1.6.headlinedata", ftypes.BYTES)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.headline_data = ProtoField.new("Headline Data", "b3.equities.binaryumdf.sbe.v1.6.headlinedata", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.headline_length = ProtoField.new("Headline Length", "b3.equities.binaryumdf.sbe.v1.6.headlinelength", ftypes.UINT16)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.high_limit_price = ProtoField.new("High Limit Price", "b3.equities.binaryumdf.sbe.v1.6.highlimitprice", ftypes.DOUBLE)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.imbalance_condition = ProtoField.new("Imbalance Condition", "b3.equities.binaryumdf.sbe.v1.6.imbalancecondition", ftypes.STRING)
@@ -107,15 +114,7 @@ omi_b3_equities_binaryumdf_sbe_v1_6.fields.net_chg_prev_day = ProtoField.new("Ne
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.news_id = ProtoField.new("News Id", "b3.equities.binaryumdf.sbe.v1.6.newsid", ftypes.UINT64)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.news_source = ProtoField.new("News Source", "b3.equities.binaryumdf.sbe.v1.6.newssource", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.next_seq_no = ProtoField.new("Next Seq No", "b3.equities.binaryumdf.sbe.v1.6.nextseqno", ftypes.UINT32)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_instr_attribs_group = ProtoField.new("No Instr Attribs Group", "b3.equities.binaryumdf.sbe.v1.6.noinstrattribsgroup", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_instr_attribs_groups = ProtoField.new("No Instr Attribs Groups", "b3.equities.binaryumdf.sbe.v1.6.noinstrattribsgroups", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_legs_group = ProtoField.new("No Legs Group", "b3.equities.binaryumdf.sbe.v1.6.nolegsgroup", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_legs_groups = ProtoField.new("No Legs Groups", "b3.equities.binaryumdf.sbe.v1.6.nolegsgroups", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_m_d_entries_group = ProtoField.new("No M D Entries Group", "b3.equities.binaryumdf.sbe.v1.6.nomdentriesgroup", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_m_d_entries_groups = ProtoField.new("No M D Entries Groups", "b3.equities.binaryumdf.sbe.v1.6.nomdentriesgroups", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_shares_issued = ProtoField.new("No Shares Issued", "b3.equities.binaryumdf.sbe.v1.6.nosharesissued", ftypes.UINT64)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_underlyings_group = ProtoField.new("No Underlyings Group", "b3.equities.binaryumdf.sbe.v1.6.nounderlyingsgroup", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_underlyings_groups = ProtoField.new("No Underlyings Groups", "b3.equities.binaryumdf.sbe.v1.6.nounderlyingsgroups", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.num_in_group = ProtoField.new("Num In Group", "b3.equities.binaryumdf.sbe.v1.6.numingroup", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.number_of_trades = ProtoField.new("Number Of Trades", "b3.equities.binaryumdf.sbe.v1.6.numberoftrades", ftypes.UINT32)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.offset_1_padding_3 = ProtoField.new("Offset 1 Padding 3", "b3.equities.binaryumdf.sbe.v1.6.offset1padding3", ftypes.BYTES)
@@ -157,7 +156,7 @@ omi_b3_equities_binaryumdf_sbe_v1_6.fields.rpt_seq = ProtoField.new("Rpt Seq", "
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.schema_id = ProtoField.new("Schema Id", "b3.equities.binaryumdf.sbe.v1.6.schemaid", ftypes.UINT16)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "b3.equities.binaryumdf.sbe.v1.6.secondaryorderid", ftypes.UINT64)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_desc = ProtoField.new("Security Desc", "b3.equities.binaryumdf.sbe.v1.6.securitydesc", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_desc_data = ProtoField.new("Security Desc Data", "b3.equities.binaryumdf.sbe.v1.6.securitydescdata", ftypes.BYTES)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_desc_data = ProtoField.new("Security Desc Data", "b3.equities.binaryumdf.sbe.v1.6.securitydescdata", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_desc_length = ProtoField.new("Security Desc Length", "b3.equities.binaryumdf.sbe.v1.6.securitydesclength", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_exchange = ProtoField.new("Security Exchange", "b3.equities.binaryumdf.sbe.v1.6.securityexchange", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_group = ProtoField.new("Security Group", "b3.equities.binaryumdf.sbe.v1.6.securitygroup", ftypes.STRING)
@@ -179,13 +178,15 @@ omi_b3_equities_binaryumdf_sbe_v1_6.fields.sequence_version = ProtoField.new("Se
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.settl_currency = ProtoField.new("Settl Currency", "b3.equities.binaryumdf.sbe.v1.6.settlcurrency", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.settl_date = ProtoField.new("Settl Date", "b3.equities.binaryumdf.sbe.v1.6.settldate", ftypes.INT32)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.settl_type = ProtoField.new("Settl Type", "b3.equities.binaryumdf.sbe.v1.6.settltype", ftypes.UINT16)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group", "b3.equities.binaryumdf.sbe.v1.6.snapshotfullrefreshordersmbo71messagenomdentriesgroup", ftypes.STRING)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups", "b3.equities.binaryumdf.sbe.v1.6.snapshotfullrefreshordersmbo71messagenomdentriesgroups", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.start_date = ProtoField.new("Start Date", "b3.equities.binaryumdf.sbe.v1.6.startdate", ftypes.INT32)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.strike_currency = ProtoField.new("Strike Currency", "b3.equities.binaryumdf.sbe.v1.6.strikecurrency", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.strike_price = ProtoField.new("Strike Price", "b3.equities.binaryumdf.sbe.v1.6.strikeprice", ftypes.DOUBLE)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.symbol = ProtoField.new("Symbol", "b3.equities.binaryumdf.sbe.v1.6.symbol", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.template_id = ProtoField.new("Template Id", "b3.equities.binaryumdf.sbe.v1.6.templateid", ftypes.UINT16)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.text = ProtoField.new("Text", "b3.equities.binaryumdf.sbe.v1.6.text", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.text_data = ProtoField.new("Text Data", "b3.equities.binaryumdf.sbe.v1.6.textdata", ftypes.BYTES)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.text_data = ProtoField.new("Text Data", "b3.equities.binaryumdf.sbe.v1.6.textdata", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.text_length = ProtoField.new("Text Length", "b3.equities.binaryumdf.sbe.v1.6.textlength", ftypes.UINT16)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.tick_size_denominator = ProtoField.new("Tick Size Denominator", "b3.equities.binaryumdf.sbe.v1.6.ticksizedenominator", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.tot_no_related_sym = ProtoField.new("Tot No Related Sym", "b3.equities.binaryumdf.sbe.v1.6.totnorelatedsym", ftypes.UINT32)
@@ -210,7 +211,7 @@ omi_b3_equities_binaryumdf_sbe_v1_6.fields.underlying_security_id = ProtoField.n
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "b3.equities.binaryumdf.sbe.v1.6.underlyingsymbol", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.unused = ProtoField.new("Unused", "b3.equities.binaryumdf.sbe.v1.6.unused", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.url_link = ProtoField.new("Url Link", "b3.equities.binaryumdf.sbe.v1.6.urllink", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.url_link_data = ProtoField.new("Url Link Data", "b3.equities.binaryumdf.sbe.v1.6.urllinkdata", ftypes.BYTES)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.url_link_data = ProtoField.new("Url Link Data", "b3.equities.binaryumdf.sbe.v1.6.urllinkdata", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.url_link_length = ProtoField.new("Url Link Length", "b3.equities.binaryumdf.sbe.v1.6.urllinklength", ftypes.UINT16)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.version = ProtoField.new("Version", "b3.equities.binaryumdf.sbe.v1.6.version", ftypes.UINT16)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.vwap_px = ProtoField.new("Vwap Px", "b3.equities.binaryumdf.sbe.v1.6.vwappx", ftypes.DOUBLE)
@@ -222,7 +223,8 @@ omi_b3_equities_binaryumdf_sbe_v1_6.fields.auction_imbalance_19_message = ProtoF
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.channel_reset_11_message = ProtoField.new("Channel Reset 11 Message", "b3.equities.binaryumdf.sbe.v1.6.channelreset11message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.closing_price_17_message = ProtoField.new("Closing Price 17 Message", "b3.equities.binaryumdf.sbe.v1.6.closingprice17message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.delete_order_mb_o_51_message = ProtoField.new("Delete Order Mb O 51 Message", "b3.equities.binaryumdf.sbe.v1.6.deleteordermbo51message", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.empty_book_9_message = ProtoField.new("Empty Book 9 Message", "b3.equities.binaryumdf.sbe.v1.6.emptybook9message", ftypes.STRING)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_security_definition_message = ProtoField.new("Deprecated Security Definition Message", "b3.equities.binaryumdf.sbe.v1.6.deprecatedsecuritydefinitionmessage", ftypes.STRING)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.empty_book_message = ProtoField.new("Empty Book Message", "b3.equities.binaryumdf.sbe.v1.6.emptybookmessage", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.execution_statistics_56_message = ProtoField.new("Execution Statistics 56 Message", "b3.equities.binaryumdf.sbe.v1.6.executionstatistics56message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.execution_summary_55_message = ProtoField.new("Execution Summary 55 Message", "b3.equities.binaryumdf.sbe.v1.6.executionsummary55message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.forward_trade_54_message = ProtoField.new("Forward Trade 54 Message", "b3.equities.binaryumdf.sbe.v1.6.forwardtrade54message", ftypes.STRING)
@@ -235,10 +237,9 @@ omi_b3_equities_binaryumdf_sbe_v1_6.fields.opening_price_15_message = ProtoField
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.order_mb_o_50_message = ProtoField.new("Order Mb O 50 Message", "b3.equities.binaryumdf.sbe.v1.6.ordermbo50message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.price_band_20_message = ProtoField.new("Price Band 20 Message", "b3.equities.binaryumdf.sbe.v1.6.priceband20message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.quantity_band_21_message = ProtoField.new("Quantity Band 21 Message", "b3.equities.binaryumdf.sbe.v1.6.quantityband21message", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_definition_4_message = ProtoField.new("Security Definition 4 Message", "b3.equities.binaryumdf.sbe.v1.6.securitydefinition4message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_group_phase_10_message = ProtoField.new("Security Group Phase 10 Message", "b3.equities.binaryumdf.sbe.v1.6.securitygroupphase10message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_status_3_message = ProtoField.new("Security Status 3 Message", "b3.equities.binaryumdf.sbe.v1.6.securitystatus3message", ftypes.STRING)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.sequence_2_message = ProtoField.new("Sequence 2 Message", "b3.equities.binaryumdf.sbe.v1.6.sequence2message", ftypes.STRING)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.sequence_message = ProtoField.new("Sequence Message", "b3.equities.binaryumdf.sbe.v1.6.sequencemessage", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_header_30_message = ProtoField.new("Snapshot Full Refresh Header 30 Message", "b3.equities.binaryumdf.sbe.v1.6.snapshotfullrefreshheader30message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_o_71_message = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message", "b3.equities.binaryumdf.sbe.v1.6.snapshotfullrefreshordersmbo71message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.theoretical_opening_price_16_message = ProtoField.new("Theoretical Opening Price 16 Message", "b3.equities.binaryumdf.sbe.v1.6.theoreticalopeningprice16message", ftypes.STRING)
@@ -246,10 +247,10 @@ omi_b3_equities_binaryumdf_sbe_v1_6.fields.trade_53_message = ProtoField.new("Tr
 omi_b3_equities_binaryumdf_sbe_v1_6.fields.trade_bust_57_message = ProtoField.new("Trade Bust 57 Message", "b3.equities.binaryumdf.sbe.v1.6.tradebust57message", ftypes.STRING)
 
 -- B3 Equities BinaryUmdf Sbe 1.6 generated fields
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_instr_attribs_group_index = ProtoField.new("No Instr Attribs Group Index", "b3.equities.binaryumdf.sbe.v1.6.noinstrattribsgroupindex", ftypes.UINT16)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_legs_group_index = ProtoField.new("No Legs Group Index", "b3.equities.binaryumdf.sbe.v1.6.nolegsgroupindex", ftypes.UINT16)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_m_d_entries_group_index = ProtoField.new("No M D Entries Group Index", "b3.equities.binaryumdf.sbe.v1.6.nomdentriesgroupindex", ftypes.UINT16)
-omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_underlyings_group_index = ProtoField.new("No Underlyings Group Index", "b3.equities.binaryumdf.sbe.v1.6.nounderlyingsgroupindex", ftypes.UINT16)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_instr_attribs_group_index = ProtoField.new("Deprecated Instr Attribs Group Index", "b3.equities.binaryumdf.sbe.v1.6.deprecatedinstrattribsgroupindex", ftypes.UINT16)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_legs_group_index = ProtoField.new("Deprecated Legs Group Index", "b3.equities.binaryumdf.sbe.v1.6.deprecatedlegsgroupindex", ftypes.UINT16)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_underlyings_group_index = ProtoField.new("Deprecated Underlyings Group Index", "b3.equities.binaryumdf.sbe.v1.6.deprecatedunderlyingsgroupindex", ftypes.UINT16)
+omi_b3_equities_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group Index", "b3.equities.binaryumdf.sbe.v1.6.snapshotfullrefreshordersmbo71messagenomdentriesgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -263,10 +264,18 @@ show.channel_reset_11_message = true
 show.closing_price_17_message = true
 show.contract_settl_month = true
 show.delete_order_mb_o_51_message = true
-show.empty_book_9_message = true
+show.deprecated_instr_attribs_group = true
+show.deprecated_instr_attribs_groups = true
+show.deprecated_legs_group = true
+show.deprecated_legs_groups = true
+show.deprecated_security_definition_message = true
+show.deprecated_underlyings_group = true
+show.deprecated_underlyings_groups = true
+show.empty_book_message = true
 show.execution_statistics_56_message = true
 show.execution_summary_55_message = true
 show.forward_trade_54_message = true
+show.framing_header = true
 show.group_size_encoding = true
 show.headline = true
 show.high_price_24_message = true
@@ -279,27 +288,20 @@ show.maturity_month_year = true
 show.message = true
 show.message_header = true
 show.news_5_message = true
-show.no_instr_attribs_group = true
-show.no_instr_attribs_groups = true
-show.no_legs_group = true
-show.no_legs_groups = true
-show.no_m_d_entries_group = true
-show.no_m_d_entries_groups = true
-show.no_underlyings_group = true
-show.no_underlyings_groups = true
 show.opening_price_15_message = true
 show.order_mb_o_50_message = true
 show.packet = true
 show.packet_header = true
 show.price_band_20_message = true
 show.quantity_band_21_message = true
-show.security_definition_4_message = true
 show.security_desc = true
 show.security_group_phase_10_message = true
 show.security_status_3_message = true
-show.sequence_2_message = true
+show.sequence_message = true
 show.snapshot_full_refresh_header_30_message = true
 show.snapshot_full_refresh_orders_mb_o_71_message = true
+show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = true
+show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = true
 show.text = true
 show.theoretical_opening_price_16_message = true
 show.trade_53_message = true
@@ -314,10 +316,18 @@ omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_channel_reset_11_message = Pref.b
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_closing_price_17_message = Pref.bool("Show Closing Price 17 Message", show.closing_price_17_message, "Parse and add Closing Price 17 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_contract_settl_month = Pref.bool("Show Contract Settl Month", show.contract_settl_month, "Parse and add Contract Settl Month to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_delete_order_mb_o_51_message = Pref.bool("Show Delete Order Mb O 51 Message", show.delete_order_mb_o_51_message, "Parse and add Delete Order Mb O 51 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_empty_book_9_message = Pref.bool("Show Empty Book 9 Message", show.empty_book_9_message, "Parse and add Empty Book 9 Message to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_group = Pref.bool("Show Deprecated Instr Attribs Group", show.deprecated_instr_attribs_group, "Parse and add Deprecated Instr Attribs Group to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_groups = Pref.bool("Show Deprecated Instr Attribs Groups", show.deprecated_instr_attribs_groups, "Parse and add Deprecated Instr Attribs Groups to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_group = Pref.bool("Show Deprecated Legs Group", show.deprecated_legs_group, "Parse and add Deprecated Legs Group to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_groups = Pref.bool("Show Deprecated Legs Groups", show.deprecated_legs_groups, "Parse and add Deprecated Legs Groups to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_security_definition_message = Pref.bool("Show Deprecated Security Definition Message", show.deprecated_security_definition_message, "Parse and add Deprecated Security Definition Message to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_group = Pref.bool("Show Deprecated Underlyings Group", show.deprecated_underlyings_group, "Parse and add Deprecated Underlyings Group to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_groups = Pref.bool("Show Deprecated Underlyings Groups", show.deprecated_underlyings_groups, "Parse and add Deprecated Underlyings Groups to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_empty_book_message = Pref.bool("Show Empty Book Message", show.empty_book_message, "Parse and add Empty Book Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_execution_statistics_56_message = Pref.bool("Show Execution Statistics 56 Message", show.execution_statistics_56_message, "Parse and add Execution Statistics 56 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_execution_summary_55_message = Pref.bool("Show Execution Summary 55 Message", show.execution_summary_55_message, "Parse and add Execution Summary 55 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_forward_trade_54_message = Pref.bool("Show Forward Trade 54 Message", show.forward_trade_54_message, "Parse and add Forward Trade 54 Message to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_framing_header = Pref.bool("Show Framing Header", show.framing_header, "Parse and add Framing Header to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_headline = Pref.bool("Show Headline", show.headline, "Parse and add Headline to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_high_price_24_message = Pref.bool("Show High Price 24 Message", show.high_price_24_message, "Parse and add High Price 24 Message to protocol tree")
@@ -330,27 +340,20 @@ omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_maturity_month_year = Pref.bool("
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_news_5_message = Pref.bool("Show News 5 Message", show.news_5_message, "Parse and add News 5 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_instr_attribs_group = Pref.bool("Show No Instr Attribs Group", show.no_instr_attribs_group, "Parse and add No Instr Attribs Group to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_instr_attribs_groups = Pref.bool("Show No Instr Attribs Groups", show.no_instr_attribs_groups, "Parse and add No Instr Attribs Groups to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_legs_group = Pref.bool("Show No Legs Group", show.no_legs_group, "Parse and add No Legs Group to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_legs_groups = Pref.bool("Show No Legs Groups", show.no_legs_groups, "Parse and add No Legs Groups to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_m_d_entries_group = Pref.bool("Show No M D Entries Group", show.no_m_d_entries_group, "Parse and add No M D Entries Group to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_m_d_entries_groups = Pref.bool("Show No M D Entries Groups", show.no_m_d_entries_groups, "Parse and add No M D Entries Groups to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_underlyings_group = Pref.bool("Show No Underlyings Group", show.no_underlyings_group, "Parse and add No Underlyings Group to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_underlyings_groups = Pref.bool("Show No Underlyings Groups", show.no_underlyings_groups, "Parse and add No Underlyings Groups to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_opening_price_15_message = Pref.bool("Show Opening Price 15 Message", show.opening_price_15_message, "Parse and add Opening Price 15 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_order_mb_o_50_message = Pref.bool("Show Order Mb O 50 Message", show.order_mb_o_50_message, "Parse and add Order Mb O 50 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_price_band_20_message = Pref.bool("Show Price Band 20 Message", show.price_band_20_message, "Parse and add Price Band 20 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_quantity_band_21_message = Pref.bool("Show Quantity Band 21 Message", show.quantity_band_21_message, "Parse and add Quantity Band 21 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_security_definition_4_message = Pref.bool("Show Security Definition 4 Message", show.security_definition_4_message, "Parse and add Security Definition 4 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_security_desc = Pref.bool("Show Security Desc", show.security_desc, "Parse and add Security Desc to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_security_group_phase_10_message = Pref.bool("Show Security Group Phase 10 Message", show.security_group_phase_10_message, "Parse and add Security Group Phase 10 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_security_status_3_message = Pref.bool("Show Security Status 3 Message", show.security_status_3_message, "Parse and add Security Status 3 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_sequence_2_message = Pref.bool("Show Sequence 2 Message", show.sequence_2_message, "Parse and add Sequence 2 Message to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_sequence_message = Pref.bool("Show Sequence Message", show.sequence_message, "Parse and add Sequence Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_header_30_message = Pref.bool("Show Snapshot Full Refresh Header 30 Message", show.snapshot_full_refresh_header_30_message, "Parse and add Snapshot Full Refresh Header 30 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message", show.snapshot_full_refresh_orders_mb_o_71_message, "Parse and add Snapshot Full Refresh Orders Mb O 71 Message to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group", show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group, "Parse and add Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups", show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups, "Parse and add Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_text = Pref.bool("Show Text", show.text, "Parse and add Text to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_theoretical_opening_price_16_message = Pref.bool("Show Theoretical Opening Price 16 Message", show.theoretical_opening_price_16_message, "Parse and add Theoretical Opening Price 16 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_trade_53_message = Pref.bool("Show Trade 53 Message", show.trade_53_message, "Parse and add Trade 53 Message to protocol tree")
@@ -384,8 +387,36 @@ function omi_b3_equities_binaryumdf_sbe_v1_6.prefs_changed()
     show.delete_order_mb_o_51_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_delete_order_mb_o_51_message
     changed = true
   end
-  if show.empty_book_9_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_empty_book_9_message then
-    show.empty_book_9_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_empty_book_9_message
+  if show.deprecated_instr_attribs_group ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_group then
+    show.deprecated_instr_attribs_group = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_group
+    changed = true
+  end
+  if show.deprecated_instr_attribs_groups ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_groups then
+    show.deprecated_instr_attribs_groups = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_groups
+    changed = true
+  end
+  if show.deprecated_legs_group ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_group then
+    show.deprecated_legs_group = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_group
+    changed = true
+  end
+  if show.deprecated_legs_groups ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_groups then
+    show.deprecated_legs_groups = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_groups
+    changed = true
+  end
+  if show.deprecated_security_definition_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_security_definition_message then
+    show.deprecated_security_definition_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_security_definition_message
+    changed = true
+  end
+  if show.deprecated_underlyings_group ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_group then
+    show.deprecated_underlyings_group = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_group
+    changed = true
+  end
+  if show.deprecated_underlyings_groups ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_groups then
+    show.deprecated_underlyings_groups = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_groups
+    changed = true
+  end
+  if show.empty_book_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_empty_book_message then
+    show.empty_book_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_empty_book_message
     changed = true
   end
   if show.execution_statistics_56_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_execution_statistics_56_message then
@@ -398,6 +429,10 @@ function omi_b3_equities_binaryumdf_sbe_v1_6.prefs_changed()
   end
   if show.forward_trade_54_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_forward_trade_54_message then
     show.forward_trade_54_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_forward_trade_54_message
+    changed = true
+  end
+  if show.framing_header ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_framing_header then
+    show.framing_header = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_framing_header
     changed = true
   end
   if show.group_size_encoding ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_group_size_encoding then
@@ -448,38 +483,6 @@ function omi_b3_equities_binaryumdf_sbe_v1_6.prefs_changed()
     show.news_5_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_news_5_message
     changed = true
   end
-  if show.no_instr_attribs_group ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_instr_attribs_group then
-    show.no_instr_attribs_group = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_instr_attribs_group
-    changed = true
-  end
-  if show.no_instr_attribs_groups ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_instr_attribs_groups then
-    show.no_instr_attribs_groups = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_instr_attribs_groups
-    changed = true
-  end
-  if show.no_legs_group ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_legs_group then
-    show.no_legs_group = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_legs_group
-    changed = true
-  end
-  if show.no_legs_groups ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_legs_groups then
-    show.no_legs_groups = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_legs_groups
-    changed = true
-  end
-  if show.no_m_d_entries_group ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_m_d_entries_group then
-    show.no_m_d_entries_group = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_m_d_entries_group
-    changed = true
-  end
-  if show.no_m_d_entries_groups ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_m_d_entries_groups then
-    show.no_m_d_entries_groups = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_m_d_entries_groups
-    changed = true
-  end
-  if show.no_underlyings_group ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_underlyings_group then
-    show.no_underlyings_group = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_underlyings_group
-    changed = true
-  end
-  if show.no_underlyings_groups ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_underlyings_groups then
-    show.no_underlyings_groups = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_no_underlyings_groups
-    changed = true
-  end
   if show.opening_price_15_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_opening_price_15_message then
     show.opening_price_15_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_opening_price_15_message
     changed = true
@@ -504,10 +507,6 @@ function omi_b3_equities_binaryumdf_sbe_v1_6.prefs_changed()
     show.quantity_band_21_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_quantity_band_21_message
     changed = true
   end
-  if show.security_definition_4_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_security_definition_4_message then
-    show.security_definition_4_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_security_definition_4_message
-    changed = true
-  end
   if show.security_desc ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_security_desc then
     show.security_desc = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_security_desc
     changed = true
@@ -520,8 +519,8 @@ function omi_b3_equities_binaryumdf_sbe_v1_6.prefs_changed()
     show.security_status_3_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_security_status_3_message
     changed = true
   end
-  if show.sequence_2_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_sequence_2_message then
-    show.sequence_2_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_sequence_2_message
+  if show.sequence_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_sequence_message then
+    show.sequence_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_sequence_message
     changed = true
   end
   if show.snapshot_full_refresh_header_30_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_header_30_message then
@@ -530,6 +529,14 @@ function omi_b3_equities_binaryumdf_sbe_v1_6.prefs_changed()
   end
   if show.snapshot_full_refresh_orders_mb_o_71_message ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message then
     show.snapshot_full_refresh_orders_mb_o_71_message = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message
+    changed = true
+  end
+  if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group then
+    show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group
+    changed = true
+  end
+  if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups then
+    show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups
     changed = true
   end
   if show.text ~= omi_b3_equities_binaryumdf_sbe_v1_6.prefs.show_text then
@@ -830,11 +837,11 @@ b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.dissect = fun
   return offset + length, value
 end
 
--- No M D Entries Group
-b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group = {}
+-- Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = {}
 
--- Size: No M D Entries Group
-b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group.size =
+-- Size: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.size =
   b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.size + 
   b3_equities_binaryumdf_sbe_v1_6.md_entry_size_quantity.size + 
   b3_equities_binaryumdf_sbe_v1_6.md_entry_position_no.size + 
@@ -843,18 +850,18 @@ b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group.size =
   b3_equities_binaryumdf_sbe_v1_6.secondary_order_id.size + 
   b3_equities_binaryumdf_sbe_v1_6.md_entry_type.size
 
--- Display: No M D Entries Group
-b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group.display = function(packet, parent, length)
+-- Display: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No M D Entries Group
-b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group.fields = function(buffer, offset, packet, parent, no_m_d_entries_group_index)
+-- Dissect Fields: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
   local index = offset
 
-  -- Implicit No M D Entries Group Index
-  if no_m_d_entries_group_index ~= nil then
-    local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_m_d_entries_group_index, no_m_d_entries_group_index)
+  -- Implicit Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group Index
+  if snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
     iteration:set_generated()
   end
 
@@ -882,21 +889,21 @@ b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group.fields = function(buffer, o
   return index
 end
 
--- Dissect: No M D Entries Group
-b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, no_m_d_entries_group_index)
-  if show.no_m_d_entries_group then
+-- Dissect: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
+  if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_m_d_entries_group, buffer(offset, 0))
-    local index = b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group.fields(buffer, offset, packet, parent, no_m_d_entries_group_index)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group.display(packet, parent, length)
+    local display = b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group.fields(buffer, offset, packet, parent, no_m_d_entries_group_index)
+    return b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
   end
 end
 
@@ -990,29 +997,29 @@ b3_equities_binaryumdf_sbe_v1_6.group_size_encoding.dissect = function(buffer, o
   end
 end
 
--- No M D Entries Groups
-b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups = {}
+-- Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
+b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = {}
 
--- Calculate size of: No M D Entries Groups
-b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
+b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_6.group_size_encoding.size
 
   -- Calculate field size from count
-  local no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_m_d_entries_group_count * 41
+  local snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_count * 41
 
   return index
 end
 
--- Display: No M D Entries Groups
-b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups.display = function(packet, parent, length)
+-- Display: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
+b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No M D Entries Groups
-b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
+b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -1021,25 +1028,25 @@ b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups.fields = function(buffer, 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: No M D Entries Group
-  for no_m_d_entries_group_index = 1, num_in_group do
-    index, no_m_d_entries_group = b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_group.dissect(buffer, index, packet, parent, no_m_d_entries_group_index)
+  -- Repeating: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+  for snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = 1, num_in_group do
+    index, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.dissect(buffer, index, packet, parent, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
   end
 
   return index
 end
 
--- Dissect: No M D Entries Groups
-b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
+b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.no_m_d_entries_groups then
-    local length = b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups.size(buffer, offset)
+  if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups then
+    local length = b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_m_d_entries_groups, range, display)
+    local display = b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups, range, display)
   end
 
-  return b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  return b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Security Id
@@ -1074,7 +1081,7 @@ b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message.siz
 
   index = index + b3_equities_binaryumdf_sbe_v1_6.security_id.size
 
-  index = index + b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups.size(buffer, offset + index)
+  index = index + b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.size(buffer, offset + index)
 
   return index
 end
@@ -1091,8 +1098,8 @@ b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message.fie
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
-  -- No M D Entries Groups: Struct of 2 fields
-  index, no_m_d_entries_groups = b3_equities_binaryumdf_sbe_v1_6.no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups: Struct of 2 fields
+  index, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4180,23 +4187,23 @@ b3_equities_binaryumdf_sbe_v1_6.channel_reset_11_message.dissect = function(buff
   end
 end
 
--- Empty Book 9 Message
-b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message = {}
+-- Empty Book Message
+b3_equities_binaryumdf_sbe_v1_6.empty_book_message = {}
 
--- Size: Empty Book 9 Message
-b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message.size =
+-- Size: Empty Book Message
+b3_equities_binaryumdf_sbe_v1_6.empty_book_message.size =
   b3_equities_binaryumdf_sbe_v1_6.security_id.size + 
   b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.size + 
   b3_equities_binaryumdf_sbe_v1_6.offset_9_padding_3.size + 
   b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.size
 
--- Display: Empty Book 9 Message
-b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message.display = function(packet, parent, length)
+-- Display: Empty Book Message
+b3_equities_binaryumdf_sbe_v1_6.empty_book_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Empty Book 9 Message
-b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Empty Book Message
+b3_equities_binaryumdf_sbe_v1_6.empty_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
@@ -4214,21 +4221,21 @@ b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message.fields = function(buffer, o
   return index
 end
 
--- Dissect: Empty Book 9 Message
-b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message.dissect = function(buffer, offset, packet, parent)
-  if show.empty_book_9_message then
+-- Dissect: Empty Book Message
+b3_equities_binaryumdf_sbe_v1_6.empty_book_message.dissect = function(buffer, offset, packet, parent)
+  if show.empty_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.empty_book_9_message, buffer(offset, 0))
-    local index = b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.empty_book_message, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v1_6.empty_book_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message.display(packet, parent, length)
+    local display = b3_equities_binaryumdf_sbe_v1_6.empty_book_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message.fields(buffer, offset, packet, parent)
+    return b3_equities_binaryumdf_sbe_v1_6.empty_book_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4243,7 +4250,7 @@ end
 -- Dissect runtime sized field: Url Link Data
 b3_equities_binaryumdf_sbe_v1_6.url_link_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint()
   local display = b3_equities_binaryumdf_sbe_v1_6.url_link_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.url_link_data, range, value, display)
@@ -4345,7 +4352,7 @@ end
 -- Dissect runtime sized field: Text Data
 b3_equities_binaryumdf_sbe_v1_6.text_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint()
   local display = b3_equities_binaryumdf_sbe_v1_6.text_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.text_data, range, value, display)
@@ -4447,7 +4454,7 @@ end
 -- Dissect runtime sized field: Headline Data
 b3_equities_binaryumdf_sbe_v1_6.headline_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint()
   local display = b3_equities_binaryumdf_sbe_v1_6.headline_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.headline_data, range, value, display)
@@ -4898,7 +4905,7 @@ end
 -- Dissect runtime sized field: Security Desc Data
 b3_equities_binaryumdf_sbe_v1_6.security_desc_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = b3_equities_binaryumdf_sbe_v1_6.security_desc_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_desc_data, range, value, display)
@@ -5069,26 +5076,26 @@ b3_equities_binaryumdf_sbe_v1_6.instr_attrib_type.dissect = function(buffer, off
   return offset + length, value
 end
 
--- No Instr Attribs Group
-b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_group = {}
+-- Deprecated Instr Attribs Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group = {}
 
--- Size: No Instr Attribs Group
-b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_group.size =
+-- Size: Deprecated Instr Attribs Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.size =
   b3_equities_binaryumdf_sbe_v1_6.instr_attrib_type.size + 
   b3_equities_binaryumdf_sbe_v1_6.instr_attrib_value.size
 
--- Display: No Instr Attribs Group
-b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_group.display = function(packet, parent, length)
+-- Display: Deprecated Instr Attribs Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Instr Attribs Group
-b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_group.fields = function(buffer, offset, packet, parent, no_instr_attribs_group_index)
+-- Dissect Fields: Deprecated Instr Attribs Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.fields = function(buffer, offset, packet, parent, deprecated_instr_attribs_group_index)
   local index = offset
 
-  -- Implicit No Instr Attribs Group Index
-  if no_instr_attribs_group_index ~= nil then
-    local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_instr_attribs_group_index, no_instr_attribs_group_index)
+  -- Implicit Deprecated Instr Attribs Group Index
+  if deprecated_instr_attribs_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_instr_attribs_group_index, deprecated_instr_attribs_group_index)
     iteration:set_generated()
   end
 
@@ -5101,47 +5108,47 @@ b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_group.fields = function(buffer,
   return index
 end
 
--- Dissect: No Instr Attribs Group
-b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_group.dissect = function(buffer, offset, packet, parent, no_instr_attribs_group_index)
-  if show.no_instr_attribs_group then
+-- Dissect: Deprecated Instr Attribs Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.dissect = function(buffer, offset, packet, parent, deprecated_instr_attribs_group_index)
+  if show.deprecated_instr_attribs_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_instr_attribs_group, buffer(offset, 0))
-    local index = b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_group.fields(buffer, offset, packet, parent, no_instr_attribs_group_index)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_instr_attribs_group, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.fields(buffer, offset, packet, parent, deprecated_instr_attribs_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_group.display(packet, parent, length)
+    local display = b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_group.fields(buffer, offset, packet, parent, no_instr_attribs_group_index)
+    return b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.fields(buffer, offset, packet, parent, deprecated_instr_attribs_group_index)
   end
 end
 
--- No Instr Attribs Groups
-b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups = {}
+-- Deprecated Instr Attribs Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups = {}
 
--- Calculate size of: No Instr Attribs Groups
-b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups.size = function(buffer, offset)
+-- Calculate size of: Deprecated Instr Attribs Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_6.group_size_encoding.size
 
   -- Calculate field size from count
-  local no_instr_attribs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_instr_attribs_group_count * 2
+  local deprecated_instr_attribs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + deprecated_instr_attribs_group_count * 2
 
   return index
 end
 
--- Display: No Instr Attribs Groups
-b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups.display = function(packet, parent, length)
+-- Display: Deprecated Instr Attribs Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Instr Attribs Groups
-b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Deprecated Instr Attribs Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -5150,25 +5157,25 @@ b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups.fields = function(buffer
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: No Instr Attribs Group
-  for no_instr_attribs_group_index = 1, num_in_group do
-    index, no_instr_attribs_group = b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_group.dissect(buffer, index, packet, parent, no_instr_attribs_group_index)
+  -- Repeating: Deprecated Instr Attribs Group
+  for deprecated_instr_attribs_group_index = 1, num_in_group do
+    index, deprecated_instr_attribs_group = b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.dissect(buffer, index, packet, parent, deprecated_instr_attribs_group_index)
   end
 
   return index
 end
 
--- Dissect: No Instr Attribs Groups
-b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Deprecated Instr Attribs Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.no_instr_attribs_groups then
-    local length = b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups.size(buffer, offset)
+  if show.deprecated_instr_attribs_groups then
+    local length = b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_instr_attribs_groups, range, display)
+    local display = b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_instr_attribs_groups, range, display)
   end
 
-  return b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups.fields(buffer, offset, packet, parent)
+  return b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Leg Symbol
@@ -5367,29 +5374,29 @@ b3_equities_binaryumdf_sbe_v1_6.leg_security_id.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- No Legs Group
-b3_equities_binaryumdf_sbe_v1_6.no_legs_group = {}
+-- Deprecated Legs Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_group = {}
 
--- Size: No Legs Group
-b3_equities_binaryumdf_sbe_v1_6.no_legs_group.size =
+-- Size: Deprecated Legs Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_group.size =
   b3_equities_binaryumdf_sbe_v1_6.leg_security_id.size + 
   b3_equities_binaryumdf_sbe_v1_6.leg_ratio_qty.size + 
   b3_equities_binaryumdf_sbe_v1_6.leg_security_type.size + 
   b3_equities_binaryumdf_sbe_v1_6.leg_side.size + 
   b3_equities_binaryumdf_sbe_v1_6.leg_symbol.size
 
--- Display: No Legs Group
-b3_equities_binaryumdf_sbe_v1_6.no_legs_group.display = function(packet, parent, length)
+-- Display: Deprecated Legs Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Legs Group
-b3_equities_binaryumdf_sbe_v1_6.no_legs_group.fields = function(buffer, offset, packet, parent, no_legs_group_index)
+-- Dissect Fields: Deprecated Legs Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_group.fields = function(buffer, offset, packet, parent, deprecated_legs_group_index)
   local index = offset
 
-  -- Implicit No Legs Group Index
-  if no_legs_group_index ~= nil then
-    local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_legs_group_index, no_legs_group_index)
+  -- Implicit Deprecated Legs Group Index
+  if deprecated_legs_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_legs_group_index, deprecated_legs_group_index)
     iteration:set_generated()
   end
 
@@ -5411,47 +5418,47 @@ b3_equities_binaryumdf_sbe_v1_6.no_legs_group.fields = function(buffer, offset, 
   return index
 end
 
--- Dissect: No Legs Group
-b3_equities_binaryumdf_sbe_v1_6.no_legs_group.dissect = function(buffer, offset, packet, parent, no_legs_group_index)
-  if show.no_legs_group then
+-- Dissect: Deprecated Legs Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_group.dissect = function(buffer, offset, packet, parent, deprecated_legs_group_index)
+  if show.deprecated_legs_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_legs_group, buffer(offset, 0))
-    local index = b3_equities_binaryumdf_sbe_v1_6.no_legs_group.fields(buffer, offset, packet, parent, no_legs_group_index)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_legs_group, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_group.fields(buffer, offset, packet, parent, deprecated_legs_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.no_legs_group.display(packet, parent, length)
+    local display = b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryumdf_sbe_v1_6.no_legs_group.fields(buffer, offset, packet, parent, no_legs_group_index)
+    return b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_group.fields(buffer, offset, packet, parent, deprecated_legs_group_index)
   end
 end
 
--- No Legs Groups
-b3_equities_binaryumdf_sbe_v1_6.no_legs_groups = {}
+-- Deprecated Legs Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_groups = {}
 
--- Calculate size of: No Legs Groups
-b3_equities_binaryumdf_sbe_v1_6.no_legs_groups.size = function(buffer, offset)
+-- Calculate size of: Deprecated Legs Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_6.group_size_encoding.size
 
   -- Calculate field size from count
-  local no_legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_legs_group_count * 38
+  local deprecated_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + deprecated_legs_group_count * 38
 
   return index
 end
 
--- Display: No Legs Groups
-b3_equities_binaryumdf_sbe_v1_6.no_legs_groups.display = function(packet, parent, length)
+-- Display: Deprecated Legs Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Legs Groups
-b3_equities_binaryumdf_sbe_v1_6.no_legs_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Deprecated Legs Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -5460,25 +5467,25 @@ b3_equities_binaryumdf_sbe_v1_6.no_legs_groups.fields = function(buffer, offset,
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: No Legs Group
-  for no_legs_group_index = 1, num_in_group do
-    index, no_legs_group = b3_equities_binaryumdf_sbe_v1_6.no_legs_group.dissect(buffer, index, packet, parent, no_legs_group_index)
+  -- Repeating: Deprecated Legs Group
+  for deprecated_legs_group_index = 1, num_in_group do
+    index, deprecated_legs_group = b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_group.dissect(buffer, index, packet, parent, deprecated_legs_group_index)
   end
 
   return index
 end
 
--- Dissect: No Legs Groups
-b3_equities_binaryumdf_sbe_v1_6.no_legs_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Deprecated Legs Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.no_legs_groups then
-    local length = b3_equities_binaryumdf_sbe_v1_6.no_legs_groups.size(buffer, offset)
+  if show.deprecated_legs_groups then
+    local length = b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.no_legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_legs_groups, range, display)
+    local display = b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_legs_groups, range, display)
   end
 
-  return b3_equities_binaryumdf_sbe_v1_6.no_legs_groups.fields(buffer, offset, packet, parent)
+  return b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Underlying Symbol
@@ -5621,28 +5628,28 @@ b3_equities_binaryumdf_sbe_v1_6.underlying_security_id.dissect = function(buffer
   return offset + length, value
 end
 
--- No Underlyings Group
-b3_equities_binaryumdf_sbe_v1_6.no_underlyings_group = {}
+-- Deprecated Underlyings Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_group = {}
 
--- Size: No Underlyings Group
-b3_equities_binaryumdf_sbe_v1_6.no_underlyings_group.size =
+-- Size: Deprecated Underlyings Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_group.size =
   b3_equities_binaryumdf_sbe_v1_6.underlying_security_id.size + 
   b3_equities_binaryumdf_sbe_v1_6.index_pct.size + 
   b3_equities_binaryumdf_sbe_v1_6.index_theoretical_qty.size + 
   b3_equities_binaryumdf_sbe_v1_6.underlying_symbol.size
 
--- Display: No Underlyings Group
-b3_equities_binaryumdf_sbe_v1_6.no_underlyings_group.display = function(packet, parent, length)
+-- Display: Deprecated Underlyings Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Underlyings Group
-b3_equities_binaryumdf_sbe_v1_6.no_underlyings_group.fields = function(buffer, offset, packet, parent, no_underlyings_group_index)
+-- Dissect Fields: Deprecated Underlyings Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_group.fields = function(buffer, offset, packet, parent, deprecated_underlyings_group_index)
   local index = offset
 
-  -- Implicit No Underlyings Group Index
-  if no_underlyings_group_index ~= nil then
-    local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_underlyings_group_index, no_underlyings_group_index)
+  -- Implicit Deprecated Underlyings Group Index
+  if deprecated_underlyings_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_underlyings_group_index, deprecated_underlyings_group_index)
     iteration:set_generated()
   end
 
@@ -5661,47 +5668,47 @@ b3_equities_binaryumdf_sbe_v1_6.no_underlyings_group.fields = function(buffer, o
   return index
 end
 
--- Dissect: No Underlyings Group
-b3_equities_binaryumdf_sbe_v1_6.no_underlyings_group.dissect = function(buffer, offset, packet, parent, no_underlyings_group_index)
-  if show.no_underlyings_group then
+-- Dissect: Deprecated Underlyings Group
+b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_group.dissect = function(buffer, offset, packet, parent, deprecated_underlyings_group_index)
+  if show.deprecated_underlyings_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_underlyings_group, buffer(offset, 0))
-    local index = b3_equities_binaryumdf_sbe_v1_6.no_underlyings_group.fields(buffer, offset, packet, parent, no_underlyings_group_index)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_underlyings_group, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_group.fields(buffer, offset, packet, parent, deprecated_underlyings_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.no_underlyings_group.display(packet, parent, length)
+    local display = b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryumdf_sbe_v1_6.no_underlyings_group.fields(buffer, offset, packet, parent, no_underlyings_group_index)
+    return b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_group.fields(buffer, offset, packet, parent, deprecated_underlyings_group_index)
   end
 end
 
--- No Underlyings Groups
-b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups = {}
+-- Deprecated Underlyings Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_groups = {}
 
--- Calculate size of: No Underlyings Groups
-b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups.size = function(buffer, offset)
+-- Calculate size of: Deprecated Underlyings Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_6.group_size_encoding.size
 
   -- Calculate field size from count
-  local no_underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_underlyings_group_count * 44
+  local deprecated_underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + deprecated_underlyings_group_count * 44
 
   return index
 end
 
--- Display: No Underlyings Groups
-b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups.display = function(packet, parent, length)
+-- Display: Deprecated Underlyings Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: No Underlyings Groups
-b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Deprecated Underlyings Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -5710,25 +5717,25 @@ b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups.fields = function(buffer, 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: No Underlyings Group
-  for no_underlyings_group_index = 1, num_in_group do
-    index, no_underlyings_group = b3_equities_binaryumdf_sbe_v1_6.no_underlyings_group.dissect(buffer, index, packet, parent, no_underlyings_group_index)
+  -- Repeating: Deprecated Underlyings Group
+  for deprecated_underlyings_group_index = 1, num_in_group do
+    index, deprecated_underlyings_group = b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_group.dissect(buffer, index, packet, parent, deprecated_underlyings_group_index)
   end
 
   return index
 end
 
--- Dissect: No Underlyings Groups
-b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Deprecated Underlyings Groups
+b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.no_underlyings_groups then
-    local length = b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups.size(buffer, offset)
+  if show.deprecated_underlyings_groups then
+    local length = b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.no_underlyings_groups, range, display)
+    local display = b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_underlyings_groups, range, display)
   end
 
-  return b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups.fields(buffer, offset, packet, parent)
+  return b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Min Cross Qty
@@ -7546,11 +7553,11 @@ b3_equities_binaryumdf_sbe_v1_6.security_exchange.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Security Definition 4 Message
-b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message = {}
+-- Deprecated Security Definition Message
+b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message = {}
 
--- Calculate size of: Security Definition 4 Message
-b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.size = function(buffer, offset)
+-- Calculate size of: Deprecated Security Definition Message
+b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.size = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_6.security_id.size
@@ -7655,24 +7662,24 @@ b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.size = function(bu
 
   index = index + b3_equities_binaryumdf_sbe_v1_6.min_cross_qty.size
 
-  index = index + b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups.size(buffer, offset + index)
+  index = index + b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.size(buffer, offset + index)
 
-  index = index + b3_equities_binaryumdf_sbe_v1_6.no_legs_groups.size(buffer, offset + index)
+  index = index + b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_groups.size(buffer, offset + index)
 
-  index = index + b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups.size(buffer, offset + index)
+  index = index + b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.size(buffer, offset + index)
 
   index = index + b3_equities_binaryumdf_sbe_v1_6.security_desc.size(buffer, offset + index)
 
   return index
 end
 
--- Display: Security Definition 4 Message
-b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.display = function(packet, parent, length)
+-- Display: Deprecated Security Definition Message
+b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition 4 Message
-b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Deprecated Security Definition Message
+b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
@@ -7828,14 +7835,14 @@ b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.fields = function(
   -- Min Cross Qty: 8 Byte Signed Fixed Width Integer
   index, min_cross_qty = b3_equities_binaryumdf_sbe_v1_6.min_cross_qty.dissect(buffer, index, packet, parent)
 
-  -- No Underlyings Groups: Struct of 2 fields
-  index, no_underlyings_groups = b3_equities_binaryumdf_sbe_v1_6.no_underlyings_groups.dissect(buffer, index, packet, parent)
+  -- Deprecated Underlyings Groups: Struct of 2 fields
+  index, deprecated_underlyings_groups = b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.dissect(buffer, index, packet, parent)
 
-  -- No Legs Groups: Struct of 2 fields
-  index, no_legs_groups = b3_equities_binaryumdf_sbe_v1_6.no_legs_groups.dissect(buffer, index, packet, parent)
+  -- Deprecated Legs Groups: Struct of 2 fields
+  index, deprecated_legs_groups = b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_groups.dissect(buffer, index, packet, parent)
 
-  -- No Instr Attribs Groups: Struct of 2 fields
-  index, no_instr_attribs_groups = b3_equities_binaryumdf_sbe_v1_6.no_instr_attribs_groups.dissect(buffer, index, packet, parent)
+  -- Deprecated Instr Attribs Groups: Struct of 2 fields
+  index, deprecated_instr_attribs_groups = b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.dissect(buffer, index, packet, parent)
 
   -- Security Desc: Struct of 2 fields
   index, security_desc = b3_equities_binaryumdf_sbe_v1_6.security_desc.dissect(buffer, index, packet, parent)
@@ -7843,17 +7850,17 @@ b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.fields = function(
   return index
 end
 
--- Dissect: Security Definition 4 Message
-b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Deprecated Security Definition Message
+b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.security_definition_4_message then
-    local length = b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.size(buffer, offset)
+  if show.deprecated_security_definition_message then
+    local length = b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.security_definition_4_message, range, display)
+    local display = b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.display(buffer, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.deprecated_security_definition_message, range, display)
   end
 
-  return b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.fields(buffer, offset, packet, parent)
+  return b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.fields(buffer, offset, packet, parent)
 end
 
 -- Transact Time
@@ -8257,20 +8264,20 @@ b3_equities_binaryumdf_sbe_v1_6.next_seq_no.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Sequence 2 Message
-b3_equities_binaryumdf_sbe_v1_6.sequence_2_message = {}
+-- Sequence Message
+b3_equities_binaryumdf_sbe_v1_6.sequence_message = {}
 
--- Size: Sequence 2 Message
-b3_equities_binaryumdf_sbe_v1_6.sequence_2_message.size =
+-- Size: Sequence Message
+b3_equities_binaryumdf_sbe_v1_6.sequence_message.size =
   b3_equities_binaryumdf_sbe_v1_6.next_seq_no.size
 
--- Display: Sequence 2 Message
-b3_equities_binaryumdf_sbe_v1_6.sequence_2_message.display = function(packet, parent, length)
+-- Display: Sequence Message
+b3_equities_binaryumdf_sbe_v1_6.sequence_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sequence 2 Message
-b3_equities_binaryumdf_sbe_v1_6.sequence_2_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Sequence Message
+b3_equities_binaryumdf_sbe_v1_6.sequence_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Next Seq No: 4 Byte Unsigned Fixed Width Integer
@@ -8279,21 +8286,21 @@ b3_equities_binaryumdf_sbe_v1_6.sequence_2_message.fields = function(buffer, off
   return index
 end
 
--- Dissect: Sequence 2 Message
-b3_equities_binaryumdf_sbe_v1_6.sequence_2_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_2_message then
+-- Dissect: Sequence Message
+b3_equities_binaryumdf_sbe_v1_6.sequence_message.dissect = function(buffer, offset, packet, parent)
+  if show.sequence_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.sequence_2_message, buffer(offset, 0))
-    local index = b3_equities_binaryumdf_sbe_v1_6.sequence_2_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.sequence_message, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v1_6.sequence_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_equities_binaryumdf_sbe_v1_6.sequence_2_message.display(packet, parent, length)
+    local display = b3_equities_binaryumdf_sbe_v1_6.sequence_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryumdf_sbe_v1_6.sequence_2_message.fields(buffer, offset, packet, parent)
+    return b3_equities_binaryumdf_sbe_v1_6.sequence_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8302,13 +8309,13 @@ b3_equities_binaryumdf_sbe_v1_6.payload = {}
 
 -- Size: Payload
 b3_equities_binaryumdf_sbe_v1_6.payload.size = function(buffer, offset, template_id)
-  -- Size of Sequence Reset 1 Message
+  -- Size of Sequence Reset Message
   if template_id == 1 then
     return 0
   end
-  -- Size of Sequence 2 Message
+  -- Size of Sequence Message
   if template_id == 2 then
-    return b3_equities_binaryumdf_sbe_v1_6.sequence_2_message.size
+    return b3_equities_binaryumdf_sbe_v1_6.sequence_message.size
   end
   -- Size of Security Status 3 Message
   if template_id == 3 then
@@ -8318,17 +8325,17 @@ b3_equities_binaryumdf_sbe_v1_6.payload.size = function(buffer, offset, template
   if template_id == 10 then
     return b3_equities_binaryumdf_sbe_v1_6.security_group_phase_10_message.size
   end
-  -- Size of Security Definition 4 Message
+  -- Size of Deprecated Security Definition Message
   if template_id == 4 then
-    return b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.size(buffer, offset)
+    return b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.size(buffer, offset)
   end
   -- Size of News 5 Message
   if template_id == 5 then
     return b3_equities_binaryumdf_sbe_v1_6.news_5_message.size(buffer, offset)
   end
-  -- Size of Empty Book 9 Message
+  -- Size of Empty Book Message
   if template_id == 9 then
-    return b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message.size
+    return b3_equities_binaryumdf_sbe_v1_6.empty_book_message.size
   end
   -- Size of Channel Reset 11 Message
   if template_id == 11 then
@@ -8421,12 +8428,12 @@ end
 
 -- Dissect Branches: Payload
 b3_equities_binaryumdf_sbe_v1_6.payload.branches = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Sequence Reset 1 Message
+  -- Dissect Sequence Reset Message
   if template_id == 1 then
   end
-  -- Dissect Sequence 2 Message
+  -- Dissect Sequence Message
   if template_id == 2 then
-    return b3_equities_binaryumdf_sbe_v1_6.sequence_2_message.dissect(buffer, offset, packet, parent)
+    return b3_equities_binaryumdf_sbe_v1_6.sequence_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Security Status 3 Message
   if template_id == 3 then
@@ -8436,17 +8443,17 @@ b3_equities_binaryumdf_sbe_v1_6.payload.branches = function(buffer, offset, pack
   if template_id == 10 then
     return b3_equities_binaryumdf_sbe_v1_6.security_group_phase_10_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Security Definition 4 Message
+  -- Dissect Deprecated Security Definition Message
   if template_id == 4 then
-    return b3_equities_binaryumdf_sbe_v1_6.security_definition_4_message.dissect(buffer, offset, packet, parent)
+    return b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect News 5 Message
   if template_id == 5 then
     return b3_equities_binaryumdf_sbe_v1_6.news_5_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Empty Book 9 Message
+  -- Dissect Empty Book Message
   if template_id == 9 then
-    return b3_equities_binaryumdf_sbe_v1_6.empty_book_9_message.dissect(buffer, offset, packet, parent)
+    return b3_equities_binaryumdf_sbe_v1_6.empty_book_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Channel Reset 11 Message
   if template_id == 11 then
@@ -8627,7 +8634,7 @@ b3_equities_binaryumdf_sbe_v1_6.template_id.display = function(value)
     return "Template Id: Security Group Phase 10 Message (10)"
   end
   if value == 4 then
-    return "Template Id: Security Definition 4 Message (4)"
+    return "Template Id: DeprecatedSecurity Definition Message (4)"
   end
   if value == 5 then
     return "Template Id: News 5 Message (5)"
@@ -8809,6 +8816,50 @@ b3_equities_binaryumdf_sbe_v1_6.message_length.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Framing Header
+b3_equities_binaryumdf_sbe_v1_6.framing_header = {}
+
+-- Size: Framing Header
+b3_equities_binaryumdf_sbe_v1_6.framing_header.size =
+  b3_equities_binaryumdf_sbe_v1_6.message_length.size + 
+  b3_equities_binaryumdf_sbe_v1_6.encoding_type.size
+
+-- Display: Framing Header
+b3_equities_binaryumdf_sbe_v1_6.framing_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Framing Header
+b3_equities_binaryumdf_sbe_v1_6.framing_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = b3_equities_binaryumdf_sbe_v1_6.message_length.dissect(buffer, index, packet, parent)
+
+  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
+  index, encoding_type = b3_equities_binaryumdf_sbe_v1_6.encoding_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Framing Header
+b3_equities_binaryumdf_sbe_v1_6.framing_header.dissect = function(buffer, offset, packet, parent)
+  if show.framing_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.framing_header, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v1_6.framing_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v1_6.framing_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v1_6.framing_header.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Message
 b3_equities_binaryumdf_sbe_v1_6.message = {}
 
@@ -8821,11 +8872,8 @@ end
 b3_equities_binaryumdf_sbe_v1_6.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = b3_equities_binaryumdf_sbe_v1_6.message_length.dissect(buffer, index, packet, parent)
-
-  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
-  index, encoding_type = b3_equities_binaryumdf_sbe_v1_6.encoding_type.dissect(buffer, index, packet, parent)
+  -- Framing Header: Struct of 2 fields
+  index, framing_header = b3_equities_binaryumdf_sbe_v1_6.framing_header.dissect(buffer, index, packet, parent)
 
   -- Message Header: Struct of 4 fields
   index, message_header = b3_equities_binaryumdf_sbe_v1_6.message_header.dissect(buffer, index, packet, parent)
@@ -9048,7 +9096,7 @@ b3_equities_binaryumdf_sbe_v1_6.packet.dissect = function(buffer, packet, parent
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 4 fields
+  -- Message: Struct of 3 fields
   while index < end_of_payload do
 
     -- Dependency element: Message Length

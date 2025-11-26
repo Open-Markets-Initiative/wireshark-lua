@@ -29,6 +29,9 @@ jobs:
       - name: Run B3 Equities BinaryEntryPoint Sbe 8.1 Dissector Tests
         run: bash -x .github/tests/B3-Equities-BinaryEntryPoint-Sbe-v8-1-Test.sh
 
+      - name: Run B3 Equities BinaryUmdf Sbe 1.8 Dissector Tests
+        run: bash -x .github/tests/B3-Equities-BinaryUmdf-Sbe-v1-8-Test.sh
+
       - name: Run Coinbase Derivatives MarketDataApi Sbe 1.2 Dissector Tests
         run: bash -x .github/tests/Coinbase-Derivatives-MarketDataApi-Sbe-v1-2-Test.sh
 
