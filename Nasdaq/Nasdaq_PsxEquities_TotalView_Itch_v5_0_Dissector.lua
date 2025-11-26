@@ -2856,10 +2856,10 @@ nasdaq_psxequities_totalview_itch_v5_0.ipo_flag.size = 1
 -- Display: Ipo Flag
 nasdaq_psxequities_totalview_itch_v5_0.ipo_flag.display = function(value)
   if value == "Y" then
-    return "Ipo Flag: Nasdaq Listed Instrument (Y)"
+    return "Ipo Flag: Yes (Y)"
   end
   if value == "N" then
-    return "Ipo Flag: Nasdaq Listed Instrument (N)"
+    return "Ipo Flag: No (N)"
   end
   if value == " " then
     return "Ipo Flag: Na (<whitespace>)"
@@ -2998,10 +2998,10 @@ nasdaq_psxequities_totalview_itch_v5_0.round_lots_only.size = 1
 -- Display: Round Lots Only
 nasdaq_psxequities_totalview_itch_v5_0.round_lots_only.display = function(value)
   if value == "Y" then
-    return "Round Lots Only: Nasdaq Psx (Y)"
+    return "Round Lots Only: Yes (Y)"
   end
   if value == "N" then
-    return "Round Lots Only: Nasdaq Psx (N)"
+    return "Round Lots Only: No (N)"
   end
 
   return "Round Lots Only: Unknown("..value..")"
