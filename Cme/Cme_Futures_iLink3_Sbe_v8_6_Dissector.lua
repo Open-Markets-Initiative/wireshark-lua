@@ -66,22 +66,6 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.exec_inst = ProtoField.new("Exec Inst", "
 omi_cme_futures_ilink3_sbe_v8_6.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "cme.futures.ilink3.sbe.v8.6.execrestatementreason", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.exec_type = ProtoField.new("Exec Type", "cme.futures.ilink3.sbe.v8.6.exectype", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.execution_mode = ProtoField.new("Execution Mode", "cme.futures.ilink3.sbe.v8.6.executionmode", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_outright_order_event_group = ProtoField.new("Execution Report Trade Addendum Outright Order Event Group", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumoutrightordereventgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_outright_order_event_groups = ProtoField.new("Execution Report Trade Addendum Outright Order Event Groups", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumoutrightordereventgroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_group = ProtoField.new("Execution Report Trade Addendum Spread Leg Group", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumspreadleggroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_groups = ProtoField.new("Execution Report Trade Addendum Spread Leg Groups", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumspreadleggroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_order_event_group = ProtoField.new("Execution Report Trade Addendum Spread Leg Order Event Group", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumspreadlegordereventgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_order_event_groups = ProtoField.new("Execution Report Trade Addendum Spread Leg Order Event Groups", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumspreadlegordereventgroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_order_event_group = ProtoField.new("Execution Report Trade Addendum Spread Order Event Group", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumspreadordereventgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_order_event_groups = ProtoField.new("Execution Report Trade Addendum Spread Order Event Groups", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumspreadordereventgroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_outright_order_event_group = ProtoField.new("Execution Report Trade Outright Order Event Group", "cme.futures.ilink3.sbe.v8.6.executionreporttradeoutrightordereventgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_outright_order_event_groups = ProtoField.new("Execution Report Trade Outright Order Event Groups", "cme.futures.ilink3.sbe.v8.6.executionreporttradeoutrightordereventgroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_group = ProtoField.new("Execution Report Trade Spread Leg Group", "cme.futures.ilink3.sbe.v8.6.executionreporttradespreadleggroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_groups = ProtoField.new("Execution Report Trade Spread Leg Groups", "cme.futures.ilink3.sbe.v8.6.executionreporttradespreadleggroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_order_event_group = ProtoField.new("Execution Report Trade Spread Leg Order Event Group", "cme.futures.ilink3.sbe.v8.6.executionreporttradespreadlegordereventgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_order_event_groups = ProtoField.new("Execution Report Trade Spread Leg Order Event Groups", "cme.futures.ilink3.sbe.v8.6.executionreporttradespreadlegordereventgroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_order_event_group = ProtoField.new("Execution Report Trade Spread Order Event Group", "cme.futures.ilink3.sbe.v8.6.executionreporttradespreadordereventgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_order_event_groups = ProtoField.new("Execution Report Trade Spread Order Event Groups", "cme.futures.ilink3.sbe.v8.6.executionreporttradespreadordereventgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.executor = ProtoField.new("Executor", "cme.futures.ilink3.sbe.v8.6.executor", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.expiration_cycle = ProtoField.new("Expiration Cycle", "cme.futures.ilink3.sbe.v8.6.expirationcycle", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.expire_date = ProtoField.new("Expire Date", "cme.futures.ilink3.sbe.v8.6.expiredate", ftypes.UINT16)
@@ -138,10 +122,6 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.mass_action_response = ProtoField.new("Ma
 omi_cme_futures_ilink3_sbe_v8_6.fields.mass_action_scope = ProtoField.new("Mass Action Scope", "cme.futures.ilink3.sbe.v8.6.massactionscope", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.mass_cancel_request_type = ProtoField.new("Mass Cancel Request Type", "cme.futures.ilink3.sbe.v8.6.masscancelrequesttype", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.mass_cancel_tif = ProtoField.new("Mass Cancel Tif", "cme.futures.ilink3.sbe.v8.6.masscanceltif", ftypes.UINT8)
-omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_ack_entry_group = ProtoField.new("Mass Quote Ack Entry Group", "cme.futures.ilink3.sbe.v8.6.massquoteackentrygroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_ack_entry_groups = ProtoField.new("Mass Quote Ack Entry Groups", "cme.futures.ilink3.sbe.v8.6.massquoteackentrygroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_entry_group = ProtoField.new("Mass Quote Entry Group", "cme.futures.ilink3.sbe.v8.6.massquoteentrygroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_entry_groups = ProtoField.new("Mass Quote Entry Groups", "cme.futures.ilink3.sbe.v8.6.massquoteentrygroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.mass_status_req_id = ProtoField.new("Mass Status Req Id", "cme.futures.ilink3.sbe.v8.6.massstatusreqid", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.mass_status_req_id_optional = ProtoField.new("Mass Status Req Id Optional", "cme.futures.ilink3.sbe.v8.6.massstatusreqidoptional", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.mass_status_req_type = ProtoField.new("Mass Status Req Type", "cme.futures.ilink3.sbe.v8.6.massstatusreqtype", ftypes.UINT8)
@@ -192,6 +172,10 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.orig_secondary_execution_id = ProtoField.
 omi_cme_futures_ilink3_sbe_v8_6.fields.orig_side_trade_id = ProtoField.new("Orig Side Trade Id", "cme.futures.ilink3.sbe.v8.6.origsidetradeid", ftypes.UINT32)
 omi_cme_futures_ilink3_sbe_v8_6.fields.origclordid = ProtoField.new("OrigClOrdId", "cme.futures.ilink3.sbe.v8.6.origclordid", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.original_order_event_exec_id = ProtoField.new("Original Order Event Exec Id", "cme.futures.ilink3.sbe.v8.6.originalordereventexecid", ftypes.UINT32)
+omi_cme_futures_ilink3_sbe_v8_6.fields.outright_order_events_group = ProtoField.new("Outright Order Events Group", "cme.futures.ilink3.sbe.v8.6.outrightordereventsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.outright_order_events_groups = ProtoField.new("Outright Order Events Groups", "cme.futures.ilink3.sbe.v8.6.outrightordereventsgroups", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.outright_trade_events_group = ProtoField.new("Outright Trade Events Group", "cme.futures.ilink3.sbe.v8.6.outrighttradeeventsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.outright_trade_events_groups = ProtoField.new("Outright Trade Events Groups", "cme.futures.ilink3.sbe.v8.6.outrighttradeeventsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.ownership = ProtoField.new("Ownership", "cme.futures.ilink3.sbe.v8.6.ownership", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.packet = ProtoField.new("Packet", "cme.futures.ilink3.sbe.v8.6.packet", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.party_detail_definition_status = ProtoField.new("Party Detail Definition Status", "cme.futures.ilink3.sbe.v8.6.partydetaildefinitionstatus", ftypes.UINT8)
@@ -203,10 +187,10 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.party_details_groups = ProtoField.new("Pa
 omi_cme_futures_ilink3_sbe_v8_6.fields.party_details_list_report_id = ProtoField.new("Party Details List Report Id", "cme.futures.ilink3.sbe.v8.6.partydetailslistreportid", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.party_details_list_req_id = ProtoField.new("Party Details List Req Id", "cme.futures.ilink3.sbe.v8.6.partydetailslistreqid", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.party_details_list_req_id_optional = ProtoField.new("Party Details List Req Id Optional", "cme.futures.ilink3.sbe.v8.6.partydetailslistreqidoptional", ftypes.UINT64)
-omi_cme_futures_ilink3_sbe_v8_6.fields.party_i_ds_group = ProtoField.new("Party I Ds Group", "cme.futures.ilink3.sbe.v8.6.partyidsgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.party_i_ds_groups = ProtoField.new("Party I Ds Groups", "cme.futures.ilink3.sbe.v8.6.partyidsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.party_id = ProtoField.new("Party Id", "cme.futures.ilink3.sbe.v8.6.partyid", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.party_id_source = ProtoField.new("Party Id Source", "cme.futures.ilink3.sbe.v8.6.partyidsource", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.party_ids_group = ProtoField.new("Party Ids Group", "cme.futures.ilink3.sbe.v8.6.partyidsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.party_ids_groups = ProtoField.new("Party Ids Groups", "cme.futures.ilink3.sbe.v8.6.partyidsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.party_role = ProtoField.new("Party Role", "cme.futures.ilink3.sbe.v8.6.partyrole", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.payload = ProtoField.new("Payload", "cme.futures.ilink3.sbe.v8.6.payload", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.poss_retrans_flag = ProtoField.new("Poss Retrans Flag", "cme.futures.ilink3.sbe.v8.6.possretransflag", ftypes.UINT8)
@@ -214,17 +198,21 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.previous_seq_no = ProtoField.new("Previou
 omi_cme_futures_ilink3_sbe_v8_6.fields.previous_uuid = ProtoField.new("Previous Uuid", "cme.futures.ilink3.sbe.v8.6.previousuuid", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.price = ProtoField.new("Price", "cme.futures.ilink3.sbe.v8.6.price", ftypes.DOUBLE)
 omi_cme_futures_ilink3_sbe_v8_6.fields.price_optional = ProtoField.new("Price Optional", "cme.futures.ilink3.sbe.v8.6.priceoptional", ftypes.DOUBLE)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_ack_entries_group = ProtoField.new("Quote Ack Entries Group", "cme.futures.ilink3.sbe.v8.6.quoteackentriesgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_ack_entries_groups = ProtoField.new("Quote Ack Entries Groups", "cme.futures.ilink3.sbe.v8.6.quoteackentriesgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.quote_ack_status = ProtoField.new("Quote Ack Status", "cme.futures.ilink3.sbe.v8.6.quoteackstatus", ftypes.UINT8)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entry_group = ProtoField.new("Quote Cancel Ack Entry Group", "cme.futures.ilink3.sbe.v8.6.quotecancelackentrygroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entry_groups = ProtoField.new("Quote Cancel Ack Entry Groups", "cme.futures.ilink3.sbe.v8.6.quotecancelackentrygroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_set_group = ProtoField.new("Quote Cancel Ack Set Group", "cme.futures.ilink3.sbe.v8.6.quotecancelacksetgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_set_groups = ProtoField.new("Quote Cancel Ack Set Groups", "cme.futures.ilink3.sbe.v8.6.quotecancelacksetgroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entry_group = ProtoField.new("Quote Cancel Entry Group", "cme.futures.ilink3.sbe.v8.6.quotecancelentrygroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entry_groups = ProtoField.new("Quote Cancel Entry Groups", "cme.futures.ilink3.sbe.v8.6.quotecancelentrygroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_set_group = ProtoField.new("Quote Cancel Set Group", "cme.futures.ilink3.sbe.v8.6.quotecancelsetgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_set_groups = ProtoField.new("Quote Cancel Set Groups", "cme.futures.ilink3.sbe.v8.6.quotecancelsetgroups", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entries_group = ProtoField.new("Quote Cancel Ack Entries Group", "cme.futures.ilink3.sbe.v8.6.quotecancelackentriesgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entries_groups = ProtoField.new("Quote Cancel Ack Entries Groups", "cme.futures.ilink3.sbe.v8.6.quotecancelackentriesgroups", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_sets_group = ProtoField.new("Quote Cancel Ack Sets Group", "cme.futures.ilink3.sbe.v8.6.quotecancelacksetsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_sets_groups = ProtoField.new("Quote Cancel Ack Sets Groups", "cme.futures.ilink3.sbe.v8.6.quotecancelacksetsgroups", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entries_group = ProtoField.new("Quote Cancel Entries Group", "cme.futures.ilink3.sbe.v8.6.quotecancelentriesgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entries_groups = ProtoField.new("Quote Cancel Entries Groups", "cme.futures.ilink3.sbe.v8.6.quotecancelentriesgroups", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_sets_group = ProtoField.new("Quote Cancel Sets Group", "cme.futures.ilink3.sbe.v8.6.quotecancelsetsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_sets_groups = ProtoField.new("Quote Cancel Sets Groups", "cme.futures.ilink3.sbe.v8.6.quotecancelsetsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_type = ProtoField.new("Quote Cancel Type", "cme.futures.ilink3.sbe.v8.6.quotecanceltype", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cxl_status = ProtoField.new("Quote Cxl Status", "cme.futures.ilink3.sbe.v8.6.quotecxlstatus", ftypes.UINT8)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_entries_group = ProtoField.new("Quote Entries Group", "cme.futures.ilink3.sbe.v8.6.quoteentriesgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_entries_groups = ProtoField.new("Quote Entries Groups", "cme.futures.ilink3.sbe.v8.6.quoteentriesgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.quote_entry_id = ProtoField.new("Quote Entry Id", "cme.futures.ilink3.sbe.v8.6.quoteentryid", ftypes.UINT32)
 omi_cme_futures_ilink3_sbe_v8_6.fields.quote_entry_reject_reason = ProtoField.new("Quote Entry Reject Reason", "cme.futures.ilink3.sbe.v8.6.quoteentryrejectreason", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.quote_error_code = ProtoField.new("Quote Error Code", "cme.futures.ilink3.sbe.v8.6.quoteerrorcode", ftypes.UINT16)
@@ -240,13 +228,15 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.ref_seq_num = ProtoField.new("Ref Seq Num
 omi_cme_futures_ilink3_sbe_v8_6.fields.ref_tag_id = ProtoField.new("Ref Tag Id", "cme.futures.ilink3.sbe.v8.6.reftagid", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.related_sym_group = ProtoField.new("Related Sym Group", "cme.futures.ilink3.sbe.v8.6.relatedsymgroup", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.futures.ilink3.sbe.v8.6.relatedsymgroups", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.request_legs_group = ProtoField.new("Request Legs Group", "cme.futures.ilink3.sbe.v8.6.requestlegsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.request_legs_groups = ProtoField.new("Request Legs Groups", "cme.futures.ilink3.sbe.v8.6.requestlegsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.request_result = ProtoField.new("Request Result", "cme.futures.ilink3.sbe.v8.6.requestresult", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.request_time = ProtoField.new("Request Time", "cme.futures.ilink3.sbe.v8.6.requesttime", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.futures.ilink3.sbe.v8.6.requesttimestamp", ftypes.UINT64)
-omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_i_ds_group = ProtoField.new("Requesting Party I Ds Group", "cme.futures.ilink3.sbe.v8.6.requestingpartyidsgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_i_ds_groups = ProtoField.new("Requesting Party I Ds Groups", "cme.futures.ilink3.sbe.v8.6.requestingpartyidsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_id = ProtoField.new("Requesting Party Id", "cme.futures.ilink3.sbe.v8.6.requestingpartyid", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_id_source = ProtoField.new("Requesting Party Id Source", "cme.futures.ilink3.sbe.v8.6.requestingpartyidsource", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_ids_group = ProtoField.new("Requesting Party Ids Group", "cme.futures.ilink3.sbe.v8.6.requestingpartyidsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_ids_groups = ProtoField.new("Requesting Party Ids Groups", "cme.futures.ilink3.sbe.v8.6.requestingpartyidsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_role = ProtoField.new("Requesting Party Role", "cme.futures.ilink3.sbe.v8.6.requestingpartyrole", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.reserved = ProtoField.new("Reserved", "cme.futures.ilink3.sbe.v8.6.reserved", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_1 = ProtoField.new("Reserved 1", "cme.futures.ilink3.sbe.v8.6.reserved1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
@@ -254,15 +244,13 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_2 = ProtoField.new("Reserved 2",
 omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_3 = ProtoField.new("Reserved 3", "cme.futures.ilink3.sbe.v8.6.reserved3", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_4 = ProtoField.new("Reserved 4", "cme.futures.ilink3.sbe.v8.6.reserved4", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_5 = ProtoField.new("Reserved 5", "cme.futures.ilink3.sbe.v8.6.reserved5", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_cme_futures_ilink3_sbe_v8_6.fields.response_legs_group = ProtoField.new("Response Legs Group", "cme.futures.ilink3.sbe.v8.6.responselegsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.response_legs_groups = ProtoField.new("Response Legs Groups", "cme.futures.ilink3.sbe.v8.6.responselegsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.rfq_side = ProtoField.new("Rfq Side", "cme.futures.ilink3.sbe.v8.6.rfqside", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.risk_free_rate = ProtoField.new("Risk Free Rate", "cme.futures.ilink3.sbe.v8.6.riskfreerate", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.ilink3.sbe.v8.6.schemaid", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.sec_exec_id = ProtoField.new("Sec Exec Id", "cme.futures.ilink3.sbe.v8.6.secexecid", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.secret_key_secure_id_expiration = ProtoField.new("Secret Key Secure Id Expiration", "cme.futures.ilink3.sbe.v8.6.secretkeysecureidexpiration", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_request_leg_group = ProtoField.new("Security Definition Request Leg Group", "cme.futures.ilink3.sbe.v8.6.securitydefinitionrequestleggroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_request_leg_groups = ProtoField.new("Security Definition Request Leg Groups", "cme.futures.ilink3.sbe.v8.6.securitydefinitionrequestleggroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_response_leg_group = ProtoField.new("Security Definition Response Leg Group", "cme.futures.ilink3.sbe.v8.6.securitydefinitionresponseleggroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_response_leg_groups = ProtoField.new("Security Definition Response Leg Groups", "cme.futures.ilink3.sbe.v8.6.securitydefinitionresponseleggroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.security_group = ProtoField.new("Security Group", "cme.futures.ilink3.sbe.v8.6.securitygroup", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.security_id = ProtoField.new("Security Id", "cme.futures.ilink3.sbe.v8.6.securityid", ftypes.INT32)
 omi_cme_futures_ilink3_sbe_v8_6.fields.security_id_optional = ProtoField.new("Security Id Optional", "cme.futures.ilink3.sbe.v8.6.securityidoptional", ftypes.INT32)
@@ -290,6 +278,10 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.simple_open_frame = ProtoField.new("Simpl
 omi_cme_futures_ilink3_sbe_v8_6.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.futures.ilink3.sbe.v8.6.simpleopenframingheader", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.source_repo_id = ProtoField.new("Source Repo Id", "cme.futures.ilink3.sbe.v8.6.sourcerepoid", ftypes.INT32)
 omi_cme_futures_ilink3_sbe_v8_6.fields.split_msg = ProtoField.new("Split Msg", "cme.futures.ilink3.sbe.v8.6.splitmsg", ftypes.UINT8)
+omi_cme_futures_ilink3_sbe_v8_6.fields.spread_order_events_group = ProtoField.new("Spread Order Events Group", "cme.futures.ilink3.sbe.v8.6.spreadordereventsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.spread_order_events_groups = ProtoField.new("Spread Order Events Groups", "cme.futures.ilink3.sbe.v8.6.spreadordereventsgroups", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.spread_trade_events_group = ProtoField.new("Spread Trade Events Group", "cme.futures.ilink3.sbe.v8.6.spreadtradeeventsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.spread_trade_events_groups = ProtoField.new("Spread Trade Events Groups", "cme.futures.ilink3.sbe.v8.6.spreadtradeeventsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.start_date = ProtoField.new("Start Date", "cme.futures.ilink3.sbe.v8.6.startdate", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.stop_px = ProtoField.new("Stop Px", "cme.futures.ilink3.sbe.v8.6.stoppx", ftypes.DOUBLE)
 omi_cme_futures_ilink3_sbe_v8_6.fields.symbol = ProtoField.new("Symbol", "cme.futures.ilink3.sbe.v8.6.symbol", ftypes.STRING)
@@ -304,7 +296,11 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.tot_num_parties = ProtoField.new("Tot Num
 omi_cme_futures_ilink3_sbe_v8_6.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "cme.futures.ilink3.sbe.v8.6.totalaffectedorders", ftypes.UINT32)
 omi_cme_futures_ilink3_sbe_v8_6.fields.total_num_securities = ProtoField.new("Total Num Securities", "cme.futures.ilink3.sbe.v8.6.totalnumsecurities", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.trade_addendum = ProtoField.new("Trade Addendum", "cme.futures.ilink3.sbe.v8.6.tradeaddendum", ftypes.UINT8)
+omi_cme_futures_ilink3_sbe_v8_6.fields.trade_addendum_legs_group = ProtoField.new("Trade Addendum Legs Group", "cme.futures.ilink3.sbe.v8.6.tradeaddendumlegsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.trade_addendum_legs_groups = ProtoField.new("Trade Addendum Legs Groups", "cme.futures.ilink3.sbe.v8.6.tradeaddendumlegsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.trade_date = ProtoField.new("Trade Date", "cme.futures.ilink3.sbe.v8.6.tradedate", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.trade_legs_group = ProtoField.new("Trade Legs Group", "cme.futures.ilink3.sbe.v8.6.tradelegsgroup", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.trade_legs_groups = ProtoField.new("Trade Legs Groups", "cme.futures.ilink3.sbe.v8.6.tradelegsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.trade_link_id = ProtoField.new("Trade Link Id", "cme.futures.ilink3.sbe.v8.6.tradelinkid", ftypes.UINT32)
 omi_cme_futures_ilink3_sbe_v8_6.fields.trading_system_name = ProtoField.new("Trading System Name", "cme.futures.ilink3.sbe.v8.6.tradingsystemname", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.trading_system_vendor = ProtoField.new("Trading System Vendor", "cme.futures.ilink3.sbe.v8.6.tradingsystemvendor", ftypes.STRING)
@@ -379,28 +375,26 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.terminate = ProtoField.new("Terminate", "
 
 -- Cme Futures iLink3 Sbe 8.6 generated fields
 omi_cme_futures_ilink3_sbe_v8_6.fields.affected_orders_group_index = ProtoField.new("Affected Orders Group Index", "cme.futures.ilink3.sbe.v8.6.affectedordersgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_outright_order_event_group_index = ProtoField.new("Execution Report Trade Addendum Outright Order Event Group Index", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumoutrightordereventgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_group_index = ProtoField.new("Execution Report Trade Addendum Spread Leg Group Index", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumspreadleggroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_order_event_group_index = ProtoField.new("Execution Report Trade Addendum Spread Leg Order Event Group Index", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumspreadlegordereventgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_order_event_group_index = ProtoField.new("Execution Report Trade Addendum Spread Order Event Group Index", "cme.futures.ilink3.sbe.v8.6.executionreporttradeaddendumspreadordereventgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_outright_order_event_group_index = ProtoField.new("Execution Report Trade Outright Order Event Group Index", "cme.futures.ilink3.sbe.v8.6.executionreporttradeoutrightordereventgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_group_index = ProtoField.new("Execution Report Trade Spread Leg Group Index", "cme.futures.ilink3.sbe.v8.6.executionreporttradespreadleggroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_order_event_group_index = ProtoField.new("Execution Report Trade Spread Leg Order Event Group Index", "cme.futures.ilink3.sbe.v8.6.executionreporttradespreadlegordereventgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_order_event_group_index = ProtoField.new("Execution Report Trade Spread Order Event Group Index", "cme.futures.ilink3.sbe.v8.6.executionreporttradespreadordereventgroupindex", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.fills_group_index = ProtoField.new("Fills Group Index", "cme.futures.ilink3.sbe.v8.6.fillsgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_ack_entry_group_index = ProtoField.new("Mass Quote Ack Entry Group Index", "cme.futures.ilink3.sbe.v8.6.massquoteackentrygroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_entry_group_index = ProtoField.new("Mass Quote Entry Group Index", "cme.futures.ilink3.sbe.v8.6.massquoteentrygroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.outright_order_events_group_index = ProtoField.new("Outright Order Events Group Index", "cme.futures.ilink3.sbe.v8.6.outrightordereventsgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.outright_trade_events_group_index = ProtoField.new("Outright Trade Events Group Index", "cme.futures.ilink3.sbe.v8.6.outrighttradeeventsgroupindex", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.party_details_group_index = ProtoField.new("Party Details Group Index", "cme.futures.ilink3.sbe.v8.6.partydetailsgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.party_i_ds_group_index = ProtoField.new("Party I Ds Group Index", "cme.futures.ilink3.sbe.v8.6.partyidsgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entry_group_index = ProtoField.new("Quote Cancel Ack Entry Group Index", "cme.futures.ilink3.sbe.v8.6.quotecancelackentrygroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_set_group_index = ProtoField.new("Quote Cancel Ack Set Group Index", "cme.futures.ilink3.sbe.v8.6.quotecancelacksetgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entry_group_index = ProtoField.new("Quote Cancel Entry Group Index", "cme.futures.ilink3.sbe.v8.6.quotecancelentrygroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_set_group_index = ProtoField.new("Quote Cancel Set Group Index", "cme.futures.ilink3.sbe.v8.6.quotecancelsetgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.party_ids_group_index = ProtoField.new("Party Ids Group Index", "cme.futures.ilink3.sbe.v8.6.partyidsgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_ack_entries_group_index = ProtoField.new("Quote Ack Entries Group Index", "cme.futures.ilink3.sbe.v8.6.quoteackentriesgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entries_group_index = ProtoField.new("Quote Cancel Ack Entries Group Index", "cme.futures.ilink3.sbe.v8.6.quotecancelackentriesgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_sets_group_index = ProtoField.new("Quote Cancel Ack Sets Group Index", "cme.futures.ilink3.sbe.v8.6.quotecancelacksetsgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entries_group_index = ProtoField.new("Quote Cancel Entries Group Index", "cme.futures.ilink3.sbe.v8.6.quotecancelentriesgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_sets_group_index = ProtoField.new("Quote Cancel Sets Group Index", "cme.futures.ilink3.sbe.v8.6.quotecancelsetsgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.quote_entries_group_index = ProtoField.new("Quote Entries Group Index", "cme.futures.ilink3.sbe.v8.6.quoteentriesgroupindex", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.related_sym_group_index = ProtoField.new("Related Sym Group Index", "cme.futures.ilink3.sbe.v8.6.relatedsymgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_i_ds_group_index = ProtoField.new("Requesting Party I Ds Group Index", "cme.futures.ilink3.sbe.v8.6.requestingpartyidsgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_request_leg_group_index = ProtoField.new("Security Definition Request Leg Group Index", "cme.futures.ilink3.sbe.v8.6.securitydefinitionrequestleggroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_response_leg_group_index = ProtoField.new("Security Definition Response Leg Group Index", "cme.futures.ilink3.sbe.v8.6.securitydefinitionresponseleggroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.request_legs_group_index = ProtoField.new("Request Legs Group Index", "cme.futures.ilink3.sbe.v8.6.requestlegsgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_ids_group_index = ProtoField.new("Requesting Party Ids Group Index", "cme.futures.ilink3.sbe.v8.6.requestingpartyidsgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.response_legs_group_index = ProtoField.new("Response Legs Group Index", "cme.futures.ilink3.sbe.v8.6.responselegsgroupindex", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.sides_group_index = ProtoField.new("Sides Group Index", "cme.futures.ilink3.sbe.v8.6.sidesgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.spread_order_events_group_index = ProtoField.new("Spread Order Events Group Index", "cme.futures.ilink3.sbe.v8.6.spreadordereventsgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.spread_trade_events_group_index = ProtoField.new("Spread Trade Events Group Index", "cme.futures.ilink3.sbe.v8.6.spreadtradeeventsgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.trade_addendum_legs_group_index = ProtoField.new("Trade Addendum Legs Group Index", "cme.futures.ilink3.sbe.v8.6.tradeaddendumlegsgroupindex", ftypes.UINT16)
+omi_cme_futures_ilink3_sbe_v8_6.fields.trade_legs_group_index = ProtoField.new("Trade Legs Group Index", "cme.futures.ilink3.sbe.v8.6.tradelegsgroupindex", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.trd_reg_publications_group_index = ProtoField.new("Trd Reg Publications Group Index", "cme.futures.ilink3.sbe.v8.6.trdregpublicationsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -431,27 +425,11 @@ show.execution_report_pending_replace = true
 show.execution_report_reject = true
 show.execution_report_status = true
 show.execution_report_trade_addendum_outright = true
-show.execution_report_trade_addendum_outright_order_event_group = true
-show.execution_report_trade_addendum_outright_order_event_groups = true
 show.execution_report_trade_addendum_spread = true
 show.execution_report_trade_addendum_spread_leg = true
-show.execution_report_trade_addendum_spread_leg_group = true
-show.execution_report_trade_addendum_spread_leg_groups = true
-show.execution_report_trade_addendum_spread_leg_order_event_group = true
-show.execution_report_trade_addendum_spread_leg_order_event_groups = true
-show.execution_report_trade_addendum_spread_order_event_group = true
-show.execution_report_trade_addendum_spread_order_event_groups = true
 show.execution_report_trade_outright = true
-show.execution_report_trade_outright_order_event_group = true
-show.execution_report_trade_outright_order_event_groups = true
 show.execution_report_trade_spread = true
 show.execution_report_trade_spread_leg = true
-show.execution_report_trade_spread_leg_group = true
-show.execution_report_trade_spread_leg_groups = true
-show.execution_report_trade_spread_leg_order_event_group = true
-show.execution_report_trade_spread_leg_order_event_groups = true
-show.execution_report_trade_spread_order_event_group = true
-show.execution_report_trade_spread_order_event_groups = true
 show.fills_group = true
 show.fills_groups = true
 show.gross_trade_amt = true
@@ -459,10 +437,6 @@ show.group_size = true
 show.leg_option_delta = true
 show.mass_quote = true
 show.mass_quote_ack = true
-show.mass_quote_ack_entry_group = true
-show.mass_quote_ack_entry_groups = true
-show.mass_quote_entry_group = true
-show.mass_quote_entry_groups = true
 show.maturity_month_year = true
 show.message_header = true
 show.negotiate = true
@@ -480,6 +454,10 @@ show.order_mass_action_report = true
 show.order_mass_action_request = true
 show.order_mass_status_request = true
 show.order_status_request = true
+show.outright_order_events_group = true
+show.outright_order_events_groups = true
+show.outright_trade_events_group = true
+show.outright_trade_events_groups = true
 show.packet = true
 show.party_details_definition_request = true
 show.party_details_definition_request_ack = true
@@ -487,41 +465,53 @@ show.party_details_group = true
 show.party_details_groups = true
 show.party_details_list_report = true
 show.party_details_list_request = true
-show.party_i_ds_group = true
-show.party_i_ds_groups = true
+show.party_ids_group = true
+show.party_ids_groups = true
+show.quote_ack_entries_group = true
+show.quote_ack_entries_groups = true
 show.quote_cancel = true
 show.quote_cancel_ack = true
-show.quote_cancel_ack_entry_group = true
-show.quote_cancel_ack_entry_groups = true
-show.quote_cancel_ack_set_group = true
-show.quote_cancel_ack_set_groups = true
-show.quote_cancel_entry_group = true
-show.quote_cancel_entry_groups = true
-show.quote_cancel_set_group = true
-show.quote_cancel_set_groups = true
+show.quote_cancel_ack_entries_group = true
+show.quote_cancel_ack_entries_groups = true
+show.quote_cancel_ack_sets_group = true
+show.quote_cancel_ack_sets_groups = true
+show.quote_cancel_entries_group = true
+show.quote_cancel_entries_groups = true
+show.quote_cancel_sets_group = true
+show.quote_cancel_sets_groups = true
+show.quote_entries_group = true
+show.quote_entries_groups = true
 show.related_sym_group = true
 show.related_sym_groups = true
 show.request_for_quote = true
 show.request_for_quote_ack = true
-show.requesting_party_i_ds_group = true
-show.requesting_party_i_ds_groups = true
+show.request_legs_group = true
+show.request_legs_groups = true
+show.requesting_party_ids_group = true
+show.requesting_party_ids_groups = true
+show.response_legs_group = true
+show.response_legs_groups = true
 show.retransmission = true
 show.retransmit_reject = true
 show.retransmit_request = true
 show.risk_free_rate = true
 show.security_definition_request = true
-show.security_definition_request_leg_group = true
-show.security_definition_request_leg_groups = true
 show.security_definition_response = true
-show.security_definition_response_leg_group = true
-show.security_definition_response_leg_groups = true
 show.sequence = true
 show.sides_group = true
 show.sides_groups = true
 show.simple_open_frame = true
 show.simple_open_framing_header = true
+show.spread_order_events_group = true
+show.spread_order_events_groups = true
+show.spread_trade_events_group = true
+show.spread_trade_events_groups = true
 show.terminate = true
 show.time_to_expiration = true
+show.trade_addendum_legs_group = true
+show.trade_addendum_legs_groups = true
+show.trade_legs_group = true
+show.trade_legs_groups = true
 show.trd_reg_publications_group = true
 show.trd_reg_publications_groups = true
 show.volatility = true
@@ -549,27 +539,11 @@ omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_pending_replace = Pr
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_reject = Pref.bool("Show Execution Report Reject", show.execution_report_reject, "Parse and add Execution Report Reject to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_status = Pref.bool("Show Execution Report Status", show.execution_report_status, "Parse and add Execution Report Status to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_outright = Pref.bool("Show Execution Report Trade Addendum Outright", show.execution_report_trade_addendum_outright, "Parse and add Execution Report Trade Addendum Outright to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_outright_order_event_group = Pref.bool("Show Execution Report Trade Addendum Outright Order Event Group", show.execution_report_trade_addendum_outright_order_event_group, "Parse and add Execution Report Trade Addendum Outright Order Event Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_outright_order_event_groups = Pref.bool("Show Execution Report Trade Addendum Outright Order Event Groups", show.execution_report_trade_addendum_outright_order_event_groups, "Parse and add Execution Report Trade Addendum Outright Order Event Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread = Pref.bool("Show Execution Report Trade Addendum Spread", show.execution_report_trade_addendum_spread, "Parse and add Execution Report Trade Addendum Spread to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg = Pref.bool("Show Execution Report Trade Addendum Spread Leg", show.execution_report_trade_addendum_spread_leg, "Parse and add Execution Report Trade Addendum Spread Leg to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_group = Pref.bool("Show Execution Report Trade Addendum Spread Leg Group", show.execution_report_trade_addendum_spread_leg_group, "Parse and add Execution Report Trade Addendum Spread Leg Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_groups = Pref.bool("Show Execution Report Trade Addendum Spread Leg Groups", show.execution_report_trade_addendum_spread_leg_groups, "Parse and add Execution Report Trade Addendum Spread Leg Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_order_event_group = Pref.bool("Show Execution Report Trade Addendum Spread Leg Order Event Group", show.execution_report_trade_addendum_spread_leg_order_event_group, "Parse and add Execution Report Trade Addendum Spread Leg Order Event Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_order_event_groups = Pref.bool("Show Execution Report Trade Addendum Spread Leg Order Event Groups", show.execution_report_trade_addendum_spread_leg_order_event_groups, "Parse and add Execution Report Trade Addendum Spread Leg Order Event Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_order_event_group = Pref.bool("Show Execution Report Trade Addendum Spread Order Event Group", show.execution_report_trade_addendum_spread_order_event_group, "Parse and add Execution Report Trade Addendum Spread Order Event Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_order_event_groups = Pref.bool("Show Execution Report Trade Addendum Spread Order Event Groups", show.execution_report_trade_addendum_spread_order_event_groups, "Parse and add Execution Report Trade Addendum Spread Order Event Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_outright = Pref.bool("Show Execution Report Trade Outright", show.execution_report_trade_outright, "Parse and add Execution Report Trade Outright to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_outright_order_event_group = Pref.bool("Show Execution Report Trade Outright Order Event Group", show.execution_report_trade_outright_order_event_group, "Parse and add Execution Report Trade Outright Order Event Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_outright_order_event_groups = Pref.bool("Show Execution Report Trade Outright Order Event Groups", show.execution_report_trade_outright_order_event_groups, "Parse and add Execution Report Trade Outright Order Event Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread = Pref.bool("Show Execution Report Trade Spread", show.execution_report_trade_spread, "Parse and add Execution Report Trade Spread to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg = Pref.bool("Show Execution Report Trade Spread Leg", show.execution_report_trade_spread_leg, "Parse and add Execution Report Trade Spread Leg to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_group = Pref.bool("Show Execution Report Trade Spread Leg Group", show.execution_report_trade_spread_leg_group, "Parse and add Execution Report Trade Spread Leg Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_groups = Pref.bool("Show Execution Report Trade Spread Leg Groups", show.execution_report_trade_spread_leg_groups, "Parse and add Execution Report Trade Spread Leg Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_order_event_group = Pref.bool("Show Execution Report Trade Spread Leg Order Event Group", show.execution_report_trade_spread_leg_order_event_group, "Parse and add Execution Report Trade Spread Leg Order Event Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_order_event_groups = Pref.bool("Show Execution Report Trade Spread Leg Order Event Groups", show.execution_report_trade_spread_leg_order_event_groups, "Parse and add Execution Report Trade Spread Leg Order Event Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_order_event_group = Pref.bool("Show Execution Report Trade Spread Order Event Group", show.execution_report_trade_spread_order_event_group, "Parse and add Execution Report Trade Spread Order Event Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_order_event_groups = Pref.bool("Show Execution Report Trade Spread Order Event Groups", show.execution_report_trade_spread_order_event_groups, "Parse and add Execution Report Trade Spread Order Event Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_fills_group = Pref.bool("Show Fills Group", show.fills_group, "Parse and add Fills Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_fills_groups = Pref.bool("Show Fills Groups", show.fills_groups, "Parse and add Fills Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_gross_trade_amt = Pref.bool("Show Gross Trade Amt", show.gross_trade_amt, "Parse and add Gross Trade Amt to protocol tree")
@@ -577,10 +551,6 @@ omi_cme_futures_ilink3_sbe_v8_6.prefs.show_group_size = Pref.bool("Show Group Si
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_leg_option_delta = Pref.bool("Show Leg Option Delta", show.leg_option_delta, "Parse and add Leg Option Delta to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote = Pref.bool("Show Mass Quote", show.mass_quote, "Parse and add Mass Quote to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_ack = Pref.bool("Show Mass Quote Ack", show.mass_quote_ack, "Parse and add Mass Quote Ack to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_ack_entry_group = Pref.bool("Show Mass Quote Ack Entry Group", show.mass_quote_ack_entry_group, "Parse and add Mass Quote Ack Entry Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_ack_entry_groups = Pref.bool("Show Mass Quote Ack Entry Groups", show.mass_quote_ack_entry_groups, "Parse and add Mass Quote Ack Entry Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_entry_group = Pref.bool("Show Mass Quote Entry Group", show.mass_quote_entry_group, "Parse and add Mass Quote Entry Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_entry_groups = Pref.bool("Show Mass Quote Entry Groups", show.mass_quote_entry_groups, "Parse and add Mass Quote Entry Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_negotiate = Pref.bool("Show Negotiate", show.negotiate, "Parse and add Negotiate to protocol tree")
@@ -598,6 +568,10 @@ omi_cme_futures_ilink3_sbe_v8_6.prefs.show_order_mass_action_report = Pref.bool(
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_order_mass_action_request = Pref.bool("Show Order Mass Action Request", show.order_mass_action_request, "Parse and add Order Mass Action Request to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_order_mass_status_request = Pref.bool("Show Order Mass Status Request", show.order_mass_status_request, "Parse and add Order Mass Status Request to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_order_status_request = Pref.bool("Show Order Status Request", show.order_status_request, "Parse and add Order Status Request to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_order_events_group = Pref.bool("Show Outright Order Events Group", show.outright_order_events_group, "Parse and add Outright Order Events Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_order_events_groups = Pref.bool("Show Outright Order Events Groups", show.outright_order_events_groups, "Parse and add Outright Order Events Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_trade_events_group = Pref.bool("Show Outright Trade Events Group", show.outright_trade_events_group, "Parse and add Outright Trade Events Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_trade_events_groups = Pref.bool("Show Outright Trade Events Groups", show.outright_trade_events_groups, "Parse and add Outright Trade Events Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_details_definition_request = Pref.bool("Show Party Details Definition Request", show.party_details_definition_request, "Parse and add Party Details Definition Request to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_details_definition_request_ack = Pref.bool("Show Party Details Definition Request Ack", show.party_details_definition_request_ack, "Parse and add Party Details Definition Request Ack to protocol tree")
@@ -605,41 +579,53 @@ omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_details_group = Pref.bool("Show
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_details_groups = Pref.bool("Show Party Details Groups", show.party_details_groups, "Parse and add Party Details Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_details_list_report = Pref.bool("Show Party Details List Report", show.party_details_list_report, "Parse and add Party Details List Report to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_details_list_request = Pref.bool("Show Party Details List Request", show.party_details_list_request, "Parse and add Party Details List Request to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_i_ds_group = Pref.bool("Show Party I Ds Group", show.party_i_ds_group, "Parse and add Party I Ds Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_i_ds_groups = Pref.bool("Show Party I Ds Groups", show.party_i_ds_groups, "Parse and add Party I Ds Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_ids_group = Pref.bool("Show Party Ids Group", show.party_ids_group, "Parse and add Party Ids Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_ids_groups = Pref.bool("Show Party Ids Groups", show.party_ids_groups, "Parse and add Party Ids Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_ack_entries_group = Pref.bool("Show Quote Ack Entries Group", show.quote_ack_entries_group, "Parse and add Quote Ack Entries Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_ack_entries_groups = Pref.bool("Show Quote Ack Entries Groups", show.quote_ack_entries_groups, "Parse and add Quote Ack Entries Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel = Pref.bool("Show Quote Cancel", show.quote_cancel, "Parse and add Quote Cancel to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack = Pref.bool("Show Quote Cancel Ack", show.quote_cancel_ack, "Parse and add Quote Cancel Ack to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entry_group = Pref.bool("Show Quote Cancel Ack Entry Group", show.quote_cancel_ack_entry_group, "Parse and add Quote Cancel Ack Entry Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entry_groups = Pref.bool("Show Quote Cancel Ack Entry Groups", show.quote_cancel_ack_entry_groups, "Parse and add Quote Cancel Ack Entry Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_set_group = Pref.bool("Show Quote Cancel Ack Set Group", show.quote_cancel_ack_set_group, "Parse and add Quote Cancel Ack Set Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_set_groups = Pref.bool("Show Quote Cancel Ack Set Groups", show.quote_cancel_ack_set_groups, "Parse and add Quote Cancel Ack Set Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entry_group = Pref.bool("Show Quote Cancel Entry Group", show.quote_cancel_entry_group, "Parse and add Quote Cancel Entry Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entry_groups = Pref.bool("Show Quote Cancel Entry Groups", show.quote_cancel_entry_groups, "Parse and add Quote Cancel Entry Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_set_group = Pref.bool("Show Quote Cancel Set Group", show.quote_cancel_set_group, "Parse and add Quote Cancel Set Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_set_groups = Pref.bool("Show Quote Cancel Set Groups", show.quote_cancel_set_groups, "Parse and add Quote Cancel Set Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entries_group = Pref.bool("Show Quote Cancel Ack Entries Group", show.quote_cancel_ack_entries_group, "Parse and add Quote Cancel Ack Entries Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entries_groups = Pref.bool("Show Quote Cancel Ack Entries Groups", show.quote_cancel_ack_entries_groups, "Parse and add Quote Cancel Ack Entries Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_sets_group = Pref.bool("Show Quote Cancel Ack Sets Group", show.quote_cancel_ack_sets_group, "Parse and add Quote Cancel Ack Sets Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_sets_groups = Pref.bool("Show Quote Cancel Ack Sets Groups", show.quote_cancel_ack_sets_groups, "Parse and add Quote Cancel Ack Sets Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entries_group = Pref.bool("Show Quote Cancel Entries Group", show.quote_cancel_entries_group, "Parse and add Quote Cancel Entries Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entries_groups = Pref.bool("Show Quote Cancel Entries Groups", show.quote_cancel_entries_groups, "Parse and add Quote Cancel Entries Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_sets_group = Pref.bool("Show Quote Cancel Sets Group", show.quote_cancel_sets_group, "Parse and add Quote Cancel Sets Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_sets_groups = Pref.bool("Show Quote Cancel Sets Groups", show.quote_cancel_sets_groups, "Parse and add Quote Cancel Sets Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_entries_group = Pref.bool("Show Quote Entries Group", show.quote_entries_group, "Parse and add Quote Entries Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_entries_groups = Pref.bool("Show Quote Entries Groups", show.quote_entries_groups, "Parse and add Quote Entries Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_request_for_quote = Pref.bool("Show Request For Quote", show.request_for_quote, "Parse and add Request For Quote to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_request_for_quote_ack = Pref.bool("Show Request For Quote Ack", show.request_for_quote_ack, "Parse and add Request For Quote Ack to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_i_ds_group = Pref.bool("Show Requesting Party I Ds Group", show.requesting_party_i_ds_group, "Parse and add Requesting Party I Ds Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_i_ds_groups = Pref.bool("Show Requesting Party I Ds Groups", show.requesting_party_i_ds_groups, "Parse and add Requesting Party I Ds Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_request_legs_group = Pref.bool("Show Request Legs Group", show.request_legs_group, "Parse and add Request Legs Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_request_legs_groups = Pref.bool("Show Request Legs Groups", show.request_legs_groups, "Parse and add Request Legs Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_ids_group = Pref.bool("Show Requesting Party Ids Group", show.requesting_party_ids_group, "Parse and add Requesting Party Ids Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_ids_groups = Pref.bool("Show Requesting Party Ids Groups", show.requesting_party_ids_groups, "Parse and add Requesting Party Ids Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_response_legs_group = Pref.bool("Show Response Legs Group", show.response_legs_group, "Parse and add Response Legs Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_response_legs_groups = Pref.bool("Show Response Legs Groups", show.response_legs_groups, "Parse and add Response Legs Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_retransmission = Pref.bool("Show Retransmission", show.retransmission, "Parse and add Retransmission to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_retransmit_reject = Pref.bool("Show Retransmit Reject", show.retransmit_reject, "Parse and add Retransmit Reject to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_retransmit_request = Pref.bool("Show Retransmit Request", show.retransmit_request, "Parse and add Retransmit Request to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_risk_free_rate = Pref.bool("Show Risk Free Rate", show.risk_free_rate, "Parse and add Risk Free Rate to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_request = Pref.bool("Show Security Definition Request", show.security_definition_request, "Parse and add Security Definition Request to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_request_leg_group = Pref.bool("Show Security Definition Request Leg Group", show.security_definition_request_leg_group, "Parse and add Security Definition Request Leg Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_request_leg_groups = Pref.bool("Show Security Definition Request Leg Groups", show.security_definition_request_leg_groups, "Parse and add Security Definition Request Leg Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_response = Pref.bool("Show Security Definition Response", show.security_definition_response, "Parse and add Security Definition Response to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_response_leg_group = Pref.bool("Show Security Definition Response Leg Group", show.security_definition_response_leg_group, "Parse and add Security Definition Response Leg Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_response_leg_groups = Pref.bool("Show Security Definition Response Leg Groups", show.security_definition_response_leg_groups, "Parse and add Security Definition Response Leg Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_sequence = Pref.bool("Show Sequence", show.sequence, "Parse and add Sequence to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_sides_group = Pref.bool("Show Sides Group", show.sides_group, "Parse and add Sides Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_sides_groups = Pref.bool("Show Sides Groups", show.sides_groups, "Parse and add Sides Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_simple_open_frame = Pref.bool("Show Simple Open Frame", show.simple_open_frame, "Parse and add Simple Open Frame to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_simple_open_framing_header = Pref.bool("Show Simple Open Framing Header", show.simple_open_framing_header, "Parse and add Simple Open Framing Header to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_order_events_group = Pref.bool("Show Spread Order Events Group", show.spread_order_events_group, "Parse and add Spread Order Events Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_order_events_groups = Pref.bool("Show Spread Order Events Groups", show.spread_order_events_groups, "Parse and add Spread Order Events Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_trade_events_group = Pref.bool("Show Spread Trade Events Group", show.spread_trade_events_group, "Parse and add Spread Trade Events Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_trade_events_groups = Pref.bool("Show Spread Trade Events Groups", show.spread_trade_events_groups, "Parse and add Spread Trade Events Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_terminate = Pref.bool("Show Terminate", show.terminate, "Parse and add Terminate to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_time_to_expiration = Pref.bool("Show Time To Expiration", show.time_to_expiration, "Parse and add Time To Expiration to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_addendum_legs_group = Pref.bool("Show Trade Addendum Legs Group", show.trade_addendum_legs_group, "Parse and add Trade Addendum Legs Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_addendum_legs_groups = Pref.bool("Show Trade Addendum Legs Groups", show.trade_addendum_legs_groups, "Parse and add Trade Addendum Legs Groups to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_legs_group = Pref.bool("Show Trade Legs Group", show.trade_legs_group, "Parse and add Trade Legs Group to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_legs_groups = Pref.bool("Show Trade Legs Groups", show.trade_legs_groups, "Parse and add Trade Legs Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trd_reg_publications_group = Pref.bool("Show Trd Reg Publications Group", show.trd_reg_publications_group, "Parse and add Trd Reg Publications Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trd_reg_publications_groups = Pref.bool("Show Trd Reg Publications Groups", show.trd_reg_publications_groups, "Parse and add Trd Reg Publications Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_6.prefs.show_volatility = Pref.bool("Show Volatility", show.volatility, "Parse and add Volatility to protocol tree")
@@ -734,14 +720,6 @@ function omi_cme_futures_ilink3_sbe_v8_6.prefs_changed()
     show.execution_report_trade_addendum_outright = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_outright
     changed = true
   end
-  if show.execution_report_trade_addendum_outright_order_event_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_outright_order_event_group then
-    show.execution_report_trade_addendum_outright_order_event_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_outright_order_event_group
-    changed = true
-  end
-  if show.execution_report_trade_addendum_outright_order_event_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_outright_order_event_groups then
-    show.execution_report_trade_addendum_outright_order_event_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_outright_order_event_groups
-    changed = true
-  end
   if show.execution_report_trade_addendum_spread ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread then
     show.execution_report_trade_addendum_spread = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread
     changed = true
@@ -750,40 +728,8 @@ function omi_cme_futures_ilink3_sbe_v8_6.prefs_changed()
     show.execution_report_trade_addendum_spread_leg = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg
     changed = true
   end
-  if show.execution_report_trade_addendum_spread_leg_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_group then
-    show.execution_report_trade_addendum_spread_leg_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_group
-    changed = true
-  end
-  if show.execution_report_trade_addendum_spread_leg_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_groups then
-    show.execution_report_trade_addendum_spread_leg_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_groups
-    changed = true
-  end
-  if show.execution_report_trade_addendum_spread_leg_order_event_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_order_event_group then
-    show.execution_report_trade_addendum_spread_leg_order_event_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_order_event_group
-    changed = true
-  end
-  if show.execution_report_trade_addendum_spread_leg_order_event_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_order_event_groups then
-    show.execution_report_trade_addendum_spread_leg_order_event_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_leg_order_event_groups
-    changed = true
-  end
-  if show.execution_report_trade_addendum_spread_order_event_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_order_event_group then
-    show.execution_report_trade_addendum_spread_order_event_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_order_event_group
-    changed = true
-  end
-  if show.execution_report_trade_addendum_spread_order_event_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_order_event_groups then
-    show.execution_report_trade_addendum_spread_order_event_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_addendum_spread_order_event_groups
-    changed = true
-  end
   if show.execution_report_trade_outright ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_outright then
     show.execution_report_trade_outright = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_outright
-    changed = true
-  end
-  if show.execution_report_trade_outright_order_event_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_outright_order_event_group then
-    show.execution_report_trade_outright_order_event_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_outright_order_event_group
-    changed = true
-  end
-  if show.execution_report_trade_outright_order_event_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_outright_order_event_groups then
-    show.execution_report_trade_outright_order_event_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_outright_order_event_groups
     changed = true
   end
   if show.execution_report_trade_spread ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread then
@@ -792,30 +738,6 @@ function omi_cme_futures_ilink3_sbe_v8_6.prefs_changed()
   end
   if show.execution_report_trade_spread_leg ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg then
     show.execution_report_trade_spread_leg = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg
-    changed = true
-  end
-  if show.execution_report_trade_spread_leg_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_group then
-    show.execution_report_trade_spread_leg_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_group
-    changed = true
-  end
-  if show.execution_report_trade_spread_leg_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_groups then
-    show.execution_report_trade_spread_leg_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_groups
-    changed = true
-  end
-  if show.execution_report_trade_spread_leg_order_event_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_order_event_group then
-    show.execution_report_trade_spread_leg_order_event_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_order_event_group
-    changed = true
-  end
-  if show.execution_report_trade_spread_leg_order_event_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_order_event_groups then
-    show.execution_report_trade_spread_leg_order_event_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_leg_order_event_groups
-    changed = true
-  end
-  if show.execution_report_trade_spread_order_event_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_order_event_group then
-    show.execution_report_trade_spread_order_event_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_order_event_group
-    changed = true
-  end
-  if show.execution_report_trade_spread_order_event_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_order_event_groups then
-    show.execution_report_trade_spread_order_event_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_execution_report_trade_spread_order_event_groups
     changed = true
   end
   if show.fills_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_fills_group then
@@ -844,22 +766,6 @@ function omi_cme_futures_ilink3_sbe_v8_6.prefs_changed()
   end
   if show.mass_quote_ack ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_ack then
     show.mass_quote_ack = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_ack
-    changed = true
-  end
-  if show.mass_quote_ack_entry_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_ack_entry_group then
-    show.mass_quote_ack_entry_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_ack_entry_group
-    changed = true
-  end
-  if show.mass_quote_ack_entry_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_ack_entry_groups then
-    show.mass_quote_ack_entry_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_ack_entry_groups
-    changed = true
-  end
-  if show.mass_quote_entry_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_entry_group then
-    show.mass_quote_entry_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_entry_group
-    changed = true
-  end
-  if show.mass_quote_entry_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_entry_groups then
-    show.mass_quote_entry_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_mass_quote_entry_groups
     changed = true
   end
   if show.maturity_month_year ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_maturity_month_year then
@@ -930,6 +836,22 @@ function omi_cme_futures_ilink3_sbe_v8_6.prefs_changed()
     show.order_status_request = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_order_status_request
     changed = true
   end
+  if show.outright_order_events_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_order_events_group then
+    show.outright_order_events_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_order_events_group
+    changed = true
+  end
+  if show.outright_order_events_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_order_events_groups then
+    show.outright_order_events_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_order_events_groups
+    changed = true
+  end
+  if show.outright_trade_events_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_trade_events_group then
+    show.outright_trade_events_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_trade_events_group
+    changed = true
+  end
+  if show.outright_trade_events_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_trade_events_groups then
+    show.outright_trade_events_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_outright_trade_events_groups
+    changed = true
+  end
   if show.packet ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_packet then
     show.packet = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_packet
     changed = true
@@ -958,12 +880,20 @@ function omi_cme_futures_ilink3_sbe_v8_6.prefs_changed()
     show.party_details_list_request = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_details_list_request
     changed = true
   end
-  if show.party_i_ds_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_i_ds_group then
-    show.party_i_ds_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_i_ds_group
+  if show.party_ids_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_ids_group then
+    show.party_ids_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_ids_group
     changed = true
   end
-  if show.party_i_ds_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_i_ds_groups then
-    show.party_i_ds_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_i_ds_groups
+  if show.party_ids_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_ids_groups then
+    show.party_ids_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_party_ids_groups
+    changed = true
+  end
+  if show.quote_ack_entries_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_ack_entries_group then
+    show.quote_ack_entries_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_ack_entries_group
+    changed = true
+  end
+  if show.quote_ack_entries_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_ack_entries_groups then
+    show.quote_ack_entries_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_ack_entries_groups
     changed = true
   end
   if show.quote_cancel ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel then
@@ -974,36 +904,44 @@ function omi_cme_futures_ilink3_sbe_v8_6.prefs_changed()
     show.quote_cancel_ack = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack
     changed = true
   end
-  if show.quote_cancel_ack_entry_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entry_group then
-    show.quote_cancel_ack_entry_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entry_group
+  if show.quote_cancel_ack_entries_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entries_group then
+    show.quote_cancel_ack_entries_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entries_group
     changed = true
   end
-  if show.quote_cancel_ack_entry_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entry_groups then
-    show.quote_cancel_ack_entry_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entry_groups
+  if show.quote_cancel_ack_entries_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entries_groups then
+    show.quote_cancel_ack_entries_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entries_groups
     changed = true
   end
-  if show.quote_cancel_ack_set_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_set_group then
-    show.quote_cancel_ack_set_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_set_group
+  if show.quote_cancel_ack_sets_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_sets_group then
+    show.quote_cancel_ack_sets_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_sets_group
     changed = true
   end
-  if show.quote_cancel_ack_set_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_set_groups then
-    show.quote_cancel_ack_set_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_set_groups
+  if show.quote_cancel_ack_sets_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_sets_groups then
+    show.quote_cancel_ack_sets_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_sets_groups
     changed = true
   end
-  if show.quote_cancel_entry_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entry_group then
-    show.quote_cancel_entry_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entry_group
+  if show.quote_cancel_entries_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entries_group then
+    show.quote_cancel_entries_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entries_group
     changed = true
   end
-  if show.quote_cancel_entry_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entry_groups then
-    show.quote_cancel_entry_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entry_groups
+  if show.quote_cancel_entries_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entries_groups then
+    show.quote_cancel_entries_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_entries_groups
     changed = true
   end
-  if show.quote_cancel_set_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_set_group then
-    show.quote_cancel_set_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_set_group
+  if show.quote_cancel_sets_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_sets_group then
+    show.quote_cancel_sets_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_sets_group
     changed = true
   end
-  if show.quote_cancel_set_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_set_groups then
-    show.quote_cancel_set_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_set_groups
+  if show.quote_cancel_sets_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_sets_groups then
+    show.quote_cancel_sets_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_cancel_sets_groups
+    changed = true
+  end
+  if show.quote_entries_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_entries_group then
+    show.quote_entries_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_entries_group
+    changed = true
+  end
+  if show.quote_entries_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_entries_groups then
+    show.quote_entries_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_quote_entries_groups
     changed = true
   end
   if show.related_sym_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_related_sym_group then
@@ -1022,12 +960,28 @@ function omi_cme_futures_ilink3_sbe_v8_6.prefs_changed()
     show.request_for_quote_ack = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_request_for_quote_ack
     changed = true
   end
-  if show.requesting_party_i_ds_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_i_ds_group then
-    show.requesting_party_i_ds_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_i_ds_group
+  if show.request_legs_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_request_legs_group then
+    show.request_legs_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_request_legs_group
     changed = true
   end
-  if show.requesting_party_i_ds_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_i_ds_groups then
-    show.requesting_party_i_ds_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_i_ds_groups
+  if show.request_legs_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_request_legs_groups then
+    show.request_legs_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_request_legs_groups
+    changed = true
+  end
+  if show.requesting_party_ids_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_ids_group then
+    show.requesting_party_ids_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_ids_group
+    changed = true
+  end
+  if show.requesting_party_ids_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_ids_groups then
+    show.requesting_party_ids_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_requesting_party_ids_groups
+    changed = true
+  end
+  if show.response_legs_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_response_legs_group then
+    show.response_legs_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_response_legs_group
+    changed = true
+  end
+  if show.response_legs_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_response_legs_groups then
+    show.response_legs_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_response_legs_groups
     changed = true
   end
   if show.retransmission ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_retransmission then
@@ -1050,24 +1004,8 @@ function omi_cme_futures_ilink3_sbe_v8_6.prefs_changed()
     show.security_definition_request = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_request
     changed = true
   end
-  if show.security_definition_request_leg_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_request_leg_group then
-    show.security_definition_request_leg_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_request_leg_group
-    changed = true
-  end
-  if show.security_definition_request_leg_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_request_leg_groups then
-    show.security_definition_request_leg_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_request_leg_groups
-    changed = true
-  end
   if show.security_definition_response ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_response then
     show.security_definition_response = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_response
-    changed = true
-  end
-  if show.security_definition_response_leg_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_response_leg_group then
-    show.security_definition_response_leg_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_response_leg_group
-    changed = true
-  end
-  if show.security_definition_response_leg_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_response_leg_groups then
-    show.security_definition_response_leg_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_security_definition_response_leg_groups
     changed = true
   end
   if show.sequence ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_sequence then
@@ -1090,12 +1028,44 @@ function omi_cme_futures_ilink3_sbe_v8_6.prefs_changed()
     show.simple_open_framing_header = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_simple_open_framing_header
     changed = true
   end
+  if show.spread_order_events_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_order_events_group then
+    show.spread_order_events_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_order_events_group
+    changed = true
+  end
+  if show.spread_order_events_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_order_events_groups then
+    show.spread_order_events_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_order_events_groups
+    changed = true
+  end
+  if show.spread_trade_events_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_trade_events_group then
+    show.spread_trade_events_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_trade_events_group
+    changed = true
+  end
+  if show.spread_trade_events_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_trade_events_groups then
+    show.spread_trade_events_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_spread_trade_events_groups
+    changed = true
+  end
   if show.terminate ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_terminate then
     show.terminate = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_terminate
     changed = true
   end
   if show.time_to_expiration ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_time_to_expiration then
     show.time_to_expiration = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_time_to_expiration
+    changed = true
+  end
+  if show.trade_addendum_legs_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_addendum_legs_group then
+    show.trade_addendum_legs_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_addendum_legs_group
+    changed = true
+  end
+  if show.trade_addendum_legs_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_addendum_legs_groups then
+    show.trade_addendum_legs_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_addendum_legs_groups
+    changed = true
+  end
+  if show.trade_legs_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_legs_group then
+    show.trade_legs_group = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_legs_group
+    changed = true
+  end
+  if show.trade_legs_groups ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_legs_groups then
+    show.trade_legs_groups = omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trade_legs_groups
     changed = true
   end
   if show.trd_reg_publications_group ~= omi_cme_futures_ilink3_sbe_v8_6.prefs.show_trd_reg_publications_group then
@@ -2427,26 +2397,26 @@ cme_futures_ilink3_sbe_v8_6.quote_set_id.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Quote Cancel Ack Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group = {}
+-- Quote Cancel Ack Sets Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_group = {}
 
--- Size: Quote Cancel Ack Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.size =
+-- Size: Quote Cancel Ack Sets Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_group.size =
   cme_futures_ilink3_sbe_v8_6.quote_set_id.size + 
   cme_futures_ilink3_sbe_v8_6.quote_error_code.size
 
--- Display: Quote Cancel Ack Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.display = function(packet, parent, length)
+-- Display: Quote Cancel Ack Sets Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Ack Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.fields = function(buffer, offset, packet, parent, quote_cancel_ack_set_group_index)
+-- Dissect Fields: Quote Cancel Ack Sets Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_group.fields = function(buffer, offset, packet, parent, quote_cancel_ack_sets_group_index)
   local index = offset
 
-  -- Implicit Quote Cancel Ack Set Group Index
-  if quote_cancel_ack_set_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_set_group_index, quote_cancel_ack_set_group_index)
+  -- Implicit Quote Cancel Ack Sets Group Index
+  if quote_cancel_ack_sets_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_sets_group_index, quote_cancel_ack_sets_group_index)
     iteration:set_generated()
   end
 
@@ -2459,21 +2429,21 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.fields = function(buffer,
   return index
 end
 
--- Dissect: Quote Cancel Ack Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.dissect = function(buffer, offset, packet, parent, quote_cancel_ack_set_group_index)
-  if show.quote_cancel_ack_set_group then
+-- Dissect: Quote Cancel Ack Sets Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_group.dissect = function(buffer, offset, packet, parent, quote_cancel_ack_sets_group_index)
+  if show.quote_cancel_ack_sets_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_set_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.fields(buffer, offset, packet, parent, quote_cancel_ack_set_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_sets_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_group.fields(buffer, offset, packet, parent, quote_cancel_ack_sets_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.fields(buffer, offset, packet, parent, quote_cancel_ack_set_group_index)
+    return cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_group.fields(buffer, offset, packet, parent, quote_cancel_ack_sets_group_index)
   end
 end
 
@@ -2567,29 +2537,29 @@ cme_futures_ilink3_sbe_v8_6.group_size.dissect = function(buffer, offset, packet
   end
 end
 
--- Quote Cancel Ack Set Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups = {}
+-- Quote Cancel Ack Sets Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_groups = {}
 
--- Calculate size of: Quote Cancel Ack Set Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.size = function(buffer, offset)
+-- Calculate size of: Quote Cancel Ack Sets Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local quote_cancel_ack_set_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_cancel_ack_set_group_count * 4
+  local quote_cancel_ack_sets_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_ack_sets_group_count * 4
 
   return index
 end
 
--- Display: Quote Cancel Ack Set Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.display = function(packet, parent, length)
+-- Display: Quote Cancel Ack Sets Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Ack Set Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancel Ack Sets Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -2598,25 +2568,25 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.fields = function(buffer
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Quote Cancel Ack Set Group
-  for quote_cancel_ack_set_group_index = 1, num_in_group do
-    index, quote_cancel_ack_set_group = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_group.dissect(buffer, index, packet, parent, quote_cancel_ack_set_group_index)
+  -- Repeating: Quote Cancel Ack Sets Group
+  for quote_cancel_ack_sets_group_index = 1, num_in_group do
+    index, quote_cancel_ack_sets_group = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_group.dissect(buffer, index, packet, parent, quote_cancel_ack_sets_group_index)
   end
 
   return index
 end
 
--- Dissect: Quote Cancel Ack Set Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancel Ack Sets Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.quote_cancel_ack_set_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.size(buffer, offset)
+  if show.quote_cancel_ack_sets_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_set_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_sets_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Quote Entry Reject Reason
@@ -2665,27 +2635,27 @@ cme_futures_ilink3_sbe_v8_6.quote_entry_id.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Quote Cancel Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group = {}
+-- Quote Cancel Ack Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_group = {}
 
--- Size: Quote Cancel Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.size =
+-- Size: Quote Cancel Ack Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_group.size =
   cme_futures_ilink3_sbe_v8_6.quote_entry_id.size + 
   cme_futures_ilink3_sbe_v8_6.security_id.size + 
   cme_futures_ilink3_sbe_v8_6.quote_entry_reject_reason.size
 
--- Display: Quote Cancel Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.display = function(packet, parent, length)
+-- Display: Quote Cancel Ack Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.fields = function(buffer, offset, packet, parent, quote_cancel_ack_entry_group_index)
+-- Dissect Fields: Quote Cancel Ack Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_group.fields = function(buffer, offset, packet, parent, quote_cancel_ack_entries_group_index)
   local index = offset
 
-  -- Implicit Quote Cancel Ack Entry Group Index
-  if quote_cancel_ack_entry_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entry_group_index, quote_cancel_ack_entry_group_index)
+  -- Implicit Quote Cancel Ack Entries Group Index
+  if quote_cancel_ack_entries_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entries_group_index, quote_cancel_ack_entries_group_index)
     iteration:set_generated()
   end
 
@@ -2701,47 +2671,47 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.fields = function(buffe
   return index
 end
 
--- Dissect: Quote Cancel Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.dissect = function(buffer, offset, packet, parent, quote_cancel_ack_entry_group_index)
-  if show.quote_cancel_ack_entry_group then
+-- Dissect: Quote Cancel Ack Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_group.dissect = function(buffer, offset, packet, parent, quote_cancel_ack_entries_group_index)
+  if show.quote_cancel_ack_entries_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entry_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.fields(buffer, offset, packet, parent, quote_cancel_ack_entry_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entries_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_group.fields(buffer, offset, packet, parent, quote_cancel_ack_entries_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.fields(buffer, offset, packet, parent, quote_cancel_ack_entry_group_index)
+    return cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_group.fields(buffer, offset, packet, parent, quote_cancel_ack_entries_group_index)
   end
 end
 
--- Quote Cancel Ack Entry Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups = {}
+-- Quote Cancel Ack Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_groups = {}
 
--- Calculate size of: Quote Cancel Ack Entry Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.size = function(buffer, offset)
+-- Calculate size of: Quote Cancel Ack Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local quote_cancel_ack_entry_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_cancel_ack_entry_group_count * 9
+  local quote_cancel_ack_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_ack_entries_group_count * 9
 
   return index
 end
 
--- Display: Quote Cancel Ack Entry Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.display = function(packet, parent, length)
+-- Display: Quote Cancel Ack Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Ack Entry Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancel Ack Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -2750,25 +2720,25 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.fields = function(buff
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Quote Cancel Ack Entry Group
-  for quote_cancel_ack_entry_group_index = 1, num_in_group do
-    index, quote_cancel_ack_entry_group = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_group.dissect(buffer, index, packet, parent, quote_cancel_ack_entry_group_index)
+  -- Repeating: Quote Cancel Ack Entries Group
+  for quote_cancel_ack_entries_group_index = 1, num_in_group do
+    index, quote_cancel_ack_entries_group = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_group.dissect(buffer, index, packet, parent, quote_cancel_ack_entries_group_index)
   end
 
   return index
 end
 
--- Dissect: Quote Cancel Ack Entry Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancel Ack Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.quote_cancel_ack_entry_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.size(buffer, offset)
+  if show.quote_cancel_ack_entries_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entry_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_ack_entries_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Tot No Quote Entries Optional
@@ -3158,9 +3128,9 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_ack.size = function(buffer, offset)
 
   index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_groups.size(buffer, offset + index)
 
   return index
 end
@@ -3240,11 +3210,11 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_ack.fields = function(buffer, offset, p
   -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, delay_to_time = cme_futures_ilink3_sbe_v8_6.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Quote Cancel Ack Entry Groups: Struct of 2 fields
-  index, quote_cancel_ack_entry_groups = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entry_groups.dissect(buffer, index, packet, parent)
+  -- Quote Cancel Ack Entries Groups: Struct of 2 fields
+  index, quote_cancel_ack_entries_groups = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_entries_groups.dissect(buffer, index, packet, parent)
 
-  -- Quote Cancel Ack Set Groups: Struct of 2 fields
-  index, quote_cancel_ack_set_groups = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_set_groups.dissect(buffer, index, packet, parent)
+  -- Quote Cancel Ack Sets Groups: Struct of 2 fields
+  index, quote_cancel_ack_sets_groups = cme_futures_ilink3_sbe_v8_6.quote_cancel_ack_sets_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4271,29 +4241,29 @@ cme_futures_ilink3_sbe_v8_6.leg_price.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Security Definition Response Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group = {}
+-- Response Legs Group
+cme_futures_ilink3_sbe_v8_6.response_legs_group = {}
 
--- Size: Security Definition Response Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.size =
+-- Size: Response Legs Group
+cme_futures_ilink3_sbe_v8_6.response_legs_group.size =
   cme_futures_ilink3_sbe_v8_6.leg_price.size + 
   cme_futures_ilink3_sbe_v8_6.leg_option_delta.size + 
   cme_futures_ilink3_sbe_v8_6.leg_security_id.size + 
   cme_futures_ilink3_sbe_v8_6.leg_side.size + 
   cme_futures_ilink3_sbe_v8_6.leg_ratio_qty.size
 
--- Display: Security Definition Response Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.display = function(packet, parent, length)
+-- Display: Response Legs Group
+cme_futures_ilink3_sbe_v8_6.response_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Response Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.fields = function(buffer, offset, packet, parent, security_definition_response_leg_group_index)
+-- Dissect Fields: Response Legs Group
+cme_futures_ilink3_sbe_v8_6.response_legs_group.fields = function(buffer, offset, packet, parent, response_legs_group_index)
   local index = offset
 
-  -- Implicit Security Definition Response Leg Group Index
-  if security_definition_response_leg_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_response_leg_group_index, security_definition_response_leg_group_index)
+  -- Implicit Response Legs Group Index
+  if response_legs_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.response_legs_group_index, response_legs_group_index)
     iteration:set_generated()
   end
 
@@ -4315,47 +4285,47 @@ cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.fields = func
   return index
 end
 
--- Dissect: Security Definition Response Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.dissect = function(buffer, offset, packet, parent, security_definition_response_leg_group_index)
-  if show.security_definition_response_leg_group then
+-- Dissect: Response Legs Group
+cme_futures_ilink3_sbe_v8_6.response_legs_group.dissect = function(buffer, offset, packet, parent, response_legs_group_index)
+  if show.response_legs_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_response_leg_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.fields(buffer, offset, packet, parent, security_definition_response_leg_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.response_legs_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.response_legs_group.fields(buffer, offset, packet, parent, response_legs_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.response_legs_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.fields(buffer, offset, packet, parent, security_definition_response_leg_group_index)
+    return cme_futures_ilink3_sbe_v8_6.response_legs_group.fields(buffer, offset, packet, parent, response_legs_group_index)
   end
 end
 
--- Security Definition Response Leg Groups
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups = {}
+-- Response Legs Groups
+cme_futures_ilink3_sbe_v8_6.response_legs_groups = {}
 
--- Calculate size of: Security Definition Response Leg Groups
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.size = function(buffer, offset)
+-- Calculate size of: Response Legs Groups
+cme_futures_ilink3_sbe_v8_6.response_legs_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local security_definition_response_leg_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + security_definition_response_leg_group_count * 19
+  local response_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + response_legs_group_count * 19
 
   return index
 end
 
--- Display: Security Definition Response Leg Groups
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.display = function(packet, parent, length)
+-- Display: Response Legs Groups
+cme_futures_ilink3_sbe_v8_6.response_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Response Leg Groups
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Response Legs Groups
+cme_futures_ilink3_sbe_v8_6.response_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -4364,25 +4334,25 @@ cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.fields = fun
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Security Definition Response Leg Group
-  for security_definition_response_leg_group_index = 1, num_in_group do
-    index, security_definition_response_leg_group = cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_group.dissect(buffer, index, packet, parent, security_definition_response_leg_group_index)
+  -- Repeating: Response Legs Group
+  for response_legs_group_index = 1, num_in_group do
+    index, response_legs_group = cme_futures_ilink3_sbe_v8_6.response_legs_group.dissect(buffer, index, packet, parent, response_legs_group_index)
   end
 
   return index
 end
 
--- Dissect: Security Definition Response Leg Groups
-cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Response Legs Groups
+cme_futures_ilink3_sbe_v8_6.response_legs_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.security_definition_response_leg_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.size(buffer, offset)
+  if show.response_legs_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.response_legs_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_response_leg_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.response_legs_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.response_legs_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.response_legs_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Auto Quote Request
@@ -5061,7 +5031,7 @@ cme_futures_ilink3_sbe_v8_6.security_definition_response.size = function(buffer,
 
   index = index + cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.response_legs_groups.size(buffer, offset + index)
 
   return index
 end
@@ -5159,8 +5129,8 @@ cme_futures_ilink3_sbe_v8_6.security_definition_response.fields = function(buffe
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_6.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Security Definition Response Leg Groups: Struct of 2 fields
-  index, security_definition_response_leg_groups = cme_futures_ilink3_sbe_v8_6.security_definition_response_leg_groups.dissect(buffer, index, packet, parent)
+  -- Response Legs Groups: Struct of 2 fields
+  index, response_legs_groups = cme_futures_ilink3_sbe_v8_6.response_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5178,29 +5148,29 @@ cme_futures_ilink3_sbe_v8_6.security_definition_response.dissect = function(buff
   return cme_futures_ilink3_sbe_v8_6.security_definition_response.fields(buffer, offset, packet, parent)
 end
 
--- Security Definition Request Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group = {}
+-- Request Legs Group
+cme_futures_ilink3_sbe_v8_6.request_legs_group = {}
 
--- Size: Security Definition Request Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.size =
+-- Size: Request Legs Group
+cme_futures_ilink3_sbe_v8_6.request_legs_group.size =
   cme_futures_ilink3_sbe_v8_6.leg_price.size + 
   cme_futures_ilink3_sbe_v8_6.leg_security_id.size + 
   cme_futures_ilink3_sbe_v8_6.leg_option_delta.size + 
   cme_futures_ilink3_sbe_v8_6.leg_side.size + 
   cme_futures_ilink3_sbe_v8_6.leg_ratio_qty.size
 
--- Display: Security Definition Request Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.display = function(packet, parent, length)
+-- Display: Request Legs Group
+cme_futures_ilink3_sbe_v8_6.request_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Request Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.fields = function(buffer, offset, packet, parent, security_definition_request_leg_group_index)
+-- Dissect Fields: Request Legs Group
+cme_futures_ilink3_sbe_v8_6.request_legs_group.fields = function(buffer, offset, packet, parent, request_legs_group_index)
   local index = offset
 
-  -- Implicit Security Definition Request Leg Group Index
-  if security_definition_request_leg_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_request_leg_group_index, security_definition_request_leg_group_index)
+  -- Implicit Request Legs Group Index
+  if request_legs_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.request_legs_group_index, request_legs_group_index)
     iteration:set_generated()
   end
 
@@ -5222,47 +5192,47 @@ cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.fields = funct
   return index
 end
 
--- Dissect: Security Definition Request Leg Group
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.dissect = function(buffer, offset, packet, parent, security_definition_request_leg_group_index)
-  if show.security_definition_request_leg_group then
+-- Dissect: Request Legs Group
+cme_futures_ilink3_sbe_v8_6.request_legs_group.dissect = function(buffer, offset, packet, parent, request_legs_group_index)
+  if show.request_legs_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_request_leg_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.fields(buffer, offset, packet, parent, security_definition_request_leg_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.request_legs_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.request_legs_group.fields(buffer, offset, packet, parent, request_legs_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.request_legs_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.fields(buffer, offset, packet, parent, security_definition_request_leg_group_index)
+    return cme_futures_ilink3_sbe_v8_6.request_legs_group.fields(buffer, offset, packet, parent, request_legs_group_index)
   end
 end
 
--- Security Definition Request Leg Groups
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups = {}
+-- Request Legs Groups
+cme_futures_ilink3_sbe_v8_6.request_legs_groups = {}
 
--- Calculate size of: Security Definition Request Leg Groups
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.size = function(buffer, offset)
+-- Calculate size of: Request Legs Groups
+cme_futures_ilink3_sbe_v8_6.request_legs_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local security_definition_request_leg_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + security_definition_request_leg_group_count * 19
+  local request_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + request_legs_group_count * 19
 
   return index
 end
 
--- Display: Security Definition Request Leg Groups
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.display = function(packet, parent, length)
+-- Display: Request Legs Groups
+cme_futures_ilink3_sbe_v8_6.request_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Request Leg Groups
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Request Legs Groups
+cme_futures_ilink3_sbe_v8_6.request_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -5271,25 +5241,25 @@ cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.fields = func
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Security Definition Request Leg Group
-  for security_definition_request_leg_group_index = 1, num_in_group do
-    index, security_definition_request_leg_group = cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_group.dissect(buffer, index, packet, parent, security_definition_request_leg_group_index)
+  -- Repeating: Request Legs Group
+  for request_legs_group_index = 1, num_in_group do
+    index, request_legs_group = cme_futures_ilink3_sbe_v8_6.request_legs_group.dissect(buffer, index, packet, parent, request_legs_group_index)
   end
 
   return index
 end
 
--- Dissect: Security Definition Request Leg Groups
-cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Request Legs Groups
+cme_futures_ilink3_sbe_v8_6.request_legs_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.security_definition_request_leg_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.size(buffer, offset)
+  if show.request_legs_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.request_legs_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.security_definition_request_leg_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.request_legs_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.request_legs_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.request_legs_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Security Sub Type
@@ -5401,7 +5371,7 @@ cme_futures_ilink3_sbe_v8_6.security_definition_request.size = function(buffer, 
 
   index = index + cme_futures_ilink3_sbe_v8_6.source_repo_id.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.request_legs_groups.size(buffer, offset + index)
 
   return index
 end
@@ -5451,8 +5421,8 @@ cme_futures_ilink3_sbe_v8_6.security_definition_request.fields = function(buffer
   -- Source Repo Id: 4 Byte Signed Fixed Width Integer Nullable
   index, source_repo_id = cme_futures_ilink3_sbe_v8_6.source_repo_id.dissect(buffer, index, packet, parent)
 
-  -- Security Definition Request Leg Groups: Struct of 2 fields
-  index, security_definition_request_leg_groups = cme_futures_ilink3_sbe_v8_6.security_definition_request_leg_groups.dissect(buffer, index, packet, parent)
+  -- Request Legs Groups: Struct of 2 fields
+  index, request_legs_groups = cme_futures_ilink3_sbe_v8_6.request_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5671,11 +5641,11 @@ cme_futures_ilink3_sbe_v8_6.order_event_px.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Execution Report Trade Addendum Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group = {}
+-- Spread Trade Events Group
+cme_futures_ilink3_sbe_v8_6.spread_trade_events_group = {}
 
--- Size: Execution Report Trade Addendum Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.size =
+-- Size: Spread Trade Events Group
+cme_futures_ilink3_sbe_v8_6.spread_trade_events_group.size =
   cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
   cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
   cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
@@ -5684,18 +5654,18 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_eve
   cme_futures_ilink3_sbe_v8_6.order_event_reason.size + 
   cme_futures_ilink3_sbe_v8_6.original_order_event_exec_id.size
 
--- Display: Execution Report Trade Addendum Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.display = function(packet, parent, length)
+-- Display: Spread Trade Events Group
+cme_futures_ilink3_sbe_v8_6.spread_trade_events_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Addendum Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.fields = function(buffer, offset, packet, parent, execution_report_trade_addendum_spread_leg_order_event_group_index)
+-- Dissect Fields: Spread Trade Events Group
+cme_futures_ilink3_sbe_v8_6.spread_trade_events_group.fields = function(buffer, offset, packet, parent, spread_trade_events_group_index)
   local index = offset
 
-  -- Implicit Execution Report Trade Addendum Spread Leg Order Event Group Index
-  if execution_report_trade_addendum_spread_leg_order_event_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_order_event_group_index, execution_report_trade_addendum_spread_leg_order_event_group_index)
+  -- Implicit Spread Trade Events Group Index
+  if spread_trade_events_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.spread_trade_events_group_index, spread_trade_events_group_index)
     iteration:set_generated()
   end
 
@@ -5723,47 +5693,47 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_eve
   return index
 end
 
--- Dissect: Execution Report Trade Addendum Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.dissect = function(buffer, offset, packet, parent, execution_report_trade_addendum_spread_leg_order_event_group_index)
-  if show.execution_report_trade_addendum_spread_leg_order_event_group then
+-- Dissect: Spread Trade Events Group
+cme_futures_ilink3_sbe_v8_6.spread_trade_events_group.dissect = function(buffer, offset, packet, parent, spread_trade_events_group_index)
+  if show.spread_trade_events_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_order_event_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_addendum_spread_leg_order_event_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.spread_trade_events_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.spread_trade_events_group.fields(buffer, offset, packet, parent, spread_trade_events_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.spread_trade_events_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_addendum_spread_leg_order_event_group_index)
+    return cme_futures_ilink3_sbe_v8_6.spread_trade_events_group.fields(buffer, offset, packet, parent, spread_trade_events_group_index)
   end
 end
 
--- Execution Report Trade Addendum Spread Leg Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups = {}
+-- Spread Trade Events Groups
+cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups = {}
 
--- Calculate size of: Execution Report Trade Addendum Spread Leg Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups.size = function(buffer, offset)
+-- Calculate size of: Spread Trade Events Groups
+cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local execution_report_trade_addendum_spread_leg_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + execution_report_trade_addendum_spread_leg_order_event_group_count * 27
+  local spread_trade_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + spread_trade_events_group_count * 27
 
   return index
 end
 
--- Display: Execution Report Trade Addendum Spread Leg Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups.display = function(packet, parent, length)
+-- Display: Spread Trade Events Groups
+cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Addendum Spread Leg Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Spread Trade Events Groups
+cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -5772,25 +5742,25 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_eve
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Execution Report Trade Addendum Spread Leg Order Event Group
-  for execution_report_trade_addendum_spread_leg_order_event_group_index = 1, num_in_group do
-    index, execution_report_trade_addendum_spread_leg_order_event_group = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_group.dissect(buffer, index, packet, parent, execution_report_trade_addendum_spread_leg_order_event_group_index)
+  -- Repeating: Spread Trade Events Group
+  for spread_trade_events_group_index = 1, num_in_group do
+    index, spread_trade_events_group = cme_futures_ilink3_sbe_v8_6.spread_trade_events_group.dissect(buffer, index, packet, parent, spread_trade_events_group_index)
   end
 
   return index
 end
 
--- Dissect: Execution Report Trade Addendum Spread Leg Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Spread Trade Events Groups
+cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.execution_report_trade_addendum_spread_leg_order_event_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups.size(buffer, offset)
+  if show.spread_trade_events_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_order_event_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.spread_trade_events_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Fill Yield Type
@@ -6504,7 +6474,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg.size = fu
 
   index = index + cme_futures_ilink3_sbe_v8_6.fills_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.size(buffer, offset + index)
 
   return index
 end
@@ -6599,8 +6569,8 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg.fields = 
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = cme_futures_ilink3_sbe_v8_6.fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Execution Report Trade Addendum Spread Leg Order Event Groups: Struct of 2 fields
-  index, execution_report_trade_addendum_spread_leg_order_event_groups = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_order_event_groups.dissect(buffer, index, packet, parent)
+  -- Spread Trade Events Groups: Struct of 2 fields
+  index, spread_trade_events_groups = cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6616,128 +6586,6 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg.dissect =
   end
 
   return cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg.fields(buffer, offset, packet, parent)
-end
-
--- Execution Report Trade Addendum Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group = {}
-
--- Size: Execution Report Trade Addendum Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.size =
-  cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.trade_addendum.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_reason.size + 
-  cme_futures_ilink3_sbe_v8_6.original_order_event_exec_id.size
-
--- Display: Execution Report Trade Addendum Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Trade Addendum Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.fields = function(buffer, offset, packet, parent, execution_report_trade_addendum_spread_order_event_group_index)
-  local index = offset
-
-  -- Implicit Execution Report Trade Addendum Spread Order Event Group Index
-  if execution_report_trade_addendum_spread_order_event_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_order_event_group_index, execution_report_trade_addendum_spread_order_event_group_index)
-    iteration:set_generated()
-  end
-
-  -- Order Event Px: 8 Byte Signed Fixed Width Integer
-  index, order_event_px = cme_futures_ilink3_sbe_v8_6.order_event_px.dissect(buffer, index, packet, parent)
-
-  -- Order Event Text: 5 Byte Ascii String
-  index, order_event_text = cme_futures_ilink3_sbe_v8_6.order_event_text.dissect(buffer, index, packet, parent)
-
-  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_event_exec_id = cme_futures_ilink3_sbe_v8_6.order_event_exec_id.dissect(buffer, index, packet, parent)
-
-  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
-  index, order_event_qty = cme_futures_ilink3_sbe_v8_6.order_event_qty.dissect(buffer, index, packet, parent)
-
-  -- Trade Addendum: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trade_addendum = cme_futures_ilink3_sbe_v8_6.trade_addendum.dissect(buffer, index, packet, parent)
-
-  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
-  index, order_event_reason = cme_futures_ilink3_sbe_v8_6.order_event_reason.dissect(buffer, index, packet, parent)
-
-  -- Original Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, original_order_event_exec_id = cme_futures_ilink3_sbe_v8_6.original_order_event_exec_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Trade Addendum Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.dissect = function(buffer, offset, packet, parent, execution_report_trade_addendum_spread_order_event_group_index)
-  if show.execution_report_trade_addendum_spread_order_event_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_order_event_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_addendum_spread_order_event_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_addendum_spread_order_event_group_index)
-  end
-end
-
--- Execution Report Trade Addendum Spread Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups = {}
-
--- Calculate size of: Execution Report Trade Addendum Spread Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
-
-  -- Calculate field size from count
-  local execution_report_trade_addendum_spread_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + execution_report_trade_addendum_spread_order_event_group_count * 27
-
-  return index
-end
-
--- Display: Execution Report Trade Addendum Spread Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Trade Addendum Spread Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_futures_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Execution Report Trade Addendum Spread Order Event Group
-  for execution_report_trade_addendum_spread_order_event_group_index = 1, num_in_group do
-    index, execution_report_trade_addendum_spread_order_event_group = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_group.dissect(buffer, index, packet, parent, execution_report_trade_addendum_spread_order_event_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Execution Report Trade Addendum Spread Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.execution_report_trade_addendum_spread_order_event_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_order_event_groups, range, display)
-  end
-
-  return cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Leg Last Qty
@@ -6894,11 +6742,11 @@ cme_futures_ilink3_sbe_v8_6.leg_exec_id.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Execution Report Trade Addendum Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group = {}
+-- Trade Addendum Legs Group
+cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_group = {}
 
--- Size: Execution Report Trade Addendum Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.size =
+-- Size: Trade Addendum Legs Group
+cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_group.size =
   cme_futures_ilink3_sbe_v8_6.leg_exec_id.size + 
   cme_futures_ilink3_sbe_v8_6.leg_last_px.size + 
   cme_futures_ilink3_sbe_v8_6.leg_exec_ref_id.size + 
@@ -6908,18 +6756,18 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.siz
   cme_futures_ilink3_sbe_v8_6.leg_last_qty.size + 
   cme_futures_ilink3_sbe_v8_6.leg_side.size
 
--- Display: Execution Report Trade Addendum Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.display = function(packet, parent, length)
+-- Display: Trade Addendum Legs Group
+cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Addendum Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.fields = function(buffer, offset, packet, parent, execution_report_trade_addendum_spread_leg_group_index)
+-- Dissect Fields: Trade Addendum Legs Group
+cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_group.fields = function(buffer, offset, packet, parent, trade_addendum_legs_group_index)
   local index = offset
 
-  -- Implicit Execution Report Trade Addendum Spread Leg Group Index
-  if execution_report_trade_addendum_spread_leg_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_group_index, execution_report_trade_addendum_spread_leg_group_index)
+  -- Implicit Trade Addendum Legs Group Index
+  if trade_addendum_legs_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.trade_addendum_legs_group_index, trade_addendum_legs_group_index)
     iteration:set_generated()
   end
 
@@ -6950,47 +6798,47 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.fie
   return index
 end
 
--- Dissect: Execution Report Trade Addendum Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.dissect = function(buffer, offset, packet, parent, execution_report_trade_addendum_spread_leg_group_index)
-  if show.execution_report_trade_addendum_spread_leg_group then
+-- Dissect: Trade Addendum Legs Group
+cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_group.dissect = function(buffer, offset, packet, parent, trade_addendum_legs_group_index)
+  if show.trade_addendum_legs_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.fields(buffer, offset, packet, parent, execution_report_trade_addendum_spread_leg_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.trade_addendum_legs_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_group.fields(buffer, offset, packet, parent, trade_addendum_legs_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.fields(buffer, offset, packet, parent, execution_report_trade_addendum_spread_leg_group_index)
+    return cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_group.fields(buffer, offset, packet, parent, trade_addendum_legs_group_index)
   end
 end
 
--- Execution Report Trade Addendum Spread Leg Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups = {}
+-- Trade Addendum Legs Groups
+cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_groups = {}
 
--- Calculate size of: Execution Report Trade Addendum Spread Leg Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.size = function(buffer, offset)
+-- Calculate size of: Trade Addendum Legs Groups
+cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local execution_report_trade_addendum_spread_leg_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + execution_report_trade_addendum_spread_leg_group_count * 41
+  local trade_addendum_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + trade_addendum_legs_group_count * 41
 
   return index
 end
 
--- Display: Execution Report Trade Addendum Spread Leg Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.display = function(packet, parent, length)
+-- Display: Trade Addendum Legs Groups
+cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Addendum Spread Leg Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Addendum Legs Groups
+cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -6999,25 +6847,25 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.fi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Execution Report Trade Addendum Spread Leg Group
-  for execution_report_trade_addendum_spread_leg_group_index = 1, num_in_group do
-    index, execution_report_trade_addendum_spread_leg_group = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_group.dissect(buffer, index, packet, parent, execution_report_trade_addendum_spread_leg_group_index)
+  -- Repeating: Trade Addendum Legs Group
+  for trade_addendum_legs_group_index = 1, num_in_group do
+    index, trade_addendum_legs_group = cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_group.dissect(buffer, index, packet, parent, trade_addendum_legs_group_index)
   end
 
   return index
 end
 
--- Dissect: Execution Report Trade Addendum Spread Leg Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Trade Addendum Legs Groups
+cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.execution_report_trade_addendum_spread_leg_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.size(buffer, offset)
+  if show.trade_addendum_legs_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_spread_leg_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.trade_addendum_legs_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Managed Order
@@ -7301,9 +7149,9 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread.size = functi
 
   index = index + cme_futures_ilink3_sbe_v8_6.fills_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.size(buffer, offset + index)
 
   return index
 end
@@ -7413,11 +7261,11 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread.fields = func
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = cme_futures_ilink3_sbe_v8_6.fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Execution Report Trade Addendum Spread Leg Groups: Struct of 2 fields
-  index, execution_report_trade_addendum_spread_leg_groups = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg_groups.dissect(buffer, index, packet, parent)
+  -- Trade Addendum Legs Groups: Struct of 2 fields
+  index, trade_addendum_legs_groups = cme_futures_ilink3_sbe_v8_6.trade_addendum_legs_groups.dissect(buffer, index, packet, parent)
 
-  -- Execution Report Trade Addendum Spread Order Event Groups: Struct of 2 fields
-  index, execution_report_trade_addendum_spread_order_event_groups = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_order_event_groups.dissect(buffer, index, packet, parent)
+  -- Spread Trade Events Groups: Struct of 2 fields
+  index, spread_trade_events_groups = cme_futures_ilink3_sbe_v8_6.spread_trade_events_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7537,11 +7385,11 @@ cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.dissect = function(buffer, of
   end
 end
 
--- Execution Report Trade Addendum Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group = {}
+-- Outright Trade Events Group
+cme_futures_ilink3_sbe_v8_6.outright_trade_events_group = {}
 
--- Size: Execution Report Trade Addendum Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.size =
+-- Size: Outright Trade Events Group
+cme_futures_ilink3_sbe_v8_6.outright_trade_events_group.size =
   cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
   cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
   cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
@@ -7552,18 +7400,18 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event
   cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.size + 
   cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.size
 
--- Display: Execution Report Trade Addendum Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.display = function(packet, parent, length)
+-- Display: Outright Trade Events Group
+cme_futures_ilink3_sbe_v8_6.outright_trade_events_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Addendum Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.fields = function(buffer, offset, packet, parent, execution_report_trade_addendum_outright_order_event_group_index)
+-- Dissect Fields: Outright Trade Events Group
+cme_futures_ilink3_sbe_v8_6.outright_trade_events_group.fields = function(buffer, offset, packet, parent, outright_trade_events_group_index)
   local index = offset
 
-  -- Implicit Execution Report Trade Addendum Outright Order Event Group Index
-  if execution_report_trade_addendum_outright_order_event_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_outright_order_event_group_index, execution_report_trade_addendum_outright_order_event_group_index)
+  -- Implicit Outright Trade Events Group Index
+  if outright_trade_events_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.outright_trade_events_group_index, outright_trade_events_group_index)
     iteration:set_generated()
   end
 
@@ -7597,47 +7445,47 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event
   return index
 end
 
--- Dissect: Execution Report Trade Addendum Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.dissect = function(buffer, offset, packet, parent, execution_report_trade_addendum_outright_order_event_group_index)
-  if show.execution_report_trade_addendum_outright_order_event_group then
+-- Dissect: Outright Trade Events Group
+cme_futures_ilink3_sbe_v8_6.outright_trade_events_group.dissect = function(buffer, offset, packet, parent, outright_trade_events_group_index)
+  if show.outright_trade_events_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_outright_order_event_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_addendum_outright_order_event_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.outright_trade_events_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.outright_trade_events_group.fields(buffer, offset, packet, parent, outright_trade_events_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.outright_trade_events_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_addendum_outright_order_event_group_index)
+    return cme_futures_ilink3_sbe_v8_6.outright_trade_events_group.fields(buffer, offset, packet, parent, outright_trade_events_group_index)
   end
 end
 
--- Execution Report Trade Addendum Outright Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups = {}
+-- Outright Trade Events Groups
+cme_futures_ilink3_sbe_v8_6.outright_trade_events_groups = {}
 
--- Calculate size of: Execution Report Trade Addendum Outright Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups.size = function(buffer, offset)
+-- Calculate size of: Outright Trade Events Groups
+cme_futures_ilink3_sbe_v8_6.outright_trade_events_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local execution_report_trade_addendum_outright_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + execution_report_trade_addendum_outright_order_event_group_count * 45
+  local outright_trade_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + outright_trade_events_group_count * 45
 
   return index
 end
 
--- Display: Execution Report Trade Addendum Outright Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups.display = function(packet, parent, length)
+-- Display: Outright Trade Events Groups
+cme_futures_ilink3_sbe_v8_6.outright_trade_events_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Addendum Outright Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Outright Trade Events Groups
+cme_futures_ilink3_sbe_v8_6.outright_trade_events_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -7646,25 +7494,25 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Execution Report Trade Addendum Outright Order Event Group
-  for execution_report_trade_addendum_outright_order_event_group_index = 1, num_in_group do
-    index, execution_report_trade_addendum_outright_order_event_group = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_group.dissect(buffer, index, packet, parent, execution_report_trade_addendum_outright_order_event_group_index)
+  -- Repeating: Outright Trade Events Group
+  for outright_trade_events_group_index = 1, num_in_group do
+    index, outright_trade_events_group = cme_futures_ilink3_sbe_v8_6.outright_trade_events_group.dissect(buffer, index, packet, parent, outright_trade_events_group_index)
   end
 
   return index
 end
 
--- Dissect: Execution Report Trade Addendum Outright Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Outright Trade Events Groups
+cme_futures_ilink3_sbe_v8_6.outright_trade_events_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.execution_report_trade_addendum_outright_order_event_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups.size(buffer, offset)
+  if show.outright_trade_events_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.outright_trade_events_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_addendum_outright_order_event_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.outright_trade_events_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.outright_trade_events_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.outright_trade_events_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Benchmark Price
@@ -7897,7 +7745,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright.size = func
 
   index = index + cme_futures_ilink3_sbe_v8_6.fills_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.outright_trade_events_groups.size(buffer, offset + index)
 
   return index
 end
@@ -8022,8 +7870,8 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright.fields = fu
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = cme_futures_ilink3_sbe_v8_6.fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Execution Report Trade Addendum Outright Order Event Groups: Struct of 2 fields
-  index, execution_report_trade_addendum_outright_order_event_groups = cme_futures_ilink3_sbe_v8_6.execution_report_trade_addendum_outright_order_event_groups.dissect(buffer, index, packet, parent)
+  -- Outright Trade Events Groups: Struct of 2 fields
+  index, outright_trade_events_groups = cme_futures_ilink3_sbe_v8_6.outright_trade_events_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8237,28 +8085,28 @@ cme_futures_ilink3_sbe_v8_6.request_for_quote_ack.dissect = function(buffer, off
   end
 end
 
--- Mass Quote Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group = {}
+-- Quote Ack Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_ack_entries_group = {}
 
--- Size: Mass Quote Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.size =
+-- Size: Quote Ack Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_ack_entries_group.size =
   cme_futures_ilink3_sbe_v8_6.quote_entry_id.size + 
   cme_futures_ilink3_sbe_v8_6.security_id.size + 
   cme_futures_ilink3_sbe_v8_6.quote_set_id.size + 
   cme_futures_ilink3_sbe_v8_6.quote_entry_reject_reason.size
 
--- Display: Mass Quote Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.display = function(packet, parent, length)
+-- Display: Quote Ack Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_ack_entries_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.fields = function(buffer, offset, packet, parent, mass_quote_ack_entry_group_index)
+-- Dissect Fields: Quote Ack Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_ack_entries_group.fields = function(buffer, offset, packet, parent, quote_ack_entries_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Ack Entry Group Index
-  if mass_quote_ack_entry_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_ack_entry_group_index, mass_quote_ack_entry_group_index)
+  -- Implicit Quote Ack Entries Group Index
+  if quote_ack_entries_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_ack_entries_group_index, quote_ack_entries_group_index)
     iteration:set_generated()
   end
 
@@ -8277,47 +8125,47 @@ cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.fields = function(buffer,
   return index
 end
 
--- Dissect: Mass Quote Ack Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.dissect = function(buffer, offset, packet, parent, mass_quote_ack_entry_group_index)
-  if show.mass_quote_ack_entry_group then
+-- Dissect: Quote Ack Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_ack_entries_group.dissect = function(buffer, offset, packet, parent, quote_ack_entries_group_index)
+  if show.quote_ack_entries_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_ack_entry_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.fields(buffer, offset, packet, parent, mass_quote_ack_entry_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_ack_entries_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.quote_ack_entries_group.fields(buffer, offset, packet, parent, quote_ack_entries_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_ack_entries_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.fields(buffer, offset, packet, parent, mass_quote_ack_entry_group_index)
+    return cme_futures_ilink3_sbe_v8_6.quote_ack_entries_group.fields(buffer, offset, packet, parent, quote_ack_entries_group_index)
   end
 end
 
--- Mass Quote Ack Entry Groups
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups = {}
+-- Quote Ack Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_ack_entries_groups = {}
 
--- Calculate size of: Mass Quote Ack Entry Groups
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.size = function(buffer, offset)
+-- Calculate size of: Quote Ack Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_ack_entries_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local mass_quote_ack_entry_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + mass_quote_ack_entry_group_count * 11
+  local quote_ack_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_ack_entries_group_count * 11
 
   return index
 end
 
--- Display: Mass Quote Ack Entry Groups
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.display = function(packet, parent, length)
+-- Display: Quote Ack Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_ack_entries_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Ack Entry Groups
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Ack Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_ack_entries_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -8326,25 +8174,25 @@ cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.fields = function(buffer
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Mass Quote Ack Entry Group
-  for mass_quote_ack_entry_group_index = 1, num_in_group do
-    index, mass_quote_ack_entry_group = cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_group.dissect(buffer, index, packet, parent, mass_quote_ack_entry_group_index)
+  -- Repeating: Quote Ack Entries Group
+  for quote_ack_entries_group_index = 1, num_in_group do
+    index, quote_ack_entries_group = cme_futures_ilink3_sbe_v8_6.quote_ack_entries_group.dissect(buffer, index, packet, parent, quote_ack_entries_group_index)
   end
 
   return index
 end
 
--- Dissect: Mass Quote Ack Entry Groups
-cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Ack Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_ack_entries_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.mass_quote_ack_entry_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.size(buffer, offset)
+  if show.quote_ack_entries_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.quote_ack_entries_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_ack_entry_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_ack_entries_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_ack_entries_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.quote_ack_entries_groups.fields(buffer, offset, packet, parent)
 end
 
 -- No Processed Entries
@@ -8449,7 +8297,7 @@ cme_futures_ilink3_sbe_v8_6.mass_quote_ack.size = function(buffer, offset)
 
   index = index + cme_futures_ilink3_sbe_v8_6.delay_to_time.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_ack_entries_groups.size(buffer, offset + index)
 
   return index
 end
@@ -8529,8 +8377,8 @@ cme_futures_ilink3_sbe_v8_6.mass_quote_ack.fields = function(buffer, offset, pac
   -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, delay_to_time = cme_futures_ilink3_sbe_v8_6.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Ack Entry Groups: Struct of 2 fields
-  index, mass_quote_ack_entry_groups = cme_futures_ilink3_sbe_v8_6.mass_quote_ack_entry_groups.dissect(buffer, index, packet, parent)
+  -- Quote Ack Entries Groups: Struct of 2 fields
+  index, quote_ack_entries_groups = cme_futures_ilink3_sbe_v8_6.quote_ack_entries_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10342,27 +10190,27 @@ cme_futures_ilink3_sbe_v8_6.party_id.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.party_i_ds_group = {}
+-- Party Ids Group
+cme_futures_ilink3_sbe_v8_6.party_ids_group = {}
 
--- Size: Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.party_i_ds_group.size =
+-- Size: Party Ids Group
+cme_futures_ilink3_sbe_v8_6.party_ids_group.size =
   cme_futures_ilink3_sbe_v8_6.party_id.size + 
   cme_futures_ilink3_sbe_v8_6.party_id_source.size + 
   cme_futures_ilink3_sbe_v8_6.party_role.size
 
--- Display: Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.party_i_ds_group.display = function(packet, parent, length)
+-- Display: Party Ids Group
+cme_futures_ilink3_sbe_v8_6.party_ids_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.party_i_ds_group.fields = function(buffer, offset, packet, parent, party_i_ds_group_index)
+-- Dissect Fields: Party Ids Group
+cme_futures_ilink3_sbe_v8_6.party_ids_group.fields = function(buffer, offset, packet, parent, party_ids_group_index)
   local index = offset
 
-  -- Implicit Party I Ds Group Index
-  if party_i_ds_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.party_i_ds_group_index, party_i_ds_group_index)
+  -- Implicit Party Ids Group Index
+  if party_ids_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.party_ids_group_index, party_ids_group_index)
     iteration:set_generated()
   end
 
@@ -10378,47 +10226,47 @@ cme_futures_ilink3_sbe_v8_6.party_i_ds_group.fields = function(buffer, offset, p
   return index
 end
 
--- Dissect: Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.party_i_ds_group.dissect = function(buffer, offset, packet, parent, party_i_ds_group_index)
-  if show.party_i_ds_group then
+-- Dissect: Party Ids Group
+cme_futures_ilink3_sbe_v8_6.party_ids_group.dissect = function(buffer, offset, packet, parent, party_ids_group_index)
+  if show.party_ids_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.party_i_ds_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.party_i_ds_group.fields(buffer, offset, packet, parent, party_i_ds_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.party_ids_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.party_ids_group.fields(buffer, offset, packet, parent, party_ids_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.party_i_ds_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.party_ids_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.party_i_ds_group.fields(buffer, offset, packet, parent, party_i_ds_group_index)
+    return cme_futures_ilink3_sbe_v8_6.party_ids_group.fields(buffer, offset, packet, parent, party_ids_group_index)
   end
 end
 
--- Party I Ds Groups
-cme_futures_ilink3_sbe_v8_6.party_i_ds_groups = {}
+-- Party Ids Groups
+cme_futures_ilink3_sbe_v8_6.party_ids_groups = {}
 
--- Calculate size of: Party I Ds Groups
-cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.size = function(buffer, offset)
+-- Calculate size of: Party Ids Groups
+cme_futures_ilink3_sbe_v8_6.party_ids_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local party_i_ds_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + party_i_ds_group_count * 11
+  local party_ids_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + party_ids_group_count * 11
 
   return index
 end
 
--- Display: Party I Ds Groups
-cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.display = function(packet, parent, length)
+-- Display: Party Ids Groups
+cme_futures_ilink3_sbe_v8_6.party_ids_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Party I Ds Groups
-cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Party Ids Groups
+cme_futures_ilink3_sbe_v8_6.party_ids_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -10427,25 +10275,25 @@ cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.fields = function(buffer, offset, 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Party I Ds Group
-  for party_i_ds_group_index = 1, num_in_group do
-    index, party_i_ds_group = cme_futures_ilink3_sbe_v8_6.party_i_ds_group.dissect(buffer, index, packet, parent, party_i_ds_group_index)
+  -- Repeating: Party Ids Group
+  for party_ids_group_index = 1, num_in_group do
+    index, party_ids_group = cme_futures_ilink3_sbe_v8_6.party_ids_group.dissect(buffer, index, packet, parent, party_ids_group_index)
   end
 
   return index
 end
 
--- Dissect: Party I Ds Groups
-cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Party Ids Groups
+cme_futures_ilink3_sbe_v8_6.party_ids_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.party_i_ds_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.size(buffer, offset)
+  if show.party_ids_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.party_ids_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.party_i_ds_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.party_ids_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.party_ids_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.party_ids_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Requesting Party Role
@@ -10559,27 +10407,27 @@ cme_futures_ilink3_sbe_v8_6.requesting_party_id.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Requesting Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group = {}
+-- Requesting Party Ids Group
+cme_futures_ilink3_sbe_v8_6.requesting_party_ids_group = {}
 
--- Size: Requesting Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.size =
+-- Size: Requesting Party Ids Group
+cme_futures_ilink3_sbe_v8_6.requesting_party_ids_group.size =
   cme_futures_ilink3_sbe_v8_6.requesting_party_id.size + 
   cme_futures_ilink3_sbe_v8_6.requesting_party_id_source.size + 
   cme_futures_ilink3_sbe_v8_6.requesting_party_role.size
 
--- Display: Requesting Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.display = function(packet, parent, length)
+-- Display: Requesting Party Ids Group
+cme_futures_ilink3_sbe_v8_6.requesting_party_ids_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Requesting Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.fields = function(buffer, offset, packet, parent, requesting_party_i_ds_group_index)
+-- Dissect Fields: Requesting Party Ids Group
+cme_futures_ilink3_sbe_v8_6.requesting_party_ids_group.fields = function(buffer, offset, packet, parent, requesting_party_ids_group_index)
   local index = offset
 
-  -- Implicit Requesting Party I Ds Group Index
-  if requesting_party_i_ds_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_i_ds_group_index, requesting_party_i_ds_group_index)
+  -- Implicit Requesting Party Ids Group Index
+  if requesting_party_ids_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_ids_group_index, requesting_party_ids_group_index)
     iteration:set_generated()
   end
 
@@ -10595,47 +10443,47 @@ cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.fields = function(buffer
   return index
 end
 
--- Dissect: Requesting Party I Ds Group
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.dissect = function(buffer, offset, packet, parent, requesting_party_i_ds_group_index)
-  if show.requesting_party_i_ds_group then
+-- Dissect: Requesting Party Ids Group
+cme_futures_ilink3_sbe_v8_6.requesting_party_ids_group.dissect = function(buffer, offset, packet, parent, requesting_party_ids_group_index)
+  if show.requesting_party_ids_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_i_ds_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.fields(buffer, offset, packet, parent, requesting_party_i_ds_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_ids_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.requesting_party_ids_group.fields(buffer, offset, packet, parent, requesting_party_ids_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.requesting_party_ids_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.fields(buffer, offset, packet, parent, requesting_party_i_ds_group_index)
+    return cme_futures_ilink3_sbe_v8_6.requesting_party_ids_group.fields(buffer, offset, packet, parent, requesting_party_ids_group_index)
   end
 end
 
--- Requesting Party I Ds Groups
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups = {}
+-- Requesting Party Ids Groups
+cme_futures_ilink3_sbe_v8_6.requesting_party_ids_groups = {}
 
--- Calculate size of: Requesting Party I Ds Groups
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.size = function(buffer, offset)
+-- Calculate size of: Requesting Party Ids Groups
+cme_futures_ilink3_sbe_v8_6.requesting_party_ids_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local requesting_party_i_ds_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + requesting_party_i_ds_group_count * 7
+  local requesting_party_ids_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + requesting_party_ids_group_count * 7
 
   return index
 end
 
--- Display: Requesting Party I Ds Groups
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.display = function(packet, parent, length)
+-- Display: Requesting Party Ids Groups
+cme_futures_ilink3_sbe_v8_6.requesting_party_ids_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Requesting Party I Ds Groups
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Requesting Party Ids Groups
+cme_futures_ilink3_sbe_v8_6.requesting_party_ids_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -10644,25 +10492,25 @@ cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.fields = function(buffe
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Requesting Party I Ds Group
-  for requesting_party_i_ds_group_index = 1, num_in_group do
-    index, requesting_party_i_ds_group = cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_group.dissect(buffer, index, packet, parent, requesting_party_i_ds_group_index)
+  -- Repeating: Requesting Party Ids Group
+  for requesting_party_ids_group_index = 1, num_in_group do
+    index, requesting_party_ids_group = cme_futures_ilink3_sbe_v8_6.requesting_party_ids_group.dissect(buffer, index, packet, parent, requesting_party_ids_group_index)
   end
 
   return index
 end
 
--- Dissect: Requesting Party I Ds Groups
-cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Requesting Party Ids Groups
+cme_futures_ilink3_sbe_v8_6.requesting_party_ids_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.requesting_party_i_ds_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.size(buffer, offset)
+  if show.requesting_party_ids_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.requesting_party_ids_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_i_ds_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.requesting_party_ids_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.requesting_party_ids_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.requesting_party_ids_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Party Details List Request
@@ -10678,9 +10526,9 @@ cme_futures_ilink3_sbe_v8_6.party_details_list_request.size = function(buffer, o
 
   index = index + cme_futures_ilink3_sbe_v8_6.seq_num.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.requesting_party_ids_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.party_ids_groups.size(buffer, offset + index)
 
   return index
 end
@@ -10703,11 +10551,11 @@ cme_futures_ilink3_sbe_v8_6.party_details_list_request.fields = function(buffer,
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = cme_futures_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Requesting Party I Ds Groups: Struct of 2 fields
-  index, requesting_party_i_ds_groups = cme_futures_ilink3_sbe_v8_6.requesting_party_i_ds_groups.dissect(buffer, index, packet, parent)
+  -- Requesting Party Ids Groups: Struct of 2 fields
+  index, requesting_party_ids_groups = cme_futures_ilink3_sbe_v8_6.requesting_party_ids_groups.dissect(buffer, index, packet, parent)
 
-  -- Party I Ds Groups: Struct of 2 fields
-  index, party_i_ds_groups = cme_futures_ilink3_sbe_v8_6.party_i_ds_groups.dissect(buffer, index, packet, parent)
+  -- Party Ids Groups: Struct of 2 fields
+  index, party_ids_groups = cme_futures_ilink3_sbe_v8_6.party_ids_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -12313,27 +12161,27 @@ cme_futures_ilink3_sbe_v8_6.bid_size.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Quote Cancel Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group = {}
+-- Quote Cancel Sets Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_group = {}
 
--- Size: Quote Cancel Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.size =
+-- Size: Quote Cancel Sets Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_group.size =
   cme_futures_ilink3_sbe_v8_6.bid_size.size + 
   cme_futures_ilink3_sbe_v8_6.offer_size.size + 
   cme_futures_ilink3_sbe_v8_6.quote_set_id.size
 
--- Display: Quote Cancel Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.display = function(packet, parent, length)
+-- Display: Quote Cancel Sets Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.fields = function(buffer, offset, packet, parent, quote_cancel_set_group_index)
+-- Dissect Fields: Quote Cancel Sets Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_group.fields = function(buffer, offset, packet, parent, quote_cancel_sets_group_index)
   local index = offset
 
-  -- Implicit Quote Cancel Set Group Index
-  if quote_cancel_set_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_set_group_index, quote_cancel_set_group_index)
+  -- Implicit Quote Cancel Sets Group Index
+  if quote_cancel_sets_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_sets_group_index, quote_cancel_sets_group_index)
     iteration:set_generated()
   end
 
@@ -12349,47 +12197,47 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.fields = function(buffer, off
   return index
 end
 
--- Dissect: Quote Cancel Set Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.dissect = function(buffer, offset, packet, parent, quote_cancel_set_group_index)
-  if show.quote_cancel_set_group then
+-- Dissect: Quote Cancel Sets Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_group.dissect = function(buffer, offset, packet, parent, quote_cancel_sets_group_index)
+  if show.quote_cancel_sets_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_set_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.fields(buffer, offset, packet, parent, quote_cancel_set_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_sets_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_group.fields(buffer, offset, packet, parent, quote_cancel_sets_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.fields(buffer, offset, packet, parent, quote_cancel_set_group_index)
+    return cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_group.fields(buffer, offset, packet, parent, quote_cancel_sets_group_index)
   end
 end
 
--- Quote Cancel Set Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups = {}
+-- Quote Cancel Sets Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_groups = {}
 
--- Calculate size of: Quote Cancel Set Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.size = function(buffer, offset)
+-- Calculate size of: Quote Cancel Sets Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local quote_cancel_set_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_cancel_set_group_count * 10
+  local quote_cancel_sets_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_sets_group_count * 10
 
   return index
 end
 
--- Display: Quote Cancel Set Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.display = function(packet, parent, length)
+-- Display: Quote Cancel Sets Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Set Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancel Sets Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -12398,47 +12246,47 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.fields = function(buffer, of
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Quote Cancel Set Group
-  for quote_cancel_set_group_index = 1, num_in_group do
-    index, quote_cancel_set_group = cme_futures_ilink3_sbe_v8_6.quote_cancel_set_group.dissect(buffer, index, packet, parent, quote_cancel_set_group_index)
+  -- Repeating: Quote Cancel Sets Group
+  for quote_cancel_sets_group_index = 1, num_in_group do
+    index, quote_cancel_sets_group = cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_group.dissect(buffer, index, packet, parent, quote_cancel_sets_group_index)
   end
 
   return index
 end
 
--- Dissect: Quote Cancel Set Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancel Sets Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.quote_cancel_set_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.size(buffer, offset)
+  if show.quote_cancel_sets_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_set_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_sets_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_groups.fields(buffer, offset, packet, parent)
 end
 
--- Quote Cancel Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group = {}
+-- Quote Cancel Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_group = {}
 
--- Size: Quote Cancel Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.size =
+-- Size: Quote Cancel Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_group.size =
   cme_futures_ilink3_sbe_v8_6.security_group.size + 
   cme_futures_ilink3_sbe_v8_6.security_id_optional.size
 
--- Display: Quote Cancel Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.display = function(packet, parent, length)
+-- Display: Quote Cancel Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.fields = function(buffer, offset, packet, parent, quote_cancel_entry_group_index)
+-- Dissect Fields: Quote Cancel Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_group.fields = function(buffer, offset, packet, parent, quote_cancel_entries_group_index)
   local index = offset
 
-  -- Implicit Quote Cancel Entry Group Index
-  if quote_cancel_entry_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entry_group_index, quote_cancel_entry_group_index)
+  -- Implicit Quote Cancel Entries Group Index
+  if quote_cancel_entries_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entries_group_index, quote_cancel_entries_group_index)
     iteration:set_generated()
   end
 
@@ -12451,47 +12299,47 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.fields = function(buffer, o
   return index
 end
 
--- Dissect: Quote Cancel Entry Group
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.dissect = function(buffer, offset, packet, parent, quote_cancel_entry_group_index)
-  if show.quote_cancel_entry_group then
+-- Dissect: Quote Cancel Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_group.dissect = function(buffer, offset, packet, parent, quote_cancel_entries_group_index)
+  if show.quote_cancel_entries_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entry_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.fields(buffer, offset, packet, parent, quote_cancel_entry_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entries_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_group.fields(buffer, offset, packet, parent, quote_cancel_entries_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.fields(buffer, offset, packet, parent, quote_cancel_entry_group_index)
+    return cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_group.fields(buffer, offset, packet, parent, quote_cancel_entries_group_index)
   end
 end
 
--- Quote Cancel Entry Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups = {}
+-- Quote Cancel Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_groups = {}
 
--- Calculate size of: Quote Cancel Entry Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.size = function(buffer, offset)
+-- Calculate size of: Quote Cancel Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local quote_cancel_entry_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_cancel_entry_group_count * 10
+  local quote_cancel_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_entries_group_count * 10
 
   return index
 end
 
--- Display: Quote Cancel Entry Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.display = function(packet, parent, length)
+-- Display: Quote Cancel Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Entry Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancel Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -12500,25 +12348,25 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.fields = function(buffer, 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Quote Cancel Entry Group
-  for quote_cancel_entry_group_index = 1, num_in_group do
-    index, quote_cancel_entry_group = cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_group.dissect(buffer, index, packet, parent, quote_cancel_entry_group_index)
+  -- Repeating: Quote Cancel Entries Group
+  for quote_cancel_entries_group_index = 1, num_in_group do
+    index, quote_cancel_entries_group = cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_group.dissect(buffer, index, packet, parent, quote_cancel_entries_group_index)
   end
 
   return index
 end
 
--- Dissect: Quote Cancel Entry Groups
-cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancel Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.quote_cancel_entry_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.size(buffer, offset)
+  if show.quote_cancel_entries_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entry_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_cancel_entries_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Quote Cancel Type
@@ -12582,9 +12430,9 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel.size = function(buffer, offset)
 
   index = index + cme_futures_ilink3_sbe_v8_6.liquidity_flag.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_groups.size(buffer, offset + index)
 
   return index
 end
@@ -12625,11 +12473,11 @@ cme_futures_ilink3_sbe_v8_6.quote_cancel.fields = function(buffer, offset, packe
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_6.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Quote Cancel Entry Groups: Struct of 2 fields
-  index, quote_cancel_entry_groups = cme_futures_ilink3_sbe_v8_6.quote_cancel_entry_groups.dissect(buffer, index, packet, parent)
+  -- Quote Cancel Entries Groups: Struct of 2 fields
+  index, quote_cancel_entries_groups = cme_futures_ilink3_sbe_v8_6.quote_cancel_entries_groups.dissect(buffer, index, packet, parent)
 
-  -- Quote Cancel Set Groups: Struct of 2 fields
-  index, quote_cancel_set_groups = cme_futures_ilink3_sbe_v8_6.quote_cancel_set_groups.dissect(buffer, index, packet, parent)
+  -- Quote Cancel Sets Groups: Struct of 2 fields
+  index, quote_cancel_sets_groups = cme_futures_ilink3_sbe_v8_6.quote_cancel_sets_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -12680,11 +12528,11 @@ cme_futures_ilink3_sbe_v8_6.order_event_type.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Execution Report Trade Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group = {}
+-- Spread Order Events Group
+cme_futures_ilink3_sbe_v8_6.spread_order_events_group = {}
 
--- Size: Execution Report Trade Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.size =
+-- Size: Spread Order Events Group
+cme_futures_ilink3_sbe_v8_6.spread_order_events_group.size =
   cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
   cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
   cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
@@ -12692,18 +12540,18 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.
   cme_futures_ilink3_sbe_v8_6.order_event_type.size + 
   cme_futures_ilink3_sbe_v8_6.order_event_reason.size
 
--- Display: Execution Report Trade Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.display = function(packet, parent, length)
+-- Display: Spread Order Events Group
+cme_futures_ilink3_sbe_v8_6.spread_order_events_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.fields = function(buffer, offset, packet, parent, execution_report_trade_spread_leg_order_event_group_index)
+-- Dissect Fields: Spread Order Events Group
+cme_futures_ilink3_sbe_v8_6.spread_order_events_group.fields = function(buffer, offset, packet, parent, spread_order_events_group_index)
   local index = offset
 
-  -- Implicit Execution Report Trade Spread Leg Order Event Group Index
-  if execution_report_trade_spread_leg_order_event_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_order_event_group_index, execution_report_trade_spread_leg_order_event_group_index)
+  -- Implicit Spread Order Events Group Index
+  if spread_order_events_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.spread_order_events_group_index, spread_order_events_group_index)
     iteration:set_generated()
   end
 
@@ -12728,47 +12576,47 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.
   return index
 end
 
--- Dissect: Execution Report Trade Spread Leg Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.dissect = function(buffer, offset, packet, parent, execution_report_trade_spread_leg_order_event_group_index)
-  if show.execution_report_trade_spread_leg_order_event_group then
+-- Dissect: Spread Order Events Group
+cme_futures_ilink3_sbe_v8_6.spread_order_events_group.dissect = function(buffer, offset, packet, parent, spread_order_events_group_index)
+  if show.spread_order_events_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_order_event_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_spread_leg_order_event_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.spread_order_events_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.spread_order_events_group.fields(buffer, offset, packet, parent, spread_order_events_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.spread_order_events_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_spread_leg_order_event_group_index)
+    return cme_futures_ilink3_sbe_v8_6.spread_order_events_group.fields(buffer, offset, packet, parent, spread_order_events_group_index)
   end
 end
 
--- Execution Report Trade Spread Leg Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups = {}
+-- Spread Order Events Groups
+cme_futures_ilink3_sbe_v8_6.spread_order_events_groups = {}
 
--- Calculate size of: Execution Report Trade Spread Leg Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups.size = function(buffer, offset)
+-- Calculate size of: Spread Order Events Groups
+cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local execution_report_trade_spread_leg_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + execution_report_trade_spread_leg_order_event_group_count * 23
+  local spread_order_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + spread_order_events_group_count * 23
 
   return index
 end
 
--- Display: Execution Report Trade Spread Leg Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups.display = function(packet, parent, length)
+-- Display: Spread Order Events Groups
+cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Spread Leg Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Spread Order Events Groups
+cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -12777,25 +12625,25 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Execution Report Trade Spread Leg Order Event Group
-  for execution_report_trade_spread_leg_order_event_group_index = 1, num_in_group do
-    index, execution_report_trade_spread_leg_order_event_group = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_group.dissect(buffer, index, packet, parent, execution_report_trade_spread_leg_order_event_group_index)
+  -- Repeating: Spread Order Events Group
+  for spread_order_events_group_index = 1, num_in_group do
+    index, spread_order_events_group = cme_futures_ilink3_sbe_v8_6.spread_order_events_group.dissect(buffer, index, packet, parent, spread_order_events_group_index)
   end
 
   return index
 end
 
--- Dissect: Execution Report Trade Spread Leg Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Spread Order Events Groups
+cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.execution_report_trade_spread_leg_order_event_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups.size(buffer, offset)
+  if show.spread_order_events_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_order_event_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.spread_order_events_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Ord Status Trd
@@ -13138,7 +12986,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg.size = function(bu
 
   index = index + cme_futures_ilink3_sbe_v8_6.fills_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.size(buffer, offset + index)
 
   return index
 end
@@ -13242,8 +13090,8 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg.fields = function(
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = cme_futures_ilink3_sbe_v8_6.fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Execution Report Trade Spread Leg Order Event Groups: Struct of 2 fields
-  index, execution_report_trade_spread_leg_order_event_groups = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_order_event_groups.dissect(buffer, index, packet, parent)
+  -- Spread Order Events Groups: Struct of 2 fields
+  index, spread_order_events_groups = cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -13261,129 +13109,11 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg.dissect = function
   return cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg.fields(buffer, offset, packet, parent)
 end
 
--- Execution Report Trade Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group = {}
+-- Trade Legs Group
+cme_futures_ilink3_sbe_v8_6.trade_legs_group = {}
 
--- Size: Execution Report Trade Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.size =
-  cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_qty.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_type.size + 
-  cme_futures_ilink3_sbe_v8_6.order_event_reason.size
-
--- Display: Execution Report Trade Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Trade Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.fields = function(buffer, offset, packet, parent, execution_report_trade_spread_order_event_group_index)
-  local index = offset
-
-  -- Implicit Execution Report Trade Spread Order Event Group Index
-  if execution_report_trade_spread_order_event_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_order_event_group_index, execution_report_trade_spread_order_event_group_index)
-    iteration:set_generated()
-  end
-
-  -- Order Event Px: 8 Byte Signed Fixed Width Integer
-  index, order_event_px = cme_futures_ilink3_sbe_v8_6.order_event_px.dissect(buffer, index, packet, parent)
-
-  -- Order Event Text: 5 Byte Ascii String
-  index, order_event_text = cme_futures_ilink3_sbe_v8_6.order_event_text.dissect(buffer, index, packet, parent)
-
-  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_event_exec_id = cme_futures_ilink3_sbe_v8_6.order_event_exec_id.dissect(buffer, index, packet, parent)
-
-  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
-  index, order_event_qty = cme_futures_ilink3_sbe_v8_6.order_event_qty.dissect(buffer, index, packet, parent)
-
-  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_event_type = cme_futures_ilink3_sbe_v8_6.order_event_type.dissect(buffer, index, packet, parent)
-
-  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
-  index, order_event_reason = cme_futures_ilink3_sbe_v8_6.order_event_reason.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Trade Spread Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.dissect = function(buffer, offset, packet, parent, execution_report_trade_spread_order_event_group_index)
-  if show.execution_report_trade_spread_order_event_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_order_event_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_spread_order_event_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_spread_order_event_group_index)
-  end
-end
-
--- Execution Report Trade Spread Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups = {}
-
--- Calculate size of: Execution Report Trade Spread Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
-
-  -- Calculate field size from count
-  local execution_report_trade_spread_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + execution_report_trade_spread_order_event_group_count * 23
-
-  return index
-end
-
--- Display: Execution Report Trade Spread Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Trade Spread Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_futures_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Execution Report Trade Spread Order Event Group
-  for execution_report_trade_spread_order_event_group_index = 1, num_in_group do
-    index, execution_report_trade_spread_order_event_group = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_group.dissect(buffer, index, packet, parent, execution_report_trade_spread_order_event_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Execution Report Trade Spread Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.execution_report_trade_spread_order_event_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_order_event_groups, range, display)
-  end
-
-  return cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups.fields(buffer, offset, packet, parent)
-end
-
--- Execution Report Trade Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group = {}
-
--- Size: Execution Report Trade Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.size =
+-- Size: Trade Legs Group
+cme_futures_ilink3_sbe_v8_6.trade_legs_group.size =
   cme_futures_ilink3_sbe_v8_6.leg_exec_id.size + 
   cme_futures_ilink3_sbe_v8_6.leg_last_px.size + 
   cme_futures_ilink3_sbe_v8_6.leg_security_id.size + 
@@ -13391,18 +13121,18 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.size =
   cme_futures_ilink3_sbe_v8_6.leg_last_qty.size + 
   cme_futures_ilink3_sbe_v8_6.leg_side.size
 
--- Display: Execution Report Trade Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.display = function(packet, parent, length)
+-- Display: Trade Legs Group
+cme_futures_ilink3_sbe_v8_6.trade_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.fields = function(buffer, offset, packet, parent, execution_report_trade_spread_leg_group_index)
+-- Dissect Fields: Trade Legs Group
+cme_futures_ilink3_sbe_v8_6.trade_legs_group.fields = function(buffer, offset, packet, parent, trade_legs_group_index)
   local index = offset
 
-  -- Implicit Execution Report Trade Spread Leg Group Index
-  if execution_report_trade_spread_leg_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_group_index, execution_report_trade_spread_leg_group_index)
+  -- Implicit Trade Legs Group Index
+  if trade_legs_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.trade_legs_group_index, trade_legs_group_index)
     iteration:set_generated()
   end
 
@@ -13427,47 +13157,47 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.fields = fun
   return index
 end
 
--- Dissect: Execution Report Trade Spread Leg Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.dissect = function(buffer, offset, packet, parent, execution_report_trade_spread_leg_group_index)
-  if show.execution_report_trade_spread_leg_group then
+-- Dissect: Trade Legs Group
+cme_futures_ilink3_sbe_v8_6.trade_legs_group.dissect = function(buffer, offset, packet, parent, trade_legs_group_index)
+  if show.trade_legs_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.fields(buffer, offset, packet, parent, execution_report_trade_spread_leg_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.trade_legs_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.trade_legs_group.fields(buffer, offset, packet, parent, trade_legs_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.trade_legs_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.fields(buffer, offset, packet, parent, execution_report_trade_spread_leg_group_index)
+    return cme_futures_ilink3_sbe_v8_6.trade_legs_group.fields(buffer, offset, packet, parent, trade_legs_group_index)
   end
 end
 
--- Execution Report Trade Spread Leg Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups = {}
+-- Trade Legs Groups
+cme_futures_ilink3_sbe_v8_6.trade_legs_groups = {}
 
--- Calculate size of: Execution Report Trade Spread Leg Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.size = function(buffer, offset)
+-- Calculate size of: Trade Legs Groups
+cme_futures_ilink3_sbe_v8_6.trade_legs_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local execution_report_trade_spread_leg_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + execution_report_trade_spread_leg_group_count * 29
+  local trade_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + trade_legs_group_count * 29
 
   return index
 end
 
--- Display: Execution Report Trade Spread Leg Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.display = function(packet, parent, length)
+-- Display: Trade Legs Groups
+cme_futures_ilink3_sbe_v8_6.trade_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Spread Leg Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Legs Groups
+cme_futures_ilink3_sbe_v8_6.trade_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -13476,25 +13206,25 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.fields = fu
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Execution Report Trade Spread Leg Group
-  for execution_report_trade_spread_leg_group_index = 1, num_in_group do
-    index, execution_report_trade_spread_leg_group = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_group.dissect(buffer, index, packet, parent, execution_report_trade_spread_leg_group_index)
+  -- Repeating: Trade Legs Group
+  for trade_legs_group_index = 1, num_in_group do
+    index, trade_legs_group = cme_futures_ilink3_sbe_v8_6.trade_legs_group.dissect(buffer, index, packet, parent, trade_legs_group_index)
   end
 
   return index
 end
 
--- Dissect: Execution Report Trade Spread Leg Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Trade Legs Groups
+cme_futures_ilink3_sbe_v8_6.trade_legs_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.execution_report_trade_spread_leg_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.size(buffer, offset)
+  if show.trade_legs_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.trade_legs_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_spread_leg_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.trade_legs_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.trade_legs_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.trade_legs_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Aggressor Indicator
@@ -13614,9 +13344,9 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread.size = function(buffer
 
   index = index + cme_futures_ilink3_sbe_v8_6.fills_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.trade_legs_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.size(buffer, offset + index)
 
   return index
 end
@@ -13750,11 +13480,11 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread.fields = function(buff
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = cme_futures_ilink3_sbe_v8_6.fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Execution Report Trade Spread Leg Groups: Struct of 2 fields
-  index, execution_report_trade_spread_leg_groups = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_leg_groups.dissect(buffer, index, packet, parent)
+  -- Trade Legs Groups: Struct of 2 fields
+  index, trade_legs_groups = cme_futures_ilink3_sbe_v8_6.trade_legs_groups.dissect(buffer, index, packet, parent)
 
-  -- Execution Report Trade Spread Order Event Groups: Struct of 2 fields
-  index, execution_report_trade_spread_order_event_groups = cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread_order_event_groups.dissect(buffer, index, packet, parent)
+  -- Spread Order Events Groups: Struct of 2 fields
+  index, spread_order_events_groups = cme_futures_ilink3_sbe_v8_6.spread_order_events_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -13772,11 +13502,11 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread.dissect = function(buf
   return cme_futures_ilink3_sbe_v8_6.execution_report_trade_spread.fields(buffer, offset, packet, parent)
 end
 
--- Execution Report Trade Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group = {}
+-- Outright Order Events Group
+cme_futures_ilink3_sbe_v8_6.outright_order_events_group = {}
 
--- Size: Execution Report Trade Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.size =
+-- Size: Outright Order Events Group
+cme_futures_ilink3_sbe_v8_6.outright_order_events_group.size =
   cme_futures_ilink3_sbe_v8_6.order_event_px.size + 
   cme_futures_ilink3_sbe_v8_6.order_event_text.size + 
   cme_futures_ilink3_sbe_v8_6.order_event_exec_id.size + 
@@ -13786,18 +13516,18 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.si
   cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.size + 
   cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.size
 
--- Display: Execution Report Trade Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.display = function(packet, parent, length)
+-- Display: Outright Order Events Group
+cme_futures_ilink3_sbe_v8_6.outright_order_events_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.fields = function(buffer, offset, packet, parent, execution_report_trade_outright_order_event_group_index)
+-- Dissect Fields: Outright Order Events Group
+cme_futures_ilink3_sbe_v8_6.outright_order_events_group.fields = function(buffer, offset, packet, parent, outright_order_events_group_index)
   local index = offset
 
-  -- Implicit Execution Report Trade Outright Order Event Group Index
-  if execution_report_trade_outright_order_event_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_outright_order_event_group_index, execution_report_trade_outright_order_event_group_index)
+  -- Implicit Outright Order Events Group Index
+  if outright_order_events_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.outright_order_events_group_index, outright_order_events_group_index)
     iteration:set_generated()
   end
 
@@ -13828,47 +13558,47 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.fi
   return index
 end
 
--- Dissect: Execution Report Trade Outright Order Event Group
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.dissect = function(buffer, offset, packet, parent, execution_report_trade_outright_order_event_group_index)
-  if show.execution_report_trade_outright_order_event_group then
+-- Dissect: Outright Order Events Group
+cme_futures_ilink3_sbe_v8_6.outright_order_events_group.dissect = function(buffer, offset, packet, parent, outright_order_events_group_index)
+  if show.outright_order_events_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_outright_order_event_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_outright_order_event_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.outright_order_events_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.outright_order_events_group.fields(buffer, offset, packet, parent, outright_order_events_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.outright_order_events_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.fields(buffer, offset, packet, parent, execution_report_trade_outright_order_event_group_index)
+    return cme_futures_ilink3_sbe_v8_6.outright_order_events_group.fields(buffer, offset, packet, parent, outright_order_events_group_index)
   end
 end
 
--- Execution Report Trade Outright Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups = {}
+-- Outright Order Events Groups
+cme_futures_ilink3_sbe_v8_6.outright_order_events_groups = {}
 
--- Calculate size of: Execution Report Trade Outright Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.size = function(buffer, offset)
+-- Calculate size of: Outright Order Events Groups
+cme_futures_ilink3_sbe_v8_6.outright_order_events_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local execution_report_trade_outright_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + execution_report_trade_outright_order_event_group_count * 41
+  local outright_order_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + outright_order_events_group_count * 41
 
   return index
 end
 
--- Display: Execution Report Trade Outright Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.display = function(packet, parent, length)
+-- Display: Outright Order Events Groups
+cme_futures_ilink3_sbe_v8_6.outright_order_events_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Execution Report Trade Outright Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Outright Order Events Groups
+cme_futures_ilink3_sbe_v8_6.outright_order_events_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -13877,25 +13607,25 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Execution Report Trade Outright Order Event Group
-  for execution_report_trade_outright_order_event_group_index = 1, num_in_group do
-    index, execution_report_trade_outright_order_event_group = cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_group.dissect(buffer, index, packet, parent, execution_report_trade_outright_order_event_group_index)
+  -- Repeating: Outright Order Events Group
+  for outright_order_events_group_index = 1, num_in_group do
+    index, outright_order_events_group = cme_futures_ilink3_sbe_v8_6.outright_order_events_group.dissect(buffer, index, packet, parent, outright_order_events_group_index)
   end
 
   return index
 end
 
--- Dissect: Execution Report Trade Outright Order Event Groups
-cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Outright Order Events Groups
+cme_futures_ilink3_sbe_v8_6.outright_order_events_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.execution_report_trade_outright_order_event_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.size(buffer, offset)
+  if show.outright_order_events_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.outright_order_events_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.execution_report_trade_outright_order_event_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.outright_order_events_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.outright_order_events_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.outright_order_events_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Ownership
@@ -14056,7 +13786,7 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright.size = function(buff
 
   index = index + cme_futures_ilink3_sbe_v8_6.fills_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.outright_order_events_groups.size(buffer, offset + index)
 
   return index
 end
@@ -14220,8 +13950,8 @@ cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright.fields = function(bu
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = cme_futures_ilink3_sbe_v8_6.fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Execution Report Trade Outright Order Event Groups: Struct of 2 fields
-  index, execution_report_trade_outright_order_event_groups = cme_futures_ilink3_sbe_v8_6.execution_report_trade_outright_order_event_groups.dissect(buffer, index, packet, parent)
+  -- Outright Order Events Groups: Struct of 2 fields
+  index, outright_order_events_groups = cme_futures_ilink3_sbe_v8_6.outright_order_events_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -15641,11 +15371,11 @@ cme_futures_ilink3_sbe_v8_6.bid_px.dissect = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
--- Mass Quote Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group = {}
+-- Quote Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_entries_group = {}
 
--- Size: Mass Quote Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.size =
+-- Size: Quote Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_entries_group.size =
   cme_futures_ilink3_sbe_v8_6.bid_px.size + 
   cme_futures_ilink3_sbe_v8_6.offer_px.size + 
   cme_futures_ilink3_sbe_v8_6.quote_entry_id.size + 
@@ -15655,18 +15385,18 @@ cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.size =
   cme_futures_ilink3_sbe_v8_6.underlying_security_id.size + 
   cme_futures_ilink3_sbe_v8_6.quote_set_id.size
 
--- Display: Mass Quote Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.display = function(packet, parent, length)
+-- Display: Quote Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_entries_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.fields = function(buffer, offset, packet, parent, mass_quote_entry_group_index)
+-- Dissect Fields: Quote Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_entries_group.fields = function(buffer, offset, packet, parent, quote_entries_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Entry Group Index
-  if mass_quote_entry_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_entry_group_index, mass_quote_entry_group_index)
+  -- Implicit Quote Entries Group Index
+  if quote_entries_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_entries_group_index, quote_entries_group_index)
     iteration:set_generated()
   end
 
@@ -15697,47 +15427,47 @@ cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.fields = function(buffer, off
   return index
 end
 
--- Dissect: Mass Quote Entry Group
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.dissect = function(buffer, offset, packet, parent, mass_quote_entry_group_index)
-  if show.mass_quote_entry_group then
+-- Dissect: Quote Entries Group
+cme_futures_ilink3_sbe_v8_6.quote_entries_group.dissect = function(buffer, offset, packet, parent, quote_entries_group_index)
+  if show.quote_entries_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_entry_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.fields(buffer, offset, packet, parent, mass_quote_entry_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_entries_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_6.quote_entries_group.fields(buffer, offset, packet, parent, quote_entries_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_entries_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.fields(buffer, offset, packet, parent, mass_quote_entry_group_index)
+    return cme_futures_ilink3_sbe_v8_6.quote_entries_group.fields(buffer, offset, packet, parent, quote_entries_group_index)
   end
 end
 
--- Mass Quote Entry Groups
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups = {}
+-- Quote Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_entries_groups = {}
 
--- Calculate size of: Mass Quote Entry Groups
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.size = function(buffer, offset)
+-- Calculate size of: Quote Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_entries_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_6.group_size.size
 
   -- Calculate field size from count
-  local mass_quote_entry_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + mass_quote_entry_group_count * 38
+  local quote_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_entries_group_count * 38
 
   return index
 end
 
--- Display: Mass Quote Entry Groups
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.display = function(packet, parent, length)
+-- Display: Quote Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_entries_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Entry Groups
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_entries_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -15746,25 +15476,25 @@ cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.fields = function(buffer, of
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Mass Quote Entry Group
-  for mass_quote_entry_group_index = 1, num_in_group do
-    index, mass_quote_entry_group = cme_futures_ilink3_sbe_v8_6.mass_quote_entry_group.dissect(buffer, index, packet, parent, mass_quote_entry_group_index)
+  -- Repeating: Quote Entries Group
+  for quote_entries_group_index = 1, num_in_group do
+    index, quote_entries_group = cme_futures_ilink3_sbe_v8_6.quote_entries_group.dissect(buffer, index, packet, parent, quote_entries_group_index)
   end
 
   return index
 end
 
--- Dissect: Mass Quote Entry Groups
-cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Entries Groups
+cme_futures_ilink3_sbe_v8_6.quote_entries_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.mass_quote_entry_groups then
-    local length = cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.size(buffer, offset)
+  if show.quote_entries_groups then
+    local length = cme_futures_ilink3_sbe_v8_6.quote_entries_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.mass_quote_entry_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_6.quote_entries_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.quote_entries_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_6.quote_entries_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Reserved
@@ -15862,7 +15592,7 @@ cme_futures_ilink3_sbe_v8_6.mass_quote.size = function(buffer, offset)
 
   index = index + cme_futures_ilink3_sbe_v8_6.reserved.size
 
-  index = index + cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_6.quote_entries_groups.size(buffer, offset + index)
 
   return index
 end
@@ -15915,8 +15645,8 @@ cme_futures_ilink3_sbe_v8_6.mass_quote.fields = function(buffer, offset, packet,
   -- Reserved: 30 Byte Ascii String
   index, reserved = cme_futures_ilink3_sbe_v8_6.reserved.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Entry Groups: Struct of 2 fields
-  index, mass_quote_entry_groups = cme_futures_ilink3_sbe_v8_6.mass_quote_entry_groups.dissect(buffer, index, packet, parent)
+  -- Quote Entries Groups: Struct of 2 fields
+  index, quote_entries_groups = cme_futures_ilink3_sbe_v8_6.quote_entries_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
