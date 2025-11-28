@@ -30,10 +30,6 @@ omi_memx_options_memo_sbe_v1_10.fields.block_length_short = ProtoField.new("Bloc
 omi_memx_options_memo_sbe_v1_10.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "memx.options.memo.sbe.v1.10.cancelgroupid", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_10.fields.cancel_orders_from_this_port_only = ProtoField.new("Cancel Orders From This Port Only", "memx.options.memo.sbe.v1.10.cancelordersfromthisportonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 omi_memx_options_memo_sbe_v1_10.fields.cancel_reason = ProtoField.new("Cancel Reason", "memx.options.memo.sbe.v1.10.cancelreason", ftypes.UINT8)
-omi_memx_options_memo_sbe_v1_10.fields.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id = ProtoField.new("Cl Ord I D Mass Cancel Bulk Clear All Lockouts Request Cl Ord Id", "memx.options.memo.sbe.v1.10.clordidmasscancelbulkclearalllockoutsrequestclordid", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_10.fields.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id = ProtoField.new("Cl Ord I D Mass Cancel Bulk Clear Lockout Accepted Cl Ord Id", "memx.options.memo.sbe.v1.10.clordidmasscancelbulkclearlockoutacceptedclordid", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_10.fields.cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id = ProtoField.new("Cl Ord I D Mass Cancel Bulk Clear Lockout Reject Cl Ord Id", "memx.options.memo.sbe.v1.10.clordidmasscancelbulkclearlockoutrejectclordid", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_10.fields.cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id = ProtoField.new("Cl Ord I D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Cl Ord Id", "memx.options.memo.sbe.v1.10.clordidmasscancelbulkclearlockoutsbyefidorunderlierrequestclordid", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.clordid = ProtoField.new("ClOrdId", "memx.options.memo.sbe.v1.10.clordid", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.common_header = ProtoField.new("Common Header", "memx.options.memo.sbe.v1.10.commonheader", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.contra_trading_capacity = ProtoField.new("Contra Trading Capacity", "memx.options.memo.sbe.v1.10.contratradingcapacity", ftypes.UINT8)
@@ -42,7 +38,6 @@ omi_memx_options_memo_sbe_v1_10.fields.cum_qty = ProtoField.new("Cum Qty", "memx
 omi_memx_options_memo_sbe_v1_10.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "memx.options.memo.sbe.v1.10.cxlrejreason", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_10.fields.cxl_rej_response_to = ProtoField.new("Cxl Rej Response To", "memx.options.memo.sbe.v1.10.cxlrejresponseto", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.data = ProtoField.new("Data", "memx.options.memo.sbe.v1.10.data", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_10.fields.efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional = ProtoField.new("Efi D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Efi D optional", "memx.options.memo.sbe.v1.10.efidmasscancelbulkclearlockoutsbyefidorunderlierrequestefidoptional", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.efid_optional = ProtoField.new("Efid Optional", "memx.options.memo.sbe.v1.10.efidoptional", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.exec_id = ProtoField.new("Exec Id", "memx.options.memo.sbe.v1.10.execid", ftypes.UINT64)
 omi_memx_options_memo_sbe_v1_10.fields.exec_inst = ProtoField.new("Exec Inst", "memx.options.memo.sbe.v1.10.execinst", ftypes.STRING)
@@ -80,6 +75,8 @@ omi_memx_options_memo_sbe_v1_10.fields.num_in_group = ProtoField.new("Num In Gro
 omi_memx_options_memo_sbe_v1_10.fields.number_of_orders = ProtoField.new("Number Of Orders", "memx.options.memo.sbe.v1.10.numberoforders", ftypes.UINT8)
 omi_memx_options_memo_sbe_v1_10.fields.offer_px = ProtoField.new("Offer Px", "memx.options.memo.sbe.v1.10.offerpx", ftypes.DOUBLE)
 omi_memx_options_memo_sbe_v1_10.fields.offer_size = ProtoField.new("Offer Size", "memx.options.memo.sbe.v1.10.offersize", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_10.fields.one_sided_quotes_group = ProtoField.new("One Sided Quotes Group", "memx.options.memo.sbe.v1.10.onesidedquotesgroup", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_10.fields.one_sided_quotes_groups = ProtoField.new("One Sided Quotes Groups", "memx.options.memo.sbe.v1.10.onesidedquotesgroups", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.options_security_id_optional = ProtoField.new("Options Security Id Optional", "memx.options.memo.sbe.v1.10.optionssecurityidoptional", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.ord_status = ProtoField.new("Ord Status", "memx.options.memo.sbe.v1.10.ordstatus", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.ord_type = ProtoField.new("Ord Type", "memx.options.memo.sbe.v1.10.ordtype", ftypes.STRING)
@@ -102,8 +99,8 @@ omi_memx_options_memo_sbe_v1_10.fields.pending_message_count = ProtoField.new("P
 omi_memx_options_memo_sbe_v1_10.fields.position_effect = ProtoField.new("Position Effect", "memx.options.memo.sbe.v1.10.positioneffect", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.position_effect_optional = ProtoField.new("Position Effect Optional", "memx.options.memo.sbe.v1.10.positioneffectoptional", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.price_optional = ProtoField.new("Price Optional", "memx.options.memo.sbe.v1.10.priceoptional", ftypes.DOUBLE)
-omi_memx_options_memo_sbe_v1_10.fields.quotes_group = ProtoField.new("Quotes Group", "memx.options.memo.sbe.v1.10.quotesgroup", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_10.fields.quotes_groups = ProtoField.new("Quotes Groups", "memx.options.memo.sbe.v1.10.quotesgroups", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_10.fields.price_short = ProtoField.new("Price Short", "memx.options.memo.sbe.v1.10.priceshort", ftypes.DOUBLE)
+omi_memx_options_memo_sbe_v1_10.fields.quantity = ProtoField.new("Quantity", "memx.options.memo.sbe.v1.10.quantity", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_10.fields.ref_alloc_id_optional = ProtoField.new("Ref Alloc Id Optional", "memx.options.memo.sbe.v1.10.refallocidoptional", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.rej_reason = ProtoField.new("Rej Reason", "memx.options.memo.sbe.v1.10.rejreason", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_10.fields.repeating_group_dimensions = ProtoField.new("Repeating Group Dimensions", "memx.options.memo.sbe.v1.10.repeatinggroupdimensions", ftypes.STRING)
@@ -149,15 +146,13 @@ omi_memx_options_memo_sbe_v1_10.fields.total_affected_orders = ProtoField.new("T
 omi_memx_options_memo_sbe_v1_10.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.options.memo.sbe.v1.10.totalsequencecount", ftypes.UINT64)
 omi_memx_options_memo_sbe_v1_10.fields.trade_date = ProtoField.new("Trade Date", "memx.options.memo.sbe.v1.10.tradedate", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.trade_id = ProtoField.new("Trade Id", "memx.options.memo.sbe.v1.10.tradeid", ftypes.UINT64)
-omi_memx_options_memo_sbe_v1_10.fields.trading_capacity_trading_capacity_type = ProtoField.new("Trading Capacity Trading Capacity Type", "memx.options.memo.sbe.v1.10.tradingcapacitytradingcapacitytype", ftypes.UINT8)
-omi_memx_options_memo_sbe_v1_10.fields.trading_capacity_trading_capacity_type_optional = ProtoField.new("Trading Capacity Trading Capacity Type optional", "memx.options.memo.sbe.v1.10.tradingcapacitytradingcapacitytypeoptional", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_10.fields.trading_capacity = ProtoField.new("Trading Capacity", "memx.options.memo.sbe.v1.10.tradingcapacity", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_10.fields.trading_capacity_optional = ProtoField.new("Trading Capacity Optional", "memx.options.memo.sbe.v1.10.tradingcapacityoptional", ftypes.UINT8)
 omi_memx_options_memo_sbe_v1_10.fields.transact_time = ProtoField.new("Transact Time", "memx.options.memo.sbe.v1.10.transacttime", ftypes.UINT64)
 omi_memx_options_memo_sbe_v1_10.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.options.memo.sbe.v1.10.trdmatchid", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_10.fields.two_sided_quotes_group = ProtoField.new("Two Sided Quotes Group", "memx.options.memo.sbe.v1.10.twosidedquotesgroup", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_10.fields.two_sided_quotes_groups = ProtoField.new("Two Sided Quotes Groups", "memx.options.memo.sbe.v1.10.twosidedquotesgroups", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.underlier = ProtoField.new("Underlier", "memx.options.memo.sbe.v1.10.underlier", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_10.fields.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional = ProtoField.new("Underlier Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Underlier optional", "memx.options.memo.sbe.v1.10.underliermasscancelbulkclearlockoutsbyefidorunderlierrequestunderlieroptional", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_10.fields.underlier_mass_cancel_clear_lockout_done_underlier = ProtoField.new("Underlier Mass Cancel Clear Lockout Done Underlier", "memx.options.memo.sbe.v1.10.underliermasscancelclearlockoutdoneunderlier", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_10.fields.underlier_mass_cancel_clear_lockout_reject_underlier = ProtoField.new("Underlier Mass Cancel Clear Lockout Reject Underlier", "memx.options.memo.sbe.v1.10.underliermasscancelclearlockoutrejectunderlier", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_10.fields.underlier_mass_cancel_clear_lockout_request_underlier = ProtoField.new("Underlier Mass Cancel Clear Lockout Request Underlier", "memx.options.memo.sbe.v1.10.underliermasscancelclearlockoutrequestunderlier", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.underlier_optional = ProtoField.new("Underlier Optional", "memx.options.memo.sbe.v1.10.underlieroptional", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.underlying_or_series = ProtoField.new("Underlying Or Series", "memx.options.memo.sbe.v1.10.underlyingorseries", ftypes.UINT8)
 omi_memx_options_memo_sbe_v1_10.fields.underlying_or_series_optional = ProtoField.new("Underlying Or Series Optional", "memx.options.memo.sbe.v1.10.underlyingorseriesoptional", ftypes.UINT8)
@@ -204,10 +199,11 @@ omi_memx_options_memo_sbe_v1_10.fields.user_notification_message = ProtoField.ne
 
 -- Memx Options Memo Sbe 1.10 generated fields
 omi_memx_options_memo_sbe_v1_10.fields.execution_allocations_group_index = ProtoField.new("Execution Allocations Group Index", "memx.options.memo.sbe.v1.10.executionallocationsgroupindex", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_10.fields.one_sided_quotes_group_index = ProtoField.new("One Sided Quotes Group Index", "memx.options.memo.sbe.v1.10.onesidedquotesgroupindex", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_10.fields.parties_group_index = ProtoField.new("Parties Group Index", "memx.options.memo.sbe.v1.10.partiesgroupindex", ftypes.UINT16)
-omi_memx_options_memo_sbe_v1_10.fields.quotes_group_index = ProtoField.new("Quotes Group Index", "memx.options.memo.sbe.v1.10.quotesgroupindex", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_10.fields.reported_allocations_group_index = ProtoField.new("Reported Allocations Group Index", "memx.options.memo.sbe.v1.10.reportedallocationsgroupindex", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_10.fields.requested_allocations_group_index = ProtoField.new("Requested Allocations Group Index", "memx.options.memo.sbe.v1.10.requestedallocationsgroupindex", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_10.fields.two_sided_quotes_group_index = ProtoField.new("Two Sided Quotes Group Index", "memx.options.memo.sbe.v1.10.twosidedquotesgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -252,6 +248,8 @@ show.mass_cancel_inst = true
 show.mass_cancel_reject_message = true
 show.mass_cancel_request_message = true
 show.new_order_single_message = true
+show.one_sided_quotes_group = true
+show.one_sided_quotes_groups = true
 show.order_cancel_reject_message = true
 show.order_cancel_replace_request_message = true
 show.order_cancel_request_message = true
@@ -259,8 +257,6 @@ show.packet = true
 show.parties_group = true
 show.parties_groups = true
 show.pending_mass_cancel_message = true
-show.quotes_group = true
-show.quotes_groups = true
 show.repeating_group_dimensions = true
 show.replay_all_request_message = true
 show.replay_begin_message = true
@@ -281,6 +277,8 @@ show.stream_begin_message = true
 show.stream_complete_message = true
 show.stream_rejected_message = true
 show.stream_request_message = true
+show.two_sided_quotes_group = true
+show.two_sided_quotes_groups = true
 show.unsequenced_message = true
 show.user_notification_message = true
 show.data = false
@@ -323,6 +321,8 @@ omi_memx_options_memo_sbe_v1_10.prefs.show_mass_cancel_inst = Pref.bool("Show Ma
 omi_memx_options_memo_sbe_v1_10.prefs.show_mass_cancel_reject_message = Pref.bool("Show Mass Cancel Reject Message", show.mass_cancel_reject_message, "Parse and add Mass Cancel Reject Message to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_mass_cancel_request_message = Pref.bool("Show Mass Cancel Request Message", show.mass_cancel_request_message, "Parse and add Mass Cancel Request Message to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_new_order_single_message = Pref.bool("Show New Order Single Message", show.new_order_single_message, "Parse and add New Order Single Message to protocol tree")
+omi_memx_options_memo_sbe_v1_10.prefs.show_one_sided_quotes_group = Pref.bool("Show One Sided Quotes Group", show.one_sided_quotes_group, "Parse and add One Sided Quotes Group to protocol tree")
+omi_memx_options_memo_sbe_v1_10.prefs.show_one_sided_quotes_groups = Pref.bool("Show One Sided Quotes Groups", show.one_sided_quotes_groups, "Parse and add One Sided Quotes Groups to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_order_cancel_reject_message = Pref.bool("Show Order Cancel Reject Message", show.order_cancel_reject_message, "Parse and add Order Cancel Reject Message to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_order_cancel_replace_request_message = Pref.bool("Show Order Cancel Replace Request Message", show.order_cancel_replace_request_message, "Parse and add Order Cancel Replace Request Message to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
@@ -330,8 +330,6 @@ omi_memx_options_memo_sbe_v1_10.prefs.show_packet = Pref.bool("Show Packet", sho
 omi_memx_options_memo_sbe_v1_10.prefs.show_parties_group = Pref.bool("Show Parties Group", show.parties_group, "Parse and add Parties Group to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_parties_groups = Pref.bool("Show Parties Groups", show.parties_groups, "Parse and add Parties Groups to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_pending_mass_cancel_message = Pref.bool("Show Pending Mass Cancel Message", show.pending_mass_cancel_message, "Parse and add Pending Mass Cancel Message to protocol tree")
-omi_memx_options_memo_sbe_v1_10.prefs.show_quotes_group = Pref.bool("Show Quotes Group", show.quotes_group, "Parse and add Quotes Group to protocol tree")
-omi_memx_options_memo_sbe_v1_10.prefs.show_quotes_groups = Pref.bool("Show Quotes Groups", show.quotes_groups, "Parse and add Quotes Groups to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_repeating_group_dimensions = Pref.bool("Show Repeating Group Dimensions", show.repeating_group_dimensions, "Parse and add Repeating Group Dimensions to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
@@ -352,6 +350,8 @@ omi_memx_options_memo_sbe_v1_10.prefs.show_stream_begin_message = Pref.bool("Sho
 omi_memx_options_memo_sbe_v1_10.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
+omi_memx_options_memo_sbe_v1_10.prefs.show_two_sided_quotes_group = Pref.bool("Show Two Sided Quotes Group", show.two_sided_quotes_group, "Parse and add Two Sided Quotes Group to protocol tree")
+omi_memx_options_memo_sbe_v1_10.prefs.show_two_sided_quotes_groups = Pref.bool("Show Two Sided Quotes Groups", show.two_sided_quotes_groups, "Parse and add Two Sided Quotes Groups to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_user_notification_message = Pref.bool("Show User Notification Message", show.user_notification_message, "Parse and add User Notification Message to protocol tree")
 omi_memx_options_memo_sbe_v1_10.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
@@ -506,6 +506,14 @@ function omi_memx_options_memo_sbe_v1_10.prefs_changed()
     show.new_order_single_message = omi_memx_options_memo_sbe_v1_10.prefs.show_new_order_single_message
     changed = true
   end
+  if show.one_sided_quotes_group ~= omi_memx_options_memo_sbe_v1_10.prefs.show_one_sided_quotes_group then
+    show.one_sided_quotes_group = omi_memx_options_memo_sbe_v1_10.prefs.show_one_sided_quotes_group
+    changed = true
+  end
+  if show.one_sided_quotes_groups ~= omi_memx_options_memo_sbe_v1_10.prefs.show_one_sided_quotes_groups then
+    show.one_sided_quotes_groups = omi_memx_options_memo_sbe_v1_10.prefs.show_one_sided_quotes_groups
+    changed = true
+  end
   if show.order_cancel_reject_message ~= omi_memx_options_memo_sbe_v1_10.prefs.show_order_cancel_reject_message then
     show.order_cancel_reject_message = omi_memx_options_memo_sbe_v1_10.prefs.show_order_cancel_reject_message
     changed = true
@@ -532,14 +540,6 @@ function omi_memx_options_memo_sbe_v1_10.prefs_changed()
   end
   if show.pending_mass_cancel_message ~= omi_memx_options_memo_sbe_v1_10.prefs.show_pending_mass_cancel_message then
     show.pending_mass_cancel_message = omi_memx_options_memo_sbe_v1_10.prefs.show_pending_mass_cancel_message
-    changed = true
-  end
-  if show.quotes_group ~= omi_memx_options_memo_sbe_v1_10.prefs.show_quotes_group then
-    show.quotes_group = omi_memx_options_memo_sbe_v1_10.prefs.show_quotes_group
-    changed = true
-  end
-  if show.quotes_groups ~= omi_memx_options_memo_sbe_v1_10.prefs.show_quotes_groups then
-    show.quotes_groups = omi_memx_options_memo_sbe_v1_10.prefs.show_quotes_groups
     changed = true
   end
   if show.repeating_group_dimensions ~= omi_memx_options_memo_sbe_v1_10.prefs.show_repeating_group_dimensions then
@@ -622,6 +622,14 @@ function omi_memx_options_memo_sbe_v1_10.prefs_changed()
     show.stream_request_message = omi_memx_options_memo_sbe_v1_10.prefs.show_stream_request_message
     changed = true
   end
+  if show.two_sided_quotes_group ~= omi_memx_options_memo_sbe_v1_10.prefs.show_two_sided_quotes_group then
+    show.two_sided_quotes_group = omi_memx_options_memo_sbe_v1_10.prefs.show_two_sided_quotes_group
+    changed = true
+  end
+  if show.two_sided_quotes_groups ~= omi_memx_options_memo_sbe_v1_10.prefs.show_two_sided_quotes_groups then
+    show.two_sided_quotes_groups = omi_memx_options_memo_sbe_v1_10.prefs.show_two_sided_quotes_groups
+    changed = true
+  end
   if show.unsequenced_message ~= omi_memx_options_memo_sbe_v1_10.prefs.show_unsequenced_message then
     show.unsequenced_message = omi_memx_options_memo_sbe_v1_10.prefs.show_unsequenced_message
     changed = true
@@ -677,25 +685,25 @@ memx_options_memo_sbe_v1_10.sending_time.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Cl Ord I D Mass Cancel Bulk Clear Lockout Accepted Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id = {}
+-- ClOrdId
+memx_options_memo_sbe_v1_10.clordid = {}
 
--- Size: Cl Ord I D Mass Cancel Bulk Clear Lockout Accepted Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id.size = 20
+-- Size: ClOrdId
+memx_options_memo_sbe_v1_10.clordid.size = 20
 
--- Display: Cl Ord I D Mass Cancel Bulk Clear Lockout Accepted Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id.display = function(value)
+-- Display: ClOrdId
+memx_options_memo_sbe_v1_10.clordid.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Mass Cancel Bulk Clear Lockout Accepted Cl Ord Id: No Value"
+    return "ClOrdId: No Value"
   end
 
-  return "Cl Ord I D Mass Cancel Bulk Clear Lockout Accepted Cl Ord Id: "..value
+  return "ClOrdId: "..value
 end
 
--- Dissect: Cl Ord I D Mass Cancel Bulk Clear Lockout Accepted Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id.size
+-- Dissect: ClOrdId
+memx_options_memo_sbe_v1_10.clordid.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_10.clordid.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -709,9 +717,9 @@ memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_c
     value = range:string()
   end
 
-  local display = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_10.clordid.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_10.fields.clordid, range, value, display)
 
   return offset + length, value
 end
@@ -721,7 +729,7 @@ memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockout_accepted_message = {}
 
 -- Size: Mass Cancel Bulk Clear Lockout Accepted Message
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockout_accepted_message.size =
-  memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id.size + 
+  memx_options_memo_sbe_v1_10.clordid.size + 
   memx_options_memo_sbe_v1_10.sending_time.size
 
 -- Display: Mass Cancel Bulk Clear Lockout Accepted Message
@@ -733,8 +741,8 @@ end
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockout_accepted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Mass Cancel Bulk Clear Lockout Accepted Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
@@ -826,51 +834,12 @@ memx_options_memo_sbe_v1_10.rej_reason.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Cl Ord I D Mass Cancel Bulk Clear Lockout Reject Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id = {}
-
--- Size: Cl Ord I D Mass Cancel Bulk Clear Lockout Reject Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id.size = 20
-
--- Display: Cl Ord I D Mass Cancel Bulk Clear Lockout Reject Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Mass Cancel Bulk Clear Lockout Reject Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Mass Cancel Bulk Clear Lockout Reject Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Mass Cancel Bulk Clear Lockout Reject Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Mass Cancel Bulk Clear Lockout Reject Message
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockout_reject_message = {}
 
 -- Size: Mass Cancel Bulk Clear Lockout Reject Message
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockout_reject_message.size =
-  memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id.size + 
+  memx_options_memo_sbe_v1_10.clordid.size + 
   memx_options_memo_sbe_v1_10.rej_reason.size + 
   memx_options_memo_sbe_v1_10.sending_time.size
 
@@ -883,8 +852,8 @@ end
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockout_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Mass Cancel Bulk Clear Lockout Reject Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockout_reject_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
   -- Rej Reason: 2 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, rej_reason = memx_options_memo_sbe_v1_10.rej_reason.dissect(buffer, index, packet, parent)
@@ -959,25 +928,25 @@ memx_options_memo_sbe_v1_10.lockout_id.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Underlier Mass Cancel Clear Lockout Done Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_done_underlier = {}
+-- Underlier
+memx_options_memo_sbe_v1_10.underlier = {}
 
--- Size: Underlier Mass Cancel Clear Lockout Done Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_done_underlier.size = 6
+-- Size: Underlier
+memx_options_memo_sbe_v1_10.underlier.size = 6
 
--- Display: Underlier Mass Cancel Clear Lockout Done Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_done_underlier.display = function(value)
+-- Display: Underlier
+memx_options_memo_sbe_v1_10.underlier.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Underlier Mass Cancel Clear Lockout Done Underlier: No Value"
+    return "Underlier: No Value"
   end
 
-  return "Underlier Mass Cancel Clear Lockout Done Underlier: "..value
+  return "Underlier: "..value
 end
 
--- Dissect: Underlier Mass Cancel Clear Lockout Done Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_done_underlier.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_done_underlier.size
+-- Dissect: Underlier
+memx_options_memo_sbe_v1_10.underlier.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_10.underlier.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -991,48 +960,9 @@ memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_done_underlier.d
     value = range:string()
   end
 
-  local display = memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_done_underlier.display(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_10.underlier.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.underlier_mass_cancel_clear_lockout_done_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- ClOrdId
-memx_options_memo_sbe_v1_10.clordid = {}
-
--- Size: ClOrdId
-memx_options_memo_sbe_v1_10.clordid.size = 20
-
--- Display: ClOrdId
-memx_options_memo_sbe_v1_10.clordid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "ClOrdId: No Value"
-  end
-
-  return "ClOrdId: "..value
-end
-
--- Dissect: ClOrdId
-memx_options_memo_sbe_v1_10.clordid.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.clordid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_10.clordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.clordid, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_10.fields.underlier, range, value, display)
 
   return offset + length, value
 end
@@ -1043,7 +973,7 @@ memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_done_message = {}
 -- Size: Mass Cancel Clear Lockout Done Message
 memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_done_message.size =
   memx_options_memo_sbe_v1_10.clordid.size + 
-  memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_done_underlier.size + 
+  memx_options_memo_sbe_v1_10.underlier.size + 
   memx_options_memo_sbe_v1_10.lockout_id.size + 
   memx_options_memo_sbe_v1_10.sending_time.size + 
   memx_options_memo_sbe_v1_10.transact_time.size
@@ -1060,8 +990,8 @@ memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_done_message.fields = func
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Mass Cancel Clear Lockout Done Underlier: 6 Byte Ascii String
-  index, underlier_mass_cancel_clear_lockout_done_underlier = memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_done_underlier.dissect(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_memo_sbe_v1_10.underlier.dissect(buffer, index, packet, parent)
 
   -- Lockout Id: 8 Byte Unsigned Fixed Width Integer
   index, lockout_id = memx_options_memo_sbe_v1_10.lockout_id.dissect(buffer, index, packet, parent)
@@ -1093,52 +1023,13 @@ memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_done_message.dissect = fun
   end
 end
 
--- Underlier Mass Cancel Clear Lockout Reject Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_reject_underlier = {}
-
--- Size: Underlier Mass Cancel Clear Lockout Reject Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_reject_underlier.size = 6
-
--- Display: Underlier Mass Cancel Clear Lockout Reject Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_reject_underlier.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Mass Cancel Clear Lockout Reject Underlier: No Value"
-  end
-
-  return "Underlier Mass Cancel Clear Lockout Reject Underlier: "..value
-end
-
--- Dissect: Underlier Mass Cancel Clear Lockout Reject Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_reject_underlier.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_reject_underlier.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_reject_underlier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.underlier_mass_cancel_clear_lockout_reject_underlier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Mass Cancel Clear Lockout Reject Message
 memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_reject_message = {}
 
 -- Size: Mass Cancel Clear Lockout Reject Message
 memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_reject_message.size =
   memx_options_memo_sbe_v1_10.clordid.size + 
-  memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_reject_underlier.size + 
+  memx_options_memo_sbe_v1_10.underlier.size + 
   memx_options_memo_sbe_v1_10.lockout_id.size + 
   memx_options_memo_sbe_v1_10.rej_reason.size + 
   memx_options_memo_sbe_v1_10.sending_time.size
@@ -1155,8 +1046,8 @@ memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_reject_message.fields = fu
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Mass Cancel Clear Lockout Reject Underlier: 6 Byte Ascii String
-  index, underlier_mass_cancel_clear_lockout_reject_underlier = memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_reject_underlier.dissect(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_memo_sbe_v1_10.underlier.dissect(buffer, index, packet, parent)
 
   -- Lockout Id: 8 Byte Unsigned Fixed Width Integer
   index, lockout_id = memx_options_memo_sbe_v1_10.lockout_id.dissect(buffer, index, packet, parent)
@@ -1304,53 +1195,53 @@ memx_options_memo_sbe_v1_10.alloc_id.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Trading Capacity Trading Capacity Type optional
-memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type_optional = {}
+-- Trading Capacity Optional
+memx_options_memo_sbe_v1_10.trading_capacity_optional = {}
 
--- Size: Trading Capacity Trading Capacity Type optional
-memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type_optional.size = 1
+-- Size: Trading Capacity Optional
+memx_options_memo_sbe_v1_10.trading_capacity_optional.size = 1
 
--- Display: Trading Capacity Trading Capacity Type optional
-memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type_optional.display = function(value)
+-- Display: Trading Capacity Optional
+memx_options_memo_sbe_v1_10.trading_capacity_optional.display = function(value)
   if value == 1 then
-    return "Trading Capacity Trading Capacity Type optional: Customer (1)"
+    return "Trading Capacity Optional: Customer (1)"
   end
   if value == 2 then
-    return "Trading Capacity Trading Capacity Type optional: Professional Customer (2)"
+    return "Trading Capacity Optional: Professional Customer (2)"
   end
   if value == 3 then
-    return "Trading Capacity Trading Capacity Type optional: Broker Dealer (3)"
+    return "Trading Capacity Optional: Broker Dealer (3)"
   end
   if value == 4 then
-    return "Trading Capacity Trading Capacity Type optional: Broker Dealer Customer (4)"
+    return "Trading Capacity Optional: Broker Dealer Customer (4)"
   end
   if value == 5 then
-    return "Trading Capacity Trading Capacity Type optional: Firm (5)"
+    return "Trading Capacity Optional: Firm (5)"
   end
   if value == 6 then
-    return "Trading Capacity Trading Capacity Type optional: Market Maker (6)"
+    return "Trading Capacity Optional: Market Maker (6)"
   end
   if value == 7 then
-    return "Trading Capacity Trading Capacity Type optional: Away Market Maker (7)"
+    return "Trading Capacity Optional: Away Market Maker (7)"
   end
   if value == 255 then
-    return "Trading Capacity Trading Capacity Type optional: Null Value (255)"
+    return "Trading Capacity Optional: Null Value (255)"
   end
   if value == 255 then
-    return "Trading Capacity Trading Capacity Type optional: No Value"
+    return "Trading Capacity Optional: No Value"
   end
 
-  return "Trading Capacity Trading Capacity Type optional: Unknown("..value..")"
+  return "Trading Capacity Optional: Unknown("..value..")"
 end
 
--- Dissect: Trading Capacity Trading Capacity Type optional
-memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type_optional.size
+-- Dissect: Trading Capacity Optional
+memx_options_memo_sbe_v1_10.trading_capacity_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_10.trading_capacity_optional.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type_optional.display(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_10.trading_capacity_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.trading_capacity_trading_capacity_type_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_10.fields.trading_capacity_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1428,7 +1319,7 @@ memx_options_memo_sbe_v1_10.reported_allocations_group = {}
 memx_options_memo_sbe_v1_10.reported_allocations_group.size =
   memx_options_memo_sbe_v1_10.alloc_qty.size + 
   memx_options_memo_sbe_v1_10.alloc_position_effect.size + 
-  memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type_optional.size + 
+  memx_options_memo_sbe_v1_10.trading_capacity_optional.size + 
   memx_options_memo_sbe_v1_10.alloc_id.size
 
 -- Display: Reported Allocations Group
@@ -1452,8 +1343,8 @@ memx_options_memo_sbe_v1_10.reported_allocations_group.fields = function(buffer,
   -- Alloc Position Effect: 1 Byte Ascii String Enum with 2 values
   index, alloc_position_effect = memx_options_memo_sbe_v1_10.alloc_position_effect.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Trading Capacity Type optional: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, trading_capacity_trading_capacity_type_optional = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type_optional.dissect(buffer, index, packet, parent)
+  -- Trading Capacity Optional: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  index, trading_capacity_optional = memx_options_memo_sbe_v1_10.trading_capacity_optional.dissect(buffer, index, packet, parent)
 
   -- Alloc Id: 20 Byte Ascii String
   index, alloc_id = memx_options_memo_sbe_v1_10.alloc_id.dissect(buffer, index, packet, parent)
@@ -3256,45 +3147,6 @@ memx_options_memo_sbe_v1_10.mass_cancel_reject_message.dissect = function(buffer
   end
 end
 
--- Underlier
-memx_options_memo_sbe_v1_10.underlier = {}
-
--- Size: Underlier
-memx_options_memo_sbe_v1_10.underlier.size = 6
-
--- Display: Underlier
-memx_options_memo_sbe_v1_10.underlier.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier: No Value"
-  end
-
-  return "Underlier: "..value
-end
-
--- Dissect: Underlier
-memx_options_memo_sbe_v1_10.underlier.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.underlier.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_10.underlier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.underlier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Underlying Or Series
 memx_options_memo_sbe_v1_10.underlying_or_series = {}
 
@@ -4989,50 +4841,50 @@ memx_options_memo_sbe_v1_10.contra_trading_capacity.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Trading Capacity Trading Capacity Type
-memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type = {}
+-- Trading Capacity
+memx_options_memo_sbe_v1_10.trading_capacity = {}
 
--- Size: Trading Capacity Trading Capacity Type
-memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.size = 1
+-- Size: Trading Capacity
+memx_options_memo_sbe_v1_10.trading_capacity.size = 1
 
--- Display: Trading Capacity Trading Capacity Type
-memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.display = function(value)
+-- Display: Trading Capacity
+memx_options_memo_sbe_v1_10.trading_capacity.display = function(value)
   if value == 1 then
-    return "Trading Capacity Trading Capacity Type: Customer (1)"
+    return "Trading Capacity: Customer (1)"
   end
   if value == 2 then
-    return "Trading Capacity Trading Capacity Type: Professional Customer (2)"
+    return "Trading Capacity: Professional Customer (2)"
   end
   if value == 3 then
-    return "Trading Capacity Trading Capacity Type: Broker Dealer (3)"
+    return "Trading Capacity: Broker Dealer (3)"
   end
   if value == 4 then
-    return "Trading Capacity Trading Capacity Type: Broker Dealer Customer (4)"
+    return "Trading Capacity: Broker Dealer Customer (4)"
   end
   if value == 5 then
-    return "Trading Capacity Trading Capacity Type: Firm (5)"
+    return "Trading Capacity: Firm (5)"
   end
   if value == 6 then
-    return "Trading Capacity Trading Capacity Type: Market Maker (6)"
+    return "Trading Capacity: Market Maker (6)"
   end
   if value == 7 then
-    return "Trading Capacity Trading Capacity Type: Away Market Maker (7)"
+    return "Trading Capacity: Away Market Maker (7)"
   end
   if value == 255 then
-    return "Trading Capacity Trading Capacity Type: Null Value (255)"
+    return "Trading Capacity: Null Value (255)"
   end
 
-  return "Trading Capacity Trading Capacity Type: Unknown("..value..")"
+  return "Trading Capacity: Unknown("..value..")"
 end
 
--- Dissect: Trading Capacity Trading Capacity Type
-memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.size
+-- Dissect: Trading Capacity
+memx_options_memo_sbe_v1_10.trading_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_10.trading_capacity.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.display(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_10.trading_capacity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.trading_capacity_trading_capacity_type, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_10.fields.trading_capacity, range, value, display)
 
   return offset + length, value
 end
@@ -5196,7 +5048,7 @@ memx_options_memo_sbe_v1_10.execution_report_trade_message.size = function(buffe
 
   index = index + memx_options_memo_sbe_v1_10.position_effect.size
 
-  index = index + memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.size
+  index = index + memx_options_memo_sbe_v1_10.trading_capacity.size
 
   index = index + memx_options_memo_sbe_v1_10.contra_trading_capacity.size
 
@@ -5265,8 +5117,8 @@ memx_options_memo_sbe_v1_10.execution_report_trade_message.fields = function(buf
   -- Position Effect: 1 Byte Ascii String Enum with 2 values
   index, position_effect = memx_options_memo_sbe_v1_10.position_effect.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Trading Capacity Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, trading_capacity_trading_capacity_type = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.dissect(buffer, index, packet, parent)
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, trading_capacity = memx_options_memo_sbe_v1_10.trading_capacity.dissect(buffer, index, packet, parent)
 
   -- Contra Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, contra_trading_capacity = memx_options_memo_sbe_v1_10.contra_trading_capacity.dissect(buffer, index, packet, parent)
@@ -6070,7 +5922,7 @@ memx_options_memo_sbe_v1_10.execution_report_bulk_quote_pending_new_message.size
 
   index = index + memx_options_memo_sbe_v1_10.exec_inst.size
 
-  index = index + memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.size
+  index = index + memx_options_memo_sbe_v1_10.trading_capacity.size
 
   index = index + memx_options_memo_sbe_v1_10.sending_time.size
 
@@ -6112,8 +5964,8 @@ memx_options_memo_sbe_v1_10.execution_report_bulk_quote_pending_new_message.fiel
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Trading Capacity Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, trading_capacity_trading_capacity_type = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.dissect(buffer, index, packet, parent)
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, trading_capacity = memx_options_memo_sbe_v1_10.trading_capacity.dissect(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
@@ -6309,7 +6161,7 @@ memx_options_memo_sbe_v1_10.execution_report_new_message.size = function(buffer,
 
   index = index + memx_options_memo_sbe_v1_10.exec_inst.size
 
-  index = index + memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.size
+  index = index + memx_options_memo_sbe_v1_10.trading_capacity.size
 
   index = index + memx_options_memo_sbe_v1_10.reprice_frequency.size
 
@@ -6384,8 +6236,8 @@ memx_options_memo_sbe_v1_10.execution_report_new_message.fields = function(buffe
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Trading Capacity Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, trading_capacity_trading_capacity_type = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.dissect(buffer, index, packet, parent)
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, trading_capacity = memx_options_memo_sbe_v1_10.trading_capacity.dissect(buffer, index, packet, parent)
 
   -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, reprice_frequency = memx_options_memo_sbe_v1_10.reprice_frequency.dissect(buffer, index, packet, parent)
@@ -6443,7 +6295,7 @@ memx_options_memo_sbe_v1_10.requested_allocations_group = {}
 memx_options_memo_sbe_v1_10.requested_allocations_group.size =
   memx_options_memo_sbe_v1_10.alloc_qty.size + 
   memx_options_memo_sbe_v1_10.alloc_position_effect.size + 
-  memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type_optional.size
+  memx_options_memo_sbe_v1_10.trading_capacity_optional.size
 
 -- Display: Requested Allocations Group
 memx_options_memo_sbe_v1_10.requested_allocations_group.display = function(packet, parent, length)
@@ -6466,8 +6318,8 @@ memx_options_memo_sbe_v1_10.requested_allocations_group.fields = function(buffer
   -- Alloc Position Effect: 1 Byte Ascii String Enum with 2 values
   index, alloc_position_effect = memx_options_memo_sbe_v1_10.alloc_position_effect.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Trading Capacity Type optional: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, trading_capacity_trading_capacity_type_optional = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type_optional.dissect(buffer, index, packet, parent)
+  -- Trading Capacity Optional: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  index, trading_capacity_optional = memx_options_memo_sbe_v1_10.trading_capacity_optional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6622,132 +6474,15 @@ memx_options_memo_sbe_v1_10.allocation_instruction_message.dissect = function(bu
   return memx_options_memo_sbe_v1_10.allocation_instruction_message.fields(buffer, offset, packet, parent)
 end
 
--- Underlier Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Underlier optional
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional = {}
-
--- Size: Underlier Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Underlier optional
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional.size = 6
-
--- Display: Underlier Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Underlier optional
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Underlier optional: No Value"
-  end
-
-  return "Underlier Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Underlier optional: "..value
-end
-
--- Dissect: Underlier Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Underlier optional
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_10.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Efi D optional
-memx_options_memo_sbe_v1_10.efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional = {}
-
--- Size: Efi D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Efi D optional
-memx_options_memo_sbe_v1_10.efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional.size = 4
-
--- Display: Efi D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Efi D optional
-memx_options_memo_sbe_v1_10.efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Efi D optional: No Value"
-  end
-
-  return "Efi D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Efi D optional
-memx_options_memo_sbe_v1_10.efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_10.efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Cl Ord I D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id = {}
-
--- Size: Cl Ord I D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id.size = 20
-
--- Display: Cl Ord I D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message = {}
 
 -- Size: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.size =
   memx_options_memo_sbe_v1_10.sending_time.size + 
-  memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id.size + 
-  memx_options_memo_sbe_v1_10.efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional.size + 
-  memx_options_memo_sbe_v1_10.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional.size
+  memx_options_memo_sbe_v1_10.clordid.size + 
+  memx_options_memo_sbe_v1_10.efid_optional.size + 
+  memx_options_memo_sbe_v1_10.underlier_optional.size
 
 -- Display: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.display = function(packet, parent, length)
@@ -6761,14 +6496,14 @@ memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Cl Ord I D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Efi D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Efi D optional: 4 Byte Ascii String Nullable
-  index, efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional = memx_options_memo_sbe_v1_10.efi_d_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Optional: 4 Byte Ascii String Nullable
+  index, efid_optional = memx_options_memo_sbe_v1_10.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Underlier optional: 6 Byte Ascii String Nullable
-  index, underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional = memx_options_memo_sbe_v1_10.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional.dissect(buffer, index, packet, parent)
+  -- Underlier Optional: 6 Byte Ascii String Nullable
+  index, underlier_optional = memx_options_memo_sbe_v1_10.underlier_optional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6791,52 +6526,13 @@ memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier
   end
 end
 
--- Cl Ord I D Mass Cancel Bulk Clear All Lockouts Request Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id = {}
-
--- Size: Cl Ord I D Mass Cancel Bulk Clear All Lockouts Request Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id.size = 20
-
--- Display: Cl Ord I D Mass Cancel Bulk Clear All Lockouts Request Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Mass Cancel Bulk Clear All Lockouts Request Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Mass Cancel Bulk Clear All Lockouts Request Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Mass Cancel Bulk Clear All Lockouts Request Cl Ord Id
-memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Mass Cancel Bulk Clear All Lockouts Request Message
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_all_lockouts_request_message = {}
 
 -- Size: Mass Cancel Bulk Clear All Lockouts Request Message
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_all_lockouts_request_message.size =
   memx_options_memo_sbe_v1_10.sending_time.size + 
-  memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id.size
+  memx_options_memo_sbe_v1_10.clordid.size
 
 -- Display: Mass Cancel Bulk Clear All Lockouts Request Message
 memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_all_lockouts_request_message.display = function(packet, parent, length)
@@ -6850,8 +6546,8 @@ memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_all_lockouts_request_message.
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Cl Ord I D Mass Cancel Bulk Clear All Lockouts Request Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id = memx_options_memo_sbe_v1_10.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6874,45 +6570,6 @@ memx_options_memo_sbe_v1_10.mass_cancel_bulk_clear_all_lockouts_request_message.
   end
 end
 
--- Underlier Mass Cancel Clear Lockout Request Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_request_underlier = {}
-
--- Size: Underlier Mass Cancel Clear Lockout Request Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_request_underlier.size = 6
-
--- Display: Underlier Mass Cancel Clear Lockout Request Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_request_underlier.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Mass Cancel Clear Lockout Request Underlier: No Value"
-  end
-
-  return "Underlier Mass Cancel Clear Lockout Request Underlier: "..value
-end
-
--- Dissect: Underlier Mass Cancel Clear Lockout Request Underlier
-memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_request_underlier.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_request_underlier.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_request_underlier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_10.fields.underlier_mass_cancel_clear_lockout_request_underlier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Mass Cancel Clear Lockout Request Message
 memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_request_message = {}
 
@@ -6920,7 +6577,7 @@ memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_request_message = {}
 memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_request_message.size =
   memx_options_memo_sbe_v1_10.sending_time.size + 
   memx_options_memo_sbe_v1_10.clordid.size + 
-  memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_request_underlier.size + 
+  memx_options_memo_sbe_v1_10.underlier.size + 
   memx_options_memo_sbe_v1_10.lockout_id.size
 
 -- Display: Mass Cancel Clear Lockout Request Message
@@ -6938,8 +6595,8 @@ memx_options_memo_sbe_v1_10.mass_cancel_clear_lockout_request_message.fields = f
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Mass Cancel Clear Lockout Request Underlier: 6 Byte Ascii String
-  index, underlier_mass_cancel_clear_lockout_request_underlier = memx_options_memo_sbe_v1_10.underlier_mass_cancel_clear_lockout_request_underlier.dissect(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_memo_sbe_v1_10.underlier.dissect(buffer, index, packet, parent)
 
   -- Lockout Id: 8 Byte Unsigned Fixed Width Integer
   index, lockout_id = memx_options_memo_sbe_v1_10.lockout_id.dissect(buffer, index, packet, parent)
@@ -7201,6 +6858,352 @@ memx_options_memo_sbe_v1_10.order_cancel_replace_request_message.dissect = funct
   end
 end
 
+-- Price Short
+memx_options_memo_sbe_v1_10.price_short = {}
+
+-- Size: Price Short
+memx_options_memo_sbe_v1_10.price_short.size = 2
+
+-- Display: Price Short
+memx_options_memo_sbe_v1_10.price_short.display = function(value)
+  return "Price Short: "..value
+end
+
+-- Translate: Price Short
+memx_options_memo_sbe_v1_10.price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Price Short
+memx_options_memo_sbe_v1_10.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_10.price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = memx_options_memo_sbe_v1_10.price_short.translate(raw)
+  local display = memx_options_memo_sbe_v1_10.price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_10.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+memx_options_memo_sbe_v1_10.quantity = {}
+
+-- Size: Quantity
+memx_options_memo_sbe_v1_10.quantity.size = 2
+
+-- Display: Quantity
+memx_options_memo_sbe_v1_10.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+memx_options_memo_sbe_v1_10.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_10.quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_10.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_10.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- One Sided Quotes Group
+memx_options_memo_sbe_v1_10.one_sided_quotes_group = {}
+
+-- Size: One Sided Quotes Group
+memx_options_memo_sbe_v1_10.one_sided_quotes_group.size =
+  memx_options_memo_sbe_v1_10.list_seq_no.size + 
+  memx_options_memo_sbe_v1_10.security_id.size + 
+  memx_options_memo_sbe_v1_10.side.size + 
+  memx_options_memo_sbe_v1_10.quantity.size + 
+  memx_options_memo_sbe_v1_10.price_short.size
+
+-- Display: One Sided Quotes Group
+memx_options_memo_sbe_v1_10.one_sided_quotes_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: One Sided Quotes Group
+memx_options_memo_sbe_v1_10.one_sided_quotes_group.fields = function(buffer, offset, packet, parent, one_sided_quotes_group_index)
+  local index = offset
+
+  -- Implicit One Sided Quotes Group Index
+  if one_sided_quotes_group_index ~= nil then
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_10.fields.one_sided_quotes_group_index, one_sided_quotes_group_index)
+    iteration:set_generated()
+  end
+
+  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  index, list_seq_no = memx_options_memo_sbe_v1_10.list_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_10.security_id.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Ascii String Enum with 3 values
+  index, side = memx_options_memo_sbe_v1_10.side.dissect(buffer, index, packet, parent)
+
+  -- Quantity: 2 Byte Unsigned Fixed Width Integer
+  index, quantity = memx_options_memo_sbe_v1_10.quantity.dissect(buffer, index, packet, parent)
+
+  -- Price Short: 2 Byte Unsigned Fixed Width Integer
+  index, price_short = memx_options_memo_sbe_v1_10.price_short.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: One Sided Quotes Group
+memx_options_memo_sbe_v1_10.one_sided_quotes_group.dissect = function(buffer, offset, packet, parent, one_sided_quotes_group_index)
+  if show.one_sided_quotes_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_10.fields.one_sided_quotes_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_10.one_sided_quotes_group.fields(buffer, offset, packet, parent, one_sided_quotes_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_10.one_sided_quotes_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_10.one_sided_quotes_group.fields(buffer, offset, packet, parent, one_sided_quotes_group_index)
+  end
+end
+
+-- One Sided Quotes Groups
+memx_options_memo_sbe_v1_10.one_sided_quotes_groups = {}
+
+-- Calculate size of: One Sided Quotes Groups
+memx_options_memo_sbe_v1_10.one_sided_quotes_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_memo_sbe_v1_10.repeating_group_dimensions.size
+
+  -- Calculate field size from count
+  local one_sided_quotes_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + one_sided_quotes_group_count * 14
+
+  return index
+end
+
+-- Display: One Sided Quotes Groups
+memx_options_memo_sbe_v1_10.one_sided_quotes_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: One Sided Quotes Groups
+memx_options_memo_sbe_v1_10.one_sided_quotes_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Repeating Group Dimensions: Struct of 2 fields
+  index, repeating_group_dimensions = memx_options_memo_sbe_v1_10.repeating_group_dimensions.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: One Sided Quotes Group
+  for one_sided_quotes_group_index = 1, num_in_group do
+    index, one_sided_quotes_group = memx_options_memo_sbe_v1_10.one_sided_quotes_group.dissect(buffer, index, packet, parent, one_sided_quotes_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: One Sided Quotes Groups
+memx_options_memo_sbe_v1_10.one_sided_quotes_groups.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.one_sided_quotes_groups then
+    local length = memx_options_memo_sbe_v1_10.one_sided_quotes_groups.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = memx_options_memo_sbe_v1_10.one_sided_quotes_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_10.fields.one_sided_quotes_groups, range, display)
+  end
+
+  return memx_options_memo_sbe_v1_10.one_sided_quotes_groups.fields(buffer, offset, packet, parent)
+end
+
+-- Long One Sided Bulk Quote Message
+memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message = {}
+
+-- Calculate size of: Long One Sided Bulk Quote Message
+memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_memo_sbe_v1_10.sending_time.size
+
+  index = index + memx_options_memo_sbe_v1_10.clordid.size
+
+  index = index + memx_options_memo_sbe_v1_10.time_in_force.size
+
+  index = index + memx_options_memo_sbe_v1_10.exec_inst.size
+
+  index = index + memx_options_memo_sbe_v1_10.trading_capacity.size
+
+  index = index + memx_options_memo_sbe_v1_10.mtp_group_id.size
+
+  index = index + memx_options_memo_sbe_v1_10.match_trade_prevention.size
+
+  index = index + memx_options_memo_sbe_v1_10.cancel_group_id.size
+
+  index = index + memx_options_memo_sbe_v1_10.risk_group_id.size
+
+  index = index + memx_options_memo_sbe_v1_10.parties_groups.size(buffer, offset + index)
+
+  index = index + memx_options_memo_sbe_v1_10.one_sided_quotes_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Long One Sided Bulk Quote Message
+memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Long One Sided Bulk Quote Message
+memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  index, sending_time = memx_options_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: 1 Byte Ascii String Enum with 2 values
+  index, time_in_force = memx_options_memo_sbe_v1_10.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: Struct of 4 fields
+  index, exec_inst = memx_options_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, trading_capacity = memx_options_memo_sbe_v1_10.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, mtp_group_id = memx_options_memo_sbe_v1_10.mtp_group_id.dissect(buffer, index, packet, parent)
+
+  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, match_trade_prevention = memx_options_memo_sbe_v1_10.match_trade_prevention.dissect(buffer, index, packet, parent)
+
+  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, cancel_group_id = memx_options_memo_sbe_v1_10.cancel_group_id.dissect(buffer, index, packet, parent)
+
+  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, risk_group_id = memx_options_memo_sbe_v1_10.risk_group_id.dissect(buffer, index, packet, parent)
+
+  -- Parties Groups: Struct of 2 fields
+  index, parties_groups = memx_options_memo_sbe_v1_10.parties_groups.dissect(buffer, index, packet, parent)
+
+  -- One Sided Quotes Groups: Struct of 2 fields
+  index, one_sided_quotes_groups = memx_options_memo_sbe_v1_10.one_sided_quotes_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Long One Sided Bulk Quote Message
+memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.long_one_sided_bulk_quote_message then
+    local length = memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.display(buffer, packet, parent)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_10.fields.long_one_sided_bulk_quote_message, range, display)
+  end
+
+  return memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+end
+
+-- Short One Sided Bulk Quote Message
+memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message = {}
+
+-- Calculate size of: Short One Sided Bulk Quote Message
+memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_memo_sbe_v1_10.sending_time.size
+
+  index = index + memx_options_memo_sbe_v1_10.clordid.size
+
+  index = index + memx_options_memo_sbe_v1_10.time_in_force.size
+
+  index = index + memx_options_memo_sbe_v1_10.exec_inst.size
+
+  index = index + memx_options_memo_sbe_v1_10.trading_capacity.size
+
+  index = index + memx_options_memo_sbe_v1_10.mtp_group_id.size
+
+  index = index + memx_options_memo_sbe_v1_10.match_trade_prevention.size
+
+  index = index + memx_options_memo_sbe_v1_10.cancel_group_id.size
+
+  index = index + memx_options_memo_sbe_v1_10.risk_group_id.size
+
+  index = index + memx_options_memo_sbe_v1_10.parties_groups.size(buffer, offset + index)
+
+  index = index + memx_options_memo_sbe_v1_10.one_sided_quotes_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Short One Sided Bulk Quote Message
+memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Short One Sided Bulk Quote Message
+memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  index, sending_time = memx_options_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: 1 Byte Ascii String Enum with 2 values
+  index, time_in_force = memx_options_memo_sbe_v1_10.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: Struct of 4 fields
+  index, exec_inst = memx_options_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, trading_capacity = memx_options_memo_sbe_v1_10.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, mtp_group_id = memx_options_memo_sbe_v1_10.mtp_group_id.dissect(buffer, index, packet, parent)
+
+  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, match_trade_prevention = memx_options_memo_sbe_v1_10.match_trade_prevention.dissect(buffer, index, packet, parent)
+
+  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, cancel_group_id = memx_options_memo_sbe_v1_10.cancel_group_id.dissect(buffer, index, packet, parent)
+
+  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, risk_group_id = memx_options_memo_sbe_v1_10.risk_group_id.dissect(buffer, index, packet, parent)
+
+  -- Parties Groups: Struct of 2 fields
+  index, parties_groups = memx_options_memo_sbe_v1_10.parties_groups.dissect(buffer, index, packet, parent)
+
+  -- One Sided Quotes Groups: Struct of 2 fields
+  index, one_sided_quotes_groups = memx_options_memo_sbe_v1_10.one_sided_quotes_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Short One Sided Bulk Quote Message
+memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.short_one_sided_bulk_quote_message then
+    local length = memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.display(buffer, packet, parent)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_10.fields.short_one_sided_bulk_quote_message, range, display)
+  end
+
+  return memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+end
+
 -- Offer Px
 memx_options_memo_sbe_v1_10.offer_px = {}
 
@@ -7305,11 +7308,11 @@ memx_options_memo_sbe_v1_10.bid_size.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Quotes Group
-memx_options_memo_sbe_v1_10.quotes_group = {}
+-- Two Sided Quotes Group
+memx_options_memo_sbe_v1_10.two_sided_quotes_group = {}
 
--- Size: Quotes Group
-memx_options_memo_sbe_v1_10.quotes_group.size =
+-- Size: Two Sided Quotes Group
+memx_options_memo_sbe_v1_10.two_sided_quotes_group.size =
   memx_options_memo_sbe_v1_10.list_seq_no.size + 
   memx_options_memo_sbe_v1_10.security_id.size + 
   memx_options_memo_sbe_v1_10.bid_size.size + 
@@ -7317,18 +7320,18 @@ memx_options_memo_sbe_v1_10.quotes_group.size =
   memx_options_memo_sbe_v1_10.offer_size.size + 
   memx_options_memo_sbe_v1_10.offer_px.size
 
--- Display: Quotes Group
-memx_options_memo_sbe_v1_10.quotes_group.display = function(packet, parent, length)
+-- Display: Two Sided Quotes Group
+memx_options_memo_sbe_v1_10.two_sided_quotes_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quotes Group
-memx_options_memo_sbe_v1_10.quotes_group.fields = function(buffer, offset, packet, parent, quotes_group_index)
+-- Dissect Fields: Two Sided Quotes Group
+memx_options_memo_sbe_v1_10.two_sided_quotes_group.fields = function(buffer, offset, packet, parent, two_sided_quotes_group_index)
   local index = offset
 
-  -- Implicit Quotes Group Index
-  if quotes_group_index ~= nil then
-    local iteration = parent:add(omi_memx_options_memo_sbe_v1_10.fields.quotes_group_index, quotes_group_index)
+  -- Implicit Two Sided Quotes Group Index
+  if two_sided_quotes_group_index ~= nil then
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_10.fields.two_sided_quotes_group_index, two_sided_quotes_group_index)
     iteration:set_generated()
   end
 
@@ -7353,47 +7356,47 @@ memx_options_memo_sbe_v1_10.quotes_group.fields = function(buffer, offset, packe
   return index
 end
 
--- Dissect: Quotes Group
-memx_options_memo_sbe_v1_10.quotes_group.dissect = function(buffer, offset, packet, parent, quotes_group_index)
-  if show.quotes_group then
+-- Dissect: Two Sided Quotes Group
+memx_options_memo_sbe_v1_10.two_sided_quotes_group.dissect = function(buffer, offset, packet, parent, two_sided_quotes_group_index)
+  if show.two_sided_quotes_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_10.fields.quotes_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_10.quotes_group.fields(buffer, offset, packet, parent, quotes_group_index)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_10.fields.two_sided_quotes_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_10.two_sided_quotes_group.fields(buffer, offset, packet, parent, two_sided_quotes_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_10.quotes_group.display(packet, parent, length)
+    local display = memx_options_memo_sbe_v1_10.two_sided_quotes_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_10.quotes_group.fields(buffer, offset, packet, parent, quotes_group_index)
+    return memx_options_memo_sbe_v1_10.two_sided_quotes_group.fields(buffer, offset, packet, parent, two_sided_quotes_group_index)
   end
 end
 
--- Quotes Groups
-memx_options_memo_sbe_v1_10.quotes_groups = {}
+-- Two Sided Quotes Groups
+memx_options_memo_sbe_v1_10.two_sided_quotes_groups = {}
 
--- Calculate size of: Quotes Groups
-memx_options_memo_sbe_v1_10.quotes_groups.size = function(buffer, offset)
+-- Calculate size of: Two Sided Quotes Groups
+memx_options_memo_sbe_v1_10.two_sided_quotes_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memo_sbe_v1_10.repeating_group_dimensions.size
 
   -- Calculate field size from count
-  local quotes_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + quotes_group_count * 17
+  local two_sided_quotes_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + two_sided_quotes_group_count * 17
 
   return index
 end
 
--- Display: Quotes Groups
-memx_options_memo_sbe_v1_10.quotes_groups.display = function(packet, parent, length)
+-- Display: Two Sided Quotes Groups
+memx_options_memo_sbe_v1_10.two_sided_quotes_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quotes Groups
-memx_options_memo_sbe_v1_10.quotes_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Two Sided Quotes Groups
+memx_options_memo_sbe_v1_10.two_sided_quotes_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Repeating Group Dimensions: Struct of 2 fields
@@ -7402,205 +7405,25 @@ memx_options_memo_sbe_v1_10.quotes_groups.fields = function(buffer, offset, pack
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Repeating: Quotes Group
-  for quotes_group_index = 1, num_in_group do
-    index, quotes_group = memx_options_memo_sbe_v1_10.quotes_group.dissect(buffer, index, packet, parent, quotes_group_index)
+  -- Repeating: Two Sided Quotes Group
+  for two_sided_quotes_group_index = 1, num_in_group do
+    index, two_sided_quotes_group = memx_options_memo_sbe_v1_10.two_sided_quotes_group.dissect(buffer, index, packet, parent, two_sided_quotes_group_index)
   end
 
   return index
 end
 
--- Dissect: Quotes Groups
-memx_options_memo_sbe_v1_10.quotes_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Two Sided Quotes Groups
+memx_options_memo_sbe_v1_10.two_sided_quotes_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.quotes_groups then
-    local length = memx_options_memo_sbe_v1_10.quotes_groups.size(buffer, offset)
+  if show.two_sided_quotes_groups then
+    local length = memx_options_memo_sbe_v1_10.two_sided_quotes_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_10.quotes_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_10.fields.quotes_groups, range, display)
+    local display = memx_options_memo_sbe_v1_10.two_sided_quotes_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_10.fields.two_sided_quotes_groups, range, display)
   end
 
-  return memx_options_memo_sbe_v1_10.quotes_groups.fields(buffer, offset, packet, parent)
-end
-
--- Long One Sided Bulk Quote Message
-memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message = {}
-
--- Calculate size of: Long One Sided Bulk Quote Message
-memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_10.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_10.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_10.time_in_force.size
-
-  index = index + memx_options_memo_sbe_v1_10.exec_inst.size
-
-  index = index + memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.size
-
-  index = index + memx_options_memo_sbe_v1_10.mtp_group_id.size
-
-  index = index + memx_options_memo_sbe_v1_10.match_trade_prevention.size
-
-  index = index + memx_options_memo_sbe_v1_10.cancel_group_id.size
-
-  index = index + memx_options_memo_sbe_v1_10.risk_group_id.size
-
-  index = index + memx_options_memo_sbe_v1_10.parties_groups.size(buffer, offset + index)
-
-  index = index + memx_options_memo_sbe_v1_10.quotes_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Long One Sided Bulk Quote Message
-memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Long One Sided Bulk Quote Message
-memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
-  index, sending_time = memx_options_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: 20 Byte Ascii String
-  index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: 1 Byte Ascii String Enum with 2 values
-  index, time_in_force = memx_options_memo_sbe_v1_10.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: Struct of 4 fields
-  index, exec_inst = memx_options_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity Trading Capacity Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, trading_capacity_trading_capacity_type = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.dissect(buffer, index, packet, parent)
-
-  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, mtp_group_id = memx_options_memo_sbe_v1_10.mtp_group_id.dissect(buffer, index, packet, parent)
-
-  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, match_trade_prevention = memx_options_memo_sbe_v1_10.match_trade_prevention.dissect(buffer, index, packet, parent)
-
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, cancel_group_id = memx_options_memo_sbe_v1_10.cancel_group_id.dissect(buffer, index, packet, parent)
-
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, risk_group_id = memx_options_memo_sbe_v1_10.risk_group_id.dissect(buffer, index, packet, parent)
-
-  -- Parties Groups: Struct of 2 fields
-  index, parties_groups = memx_options_memo_sbe_v1_10.parties_groups.dissect(buffer, index, packet, parent)
-
-  -- Quotes Groups: Struct of 2 fields
-  index, quotes_groups = memx_options_memo_sbe_v1_10.quotes_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long One Sided Bulk Quote Message
-memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.long_one_sided_bulk_quote_message then
-    local length = memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_10.fields.long_one_sided_bulk_quote_message, range, display)
-  end
-
-  return memx_options_memo_sbe_v1_10.long_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
-end
-
--- Short One Sided Bulk Quote Message
-memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message = {}
-
--- Calculate size of: Short One Sided Bulk Quote Message
-memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_10.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_10.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_10.time_in_force.size
-
-  index = index + memx_options_memo_sbe_v1_10.exec_inst.size
-
-  index = index + memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.size
-
-  index = index + memx_options_memo_sbe_v1_10.mtp_group_id.size
-
-  index = index + memx_options_memo_sbe_v1_10.match_trade_prevention.size
-
-  index = index + memx_options_memo_sbe_v1_10.cancel_group_id.size
-
-  index = index + memx_options_memo_sbe_v1_10.risk_group_id.size
-
-  index = index + memx_options_memo_sbe_v1_10.parties_groups.size(buffer, offset + index)
-
-  index = index + memx_options_memo_sbe_v1_10.quotes_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Short One Sided Bulk Quote Message
-memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Short One Sided Bulk Quote Message
-memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
-  index, sending_time = memx_options_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: 20 Byte Ascii String
-  index, clordid = memx_options_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: 1 Byte Ascii String Enum with 2 values
-  index, time_in_force = memx_options_memo_sbe_v1_10.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: Struct of 4 fields
-  index, exec_inst = memx_options_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity Trading Capacity Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, trading_capacity_trading_capacity_type = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.dissect(buffer, index, packet, parent)
-
-  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, mtp_group_id = memx_options_memo_sbe_v1_10.mtp_group_id.dissect(buffer, index, packet, parent)
-
-  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, match_trade_prevention = memx_options_memo_sbe_v1_10.match_trade_prevention.dissect(buffer, index, packet, parent)
-
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, cancel_group_id = memx_options_memo_sbe_v1_10.cancel_group_id.dissect(buffer, index, packet, parent)
-
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, risk_group_id = memx_options_memo_sbe_v1_10.risk_group_id.dissect(buffer, index, packet, parent)
-
-  -- Parties Groups: Struct of 2 fields
-  index, parties_groups = memx_options_memo_sbe_v1_10.parties_groups.dissect(buffer, index, packet, parent)
-
-  -- Quotes Groups: Struct of 2 fields
-  index, quotes_groups = memx_options_memo_sbe_v1_10.quotes_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short One Sided Bulk Quote Message
-memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.short_one_sided_bulk_quote_message then
-    local length = memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_10.fields.short_one_sided_bulk_quote_message, range, display)
-  end
-
-  return memx_options_memo_sbe_v1_10.short_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+  return memx_options_memo_sbe_v1_10.two_sided_quotes_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Long Two Sided Bulk Quote Message
@@ -7618,7 +7441,7 @@ memx_options_memo_sbe_v1_10.long_two_sided_bulk_quote_message.size = function(bu
 
   index = index + memx_options_memo_sbe_v1_10.exec_inst.size
 
-  index = index + memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.size
+  index = index + memx_options_memo_sbe_v1_10.trading_capacity.size
 
   index = index + memx_options_memo_sbe_v1_10.mtp_group_id.size
 
@@ -7630,7 +7453,7 @@ memx_options_memo_sbe_v1_10.long_two_sided_bulk_quote_message.size = function(bu
 
   index = index + memx_options_memo_sbe_v1_10.parties_groups.size(buffer, offset + index)
 
-  index = index + memx_options_memo_sbe_v1_10.quotes_groups.size(buffer, offset + index)
+  index = index + memx_options_memo_sbe_v1_10.two_sided_quotes_groups.size(buffer, offset + index)
 
   return index
 end
@@ -7656,8 +7479,8 @@ memx_options_memo_sbe_v1_10.long_two_sided_bulk_quote_message.fields = function(
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Trading Capacity Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, trading_capacity_trading_capacity_type = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.dissect(buffer, index, packet, parent)
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, trading_capacity = memx_options_memo_sbe_v1_10.trading_capacity.dissect(buffer, index, packet, parent)
 
   -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, mtp_group_id = memx_options_memo_sbe_v1_10.mtp_group_id.dissect(buffer, index, packet, parent)
@@ -7674,8 +7497,8 @@ memx_options_memo_sbe_v1_10.long_two_sided_bulk_quote_message.fields = function(
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = memx_options_memo_sbe_v1_10.parties_groups.dissect(buffer, index, packet, parent)
 
-  -- Quotes Groups: Struct of 2 fields
-  index, quotes_groups = memx_options_memo_sbe_v1_10.quotes_groups.dissect(buffer, index, packet, parent)
+  -- Two Sided Quotes Groups: Struct of 2 fields
+  index, two_sided_quotes_groups = memx_options_memo_sbe_v1_10.two_sided_quotes_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7708,7 +7531,7 @@ memx_options_memo_sbe_v1_10.short_two_sided_bulk_quote_message.size = function(b
 
   index = index + memx_options_memo_sbe_v1_10.exec_inst.size
 
-  index = index + memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.size
+  index = index + memx_options_memo_sbe_v1_10.trading_capacity.size
 
   index = index + memx_options_memo_sbe_v1_10.mtp_group_id.size
 
@@ -7720,7 +7543,7 @@ memx_options_memo_sbe_v1_10.short_two_sided_bulk_quote_message.size = function(b
 
   index = index + memx_options_memo_sbe_v1_10.parties_groups.size(buffer, offset + index)
 
-  index = index + memx_options_memo_sbe_v1_10.quotes_groups.size(buffer, offset + index)
+  index = index + memx_options_memo_sbe_v1_10.two_sided_quotes_groups.size(buffer, offset + index)
 
   return index
 end
@@ -7746,8 +7569,8 @@ memx_options_memo_sbe_v1_10.short_two_sided_bulk_quote_message.fields = function
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Trading Capacity Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, trading_capacity_trading_capacity_type = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.dissect(buffer, index, packet, parent)
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, trading_capacity = memx_options_memo_sbe_v1_10.trading_capacity.dissect(buffer, index, packet, parent)
 
   -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, mtp_group_id = memx_options_memo_sbe_v1_10.mtp_group_id.dissect(buffer, index, packet, parent)
@@ -7764,8 +7587,8 @@ memx_options_memo_sbe_v1_10.short_two_sided_bulk_quote_message.fields = function
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = memx_options_memo_sbe_v1_10.parties_groups.dissect(buffer, index, packet, parent)
 
-  -- Quotes Groups: Struct of 2 fields
-  index, quotes_groups = memx_options_memo_sbe_v1_10.quotes_groups.dissect(buffer, index, packet, parent)
+  -- Two Sided Quotes Groups: Struct of 2 fields
+  index, two_sided_quotes_groups = memx_options_memo_sbe_v1_10.two_sided_quotes_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7810,7 +7633,7 @@ memx_options_memo_sbe_v1_10.new_order_single_message.size = function(buffer, off
 
   index = index + memx_options_memo_sbe_v1_10.exec_inst.size
 
-  index = index + memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.size
+  index = index + memx_options_memo_sbe_v1_10.trading_capacity.size
 
   index = index + memx_options_memo_sbe_v1_10.reprice_frequency.size
 
@@ -7868,8 +7691,8 @@ memx_options_memo_sbe_v1_10.new_order_single_message.fields = function(buffer, o
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Trading Capacity Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, trading_capacity_trading_capacity_type = memx_options_memo_sbe_v1_10.trading_capacity_trading_capacity_type.dissect(buffer, index, packet, parent)
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, trading_capacity = memx_options_memo_sbe_v1_10.trading_capacity.dissect(buffer, index, packet, parent)
 
   -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, reprice_frequency = memx_options_memo_sbe_v1_10.reprice_frequency.dissect(buffer, index, packet, parent)
@@ -9886,7 +9709,7 @@ end
 -- Verify Schema Id Field
 memx_options_memo_sbe_v1_10.schema_id.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(2549, 1):uint()
+  local value = buffer(2543, 1):uint()
 
   if value == 9 then
     return true
@@ -9898,7 +9721,7 @@ end
 -- Verify Version Field
 memx_options_memo_sbe_v1_10.version.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(2550, 2):uint()
+  local value = buffer(2544, 2):uint()
 
   if value == 266 then
     return true
