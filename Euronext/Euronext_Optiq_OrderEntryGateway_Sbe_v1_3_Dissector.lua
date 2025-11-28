@@ -39,12 +39,14 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.book_out_time_optional = Pr
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.breached_collar_price = ProtoField.new("Breached Collar Price", "euronext.optiq.orderentrygateway.sbe.v1.3.breachedcollarprice", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.buy_revision_flag = ProtoField.new("Buy Revision Flag", "euronext.optiq.orderentrygateway.sbe.v1.3.buyrevisionflag", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.bypass_indicator = ProtoField.new("Bypass Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.bypassindicator", ftypes.UINT8)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_group = ProtoField.new("Cancel Replace Clearing Fields Group", "euronext.optiq.orderentrygateway.sbe.v1.3.cancelreplaceclearingfieldsgroup", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_groups = ProtoField.new("Cancel Replace Clearing Fields Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.cancelreplaceclearingfieldsgroups", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_optional_field_group = ProtoField.new("Cancel Replace Optional Field Group", "euronext.optiq.orderentrygateway.sbe.v1.3.cancelreplaceoptionalfieldgroup", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_optional_field_groups = ProtoField.new("Cancel Replace Optional Field Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.cancelreplaceoptionalfieldgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.centralisation_date = ProtoField.new("Centralisation Date", "euronext.optiq.orderentrygateway.sbe.v1.3.centralisationdate", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cl_msg_seq_num = ProtoField.new("Cl Msg Seq Num", "euronext.optiq.orderentrygateway.sbe.v1.3.clmsgseqnum", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_dataset_group = ProtoField.new("Clearing Dataset Group", "euronext.optiq.orderentrygateway.sbe.v1.3.clearingdatasetgroup", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_dataset_groups = ProtoField.new("Clearing Dataset Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.clearingdatasetgroups", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_fields_group = ProtoField.new("Clearing Fields Group", "euronext.optiq.orderentrygateway.sbe.v1.3.clearingfieldsgroup", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_fields_groups = ProtoField.new("Clearing Fields Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.clearingfieldsgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_firm_id = ProtoField.new("Clearing Firm Id", "euronext.optiq.orderentrygateway.sbe.v1.3.clearingfirmid", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_instruction = ProtoField.new("Clearing Instruction", "euronext.optiq.orderentrygateway.sbe.v1.3.clearinginstruction", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.client_id = ProtoField.new("Client Id", "euronext.optiq.orderentrygateway.sbe.v1.3.clientid", ftypes.STRING)
@@ -85,6 +87,10 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_within_firm_short
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_within_firm_short_code_optional = ProtoField.new("Execution Within Firm Short Code Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.executionwithinfirmshortcodeoptional", ftypes.INT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.family_id = ProtoField.new("Family Id", "euronext.optiq.orderentrygateway.sbe.v1.3.familyid", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.field_actively_used = ProtoField.new("Field Actively Used", "euronext.optiq.orderentrygateway.sbe.v1.3.fieldactivelyused", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_optional_field_group = ProtoField.new("Fill Optional Field Group", "euronext.optiq.orderentrygateway.sbe.v1.3.filloptionalfieldgroup", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_optional_field_groups = ProtoField.new("Fill Optional Field Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.filloptionalfieldgroups", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_strategy_field_group = ProtoField.new("Fill Strategy Field Group", "euronext.optiq.orderentrygateway.sbe.v1.3.fillstrategyfieldgroup", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_strategy_field_groups = ProtoField.new("Fill Strategy Field Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.fillstrategyfieldgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.firm_id = ProtoField.new("Firm Id", "euronext.optiq.orderentrygateway.sbe.v1.3.firmid", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.firm_id_optional = ProtoField.new("Firm Id Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.firmidoptional", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.firm_id_publication = ProtoField.new("Firm Id Publication", "euronext.optiq.orderentrygateway.sbe.v1.3.firmidpublication", ftypes.UINT8)
@@ -92,8 +98,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.first_trade_price = ProtoFi
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.frame = ProtoField.new("Frame", "euronext.optiq.orderentrygateway.sbe.v1.3.frame", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text = ProtoField.new("Free Text", "euronext.optiq.orderentrygateway.sbe.v1.3.freetext", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_cross = ProtoField.new("Free Text Cross", "euronext.optiq.orderentrygateway.sbe.v1.3.freetextcross", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_section_group = ProtoField.new("Free Text Section Group", "euronext.optiq.orderentrygateway.sbe.v1.3.freetextsectiongroup", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_section_groups = ProtoField.new("Free Text Section Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.freetextsectiongroups", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_groups = ProtoField.new("Free Text Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.freetextgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.gross_trade_amount = ProtoField.new("Gross Trade Amount", "euronext.optiq.orderentrygateway.sbe.v1.3.grosstradeamount", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "euronext.optiq.orderentrygateway.sbe.v1.3.groupsizeencoding", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.guarantee_flag = ProtoField.new("Guarantee Flag", "euronext.optiq.orderentrygateway.sbe.v1.3.guaranteeflag", ftypes.UINT8)
@@ -101,8 +106,8 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.guarantee_flag_optional = P
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.ilqd = ProtoField.new("Ilqd", "euronext.optiq.orderentrygateway.sbe.v1.3.ilqd", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.input_price_type = ProtoField.new("Input Price Type", "euronext.optiq.orderentrygateway.sbe.v1.3.inputpricetype", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_group_code = ProtoField.new("Instrument Group Code", "euronext.optiq.orderentrygateway.sbe.v1.3.instrumentgroupcode", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_section_group = ProtoField.new("Instrument Synchronization Section Group", "euronext.optiq.orderentrygateway.sbe.v1.3.instrumentsynchronizationsectiongroup", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_section_groups = ProtoField.new("Instrument Synchronization Section Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.instrumentsynchronizationsectiongroups", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_group = ProtoField.new("Instrument Synchronization Group", "euronext.optiq.orderentrygateway.sbe.v1.3.instrumentsynchronizationgroup", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_groups = ProtoField.new("Instrument Synchronization Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.instrumentsynchronizationgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.investment_algo_indicator = ProtoField.new("Investment Algo Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.investmentalgoindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.investment_decision_w_firm_short_code = ProtoField.new("Investment Decision W Firm Short Code", "euronext.optiq.orderentrygateway.sbe.v1.3.investmentdecisionwfirmshortcode", ftypes.INT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.kill_reason = ProtoField.new("Kill Reason", "euronext.optiq.orderentrygateway.sbe.v1.3.killreason", ftypes.UINT16)
@@ -146,6 +151,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.miscellaneous_fee_amount = 
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "euronext.optiq.orderentrygateway.sbe.v1.3.msgseqnum", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nav_trade_expressed_in_bps = ProtoField.new("Nav Trade Expressed In Bps", "euronext.optiq.orderentrygateway.sbe.v1.3.navtradeexpressedinbps", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nav_trade_expressed_in_price_currency = ProtoField.new("Nav Trade Expressed In Price Currency", "euronext.optiq.orderentrygateway.sbe.v1.3.navtradeexpressedinpricecurrency", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.new_order_message_free_text_section_group = ProtoField.new("New Order Message Free Text Section Group", "euronext.optiq.orderentrygateway.sbe.v1.3.newordermessagefreetextsectiongroup", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nliq = ProtoField.new("Nliq", "euronext.optiq.orderentrygateway.sbe.v1.3.nliq", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.non_executing_broker_short_code = ProtoField.new("Non Executing Broker Short Code", "euronext.optiq.orderentrygateway.sbe.v1.3.nonexecutingbrokershortcode", ftypes.INT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.num_in_group = ProtoField.new("Num In Group", "euronext.optiq.orderentrygateway.sbe.v1.3.numingroup", ftypes.UINT8)
@@ -167,14 +173,14 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.omf = ProtoField.new("Omf",
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.open_close = ProtoField.new("Open Close", "euronext.optiq.orderentrygateway.sbe.v1.3.openclose", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.operation_type = ProtoField.new("Operation Type", "euronext.optiq.orderentrygateway.sbe.v1.3.operationtype", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.option_type = ProtoField.new("Option Type", "euronext.optiq.orderentrygateway.sbe.v1.3.optiontype", ftypes.UINT8)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_fill_group = ProtoField.new("Optional Fields Fill Group", "euronext.optiq.orderentrygateway.sbe.v1.3.optionalfieldsfillgroup", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_fill_groups = ProtoField.new("Optional Fields Fill Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.optionalfieldsfillgroups", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_group = ProtoField.new("Optional Fields Group", "euronext.optiq.orderentrygateway.sbe.v1.3.optionalfieldsgroup", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_groups = ProtoField.new("Optional Fields Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.optionalfieldsgroups", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_clearing_fields_group = ProtoField.new("Order Clearing Fields Group", "euronext.optiq.orderentrygateway.sbe.v1.3.orderclearingfieldsgroup", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_clearing_fields_groups = ProtoField.new("Order Clearing Fields Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.orderclearingfieldsgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_expiration_date = ProtoField.new("Order Expiration Date", "euronext.optiq.orderentrygateway.sbe.v1.3.orderexpirationdate", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_expiration_time = ProtoField.new("Order Expiration Time", "euronext.optiq.orderentrygateway.sbe.v1.3.orderexpirationtime", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "euronext.optiq.orderentrygateway.sbe.v1.3.orderid", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_id_optional = ProtoField.new("Order Id Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.orderidoptional", ftypes.UINT64)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_group = ProtoField.new("Order Optional Fields Group", "euronext.optiq.orderentrygateway.sbe.v1.3.orderoptionalfieldsgroup", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_groups = ProtoField.new("Order Optional Fields Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.orderoptionalfieldsgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_priority = ProtoField.new("Order Priority", "euronext.optiq.orderentrygateway.sbe.v1.3.orderpriority", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_px = ProtoField.new("Order Px", "euronext.optiq.orderentrygateway.sbe.v1.3.orderpx", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_qty = ProtoField.new("Order Qty", "euronext.optiq.orderentrygateway.sbe.v1.3.orderqty", ftypes.UINT64)
@@ -241,8 +247,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stop_triggered_time_in_forc
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stp_incoming_order = ProtoField.new("Stp Incoming Order", "euronext.optiq.orderentrygateway.sbe.v1.3.stpincomingorder", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stp_resting_order = ProtoField.new("Stp Resting Order", "euronext.optiq.orderentrygateway.sbe.v1.3.stprestingorder", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stpid = ProtoField.new("Stpid", "euronext.optiq.orderentrygateway.sbe.v1.3.stpid", ftypes.UINT16)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.strategy_fields_group = ProtoField.new("Strategy Fields Group", "euronext.optiq.orderentrygateway.sbe.v1.3.strategyfieldsgroup", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.strategy_fields_groups = ProtoField.new("Strategy Fields Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.strategyfieldsgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.sweep_order_indicator = ProtoField.new("Sweep Order Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.sweeporderindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.symbol_index = ProtoField.new("Symbol Index", "euronext.optiq.orderentrygateway.sbe.v1.3.symbolindex", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.symbol_index_optional = ProtoField.new("Symbol Index Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.symbolindexoptional", ftypes.UINT32)
@@ -309,17 +313,19 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_bust_notification_mes
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.user_notification_message = ProtoField.new("User Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.usernotificationmessage", ftypes.STRING)
 
 -- Euronext Optiq OrderEntryGateway Sbe 1.3 generated fields
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_group_index = ProtoField.new("Cancel Replace Clearing Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.cancelreplaceclearingfieldsgroupindex", ftypes.UINT16)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_optional_field_group_index = ProtoField.new("Cancel Replace Optional Field Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.cancelreplaceoptionalfieldgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_dataset_group_index = ProtoField.new("Clearing Dataset Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.clearingdatasetgroupindex", ftypes.UINT16)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_fields_group_index = ProtoField.new("Clearing Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.clearingfieldsgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.collar_fields_group_index = ProtoField.new("Collar Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.collarfieldsgroupindex", ftypes.UINT16)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_section_group_index = ProtoField.new("Free Text Section Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.freetextsectiongroupindex", ftypes.UINT16)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_section_group_index = ProtoField.new("Instrument Synchronization Section Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.instrumentsynchronizationsectiongroupindex", ftypes.UINT16)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_optional_field_group_index = ProtoField.new("Fill Optional Field Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.filloptionalfieldgroupindex", ftypes.UINT16)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_strategy_field_group_index = ProtoField.new("Fill Strategy Field Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.fillstrategyfieldgroupindex", ftypes.UINT16)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_group_index = ProtoField.new("Instrument Synchronization Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.instrumentsynchronizationgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.mifid_short_codes_group_index = ProtoField.new("Mifid Short Codes Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.mifidshortcodesgroupindex", ftypes.UINT16)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_fill_group_index = ProtoField.new("Optional Fields Fill Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.optionalfieldsfillgroupindex", ftypes.UINT16)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_group_index = ProtoField.new("Optional Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.optionalfieldsgroupindex", ftypes.UINT16)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.new_order_message_free_text_section_group_index = ProtoField.new("New Order Message Free Text Section Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.newordermessagefreetextsectiongroupindex", ftypes.UINT16)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_clearing_fields_group_index = ProtoField.new("Order Clearing Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.orderclearingfieldsgroupindex", ftypes.UINT16)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_group_index = ProtoField.new("Order Optional Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.orderoptionalfieldsgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_acks_group_index = ProtoField.new("Quote Acks Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.quoteacksgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quotes_rep_group_index = ProtoField.new("Quotes Rep Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.quotesrepgroupindex", ftypes.UINT16)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.strategy_fields_group_index = ProtoField.new("Strategy Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.strategyfieldsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -331,12 +337,14 @@ local show = {}
 show.ack_message = true
 show.ack_qualifiers = true
 show.ask_for_quote_message = true
+show.cancel_replace_clearing_fields_group = true
+show.cancel_replace_clearing_fields_groups = true
 show.cancel_replace_message = true
+show.cancel_replace_optional_field_group = true
+show.cancel_replace_optional_field_groups = true
 show.cancel_request_message = true
 show.clearing_dataset_group = true
 show.clearing_dataset_groups = true
-show.clearing_fields_group = true
-show.clearing_fields_groups = true
 show.collar_breach_confirmation_message = true
 show.collar_fields_group = true
 show.collar_fields_groups = true
@@ -348,14 +356,17 @@ show.declaration_entry_reject_message = true
 show.declaration_notice_message = true
 show.execution_instruction = true
 show.fill_message = true
-show.free_text_section_group = true
-show.free_text_section_groups = true
+show.fill_optional_field_group = true
+show.fill_optional_field_groups = true
+show.fill_strategy_field_group = true
+show.fill_strategy_field_groups = true
+show.free_text_groups = true
 show.fund_price_input_ack_message = true
 show.fund_price_input_message = true
 show.group_size_encoding = true
+show.instrument_synchronization_group = true
+show.instrument_synchronization_groups = true
 show.instrument_synchronization_list_message = true
-show.instrument_synchronization_section_group = true
-show.instrument_synchronization_section_groups = true
 show.kill_message = true
 show.liquidity_provider_command_message = true
 show.logon_ack_message = true
@@ -370,12 +381,13 @@ show.mi_fid_indicators = true
 show.mifid_short_codes_group = true
 show.mifid_short_codes_groups = true
 show.new_order_message = true
+show.new_order_message_free_text_section_group = true
 show.open_close = true
 show.open_order_request_message = true
-show.optional_fields_fill_group = true
-show.optional_fields_fill_groups = true
-show.optional_fields_group = true
-show.optional_fields_groups = true
+show.order_clearing_fields_group = true
+show.order_clearing_fields_groups = true
+show.order_optional_fields_group = true
+show.order_optional_fields_groups = true
 show.ownership_request_ack_message = true
 show.ownership_request_message = true
 show.packet = true
@@ -391,8 +403,6 @@ show.reject_message = true
 show.request_for_execution_message = true
 show.rfq_matching_status_message = true
 show.rfq_notification_message = true
-show.strategy_fields_group = true
-show.strategy_fields_groups = true
 show.synchronization_time_message = true
 show.technical_reject_message = true
 show.trade_bust_notification_message = true
@@ -406,12 +416,14 @@ show.payload = false
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ack_message = Pref.bool("Show Ack Message", show.ack_message, "Parse and add Ack Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ack_qualifiers = Pref.bool("Show Ack Qualifiers", show.ack_qualifiers, "Parse and add Ack Qualifiers to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ask_for_quote_message = Pref.bool("Show Ask For Quote Message", show.ask_for_quote_message, "Parse and add Ask For Quote Message to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_group = Pref.bool("Show Cancel Replace Clearing Fields Group", show.cancel_replace_clearing_fields_group, "Parse and add Cancel Replace Clearing Fields Group to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_groups = Pref.bool("Show Cancel Replace Clearing Fields Groups", show.cancel_replace_clearing_fields_groups, "Parse and add Cancel Replace Clearing Fields Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_message = Pref.bool("Show Cancel Replace Message", show.cancel_replace_message, "Parse and add Cancel Replace Message to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_group = Pref.bool("Show Cancel Replace Optional Field Group", show.cancel_replace_optional_field_group, "Parse and add Cancel Replace Optional Field Group to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_groups = Pref.bool("Show Cancel Replace Optional Field Groups", show.cancel_replace_optional_field_groups, "Parse and add Cancel Replace Optional Field Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_request_message = Pref.bool("Show Cancel Request Message", show.cancel_request_message, "Parse and add Cancel Request Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_group = Pref.bool("Show Clearing Dataset Group", show.clearing_dataset_group, "Parse and add Clearing Dataset Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_groups = Pref.bool("Show Clearing Dataset Groups", show.clearing_dataset_groups, "Parse and add Clearing Dataset Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_fields_group = Pref.bool("Show Clearing Fields Group", show.clearing_fields_group, "Parse and add Clearing Fields Group to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_fields_groups = Pref.bool("Show Clearing Fields Groups", show.clearing_fields_groups, "Parse and add Clearing Fields Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_breach_confirmation_message = Pref.bool("Show Collar Breach Confirmation Message", show.collar_breach_confirmation_message, "Parse and add Collar Breach Confirmation Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_fields_group = Pref.bool("Show Collar Fields Group", show.collar_fields_group, "Parse and add Collar Fields Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_fields_groups = Pref.bool("Show Collar Fields Groups", show.collar_fields_groups, "Parse and add Collar Fields Groups to protocol tree")
@@ -423,14 +435,17 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_declaration_entry_rejec
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_declaration_notice_message = Pref.bool("Show Declaration Notice Message", show.declaration_notice_message, "Parse and add Declaration Notice Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_execution_instruction = Pref.bool("Show Execution Instruction", show.execution_instruction, "Parse and add Execution Instruction to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_message = Pref.bool("Show Fill Message", show.fill_message, "Parse and add Fill Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_section_group = Pref.bool("Show Free Text Section Group", show.free_text_section_group, "Parse and add Free Text Section Group to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_section_groups = Pref.bool("Show Free Text Section Groups", show.free_text_section_groups, "Parse and add Free Text Section Groups to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_group = Pref.bool("Show Fill Optional Field Group", show.fill_optional_field_group, "Parse and add Fill Optional Field Group to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_groups = Pref.bool("Show Fill Optional Field Groups", show.fill_optional_field_groups, "Parse and add Fill Optional Field Groups to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_group = Pref.bool("Show Fill Strategy Field Group", show.fill_strategy_field_group, "Parse and add Fill Strategy Field Group to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_groups = Pref.bool("Show Fill Strategy Field Groups", show.fill_strategy_field_groups, "Parse and add Fill Strategy Field Groups to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_groups = Pref.bool("Show Free Text Groups", show.free_text_groups, "Parse and add Free Text Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fund_price_input_ack_message = Pref.bool("Show Fund Price Input Ack Message", show.fund_price_input_ack_message, "Parse and add Fund Price Input Ack Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fund_price_input_message = Pref.bool("Show Fund Price Input Message", show.fund_price_input_message, "Parse and add Fund Price Input Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_group = Pref.bool("Show Instrument Synchronization Group", show.instrument_synchronization_group, "Parse and add Instrument Synchronization Group to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_groups = Pref.bool("Show Instrument Synchronization Groups", show.instrument_synchronization_groups, "Parse and add Instrument Synchronization Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_list_message = Pref.bool("Show Instrument Synchronization List Message", show.instrument_synchronization_list_message, "Parse and add Instrument Synchronization List Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_section_group = Pref.bool("Show Instrument Synchronization Section Group", show.instrument_synchronization_section_group, "Parse and add Instrument Synchronization Section Group to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_section_groups = Pref.bool("Show Instrument Synchronization Section Groups", show.instrument_synchronization_section_groups, "Parse and add Instrument Synchronization Section Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_kill_message = Pref.bool("Show Kill Message", show.kill_message, "Parse and add Kill Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_liquidity_provider_command_message = Pref.bool("Show Liquidity Provider Command Message", show.liquidity_provider_command_message, "Parse and add Liquidity Provider Command Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_logon_ack_message = Pref.bool("Show Logon Ack Message", show.logon_ack_message, "Parse and add Logon Ack Message to protocol tree")
@@ -445,12 +460,13 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mi_fid_indicators = Pre
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mifid_short_codes_group = Pref.bool("Show Mifid Short Codes Group", show.mifid_short_codes_group, "Parse and add Mifid Short Codes Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mifid_short_codes_groups = Pref.bool("Show Mifid Short Codes Groups", show.mifid_short_codes_groups, "Parse and add Mifid Short Codes Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_new_order_message_free_text_section_group = Pref.bool("Show New Order Message Free Text Section Group", show.new_order_message_free_text_section_group, "Parse and add New Order Message Free Text Section Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_open_close = Pref.bool("Show Open Close", show.open_close, "Parse and add Open Close to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_open_order_request_message = Pref.bool("Show Open Order Request Message", show.open_order_request_message, "Parse and add Open Order Request Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_fill_group = Pref.bool("Show Optional Fields Fill Group", show.optional_fields_fill_group, "Parse and add Optional Fields Fill Group to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_fill_groups = Pref.bool("Show Optional Fields Fill Groups", show.optional_fields_fill_groups, "Parse and add Optional Fields Fill Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_group = Pref.bool("Show Optional Fields Group", show.optional_fields_group, "Parse and add Optional Fields Group to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_groups = Pref.bool("Show Optional Fields Groups", show.optional_fields_groups, "Parse and add Optional Fields Groups to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_group = Pref.bool("Show Order Clearing Fields Group", show.order_clearing_fields_group, "Parse and add Order Clearing Fields Group to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_groups = Pref.bool("Show Order Clearing Fields Groups", show.order_clearing_fields_groups, "Parse and add Order Clearing Fields Groups to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_group = Pref.bool("Show Order Optional Fields Group", show.order_optional_fields_group, "Parse and add Order Optional Fields Group to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_groups = Pref.bool("Show Order Optional Fields Groups", show.order_optional_fields_groups, "Parse and add Order Optional Fields Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ownership_request_ack_message = Pref.bool("Show Ownership Request Ack Message", show.ownership_request_ack_message, "Parse and add Ownership Request Ack Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ownership_request_message = Pref.bool("Show Ownership Request Message", show.ownership_request_message, "Parse and add Ownership Request Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -466,8 +482,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_reject_message = Pref.b
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_request_for_execution_message = Pref.bool("Show Request For Execution Message", show.request_for_execution_message, "Parse and add Request For Execution Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_rfq_matching_status_message = Pref.bool("Show Rfq Matching Status Message", show.rfq_matching_status_message, "Parse and add Rfq Matching Status Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_rfq_notification_message = Pref.bool("Show Rfq Notification Message", show.rfq_notification_message, "Parse and add Rfq Notification Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_strategy_fields_group = Pref.bool("Show Strategy Fields Group", show.strategy_fields_group, "Parse and add Strategy Fields Group to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_strategy_fields_groups = Pref.bool("Show Strategy Fields Groups", show.strategy_fields_groups, "Parse and add Strategy Fields Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_synchronization_time_message = Pref.bool("Show Synchronization Time Message", show.synchronization_time_message, "Parse and add Synchronization Time Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_technical_reject_message = Pref.bool("Show Technical Reject Message", show.technical_reject_message, "Parse and add Technical Reject Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_trade_bust_notification_message = Pref.bool("Show Trade Bust Notification Message", show.trade_bust_notification_message, "Parse and add Trade Bust Notification Message to protocol tree")
@@ -494,8 +508,24 @@ function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
     show.ask_for_quote_message = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ask_for_quote_message
     changed = true
   end
+  if show.cancel_replace_clearing_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_group then
+    show.cancel_replace_clearing_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_group
+    changed = true
+  end
+  if show.cancel_replace_clearing_fields_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_groups then
+    show.cancel_replace_clearing_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_groups
+    changed = true
+  end
   if show.cancel_replace_message ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_message then
     show.cancel_replace_message = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_message
+    changed = true
+  end
+  if show.cancel_replace_optional_field_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_group then
+    show.cancel_replace_optional_field_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_group
+    changed = true
+  end
+  if show.cancel_replace_optional_field_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_groups then
+    show.cancel_replace_optional_field_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_groups
     changed = true
   end
   if show.cancel_request_message ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_request_message then
@@ -508,14 +538,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
   end
   if show.clearing_dataset_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_groups then
     show.clearing_dataset_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_groups
-    changed = true
-  end
-  if show.clearing_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_fields_group then
-    show.clearing_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_fields_group
-    changed = true
-  end
-  if show.clearing_fields_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_fields_groups then
-    show.clearing_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_fields_groups
     changed = true
   end
   if show.collar_breach_confirmation_message ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_breach_confirmation_message then
@@ -562,12 +584,24 @@ function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
     show.fill_message = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_message
     changed = true
   end
-  if show.free_text_section_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_section_group then
-    show.free_text_section_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_section_group
+  if show.fill_optional_field_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_group then
+    show.fill_optional_field_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_group
     changed = true
   end
-  if show.free_text_section_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_section_groups then
-    show.free_text_section_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_section_groups
+  if show.fill_optional_field_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_groups then
+    show.fill_optional_field_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_groups
+    changed = true
+  end
+  if show.fill_strategy_field_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_group then
+    show.fill_strategy_field_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_group
+    changed = true
+  end
+  if show.fill_strategy_field_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_groups then
+    show.fill_strategy_field_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_groups
+    changed = true
+  end
+  if show.free_text_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_groups then
+    show.free_text_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_groups
     changed = true
   end
   if show.fund_price_input_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fund_price_input_ack_message then
@@ -582,16 +616,16 @@ function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
     show.group_size_encoding = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_group_size_encoding
     changed = true
   end
+  if show.instrument_synchronization_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_group then
+    show.instrument_synchronization_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_group
+    changed = true
+  end
+  if show.instrument_synchronization_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_groups then
+    show.instrument_synchronization_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_groups
+    changed = true
+  end
   if show.instrument_synchronization_list_message ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_list_message then
     show.instrument_synchronization_list_message = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_list_message
-    changed = true
-  end
-  if show.instrument_synchronization_section_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_section_group then
-    show.instrument_synchronization_section_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_section_group
-    changed = true
-  end
-  if show.instrument_synchronization_section_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_section_groups then
-    show.instrument_synchronization_section_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_section_groups
     changed = true
   end
   if show.kill_message ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_kill_message then
@@ -650,6 +684,10 @@ function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
     show.new_order_message = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_new_order_message
     changed = true
   end
+  if show.new_order_message_free_text_section_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_new_order_message_free_text_section_group then
+    show.new_order_message_free_text_section_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_new_order_message_free_text_section_group
+    changed = true
+  end
   if show.open_close ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_open_close then
     show.open_close = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_open_close
     changed = true
@@ -658,20 +696,20 @@ function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
     show.open_order_request_message = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_open_order_request_message
     changed = true
   end
-  if show.optional_fields_fill_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_fill_group then
-    show.optional_fields_fill_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_fill_group
+  if show.order_clearing_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_group then
+    show.order_clearing_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_group
     changed = true
   end
-  if show.optional_fields_fill_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_fill_groups then
-    show.optional_fields_fill_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_fill_groups
+  if show.order_clearing_fields_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_groups then
+    show.order_clearing_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_groups
     changed = true
   end
-  if show.optional_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_group then
-    show.optional_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_group
+  if show.order_optional_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_group then
+    show.order_optional_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_group
     changed = true
   end
-  if show.optional_fields_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_groups then
-    show.optional_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_optional_fields_groups
+  if show.order_optional_fields_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_groups then
+    show.order_optional_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_groups
     changed = true
   end
   if show.ownership_request_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ownership_request_ack_message then
@@ -732,14 +770,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
   end
   if show.rfq_notification_message ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_rfq_notification_message then
     show.rfq_notification_message = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_rfq_notification_message
-    changed = true
-  end
-  if show.strategy_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_strategy_fields_group then
-    show.strategy_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_strategy_fields_group
-    changed = true
-  end
-  if show.strategy_fields_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_strategy_fields_groups then
-    show.strategy_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_strategy_fields_groups
     changed = true
   end
   if show.synchronization_time_message ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_synchronization_time_message then
@@ -1669,26 +1699,26 @@ euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.dissect = function(buffer
   return offset + length, value
 end
 
--- Instrument Synchronization Section Group
-euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_group = {}
+-- Instrument Synchronization Group
+euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_group = {}
 
--- Size: Instrument Synchronization Section Group
-euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_group.size =
+-- Size: Instrument Synchronization Group
+euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_group.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm.size
 
--- Display: Instrument Synchronization Section Group
-euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_group.display = function(packet, parent, length)
+-- Display: Instrument Synchronization Group
+euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Instrument Synchronization Section Group
-euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_group.fields = function(buffer, offset, packet, parent, instrument_synchronization_section_group_index)
+-- Dissect Fields: Instrument Synchronization Group
+euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_group.fields = function(buffer, offset, packet, parent, instrument_synchronization_group_index)
   local index = offset
 
-  -- Implicit Instrument Synchronization Section Group Index
-  if instrument_synchronization_section_group_index ~= nil then
-    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_section_group_index, instrument_synchronization_section_group_index)
+  -- Implicit Instrument Synchronization Group Index
+  if instrument_synchronization_group_index ~= nil then
+    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_group_index, instrument_synchronization_group_index)
     iteration:set_generated()
   end
 
@@ -1701,21 +1731,21 @@ euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_gro
   return index
 end
 
--- Dissect: Instrument Synchronization Section Group
-euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_group.dissect = function(buffer, offset, packet, parent, instrument_synchronization_section_group_index)
-  if show.instrument_synchronization_section_group then
+-- Dissect: Instrument Synchronization Group
+euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_group.dissect = function(buffer, offset, packet, parent, instrument_synchronization_group_index)
+  if show.instrument_synchronization_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_section_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_group.fields(buffer, offset, packet, parent, instrument_synchronization_section_group_index)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_group.fields(buffer, offset, packet, parent, instrument_synchronization_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_group.display(packet, parent, length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_group.fields(buffer, offset, packet, parent, instrument_synchronization_section_group_index)
+    return euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_group.fields(buffer, offset, packet, parent, instrument_synchronization_group_index)
   end
 end
 
@@ -1809,29 +1839,29 @@ euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.dissect = function
   end
 end
 
--- Instrument Synchronization Section Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_groups = {}
+-- Instrument Synchronization Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups = {}
 
--- Calculate size of: Instrument Synchronization Section Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_groups.size = function(buffer, offset)
+-- Calculate size of: Instrument Synchronization Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.size
 
   -- Calculate field size from count
-  local instrument_synchronization_section_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + instrument_synchronization_section_group_count * 5
+  local instrument_synchronization_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + instrument_synchronization_group_count * 5
 
   return index
 end
 
--- Display: Instrument Synchronization Section Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_groups.display = function(packet, parent, length)
+-- Display: Instrument Synchronization Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Instrument Synchronization Section Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Instrument Synchronization Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -1840,25 +1870,25 @@ euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_gro
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Instrument Synchronization Section Group
-  for instrument_synchronization_section_group_index = 1, num_in_group do
-    index, instrument_synchronization_section_group = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_group.dissect(buffer, index, packet, parent, instrument_synchronization_section_group_index)
+  -- Repeating: Instrument Synchronization Group
+  for instrument_synchronization_group_index = 1, num_in_group do
+    index, instrument_synchronization_group = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_group.dissect(buffer, index, packet, parent, instrument_synchronization_group_index)
   end
 
   return index
 end
 
--- Dissect: Instrument Synchronization Section Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Instrument Synchronization Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.instrument_synchronization_section_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_groups.size(buffer, offset)
+  if show.instrument_synchronization_groups then
+    local length = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_section_groups, range, display)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_groups, range, display)
   end
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_groups.fields(buffer, offset, packet, parent)
+  return euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Instrument Synchronization List Message
@@ -1874,7 +1904,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_messag
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.resynchronization_id.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.size(buffer, offset + index)
 
   return index
 end
@@ -1897,8 +1927,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_messag
   -- Resynchronization Id: 2 Byte Unsigned Fixed Width Integer
   index, resynchronization_id = euronext_optiq_orderentrygateway_sbe_v1_3.resynchronization_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Synchronization Section Groups: Struct of 2 fields
-  index, instrument_synchronization_section_groups = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_section_groups.dissect(buffer, index, packet, parent)
+  -- Instrument Synchronization Groups: Struct of 2 fields
+  index, instrument_synchronization_groups = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8581,31 +8611,30 @@ euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.dissect = function(buff
   return euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.fields(buffer, offset, packet, parent)
 end
 
--- Clearing Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_group = {}
+-- Cancel Replace Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_group = {}
 
--- Size: Clearing Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_group.size =
+-- Size: Cancel Replace Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_group.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.clearing_firm_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.account_number.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.technical_origin.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.open_close.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.clearing_instruction.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.account_type_cross.size
+  euronext_optiq_orderentrygateway_sbe_v1_3.clearing_instruction.size
 
--- Display: Clearing Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_group.display = function(packet, parent, length)
+-- Display: Cancel Replace Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Clearing Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_group.fields = function(buffer, offset, packet, parent, clearing_fields_group_index)
+-- Dissect Fields: Cancel Replace Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_group.fields = function(buffer, offset, packet, parent, cancel_replace_clearing_fields_group_index)
   local index = offset
 
-  -- Implicit Clearing Fields Group Index
-  if clearing_fields_group_index ~= nil then
-    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_fields_group_index, clearing_fields_group_index)
+  -- Implicit Cancel Replace Clearing Fields Group Index
+  if cancel_replace_clearing_fields_group_index ~= nil then
+    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_group_index, cancel_replace_clearing_fields_group_index)
     iteration:set_generated()
   end
 
@@ -8627,53 +8656,50 @@ euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_group.fields = functio
   -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, clearing_instruction = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, account_type_cross = euronext_optiq_orderentrygateway_sbe_v1_3.account_type_cross.dissect(buffer, index, packet, parent)
-
   return index
 end
 
--- Dissect: Clearing Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_group.dissect = function(buffer, offset, packet, parent, clearing_fields_group_index)
-  if show.clearing_fields_group then
+-- Dissect: Cancel Replace Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_group.dissect = function(buffer, offset, packet, parent, cancel_replace_clearing_fields_group_index)
+  if show.cancel_replace_clearing_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_group.fields(buffer, offset, packet, parent, clearing_fields_group_index)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_group.fields(buffer, offset, packet, parent, cancel_replace_clearing_fields_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_group.display(packet, parent, length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_group.fields(buffer, offset, packet, parent, clearing_fields_group_index)
+    return euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_group.fields(buffer, offset, packet, parent, cancel_replace_clearing_fields_group_index)
   end
 end
 
--- Clearing Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups = {}
+-- Cancel Replace Clearing Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups = {}
 
--- Calculate size of: Clearing Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.size = function(buffer, offset)
+-- Calculate size of: Cancel Replace Clearing Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.size
 
   -- Calculate field size from count
-  local clearing_fields_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + clearing_fields_group_count * 34
+  local cancel_replace_clearing_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + cancel_replace_clearing_fields_group_count * 33
 
   return index
 end
 
--- Display: Clearing Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.display = function(packet, parent, length)
+-- Display: Cancel Replace Clearing Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Clearing Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Cancel Replace Clearing Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -8682,61 +8708,25 @@ euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.fields = functi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Clearing Fields Group
-  for clearing_fields_group_index = 1, num_in_group do
-    index, clearing_fields_group = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_group.dissect(buffer, index, packet, parent, clearing_fields_group_index)
+  -- Repeating: Cancel Replace Clearing Fields Group
+  for cancel_replace_clearing_fields_group_index = 1, num_in_group do
+    index, cancel_replace_clearing_fields_group = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_group.dissect(buffer, index, packet, parent, cancel_replace_clearing_fields_group_index)
   end
 
   return index
 end
 
--- Dissect: Clearing Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Cancel Replace Clearing Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.clearing_fields_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.size(buffer, offset)
+  if show.cancel_replace_clearing_fields_groups then
+    local length = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_fields_groups, range, display)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_groups, range, display)
   end
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.fields(buffer, offset, packet, parent)
-end
-
--- Stop Triggered Time In Force
-euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force = {}
-
--- Size: Stop Triggered Time In Force
-euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.size = 1
-
--- Display: Stop Triggered Time In Force
-euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.display = function(value)
-  if value == 0 then
-    return "Stop Triggered Time In Force: Day (0)"
-  end
-  if value == 1 then
-    return "Stop Triggered Time In Force: Good Till Cancel (1)"
-  end
-  if value == 6 then
-    return "Stop Triggered Time In Force: Goodtill Date (6)"
-  end
-  if value == 255 then
-    return "Stop Triggered Time In Force: No Value"
-  end
-
-  return "Stop Triggered Time In Force: Unknown("..value..")"
-end
-
--- Dissect: Stop Triggered Time In Force
-euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stop_triggered_time_in_force, range, value, display)
-
-  return offset + length, value
+  return euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Undisclosed Iceberg Type
@@ -8774,6 +8764,42 @@ euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_iceberg_type.dissect = fun
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_iceberg_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.undisclosed_iceberg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stop Triggered Time In Force
+euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force = {}
+
+-- Size: Stop Triggered Time In Force
+euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.size = 1
+
+-- Display: Stop Triggered Time In Force
+euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.display = function(value)
+  if value == 0 then
+    return "Stop Triggered Time In Force: Day (0)"
+  end
+  if value == 1 then
+    return "Stop Triggered Time In Force: Good Till Cancel (1)"
+  end
+  if value == 6 then
+    return "Stop Triggered Time In Force: Goodtill Date (6)"
+  end
+  if value == 255 then
+    return "Stop Triggered Time In Force: No Value"
+  end
+
+  return "Stop Triggered Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Stop Triggered Time In Force
+euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stop_triggered_time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -8841,34 +8867,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.dissect = function(buf
   return offset + 1, range
 end
 
--- Peg Offset
-euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset = {}
-
--- Size: Peg Offset
-euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.size = 1
-
--- Display: Peg Offset
-euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.display = function(value)
-  -- Check if field has value
-  if value == -128 then
-    return "Peg Offset: No Value"
-  end
-
-  return "Peg Offset: "..value
-end
-
--- Dissect: Peg Offset
-euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.peg_offset, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Expiration Date
 euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_date = {}
 
@@ -8921,62 +8919,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_time.dissect = functi
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_expiration_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Req Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional = {}
-
--- Size: Quote Req Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.size = 8
-
--- Display: Quote Req Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Quote Req Id Optional: No Value"
-  end
-
-  return "Quote Req Id Optional: "..value
-end
-
--- Dissect: Quote Req Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_req_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Order Qty
-euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty = {}
-
--- Size: Min Order Qty
-euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.size = 8
-
--- Display: Min Order Qty
-euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Min Order Qty: No Value"
-  end
-
-  return "Min Order Qty: "..value
-end
-
--- Dissect: Min Order Qty
-euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.min_order_qty, range, value, display)
 
   return offset + length, value
 end
@@ -9037,6 +8979,34 @@ euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_price.dissect = function(b
   return offset + length, value
 end
 
+-- Peg Offset
+euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset = {}
+
+-- Size: Peg Offset
+euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.size = 1
+
+-- Display: Peg Offset
+euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.display = function(value)
+  -- Check if field has value
+  if value == -128 then
+    return "Peg Offset: No Value"
+  end
+
+  return "Peg Offset: "..value
+end
+
+-- Dissect: Peg Offset
+euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.peg_offset, range, value, display)
+
+  return offset + length, value
+end
+
 -- Stop Px
 euronext_optiq_orderentrygateway_sbe_v1_3.stop_px = {}
 
@@ -9065,40 +9035,41 @@ euronext_optiq_orderentrygateway_sbe_v1_3.stop_px.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Optional Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_group = {}
+-- Cancel Replace Optional Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_group = {}
 
--- Size: Optional Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_group.size =
+-- Size: Cancel Replace Optional Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_group.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.stop_px.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_price.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.disclosed_qty.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_time.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_date.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_iceberg_type.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.size
+  euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_iceberg_type.size
 
--- Display: Optional Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_group.display = function(packet, parent, length)
+-- Display: Cancel Replace Optional Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Optional Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_group.fields = function(buffer, offset, packet, parent, optional_fields_group_index)
+-- Dissect Fields: Cancel Replace Optional Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_group.fields = function(buffer, offset, packet, parent, cancel_replace_optional_field_group_index)
   local index = offset
 
-  -- Implicit Optional Fields Group Index
-  if optional_fields_group_index ~= nil then
-    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_group_index, optional_fields_group_index)
+  -- Implicit Cancel Replace Optional Field Group Index
+  if cancel_replace_optional_field_group_index ~= nil then
+    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_optional_field_group_index, cancel_replace_optional_field_group_index)
     iteration:set_generated()
   end
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = euronext_optiq_orderentrygateway_sbe_v1_3.stop_px.dissect(buffer, index, packet, parent)
+
+  -- Peg Offset: 1 Byte Signed Fixed Width Integer Nullable
+  index, peg_offset = euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.dissect(buffer, index, packet, parent)
 
   -- Undisclosed Price: 8 Byte Signed Fixed Width Integer Nullable
   index, undisclosed_price = euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_price.dissect(buffer, index, packet, parent)
@@ -9106,74 +9077,65 @@ euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_group.fields = functio
   -- Disclosed Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, disclosed_qty = euronext_optiq_orderentrygateway_sbe_v1_3.disclosed_qty.dissect(buffer, index, packet, parent)
 
-  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, min_order_qty = euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.dissect(buffer, index, packet, parent)
-
-  -- Quote Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quote_req_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.dissect(buffer, index, packet, parent)
-
   -- Order Expiration Time: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_expiration_time = euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_time.dissect(buffer, index, packet, parent)
 
   -- Order Expiration Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, order_expiration_date = euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_date.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset: 1 Byte Signed Fixed Width Integer Nullable
-  index, peg_offset = euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.dissect(buffer, index, packet, parent)
-
   -- Trading Session: Struct of 5 fields
   index, trading_session = euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.dissect(buffer, index, packet, parent)
-
-  -- Undisclosed Iceberg Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, undisclosed_iceberg_type = euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_iceberg_type.dissect(buffer, index, packet, parent)
 
   -- Stop Triggered Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, stop_triggered_time_in_force = euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.dissect(buffer, index, packet, parent)
 
+  -- Undisclosed Iceberg Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, undisclosed_iceberg_type = euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_iceberg_type.dissect(buffer, index, packet, parent)
+
   return index
 end
 
--- Dissect: Optional Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_group.dissect = function(buffer, offset, packet, parent, optional_fields_group_index)
-  if show.optional_fields_group then
+-- Dissect: Cancel Replace Optional Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_group.dissect = function(buffer, offset, packet, parent, cancel_replace_optional_field_group_index)
+  if show.cancel_replace_optional_field_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_group.fields(buffer, offset, packet, parent, optional_fields_group_index)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_optional_field_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_group.fields(buffer, offset, packet, parent, cancel_replace_optional_field_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_group.display(packet, parent, length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_group.fields(buffer, offset, packet, parent, optional_fields_group_index)
+    return euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_group.fields(buffer, offset, packet, parent, cancel_replace_optional_field_group_index)
   end
 end
 
--- Optional Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups = {}
+-- Cancel Replace Optional Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups = {}
 
--- Calculate size of: Optional Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.size = function(buffer, offset)
+-- Calculate size of: Cancel Replace Optional Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.size
 
   -- Calculate field size from count
-  local optional_fields_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + optional_fields_group_count * 50
+  local cancel_replace_optional_field_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + cancel_replace_optional_field_group_count * 34
 
   return index
 end
 
--- Display: Optional Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.display = function(packet, parent, length)
+-- Display: Cancel Replace Optional Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Optional Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Cancel Replace Optional Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -9182,46 +9144,46 @@ euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.fields = functi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Optional Fields Group
-  for optional_fields_group_index = 1, num_in_group do
-    index, optional_fields_group = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_group.dissect(buffer, index, packet, parent, optional_fields_group_index)
+  -- Repeating: Cancel Replace Optional Field Group
+  for cancel_replace_optional_field_group_index = 1, num_in_group do
+    index, cancel_replace_optional_field_group = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_group.dissect(buffer, index, packet, parent, cancel_replace_optional_field_group_index)
   end
 
   return index
 end
 
--- Dissect: Optional Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Cancel Replace Optional Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.optional_fields_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.size(buffer, offset)
+  if show.cancel_replace_optional_field_groups then
+    local length = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_groups, range, display)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_optional_field_groups, range, display)
   end
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.fields(buffer, offset, packet, parent)
+  return euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.fields(buffer, offset, packet, parent)
 end
 
--- Free Text Section Group
-euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_group = {}
+-- New Order Message Free Text Section Group
+euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message_free_text_section_group = {}
 
--- Size: Free Text Section Group
-euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_group.size =
+-- Size: New Order Message Free Text Section Group
+euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message_free_text_section_group.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.free_text.size
 
--- Display: Free Text Section Group
-euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_group.display = function(packet, parent, length)
+-- Display: New Order Message Free Text Section Group
+euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message_free_text_section_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Free Text Section Group
-euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_group.fields = function(buffer, offset, packet, parent, free_text_section_group_index)
+-- Dissect Fields: New Order Message Free Text Section Group
+euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message_free_text_section_group.fields = function(buffer, offset, packet, parent, new_order_message_free_text_section_group_index)
   local index = offset
 
-  -- Implicit Free Text Section Group Index
-  if free_text_section_group_index ~= nil then
-    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_section_group_index, free_text_section_group_index)
+  -- Implicit New Order Message Free Text Section Group Index
+  if new_order_message_free_text_section_group_index ~= nil then
+    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.new_order_message_free_text_section_group_index, new_order_message_free_text_section_group_index)
     iteration:set_generated()
   end
 
@@ -9231,47 +9193,47 @@ euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_group.fields = funct
   return index
 end
 
--- Dissect: Free Text Section Group
-euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_group.dissect = function(buffer, offset, packet, parent, free_text_section_group_index)
-  if show.free_text_section_group then
+-- Dissect: New Order Message Free Text Section Group
+euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message_free_text_section_group.dissect = function(buffer, offset, packet, parent, new_order_message_free_text_section_group_index)
+  if show.new_order_message_free_text_section_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_section_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_group.fields(buffer, offset, packet, parent, free_text_section_group_index)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.new_order_message_free_text_section_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message_free_text_section_group.fields(buffer, offset, packet, parent, new_order_message_free_text_section_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_group.display(packet, parent, length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message_free_text_section_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_group.fields(buffer, offset, packet, parent, free_text_section_group_index)
+    return euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message_free_text_section_group.fields(buffer, offset, packet, parent, new_order_message_free_text_section_group_index)
   end
 end
 
--- Free Text Section Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups = {}
+-- Free Text Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups = {}
 
--- Calculate size of: Free Text Section Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.size = function(buffer, offset)
+-- Calculate size of: Free Text Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.size
 
   -- Calculate field size from count
-  local free_text_section_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + free_text_section_group_count * 18
+  local new_order_message_free_text_section_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + new_order_message_free_text_section_group_count * 18
 
   return index
 end
 
--- Display: Free Text Section Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.display = function(packet, parent, length)
+-- Display: Free Text Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Free Text Section Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Free Text Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -9280,25 +9242,25 @@ euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.fields = func
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Free Text Section Group
-  for free_text_section_group_index = 1, num_in_group do
-    index, free_text_section_group = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_group.dissect(buffer, index, packet, parent, free_text_section_group_index)
+  -- Repeating: New Order Message Free Text Section Group
+  for new_order_message_free_text_section_group_index = 1, num_in_group do
+    index, new_order_message_free_text_section_group = euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message_free_text_section_group.dissect(buffer, index, packet, parent, new_order_message_free_text_section_group_index)
   end
 
   return index
 end
 
--- Dissect: Free Text Section Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Free Text Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.free_text_section_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.size(buffer, offset)
+  if show.free_text_groups then
+    local length = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_section_groups, range, display)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_groups, range, display)
   end
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.fields(buffer, offset, packet, parent)
+  return euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Stpid
@@ -9604,11 +9566,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.size = function
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.stpid.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.size(buffer, offset + index)
 
   return index
 end
@@ -9685,14 +9647,14 @@ euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.fields = functi
   -- Stpid: 2 Byte Unsigned Fixed Width Integer Nullable
   index, stpid = euronext_optiq_orderentrygateway_sbe_v1_3.stpid.dissect(buffer, index, packet, parent)
 
-  -- Free Text Section Groups: Struct of 2 fields
-  index, free_text_section_groups = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.dissect(buffer, index, packet, parent)
+  -- Free Text Groups: Struct of 2 fields
+  index, free_text_groups = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.dissect(buffer, index, packet, parent)
 
-  -- Optional Fields Groups: Struct of 2 fields
-  index, optional_fields_groups = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.dissect(buffer, index, packet, parent)
+  -- Cancel Replace Optional Field Groups: Struct of 2 fields
+  index, cancel_replace_optional_field_groups = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.dissect(buffer, index, packet, parent)
 
-  -- Clearing Fields Groups: Struct of 2 fields
-  index, clearing_fields_groups = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.dissect(buffer, index, packet, parent)
+  -- Cancel Replace Clearing Fields Groups: Struct of 2 fields
+  index, cancel_replace_clearing_fields_groups = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10018,28 +9980,28 @@ euronext_optiq_orderentrygateway_sbe_v1_3.leg_last_px.dissect = function(buffer,
   return offset + length, value
 end
 
--- Strategy Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_group = {}
+-- Fill Strategy Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_group = {}
 
--- Size: Strategy Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_group.size =
+-- Size: Fill Strategy Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_group.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.leg_last_px.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.leg_last_qty.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.leg_instrument_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.leg_side.size
 
--- Display: Strategy Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_group.display = function(packet, parent, length)
+-- Display: Fill Strategy Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Strategy Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_group.fields = function(buffer, offset, packet, parent, strategy_fields_group_index)
+-- Dissect Fields: Fill Strategy Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_group.fields = function(buffer, offset, packet, parent, fill_strategy_field_group_index)
   local index = offset
 
-  -- Implicit Strategy Fields Group Index
-  if strategy_fields_group_index ~= nil then
-    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.strategy_fields_group_index, strategy_fields_group_index)
+  -- Implicit Fill Strategy Field Group Index
+  if fill_strategy_field_group_index ~= nil then
+    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_strategy_field_group_index, fill_strategy_field_group_index)
     iteration:set_generated()
   end
 
@@ -10058,47 +10020,47 @@ euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_group.fields = functio
   return index
 end
 
--- Dissect: Strategy Fields Group
-euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_group.dissect = function(buffer, offset, packet, parent, strategy_fields_group_index)
-  if show.strategy_fields_group then
+-- Dissect: Fill Strategy Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_group.dissect = function(buffer, offset, packet, parent, fill_strategy_field_group_index)
+  if show.fill_strategy_field_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.strategy_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_group.fields(buffer, offset, packet, parent, strategy_fields_group_index)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_strategy_field_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_group.fields(buffer, offset, packet, parent, fill_strategy_field_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_group.display(packet, parent, length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_group.fields(buffer, offset, packet, parent, strategy_fields_group_index)
+    return euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_group.fields(buffer, offset, packet, parent, fill_strategy_field_group_index)
   end
 end
 
--- Strategy Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups = {}
+-- Fill Strategy Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups = {}
 
--- Calculate size of: Strategy Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups.size = function(buffer, offset)
+-- Calculate size of: Fill Strategy Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.size
 
   -- Calculate field size from count
-  local strategy_fields_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + strategy_fields_group_count * 21
+  local fill_strategy_field_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + fill_strategy_field_group_count * 21
 
   return index
 end
 
--- Display: Strategy Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups.display = function(packet, parent, length)
+-- Display: Fill Strategy Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Strategy Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Fill Strategy Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -10107,25 +10069,25 @@ euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups.fields = functi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Strategy Fields Group
-  for strategy_fields_group_index = 1, num_in_group do
-    index, strategy_fields_group = euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_group.dissect(buffer, index, packet, parent, strategy_fields_group_index)
+  -- Repeating: Fill Strategy Field Group
+  for fill_strategy_field_group_index = 1, num_in_group do
+    index, fill_strategy_field_group = euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_group.dissect(buffer, index, packet, parent, fill_strategy_field_group_index)
   end
 
   return index
 end
 
--- Dissect: Strategy Fields Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Fill Strategy Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.strategy_fields_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups.size(buffer, offset)
+  if show.fill_strategy_field_groups then
+    local length = euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.strategy_fields_groups, range, display)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_strategy_field_groups, range, display)
   end
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups.fields(buffer, offset, packet, parent)
+  return euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Underlying Instrument Id
@@ -10223,28 +10185,28 @@ euronext_optiq_orderentrygateway_sbe_v1_3.other_leg_last_px.dissect = function(b
   return offset + length, value
 end
 
--- Optional Fields Fill Group
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_group = {}
+-- Fill Optional Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_group = {}
 
--- Size: Optional Fields Fill Group
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_group.size =
+-- Size: Fill Optional Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_group.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.counterpart_firm_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.other_leg_last_px.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.package_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.underlying_instrument_id.size
 
--- Display: Optional Fields Fill Group
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_group.display = function(packet, parent, length)
+-- Display: Fill Optional Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Optional Fields Fill Group
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_group.fields = function(buffer, offset, packet, parent, optional_fields_fill_group_index)
+-- Dissect Fields: Fill Optional Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_group.fields = function(buffer, offset, packet, parent, fill_optional_field_group_index)
   local index = offset
 
-  -- Implicit Optional Fields Fill Group Index
-  if optional_fields_fill_group_index ~= nil then
-    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_fill_group_index, optional_fields_fill_group_index)
+  -- Implicit Fill Optional Field Group Index
+  if fill_optional_field_group_index ~= nil then
+    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_optional_field_group_index, fill_optional_field_group_index)
     iteration:set_generated()
   end
 
@@ -10263,47 +10225,47 @@ euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_group.fields = fu
   return index
 end
 
--- Dissect: Optional Fields Fill Group
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_group.dissect = function(buffer, offset, packet, parent, optional_fields_fill_group_index)
-  if show.optional_fields_fill_group then
+-- Dissect: Fill Optional Field Group
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_group.dissect = function(buffer, offset, packet, parent, fill_optional_field_group_index)
+  if show.fill_optional_field_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_fill_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_group.fields(buffer, offset, packet, parent, optional_fields_fill_group_index)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_optional_field_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_group.fields(buffer, offset, packet, parent, fill_optional_field_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_group.display(packet, parent, length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_group.fields(buffer, offset, packet, parent, optional_fields_fill_group_index)
+    return euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_group.fields(buffer, offset, packet, parent, fill_optional_field_group_index)
   end
 end
 
--- Optional Fields Fill Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups = {}
+-- Fill Optional Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups = {}
 
--- Calculate size of: Optional Fields Fill Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups.size = function(buffer, offset)
+-- Calculate size of: Fill Optional Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.size
 
   -- Calculate field size from count
-  local optional_fields_fill_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + optional_fields_fill_group_count * 32
+  local fill_optional_field_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + fill_optional_field_group_count * 32
 
   return index
 end
 
--- Display: Optional Fields Fill Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups.display = function(packet, parent, length)
+-- Display: Fill Optional Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Optional Fields Fill Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Fill Optional Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -10312,25 +10274,25 @@ euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups.fields = f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Optional Fields Fill Group
-  for optional_fields_fill_group_index = 1, num_in_group do
-    index, optional_fields_fill_group = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_group.dissect(buffer, index, packet, parent, optional_fields_fill_group_index)
+  -- Repeating: Fill Optional Field Group
+  for fill_optional_field_group_index = 1, num_in_group do
+    index, fill_optional_field_group = euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_group.dissect(buffer, index, packet, parent, fill_optional_field_group_index)
   end
 
   return index
 end
 
--- Dissect: Optional Fields Fill Groups
-euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Fill Optional Field Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.optional_fields_fill_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups.size(buffer, offset)
+  if show.fill_optional_field_groups then
+    local length = euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_fill_groups, range, display)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_optional_field_groups, range, display)
   end
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups.fields(buffer, offset, packet, parent)
+  return euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Execution Phase
@@ -10681,9 +10643,9 @@ euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.size = function(buffer, o
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.execution_phase.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.size(buffer, offset + index)
 
   return index
 end
@@ -10751,11 +10713,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.fields = function(buffer,
   -- Execution Phase: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, execution_phase = euronext_optiq_orderentrygateway_sbe_v1_3.execution_phase.dissect(buffer, index, packet, parent)
 
-  -- Optional Fields Fill Groups: Struct of 2 fields
-  index, optional_fields_fill_groups = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_fill_groups.dissect(buffer, index, packet, parent)
+  -- Fill Optional Field Groups: Struct of 2 fields
+  index, fill_optional_field_groups = euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.dissect(buffer, index, packet, parent)
 
-  -- Strategy Fields Groups: Struct of 2 fields
-  index, strategy_fields_groups = euronext_optiq_orderentrygateway_sbe_v1_3.strategy_fields_groups.dissect(buffer, index, packet, parent)
+  -- Fill Strategy Field Groups: Struct of 2 fields
+  index, fill_strategy_field_groups = euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -11124,6 +11086,322 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ack_message.dissect = function(buffer,
   end
 end
 
+-- Order Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_group = {}
+
+-- Size: Order Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_group.size =
+  euronext_optiq_orderentrygateway_sbe_v1_3.clearing_firm_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.client_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.account_number.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.technical_origin.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.open_close.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.clearing_instruction.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.account_type_cross.size
+
+-- Display: Order Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_group.fields = function(buffer, offset, packet, parent, order_clearing_fields_group_index)
+  local index = offset
+
+  -- Implicit Order Clearing Fields Group Index
+  if order_clearing_fields_group_index ~= nil then
+    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_clearing_fields_group_index, order_clearing_fields_group_index)
+    iteration:set_generated()
+  end
+
+  -- Clearing Firm Id: 8 Byte Ascii String Nullable
+  index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_firm_id.dissect(buffer, index, packet, parent)
+
+  -- Client Id: 8 Byte Ascii String Nullable
+  index, client_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_id.dissect(buffer, index, packet, parent)
+
+  -- Account Number: 12 Byte Ascii String Nullable
+  index, account_number = euronext_optiq_orderentrygateway_sbe_v1_3.account_number.dissect(buffer, index, packet, parent)
+
+  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, technical_origin = euronext_optiq_orderentrygateway_sbe_v1_3.technical_origin.dissect(buffer, index, packet, parent)
+
+  -- Open Close: Struct of 11 fields
+  index, open_close = euronext_optiq_orderentrygateway_sbe_v1_3.open_close.dissect(buffer, index, packet, parent)
+
+  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, clearing_instruction = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_instruction.dissect(buffer, index, packet, parent)
+
+  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  index, account_type_cross = euronext_optiq_orderentrygateway_sbe_v1_3.account_type_cross.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Clearing Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_group.dissect = function(buffer, offset, packet, parent, order_clearing_fields_group_index)
+  if show.order_clearing_fields_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_clearing_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_group.fields(buffer, offset, packet, parent, order_clearing_fields_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_group.fields(buffer, offset, packet, parent, order_clearing_fields_group_index)
+  end
+end
+
+-- Order Clearing Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups = {}
+
+-- Calculate size of: Order Clearing Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.size
+
+  -- Calculate field size from count
+  local order_clearing_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + order_clearing_fields_group_count * 34
+
+  return index
+end
+
+-- Display: Order Clearing Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Clearing Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size Encoding: Struct of 2 fields
+  index, group_size_encoding = euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Order Clearing Fields Group
+  for order_clearing_fields_group_index = 1, num_in_group do
+    index, order_clearing_fields_group = euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_group.dissect(buffer, index, packet, parent, order_clearing_fields_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Order Clearing Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.order_clearing_fields_groups then
+    local length = euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_clearing_fields_groups, range, display)
+  end
+
+  return euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.fields(buffer, offset, packet, parent)
+end
+
+-- Quote Req Id Optional
+euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional = {}
+
+-- Size: Quote Req Id Optional
+euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.size = 8
+
+-- Display: Quote Req Id Optional
+euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Quote Req Id Optional: No Value"
+  end
+
+  return "Quote Req Id Optional: "..value
+end
+
+-- Dissect: Quote Req Id Optional
+euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Order Qty
+euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty = {}
+
+-- Size: Min Order Qty
+euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.size = 8
+
+-- Display: Min Order Qty
+euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Min Order Qty: No Value"
+  end
+
+  return "Min Order Qty: "..value
+end
+
+-- Dissect: Min Order Qty
+euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.min_order_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Optional Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group = {}
+
+-- Size: Order Optional Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.size =
+  euronext_optiq_orderentrygateway_sbe_v1_3.stop_px.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_price.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.disclosed_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_date.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_iceberg_type.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.size
+
+-- Display: Order Optional Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Optional Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.fields = function(buffer, offset, packet, parent, order_optional_fields_group_index)
+  local index = offset
+
+  -- Implicit Order Optional Fields Group Index
+  if order_optional_fields_group_index ~= nil then
+    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_group_index, order_optional_fields_group_index)
+    iteration:set_generated()
+  end
+
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  index, stop_px = euronext_optiq_orderentrygateway_sbe_v1_3.stop_px.dissect(buffer, index, packet, parent)
+
+  -- Undisclosed Price: 8 Byte Signed Fixed Width Integer Nullable
+  index, undisclosed_price = euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_price.dissect(buffer, index, packet, parent)
+
+  -- Disclosed Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, disclosed_qty = euronext_optiq_orderentrygateway_sbe_v1_3.disclosed_qty.dissect(buffer, index, packet, parent)
+
+  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, min_order_qty = euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, quote_req_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Order Expiration Time: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, order_expiration_time = euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_time.dissect(buffer, index, packet, parent)
+
+  -- Order Expiration Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, order_expiration_date = euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_date.dissect(buffer, index, packet, parent)
+
+  -- Peg Offset: 1 Byte Signed Fixed Width Integer Nullable
+  index, peg_offset = euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.dissect(buffer, index, packet, parent)
+
+  -- Trading Session: Struct of 5 fields
+  index, trading_session = euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.dissect(buffer, index, packet, parent)
+
+  -- Undisclosed Iceberg Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, undisclosed_iceberg_type = euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_iceberg_type.dissect(buffer, index, packet, parent)
+
+  -- Stop Triggered Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, stop_triggered_time_in_force = euronext_optiq_orderentrygateway_sbe_v1_3.stop_triggered_time_in_force.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Optional Fields Group
+euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.dissect = function(buffer, offset, packet, parent, order_optional_fields_group_index)
+  if show.order_optional_fields_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.fields(buffer, offset, packet, parent, order_optional_fields_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.fields(buffer, offset, packet, parent, order_optional_fields_group_index)
+  end
+end
+
+-- Order Optional Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups = {}
+
+-- Calculate size of: Order Optional Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.size
+
+  -- Calculate field size from count
+  local order_optional_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + order_optional_fields_group_count * 50
+
+  return index
+end
+
+-- Display: Order Optional Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Optional Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size Encoding: Struct of 2 fields
+  index, group_size_encoding = euronext_optiq_orderentrygateway_sbe_v1_3.group_size_encoding.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Order Optional Fields Group
+  for order_optional_fields_group_index = 1, num_in_group do
+    index, order_optional_fields_group = euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.dissect(buffer, index, packet, parent, order_optional_fields_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Order Optional Fields Groups
+euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.order_optional_fields_groups then
+    local length = euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_groups, range, display)
+  end
+
+  return euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.fields(buffer, offset, packet, parent)
+end
+
 -- New Order Message
 euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message = {}
 
@@ -11169,13 +11447,13 @@ euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message.size = function(buff
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.stpid.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.size(buffer, offset + index)
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.mifid_short_codes_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.size(buffer, offset + index)
 
   return index
 end
@@ -11246,17 +11524,17 @@ euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message.fields = function(bu
   -- Stpid: 2 Byte Unsigned Fixed Width Integer Nullable
   index, stpid = euronext_optiq_orderentrygateway_sbe_v1_3.stpid.dissect(buffer, index, packet, parent)
 
-  -- Free Text Section Groups: Struct of 2 fields
-  index, free_text_section_groups = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_section_groups.dissect(buffer, index, packet, parent)
+  -- Free Text Groups: Struct of 2 fields
+  index, free_text_groups = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.dissect(buffer, index, packet, parent)
 
   -- Mifid Short Codes Groups: Struct of 2 fields
   index, mifid_short_codes_groups = euronext_optiq_orderentrygateway_sbe_v1_3.mifid_short_codes_groups.dissect(buffer, index, packet, parent)
 
-  -- Optional Fields Groups: Struct of 2 fields
-  index, optional_fields_groups = euronext_optiq_orderentrygateway_sbe_v1_3.optional_fields_groups.dissect(buffer, index, packet, parent)
+  -- Order Optional Fields Groups: Struct of 2 fields
+  index, order_optional_fields_groups = euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.dissect(buffer, index, packet, parent)
 
-  -- Clearing Fields Groups: Struct of 2 fields
-  index, clearing_fields_groups = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_fields_groups.dissect(buffer, index, packet, parent)
+  -- Order Clearing Fields Groups: Struct of 2 fields
+  index, order_clearing_fields_groups = euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
