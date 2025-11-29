@@ -20,10 +20,10 @@ omi_cme_brokertec_ust_sbe_v10_1.fields.block_length = ProtoField.new("Block Leng
 omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.brokertec.ust.sbe.v10.1.couponrate", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.exponent = ProtoField.new("Exponent", "cme.brokertec.ust.sbe.v10.1.exponent", ftypes.INT8)
 omi_cme_brokertec_ust_sbe_v10_1.fields.group_size = ProtoField.new("Group Size", "cme.brokertec.ust.sbe.v10.1.groupsize", ftypes.STRING)
-omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_group = ProtoField.new("M D Incremental Refresh Btec Group", "cme.brokertec.ust.sbe.v10.1.mdincrementalrefreshbtecgroup", ftypes.STRING)
-omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_groups = ProtoField.new("M D Incremental Refresh Btec Groups", "cme.brokertec.ust.sbe.v10.1.mdincrementalrefreshbtecgroups", ftypes.STRING)
-omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_int_32 = ProtoField.new("Mantissa int 32", "cme.brokertec.ust.sbe.v10.1.mantissaint32", ftypes.INT32)
-omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_int_64 = ProtoField.new("Mantissa int 64", "cme.brokertec.ust.sbe.v10.1.mantissaint64", ftypes.INT64)
+omi_cme_brokertec_ust_sbe_v10_1.fields.incremental_refresh_btec_group = ProtoField.new("Incremental Refresh Btec Group", "cme.brokertec.ust.sbe.v10.1.incrementalrefreshbtecgroup", ftypes.STRING)
+omi_cme_brokertec_ust_sbe_v10_1.fields.incremental_refresh_btec_groups = ProtoField.new("Incremental Refresh Btec Groups", "cme.brokertec.ust.sbe.v10.1.incrementalrefreshbtecgroups", ftypes.STRING)
+omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa = ProtoField.new("Mantissa", "cme.brokertec.ust.sbe.v10.1.mantissa", ftypes.INT64)
+omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_32 = ProtoField.new("Mantissa 32", "cme.brokertec.ust.sbe.v10.1.mantissa32", ftypes.INT32)
 omi_cme_brokertec_ust_sbe_v10_1.fields.maturity_date = ProtoField.new("Maturity Date", "cme.brokertec.ust.sbe.v10.1.maturitydate", ftypes.UINT16)
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.brokertec.ust.sbe.v10.1.mdentrypx", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.brokertec.ust.sbe.v10.1.mdentrysize", ftypes.UINT32)
@@ -33,7 +33,7 @@ omi_cme_brokertec_ust_sbe_v10_1.fields.md_update_action = ProtoField.new("Md Upd
 omi_cme_brokertec_ust_sbe_v10_1.fields.message = ProtoField.new("Message", "cme.brokertec.ust.sbe.v10.1.message", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.message_header = ProtoField.new("Message Header", "cme.brokertec.ust.sbe.v10.1.messageheader", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.message_size = ProtoField.new("Message Size", "cme.brokertec.ust.sbe.v10.1.messagesize", ftypes.UINT16)
-omi_cme_brokertec_ust_sbe_v10_1.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.brokertec.ust.sbe.v10.1.numingroupuint8", ftypes.UINT8)
+omi_cme_brokertec_ust_sbe_v10_1.fields.num_in_group = ProtoField.new("Num In Group", "cme.brokertec.ust.sbe.v10.1.numingroup", ftypes.UINT8)
 omi_cme_brokertec_ust_sbe_v10_1.fields.packet = ProtoField.new("Packet", "cme.brokertec.ust.sbe.v10.1.packet", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.brokertec.ust.sbe.v10.1.packetsequencenumber", ftypes.UINT32)
 omi_cme_brokertec_ust_sbe_v10_1.fields.payload = ProtoField.new("Payload", "cme.brokertec.ust.sbe.v10.1.payload", ftypes.STRING)
@@ -54,7 +54,7 @@ omi_cme_brokertec_ust_sbe_v10_1.fields.version = ProtoField.new("Version", "cme.
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_incremental_refresh_btec = ProtoField.new("Md Incremental Refresh Btec", "cme.brokertec.ust.sbe.v10.1.mdincrementalrefreshbtec", ftypes.STRING)
 
 -- Cme BrokerTec Ust Sbe 10.1 generated fields
-omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_group_index = ProtoField.new("M D Incremental Refresh Btec Group Index", "cme.brokertec.ust.sbe.v10.1.mdincrementalrefreshbtecgroupindex", ftypes.UINT16)
+omi_cme_brokertec_ust_sbe_v10_1.fields.incremental_refresh_btec_group_index = ProtoField.new("Incremental Refresh Btec Group Index", "cme.brokertec.ust.sbe.v10.1.incrementalrefreshbtecgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -66,8 +66,8 @@ local show = {}
 show.binary_packet_header = true
 show.coupon_rate = true
 show.group_size = true
-show.m_d_incremental_refresh_btec_group = true
-show.m_d_incremental_refresh_btec_groups = true
+show.incremental_refresh_btec_group = true
+show.incremental_refresh_btec_groups = true
 show.md_entry_px = true
 show.md_incremental_refresh_btec = true
 show.message = true
@@ -79,8 +79,8 @@ show.payload = false
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_coupon_rate = Pref.bool("Show Coupon Rate", show.coupon_rate, "Parse and add Coupon Rate to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
-omi_cme_brokertec_ust_sbe_v10_1.prefs.show_m_d_incremental_refresh_btec_group = Pref.bool("Show M D Incremental Refresh Btec Group", show.m_d_incremental_refresh_btec_group, "Parse and add M D Incremental Refresh Btec Group to protocol tree")
-omi_cme_brokertec_ust_sbe_v10_1.prefs.show_m_d_incremental_refresh_btec_groups = Pref.bool("Show M D Incremental Refresh Btec Groups", show.m_d_incremental_refresh_btec_groups, "Parse and add M D Incremental Refresh Btec Groups to protocol tree")
+omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_group = Pref.bool("Show Incremental Refresh Btec Group", show.incremental_refresh_btec_group, "Parse and add Incremental Refresh Btec Group to protocol tree")
+omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_groups = Pref.bool("Show Incremental Refresh Btec Groups", show.incremental_refresh_btec_groups, "Parse and add Incremental Refresh Btec Groups to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_entry_px = Pref.bool("Show Md Entry Px", show.md_entry_px, "Parse and add Md Entry Px to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_incremental_refresh_btec = Pref.bool("Show Md Incremental Refresh Btec", show.md_incremental_refresh_btec, "Parse and add Md Incremental Refresh Btec to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -105,12 +105,12 @@ function omi_cme_brokertec_ust_sbe_v10_1.prefs_changed()
     show.group_size = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_group_size
     changed = true
   end
-  if show.m_d_incremental_refresh_btec_group ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_m_d_incremental_refresh_btec_group then
-    show.m_d_incremental_refresh_btec_group = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_m_d_incremental_refresh_btec_group
+  if show.incremental_refresh_btec_group ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_group then
+    show.incremental_refresh_btec_group = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_group
     changed = true
   end
-  if show.m_d_incremental_refresh_btec_groups ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_m_d_incremental_refresh_btec_groups then
-    show.m_d_incremental_refresh_btec_groups = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_m_d_incremental_refresh_btec_groups
+  if show.incremental_refresh_btec_groups ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_groups then
+    show.incremental_refresh_btec_groups = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_groups
     changed = true
   end
   if show.md_entry_px ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_entry_px then
@@ -273,30 +273,30 @@ cme_brokertec_ust_sbe_v10_1.exponent.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Mantissa int 32
-cme_brokertec_ust_sbe_v10_1.mantissa_int_32 = {}
+-- Mantissa 32
+cme_brokertec_ust_sbe_v10_1.mantissa_32 = {}
 
--- Size: Mantissa int 32
-cme_brokertec_ust_sbe_v10_1.mantissa_int_32.size = 4
+-- Size: Mantissa 32
+cme_brokertec_ust_sbe_v10_1.mantissa_32.size = 4
 
--- Display: Mantissa int 32
-cme_brokertec_ust_sbe_v10_1.mantissa_int_32.display = function(value)
+-- Display: Mantissa 32
+cme_brokertec_ust_sbe_v10_1.mantissa_32.display = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Mantissa int 32: No Value"
+    return "Mantissa 32: No Value"
   end
 
-  return "Mantissa int 32: "..value
+  return "Mantissa 32: "..value
 end
 
--- Dissect: Mantissa int 32
-cme_brokertec_ust_sbe_v10_1.mantissa_int_32.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.mantissa_int_32.size
+-- Dissect: Mantissa 32
+cme_brokertec_ust_sbe_v10_1.mantissa_32.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.mantissa_32.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = cme_brokertec_ust_sbe_v10_1.mantissa_int_32.display(value, buffer, offset, packet, parent)
+  local display = cme_brokertec_ust_sbe_v10_1.mantissa_32.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_int_32, range, value, display)
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_32, range, value, display)
 
   return offset + length, value
 end
@@ -306,7 +306,7 @@ cme_brokertec_ust_sbe_v10_1.coupon_rate = {}
 
 -- Size: Coupon Rate
 cme_brokertec_ust_sbe_v10_1.coupon_rate.size =
-  cme_brokertec_ust_sbe_v10_1.mantissa_int_32.size + 
+  cme_brokertec_ust_sbe_v10_1.mantissa_32.size + 
   cme_brokertec_ust_sbe_v10_1.exponent.size
 
 -- Display: Coupon Rate
@@ -322,14 +322,14 @@ end
 cme_brokertec_ust_sbe_v10_1.coupon_rate.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa int 32: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa_int_32 = cme_brokertec_ust_sbe_v10_1.mantissa_int_32.dissect(buffer, index, packet, parent)
+  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa_32 = cme_brokertec_ust_sbe_v10_1.mantissa_32.dissect(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_brokertec_ust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local coupon_rate = mantissa_int_32 / factor( exponent )
+  local coupon_rate = mantissa_32 / factor( exponent )
 
   return index, coupon_rate
 end
@@ -578,30 +578,30 @@ cme_brokertec_ust_sbe_v10_1.md_entry_size.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Mantissa int 64
-cme_brokertec_ust_sbe_v10_1.mantissa_int_64 = {}
+-- Mantissa
+cme_brokertec_ust_sbe_v10_1.mantissa = {}
 
--- Size: Mantissa int 64
-cme_brokertec_ust_sbe_v10_1.mantissa_int_64.size = 8
+-- Size: Mantissa
+cme_brokertec_ust_sbe_v10_1.mantissa.size = 8
 
--- Display: Mantissa int 64
-cme_brokertec_ust_sbe_v10_1.mantissa_int_64.display = function(value)
+-- Display: Mantissa
+cme_brokertec_ust_sbe_v10_1.mantissa.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Mantissa int 64: No Value"
+    return "Mantissa: No Value"
   end
 
-  return "Mantissa int 64: "..value
+  return "Mantissa: "..value
 end
 
--- Dissect: Mantissa int 64
-cme_brokertec_ust_sbe_v10_1.mantissa_int_64.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.mantissa_int_64.size
+-- Dissect: Mantissa
+cme_brokertec_ust_sbe_v10_1.mantissa.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.mantissa.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = cme_brokertec_ust_sbe_v10_1.mantissa_int_64.display(value, buffer, offset, packet, parent)
+  local display = cme_brokertec_ust_sbe_v10_1.mantissa.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_int_64, range, value, display)
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa, range, value, display)
 
   return offset + length, value
 end
@@ -611,7 +611,7 @@ cme_brokertec_ust_sbe_v10_1.md_entry_px = {}
 
 -- Size: Md Entry Px
 cme_brokertec_ust_sbe_v10_1.md_entry_px.size =
-  cme_brokertec_ust_sbe_v10_1.mantissa_int_64.size + 
+  cme_brokertec_ust_sbe_v10_1.mantissa.size + 
   cme_brokertec_ust_sbe_v10_1.exponent.size
 
 -- Display: Md Entry Px
@@ -627,14 +627,14 @@ end
 cme_brokertec_ust_sbe_v10_1.md_entry_px.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa int 64: 8 Byte Signed Fixed Width Integer Nullable
-  index, mantissa_int_64 = cme_brokertec_ust_sbe_v10_1.mantissa_int_64.dissect(buffer, index, packet, parent)
+  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = cme_brokertec_ust_sbe_v10_1.mantissa.dissect(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_brokertec_ust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local md_entry_px = mantissa_int_64 / factor( exponent )
+  local md_entry_px = mantissa / factor( exponent )
 
   return index, md_entry_px
 end
@@ -760,11 +760,11 @@ cme_brokertec_ust_sbe_v10_1.md_update_action.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- M D Incremental Refresh Btec Group
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group = {}
+-- Incremental Refresh Btec Group
+cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group = {}
 
--- Size: M D Incremental Refresh Btec Group
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.size =
+-- Size: Incremental Refresh Btec Group
+cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.size =
   cme_brokertec_ust_sbe_v10_1.md_update_action.size + 
   cme_brokertec_ust_sbe_v10_1.md_entry_type.size + 
   cme_brokertec_ust_sbe_v10_1.md_entry_px.size + 
@@ -779,18 +779,18 @@ cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.size =
   cme_brokertec_ust_sbe_v10_1.trade_condition.size + 
   cme_brokertec_ust_sbe_v10_1.price_type.size
 
--- Display: M D Incremental Refresh Btec Group
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Btec Group
+cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Btec Group
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_btec_group_index)
+-- Dissect Fields: Incremental Refresh Btec Group
+cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.fields = function(buffer, offset, packet, parent, incremental_refresh_btec_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Btec Group Index
-  if m_d_incremental_refresh_btec_group_index ~= nil then
-    local iteration = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_group_index, m_d_incremental_refresh_btec_group_index)
+  -- Implicit Incremental Refresh Btec Group Index
+  if incremental_refresh_btec_group_index ~= nil then
+    local iteration = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.incremental_refresh_btec_group_index, incremental_refresh_btec_group_index)
     iteration:set_generated()
   end
 
@@ -836,43 +836,43 @@ cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.fields = function
   return index
 end
 
--- Dissect: M D Incremental Refresh Btec Group
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_btec_group_index)
-  if show.m_d_incremental_refresh_btec_group then
+-- Dissect: Incremental Refresh Btec Group
+cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_btec_group_index)
+  if show.incremental_refresh_btec_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_group, buffer(offset, 0))
-    local index = cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_btec_group_index)
+    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.incremental_refresh_btec_group, buffer(offset, 0))
+    local index = cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.fields(buffer, offset, packet, parent, incremental_refresh_btec_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.display(packet, parent, length)
+    local display = cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_btec_group_index)
+    return cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.fields(buffer, offset, packet, parent, incremental_refresh_btec_group_index)
   end
 end
 
--- Num In Group uint 8
-cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8 = {}
+-- Num In Group
+cme_brokertec_ust_sbe_v10_1.num_in_group = {}
 
--- Size: Num In Group uint 8
-cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.size = 1
+-- Size: Num In Group
+cme_brokertec_ust_sbe_v10_1.num_in_group.size = 1
 
--- Display: Num In Group uint 8
-cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.display = function(value)
-  return "Num In Group uint 8: "..value
+-- Display: Num In Group
+cme_brokertec_ust_sbe_v10_1.num_in_group.display = function(value)
+  return "Num In Group: "..value
 end
 
--- Dissect: Num In Group uint 8
-cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.size
+-- Dissect: Num In Group
+cme_brokertec_ust_sbe_v10_1.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.num_in_group.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.display(value, buffer, offset, packet, parent)
+  local display = cme_brokertec_ust_sbe_v10_1.num_in_group.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.num_in_group_uint_8, range, value, display)
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.num_in_group, range, value, display)
 
   return offset + length, value
 end
@@ -906,7 +906,7 @@ cme_brokertec_ust_sbe_v10_1.group_size = {}
 -- Size: Group Size
 cme_brokertec_ust_sbe_v10_1.group_size.size =
   cme_brokertec_ust_sbe_v10_1.block_length.size + 
-  cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.size
+  cme_brokertec_ust_sbe_v10_1.num_in_group.size
 
 -- Display: Group Size
 cme_brokertec_ust_sbe_v10_1.group_size.display = function(packet, parent, length)
@@ -920,8 +920,8 @@ cme_brokertec_ust_sbe_v10_1.group_size.fields = function(buffer, offset, packet,
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = cme_brokertec_ust_sbe_v10_1.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group uint 8: 1 Byte Unsigned Fixed Width Integer
-  index, num_in_group_uint_8 = cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.dissect(buffer, index, packet, parent)
+  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  index, num_in_group = cme_brokertec_ust_sbe_v10_1.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -944,56 +944,56 @@ cme_brokertec_ust_sbe_v10_1.group_size.dissect = function(buffer, offset, packet
   end
 end
 
--- M D Incremental Refresh Btec Groups
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups = {}
+-- Incremental Refresh Btec Groups
+cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups = {}
 
--- Calculate size of: M D Incremental Refresh Btec Groups
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Btec Groups
+cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_brokertec_ust_sbe_v10_1.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_btec_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_btec_group_count * 62
+  local incremental_refresh_btec_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_btec_group_count * 62
 
   return index
 end
 
--- Display: M D Incremental Refresh Btec Groups
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Btec Groups
+cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Btec Groups
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Btec Groups
+cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
   index, group_size = cme_brokertec_ust_sbe_v10_1.group_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group uint 8
-  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Btec Group
-  for m_d_incremental_refresh_btec_group_index = 1, num_in_group_uint_8 do
-    index, m_d_incremental_refresh_btec_group = cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_btec_group_index)
+  -- Repeating: Incremental Refresh Btec Group
+  for incremental_refresh_btec_group_index = 1, num_in_group do
+    index, incremental_refresh_btec_group = cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.dissect(buffer, index, packet, parent, incremental_refresh_btec_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Btec Groups
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Btec Groups
+cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.m_d_incremental_refresh_btec_groups then
-    local length = cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.size(buffer, offset)
+  if show.incremental_refresh_btec_groups then
+    local length = cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_groups, range, display)
+    local display = cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.incremental_refresh_btec_groups, range, display)
   end
 
-  return cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.fields(buffer, offset, packet, parent)
+  return cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Transact Time
@@ -1062,7 +1062,7 @@ cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.size = function(buffer, 
 
   index = index + cme_brokertec_ust_sbe_v10_1.transact_time.size
 
-  index = index + cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.size(buffer, offset + index)
+  index = index + cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.size(buffer, offset + index)
 
   return index
 end
@@ -1082,8 +1082,8 @@ cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.fields = function(buffer
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = cme_brokertec_ust_sbe_v10_1.transact_time.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Btec Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_btec_groups = cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Btec Groups: Struct of 2 fields
+  index, incremental_refresh_btec_groups = cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
