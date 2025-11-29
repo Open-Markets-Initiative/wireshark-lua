@@ -130,10 +130,10 @@ omi_cme_futures_mdp3_sbe_v1_11.fields.max_price_variation = ProtoField.new("Max 
 omi_cme_futures_mdp3_sbe_v1_11.fields.max_trade_vol = ProtoField.new("Max Trade Vol", "cme.futures.mdp3.sbe.v1.11.maxtradevol", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_display_qty = ProtoField.new("Md Display Qty", "cme.futures.mdp3.sbe.v1.11.mddisplayqty", ftypes.INT32)
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_display_qty_optional = ProtoField.new("Md Display Qty Optional", "cme.futures.mdp3.sbe.v1.11.mddisplayqtyoptional", ftypes.INT32)
-omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.mdp3.sbe.v1.11.mdentrypx", ftypes.DOUBLE)
-omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_px_optional = ProtoField.new("Md Entry Px Optional", "cme.futures.mdp3.sbe.v1.11.mdentrypxoptional", ftypes.DOUBLE)
-omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.mdp3.sbe.v1.11.mdentrysize", ftypes.INT32)
-omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_size_optional = ProtoField.new("Md Entry Size Optional", "cme.futures.mdp3.sbe.v1.11.mdentrysizeoptional", ftypes.INT32)
+omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_px_ex = ProtoField.new("Md Entry Px Ex", "cme.futures.mdp3.sbe.v1.11.mdentrypxex", ftypes.DOUBLE)
+omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_px_optional_ex = ProtoField.new("Md Entry Px Optional Ex", "cme.futures.mdp3.sbe.v1.11.mdentrypxoptionalex", ftypes.DOUBLE)
+omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_size_short = ProtoField.new("Md Entry Size Short", "cme.futures.mdp3.sbe.v1.11.mdentrysizeshort", ftypes.INT32)
+omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_size_short_optional = ProtoField.new("Md Entry Size Short Optional", "cme.futures.mdp3.sbe.v1.11.mdentrysizeshortoptional", ftypes.INT32)
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_ = ProtoField.new("Md Entry Type ", "cme.futures.mdp3.sbe.v1.11.mdentrytype", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_book = ProtoField.new("Md Entry Type Book", "cme.futures.mdp3.sbe.v1.11.mdentrytypebook", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_daily_statistics = ProtoField.new("Md Entry Type Daily Statistics", "cme.futures.mdp3.sbe.v1.11.mdentrytypedailystatistics", ftypes.STRING)
@@ -1794,52 +1794,52 @@ cme_futures_mdp3_sbe_v1_11.tradeable_size.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Md Entry Size Optional
-cme_futures_mdp3_sbe_v1_11.md_entry_size_optional = {}
+-- Md Entry Size Short Optional
+cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional = {}
 
--- Size: Md Entry Size Optional
-cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size = 4
+-- Size: Md Entry Size Short Optional
+cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.size = 4
 
--- Display: Md Entry Size Optional
-cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.display = function(value)
+-- Display: Md Entry Size Short Optional
+cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.display = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Md Entry Size Optional: No Value"
+    return "Md Entry Size Short Optional: No Value"
   end
 
-  return "Md Entry Size Optional: "..value
+  return "Md Entry Size Short Optional: "..value
 end
 
--- Dissect: Md Entry Size Optional
-cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size
+-- Dissect: Md Entry Size Short Optional
+cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_size_optional, range, value, display)
+  parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_size_short_optional, range, value, display)
 
   return offset + length, value
 end
 
--- Md Entry Px Optional
-cme_futures_mdp3_sbe_v1_11.md_entry_px_optional = {}
+-- Md Entry Px Optional Ex
+cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex = {}
 
--- Size: Md Entry Px Optional
-cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size = 8
+-- Size: Md Entry Px Optional Ex
+cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.size = 8
 
--- Display: Md Entry Px Optional
-cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.display = function(raw, value)
+-- Display: Md Entry Px Optional Ex
+cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Md Entry Px Optional: No Value"
+    return "Md Entry Px Optional Ex: No Value"
   end
 
-  return "Md Entry Px Optional: "..value
+  return "Md Entry Px Optional Ex: "..value
 end
 
--- Translate: Md Entry Px Optional
-cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.translate = function(raw)
+-- Translate: Md Entry Px Optional Ex
+cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -1848,15 +1848,15 @@ cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
--- Dissect: Md Entry Px Optional
-cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size
+-- Dissect: Md Entry Px Optional Ex
+cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.translate(raw)
-  local display = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.display(raw, value, buffer, offset, packet, parent)
+  local value = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.translate(raw)
+  local display = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_px_optional, range, value, display)
+  parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_px_optional_ex, range, value, display)
 
   return offset + length, value
 end
@@ -1866,8 +1866,8 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_group = {}
 
 -- Size: Snapshot Full Refresh Tcp Group
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_group.size =
-  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.size + 
   cme_futures_mdp3_sbe_v1_11.tradeable_size.size + 
   cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.size + 
   cme_futures_mdp3_sbe_v1_11.md_price_level_optional.size + 
@@ -1891,11 +1891,11 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_size_optional = cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Size Short Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_size_short_optional = cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
   -- Tradeable Size: 4 Byte Signed Fixed Width Integer Nullable
   index, tradeable_size = cme_futures_mdp3_sbe_v1_11.tradeable_size.dissect(buffer, index, packet, parent)
@@ -2576,7 +2576,7 @@ cme_futures_mdp3_sbe_v1_11.security_status_workup.size = function(buffer, offset
 
   index = index + cme_futures_mdp3_sbe_v1_11.transact_time.size
 
-  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size
+  index = index + cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.size
 
   index = index + cme_futures_mdp3_sbe_v1_11.security_id.size
 
@@ -2609,8 +2609,8 @@ cme_futures_mdp3_sbe_v1_11.security_status_workup.fields = function(buffer, offs
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = cme_futures_mdp3_sbe_v1_11.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = cme_futures_mdp3_sbe_v1_11.security_id.dissect(buffer, index, packet, parent)
@@ -2727,31 +2727,31 @@ cme_futures_mdp3_sbe_v1_11.md_display_qty.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Md Entry Px
-cme_futures_mdp3_sbe_v1_11.md_entry_px = {}
+-- Md Entry Px Ex
+cme_futures_mdp3_sbe_v1_11.md_entry_px_ex = {}
 
--- Size: Md Entry Px
-cme_futures_mdp3_sbe_v1_11.md_entry_px.size = 8
+-- Size: Md Entry Px Ex
+cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.size = 8
 
--- Display: Md Entry Px
-cme_futures_mdp3_sbe_v1_11.md_entry_px.display = function(value)
-  return "Md Entry Px: "..value
+-- Display: Md Entry Px Ex
+cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.display = function(value)
+  return "Md Entry Px Ex: "..value
 end
 
--- Translate: Md Entry Px
-cme_futures_mdp3_sbe_v1_11.md_entry_px.translate = function(raw)
+-- Translate: Md Entry Px Ex
+cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
--- Dissect: Md Entry Px
-cme_futures_mdp3_sbe_v1_11.md_entry_px.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_mdp3_sbe_v1_11.md_entry_px.size
+-- Dissect: Md Entry Px Ex
+cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cme_futures_mdp3_sbe_v1_11.md_entry_px.translate(raw)
-  local display = cme_futures_mdp3_sbe_v1_11.md_entry_px.display(value, buffer, offset, packet, parent)
+  local value = cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.translate(raw)
+  local display = cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_px, range, value, display)
+  parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_px_ex, range, value, display)
 
   return offset + length, value
 end
@@ -2786,7 +2786,7 @@ cme_futures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_group = {}
 cme_futures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_group.size =
   cme_futures_mdp3_sbe_v1_11.order_id.size + 
   cme_futures_mdp3_sbe_v1_11.md_order_priority.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_px.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.size + 
   cme_futures_mdp3_sbe_v1_11.md_display_qty.size + 
   cme_futures_mdp3_sbe_v1_11.md_entry_type_book.size
 
@@ -2811,8 +2811,8 @@ cme_futures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_group.fields = function(b
   -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer
   index, md_order_priority = cme_futures_mdp3_sbe_v1_11.md_order_priority.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index, md_entry_px = cme_futures_mdp3_sbe_v1_11.md_entry_px.dissect(buffer, index, packet, parent)
+  -- Md Entry Px Ex: 8 Byte Signed Fixed Width Integer
+  index, md_entry_px_ex = cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.dissect(buffer, index, packet, parent)
 
   -- Md Display Qty: 4 Byte Signed Fixed Width Integer
   index, md_display_qty = cme_futures_mdp3_sbe_v1_11.md_display_qty.dissect(buffer, index, packet, parent)
@@ -8888,7 +8888,7 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_group = {}
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_group.size =
   cme_futures_mdp3_sbe_v1_11.order_id.size + 
   cme_futures_mdp3_sbe_v1_11.md_order_priority_optional.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_px.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.size + 
   cme_futures_mdp3_sbe_v1_11.md_display_qty.size + 
   cme_futures_mdp3_sbe_v1_11.md_entry_type_book.size
 
@@ -8913,8 +8913,8 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_group.fields = funct
   -- Md Order Priority Optional: 8 Byte Unsigned Fixed Width Integer Nullable
   index, md_order_priority_optional = cme_futures_mdp3_sbe_v1_11.md_order_priority_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index, md_entry_px = cme_futures_mdp3_sbe_v1_11.md_entry_px.dissect(buffer, index, packet, parent)
+  -- Md Entry Px Ex: 8 Byte Signed Fixed Width Integer
+  index, md_entry_px_ex = cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.dissect(buffer, index, packet, parent)
 
   -- Md Display Qty: 4 Byte Signed Fixed Width Integer
   index, md_display_qty = cme_futures_mdp3_sbe_v1_11.md_display_qty.dissect(buffer, index, packet, parent)
@@ -9162,8 +9162,8 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_group = {}
 
 -- Size: Snapshot Full Refresh Group
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_group.size =
-  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.size + 
   cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.size + 
   cme_futures_mdp3_sbe_v1_11.md_price_level_optional.size + 
   cme_futures_mdp3_sbe_v1_11.trading_reference_date.size + 
@@ -9186,11 +9186,11 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_group.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_size_optional = cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Size Short Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_size_short_optional = cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
   -- Number Of Orders Optional: 4 Byte Signed Fixed Width Integer Nullable
   index, number_of_orders_optional = cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.dissect(buffer, index, packet, parent)
@@ -9526,13 +9526,13 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_session_statistics_group = {}
 
 -- Size: Incremental Refresh Session Statistics Group
 cme_futures_mdp3_sbe_v1_11.incremental_refresh_session_statistics_group.size =
-  cme_futures_mdp3_sbe_v1_11.md_entry_px.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.size + 
   cme_futures_mdp3_sbe_v1_11.security_id.size + 
   cme_futures_mdp3_sbe_v1_11.rpt_seq.size + 
   cme_futures_mdp3_sbe_v1_11.open_close_settl_flag.size + 
   cme_futures_mdp3_sbe_v1_11.md_update_action.size + 
   cme_futures_mdp3_sbe_v1_11.md_entry_type_statistics.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.size + 
   cme_futures_mdp3_sbe_v1_11.padding_1.size
 
 -- Display: Incremental Refresh Session Statistics Group
@@ -9550,8 +9550,8 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_session_statistics_group.fields =
     iteration:set_generated()
   end
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index, md_entry_px = cme_futures_mdp3_sbe_v1_11.md_entry_px.dissect(buffer, index, packet, parent)
+  -- Md Entry Px Ex: 8 Byte Signed Fixed Width Integer
+  index, md_entry_px_ex = cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.dissect(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = cme_futures_mdp3_sbe_v1_11.security_id.dissect(buffer, index, packet, parent)
@@ -9568,8 +9568,8 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_session_statistics_group.fields =
   -- Md Entry Type Statistics: 1 Byte Ascii String Enum with 6 values
   index, md_entry_type_statistics = cme_futures_mdp3_sbe_v1_11.md_entry_type_statistics.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_size_optional = cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Size Short Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_size_short_optional = cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
   index, padding_1 = cme_futures_mdp3_sbe_v1_11.padding_1.dissect(buffer, index, packet, parent)
@@ -9948,8 +9948,8 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_daily_statistics_group = {}
 
 -- Size: Incremental Refresh Daily Statistics Group
 cme_futures_mdp3_sbe_v1_11.incremental_refresh_daily_statistics_group.size =
-  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.size + 
   cme_futures_mdp3_sbe_v1_11.security_id.size + 
   cme_futures_mdp3_sbe_v1_11.rpt_seq.size + 
   cme_futures_mdp3_sbe_v1_11.trading_reference_date.size + 
@@ -9973,11 +9973,11 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_daily_statistics_group.fields = f
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_size_optional = cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Size Short Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_size_short_optional = cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = cme_futures_mdp3_sbe_v1_11.security_id.dissect(buffer, index, packet, parent)
@@ -10438,25 +10438,25 @@ cme_futures_mdp3_sbe_v1_11.number_of_orders.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Md Entry Size
-cme_futures_mdp3_sbe_v1_11.md_entry_size = {}
+-- Md Entry Size Short
+cme_futures_mdp3_sbe_v1_11.md_entry_size_short = {}
 
--- Size: Md Entry Size
-cme_futures_mdp3_sbe_v1_11.md_entry_size.size = 4
+-- Size: Md Entry Size Short
+cme_futures_mdp3_sbe_v1_11.md_entry_size_short.size = 4
 
--- Display: Md Entry Size
-cme_futures_mdp3_sbe_v1_11.md_entry_size.display = function(value)
-  return "Md Entry Size: "..value
+-- Display: Md Entry Size Short
+cme_futures_mdp3_sbe_v1_11.md_entry_size_short.display = function(value)
+  return "Md Entry Size Short: "..value
 end
 
--- Dissect: Md Entry Size
-cme_futures_mdp3_sbe_v1_11.md_entry_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_mdp3_sbe_v1_11.md_entry_size.size
+-- Dissect: Md Entry Size Short
+cme_futures_mdp3_sbe_v1_11.md_entry_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_mdp3_sbe_v1_11.md_entry_size_short.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = cme_futures_mdp3_sbe_v1_11.md_entry_size.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_mdp3_sbe_v1_11.md_entry_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_size, range, value, display)
+  parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -10466,8 +10466,8 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_trade_summary_group = {}
 
 -- Size: Incremental Refresh Trade Summary Group
 cme_futures_mdp3_sbe_v1_11.incremental_refresh_trade_summary_group.size =
-  cme_futures_mdp3_sbe_v1_11.md_entry_px.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_size.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_short.size + 
   cme_futures_mdp3_sbe_v1_11.security_id.size + 
   cme_futures_mdp3_sbe_v1_11.rpt_seq.size + 
   cme_futures_mdp3_sbe_v1_11.number_of_orders.size + 
@@ -10491,11 +10491,11 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_trade_summary_group.fields = func
     iteration:set_generated()
   end
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index, md_entry_px = cme_futures_mdp3_sbe_v1_11.md_entry_px.dissect(buffer, index, packet, parent)
+  -- Md Entry Px Ex: 8 Byte Signed Fixed Width Integer
+  index, md_entry_px_ex = cme_futures_mdp3_sbe_v1_11.md_entry_px_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
-  index, md_entry_size = cme_futures_mdp3_sbe_v1_11.md_entry_size.dissect(buffer, index, packet, parent)
+  -- Md Entry Size Short: 4 Byte Signed Fixed Width Integer
+  index, md_entry_size_short = cme_futures_mdp3_sbe_v1_11.md_entry_size_short.dissect(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = cme_futures_mdp3_sbe_v1_11.security_id.dissect(buffer, index, packet, parent)
@@ -10737,7 +10737,7 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_order_book_group = {}
 cme_futures_mdp3_sbe_v1_11.incremental_refresh_order_book_group.size =
   cme_futures_mdp3_sbe_v1_11.order_id_optional.size + 
   cme_futures_mdp3_sbe_v1_11.md_order_priority_optional.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.size + 
   cme_futures_mdp3_sbe_v1_11.md_display_qty_optional.size + 
   cme_futures_mdp3_sbe_v1_11.security_id.size + 
   cme_futures_mdp3_sbe_v1_11.md_update_action.size + 
@@ -10765,8 +10765,8 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_order_book_group.fields = functio
   -- Md Order Priority Optional: 8 Byte Unsigned Fixed Width Integer Nullable
   index, md_order_priority_optional = cme_futures_mdp3_sbe_v1_11.md_order_priority_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
   -- Md Display Qty Optional: 4 Byte Signed Fixed Width Integer Nullable
   index, md_display_qty_optional = cme_futures_mdp3_sbe_v1_11.md_display_qty_optional.dissect(buffer, index, packet, parent)
@@ -11118,8 +11118,8 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_book_group = {}
 
 -- Size: Incremental Refresh Book Group
 cme_futures_mdp3_sbe_v1_11.incremental_refresh_book_group.size =
-  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.size + 
   cme_futures_mdp3_sbe_v1_11.security_id.size + 
   cme_futures_mdp3_sbe_v1_11.rpt_seq.size + 
   cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.size + 
@@ -11144,11 +11144,11 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_book_group.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_11.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_size_optional = cme_futures_mdp3_sbe_v1_11.md_entry_size_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Size Short Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_size_short_optional = cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = cme_futures_mdp3_sbe_v1_11.security_id.dissect(buffer, index, packet, parent)
@@ -11631,7 +11631,7 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_volume_group = {}
 
 -- Size: Incremental Refresh Volume Group
 cme_futures_mdp3_sbe_v1_11.incremental_refresh_volume_group.size =
-  cme_futures_mdp3_sbe_v1_11.md_entry_size.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_size_short.size + 
   cme_futures_mdp3_sbe_v1_11.security_id.size + 
   cme_futures_mdp3_sbe_v1_11.rpt_seq.size + 
   cme_futures_mdp3_sbe_v1_11.md_update_action.size + 
@@ -11652,8 +11652,8 @@ cme_futures_mdp3_sbe_v1_11.incremental_refresh_volume_group.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
-  index, md_entry_size = cme_futures_mdp3_sbe_v1_11.md_entry_size.dissect(buffer, index, packet, parent)
+  -- Md Entry Size Short: 4 Byte Signed Fixed Width Integer
+  index, md_entry_size_short = cme_futures_mdp3_sbe_v1_11.md_entry_size_short.dissect(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = cme_futures_mdp3_sbe_v1_11.security_id.dissect(buffer, index, packet, parent)
