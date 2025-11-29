@@ -28,16 +28,16 @@ omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px = ProtoField.new("
 omi_cme_futures_settlements_sbe_v7_0.fields.group_size = ProtoField.new("Group Size", "cme.futures.settlements.sbe.v7.0.groupsize", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.high_px = ProtoField.new("High Px", "cme.futures.settlements.sbe.v7.0.highpx", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.high_px_ind = ProtoField.new("High Px Ind", "cme.futures.settlements.sbe.v7.0.highpxind", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_group = ProtoField.new("Incremental Refresh High Low Group", "cme.futures.settlements.sbe.v7.0.incrementalrefreshhighlowgroup", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_groups = ProtoField.new("Incremental Refresh High Low Groups", "cme.futures.settlements.sbe.v7.0.incrementalrefreshhighlowgroups", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_settle_group = ProtoField.new("Incremental Refresh Settle Group", "cme.futures.settlements.sbe.v7.0.incrementalrefreshsettlegroup", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_settle_groups = ProtoField.new("Incremental Refresh Settle Groups", "cme.futures.settlements.sbe.v7.0.incrementalrefreshsettlegroups", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_voi_group = ProtoField.new("Incremental Refresh Voi Group", "cme.futures.settlements.sbe.v7.0.incrementalrefreshvoigroup", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_voi_groups = ProtoField.new("Incremental Refresh Voi Groups", "cme.futures.settlements.sbe.v7.0.incrementalrefreshvoigroups", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.futures.settlements.sbe.v7.0.instrumentguid", ftypes.UINT64)
 omi_cme_futures_settlements_sbe_v7_0.fields.intraday = ProtoField.new("Intraday", "cme.futures.settlements.sbe.v7.0.intraday", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
 omi_cme_futures_settlements_sbe_v7_0.fields.low_px = ProtoField.new("Low Px", "cme.futures.settlements.sbe.v7.0.lowpx", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.low_px_ind = ProtoField.new("Low Px Ind", "cme.futures.settlements.sbe.v7.0.lowpxind", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group = ProtoField.new("M D Incremental Refresh High Low Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroup", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_groups = ProtoField.new("M D Incremental Refresh High Low Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroups", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group = ProtoField.new("M D Incremental Refresh Settle Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettlegroup", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_groups = ProtoField.new("M D Incremental Refresh Settle Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettlegroups", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group = ProtoField.new("M D Incremental Refresh Voi Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroup", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_groups = ProtoField.new("M D Incremental Refresh Voi Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroups", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.mantissa = ProtoField.new("Mantissa", "cme.futures.settlements.sbe.v7.0.mantissa", ftypes.INT64)
 omi_cme_futures_settlements_sbe_v7_0.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.settlements.sbe.v7.0.maturitymonthyear", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.settlements.sbe.v7.0.mdentrypx", ftypes.DOUBLE)
@@ -49,7 +49,7 @@ omi_cme_futures_settlements_sbe_v7_0.fields.message_header = ProtoField.new("Mes
 omi_cme_futures_settlements_sbe_v7_0.fields.message_size = ProtoField.new("Message Size", "cme.futures.settlements.sbe.v7.0.messagesize", ftypes.UINT16)
 omi_cme_futures_settlements_sbe_v7_0.fields.month = ProtoField.new("Month", "cme.futures.settlements.sbe.v7.0.month", ftypes.UINT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.null_value = ProtoField.new("Null Value", "cme.futures.settlements.sbe.v7.0.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-omi_cme_futures_settlements_sbe_v7_0.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.futures.settlements.sbe.v7.0.numingroupuint8", ftypes.UINT8)
+omi_cme_futures_settlements_sbe_v7_0.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.settlements.sbe.v7.0.numingroup", ftypes.UINT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.settlements.sbe.v7.0.openclosesettlflag", ftypes.UINT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.futures.settlements.sbe.v7.0.openinterestqty", ftypes.UINT32)
 omi_cme_futures_settlements_sbe_v7_0.fields.packet = ProtoField.new("Packet", "cme.futures.settlements.sbe.v7.0.packet", ftypes.STRING)
@@ -85,9 +85,9 @@ omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = Prot
 omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING)
 
 -- Cme Futures Settlements Sbe 7.0 generated fields
-omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index = ProtoField.new("M D Incremental Refresh High Low Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroupindex", ftypes.UINT16)
-omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index = ProtoField.new("M D Incremental Refresh Settle Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettlegroupindex", ftypes.UINT16)
-omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index = ProtoField.new("M D Incremental Refresh Voi Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroupindex", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_group_index = ProtoField.new("Incremental Refresh High Low Group Index", "cme.futures.settlements.sbe.v7.0.incrementalrefreshhighlowgroupindex", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_settle_group_index = ProtoField.new("Incremental Refresh Settle Group Index", "cme.futures.settlements.sbe.v7.0.incrementalrefreshsettlegroupindex", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_voi_group_index = ProtoField.new("Incremental Refresh Voi Group Index", "cme.futures.settlements.sbe.v7.0.incrementalrefreshvoigroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -100,13 +100,13 @@ show.binary_packet_header = true
 show.formatted_last_px = true
 show.group_size = true
 show.high_px = true
+show.incremental_refresh_high_low_group = true
+show.incremental_refresh_high_low_groups = true
+show.incremental_refresh_settle_group = true
+show.incremental_refresh_settle_groups = true
+show.incremental_refresh_voi_group = true
+show.incremental_refresh_voi_groups = true
 show.low_px = true
-show.m_d_incremental_refresh_high_low_group = true
-show.m_d_incremental_refresh_high_low_groups = true
-show.m_d_incremental_refresh_settle_group = true
-show.m_d_incremental_refresh_settle_groups = true
-show.m_d_incremental_refresh_voi_group = true
-show.m_d_incremental_refresh_voi_groups = true
 show.maturity_month_year = true
 show.md_incremental_refresh_high_low = true
 show.md_incremental_refresh_settle = true
@@ -124,13 +124,13 @@ omi_cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header = Pref.bool
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_formatted_last_px = Pref.bool("Show Formatted Last Px", show.formatted_last_px, "Parse and add Formatted Last Px to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_high_px = Pref.bool("Show High Px", show.high_px, "Parse and add High Px to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group = Pref.bool("Show Incremental Refresh High Low Group", show.incremental_refresh_high_low_group, "Parse and add Incremental Refresh High Low Group to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_groups = Pref.bool("Show Incremental Refresh High Low Groups", show.incremental_refresh_high_low_groups, "Parse and add Incremental Refresh High Low Groups to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group = Pref.bool("Show Incremental Refresh Settle Group", show.incremental_refresh_settle_group, "Parse and add Incremental Refresh Settle Group to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_groups = Pref.bool("Show Incremental Refresh Settle Groups", show.incremental_refresh_settle_groups, "Parse and add Incremental Refresh Settle Groups to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group = Pref.bool("Show Incremental Refresh Voi Group", show.incremental_refresh_voi_group, "Parse and add Incremental Refresh Voi Group to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_groups = Pref.bool("Show Incremental Refresh Voi Groups", show.incremental_refresh_voi_groups, "Parse and add Incremental Refresh Voi Groups to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_low_px = Pref.bool("Show Low Px", show.low_px, "Parse and add Low Px to protocol tree")
-omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_group = Pref.bool("Show M D Incremental Refresh High Low Group", show.m_d_incremental_refresh_high_low_group, "Parse and add M D Incremental Refresh High Low Group to protocol tree")
-omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_groups = Pref.bool("Show M D Incremental Refresh High Low Groups", show.m_d_incremental_refresh_high_low_groups, "Parse and add M D Incremental Refresh High Low Groups to protocol tree")
-omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_group = Pref.bool("Show M D Incremental Refresh Settle Group", show.m_d_incremental_refresh_settle_group, "Parse and add M D Incremental Refresh Settle Group to protocol tree")
-omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_groups = Pref.bool("Show M D Incremental Refresh Settle Groups", show.m_d_incremental_refresh_settle_groups, "Parse and add M D Incremental Refresh Settle Groups to protocol tree")
-omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_group = Pref.bool("Show M D Incremental Refresh Voi Group", show.m_d_incremental_refresh_voi_group, "Parse and add M D Incremental Refresh Voi Group to protocol tree")
-omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_groups = Pref.bool("Show M D Incremental Refresh Voi Groups", show.m_d_incremental_refresh_voi_groups, "Parse and add M D Incremental Refresh Voi Groups to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low = Pref.bool("Show Md Incremental Refresh High Low", show.md_incremental_refresh_high_low, "Parse and add Md Incremental Refresh High Low to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle = Pref.bool("Show Md Incremental Refresh Settle", show.md_incremental_refresh_settle, "Parse and add Md Incremental Refresh Settle to protocol tree")
@@ -164,32 +164,32 @@ function omi_cme_futures_settlements_sbe_v7_0.prefs_changed()
     show.high_px = omi_cme_futures_settlements_sbe_v7_0.prefs.show_high_px
     changed = true
   end
+  if show.incremental_refresh_high_low_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group then
+    show.incremental_refresh_high_low_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group
+    changed = true
+  end
+  if show.incremental_refresh_high_low_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_groups then
+    show.incremental_refresh_high_low_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_groups
+    changed = true
+  end
+  if show.incremental_refresh_settle_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group then
+    show.incremental_refresh_settle_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group
+    changed = true
+  end
+  if show.incremental_refresh_settle_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_groups then
+    show.incremental_refresh_settle_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_groups
+    changed = true
+  end
+  if show.incremental_refresh_voi_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group then
+    show.incremental_refresh_voi_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group
+    changed = true
+  end
+  if show.incremental_refresh_voi_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_groups then
+    show.incremental_refresh_voi_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_groups
+    changed = true
+  end
   if show.low_px ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_low_px then
     show.low_px = omi_cme_futures_settlements_sbe_v7_0.prefs.show_low_px
-    changed = true
-  end
-  if show.m_d_incremental_refresh_high_low_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_group then
-    show.m_d_incremental_refresh_high_low_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_group
-    changed = true
-  end
-  if show.m_d_incremental_refresh_high_low_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_groups then
-    show.m_d_incremental_refresh_high_low_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_groups
-    changed = true
-  end
-  if show.m_d_incremental_refresh_settle_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_group then
-    show.m_d_incremental_refresh_settle_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_group
-    changed = true
-  end
-  if show.m_d_incremental_refresh_settle_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_groups then
-    show.m_d_incremental_refresh_settle_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_groups
-    changed = true
-  end
-  if show.m_d_incremental_refresh_voi_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_group then
-    show.m_d_incremental_refresh_voi_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_group
-    changed = true
-  end
-  if show.m_d_incremental_refresh_voi_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_groups then
-    show.m_d_incremental_refresh_voi_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_groups
     changed = true
   end
   if show.maturity_month_year ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year then
@@ -1243,11 +1243,11 @@ cme_futures_settlements_sbe_v7_0.product_guid.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- M D Incremental Refresh High Low Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group = {}
+-- Incremental Refresh High Low Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group = {}
 
--- Size: M D Incremental Refresh High Low Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.size =
+-- Size: Incremental Refresh High Low Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group.size =
   cme_futures_settlements_sbe_v7_0.product_guid.size + 
   cme_futures_settlements_sbe_v7_0.clearing_product_code.size + 
   cme_futures_settlements_sbe_v7_0.security_type.size + 
@@ -1269,18 +1269,18 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.size =
   cme_futures_settlements_sbe_v7_0.high_px_ind.size + 
   cme_futures_settlements_sbe_v7_0.trading_reference_date.size
 
--- Display: M D Incremental Refresh High Low Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh High Low Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh High Low Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_high_low_group_index)
+-- Dissect Fields: Incremental Refresh High Low Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group.fields = function(buffer, offset, packet, parent, incremental_refresh_high_low_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh High Low Group Index
-  if m_d_incremental_refresh_high_low_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index, m_d_incremental_refresh_high_low_group_index)
+  -- Implicit Incremental Refresh High Low Group Index
+  if incremental_refresh_high_low_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_group_index, incremental_refresh_high_low_group_index)
     iteration:set_generated()
   end
 
@@ -1347,43 +1347,43 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.fields =
   return index
 end
 
--- Dissect: M D Incremental Refresh High Low Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_high_low_group_index)
-  if show.m_d_incremental_refresh_high_low_group then
+-- Dissect: Incremental Refresh High Low Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_high_low_group_index)
+  if show.incremental_refresh_high_low_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_high_low_group_index)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_group, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group.fields(buffer, offset, packet, parent, incremental_refresh_high_low_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.display(packet, parent, length)
+    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_high_low_group_index)
+    return cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group.fields(buffer, offset, packet, parent, incremental_refresh_high_low_group_index)
   end
 end
 
--- Num In Group uint 8
-cme_futures_settlements_sbe_v7_0.num_in_group_uint_8 = {}
+-- Num In Group
+cme_futures_settlements_sbe_v7_0.num_in_group = {}
 
--- Size: Num In Group uint 8
-cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.size = 1
+-- Size: Num In Group
+cme_futures_settlements_sbe_v7_0.num_in_group.size = 1
 
--- Display: Num In Group uint 8
-cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.display = function(value)
-  return "Num In Group uint 8: "..value
+-- Display: Num In Group
+cme_futures_settlements_sbe_v7_0.num_in_group.display = function(value)
+  return "Num In Group: "..value
 end
 
--- Dissect: Num In Group uint 8
-cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.size
+-- Dissect: Num In Group
+cme_futures_settlements_sbe_v7_0.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_settlements_sbe_v7_0.num_in_group.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_settlements_sbe_v7_0.num_in_group.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.num_in_group_uint_8, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.num_in_group, range, value, display)
 
   return offset + length, value
 end
@@ -1417,7 +1417,7 @@ cme_futures_settlements_sbe_v7_0.group_size = {}
 -- Size: Group Size
 cme_futures_settlements_sbe_v7_0.group_size.size =
   cme_futures_settlements_sbe_v7_0.block_length.size + 
-  cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.size
+  cme_futures_settlements_sbe_v7_0.num_in_group.size
 
 -- Display: Group Size
 cme_futures_settlements_sbe_v7_0.group_size.display = function(packet, parent, length)
@@ -1431,8 +1431,8 @@ cme_futures_settlements_sbe_v7_0.group_size.fields = function(buffer, offset, pa
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = cme_futures_settlements_sbe_v7_0.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group uint 8: 1 Byte Unsigned Fixed Width Integer
-  index, num_in_group_uint_8 = cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.dissect(buffer, index, packet, parent)
+  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  index, num_in_group = cme_futures_settlements_sbe_v7_0.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1455,56 +1455,56 @@ cme_futures_settlements_sbe_v7_0.group_size.dissect = function(buffer, offset, p
   end
 end
 
--- M D Incremental Refresh High Low Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups = {}
+-- Incremental Refresh High Low Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups = {}
 
--- Calculate size of: M D Incremental Refresh High Low Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh High Low Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_settlements_sbe_v7_0.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_high_low_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_high_low_group_count * 142
+  local incremental_refresh_high_low_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_high_low_group_count * 142
 
   return index
 end
 
--- Display: M D Incremental Refresh High Low Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh High Low Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh High Low Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh High Low Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
   index, group_size = cme_futures_settlements_sbe_v7_0.group_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group uint 8
-  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh High Low Group
-  for m_d_incremental_refresh_high_low_group_index = 1, num_in_group_uint_8 do
-    index, m_d_incremental_refresh_high_low_group = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_high_low_group_index)
+  -- Repeating: Incremental Refresh High Low Group
+  for incremental_refresh_high_low_group_index = 1, num_in_group do
+    index, incremental_refresh_high_low_group = cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group.dissect(buffer, index, packet, parent, incremental_refresh_high_low_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh High Low Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh High Low Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.m_d_incremental_refresh_high_low_groups then
-    local length = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.size(buffer, offset)
+  if show.incremental_refresh_high_low_groups then
+    local length = cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_groups, range, display)
+    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_groups, range, display)
   end
 
-  return cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Transact Time
@@ -1543,7 +1543,7 @@ cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.size = function
 
   index = index + cme_futures_settlements_sbe_v7_0.transact_time.size
 
-  index = index + cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.size(buffer, offset + index)
+  index = index + cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.size(buffer, offset + index)
 
   return index
 end
@@ -1560,8 +1560,8 @@ cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.fields = functi
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = cme_futures_settlements_sbe_v7_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh High Low Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_high_low_groups = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh High Low Groups: Struct of 2 fields
+  index, incremental_refresh_high_low_groups = cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1665,11 +1665,11 @@ cme_futures_settlements_sbe_v7_0.cleared_volume.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- M D Incremental Refresh Voi Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group = {}
+-- Incremental Refresh Voi Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group = {}
 
--- Size: M D Incremental Refresh Voi Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.size =
+-- Size: Incremental Refresh Voi Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group.size =
   cme_futures_settlements_sbe_v7_0.product_guid.size + 
   cme_futures_settlements_sbe_v7_0.clearing_product_code.size + 
   cme_futures_settlements_sbe_v7_0.security_type.size + 
@@ -1690,18 +1690,18 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.size =
   cme_futures_settlements_sbe_v7_0.open_close_settl_flag.size + 
   cme_futures_settlements_sbe_v7_0.trading_reference_date.size
 
--- Display: M D Incremental Refresh Voi Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Voi Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Voi Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_voi_group_index)
+-- Dissect Fields: Incremental Refresh Voi Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group.fields = function(buffer, offset, packet, parent, incremental_refresh_voi_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Voi Group Index
-  if m_d_incremental_refresh_voi_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index, m_d_incremental_refresh_voi_group_index)
+  -- Implicit Incremental Refresh Voi Group Index
+  if incremental_refresh_voi_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_voi_group_index, incremental_refresh_voi_group_index)
     iteration:set_generated()
   end
 
@@ -1765,74 +1765,74 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.fields = func
   return index
 end
 
--- Dissect: M D Incremental Refresh Voi Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_voi_group_index)
-  if show.m_d_incremental_refresh_voi_group then
+-- Dissect: Incremental Refresh Voi Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_voi_group_index)
+  if show.incremental_refresh_voi_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_voi_group_index)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_voi_group, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group.fields(buffer, offset, packet, parent, incremental_refresh_voi_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.display(packet, parent, length)
+    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_voi_group_index)
+    return cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group.fields(buffer, offset, packet, parent, incremental_refresh_voi_group_index)
   end
 end
 
--- M D Incremental Refresh Voi Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups = {}
+-- Incremental Refresh Voi Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups = {}
 
--- Calculate size of: M D Incremental Refresh Voi Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Voi Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_settlements_sbe_v7_0.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_voi_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_voi_group_count * 131
+  local incremental_refresh_voi_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_voi_group_count * 131
 
   return index
 end
 
--- Display: M D Incremental Refresh Voi Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Voi Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Voi Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Voi Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
   index, group_size = cme_futures_settlements_sbe_v7_0.group_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group uint 8
-  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Voi Group
-  for m_d_incremental_refresh_voi_group_index = 1, num_in_group_uint_8 do
-    index, m_d_incremental_refresh_voi_group = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_voi_group_index)
+  -- Repeating: Incremental Refresh Voi Group
+  for incremental_refresh_voi_group_index = 1, num_in_group do
+    index, incremental_refresh_voi_group = cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group.dissect(buffer, index, packet, parent, incremental_refresh_voi_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Voi Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Voi Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.m_d_incremental_refresh_voi_groups then
-    local length = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.size(buffer, offset)
+  if show.incremental_refresh_voi_groups then
+    local length = cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_groups, range, display)
+    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_voi_groups, range, display)
   end
 
-  return cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Md Incremental Refresh Voi
@@ -1844,7 +1844,7 @@ cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.size = function(buff
 
   index = index + cme_futures_settlements_sbe_v7_0.transact_time.size
 
-  index = index + cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.size(buffer, offset + index)
+  index = index + cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.size(buffer, offset + index)
 
   return index
 end
@@ -1861,8 +1861,8 @@ cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.fields = function(bu
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = cme_futures_settlements_sbe_v7_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Voi Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_voi_groups = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Voi Groups: Struct of 2 fields
+  index, incremental_refresh_voi_groups = cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2155,11 +2155,11 @@ cme_futures_settlements_sbe_v7_0.md_update_action.dissect = function(buffer, off
   return offset + length, value
 end
 
--- M D Incremental Refresh Settle Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group = {}
+-- Incremental Refresh Settle Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group = {}
 
--- Size: M D Incremental Refresh Settle Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.size =
+-- Size: Incremental Refresh Settle Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.size =
   cme_futures_settlements_sbe_v7_0.md_update_action.size + 
   cme_futures_settlements_sbe_v7_0.md_entry_type.size + 
   cme_futures_settlements_sbe_v7_0.product_guid.size + 
@@ -2183,18 +2183,18 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.size =
   cme_futures_settlements_sbe_v7_0.trading_reference_date.size + 
   cme_futures_settlements_sbe_v7_0.md_statistic_desc.size
 
--- Display: M D Incremental Refresh Settle Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Settle Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Settle Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_settle_group_index)
+-- Dissect Fields: Incremental Refresh Settle Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.fields = function(buffer, offset, packet, parent, incremental_refresh_settle_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Settle Group Index
-  if m_d_incremental_refresh_settle_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index, m_d_incremental_refresh_settle_group_index)
+  -- Implicit Incremental Refresh Settle Group Index
+  if incremental_refresh_settle_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_settle_group_index, incremental_refresh_settle_group_index)
     iteration:set_generated()
   end
 
@@ -2267,74 +2267,74 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.fields = f
   return index
 end
 
--- Dissect: M D Incremental Refresh Settle Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_settle_group_index)
-  if show.m_d_incremental_refresh_settle_group then
+-- Dissect: Incremental Refresh Settle Group
+cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_settle_group_index)
+  if show.incremental_refresh_settle_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_settle_group_index)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_settle_group, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.fields(buffer, offset, packet, parent, incremental_refresh_settle_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.display(packet, parent, length)
+    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_settle_group_index)
+    return cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.fields(buffer, offset, packet, parent, incremental_refresh_settle_group_index)
   end
 end
 
--- M D Incremental Refresh Settle Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups = {}
+-- Incremental Refresh Settle Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups = {}
 
--- Calculate size of: M D Incremental Refresh Settle Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Settle Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_settlements_sbe_v7_0.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_settle_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_settle_group_count * 182
+  local incremental_refresh_settle_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_settle_group_count * 182
 
   return index
 end
 
--- Display: M D Incremental Refresh Settle Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Settle Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Settle Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Settle Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
   index, group_size = cme_futures_settlements_sbe_v7_0.group_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group uint 8
-  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Settle Group
-  for m_d_incremental_refresh_settle_group_index = 1, num_in_group_uint_8 do
-    index, m_d_incremental_refresh_settle_group = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_settle_group_index)
+  -- Repeating: Incremental Refresh Settle Group
+  for incremental_refresh_settle_group_index = 1, num_in_group do
+    index, incremental_refresh_settle_group = cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.dissect(buffer, index, packet, parent, incremental_refresh_settle_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Settle Groups
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Settle Groups
+cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.m_d_incremental_refresh_settle_groups then
-    local length = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.size(buffer, offset)
+  if show.incremental_refresh_settle_groups then
+    local length = cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_groups, range, display)
+    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_settle_groups, range, display)
   end
 
-  return cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Md Incremental Refresh Settle
@@ -2346,7 +2346,7 @@ cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.size = function(b
 
   index = index + cme_futures_settlements_sbe_v7_0.transact_time.size
 
-  index = index + cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.size(buffer, offset + index)
+  index = index + cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.size(buffer, offset + index)
 
   return index
 end
@@ -2363,8 +2363,8 @@ cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.fields = function
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = cme_futures_settlements_sbe_v7_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Settle Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_settle_groups = cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Settle Groups: Struct of 2 fields
+  index, incremental_refresh_settle_groups = cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.dissect(buffer, index, packet, parent)
 
   return index
 end

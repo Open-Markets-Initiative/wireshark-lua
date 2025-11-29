@@ -20,15 +20,11 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Bin
 omi_cme_ebs_spectrum_sbe_v12_0.fields.block_length = ProtoField.new("Block Length", "cme.ebs.spectrum.sbe.v12.0.blocklength", ftypes.UINT16)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.ebs.spectrum.sbe.v12.0.financialinstrumentfullname", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.group_size = ProtoField.new("Group Size", "cme.ebs.spectrum.sbe.v12.0.groupsize", ftypes.STRING)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_spectrum_group = ProtoField.new("Incremental Refresh Spectrum Group", "cme.ebs.spectrum.sbe.v12.0.incrementalrefreshspectrumgroup", ftypes.STRING)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_spectrum_groups = ProtoField.new("Incremental Refresh Spectrum Groups", "cme.ebs.spectrum.sbe.v12.0.incrementalrefreshspectrumgroups", ftypes.STRING)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_ticker_group = ProtoField.new("Incremental Refresh Ticker Group", "cme.ebs.spectrum.sbe.v12.0.incrementalrefreshtickergroup", ftypes.STRING)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_ticker_groups = ProtoField.new("Incremental Refresh Ticker Groups", "cme.ebs.spectrum.sbe.v12.0.incrementalrefreshtickergroups", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.ebs.spectrum.sbe.v12.0.instrumentguid", ftypes.UINT64)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group = ProtoField.new("M D Incremental Refresh Spectrum Group", "cme.ebs.spectrum.sbe.v12.0.mdincrementalrefreshspectrumgroup", ftypes.STRING)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_groups = ProtoField.new("M D Incremental Refresh Spectrum Groups", "cme.ebs.spectrum.sbe.v12.0.mdincrementalrefreshspectrumgroups", ftypes.STRING)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group = ProtoField.new("M D Incremental Refresh Ticker Group", "cme.ebs.spectrum.sbe.v12.0.mdincrementalrefreshtickergroup", ftypes.STRING)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_groups = ProtoField.new("M D Incremental Refresh Ticker Groups", "cme.ebs.spectrum.sbe.v12.0.mdincrementalrefreshtickergroups", ftypes.STRING)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group = ProtoField.new("M D Snapshot Refresh Spectrum Group", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshspectrumgroup", ftypes.STRING)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_groups = ProtoField.new("M D Snapshot Refresh Spectrum Groups", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshspectrumgroups", ftypes.STRING)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group = ProtoField.new("M D Snapshot Refresh Ticker Group", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshtickergroup", ftypes.STRING)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_groups = ProtoField.new("M D Snapshot Refresh Ticker Groups", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshtickergroups", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.ebs.spectrum.sbe.v12.0.mdentrypx", ftypes.DOUBLE)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.ebs.spectrum.sbe.v12.0.mdentrysize", ftypes.UINT64)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.ebs.spectrum.sbe.v12.0.mdentrytime", ftypes.UINT64)
@@ -37,7 +33,7 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_type_ticker_entry_type = ProtoFie
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.ebs.spectrum.sbe.v12.0.message", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.ebs.spectrum.sbe.v12.0.messageheader", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message_size = ProtoField.new("Message Size", "cme.ebs.spectrum.sbe.v12.0.messagesize", ftypes.UINT16)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.ebs.spectrum.sbe.v12.0.numingroupuint8", ftypes.UINT8)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.num_in_group = ProtoField.new("Num In Group", "cme.ebs.spectrum.sbe.v12.0.numingroup", ftypes.UINT8)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.ebs.spectrum.sbe.v12.0.openclosesettlflag", ftypes.UINT8)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.packet = ProtoField.new("Packet", "cme.ebs.spectrum.sbe.v12.0.packet", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.ebs.spectrum.sbe.v12.0.packetsequencenumber", ftypes.UINT32)
@@ -46,6 +42,10 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.schema_id = ProtoField.new("Schema Id", "c
 omi_cme_ebs_spectrum_sbe_v12_0.fields.security_id = ProtoField.new("Security Id", "cme.ebs.spectrum.sbe.v12.0.securityid", ftypes.INT32)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.ebs.spectrum.sbe.v12.0.securitytradingevent", ftypes.UINT8)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.sending_time = ProtoField.new("Sending Time", "cme.ebs.spectrum.sbe.v12.0.sendingtime", ftypes.UINT64)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_group = ProtoField.new("Snapshot Refresh Spectrum Group", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshspectrumgroup", ftypes.STRING)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_groups = ProtoField.new("Snapshot Refresh Spectrum Groups", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshspectrumgroups", ftypes.STRING)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_ticker_group = ProtoField.new("Snapshot Refresh Ticker Group", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshtickergroup", ftypes.STRING)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_ticker_groups = ProtoField.new("Snapshot Refresh Ticker Groups", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshtickergroups", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.symbol = ProtoField.new("Symbol", "cme.ebs.spectrum.sbe.v12.0.symbol", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.template_id = ProtoField.new("Template Id", "cme.ebs.spectrum.sbe.v12.0.templateid", ftypes.UINT16)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.ebs.spectrum.sbe.v12.0.tradingsessionid", ftypes.UINT8)
@@ -60,10 +60,10 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.md_snapshot_refresh_spectrum = ProtoField.
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_snapshot_refresh_ticker = ProtoField.new("Md Snapshot Refresh Ticker", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshticker", ftypes.STRING)
 
 -- Cme Ebs Spectrum Sbe 12.0 generated fields
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index = ProtoField.new("M D Incremental Refresh Spectrum Group Index", "cme.ebs.spectrum.sbe.v12.0.mdincrementalrefreshspectrumgroupindex", ftypes.UINT16)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index = ProtoField.new("M D Incremental Refresh Ticker Group Index", "cme.ebs.spectrum.sbe.v12.0.mdincrementalrefreshtickergroupindex", ftypes.UINT16)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index = ProtoField.new("M D Snapshot Refresh Spectrum Group Index", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshspectrumgroupindex", ftypes.UINT16)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index = ProtoField.new("M D Snapshot Refresh Ticker Group Index", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshtickergroupindex", ftypes.UINT16)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_spectrum_group_index = ProtoField.new("Incremental Refresh Spectrum Group Index", "cme.ebs.spectrum.sbe.v12.0.incrementalrefreshspectrumgroupindex", ftypes.UINT16)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_ticker_group_index = ProtoField.new("Incremental Refresh Ticker Group Index", "cme.ebs.spectrum.sbe.v12.0.incrementalrefreshtickergroupindex", ftypes.UINT16)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_group_index = ProtoField.new("Snapshot Refresh Spectrum Group Index", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshspectrumgroupindex", ftypes.UINT16)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_ticker_group_index = ProtoField.new("Snapshot Refresh Ticker Group Index", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshtickergroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -75,14 +75,10 @@ local show = {}
 show.binary_packet_header = true
 show.global_day_roll = true
 show.group_size = true
-show.m_d_incremental_refresh_spectrum_group = true
-show.m_d_incremental_refresh_spectrum_groups = true
-show.m_d_incremental_refresh_ticker_group = true
-show.m_d_incremental_refresh_ticker_groups = true
-show.m_d_snapshot_refresh_spectrum_group = true
-show.m_d_snapshot_refresh_spectrum_groups = true
-show.m_d_snapshot_refresh_ticker_group = true
-show.m_d_snapshot_refresh_ticker_groups = true
+show.incremental_refresh_spectrum_group = true
+show.incremental_refresh_spectrum_groups = true
+show.incremental_refresh_ticker_group = true
+show.incremental_refresh_ticker_groups = true
 show.md_incremental_refresh_spectrum = true
 show.md_incremental_refresh_ticker = true
 show.md_snapshot_refresh_spectrum = true
@@ -90,20 +86,20 @@ show.md_snapshot_refresh_ticker = true
 show.message = true
 show.message_header = true
 show.packet = true
+show.snapshot_refresh_spectrum_group = true
+show.snapshot_refresh_spectrum_groups = true
+show.snapshot_refresh_ticker_group = true
+show.snapshot_refresh_ticker_groups = true
 show.payload = false
 
 -- Register Cme Ebs Spectrum Sbe 12.0 Show Options
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_global_day_roll = Pref.bool("Show Global Day Roll", show.global_day_roll, "Parse and add Global Day Roll to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
-omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_group = Pref.bool("Show M D Incremental Refresh Spectrum Group", show.m_d_incremental_refresh_spectrum_group, "Parse and add M D Incremental Refresh Spectrum Group to protocol tree")
-omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_groups = Pref.bool("Show M D Incremental Refresh Spectrum Groups", show.m_d_incremental_refresh_spectrum_groups, "Parse and add M D Incremental Refresh Spectrum Groups to protocol tree")
-omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_group = Pref.bool("Show M D Incremental Refresh Ticker Group", show.m_d_incremental_refresh_ticker_group, "Parse and add M D Incremental Refresh Ticker Group to protocol tree")
-omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_groups = Pref.bool("Show M D Incremental Refresh Ticker Groups", show.m_d_incremental_refresh_ticker_groups, "Parse and add M D Incremental Refresh Ticker Groups to protocol tree")
-omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_group = Pref.bool("Show M D Snapshot Refresh Spectrum Group", show.m_d_snapshot_refresh_spectrum_group, "Parse and add M D Snapshot Refresh Spectrum Group to protocol tree")
-omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_groups = Pref.bool("Show M D Snapshot Refresh Spectrum Groups", show.m_d_snapshot_refresh_spectrum_groups, "Parse and add M D Snapshot Refresh Spectrum Groups to protocol tree")
-omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_group = Pref.bool("Show M D Snapshot Refresh Ticker Group", show.m_d_snapshot_refresh_ticker_group, "Parse and add M D Snapshot Refresh Ticker Group to protocol tree")
-omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_groups = Pref.bool("Show M D Snapshot Refresh Ticker Groups", show.m_d_snapshot_refresh_ticker_groups, "Parse and add M D Snapshot Refresh Ticker Groups to protocol tree")
+omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_spectrum_group = Pref.bool("Show Incremental Refresh Spectrum Group", show.incremental_refresh_spectrum_group, "Parse and add Incremental Refresh Spectrum Group to protocol tree")
+omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_spectrum_groups = Pref.bool("Show Incremental Refresh Spectrum Groups", show.incremental_refresh_spectrum_groups, "Parse and add Incremental Refresh Spectrum Groups to protocol tree")
+omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_ticker_group = Pref.bool("Show Incremental Refresh Ticker Group", show.incremental_refresh_ticker_group, "Parse and add Incremental Refresh Ticker Group to protocol tree")
+omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_ticker_groups = Pref.bool("Show Incremental Refresh Ticker Groups", show.incremental_refresh_ticker_groups, "Parse and add Incremental Refresh Ticker Groups to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum = Pref.bool("Show Md Incremental Refresh Spectrum", show.md_incremental_refresh_spectrum, "Parse and add Md Incremental Refresh Spectrum to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_md_incremental_refresh_ticker = Pref.bool("Show Md Incremental Refresh Ticker", show.md_incremental_refresh_ticker, "Parse and add Md Incremental Refresh Ticker to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_md_snapshot_refresh_spectrum = Pref.bool("Show Md Snapshot Refresh Spectrum", show.md_snapshot_refresh_spectrum, "Parse and add Md Snapshot Refresh Spectrum to protocol tree")
@@ -111,6 +107,10 @@ omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_md_snapshot_refresh_ticker = Pref.bool
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group = Pref.bool("Show Snapshot Refresh Spectrum Group", show.snapshot_refresh_spectrum_group, "Parse and add Snapshot Refresh Spectrum Group to protocol tree")
+omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_groups = Pref.bool("Show Snapshot Refresh Spectrum Groups", show.snapshot_refresh_spectrum_groups, "Parse and add Snapshot Refresh Spectrum Groups to protocol tree")
+omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group = Pref.bool("Show Snapshot Refresh Ticker Group", show.snapshot_refresh_ticker_group, "Parse and add Snapshot Refresh Ticker Group to protocol tree")
+omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_groups = Pref.bool("Show Snapshot Refresh Ticker Groups", show.snapshot_refresh_ticker_groups, "Parse and add Snapshot Refresh Ticker Groups to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
@@ -130,36 +130,20 @@ function omi_cme_ebs_spectrum_sbe_v12_0.prefs_changed()
     show.group_size = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_group_size
     changed = true
   end
-  if show.m_d_incremental_refresh_spectrum_group ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_group then
-    show.m_d_incremental_refresh_spectrum_group = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_group
+  if show.incremental_refresh_spectrum_group ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_spectrum_group then
+    show.incremental_refresh_spectrum_group = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_spectrum_group
     changed = true
   end
-  if show.m_d_incremental_refresh_spectrum_groups ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_groups then
-    show.m_d_incremental_refresh_spectrum_groups = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_groups
+  if show.incremental_refresh_spectrum_groups ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_spectrum_groups then
+    show.incremental_refresh_spectrum_groups = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_spectrum_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_ticker_group ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_group then
-    show.m_d_incremental_refresh_ticker_group = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_group
+  if show.incremental_refresh_ticker_group ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_ticker_group then
+    show.incremental_refresh_ticker_group = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_ticker_group
     changed = true
   end
-  if show.m_d_incremental_refresh_ticker_groups ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_groups then
-    show.m_d_incremental_refresh_ticker_groups = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_groups
-    changed = true
-  end
-  if show.m_d_snapshot_refresh_spectrum_group ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_group then
-    show.m_d_snapshot_refresh_spectrum_group = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_group
-    changed = true
-  end
-  if show.m_d_snapshot_refresh_spectrum_groups ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_groups then
-    show.m_d_snapshot_refresh_spectrum_groups = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_groups
-    changed = true
-  end
-  if show.m_d_snapshot_refresh_ticker_group ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_group then
-    show.m_d_snapshot_refresh_ticker_group = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_group
-    changed = true
-  end
-  if show.m_d_snapshot_refresh_ticker_groups ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_groups then
-    show.m_d_snapshot_refresh_ticker_groups = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_groups
+  if show.incremental_refresh_ticker_groups ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_ticker_groups then
+    show.incremental_refresh_ticker_groups = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_incremental_refresh_ticker_groups
     changed = true
   end
   if show.md_incremental_refresh_spectrum ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum then
@@ -188,6 +172,22 @@ function omi_cme_ebs_spectrum_sbe_v12_0.prefs_changed()
   end
   if show.packet ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_packet then
     show.packet = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_packet
+    changed = true
+  end
+  if show.snapshot_refresh_spectrum_group ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group then
+    show.snapshot_refresh_spectrum_group = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group
+    changed = true
+  end
+  if show.snapshot_refresh_spectrum_groups ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_groups then
+    show.snapshot_refresh_spectrum_groups = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_groups
+    changed = true
+  end
+  if show.snapshot_refresh_ticker_group ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group then
+    show.snapshot_refresh_ticker_group = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group
+    changed = true
+  end
+  if show.snapshot_refresh_ticker_groups ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_groups then
+    show.snapshot_refresh_ticker_groups = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_groups
     changed = true
   end
   if show.payload ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_payload then
@@ -579,11 +579,11 @@ cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.dissect = function(bu
   return offset + length, value
 end
 
--- M D Snapshot Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group = {}
+-- Snapshot Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group = {}
 
--- Size: M D Snapshot Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.size =
+-- Size: Snapshot Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.size =
   cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_px.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_size.size + 
@@ -592,18 +592,18 @@ cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.size =
   cme_ebs_spectrum_sbe_v12_0.trading_session_id.size + 
   cme_ebs_spectrum_sbe_v12_0.aggressor_side.size
 
--- Display: M D Snapshot Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.display = function(packet, parent, length)
+-- Display: Snapshot Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Snapshot Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.fields = function(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
+-- Dissect Fields: Snapshot Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.fields = function(buffer, offset, packet, parent, snapshot_refresh_ticker_group_index)
   local index = offset
 
-  -- Implicit M D Snapshot Refresh Ticker Group Index
-  if m_d_snapshot_refresh_ticker_group_index ~= nil then
-    local iteration = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index, m_d_snapshot_refresh_ticker_group_index)
+  -- Implicit Snapshot Refresh Ticker Group Index
+  if snapshot_refresh_ticker_group_index ~= nil then
+    local iteration = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_ticker_group_index, snapshot_refresh_ticker_group_index)
     iteration:set_generated()
   end
 
@@ -631,43 +631,43 @@ cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.fields = function(b
   return index
 end
 
--- Dissect: M D Snapshot Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.dissect = function(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
-  if show.m_d_snapshot_refresh_ticker_group then
+-- Dissect: Snapshot Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.dissect = function(buffer, offset, packet, parent, snapshot_refresh_ticker_group_index)
+  if show.snapshot_refresh_ticker_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.fields(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_ticker_group, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.fields(buffer, offset, packet, parent, snapshot_refresh_ticker_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.display(packet, parent, length)
+    local display = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.fields(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
+    return cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.fields(buffer, offset, packet, parent, snapshot_refresh_ticker_group_index)
   end
 end
 
--- Num In Group uint 8
-cme_ebs_spectrum_sbe_v12_0.num_in_group_uint_8 = {}
+-- Num In Group
+cme_ebs_spectrum_sbe_v12_0.num_in_group = {}
 
--- Size: Num In Group uint 8
-cme_ebs_spectrum_sbe_v12_0.num_in_group_uint_8.size = 1
+-- Size: Num In Group
+cme_ebs_spectrum_sbe_v12_0.num_in_group.size = 1
 
--- Display: Num In Group uint 8
-cme_ebs_spectrum_sbe_v12_0.num_in_group_uint_8.display = function(value)
-  return "Num In Group uint 8: "..value
+-- Display: Num In Group
+cme_ebs_spectrum_sbe_v12_0.num_in_group.display = function(value)
+  return "Num In Group: "..value
 end
 
--- Dissect: Num In Group uint 8
-cme_ebs_spectrum_sbe_v12_0.num_in_group_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.num_in_group_uint_8.size
+-- Dissect: Num In Group
+cme_ebs_spectrum_sbe_v12_0.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.num_in_group.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.num_in_group_uint_8.display(value, buffer, offset, packet, parent)
+  local display = cme_ebs_spectrum_sbe_v12_0.num_in_group.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.num_in_group_uint_8, range, value, display)
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.num_in_group, range, value, display)
 
   return offset + length, value
 end
@@ -701,7 +701,7 @@ cme_ebs_spectrum_sbe_v12_0.group_size = {}
 -- Size: Group Size
 cme_ebs_spectrum_sbe_v12_0.group_size.size =
   cme_ebs_spectrum_sbe_v12_0.block_length.size + 
-  cme_ebs_spectrum_sbe_v12_0.num_in_group_uint_8.size
+  cme_ebs_spectrum_sbe_v12_0.num_in_group.size
 
 -- Display: Group Size
 cme_ebs_spectrum_sbe_v12_0.group_size.display = function(packet, parent, length)
@@ -715,8 +715,8 @@ cme_ebs_spectrum_sbe_v12_0.group_size.fields = function(buffer, offset, packet, 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = cme_ebs_spectrum_sbe_v12_0.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group uint 8: 1 Byte Unsigned Fixed Width Integer
-  index, num_in_group_uint_8 = cme_ebs_spectrum_sbe_v12_0.num_in_group_uint_8.dissect(buffer, index, packet, parent)
+  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  index, num_in_group = cme_ebs_spectrum_sbe_v12_0.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -739,56 +739,56 @@ cme_ebs_spectrum_sbe_v12_0.group_size.dissect = function(buffer, offset, packet,
   end
 end
 
--- M D Snapshot Refresh Ticker Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups = {}
+-- Snapshot Refresh Ticker Groups
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups = {}
 
--- Calculate size of: M D Snapshot Refresh Ticker Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.size = function(buffer, offset)
+-- Calculate size of: Snapshot Refresh Ticker Groups
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
-  local m_d_snapshot_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_snapshot_refresh_ticker_group_count * 28
+  local snapshot_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + snapshot_refresh_ticker_group_count * 28
 
   return index
 end
 
--- Display: M D Snapshot Refresh Ticker Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.display = function(packet, parent, length)
+-- Display: Snapshot Refresh Ticker Groups
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Snapshot Refresh Ticker Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Snapshot Refresh Ticker Groups
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
   index, group_size = cme_ebs_spectrum_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group uint 8
-  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Snapshot Refresh Ticker Group
-  for m_d_snapshot_refresh_ticker_group_index = 1, num_in_group_uint_8 do
-    index, m_d_snapshot_refresh_ticker_group = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_group.dissect(buffer, index, packet, parent, m_d_snapshot_refresh_ticker_group_index)
+  -- Repeating: Snapshot Refresh Ticker Group
+  for snapshot_refresh_ticker_group_index = 1, num_in_group do
+    index, snapshot_refresh_ticker_group = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.dissect(buffer, index, packet, parent, snapshot_refresh_ticker_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Snapshot Refresh Ticker Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Snapshot Refresh Ticker Groups
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.m_d_snapshot_refresh_ticker_groups then
-    local length = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.size(buffer, offset)
+  if show.snapshot_refresh_ticker_groups then
+    local length = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_groups, range, display)
+    local display = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_ticker_groups, range, display)
   end
 
-  return cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.fields(buffer, offset, packet, parent)
+  return cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Security Id
@@ -934,7 +934,7 @@ cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_ticker.size = function(buffer, of
 
   index = index + cme_ebs_spectrum_sbe_v12_0.security_id.size
 
-  index = index + cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.size(buffer, offset + index)
+  index = index + cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups.size(buffer, offset + index)
 
   return index
 end
@@ -966,8 +966,8 @@ cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_ticker.fields = function(buffer, 
   -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = cme_ebs_spectrum_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- M D Snapshot Refresh Ticker Groups: Struct of 2 fields
-  index, m_d_snapshot_refresh_ticker_groups = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.dissect(buffer, index, packet, parent)
+  -- Snapshot Refresh Ticker Groups: Struct of 2 fields
+  index, snapshot_refresh_ticker_groups = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1028,28 +1028,28 @@ cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect = function(
   return offset + length, value
 end
 
--- M D Snapshot Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group = {}
+-- Snapshot Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group = {}
 
--- Size: M D Snapshot Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.size =
+-- Size: Snapshot Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.size =
   cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_px.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_size.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
 
--- Display: M D Snapshot Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.display = function(packet, parent, length)
+-- Display: Snapshot Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Snapshot Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.fields = function(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
+-- Dissect Fields: Snapshot Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.fields = function(buffer, offset, packet, parent, snapshot_refresh_spectrum_group_index)
   local index = offset
 
-  -- Implicit M D Snapshot Refresh Spectrum Group Index
-  if m_d_snapshot_refresh_spectrum_group_index ~= nil then
-    local iteration = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index, m_d_snapshot_refresh_spectrum_group_index)
+  -- Implicit Snapshot Refresh Spectrum Group Index
+  if snapshot_refresh_spectrum_group_index ~= nil then
+    local iteration = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_group_index, snapshot_refresh_spectrum_group_index)
     iteration:set_generated()
   end
 
@@ -1068,74 +1068,74 @@ cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.fields = function
   return index
 end
 
--- Dissect: M D Snapshot Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.dissect = function(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
-  if show.m_d_snapshot_refresh_spectrum_group then
+-- Dissect: Snapshot Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.dissect = function(buffer, offset, packet, parent, snapshot_refresh_spectrum_group_index)
+  if show.snapshot_refresh_spectrum_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.fields(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_group, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.fields(buffer, offset, packet, parent, snapshot_refresh_spectrum_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.display(packet, parent, length)
+    local display = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.fields(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
+    return cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.fields(buffer, offset, packet, parent, snapshot_refresh_spectrum_group_index)
   end
 end
 
--- M D Snapshot Refresh Spectrum Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups = {}
+-- Snapshot Refresh Spectrum Groups
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_groups = {}
 
--- Calculate size of: M D Snapshot Refresh Spectrum Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.size = function(buffer, offset)
+-- Calculate size of: Snapshot Refresh Spectrum Groups
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
-  local m_d_snapshot_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_snapshot_refresh_spectrum_group_count * 25
+  local snapshot_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + snapshot_refresh_spectrum_group_count * 25
 
   return index
 end
 
--- Display: M D Snapshot Refresh Spectrum Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.display = function(packet, parent, length)
+-- Display: Snapshot Refresh Spectrum Groups
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Snapshot Refresh Spectrum Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Snapshot Refresh Spectrum Groups
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
   index, group_size = cme_ebs_spectrum_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group uint 8
-  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Snapshot Refresh Spectrum Group
-  for m_d_snapshot_refresh_spectrum_group_index = 1, num_in_group_uint_8 do
-    index, m_d_snapshot_refresh_spectrum_group = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.dissect(buffer, index, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
+  -- Repeating: Snapshot Refresh Spectrum Group
+  for snapshot_refresh_spectrum_group_index = 1, num_in_group do
+    index, snapshot_refresh_spectrum_group = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.dissect(buffer, index, packet, parent, snapshot_refresh_spectrum_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Snapshot Refresh Spectrum Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Snapshot Refresh Spectrum Groups
+cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.m_d_snapshot_refresh_spectrum_groups then
-    local length = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.size(buffer, offset)
+  if show.snapshot_refresh_spectrum_groups then
+    local length = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_groups, range, display)
+    local display = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_groups, range, display)
   end
 
-  return cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.fields(buffer, offset, packet, parent)
+  return cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Md Snapshot Refresh Spectrum
@@ -1157,7 +1157,7 @@ cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_spectrum.size = function(buffer, 
 
   index = index + cme_ebs_spectrum_sbe_v12_0.security_id.size
 
-  index = index + cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.size(buffer, offset + index)
+  index = index + cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.size(buffer, offset + index)
 
   return index
 end
@@ -1189,8 +1189,8 @@ cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_spectrum.fields = function(buffer
   -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = cme_ebs_spectrum_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- M D Snapshot Refresh Spectrum Groups: Struct of 2 fields
-  index, m_d_snapshot_refresh_spectrum_groups = cme_ebs_spectrum_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.dissect(buffer, index, packet, parent)
+  -- Snapshot Refresh Spectrum Groups: Struct of 2 fields
+  index, snapshot_refresh_spectrum_groups = cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1208,11 +1208,11 @@ cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_spectrum.dissect = function(buffe
   return cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_spectrum.fields(buffer, offset, packet, parent)
 end
 
--- M D Incremental Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group = {}
+-- Incremental Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group = {}
 
--- Size: M D Incremental Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.size =
+-- Size: Incremental Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.size =
   cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.size + 
   cme_ebs_spectrum_sbe_v12_0.security_id.size + 
   cme_ebs_spectrum_sbe_v12_0.symbol.size + 
@@ -1225,18 +1225,18 @@ cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.size =
   cme_ebs_spectrum_sbe_v12_0.trading_session_id.size + 
   cme_ebs_spectrum_sbe_v12_0.aggressor_side.size
 
--- Display: M D Incremental Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
+-- Dissect Fields: Incremental Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.fields = function(buffer, offset, packet, parent, incremental_refresh_ticker_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Ticker Group Index
-  if m_d_incremental_refresh_ticker_group_index ~= nil then
-    local iteration = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index, m_d_incremental_refresh_ticker_group_index)
+  -- Implicit Incremental Refresh Ticker Group Index
+  if incremental_refresh_ticker_group_index ~= nil then
+    local iteration = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_ticker_group_index, incremental_refresh_ticker_group_index)
     iteration:set_generated()
   end
 
@@ -1276,74 +1276,74 @@ cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.fields = functio
   return index
 end
 
--- Dissect: M D Incremental Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
-  if show.m_d_incremental_refresh_ticker_group then
+-- Dissect: Incremental Refresh Ticker Group
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_ticker_group_index)
+  if show.incremental_refresh_ticker_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_ticker_group, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.fields(buffer, offset, packet, parent, incremental_refresh_ticker_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.display(packet, parent, length)
+    local display = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
+    return cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.fields(buffer, offset, packet, parent, incremental_refresh_ticker_group_index)
   end
 end
 
--- M D Incremental Refresh Ticker Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups = {}
+-- Incremental Refresh Ticker Groups
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_groups = {}
 
--- Calculate size of: M D Incremental Refresh Ticker Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Ticker Groups
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_ticker_group_count * 95
+  local incremental_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_ticker_group_count * 95
 
   return index
 end
 
--- Display: M D Incremental Refresh Ticker Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Ticker Groups
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Ticker Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Ticker Groups
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
   index, group_size = cme_ebs_spectrum_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group uint 8
-  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Ticker Group
-  for m_d_incremental_refresh_ticker_group_index = 1, num_in_group_uint_8 do
-    index, m_d_incremental_refresh_ticker_group = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_ticker_group_index)
+  -- Repeating: Incremental Refresh Ticker Group
+  for incremental_refresh_ticker_group_index = 1, num_in_group do
+    index, incremental_refresh_ticker_group = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.dissect(buffer, index, packet, parent, incremental_refresh_ticker_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Ticker Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Ticker Groups
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.m_d_incremental_refresh_ticker_groups then
-    local length = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups.size(buffer, offset)
+  if show.incremental_refresh_ticker_groups then
+    local length = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_groups, range, display)
+    local display = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_ticker_groups, range, display)
   end
 
-  return cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups.fields(buffer, offset, packet, parent)
+  return cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Md Incremental Refresh Ticker
@@ -1357,7 +1357,7 @@ cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_ticker.size = function(buffer,
 
   index = index + cme_ebs_spectrum_sbe_v12_0.match_event_indicator.size
 
-  index = index + cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups.size(buffer, offset + index)
+  index = index + cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_groups.size(buffer, offset + index)
 
   return index
 end
@@ -1377,8 +1377,8 @@ cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_ticker.fields = function(buffe
   -- Match Event Indicator
   index, match_event_indicator = cme_ebs_spectrum_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Ticker Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_ticker_groups = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_ticker_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Ticker Groups: Struct of 2 fields
+  index, incremental_refresh_ticker_groups = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1396,11 +1396,11 @@ cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_ticker.dissect = function(buff
   return cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_ticker.fields(buffer, offset, packet, parent)
 end
 
--- M D Incremental Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group = {}
+-- Incremental Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group = {}
 
--- Size: M D Incremental Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.size =
+-- Size: Incremental Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.size =
   cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size + 
   cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.size + 
   cme_ebs_spectrum_sbe_v12_0.symbol.size + 
@@ -1410,18 +1410,18 @@ cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.size =
   cme_ebs_spectrum_sbe_v12_0.md_entry_size.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
 
--- Display: M D Incremental Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
+-- Dissect Fields: Incremental Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.fields = function(buffer, offset, packet, parent, incremental_refresh_spectrum_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Spectrum Group Index
-  if m_d_incremental_refresh_spectrum_group_index ~= nil then
-    local iteration = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index, m_d_incremental_refresh_spectrum_group_index)
+  -- Implicit Incremental Refresh Spectrum Group Index
+  if incremental_refresh_spectrum_group_index ~= nil then
+    local iteration = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_spectrum_group_index, incremental_refresh_spectrum_group_index)
     iteration:set_generated()
   end
 
@@ -1452,74 +1452,74 @@ cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.fields = funct
   return index
 end
 
--- Dissect: M D Incremental Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
-  if show.m_d_incremental_refresh_spectrum_group then
+-- Dissect: Incremental Refresh Spectrum Group
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_spectrum_group_index)
+  if show.incremental_refresh_spectrum_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_spectrum_group, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.fields(buffer, offset, packet, parent, incremental_refresh_spectrum_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.display(packet, parent, length)
+    local display = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
+    return cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.fields(buffer, offset, packet, parent, incremental_refresh_spectrum_group_index)
   end
 end
 
--- M D Incremental Refresh Spectrum Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups = {}
+-- Incremental Refresh Spectrum Groups
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_groups = {}
 
--- Calculate size of: M D Incremental Refresh Spectrum Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Spectrum Groups
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_ebs_spectrum_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_spectrum_group_count * 92
+  local incremental_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_spectrum_group_count * 92
 
   return index
 end
 
--- Display: M D Incremental Refresh Spectrum Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Spectrum Groups
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Spectrum Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Spectrum Groups
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
   index, group_size = cme_ebs_spectrum_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group uint 8
-  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Spectrum Group
-  for m_d_incremental_refresh_spectrum_group_index = 1, num_in_group_uint_8 do
-    index, m_d_incremental_refresh_spectrum_group = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_spectrum_group_index)
+  -- Repeating: Incremental Refresh Spectrum Group
+  for incremental_refresh_spectrum_group_index = 1, num_in_group do
+    index, incremental_refresh_spectrum_group = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.dissect(buffer, index, packet, parent, incremental_refresh_spectrum_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Spectrum Groups
-cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Spectrum Groups
+cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.m_d_incremental_refresh_spectrum_groups then
-    local length = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.size(buffer, offset)
+  if show.incremental_refresh_spectrum_groups then
+    local length = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_groups, range, display)
+    local display = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.incremental_refresh_spectrum_groups, range, display)
   end
 
-  return cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.fields(buffer, offset, packet, parent)
+  return cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Md Incremental Refresh Spectrum
@@ -1533,7 +1533,7 @@ cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_spectrum.size = function(buffe
 
   index = index + cme_ebs_spectrum_sbe_v12_0.match_event_indicator.size
 
-  index = index + cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.size(buffer, offset + index)
+  index = index + cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_groups.size(buffer, offset + index)
 
   return index
 end
@@ -1553,8 +1553,8 @@ cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_spectrum.fields = function(buf
   -- Match Event Indicator
   index, match_event_indicator = cme_ebs_spectrum_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Spectrum Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_spectrum_groups = cme_ebs_spectrum_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Spectrum Groups: Struct of 2 fields
+  index, incremental_refresh_spectrum_groups = cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
