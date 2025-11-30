@@ -23,10 +23,6 @@ omi_memx_options_memo_sbe_v1_6_a.fields.alloc_rej_code = ProtoField.new("Alloc R
 omi_memx_options_memo_sbe_v1_6_a.fields.alloc_status = ProtoField.new("Alloc Status", "memx.options.memo.sbe.v1.6.a.allocstatus", ftypes.UINT8)
 omi_memx_options_memo_sbe_v1_6_a.fields.alloc_trans_type = ProtoField.new("Alloc Trans Type", "memx.options.memo.sbe.v1.6.a.alloctranstype", ftypes.UINT8)
 omi_memx_options_memo_sbe_v1_6_a.fields.alloc_type = ProtoField.new("Alloc Type", "memx.options.memo.sbe.v1.6.a.alloctype", ftypes.UINT8)
-omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_ack_message_parties_group = ProtoField.new("Allocation Instruction Ack Message Parties Group", "memx.options.memo.sbe.v1.6.a.allocationinstructionackmessagepartiesgroup", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_ack_message_parties_groups = ProtoField.new("Allocation Instruction Ack Message Parties Groups", "memx.options.memo.sbe.v1.6.a.allocationinstructionackmessagepartiesgroups", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_message_parties_group = ProtoField.new("Allocation Instruction Message Parties Group", "memx.options.memo.sbe.v1.6.a.allocationinstructionmessagepartiesgroup", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_message_parties_groups = ProtoField.new("Allocation Instruction Message Parties Groups", "memx.options.memo.sbe.v1.6.a.allocationinstructionmessagepartiesgroups", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_6_a.fields.bid_px = ProtoField.new("Bid Px", "memx.options.memo.sbe.v1.6.a.bidpx", ftypes.DOUBLE)
 omi_memx_options_memo_sbe_v1_6_a.fields.bid_size = ProtoField.new("Bid Size", "memx.options.memo.sbe.v1.6.a.bidsize", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_6_a.fields.block_length = ProtoField.new("Block Length", "memx.options.memo.sbe.v1.6.a.blocklength", ftypes.UINT16)
@@ -73,8 +69,9 @@ omi_memx_options_memo_sbe_v1_6_a.fields.message_count = ProtoField.new("Message 
 omi_memx_options_memo_sbe_v1_6_a.fields.message_length = ProtoField.new("Message Length", "memx.options.memo.sbe.v1.6.a.messagelength", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_6_a.fields.message_type = ProtoField.new("Message Type", "memx.options.memo.sbe.v1.6.a.messagetype", ftypes.UINT8)
 omi_memx_options_memo_sbe_v1_6_a.fields.mtp_group_id = ProtoField.new("Mtp Group Id", "memx.options.memo.sbe.v1.6.a.mtpgroupid", ftypes.UINT16)
-omi_memx_options_memo_sbe_v1_6_a.fields.nested_party_i_d_allocation_instruction_ack_nested_party_id = ProtoField.new("Nested Party I D Allocation Instruction Ack Nested Party Id", "memx.options.memo.sbe.v1.6.a.nestedpartyidallocationinstructionacknestedpartyid", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_6_a.fields.nested_party_i_d_allocation_instruction_nested_party_id = ProtoField.new("Nested Party I D Allocation Instruction Nested Party Id", "memx.options.memo.sbe.v1.6.a.nestedpartyidallocationinstructionnestedpartyid", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.nested_parties_group = ProtoField.new("Nested Parties Group", "memx.options.memo.sbe.v1.6.a.nestedpartiesgroup", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.nested_parties_groups = ProtoField.new("Nested Parties Groups", "memx.options.memo.sbe.v1.6.a.nestedpartiesgroups", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.nested_party_id = ProtoField.new("Nested Party Id", "memx.options.memo.sbe.v1.6.a.nestedpartyid", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_6_a.fields.nested_party_id_source = ProtoField.new("Nested Party Id Source", "memx.options.memo.sbe.v1.6.a.nestedpartyidsource", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_6_a.fields.nested_party_role = ProtoField.new("Nested Party Role", "memx.options.memo.sbe.v1.6.a.nestedpartyrole", ftypes.UINT8)
 omi_memx_options_memo_sbe_v1_6_a.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "memx.options.memo.sbe.v1.6.a.nextsequencenumber", ftypes.UINT64)
@@ -198,9 +195,8 @@ omi_memx_options_memo_sbe_v1_6_a.fields.short_two_sided_bulk_quote_message = Pro
 omi_memx_options_memo_sbe_v1_6_a.fields.user_notification_message = ProtoField.new("User Notification Message", "memx.options.memo.sbe.v1.6.a.usernotificationmessage", ftypes.STRING)
 
 -- Memx Options Memo Sbe 1.6.a generated fields
-omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_ack_message_parties_group_index = ProtoField.new("Allocation Instruction Ack Message Parties Group Index", "memx.options.memo.sbe.v1.6.a.allocationinstructionackmessagepartiesgroupindex", ftypes.UINT16)
-omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_message_parties_group_index = ProtoField.new("Allocation Instruction Message Parties Group Index", "memx.options.memo.sbe.v1.6.a.allocationinstructionmessagepartiesgroupindex", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group_index = ProtoField.new("Execution Allocations Group Index", "memx.options.memo.sbe.v1.6.a.executionallocationsgroupindex", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.nested_parties_group_index = ProtoField.new("Nested Parties Group Index", "memx.options.memo.sbe.v1.6.a.nestedpartiesgroupindex", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_6_a.fields.one_sided_quotes_group_index = ProtoField.new("One Sided Quotes Group Index", "memx.options.memo.sbe.v1.6.a.onesidedquotesgroupindex", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_6_a.fields.parties_group_index = ProtoField.new("Parties Group Index", "memx.options.memo.sbe.v1.6.a.partiesgroupindex", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group_index = ProtoField.new("Reported Allocations Group Index", "memx.options.memo.sbe.v1.6.a.reportedallocationsgroupindex", ftypes.UINT16)
@@ -215,12 +211,8 @@ local show = {}
 
 -- Memx Options Memo Sbe 1.6.a Element Dissection Options
 show.allocation_instruction_ack_message = true
-show.allocation_instruction_ack_message_parties_group = true
-show.allocation_instruction_ack_message_parties_groups = true
 show.allocation_instruction_alert_message = true
 show.allocation_instruction_message = true
-show.allocation_instruction_message_parties_group = true
-show.allocation_instruction_message_parties_groups = true
 show.common_header = true
 show.exec_inst = true
 show.execution_allocations_group = true
@@ -249,6 +241,8 @@ show.mass_cancel_done_message = true
 show.mass_cancel_inst = true
 show.mass_cancel_reject_message = true
 show.mass_cancel_request_message = true
+show.nested_parties_group = true
+show.nested_parties_groups = true
 show.new_order_single_message = true
 show.one_sided_quotes_group = true
 show.one_sided_quotes_groups = true
@@ -288,12 +282,8 @@ show.payload = false
 
 -- Register Memx Options Memo Sbe 1.6.a Show Options
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message = Pref.bool("Show Allocation Instruction Ack Message", show.allocation_instruction_ack_message, "Parse and add Allocation Instruction Ack Message to protocol tree")
-omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message_parties_group = Pref.bool("Show Allocation Instruction Ack Message Parties Group", show.allocation_instruction_ack_message_parties_group, "Parse and add Allocation Instruction Ack Message Parties Group to protocol tree")
-omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message_parties_groups = Pref.bool("Show Allocation Instruction Ack Message Parties Groups", show.allocation_instruction_ack_message_parties_groups, "Parse and add Allocation Instruction Ack Message Parties Groups to protocol tree")
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_alert_message = Pref.bool("Show Allocation Instruction Alert Message", show.allocation_instruction_alert_message, "Parse and add Allocation Instruction Alert Message to protocol tree")
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message = Pref.bool("Show Allocation Instruction Message", show.allocation_instruction_message, "Parse and add Allocation Instruction Message to protocol tree")
-omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message_parties_group = Pref.bool("Show Allocation Instruction Message Parties Group", show.allocation_instruction_message_parties_group, "Parse and add Allocation Instruction Message Parties Group to protocol tree")
-omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message_parties_groups = Pref.bool("Show Allocation Instruction Message Parties Groups", show.allocation_instruction_message_parties_groups, "Parse and add Allocation Instruction Message Parties Groups to protocol tree")
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_group = Pref.bool("Show Execution Allocations Group", show.execution_allocations_group, "Parse and add Execution Allocations Group to protocol tree")
@@ -322,6 +312,8 @@ omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_done_message = Pref.bool
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_inst = Pref.bool("Show Mass Cancel Inst", show.mass_cancel_inst, "Parse and add Mass Cancel Inst to protocol tree")
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_reject_message = Pref.bool("Show Mass Cancel Reject Message", show.mass_cancel_reject_message, "Parse and add Mass Cancel Reject Message to protocol tree")
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_request_message = Pref.bool("Show Mass Cancel Request Message", show.mass_cancel_request_message, "Parse and add Mass Cancel Request Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_nested_parties_group = Pref.bool("Show Nested Parties Group", show.nested_parties_group, "Parse and add Nested Parties Group to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_nested_parties_groups = Pref.bool("Show Nested Parties Groups", show.nested_parties_groups, "Parse and add Nested Parties Groups to protocol tree")
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_new_order_single_message = Pref.bool("Show New Order Single Message", show.new_order_single_message, "Parse and add New Order Single Message to protocol tree")
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_one_sided_quotes_group = Pref.bool("Show One Sided Quotes Group", show.one_sided_quotes_group, "Parse and add One Sided Quotes Group to protocol tree")
 omi_memx_options_memo_sbe_v1_6_a.prefs.show_one_sided_quotes_groups = Pref.bool("Show One Sided Quotes Groups", show.one_sided_quotes_groups, "Parse and add One Sided Quotes Groups to protocol tree")
@@ -368,28 +360,12 @@ function omi_memx_options_memo_sbe_v1_6_a.prefs_changed()
     show.allocation_instruction_ack_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message
     changed = true
   end
-  if show.allocation_instruction_ack_message_parties_group ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message_parties_group then
-    show.allocation_instruction_ack_message_parties_group = omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message_parties_group
-    changed = true
-  end
-  if show.allocation_instruction_ack_message_parties_groups ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message_parties_groups then
-    show.allocation_instruction_ack_message_parties_groups = omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message_parties_groups
-    changed = true
-  end
   if show.allocation_instruction_alert_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_alert_message then
     show.allocation_instruction_alert_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_alert_message
     changed = true
   end
   if show.allocation_instruction_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message then
     show.allocation_instruction_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message
-    changed = true
-  end
-  if show.allocation_instruction_message_parties_group ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message_parties_group then
-    show.allocation_instruction_message_parties_group = omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message_parties_group
-    changed = true
-  end
-  if show.allocation_instruction_message_parties_groups ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message_parties_groups then
-    show.allocation_instruction_message_parties_groups = omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message_parties_groups
     changed = true
   end
   if show.common_header ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_common_header then
@@ -502,6 +478,14 @@ function omi_memx_options_memo_sbe_v1_6_a.prefs_changed()
   end
   if show.mass_cancel_request_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_request_message then
     show.mass_cancel_request_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_request_message
+    changed = true
+  end
+  if show.nested_parties_group ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_nested_parties_group then
+    show.nested_parties_group = omi_memx_options_memo_sbe_v1_6_a.prefs.show_nested_parties_group
+    changed = true
+  end
+  if show.nested_parties_groups ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_nested_parties_groups then
+    show.nested_parties_groups = omi_memx_options_memo_sbe_v1_6_a.prefs.show_nested_parties_groups
     changed = true
   end
   if show.new_order_single_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_new_order_single_message then
@@ -1069,25 +1053,25 @@ memx_options_memo_sbe_v1_6_a.nested_party_id_source.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Nested Party I D Allocation Instruction Ack Nested Party Id
-memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_ack_nested_party_id = {}
+-- Nested Party Id
+memx_options_memo_sbe_v1_6_a.nested_party_id = {}
 
--- Size: Nested Party I D Allocation Instruction Ack Nested Party Id
-memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_ack_nested_party_id.size = 16
+-- Size: Nested Party Id
+memx_options_memo_sbe_v1_6_a.nested_party_id.size = 16
 
--- Display: Nested Party I D Allocation Instruction Ack Nested Party Id
-memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_ack_nested_party_id.display = function(value)
+-- Display: Nested Party Id
+memx_options_memo_sbe_v1_6_a.nested_party_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Nested Party I D Allocation Instruction Ack Nested Party Id: No Value"
+    return "Nested Party Id: No Value"
   end
 
-  return "Nested Party I D Allocation Instruction Ack Nested Party Id: "..value
+  return "Nested Party Id: "..value
 end
 
--- Dissect: Nested Party I D Allocation Instruction Ack Nested Party Id
-memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_ack_nested_party_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_ack_nested_party_id.size
+-- Dissect: Nested Party Id
+memx_options_memo_sbe_v1_6_a.nested_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_6_a.nested_party_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1101,39 +1085,39 @@ memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_ack_nested_
     value = range:string()
   end
 
-  local display = memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_ack_nested_party_id.display(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_6_a.nested_party_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.nested_party_i_d_allocation_instruction_ack_nested_party_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.nested_party_id, range, value, display)
 
   return offset + length, value
 end
 
--- Allocation Instruction Ack Message Parties Group
-memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_group = {}
+-- Nested Parties Group
+memx_options_memo_sbe_v1_6_a.nested_parties_group = {}
 
--- Size: Allocation Instruction Ack Message Parties Group
-memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_group.size =
-  memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_ack_nested_party_id.size + 
+-- Size: Nested Parties Group
+memx_options_memo_sbe_v1_6_a.nested_parties_group.size =
+  memx_options_memo_sbe_v1_6_a.nested_party_id.size + 
   memx_options_memo_sbe_v1_6_a.nested_party_id_source.size + 
   memx_options_memo_sbe_v1_6_a.nested_party_role.size
 
--- Display: Allocation Instruction Ack Message Parties Group
-memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_group.display = function(packet, parent, length)
+-- Display: Nested Parties Group
+memx_options_memo_sbe_v1_6_a.nested_parties_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Allocation Instruction Ack Message Parties Group
-memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_group.fields = function(buffer, offset, packet, parent, allocation_instruction_ack_message_parties_group_index)
+-- Dissect Fields: Nested Parties Group
+memx_options_memo_sbe_v1_6_a.nested_parties_group.fields = function(buffer, offset, packet, parent, nested_parties_group_index)
   local index = offset
 
-  -- Implicit Allocation Instruction Ack Message Parties Group Index
-  if allocation_instruction_ack_message_parties_group_index ~= nil then
-    local iteration = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_ack_message_parties_group_index, allocation_instruction_ack_message_parties_group_index)
+  -- Implicit Nested Parties Group Index
+  if nested_parties_group_index ~= nil then
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.nested_parties_group_index, nested_parties_group_index)
     iteration:set_generated()
   end
 
-  -- Nested Party I D Allocation Instruction Ack Nested Party Id: 16 Byte Ascii String
-  index, nested_party_i_d_allocation_instruction_ack_nested_party_id = memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_ack_nested_party_id.dissect(buffer, index, packet, parent)
+  -- Nested Party Id: 16 Byte Ascii String
+  index, nested_party_id = memx_options_memo_sbe_v1_6_a.nested_party_id.dissect(buffer, index, packet, parent)
 
   -- Nested Party Id Source: 1 Byte Ascii String
   index, nested_party_id_source = memx_options_memo_sbe_v1_6_a.nested_party_id_source.dissect(buffer, index, packet, parent)
@@ -1144,21 +1128,21 @@ memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_group.fi
   return index
 end
 
--- Dissect: Allocation Instruction Ack Message Parties Group
-memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_group.dissect = function(buffer, offset, packet, parent, allocation_instruction_ack_message_parties_group_index)
-  if show.allocation_instruction_ack_message_parties_group then
+-- Dissect: Nested Parties Group
+memx_options_memo_sbe_v1_6_a.nested_parties_group.dissect = function(buffer, offset, packet, parent, nested_parties_group_index)
+  if show.nested_parties_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_ack_message_parties_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_group.fields(buffer, offset, packet, parent, allocation_instruction_ack_message_parties_group_index)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.nested_parties_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a.nested_parties_group.fields(buffer, offset, packet, parent, nested_parties_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_group.display(packet, parent, length)
+    local display = memx_options_memo_sbe_v1_6_a.nested_parties_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_group.fields(buffer, offset, packet, parent, allocation_instruction_ack_message_parties_group_index)
+    return memx_options_memo_sbe_v1_6_a.nested_parties_group.fields(buffer, offset, packet, parent, nested_parties_group_index)
   end
 end
 
@@ -1252,29 +1236,29 @@ memx_options_memo_sbe_v1_6_a.repeating_group_dimensions.dissect = function(buffe
   end
 end
 
--- Allocation Instruction Ack Message Parties Groups
-memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups = {}
+-- Nested Parties Groups
+memx_options_memo_sbe_v1_6_a.nested_parties_groups = {}
 
--- Calculate size of: Allocation Instruction Ack Message Parties Groups
-memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups.size = function(buffer, offset)
+-- Calculate size of: Nested Parties Groups
+memx_options_memo_sbe_v1_6_a.nested_parties_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memo_sbe_v1_6_a.repeating_group_dimensions.size
 
   -- Calculate field size from count
-  local allocation_instruction_ack_message_parties_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + allocation_instruction_ack_message_parties_group_count * 18
+  local nested_parties_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + nested_parties_group_count * 18
 
   return index
 end
 
--- Display: Allocation Instruction Ack Message Parties Groups
-memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups.display = function(packet, parent, length)
+-- Display: Nested Parties Groups
+memx_options_memo_sbe_v1_6_a.nested_parties_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Allocation Instruction Ack Message Parties Groups
-memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Nested Parties Groups
+memx_options_memo_sbe_v1_6_a.nested_parties_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Repeating Group Dimensions: Struct of 2 fields
@@ -1283,25 +1267,25 @@ memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups.f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Repeating: Allocation Instruction Ack Message Parties Group
-  for allocation_instruction_ack_message_parties_group_index = 1, num_in_group do
-    index, allocation_instruction_ack_message_parties_group = memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_group.dissect(buffer, index, packet, parent, allocation_instruction_ack_message_parties_group_index)
+  -- Repeating: Nested Parties Group
+  for nested_parties_group_index = 1, num_in_group do
+    index, nested_parties_group = memx_options_memo_sbe_v1_6_a.nested_parties_group.dissect(buffer, index, packet, parent, nested_parties_group_index)
   end
 
   return index
 end
 
--- Dissect: Allocation Instruction Ack Message Parties Groups
-memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Nested Parties Groups
+memx_options_memo_sbe_v1_6_a.nested_parties_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.allocation_instruction_ack_message_parties_groups then
-    local length = memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups.size(buffer, offset)
+  if show.nested_parties_groups then
+    local length = memx_options_memo_sbe_v1_6_a.nested_parties_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_ack_message_parties_groups, range, display)
+    local display = memx_options_memo_sbe_v1_6_a.nested_parties_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.nested_parties_groups, range, display)
   end
 
-  return memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups.fields(buffer, offset, packet, parent)
+  return memx_options_memo_sbe_v1_6_a.nested_parties_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Alloc Id
@@ -1422,7 +1406,7 @@ memx_options_memo_sbe_v1_6_a.reported_allocations_group.size = function(buffer, 
 
   index = index + memx_options_memo_sbe_v1_6_a.alloc_id.size
 
-  index = index + memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups.size(buffer, offset + index)
+  index = index + memx_options_memo_sbe_v1_6_a.nested_parties_groups.size(buffer, offset + index)
 
   return index
 end
@@ -1451,8 +1435,8 @@ memx_options_memo_sbe_v1_6_a.reported_allocations_group.fields = function(buffer
   -- Alloc Id: 20 Byte Ascii String
   index, alloc_id = memx_options_memo_sbe_v1_6_a.alloc_id.dissect(buffer, index, packet, parent)
 
-  -- Allocation Instruction Ack Message Parties Groups: Struct of 2 fields
-  index, allocation_instruction_ack_message_parties_groups = memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message_parties_groups.dissect(buffer, index, packet, parent)
+  -- Nested Parties Groups: Struct of 2 fields
+  index, nested_parties_groups = memx_options_memo_sbe_v1_6_a.nested_parties_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6211,151 +6195,6 @@ memx_options_memo_sbe_v1_6_a.execution_report_new_message.dissect = function(buf
   return memx_options_memo_sbe_v1_6_a.execution_report_new_message.fields(buffer, offset, packet, parent)
 end
 
--- Nested Party I D Allocation Instruction Nested Party Id
-memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_nested_party_id = {}
-
--- Size: Nested Party I D Allocation Instruction Nested Party Id
-memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_nested_party_id.size = 16
-
--- Display: Nested Party I D Allocation Instruction Nested Party Id
-memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_nested_party_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Nested Party I D Allocation Instruction Nested Party Id: No Value"
-  end
-
-  return "Nested Party I D Allocation Instruction Nested Party Id: "..value
-end
-
--- Dissect: Nested Party I D Allocation Instruction Nested Party Id
-memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_nested_party_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_nested_party_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_nested_party_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.nested_party_i_d_allocation_instruction_nested_party_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Allocation Instruction Message Parties Group
-memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_group = {}
-
--- Size: Allocation Instruction Message Parties Group
-memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_group.size =
-  memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_nested_party_id.size + 
-  memx_options_memo_sbe_v1_6_a.nested_party_id_source.size + 
-  memx_options_memo_sbe_v1_6_a.nested_party_role.size
-
--- Display: Allocation Instruction Message Parties Group
-memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Allocation Instruction Message Parties Group
-memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_group.fields = function(buffer, offset, packet, parent, allocation_instruction_message_parties_group_index)
-  local index = offset
-
-  -- Implicit Allocation Instruction Message Parties Group Index
-  if allocation_instruction_message_parties_group_index ~= nil then
-    local iteration = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_message_parties_group_index, allocation_instruction_message_parties_group_index)
-    iteration:set_generated()
-  end
-
-  -- Nested Party I D Allocation Instruction Nested Party Id: 16 Byte Ascii String
-  index, nested_party_i_d_allocation_instruction_nested_party_id = memx_options_memo_sbe_v1_6_a.nested_party_i_d_allocation_instruction_nested_party_id.dissect(buffer, index, packet, parent)
-
-  -- Nested Party Id Source: 1 Byte Ascii String
-  index, nested_party_id_source = memx_options_memo_sbe_v1_6_a.nested_party_id_source.dissect(buffer, index, packet, parent)
-
-  -- Nested Party Role: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, nested_party_role = memx_options_memo_sbe_v1_6_a.nested_party_role.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Allocation Instruction Message Parties Group
-memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_group.dissect = function(buffer, offset, packet, parent, allocation_instruction_message_parties_group_index)
-  if show.allocation_instruction_message_parties_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_message_parties_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_group.fields(buffer, offset, packet, parent, allocation_instruction_message_parties_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_group.fields(buffer, offset, packet, parent, allocation_instruction_message_parties_group_index)
-  end
-end
-
--- Allocation Instruction Message Parties Groups
-memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_groups = {}
-
--- Calculate size of: Allocation Instruction Message Parties Groups
-memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_6_a.repeating_group_dimensions.size
-
-  -- Calculate field size from count
-  local allocation_instruction_message_parties_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + allocation_instruction_message_parties_group_count * 18
-
-  return index
-end
-
--- Display: Allocation Instruction Message Parties Groups
-memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Allocation Instruction Message Parties Groups
-memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Repeating Group Dimensions: Struct of 2 fields
-  index, repeating_group_dimensions = memx_options_memo_sbe_v1_6_a.repeating_group_dimensions.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):uint()
-
-  -- Repeating: Allocation Instruction Message Parties Group
-  for allocation_instruction_message_parties_group_index = 1, num_in_group do
-    index, allocation_instruction_message_parties_group = memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_group.dissect(buffer, index, packet, parent, allocation_instruction_message_parties_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Allocation Instruction Message Parties Groups
-memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.allocation_instruction_message_parties_groups then
-    local length = memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_message_parties_groups, range, display)
-  end
-
-  return memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_groups.fields(buffer, offset, packet, parent)
-end
-
 -- Requested Allocations Group
 memx_options_memo_sbe_v1_6_a.requested_allocations_group = {}
 
@@ -6367,7 +6206,7 @@ memx_options_memo_sbe_v1_6_a.requested_allocations_group.size = function(buffer,
 
   index = index + memx_options_memo_sbe_v1_6_a.alloc_position_effect.size
 
-  index = index + memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_groups.size(buffer, offset + index)
+  index = index + memx_options_memo_sbe_v1_6_a.nested_parties_groups.size(buffer, offset + index)
 
   return index
 end
@@ -6393,8 +6232,8 @@ memx_options_memo_sbe_v1_6_a.requested_allocations_group.fields = function(buffe
   -- Alloc Position Effect: 1 Byte Ascii String Enum with 2 values
   index, alloc_position_effect = memx_options_memo_sbe_v1_6_a.alloc_position_effect.dissect(buffer, index, packet, parent)
 
-  -- Allocation Instruction Message Parties Groups: Struct of 2 fields
-  index, allocation_instruction_message_parties_groups = memx_options_memo_sbe_v1_6_a.allocation_instruction_message_parties_groups.dissect(buffer, index, packet, parent)
+  -- Nested Parties Groups: Struct of 2 fields
+  index, nested_parties_groups = memx_options_memo_sbe_v1_6_a.nested_parties_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
