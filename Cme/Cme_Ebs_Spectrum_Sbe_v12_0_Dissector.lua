@@ -1833,29 +1833,13 @@ end
 -- Message
 cme_ebs_spectrum_sbe_v12_0.message = {}
 
--- Calculate size of: Message
-cme_ebs_spectrum_sbe_v12_0.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_ebs_spectrum_sbe_v12_0.message_size.size
-
-  index = index + cme_ebs_spectrum_sbe_v12_0.message_header.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 6, 2):le_uint()
-  index = index + cme_ebs_spectrum_sbe_v12_0.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 cme_ebs_spectrum_sbe_v12_0.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-cme_ebs_spectrum_sbe_v12_0.message.fields = function(buffer, offset, packet, parent)
+cme_ebs_spectrum_sbe_v12_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
@@ -1874,16 +1858,24 @@ cme_ebs_spectrum_sbe_v12_0.message.fields = function(buffer, offset, packet, par
 end
 
 -- Dissect: Message
-cme_ebs_spectrum_sbe_v12_0.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.message then
-    local length = cme_ebs_spectrum_sbe_v12_0.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_ebs_spectrum_sbe_v12_0.message.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.message, range, display)
-  end
+cme_ebs_spectrum_sbe_v12_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset + size_of_message
 
-  return cme_ebs_spectrum_sbe_v12_0.message.fields(buffer, offset, packet, parent)
+  -- Optionally add group/struct element to protocol tree
+  if show.message then
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.message, buffer(offset, 0))
+    local current = cme_ebs_spectrum_sbe_v12_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = cme_ebs_spectrum_sbe_v12_0.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cme_ebs_spectrum_sbe_v12_0.message.fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
+  end
 end
 
 -- Sending Time
@@ -1995,7 +1987,12 @@ cme_ebs_spectrum_sbe_v12_0.packet.dissect = function(buffer, packet, parent)
 
   -- Message: Struct of 3 fields
   while index < end_of_payload do
-    index, message = cme_ebs_spectrum_sbe_v12_0.message.dissect(buffer, index, packet, parent)
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = cme_ebs_spectrum_sbe_v12_0.message.dissect(buffer, index, packet, parent, message_size)
   end
 
   return index
