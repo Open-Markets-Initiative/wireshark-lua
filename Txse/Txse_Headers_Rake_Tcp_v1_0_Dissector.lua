@@ -37,7 +37,7 @@ omi_txse_headers_rake_tcp_v1_0.fields.sequenced_message_type = ProtoField.new("S
 omi_txse_headers_rake_tcp_v1_0.fields.session = ProtoField.new("Session", "txse.headers.rake.tcp.v1.0.session", ftypes.UINT64)
 omi_txse_headers_rake_tcp_v1_0.fields.stream_id = ProtoField.new("Stream Id", "txse.headers.rake.tcp.v1.0.streamid", ftypes.UINT8)
 omi_txse_headers_rake_tcp_v1_0.fields.tcp_sequenced_message = ProtoField.new("Tcp Sequenced Message", "txse.headers.rake.tcp.v1.0.tcpsequencedmessage", ftypes.STRING)
-omi_txse_headers_rake_tcp_v1_0.fields.tcp_unsequenced_packet = ProtoField.new("Tcp Unsequenced Packet", "txse.headers.rake.tcp.v1.0.tcpunsequencedpacket", ftypes.STRING)
+omi_txse_headers_rake_tcp_v1_0.fields.tcp_unsequenced_message = ProtoField.new("Tcp Unsequenced Message", "txse.headers.rake.tcp.v1.0.tcpunsequencedmessage", ftypes.STRING)
 omi_txse_headers_rake_tcp_v1_0.fields.text = ProtoField.new("Text", "txse.headers.rake.tcp.v1.0.text", ftypes.STRING)
 omi_txse_headers_rake_tcp_v1_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "txse.headers.rake.tcp.v1.0.unsequencedmessage", ftypes.BYTES)
 omi_txse_headers_rake_tcp_v1_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "txse.headers.rake.tcp.v1.0.unsequencedmessagetype", ftypes.UINT8)
@@ -56,7 +56,7 @@ show.packet = true
 show.rake_message_header = true
 show.rake_tcp_message = true
 show.tcp_sequenced_message = true
-show.tcp_unsequenced_packet = true
+show.tcp_unsequenced_message = true
 show.payload = false
 
 -- Register Txse Headers Rake Tcp 1.0 Show Options
@@ -67,7 +67,7 @@ omi_txse_headers_rake_tcp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show
 omi_txse_headers_rake_tcp_v1_0.prefs.show_rake_message_header = Pref.bool("Show Rake Message Header", show.rake_message_header, "Parse and add Rake Message Header to protocol tree")
 omi_txse_headers_rake_tcp_v1_0.prefs.show_rake_tcp_message = Pref.bool("Show Rake Tcp Message", show.rake_tcp_message, "Parse and add Rake Tcp Message to protocol tree")
 omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_sequenced_message = Pref.bool("Show Tcp Sequenced Message", show.tcp_sequenced_message, "Parse and add Tcp Sequenced Message to protocol tree")
-omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_packet = Pref.bool("Show Tcp Unsequenced Packet", show.tcp_unsequenced_packet, "Parse and add Tcp Unsequenced Packet to protocol tree")
+omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_message = Pref.bool("Show Tcp Unsequenced Message", show.tcp_unsequenced_message, "Parse and add Tcp Unsequenced Message to protocol tree")
 omi_txse_headers_rake_tcp_v1_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
@@ -103,8 +103,8 @@ function omi_txse_headers_rake_tcp_v1_0.prefs_changed()
     show.tcp_sequenced_message = omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_sequenced_message
     changed = true
   end
-  if show.tcp_unsequenced_packet ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_packet then
-    show.tcp_unsequenced_packet = omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_packet
+  if show.tcp_unsequenced_message ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_message then
+    show.tcp_unsequenced_message = omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_message
     changed = true
   end
   if show.payload ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_payload then
@@ -220,7 +220,7 @@ txse_headers_rake_tcp_v1_0.tcp_sequenced_message.fields = function(buffer, offse
   local message_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Sequenced Message
-  local size_of_sequenced_message = message_length - 2
+  local size_of_sequenced_message = message_length - 3
 
   -- Sequenced Message: 0 Byte
   index, sequenced_message = txse_headers_rake_tcp_v1_0.sequenced_message.dissect(buffer, index, packet, parent, size_of_sequenced_message)
@@ -570,28 +570,26 @@ txse_headers_rake_tcp_v1_0.unsequenced_message_type.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Tcp Unsequenced Packet
-txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet = {}
+-- Tcp Unsequenced Message
+txse_headers_rake_tcp_v1_0.tcp_unsequenced_message = {}
 
--- Calculate size of: Tcp Unsequenced Packet
-txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.size = function(buffer, offset)
-  local index = 0
+-- Read runtime size of: Tcp Unsequenced Message
+txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.size = function(buffer, offset)
+  local index = offset
 
-  index = index + txse_headers_rake_tcp_v1_0.unsequenced_message_type.size
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 3, 2):le_uint()
 
-  -- Parse runtime size of: Unsequenced Message
-  index = index + buffer(offset + index - 4, 2):le_uint()
-
-  return index
+  return message_length - 1
 end
 
--- Display: Tcp Unsequenced Packet
-txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.display = function(packet, parent, length)
+-- Display: Tcp Unsequenced Message
+txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Tcp Unsequenced Packet
-txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Tcp Unsequenced Message
+txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.fields = function(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
   local index = offset
 
   -- Unsequenced Message Type: 1 Byte Unsigned Fixed Width Integer
@@ -601,7 +599,7 @@ txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.fields = function(buffer, offs
   local message_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = message_length - 1
+  local size_of_unsequenced_message = message_length - 2
 
   -- Unsequenced Message: 0 Byte
   index, unsequenced_message = txse_headers_rake_tcp_v1_0.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
@@ -609,17 +607,21 @@ txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.fields = function(buffer, offs
   return index
 end
 
--- Dissect: Tcp Unsequenced Packet
-txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.tcp_unsequenced_packet then
-    local length = txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_headers_rake_tcp_v1_0.fields.tcp_unsequenced_packet, range, display)
+-- Dissect: Tcp Unsequenced Message
+txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.dissect = function(buffer, offset, packet, parent)
+  -- Parse runtime size
+  local size_of_tcp_unsequenced_message = txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.size(buffer, offset)
+
+  -- Optionally add struct element to protocol tree
+  if show.tcp_unsequenced_message then
+    local range = buffer(offset, size_of_tcp_unsequenced_message)
+    local display = txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.display(buffer, packet, parent)
+    parent = parent:add(omi_txse_headers_rake_tcp_v1_0.fields.tcp_unsequenced_message, range, display)
   end
 
-  return txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.fields(buffer, offset, packet, parent)
+  txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
+
+  return offset + size_of_tcp_unsequenced_message
 end
 
 -- Requested Sequence Number
@@ -752,9 +754,9 @@ txse_headers_rake_tcp_v1_0.payload.size = function(buffer, offset, packet_type)
   if packet_type == 53 then
     return txse_headers_rake_tcp_v1_0.logon_request_packet.size
   end
-  -- Size of Tcp Unsequenced Packet
+  -- Size of Tcp Unsequenced Message
   if packet_type == 54 then
-    return txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.size(buffer, offset)
+    return txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.size(buffer, offset)
   end
   -- Size of Debug Message
   if packet_type == 48 then
@@ -787,9 +789,9 @@ txse_headers_rake_tcp_v1_0.payload.branches = function(buffer, offset, packet, p
   if packet_type == 53 then
     return txse_headers_rake_tcp_v1_0.logon_request_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Tcp Unsequenced Packet
+  -- Dissect Tcp Unsequenced Message
   if packet_type == 54 then
-    return txse_headers_rake_tcp_v1_0.tcp_unsequenced_packet.dissect(buffer, offset, packet, parent)
+    return txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Debug Message
   if packet_type == 48 then
@@ -845,7 +847,7 @@ txse_headers_rake_tcp_v1_0.packet_type.display = function(value)
     return "Packet Type: Member Heartbeat Packet (55)"
   end
   if value == 54 then
-    return "Packet Type: Tcp Unsequenced Packet (54)"
+    return "Packet Type: Tcp Unsequenced Message (54)"
   end
   if value == 48 then
     return "Packet Type: Debug Message (48)"
@@ -1099,7 +1101,7 @@ omi_txse_headers_rake_tcp_v1_0:register_heuristic("tcp", omi_txse_headers_rake_t
 -- Protocol:
 --   Organization: Texas Stock Exchange
 --   Version: 1.0
---   Date: Saturday, February 22, 2025
+--   Date: Tuesday, October 28, 2025
 --   Specification: 690b822aa6a477417395edae_RAKE.pdf
 -- 
 -- Script:
