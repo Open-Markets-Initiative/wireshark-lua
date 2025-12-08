@@ -193,7 +193,7 @@ omi_cme_futures_streamlined_sbe_v5_9.fields.related_instrument_type = ProtoField
 omi_cme_futures_streamlined_sbe_v5_9.fields.related_security_group = ProtoField.new("Related Security Group", "cme.futures.streamlined.sbe.v5.9.relatedsecuritygroup", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.related_symbol = ProtoField.new("Related Symbol", "cme.futures.streamlined.sbe.v5.9.relatedsymbol", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.reserved = ProtoField.new("Reserved", "cme.futures.streamlined.sbe.v5.9.reserved", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-omi_cme_futures_streamlined_sbe_v5_9.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.streamlined.sbe.v5.9.reservedbits", ftypes.UINT8, nil, base.DEC, 0x78)
+omi_cme_futures_streamlined_sbe_v5_9.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.streamlined.sbe.v5.9.reservedbits", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
 omi_cme_futures_streamlined_sbe_v5_9.fields.restructuring_type = ProtoField.new("Restructuring Type", "cme.futures.streamlined.sbe.v5.9.restructuringtype", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.rounded = ProtoField.new("Rounded", "cme.futures.streamlined.sbe.v5.9.rounded", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 omi_cme_futures_streamlined_sbe_v5_9.fields.rpt_seq = ProtoField.new("Rpt Seq", "cme.futures.streamlined.sbe.v5.9.rptseq", ftypes.UINT32)
@@ -258,6 +258,9 @@ omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_currency_3 = ProtoFi
 omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_qty_decimal = ProtoField.new("Unit Of Measure Qty Decimal", "cme.futures.streamlined.sbe.v5.9.unitofmeasureqtydecimal", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_qty_decimal_optional = ProtoField.new("Unit Of Measure Qty Decimal Optional", "cme.futures.streamlined.sbe.v5.9.unitofmeasureqtydecimaloptional", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_qty_optional = ProtoField.new("Unit Of Measure Qty Optional", "cme.futures.streamlined.sbe.v5.9.unitofmeasureqtyoptional", ftypes.DOUBLE)
+omi_cme_futures_streamlined_sbe_v5_9.fields.unused_settl_price_type_4 = ProtoField.new("Unused Settl Price Type 4", "cme.futures.streamlined.sbe.v5.9.unusedsettlpricetype4", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
+omi_cme_futures_streamlined_sbe_v5_9.fields.unused_settl_price_type_5 = ProtoField.new("Unused Settl Price Type 5", "cme.futures.streamlined.sbe.v5.9.unusedsettlpricetype5", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_cme_futures_streamlined_sbe_v5_9.fields.unused_settl_price_type_6 = ProtoField.new("Unused Settl Price Type 6", "cme.futures.streamlined.sbe.v5.9.unusedsettlpricetype6", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_cme_futures_streamlined_sbe_v5_9.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.futures.streamlined.sbe.v5.9.userdefinedinstrument", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.version = ProtoField.new("Version", "cme.futures.streamlined.sbe.v5.9.version", ftypes.UINT16)
 omi_cme_futures_streamlined_sbe_v5_9.fields.vol_type = ProtoField.new("Vol Type", "cme.futures.streamlined.sbe.v5.9.voltype", ftypes.UINT16)
@@ -3252,85 +3255,90 @@ cme_futures_streamlined_sbe_v5_9.match_event_indicator = {}
 cme_futures_streamlined_sbe_v5_9.match_event_indicator.size = 1
 
 -- Display: Match Event Indicator
-cme_futures_streamlined_sbe_v5_9.match_event_indicator.display = function(buffer, packet, parent)
+cme_futures_streamlined_sbe_v5_9.match_event_indicator.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is End Of Event flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."End Of Event|"
-  end
-  -- Is Reserved flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Reserved|"
-  end
-  -- Is Recovery Msg flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Recovery Msg|"
-  end
-  -- Is Last Implied Msg flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Last Implied Msg|"
-  end
-  -- Is Last Stats Msg flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Last Stats Msg|"
-  end
-  -- Is Last Quote Msg flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Last Quote Msg|"
-  end
-  -- Is Last Volume Msg flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Last Volume Msg|"
-  end
   -- Is Last Trade Msg flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Last Trade Msg|"
   end
+  -- Is Last Volume Msg flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Last Volume Msg|"
+  end
+  -- Is Last Quote Msg flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Last Quote Msg|"
+  end
+  -- Is Last Stats Msg flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Last Stats Msg|"
+  end
+  -- Is Last Implied Msg flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Last Implied Msg|"
+  end
+  -- Is Recovery Msg flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Recovery Msg|"
+  end
+  -- Is Reserved flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Reserved|"
+  end
+  -- Is End Of Event flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."End Of Event|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Match Event Indicator
-cme_futures_streamlined_sbe_v5_9.match_event_indicator.bits = function(buffer, offset, packet, parent)
-
-  -- End Of Event: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.end_of_event, buffer(offset, 1))
-
-  -- Reserved: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.reserved, buffer(offset, 1))
-
-  -- Recovery Msg: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.recovery_msg, buffer(offset, 1))
-
-  -- Last Implied Msg: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.last_implied_msg, buffer(offset, 1))
-
-  -- Last Stats Msg: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.last_stats_msg, buffer(offset, 1))
-
-  -- Last Quote Msg: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.last_quote_msg, buffer(offset, 1))
-
-  -- Last Volume Msg: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.last_volume_msg, buffer(offset, 1))
+cme_futures_streamlined_sbe_v5_9.match_event_indicator.bits = function(range, value, packet, parent)
 
   -- Last Trade Msg: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.last_trade_msg, buffer(offset, 1))
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.last_trade_msg, range, value)
+
+  -- Last Volume Msg: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.last_volume_msg, range, value)
+
+  -- Last Quote Msg: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.last_quote_msg, range, value)
+
+  -- Last Stats Msg: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.last_stats_msg, range, value)
+
+  -- Last Implied Msg: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.last_implied_msg, range, value)
+
+  -- Recovery Msg: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.recovery_msg, range, value)
+
+  -- Reserved: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.reserved, range, value)
+
+  -- End Of Event: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.end_of_event, range, value)
 end
 
 -- Dissect: Match Event Indicator
 cme_futures_streamlined_sbe_v5_9.match_event_indicator.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = cme_futures_streamlined_sbe_v5_9.match_event_indicator.size
   local range = buffer(offset, size)
-  local display = cme_futures_streamlined_sbe_v5_9.match_event_indicator.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.match_event_indicator.display(range, value, packet, parent)
   local element = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.match_event_indicator, range, display)
 
   if show.match_event_indicator then
-    cme_futures_streamlined_sbe_v5_9.match_event_indicator.bits(buffer, offset, packet, element)
+    cme_futures_streamlined_sbe_v5_9.match_event_indicator.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Trade Date
@@ -12117,60 +12125,90 @@ cme_futures_streamlined_sbe_v5_9.settl_price_type = {}
 cme_futures_streamlined_sbe_v5_9.settl_price_type.size = 1
 
 -- Display: Settl Price Type
-cme_futures_streamlined_sbe_v5_9.settl_price_type.display = function(buffer, packet, parent)
+cme_futures_streamlined_sbe_v5_9.settl_price_type.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Null Value flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Null Value|"
-  end
-  -- Is Rounded flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Rounded|"
-  end
-  -- Is Actual flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Actual|"
-  end
   -- Is Final Daily flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Final Daily|"
   end
+  -- Is Actual flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Actual|"
+  end
+  -- Is Rounded flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Rounded|"
+  end
+  -- Is Reserved Bits flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Reserved Bits|"
+  end
+  -- Is Unused Settl Price Type 4 flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Unused Settl Price Type 4|"
+  end
+  -- Is Unused Settl Price Type 5 flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Unused Settl Price Type 5|"
+  end
+  -- Is Unused Settl Price Type 6 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Unused Settl Price Type 6|"
+  end
+  -- Is Null Value flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Null Value|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Settl Price Type
-cme_futures_streamlined_sbe_v5_9.settl_price_type.bits = function(buffer, offset, packet, parent)
-
-  -- Null Value: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.null_value, buffer(offset, 1))
-
-  -- Reserved Bits: 4 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.reserved_bits, buffer(offset, 1))
-
-  -- Rounded: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.rounded, buffer(offset, 1))
-
-  -- Actual: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.actual, buffer(offset, 1))
+cme_futures_streamlined_sbe_v5_9.settl_price_type.bits = function(range, value, packet, parent)
 
   -- Final Daily: 1 Bit
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.final_daily, buffer(offset, 1))
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.final_daily, range, value)
+
+  -- Actual: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.actual, range, value)
+
+  -- Rounded: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.rounded, range, value)
+
+  -- Reserved Bits: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.reserved_bits, range, value)
+
+  -- Unused Settl Price Type 4: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unused_settl_price_type_4, range, value)
+
+  -- Unused Settl Price Type 5: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unused_settl_price_type_5, range, value)
+
+  -- Unused Settl Price Type 6: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unused_settl_price_type_6, range, value)
+
+  -- Null Value: 1 Bit
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.null_value, range, value)
 end
 
 -- Dissect: Settl Price Type
 cme_futures_streamlined_sbe_v5_9.settl_price_type.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = cme_futures_streamlined_sbe_v5_9.settl_price_type.size
   local range = buffer(offset, size)
-  local display = cme_futures_streamlined_sbe_v5_9.settl_price_type.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.settl_price_type.display(range, value, packet, parent)
   local element = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.settl_price_type, range, display)
 
   if show.settl_price_type then
-    cme_futures_streamlined_sbe_v5_9.settl_price_type.bits(buffer, offset, packet, element)
+    cme_futures_streamlined_sbe_v5_9.settl_price_type.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Md Entry Px Decimal Optional
@@ -12360,7 +12398,7 @@ cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.fields = function(buf
   -- Open Close Settl Flag: 1 Byte Signed Fixed Width Integer Nullable
   index, open_close_settl_flag = cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 5 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_streamlined_sbe_v5_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Cal Fut Px Optional: Struct of 2 fields

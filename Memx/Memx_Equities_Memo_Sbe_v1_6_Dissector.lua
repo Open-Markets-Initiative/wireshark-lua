@@ -3523,53 +3523,58 @@ memx_equities_memo_sbe_v1_6.exec_inst = {}
 memx_equities_memo_sbe_v1_6.exec_inst.size = 2
 
 -- Display: Exec Inst
-memx_equities_memo_sbe_v1_6.exec_inst.display = function(buffer, packet, parent)
+memx_equities_memo_sbe_v1_6.exec_inst.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is External Routing Not Allowed flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."External Routing Not Allowed|"
-  end
-  -- Is Intermarket Sweep flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Intermarket Sweep|"
-  end
   -- Is Participate Do Not Initiate flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Participate Do Not Initiate|"
   end
+  -- Is Intermarket Sweep flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Intermarket Sweep|"
+  end
+  -- Is External Routing Not Allowed flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."External Routing Not Allowed|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Exec Inst
-memx_equities_memo_sbe_v1_6.exec_inst.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 13: 13 Bit
-  parent:add(omi_memx_equities_memo_sbe_v1_6.fields.reserved_13, buffer(offset, 2))
-
-  -- External Routing Not Allowed: 1 Bit
-  parent:add(omi_memx_equities_memo_sbe_v1_6.fields.external_routing_not_allowed, buffer(offset, 2))
-
-  -- Intermarket Sweep: 1 Bit
-  parent:add(omi_memx_equities_memo_sbe_v1_6.fields.intermarket_sweep, buffer(offset, 2))
+memx_equities_memo_sbe_v1_6.exec_inst.bits = function(range, value, packet, parent)
 
   -- Participate Do Not Initiate: 1 Bit
-  parent:add(omi_memx_equities_memo_sbe_v1_6.fields.participate_do_not_initiate, buffer(offset, 2))
+  parent:add(omi_memx_equities_memo_sbe_v1_6.fields.participate_do_not_initiate, range, value)
+
+  -- Intermarket Sweep: 1 Bit
+  parent:add(omi_memx_equities_memo_sbe_v1_6.fields.intermarket_sweep, range, value)
+
+  -- External Routing Not Allowed: 1 Bit
+  parent:add(omi_memx_equities_memo_sbe_v1_6.fields.external_routing_not_allowed, range, value)
+
+  -- Reserved 13: 13 Bit
+  parent:add(omi_memx_equities_memo_sbe_v1_6.fields.reserved_13, range, value)
 end
 
 -- Dissect: Exec Inst
 memx_equities_memo_sbe_v1_6.exec_inst.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = memx_equities_memo_sbe_v1_6.exec_inst.size
   local range = buffer(offset, size)
-  local display = memx_equities_memo_sbe_v1_6.exec_inst.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = memx_equities_memo_sbe_v1_6.exec_inst.display(range, value, packet, parent)
   local element = parent:add(omi_memx_equities_memo_sbe_v1_6.fields.exec_inst, range, display)
 
   if show.exec_inst then
-    memx_equities_memo_sbe_v1_6.exec_inst.bits(buffer, offset, packet, element)
+    memx_equities_memo_sbe_v1_6.exec_inst.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Cust Order Capacity

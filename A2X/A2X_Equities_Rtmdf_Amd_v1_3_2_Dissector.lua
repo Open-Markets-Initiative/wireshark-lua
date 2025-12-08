@@ -15,16 +15,16 @@ local a2x_equities_rtmdf_amd_v1_3_2 = {}
 -----------------------------------------------------------------------
 
 -- A2X Equities Rtmdf Amd 1.3.2 Fields
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.aod_enabled = ProtoField.new("Aod Enabled", "a2x.equities.rtmdf.amd.v1.3.2.aodenabled", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x001000)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.aod_enabled = ProtoField.new("Aod Enabled", "a2x.equities.rtmdf.amd.v1.3.2.aodenabled", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0400)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.equities.rtmdf.amd.v1.3.2.closingbuyqty", ftypes.UINT32)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.equities.rtmdf.amd.v1.3.2.closingsellqty", ftypes.UINT32)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.currency = ProtoField.new("Currency", "a2x.equities.rtmdf.amd.v1.3.2.currency", ftypes.STRING)
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.illiquid = ProtoField.new("Illiquid", "a2x.equities.rtmdf.amd.v1.3.2.illiquid", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x000400)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.illiquid = ProtoField.new("Illiquid", "a2x.equities.rtmdf.amd.v1.3.2.illiquid", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x1000)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.equities.rtmdf.amd.v1.3.2.indicativeprice", ftypes.UINT64)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.isin = ProtoField.new("Isin", "a2x.equities.rtmdf.amd.v1.3.2.isin", ftypes.STRING)
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_enabled = ProtoField.new("Mac Enabled", "a2x.equities.rtmdf.amd.v1.3.2.macenabled", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x000080)
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.equities.rtmdf.amd.v1.3.2.macopen", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.equities.rtmdf.amd.v1.3.2.macrun", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_enabled = ProtoField.new("Mac Enabled", "a2x.equities.rtmdf.amd.v1.3.2.macenabled", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x8000)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.equities.rtmdf.amd.v1.3.2.macopen", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.equities.rtmdf.amd.v1.3.2.macrun", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.equities.rtmdf.amd.v1.3.2.marketflags", ftypes.STRING)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.match_vol = ProtoField.new("Match Vol", "a2x.equities.rtmdf.amd.v1.3.2.matchvol", ftypes.UINT32)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.equities.rtmdf.amd.v1.3.2.message", ftypes.STRING)
@@ -43,19 +43,19 @@ omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_flags = ProtoField.new("Securi
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_id = ProtoField.new("Security Id", "a2x.equities.rtmdf.amd.v1.3.2.securityid", ftypes.UINT16)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.seq_no = ProtoField.new("Seq No", "a2x.equities.rtmdf.amd.v1.3.2.seqno", ftypes.UINT32)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.side = ProtoField.new("Side", "a2x.equities.rtmdf.amd.v1.3.2.side", ftypes.UINT8)
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.test_stock = ProtoField.new("Test Stock", "a2x.equities.rtmdf.amd.v1.3.2.teststock", ftypes.UINT16, nil, base.DEC, 0x000300)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.test_stock = ProtoField.new("Test Stock", "a2x.equities.rtmdf.amd.v1.3.2.teststock", ftypes.UINT16, nil, base.DEC, 0x6000)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.threshold = ProtoField.new("Threshold", "a2x.equities.rtmdf.amd.v1.3.2.threshold", ftypes.UINT64)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.tick_size = ProtoField.new("Tick Size", "a2x.equities.rtmdf.amd.v1.3.2.ticksize", ftypes.UINT64)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_id = ProtoField.new("Tick Table Id", "a2x.equities.rtmdf.amd.v1.3.2.ticktableid", ftypes.UINT8)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.equities.rtmdf.amd.v1.3.2.timestamp", ftypes.UINT64)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_ref = ProtoField.new("Trade Ref", "a2x.equities.rtmdf.amd.v1.3.2.traderef", ftypes.UINT32)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_type = ProtoField.new("Trade Type", "a2x.equities.rtmdf.amd.v1.3.2.tradetype", ftypes.UINT8)
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.equities.rtmdf.amd.v1.3.2.trading", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.equities.rtmdf.amd.v1.3.2.trading", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.equities.rtmdf.amd.v1.3.2.tradingstatus", ftypes.UINT8)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.umtf = ProtoField.new("Umtf", "a2x.equities.rtmdf.amd.v1.3.2.umtf", ftypes.STRING)
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_1 = ProtoField.new("Unused 1", "a2x.equities.rtmdf.amd.v1.3.2.unused1", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x000800)
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_11 = ProtoField.new("Unused 11", "a2x.equities.rtmdf.amd.v1.3.2.unused11", ftypes.UINT16, nil, base.DEC, 0xFFE000)
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.equities.rtmdf.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_1 = ProtoField.new("Unused 1", "a2x.equities.rtmdf.amd.v1.3.2.unused1", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0800)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_10 = ProtoField.new("Unused 10", "a2x.equities.rtmdf.amd.v1.3.2.unused10", ftypes.UINT16, nil, base.DEC, 0x03FF)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.equities.rtmdf.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 
 -- A2X Equities Rtmdf Amd 1.3.2 messages
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message = ProtoField.new("Auction On Demand Message", "a2x.equities.rtmdf.amd.v1.3.2.auctionondemandmessage", ftypes.STRING)
@@ -448,53 +448,58 @@ a2x_equities_rtmdf_amd_v1_3_2.market_flags = {}
 a2x_equities_rtmdf_amd_v1_3_2.market_flags.size = 1
 
 -- Display: Market Flags
-a2x_equities_rtmdf_amd_v1_3_2.market_flags.display = function(buffer, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2.market_flags.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Mac Run flag set?
-  if buffer:bitfield(5) > 0 then
+  if bit.band(value, 0x20) ~= 0 then
     display = display.."Mac Run|"
   end
   -- Is Mac Open flag set?
-  if buffer:bitfield(6) > 0 then
+  if bit.band(value, 0x40) ~= 0 then
     display = display.."Mac Open|"
   end
   -- Is Trading flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x80) ~= 0 then
     display = display.."Trading|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Market Flags
-a2x_equities_rtmdf_amd_v1_3_2.market_flags.bits = function(buffer, offset, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2.market_flags.bits = function(range, value, packet, parent)
 
   -- Unused 5: 5 Bit
-  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_5, buffer(offset, 1))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_5, range, value)
 
   -- Mac Run: 1 Bit
-  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_run, buffer(offset, 1))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_run, range, value)
 
   -- Mac Open: 1 Bit
-  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_open, buffer(offset, 1))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_open, range, value)
 
   -- Trading: 1 Bit
-  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trading, buffer(offset, 1))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trading, range, value)
 end
 
 -- Dissect: Market Flags
 a2x_equities_rtmdf_amd_v1_3_2.market_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = a2x_equities_rtmdf_amd_v1_3_2.market_flags.size
   local range = buffer(offset, size)
-  local display = a2x_equities_rtmdf_amd_v1_3_2.market_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = a2x_equities_rtmdf_amd_v1_3_2.market_flags.display(range, value, packet, parent)
   local element = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.market_flags, range, display)
 
   if show.market_flags then
-    a2x_equities_rtmdf_amd_v1_3_2.market_flags.bits(buffer, offset, packet, element)
+    a2x_equities_rtmdf_amd_v1_3_2.market_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Trading Status
@@ -595,63 +600,68 @@ a2x_equities_rtmdf_amd_v1_3_2.security_flags = {}
 a2x_equities_rtmdf_amd_v1_3_2.security_flags.size = 2
 
 -- Display: Security Flags
-a2x_equities_rtmdf_amd_v1_3_2.security_flags.display = function(buffer, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2.security_flags.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Aod Enabled flag set?
-  if buffer:bitfield(11) > 0 then
+  if bit.band(value, 0x0400) ~= 0 then
     display = display.."Aod Enabled|"
   end
   -- Is Unused 1 flag set?
-  if buffer:bitfield(12) > 0 then
+  if bit.band(value, 0x0800) ~= 0 then
     display = display.."Unused 1|"
   end
   -- Is Illiquid flag set?
-  if buffer:bitfield(13) > 0 then
+  if bit.band(value, 0x1000) ~= 0 then
     display = display.."Illiquid|"
   end
   -- Is Mac Enabled flag set?
-  if buffer:bitfield(16) > 0 then
+  if bit.band(value, 0x8000) ~= 0 then
     display = display.."Mac Enabled|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Security Flags
-a2x_equities_rtmdf_amd_v1_3_2.security_flags.bits = function(buffer, offset, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2.security_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 11: 11 Bit
-  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_11, buffer(offset, 2))
+  -- Unused 10: 10 Bit
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_10, range, value)
 
   -- Aod Enabled: 1 Bit
-  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.aod_enabled, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.aod_enabled, range, value)
 
   -- Unused 1: 1 Bit
-  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_1, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_1, range, value)
 
   -- Illiquid: 1 Bit
-  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.illiquid, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.illiquid, range, value)
 
   -- Test Stock: 2 Bit
-  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.test_stock, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.test_stock, range, value)
 
   -- Mac Enabled: 1 Bit
-  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_enabled, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_enabled, range, value)
 end
 
 -- Dissect: Security Flags
 a2x_equities_rtmdf_amd_v1_3_2.security_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = a2x_equities_rtmdf_amd_v1_3_2.security_flags.size
   local range = buffer(offset, size)
-  local display = a2x_equities_rtmdf_amd_v1_3_2.security_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = a2x_equities_rtmdf_amd_v1_3_2.security_flags.display(range, value, packet, parent)
   local element = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_flags, range, display)
 
   if show.security_flags then
-    a2x_equities_rtmdf_amd_v1_3_2.security_flags.bits(buffer, offset, packet, element)
+    a2x_equities_rtmdf_amd_v1_3_2.security_flags.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Tick Table Id

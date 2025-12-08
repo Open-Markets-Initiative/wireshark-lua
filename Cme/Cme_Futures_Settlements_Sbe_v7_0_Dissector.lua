@@ -57,7 +57,7 @@ omi_cme_futures_settlements_sbe_v7_0.fields.packet_sequence_number = ProtoField.
 omi_cme_futures_settlements_sbe_v7_0.fields.payload = ProtoField.new("Payload", "cme.futures.settlements.sbe.v7.0.payload", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.product_guid = ProtoField.new("Product Guid", "cme.futures.settlements.sbe.v7.0.productguid", ftypes.UINT64)
 omi_cme_futures_settlements_sbe_v7_0.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.settlements.sbe.v7.0.putorcall", ftypes.UINT8)
-omi_cme_futures_settlements_sbe_v7_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.settlements.sbe.v7.0.reservedbits", ftypes.UINT8, nil, base.DEC, 0x60)
+omi_cme_futures_settlements_sbe_v7_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.settlements.sbe.v7.0.reservedbits", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_cme_futures_settlements_sbe_v7_0.fields.rounded = ProtoField.new("Rounded", "cme.futures.settlements.sbe.v7.0.rounded", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 omi_cme_futures_settlements_sbe_v7_0.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.settlements.sbe.v7.0.schemaid", ftypes.UINT16)
 omi_cme_futures_settlements_sbe_v7_0.fields.security_exchange = ProtoField.new("Security Exchange", "cme.futures.settlements.sbe.v7.0.securityexchange", ftypes.STRING)
@@ -75,6 +75,7 @@ omi_cme_futures_settlements_sbe_v7_0.fields.underlying_maturity_month_year = Pro
 omi_cme_futures_settlements_sbe_v7_0.fields.underlying_product_guid = ProtoField.new("Underlying Product Guid", "cme.futures.settlements.sbe.v7.0.underlyingproductguid", ftypes.UINT64)
 omi_cme_futures_settlements_sbe_v7_0.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "cme.futures.settlements.sbe.v7.0.underlyingsecurityexchange", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.underlying_security_type = ProtoField.new("Underlying Security Type", "cme.futures.settlements.sbe.v7.0.underlyingsecuritytype", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.unused_settl_price_type_6 = ProtoField.new("Unused Settl Price Type 6", "cme.futures.settlements.sbe.v7.0.unusedsettlpricetype6", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_cme_futures_settlements_sbe_v7_0.fields.version = ProtoField.new("Version", "cme.futures.settlements.sbe.v7.0.version", ftypes.UINT16)
 omi_cme_futures_settlements_sbe_v7_0.fields.week = ProtoField.new("Week", "cme.futures.settlements.sbe.v7.0.week", ftypes.UINT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.futures.settlements.sbe.v7.0.year", ftypes.UINT16)
@@ -1926,74 +1927,90 @@ cme_futures_settlements_sbe_v7_0.settl_price_type = {}
 cme_futures_settlements_sbe_v7_0.settl_price_type.size = 1
 
 -- Display: Settl Price Type
-cme_futures_settlements_sbe_v7_0.settl_price_type.display = function(buffer, packet, parent)
+cme_futures_settlements_sbe_v7_0.settl_price_type.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Null Value flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Null Value|"
-  end
-  -- Is Cabinet flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Cabinet|"
-  end
-  -- Is Intraday flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Intraday|"
-  end
-  -- Is Rounded flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Rounded|"
-  end
-  -- Is Actual flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Actual|"
-  end
   -- Is Final Daily flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Final Daily|"
   end
+  -- Is Actual flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Actual|"
+  end
+  -- Is Rounded flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Rounded|"
+  end
+  -- Is Intraday flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Intraday|"
+  end
+  -- Is Cabinet flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Cabinet|"
+  end
+  -- Is Reserved Bits flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Reserved Bits|"
+  end
+  -- Is Unused Settl Price Type 6 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Unused Settl Price Type 6|"
+  end
+  -- Is Null Value flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Null Value|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Settl Price Type
-cme_futures_settlements_sbe_v7_0.settl_price_type.bits = function(buffer, offset, packet, parent)
-
-  -- Null Value: 1 Bit
-  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.null_value, buffer(offset, 1))
-
-  -- Reserved Bits: 2 Bit
-  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.reserved_bits, buffer(offset, 1))
-
-  -- Cabinet: 1 Bit
-  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.cabinet, buffer(offset, 1))
-
-  -- Intraday: 1 Bit
-  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.intraday, buffer(offset, 1))
-
-  -- Rounded: 1 Bit
-  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.rounded, buffer(offset, 1))
-
-  -- Actual: 1 Bit
-  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.actual, buffer(offset, 1))
+cme_futures_settlements_sbe_v7_0.settl_price_type.bits = function(range, value, packet, parent)
 
   -- Final Daily: 1 Bit
-  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.final_daily, buffer(offset, 1))
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.final_daily, range, value)
+
+  -- Actual: 1 Bit
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.actual, range, value)
+
+  -- Rounded: 1 Bit
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.rounded, range, value)
+
+  -- Intraday: 1 Bit
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.intraday, range, value)
+
+  -- Cabinet: 1 Bit
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.cabinet, range, value)
+
+  -- Reserved Bits: 1 Bit
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.reserved_bits, range, value)
+
+  -- Unused Settl Price Type 6: 1 Bit
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.unused_settl_price_type_6, range, value)
+
+  -- Null Value: 1 Bit
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.null_value, range, value)
 end
 
 -- Dissect: Settl Price Type
 cme_futures_settlements_sbe_v7_0.settl_price_type.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = cme_futures_settlements_sbe_v7_0.settl_price_type.size
   local range = buffer(offset, size)
-  local display = cme_futures_settlements_sbe_v7_0.settl_price_type.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = cme_futures_settlements_sbe_v7_0.settl_price_type.display(range, value, packet, parent)
   local element = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.settl_price_type, range, display)
 
   if show.settl_price_type then
-    cme_futures_settlements_sbe_v7_0.settl_price_type.bits(buffer, offset, packet, element)
+    cme_futures_settlements_sbe_v7_0.settl_price_type.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Md Entry Px
@@ -2255,7 +2272,7 @@ cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.fields = funct
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px = cme_futures_settlements_sbe_v7_0.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 7 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_settlements_sbe_v7_0.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable

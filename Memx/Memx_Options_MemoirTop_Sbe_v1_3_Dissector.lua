@@ -524,39 +524,44 @@ memx_options_memoirtop_sbe_v1_3.trade_conditions = {}
 memx_options_memoirtop_sbe_v1_3.trade_conditions.size = 1
 
 -- Display: Trade Conditions
-memx_options_memoirtop_sbe_v1_3.trade_conditions.display = function(buffer, packet, parent)
+memx_options_memoirtop_sbe_v1_3.trade_conditions.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Intermarket Sweep flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Intermarket Sweep|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Trade Conditions
-memx_options_memoirtop_sbe_v1_3.trade_conditions.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 7: 7 Bit
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.reserved_7, buffer(offset, 1))
+memx_options_memoirtop_sbe_v1_3.trade_conditions.bits = function(range, value, packet, parent)
 
   -- Intermarket Sweep: 1 Bit
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.intermarket_sweep, buffer(offset, 1))
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.intermarket_sweep, range, value)
+
+  -- Reserved 7: 7 Bit
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.reserved_7, range, value)
 end
 
 -- Dissect: Trade Conditions
 memx_options_memoirtop_sbe_v1_3.trade_conditions.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = memx_options_memoirtop_sbe_v1_3.trade_conditions.size
   local range = buffer(offset, size)
-  local display = memx_options_memoirtop_sbe_v1_3.trade_conditions.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = memx_options_memoirtop_sbe_v1_3.trade_conditions.display(range, value, packet, parent)
   local element = parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.trade_conditions, range, display)
 
   if show.trade_conditions then
-    memx_options_memoirtop_sbe_v1_3.trade_conditions.bits(buffer, offset, packet, element)
+    memx_options_memoirtop_sbe_v1_3.trade_conditions.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Trade Id

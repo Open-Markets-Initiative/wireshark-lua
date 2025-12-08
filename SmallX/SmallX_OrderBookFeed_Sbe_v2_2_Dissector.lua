@@ -15,7 +15,7 @@ local smallx_orderbookfeed_sbe_v2_2 = {}
 -----------------------------------------------------------------------
 
 -- SmallX OrderBookFeed Sbe 2.2 Fields
-omi_smallx_orderbookfeed_sbe_v2_2.fields.administrative = ProtoField.new("Administrative", "smallx.orderbookfeed.sbe.v2.2.administrative", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.administrative = ProtoField.new("Administrative", "smallx.orderbookfeed.sbe.v2.2.administrative", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.aggressor_side = ProtoField.new("Aggressor Side", "smallx.orderbookfeed.sbe.v2.2.aggressorside", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.auction = ProtoField.new("Auction", "smallx.orderbookfeed.sbe.v2.2.auction", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.block_length = ProtoField.new("Block Length", "smallx.orderbookfeed.sbe.v2.2.blocklength", ftypes.UINT16)
@@ -38,7 +38,7 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.group_dimension = ProtoField.new("Group
 omi_smallx_orderbookfeed_sbe_v2_2.fields.high_price = ProtoField.new("High Price", "smallx.orderbookfeed.sbe.v2.2.highprice", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.implied = ProtoField.new("Implied", "smallx.orderbookfeed.sbe.v2.2.implied", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.incarnation = ProtoField.new("Incarnation", "smallx.orderbookfeed.sbe.v2.2.incarnation", ftypes.INT16)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.incarnation_end = ProtoField.new("Incarnation End", "smallx.orderbookfeed.sbe.v2.2.incarnationend", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.incarnation_end = ProtoField.new("Incarnation End", "smallx.orderbookfeed.sbe.v2.2.incarnationend", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_message_instructions = ProtoField.new("Incremental Message Instructions", "smallx.orderbookfeed.sbe.v2.2.incrementalmessageinstructions", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_trade_group = ProtoField.new("Incremental Trade Group", "smallx.orderbookfeed.sbe.v2.2.incrementaltradegroup", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_trade_groups = ProtoField.new("Incremental Trade Groups", "smallx.orderbookfeed.sbe.v2.2.incrementaltradegroups", ftypes.STRING)
@@ -92,11 +92,10 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.product = ProtoField.new("Product", "sm
 omi_smallx_orderbookfeed_sbe_v2_2.fields.put_or_call = ProtoField.new("Put Or Call", "smallx.orderbookfeed.sbe.v2.2.putorcall", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_14 = ProtoField.new("Reserved 14", "smallx.orderbookfeed.sbe.v2.2.reserved14", ftypes.UINT16, nil, base.DEC, 0xFFFC)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_15 = ProtoField.new("Reserved 15", "smallx.orderbookfeed.sbe.v2.2.reserved15", ftypes.UINT16, nil, base.DEC, 0xFFFE)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_2 = ProtoField.new("Reserved 2", "smallx.orderbookfeed.sbe.v2.2.reserved2", ftypes.UINT8, nil, base.DEC, 0x0006)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_5 = ProtoField.new("Reserved 5", "smallx.orderbookfeed.sbe.v2.2.reserved5", ftypes.UINT8, nil, base.DEC, 0x1F)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_7 = ProtoField.new("Reserved 7", "smallx.orderbookfeed.sbe.v2.2.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE00)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_5 = ProtoField.new("Reserved 5", "smallx.orderbookfeed.sbe.v2.2.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_7 = ProtoField.new("Reserved 7", "smallx.orderbookfeed.sbe.v2.2.reserved7", ftypes.UINT16, nil, base.DEC, 0xFE00)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_9 = ProtoField.new("Reserved 9", "smallx.orderbookfeed.sbe.v2.2.reserved9", ftypes.UINT16, nil, base.DEC, 0xFF80)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.retransmission = ProtoField.new("Retransmission", "smallx.orderbookfeed.sbe.v2.2.retransmission", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.retransmission = ProtoField.new("Retransmission", "smallx.orderbookfeed.sbe.v2.2.retransmission", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.sbe_frame = ProtoField.new("Sbe Frame", "smallx.orderbookfeed.sbe.v2.2.sbeframe", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.schema_id = ProtoField.new("Schema Id", "smallx.orderbookfeed.sbe.v2.2.schemaid", ftypes.UINT16)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.sell_order_id = ProtoField.new("Sell Order Id", "smallx.orderbookfeed.sbe.v2.2.sellorderid", ftypes.INT64)
@@ -108,8 +107,8 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.side = ProtoField.new("Side", "smallx.o
 omi_smallx_orderbookfeed_sbe_v2_2.fields.size = ProtoField.new("Size", "smallx.orderbookfeed.sbe.v2.2.size", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.snaphot_orders_group = ProtoField.new("Snaphot Orders Group", "smallx.orderbookfeed.sbe.v2.2.snaphotordersgroup", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.snaphot_orders_groups = ProtoField.new("Snaphot Orders Groups", "smallx.orderbookfeed.sbe.v2.2.snaphotordersgroups", ftypes.STRING)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_begin = ProtoField.new("Snapshot Begin", "smallx.orderbookfeed.sbe.v2.2.snapshotbegin", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_end = ProtoField.new("Snapshot End", "smallx.orderbookfeed.sbe.v2.2.snapshotend", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_begin = ProtoField.new("Snapshot Begin", "smallx.orderbookfeed.sbe.v2.2.snapshotbegin", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_end = ProtoField.new("Snapshot End", "smallx.orderbookfeed.sbe.v2.2.snapshotend", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_instruments_count = ProtoField.new("Snapshot Instruments Count", "smallx.orderbookfeed.sbe.v2.2.snapshotinstrumentscount", ftypes.INT32)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_message_instructions = ProtoField.new("Snapshot Message Instructions", "smallx.orderbookfeed.sbe.v2.2.snapshotmessageinstructions", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.source = ProtoField.new("Source", "smallx.orderbookfeed.sbe.v2.2.source", ftypes.UINT8)
@@ -136,6 +135,9 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.transaction_begin = ProtoField.new("Tra
 omi_smallx_orderbookfeed_sbe_v2_2.fields.transaction_end = ProtoField.new("Transaction End", "smallx.orderbookfeed.sbe.v2.2.transactionend", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "smallx.orderbookfeed.sbe.v2.2.underlyinginstrumentid", ftypes.INT32)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "smallx.orderbookfeed.sbe.v2.2.underlyingsymbol", ftypes.STRING)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_0 = ProtoField.new("Unused Snapshot Message Instructions 0", "smallx.orderbookfeed.sbe.v2.2.unusedsnapshotmessageinstructions0", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_1 = ProtoField.new("Unused Snapshot Message Instructions 1", "smallx.orderbookfeed.sbe.v2.2.unusedsnapshotmessageinstructions1", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_6 = ProtoField.new("Unused Snapshot Message Instructions 6", "smallx.orderbookfeed.sbe.v2.2.unusedsnapshotmessageinstructions6", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0040)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.value = ProtoField.new("Value", "smallx.orderbookfeed.sbe.v2.2.value", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.version = ProtoField.new("Version", "smallx.orderbookfeed.sbe.v2.2.version", ftypes.UINT16)
 
@@ -1244,80 +1246,103 @@ end
 smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions = {}
 
 -- Size: Snapshot Message Instructions
-smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size = 1
+smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size = 2
 
 -- Display: Snapshot Message Instructions
-smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.display = function(buffer, packet, parent)
+smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Snapshot End flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Snapshot End|"
+  -- Is Unused Snapshot Message Instructions 0 flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    display = display.."Unused Snapshot Message Instructions 0|"
   end
-  -- Is Snapshot Begin flag set?
-  if buffer:bitfield(8) > 0 then
-    display = display.."Snapshot Begin|"
-  end
-  -- Is Book End flag set?
-  if buffer:bitfield(9) > 0 then
-    display = display.."Book End|"
-  end
-  -- Is Book Begin flag set?
-  if buffer:bitfield(10) > 0 then
-    display = display.."Book Begin|"
-  end
-  -- Is Instrument End flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Instrument End|"
+  -- Is Unused Snapshot Message Instructions 1 flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Unused Snapshot Message Instructions 1|"
   end
   -- Is Instrument Begin flag set?
-  if buffer:bitfield(12) > 0 then
+  if bit.band(value, 0x0004) ~= 0 then
     display = display.."Instrument Begin|"
   end
+  -- Is Instrument End flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Instrument End|"
+  end
+  -- Is Book Begin flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    display = display.."Book Begin|"
+  end
+  -- Is Book End flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    display = display.."Book End|"
+  end
+  -- Is Unused Snapshot Message Instructions 6 flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    display = display.."Unused Snapshot Message Instructions 6|"
+  end
+  -- Is Snapshot Begin flag set?
+  if bit.band(value, 0x0080) ~= 0 then
+    display = display.."Snapshot Begin|"
+  end
+  -- Is Snapshot End flag set?
+  if bit.band(value, 0x0100) ~= 0 then
+    display = display.."Snapshot End|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Snapshot Message Instructions
-smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits = function(buffer, offset, packet, parent)
+smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits = function(range, value, packet, parent)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_7, buffer(offset, 1))
+  -- Unused Snapshot Message Instructions 0: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_0, range, value)
 
-  -- Snapshot End: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_end, buffer(offset, 1))
-
-  -- Snapshot Begin: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_begin, buffer(offset, 1))
-
-  -- Book End: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.book_end, buffer(offset, 1))
-
-  -- Book Begin: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.book_begin, buffer(offset, 1))
-
-  -- Instrument End: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_end, buffer(offset, 1))
+  -- Unused Snapshot Message Instructions 1: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_1, range, value)
 
   -- Instrument Begin: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_begin, buffer(offset, 1))
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_begin, range, value)
 
-  -- Reserved 2: 2 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_2, buffer(offset, 1))
+  -- Instrument End: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_end, range, value)
+
+  -- Book Begin: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.book_begin, range, value)
+
+  -- Book End: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.book_end, range, value)
+
+  -- Unused Snapshot Message Instructions 6: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_6, range, value)
+
+  -- Snapshot Begin: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_begin, range, value)
+
+  -- Snapshot End: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_end, range, value)
+
+  -- Reserved 7: 7 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_7, range, value)
 end
 
 -- Dissect: Snapshot Message Instructions
 smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size
   local range = buffer(offset, size)
-  local display = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_message_instructions, range, display)
 
   if show.snapshot_message_instructions then
-    smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits(buffer, offset, packet, element)
+    smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Instrument Trading Status
@@ -1543,7 +1568,7 @@ smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message.fields = 
   -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Message Instructions: Struct of 8 fields
+  -- Snapshot Message Instructions: Struct of 10 fields
   index, snapshot_message_instructions = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
   -- Snapshot Instruments Count: 4 Byte Signed Fixed Width Integer
@@ -2047,7 +2072,7 @@ smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.
   -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Message Instructions: Struct of 8 fields
+  -- Snapshot Message Instructions: Struct of 10 fields
   index, snapshot_message_instructions = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
   -- Snapshot Instruments Count: 4 Byte Signed Fixed Width Integer
@@ -2190,81 +2215,86 @@ smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions = {}
 smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.size = 2
 
 -- Display: Incremental Message Instructions
-smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.display = function(buffer, packet, parent)
+smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Book Reset flag set?
-  if buffer:bitfield(9) > 0 then
-    display = display.."Book Reset|"
-  end
-  -- Is Book End flag set?
-  if buffer:bitfield(10) > 0 then
-    display = display.."Book End|"
-  end
-  -- Is Book Begin flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Book Begin|"
-  end
-  -- Is Instrument End flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Instrument End|"
-  end
-  -- Is Instrument Begin flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Instrument Begin|"
-  end
-  -- Is Transaction End flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Transaction End|"
-  end
   -- Is Transaction Begin flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Transaction Begin|"
   end
+  -- Is Transaction End flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Transaction End|"
+  end
+  -- Is Instrument Begin flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Instrument Begin|"
+  end
+  -- Is Instrument End flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Instrument End|"
+  end
+  -- Is Book Begin flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    display = display.."Book Begin|"
+  end
+  -- Is Book End flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    display = display.."Book End|"
+  end
+  -- Is Book Reset flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    display = display.."Book Reset|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Incremental Message Instructions
-smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 9: 9 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_9, buffer(offset, 2))
-
-  -- Book Reset: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.book_reset, buffer(offset, 2))
-
-  -- Book End: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.book_end, buffer(offset, 2))
-
-  -- Book Begin: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.book_begin, buffer(offset, 2))
-
-  -- Instrument End: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_end, buffer(offset, 2))
-
-  -- Instrument Begin: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_begin, buffer(offset, 2))
-
-  -- Transaction End: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.transaction_end, buffer(offset, 2))
+smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.bits = function(range, value, packet, parent)
 
   -- Transaction Begin: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.transaction_begin, buffer(offset, 2))
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.transaction_begin, range, value)
+
+  -- Transaction End: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.transaction_end, range, value)
+
+  -- Instrument Begin: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_begin, range, value)
+
+  -- Instrument End: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_end, range, value)
+
+  -- Book Begin: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.book_begin, range, value)
+
+  -- Book End: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.book_end, range, value)
+
+  -- Book Reset: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.book_reset, range, value)
+
+  -- Reserved 9: 9 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_9, range, value)
 end
 
 -- Dissect: Incremental Message Instructions
 smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.size
   local range = buffer(offset, size)
-  local display = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_message_instructions, range, display)
 
   if show.incremental_message_instructions then
-    smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.bits(buffer, offset, packet, element)
+    smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Multileg Definition Incremental V 2 Message
@@ -2808,7 +2838,7 @@ smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message.fields = function(buf
   -- Transact Time: 8 Byte Signed Fixed Width Integer
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Message Instructions: Struct of 8 fields
+  -- Snapshot Message Instructions: Struct of 10 fields
   index, snapshot_message_instructions = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
   -- Index Count: 4 Byte Signed Fixed Width Integer
@@ -3166,7 +3196,7 @@ smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.fields = function(
   -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Message Instructions: Struct of 8 fields
+  -- Snapshot Message Instructions: Struct of 10 fields
   index, snapshot_message_instructions = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
   -- Snapshot Instruments Count: 4 Byte Signed Fixed Width Integer
@@ -3262,39 +3292,44 @@ smallx_orderbookfeed_sbe_v2_2.order_attributes = {}
 smallx_orderbookfeed_sbe_v2_2.order_attributes.size = 2
 
 -- Display: Order Attributes
-smallx_orderbookfeed_sbe_v2_2.order_attributes.display = function(buffer, packet, parent)
+smallx_orderbookfeed_sbe_v2_2.order_attributes.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Implied flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Implied|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Order Attributes
-smallx_orderbookfeed_sbe_v2_2.order_attributes.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 15: 15 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_15, buffer(offset, 2))
+smallx_orderbookfeed_sbe_v2_2.order_attributes.bits = function(range, value, packet, parent)
 
   -- Implied: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.implied, buffer(offset, 2))
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.implied, range, value)
+
+  -- Reserved 15: 15 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_15, range, value)
 end
 
 -- Dissect: Order Attributes
 smallx_orderbookfeed_sbe_v2_2.order_attributes.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = smallx_orderbookfeed_sbe_v2_2.order_attributes.size
   local range = buffer(offset, size)
-  local display = smallx_orderbookfeed_sbe_v2_2.order_attributes.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.order_attributes.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_attributes, range, display)
 
   if show.order_attributes then
-    smallx_orderbookfeed_sbe_v2_2.order_attributes.bits(buffer, offset, packet, element)
+    smallx_orderbookfeed_sbe_v2_2.order_attributes.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Order Priority
@@ -3618,7 +3653,7 @@ smallx_orderbookfeed_sbe_v2_2.order_book_snapshot_message.fields = function(buff
   -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Message Instructions: Struct of 8 fields
+  -- Snapshot Message Instructions: Struct of 10 fields
   index, snapshot_message_instructions = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
   -- Snapshot Instruments Count: 4 Byte Signed Fixed Width Integer
@@ -4072,46 +4107,51 @@ smallx_orderbookfeed_sbe_v2_2.trade_conditions = {}
 smallx_orderbookfeed_sbe_v2_2.trade_conditions.size = 2
 
 -- Display: Trade Conditions
-smallx_orderbookfeed_sbe_v2_2.trade_conditions.display = function(buffer, packet, parent)
+smallx_orderbookfeed_sbe_v2_2.trade_conditions.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Auction flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Auction|"
-  end
   -- Is Synthetic flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Synthetic|"
   end
+  -- Is Auction flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Auction|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Trade Conditions
-smallx_orderbookfeed_sbe_v2_2.trade_conditions.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 14: 14 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_14, buffer(offset, 2))
-
-  -- Auction: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.auction, buffer(offset, 2))
+smallx_orderbookfeed_sbe_v2_2.trade_conditions.bits = function(range, value, packet, parent)
 
   -- Synthetic: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.synthetic, buffer(offset, 2))
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.synthetic, range, value)
+
+  -- Auction: 1 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.auction, range, value)
+
+  -- Reserved 14: 14 Bit
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_14, range, value)
 end
 
 -- Dissect: Trade Conditions
 smallx_orderbookfeed_sbe_v2_2.trade_conditions.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = smallx_orderbookfeed_sbe_v2_2.trade_conditions.size
   local range = buffer(offset, size)
-  local display = smallx_orderbookfeed_sbe_v2_2.trade_conditions.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.trade_conditions.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_conditions, range, display)
 
   if show.trade_conditions then
-    smallx_orderbookfeed_sbe_v2_2.trade_conditions.bits(buffer, offset, packet, element)
+    smallx_orderbookfeed_sbe_v2_2.trade_conditions.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Sell Order Id
@@ -5469,53 +5509,58 @@ smallx_orderbookfeed_sbe_v2_2.packet_flags = {}
 smallx_orderbookfeed_sbe_v2_2.packet_flags.size = 1
 
 -- Display: Packet Flags
-smallx_orderbookfeed_sbe_v2_2.packet_flags.display = function(buffer, packet, parent)
+smallx_orderbookfeed_sbe_v2_2.packet_flags.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Incarnation End flag set?
-  if buffer:bitfield(0) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Incarnation End|"
   end
   -- Is Retransmission flag set?
-  if buffer:bitfield(1) > 0 then
+  if bit.band(value, 0x02) ~= 0 then
     display = display.."Retransmission|"
   end
   -- Is Administrative flag set?
-  if buffer:bitfield(2) > 0 then
+  if bit.band(value, 0x04) ~= 0 then
     display = display.."Administrative|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Packet Flags
-smallx_orderbookfeed_sbe_v2_2.packet_flags.bits = function(buffer, offset, packet, parent)
+smallx_orderbookfeed_sbe_v2_2.packet_flags.bits = function(range, value, packet, parent)
 
   -- Incarnation End: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incarnation_end, buffer(offset, 1))
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incarnation_end, range, value)
 
   -- Retransmission: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.retransmission, buffer(offset, 1))
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.retransmission, range, value)
 
   -- Administrative: 1 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.administrative, buffer(offset, 1))
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.administrative, range, value)
 
   -- Reserved 5: 5 Bit
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_5, buffer(offset, 1))
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_5, range, value)
 end
 
 -- Dissect: Packet Flags
 smallx_orderbookfeed_sbe_v2_2.packet_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = smallx_orderbookfeed_sbe_v2_2.packet_flags.size
   local range = buffer(offset, size)
-  local display = smallx_orderbookfeed_sbe_v2_2.packet_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.packet_flags.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_flags, range, display)
 
   if show.packet_flags then
-    smallx_orderbookfeed_sbe_v2_2.packet_flags.bits(buffer, offset, packet, element)
+    smallx_orderbookfeed_sbe_v2_2.packet_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Source

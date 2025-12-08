@@ -3029,39 +3029,44 @@ coinbase_derivatives_ordersapi_sbe_v1_7.flags = {}
 coinbase_derivatives_ordersapi_sbe_v1_7.flags.size = 1
 
 -- Display: Flags
-coinbase_derivatives_ordersapi_sbe_v1_7.flags.display = function(buffer, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_7.flags.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Post Only flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Post Only|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Flags
-coinbase_derivatives_ordersapi_sbe_v1_7.flags.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 7: 7 Bit
-  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_7.fields.reserved_7, buffer(offset, 1))
+coinbase_derivatives_ordersapi_sbe_v1_7.flags.bits = function(range, value, packet, parent)
 
   -- Post Only: 1 Bit
-  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_7.fields.post_only, buffer(offset, 1))
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_7.fields.post_only, range, value)
+
+  -- Reserved 7: 7 Bit
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_7.fields.reserved_7, range, value)
 end
 
 -- Dissect: Flags
 coinbase_derivatives_ordersapi_sbe_v1_7.flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = coinbase_derivatives_ordersapi_sbe_v1_7.flags.size
   local range = buffer(offset, size)
-  local display = coinbase_derivatives_ordersapi_sbe_v1_7.flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_ordersapi_sbe_v1_7.flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_7.fields.flags, range, display)
 
   if show.flags then
-    coinbase_derivatives_ordersapi_sbe_v1_7.flags.bits(buffer, offset, packet, element)
+    coinbase_derivatives_ordersapi_sbe_v1_7.flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- New Order Message

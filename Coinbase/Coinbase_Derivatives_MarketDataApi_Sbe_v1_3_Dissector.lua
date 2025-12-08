@@ -605,53 +605,58 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags = {}
 coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.size = 2
 
 -- Display: Definition Flags
-coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.display = function(buffer, packet, parent)
+coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Is Call flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Is Call|"
-  end
-  -- Is Is Announced flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Is Announced|"
-  end
   -- Is Is Prior Settlement Theoretical flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Is Prior Settlement Theoretical|"
   end
+  -- Is Is Announced flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Is Announced|"
+  end
+  -- Is Is Call flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Is Call|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Definition Flags
-coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 13: 13 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.reserved_13, buffer(offset, 2))
-
-  -- Is Call: 1 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_call, buffer(offset, 2))
-
-  -- Is Announced: 1 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_announced, buffer(offset, 2))
+coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.bits = function(range, value, packet, parent)
 
   -- Is Prior Settlement Theoretical: 1 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_prior_settlement_theoretical, buffer(offset, 2))
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_prior_settlement_theoretical, range, value)
+
+  -- Is Announced: 1 Bit
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_announced, range, value)
+
+  -- Is Call: 1 Bit
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_call, range, value)
+
+  -- Reserved 13: 13 Bit
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.reserved_13, range, value)
 end
 
 -- Dissect: Definition Flags
 coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.size
   local range = buffer(offset, size)
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.definition_flags, range, display)
 
   if show.definition_flags then
-    coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.bits(buffer, offset, packet, element)
+    coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Prior Settlement Price Optional

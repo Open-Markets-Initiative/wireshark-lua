@@ -2782,53 +2782,58 @@ memx_options_memo_sbe_v1_6_a.mass_cancel_inst = {}
 memx_options_memo_sbe_v1_6_a.mass_cancel_inst.size = 1
 
 -- Display: Mass Cancel Inst
-memx_options_memo_sbe_v1_6_a.mass_cancel_inst.display = function(buffer, packet, parent)
+memx_options_memo_sbe_v1_6_a.mass_cancel_inst.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Cancel Orders From This Port Only flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Cancel Orders From This Port Only|"
-  end
-  -- Is Send Cancels flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Send Cancels|"
-  end
   -- Is Lockout flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Lockout|"
   end
+  -- Is Send Cancels flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Send Cancels|"
+  end
+  -- Is Cancel Orders From This Port Only flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Cancel Orders From This Port Only|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Mass Cancel Inst
-memx_options_memo_sbe_v1_6_a.mass_cancel_inst.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 5: 5 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reserved_5, buffer(offset, 1))
-
-  -- Cancel Orders From This Port Only: 1 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.cancel_orders_from_this_port_only, buffer(offset, 1))
-
-  -- Send Cancels: 1 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.send_cancels, buffer(offset, 1))
+memx_options_memo_sbe_v1_6_a.mass_cancel_inst.bits = function(range, value, packet, parent)
 
   -- Lockout: 1 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.lockout, buffer(offset, 1))
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.lockout, range, value)
+
+  -- Send Cancels: 1 Bit
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.send_cancels, range, value)
+
+  -- Cancel Orders From This Port Only: 1 Bit
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.cancel_orders_from_this_port_only, range, value)
+
+  -- Reserved 5: 5 Bit
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reserved_5, range, value)
 end
 
 -- Dissect: Mass Cancel Inst
 memx_options_memo_sbe_v1_6_a.mass_cancel_inst.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = memx_options_memo_sbe_v1_6_a.mass_cancel_inst.size
   local range = buffer(offset, size)
-  local display = memx_options_memo_sbe_v1_6_a.mass_cancel_inst.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = memx_options_memo_sbe_v1_6_a.mass_cancel_inst.display(range, value, packet, parent)
   local element = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_inst, range, display)
 
   if show.mass_cancel_inst then
-    memx_options_memo_sbe_v1_6_a.mass_cancel_inst.bits(buffer, offset, packet, element)
+    memx_options_memo_sbe_v1_6_a.mass_cancel_inst.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Cancel Group Id
@@ -5683,53 +5688,58 @@ memx_options_memo_sbe_v1_6_a.exec_inst = {}
 memx_options_memo_sbe_v1_6_a.exec_inst.size = 2
 
 -- Display: Exec Inst
-memx_options_memo_sbe_v1_6_a.exec_inst.display = function(buffer, packet, parent)
+memx_options_memo_sbe_v1_6_a.exec_inst.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is External Routing Not Allowed flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."External Routing Not Allowed|"
-  end
-  -- Is Intermarket Sweep flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Intermarket Sweep|"
-  end
   -- Is Participate Do Not Initiate flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Participate Do Not Initiate|"
   end
+  -- Is Intermarket Sweep flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Intermarket Sweep|"
+  end
+  -- Is External Routing Not Allowed flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."External Routing Not Allowed|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Exec Inst
-memx_options_memo_sbe_v1_6_a.exec_inst.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 13: 13 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reserved_13, buffer(offset, 2))
-
-  -- External Routing Not Allowed: 1 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.external_routing_not_allowed, buffer(offset, 2))
-
-  -- Intermarket Sweep: 1 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.intermarket_sweep, buffer(offset, 2))
+memx_options_memo_sbe_v1_6_a.exec_inst.bits = function(range, value, packet, parent)
 
   -- Participate Do Not Initiate: 1 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.participate_do_not_initiate, buffer(offset, 2))
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.participate_do_not_initiate, range, value)
+
+  -- Intermarket Sweep: 1 Bit
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.intermarket_sweep, range, value)
+
+  -- External Routing Not Allowed: 1 Bit
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.external_routing_not_allowed, range, value)
+
+  -- Reserved 13: 13 Bit
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reserved_13, range, value)
 end
 
 -- Dissect: Exec Inst
 memx_options_memo_sbe_v1_6_a.exec_inst.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = memx_options_memo_sbe_v1_6_a.exec_inst.size
   local range = buffer(offset, size)
-  local display = memx_options_memo_sbe_v1_6_a.exec_inst.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = memx_options_memo_sbe_v1_6_a.exec_inst.display(range, value, packet, parent)
   local element = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.exec_inst, range, display)
 
   if show.exec_inst then
-    memx_options_memo_sbe_v1_6_a.exec_inst.bits(buffer, offset, packet, element)
+    memx_options_memo_sbe_v1_6_a.exec_inst.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Time In Force

@@ -15,12 +15,12 @@ local smallx_headers_sbe_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- SmallX Headers Sbe 1.0 Fields
-omi_smallx_headers_sbe_v1_0.fields.administrative = ProtoField.new("Administrative", "smallx.headers.sbe.v1.0.administrative", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_smallx_headers_sbe_v1_0.fields.administrative = ProtoField.new("Administrative", "smallx.headers.sbe.v1.0.administrative", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 omi_smallx_headers_sbe_v1_0.fields.block_length = ProtoField.new("Block Length", "smallx.headers.sbe.v1.0.blocklength", ftypes.UINT16)
 omi_smallx_headers_sbe_v1_0.fields.channel_id = ProtoField.new("Channel Id", "smallx.headers.sbe.v1.0.channelid", ftypes.UINT8)
 omi_smallx_headers_sbe_v1_0.fields.frame_length = ProtoField.new("Frame Length", "smallx.headers.sbe.v1.0.framelength", ftypes.UINT8)
 omi_smallx_headers_sbe_v1_0.fields.incarnation = ProtoField.new("Incarnation", "smallx.headers.sbe.v1.0.incarnation", ftypes.INT16)
-omi_smallx_headers_sbe_v1_0.fields.incarnation_end = ProtoField.new("Incarnation End", "smallx.headers.sbe.v1.0.incarnationend", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_smallx_headers_sbe_v1_0.fields.incarnation_end = ProtoField.new("Incarnation End", "smallx.headers.sbe.v1.0.incarnationend", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_smallx_headers_sbe_v1_0.fields.message_count = ProtoField.new("Message Count", "smallx.headers.sbe.v1.0.messagecount", ftypes.UINT8)
 omi_smallx_headers_sbe_v1_0.fields.message_header = ProtoField.new("Message Header", "smallx.headers.sbe.v1.0.messageheader", ftypes.STRING)
 omi_smallx_headers_sbe_v1_0.fields.message_sequence = ProtoField.new("Message Sequence", "smallx.headers.sbe.v1.0.messagesequence", ftypes.INT32)
@@ -28,8 +28,8 @@ omi_smallx_headers_sbe_v1_0.fields.packet = ProtoField.new("Packet", "smallx.hea
 omi_smallx_headers_sbe_v1_0.fields.packet_flags = ProtoField.new("Packet Flags", "smallx.headers.sbe.v1.0.packetflags", ftypes.STRING)
 omi_smallx_headers_sbe_v1_0.fields.packet_header = ProtoField.new("Packet Header", "smallx.headers.sbe.v1.0.packetheader", ftypes.STRING)
 omi_smallx_headers_sbe_v1_0.fields.payload = ProtoField.new("Payload", "smallx.headers.sbe.v1.0.payload", ftypes.BYTES)
-omi_smallx_headers_sbe_v1_0.fields.reserved_5 = ProtoField.new("Reserved 5", "smallx.headers.sbe.v1.0.reserved5", ftypes.UINT8, nil, base.DEC, 0x1F)
-omi_smallx_headers_sbe_v1_0.fields.retransmission = ProtoField.new("Retransmission", "smallx.headers.sbe.v1.0.retransmission", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_smallx_headers_sbe_v1_0.fields.reserved_5 = ProtoField.new("Reserved 5", "smallx.headers.sbe.v1.0.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_smallx_headers_sbe_v1_0.fields.retransmission = ProtoField.new("Retransmission", "smallx.headers.sbe.v1.0.retransmission", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 omi_smallx_headers_sbe_v1_0.fields.sbe_frame = ProtoField.new("Sbe Frame", "smallx.headers.sbe.v1.0.sbeframe", ftypes.STRING)
 omi_smallx_headers_sbe_v1_0.fields.schema_id = ProtoField.new("Schema Id", "smallx.headers.sbe.v1.0.schemaid", ftypes.UINT16)
 omi_smallx_headers_sbe_v1_0.fields.source = ProtoField.new("Source", "smallx.headers.sbe.v1.0.source", ftypes.UINT8)
@@ -380,53 +380,58 @@ smallx_headers_sbe_v1_0.packet_flags = {}
 smallx_headers_sbe_v1_0.packet_flags.size = 1
 
 -- Display: Packet Flags
-smallx_headers_sbe_v1_0.packet_flags.display = function(buffer, packet, parent)
+smallx_headers_sbe_v1_0.packet_flags.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Incarnation End flag set?
-  if buffer:bitfield(0) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Incarnation End|"
   end
   -- Is Retransmission flag set?
-  if buffer:bitfield(1) > 0 then
+  if bit.band(value, 0x02) ~= 0 then
     display = display.."Retransmission|"
   end
   -- Is Administrative flag set?
-  if buffer:bitfield(2) > 0 then
+  if bit.band(value, 0x04) ~= 0 then
     display = display.."Administrative|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Packet Flags
-smallx_headers_sbe_v1_0.packet_flags.bits = function(buffer, offset, packet, parent)
+smallx_headers_sbe_v1_0.packet_flags.bits = function(range, value, packet, parent)
 
   -- Incarnation End: 1 Bit
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.incarnation_end, buffer(offset, 1))
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.incarnation_end, range, value)
 
   -- Retransmission: 1 Bit
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.retransmission, buffer(offset, 1))
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.retransmission, range, value)
 
   -- Administrative: 1 Bit
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.administrative, buffer(offset, 1))
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.administrative, range, value)
 
   -- Reserved 5: 5 Bit
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.reserved_5, buffer(offset, 1))
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.reserved_5, range, value)
 end
 
 -- Dissect: Packet Flags
 smallx_headers_sbe_v1_0.packet_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = smallx_headers_sbe_v1_0.packet_flags.size
   local range = buffer(offset, size)
-  local display = smallx_headers_sbe_v1_0.packet_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = smallx_headers_sbe_v1_0.packet_flags.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_headers_sbe_v1_0.fields.packet_flags, range, display)
 
   if show.packet_flags then
-    smallx_headers_sbe_v1_0.packet_flags.bits(buffer, offset, packet, element)
+    smallx_headers_sbe_v1_0.packet_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Source

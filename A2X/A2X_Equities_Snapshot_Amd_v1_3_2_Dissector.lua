@@ -19,8 +19,8 @@ omi_a2x_equities_snapshot_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Cl
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.equities.snapshot.amd.v1.3.2.closingsellqty", ftypes.UINT32)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.entries = ProtoField.new("Entries", "a2x.equities.snapshot.amd.v1.3.2.entries", ftypes.UINT16)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.equities.snapshot.amd.v1.3.2.indicativeprice", ftypes.UINT64)
-omi_a2x_equities_snapshot_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.equities.snapshot.amd.v1.3.2.macopen", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-omi_a2x_equities_snapshot_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.equities.snapshot.amd.v1.3.2.macrun", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_a2x_equities_snapshot_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.equities.snapshot.amd.v1.3.2.macopen", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_a2x_equities_snapshot_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.equities.snapshot.amd.v1.3.2.macrun", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.equities.snapshot.amd.v1.3.2.marketflags", ftypes.STRING)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.equities.snapshot.amd.v1.3.2.message", ftypes.STRING)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.message_count = ProtoField.new("Message Count", "a2x.equities.snapshot.amd.v1.3.2.messagecount", ftypes.UINT8)
@@ -37,9 +37,9 @@ omi_a2x_equities_snapshot_amd_v1_3_2.fields.security_id = ProtoField.new("Securi
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.seq_no = ProtoField.new("Seq No", "a2x.equities.snapshot.amd.v1.3.2.seqno", ftypes.UINT32)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.stream_seq_no = ProtoField.new("Stream Seq No", "a2x.equities.snapshot.amd.v1.3.2.streamseqno", ftypes.UINT32)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.equities.snapshot.amd.v1.3.2.timestamp", ftypes.UINT64)
-omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.equities.snapshot.amd.v1.3.2.trading", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.equities.snapshot.amd.v1.3.2.trading", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.equities.snapshot.amd.v1.3.2.tradingstatus", ftypes.UINT8)
-omi_a2x_equities_snapshot_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.equities.snapshot.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_a2x_equities_snapshot_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.equities.snapshot.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 
 -- A2X Equities Snapshot Amd 1.3.2 messages
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.book_entry_message = ProtoField.new("Book Entry Message", "a2x.equities.snapshot.amd.v1.3.2.bookentrymessage", ftypes.STRING)
@@ -426,53 +426,58 @@ a2x_equities_snapshot_amd_v1_3_2.market_flags = {}
 a2x_equities_snapshot_amd_v1_3_2.market_flags.size = 1
 
 -- Display: Market Flags
-a2x_equities_snapshot_amd_v1_3_2.market_flags.display = function(buffer, packet, parent)
+a2x_equities_snapshot_amd_v1_3_2.market_flags.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Mac Run flag set?
-  if buffer:bitfield(5) > 0 then
+  if bit.band(value, 0x20) ~= 0 then
     display = display.."Mac Run|"
   end
   -- Is Mac Open flag set?
-  if buffer:bitfield(6) > 0 then
+  if bit.band(value, 0x40) ~= 0 then
     display = display.."Mac Open|"
   end
   -- Is Trading flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x80) ~= 0 then
     display = display.."Trading|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Market Flags
-a2x_equities_snapshot_amd_v1_3_2.market_flags.bits = function(buffer, offset, packet, parent)
+a2x_equities_snapshot_amd_v1_3_2.market_flags.bits = function(range, value, packet, parent)
 
   -- Unused 5: 5 Bit
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.unused_5, buffer(offset, 1))
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.unused_5, range, value)
 
   -- Mac Run: 1 Bit
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.mac_run, buffer(offset, 1))
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.mac_run, range, value)
 
   -- Mac Open: 1 Bit
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.mac_open, buffer(offset, 1))
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.mac_open, range, value)
 
   -- Trading: 1 Bit
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading, buffer(offset, 1))
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading, range, value)
 end
 
 -- Dissect: Market Flags
 a2x_equities_snapshot_amd_v1_3_2.market_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = a2x_equities_snapshot_amd_v1_3_2.market_flags.size
   local range = buffer(offset, size)
-  local display = a2x_equities_snapshot_amd_v1_3_2.market_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.market_flags.display(range, value, packet, parent)
   local element = parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.market_flags, range, display)
 
   if show.market_flags then
-    a2x_equities_snapshot_amd_v1_3_2.market_flags.bits(buffer, offset, packet, element)
+    a2x_equities_snapshot_amd_v1_3_2.market_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Trading Status

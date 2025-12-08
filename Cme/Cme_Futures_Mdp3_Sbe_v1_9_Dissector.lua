@@ -21,7 +21,7 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.appl_id = ProtoField.new("Appl Id", "cme.fu
 omi_cme_futures_mdp3_sbe_v1_9.fields.asset = ProtoField.new("Asset", "cme.futures.mdp3.sbe.v1.9.asset", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.mdp3.sbe.v1.9.binarypacketheader", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.block_length = ProtoField.new("Block Length", "cme.futures.mdp3.sbe.v1.9.blocklength", ftypes.UINT16)
-omi_cme_futures_mdp3_sbe_v1_9.fields.block_trade_eligible = ProtoField.new("Block Trade Eligible", "cme.futures.mdp3.sbe.v1.9.blocktradeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x04000000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.block_trade_eligible = ProtoField.new("Block Trade Eligible", "cme.futures.mdp3.sbe.v1.9.blocktradeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000004)
 omi_cme_futures_mdp3_sbe_v1_9.fields.cfi_code = ProtoField.new("Cfi Code", "cme.futures.mdp3.sbe.v1.9.cficode", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.channel_reset_group = ProtoField.new("Channel Reset Group", "cme.futures.mdp3.sbe.v1.9.channelresetgroup", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.channel_reset_groups = ProtoField.new("Channel Reset Groups", "cme.futures.mdp3.sbe.v1.9.channelresetgroups", ftypes.STRING)
@@ -30,18 +30,18 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.contract_multiplier = ProtoField.new("Contr
 omi_cme_futures_mdp3_sbe_v1_9.fields.contract_multiplier_unit = ProtoField.new("Contract Multiplier Unit", "cme.futures.mdp3.sbe.v1.9.contractmultiplierunit", ftypes.INT8)
 omi_cme_futures_mdp3_sbe_v1_9.fields.currency = ProtoField.new("Currency", "cme.futures.mdp3.sbe.v1.9.currency", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.current_chunk = ProtoField.new("Current Chunk", "cme.futures.mdp3.sbe.v1.9.currentchunk", ftypes.UINT32)
-omi_cme_futures_mdp3_sbe_v1_9.fields.daily_product_eligibility = ProtoField.new("Daily Product Eligibility", "cme.futures.mdp3.sbe.v1.9.dailyproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000200)
+omi_cme_futures_mdp3_sbe_v1_9.fields.daily_product_eligibility = ProtoField.new("Daily Product Eligibility", "cme.futures.mdp3.sbe.v1.9.dailyproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00020000)
 omi_cme_futures_mdp3_sbe_v1_9.fields.day = ProtoField.new("Day", "cme.futures.mdp3.sbe.v1.9.day", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_9.fields.decay_quantity = ProtoField.new("Decay Quantity", "cme.futures.mdp3.sbe.v1.9.decayquantity", ftypes.INT32)
 omi_cme_futures_mdp3_sbe_v1_9.fields.decay_start_date = ProtoField.new("Decay Start Date", "cme.futures.mdp3.sbe.v1.9.decaystartdate", ftypes.UINT16)
-omi_cme_futures_mdp3_sbe_v1_9.fields.decaying_product_eligibility = ProtoField.new("Decaying Product Eligibility", "cme.futures.mdp3.sbe.v1.9.decayingproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00800000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.decaying_product_eligibility = ProtoField.new("Decaying Product Eligibility", "cme.futures.mdp3.sbe.v1.9.decayingproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00008000)
 omi_cme_futures_mdp3_sbe_v1_9.fields.display_factor = ProtoField.new("Display Factor", "cme.futures.mdp3.sbe.v1.9.displayfactor", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_9.fields.display_factor_ex = ProtoField.new("Display Factor Ex", "cme.futures.mdp3.sbe.v1.9.displayfactorex", ftypes.DOUBLE)
-omi_cme_futures_mdp3_sbe_v1_9.fields.ebf_eligible = ProtoField.new("Ebf Eligible", "cme.futures.mdp3.sbe.v1.9.ebfeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x10000000)
-omi_cme_futures_mdp3_sbe_v1_9.fields.efp_eligible = ProtoField.new("Efp Eligible", "cme.futures.mdp3.sbe.v1.9.efpeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x08000000)
-omi_cme_futures_mdp3_sbe_v1_9.fields.efr_eligible = ProtoField.new("Efr Eligible", "cme.futures.mdp3.sbe.v1.9.efreligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x40000000)
-omi_cme_futures_mdp3_sbe_v1_9.fields.efs_eligible = ProtoField.new("Efs Eligible", "cme.futures.mdp3.sbe.v1.9.efseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x20000000)
-omi_cme_futures_mdp3_sbe_v1_9.fields.electronic_match_eligible = ProtoField.new("Electronic Match Eligible", "cme.futures.mdp3.sbe.v1.9.electronicmatcheligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x01000000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.ebf_eligible = ProtoField.new("Ebf Eligible", "cme.futures.mdp3.sbe.v1.9.ebfeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000010)
+omi_cme_futures_mdp3_sbe_v1_9.fields.efp_eligible = ProtoField.new("Efp Eligible", "cme.futures.mdp3.sbe.v1.9.efpeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000008)
+omi_cme_futures_mdp3_sbe_v1_9.fields.efr_eligible = ProtoField.new("Efr Eligible", "cme.futures.mdp3.sbe.v1.9.efreligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000040)
+omi_cme_futures_mdp3_sbe_v1_9.fields.efs_eligible = ProtoField.new("Efs Eligible", "cme.futures.mdp3.sbe.v1.9.efseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000020)
+omi_cme_futures_mdp3_sbe_v1_9.fields.electronic_match_eligible = ProtoField.new("Electronic Match Eligible", "cme.futures.mdp3.sbe.v1.9.electronicmatcheligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000001)
 omi_cme_futures_mdp3_sbe_v1_9.fields.end_of_event = ProtoField.new("End Of Event", "cme.futures.mdp3.sbe.v1.9.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_cme_futures_mdp3_sbe_v1_9.fields.event_time = ProtoField.new("Event Time", "cme.futures.mdp3.sbe.v1.9.eventtime", ftypes.UINT64)
 omi_cme_futures_mdp3_sbe_v1_9.fields.event_type = ProtoField.new("Event Type", "cme.futures.mdp3.sbe.v1.9.eventtype", ftypes.UINT8)
@@ -53,13 +53,13 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.final_daily = ProtoField.new("Final Daily",
 omi_cme_futures_mdp3_sbe_v1_9.fields.flow_schedule_type = ProtoField.new("Flow Schedule Type", "cme.futures.mdp3.sbe.v1.9.flowscheduletype", ftypes.INT8)
 omi_cme_futures_mdp3_sbe_v1_9.fields.group_size = ProtoField.new("Group Size", "cme.futures.mdp3.sbe.v1.9.groupsize", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.group_size_8_byte = ProtoField.new("Group Size 8 Byte", "cme.futures.mdp3.sbe.v1.9.groupsize8byte", ftypes.STRING)
-omi_cme_futures_mdp3_sbe_v1_9.fields.gt_orders_eligibility = ProtoField.new("Gt Orders Eligibility", "cme.futures.mdp3.sbe.v1.9.gtorderseligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000400)
+omi_cme_futures_mdp3_sbe_v1_9.fields.gt_orders_eligibility = ProtoField.new("Gt Orders Eligibility", "cme.futures.mdp3.sbe.v1.9.gtorderseligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00040000)
 omi_cme_futures_mdp3_sbe_v1_9.fields.halt_reason = ProtoField.new("Halt Reason", "cme.futures.mdp3.sbe.v1.9.haltreason", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_9.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "cme.futures.mdp3.sbe.v1.9.heartbtint", ftypes.INT8)
 omi_cme_futures_mdp3_sbe_v1_9.fields.high_limit_price = ProtoField.new("High Limit Price", "cme.futures.mdp3.sbe.v1.9.highlimitprice", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_9.fields.high_limit_price_ex = ProtoField.new("High Limit Price Ex", "cme.futures.mdp3.sbe.v1.9.highlimitpriceex", ftypes.DOUBLE)
-omi_cme_futures_mdp3_sbe_v1_9.fields.ilink_indicative_mass_quoting_eligible = ProtoField.new("ILink Indicative Mass Quoting Eligible", "cme.futures.mdp3.sbe.v1.9.ilinkindicativemassquotingeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00010000)
-omi_cme_futures_mdp3_sbe_v1_9.fields.implied_matching_eligibility = ProtoField.new("Implied Matching Eligibility", "cme.futures.mdp3.sbe.v1.9.impliedmatchingeligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000800)
+omi_cme_futures_mdp3_sbe_v1_9.fields.ilink_indicative_mass_quoting_eligible = ProtoField.new("ILink Indicative Mass Quoting Eligible", "cme.futures.mdp3.sbe.v1.9.ilinkindicativemassquotingeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000100)
+omi_cme_futures_mdp3_sbe_v1_9.fields.implied_matching_eligibility = ProtoField.new("Implied Matching Eligibility", "cme.futures.mdp3.sbe.v1.9.impliedmatchingeligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00080000)
 omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_book_group = ProtoField.new("Incremental Refresh Book Group", "cme.futures.mdp3.sbe.v1.9.incrementalrefreshbookgroup", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_book_groups = ProtoField.new("Incremental Refresh Book Groups", "cme.futures.mdp3.sbe.v1.9.incrementalrefreshbookgroups", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_book_order_id_group = ProtoField.new("Incremental Refresh Book Order Id Group", "cme.futures.mdp3.sbe.v1.9.incrementalrefreshbookorderidgroup", ftypes.STRING)
@@ -82,7 +82,7 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.inst_attrib_group = ProtoField.new("Inst At
 omi_cme_futures_mdp3_sbe_v1_9.fields.inst_attrib_groups = ProtoField.new("Inst Attrib Groups", "cme.futures.mdp3.sbe.v1.9.instattribgroups", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.inst_attrib_value = ProtoField.new("Inst Attrib Value", "cme.futures.mdp3.sbe.v1.9.instattribvalue", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.intraday = ProtoField.new("Intraday", "cme.futures.mdp3.sbe.v1.9.intraday", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-omi_cme_futures_mdp3_sbe_v1_9.fields.is_fractional = ProtoField.new("Is Fractional", "cme.futures.mdp3.sbe.v1.9.isfractional", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00080000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.is_fractional = ProtoField.new("Is Fractional", "cme.futures.mdp3.sbe.v1.9.isfractional", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000800)
 omi_cme_futures_mdp3_sbe_v1_9.fields.last_implied_msg = ProtoField.new("Last Implied Msg", "cme.futures.mdp3.sbe.v1.9.lastimpliedmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
 omi_cme_futures_mdp3_sbe_v1_9.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "cme.futures.mdp3.sbe.v1.9.lastmsgseqnumprocessed", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_9.fields.last_qty = ProtoField.new("Last Qty", "cme.futures.mdp3.sbe.v1.9.lastqty", ftypes.INT32)
@@ -189,8 +189,8 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_amount_ex = ProtoField.
 omi_cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_optional = ProtoField.new("Min Price Increment Optional", "cme.futures.mdp3.sbe.v1.9.minpriceincrementoptional", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_9.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "cme.futures.mdp3.sbe.v1.9.mintradevol", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_9.fields.month = ProtoField.new("Month", "cme.futures.mdp3.sbe.v1.9.month", ftypes.UINT8)
-omi_cme_futures_mdp3_sbe_v1_9.fields.negative_price_outright_eligible = ProtoField.new("Negative Price Outright Eligible", "cme.futures.mdp3.sbe.v1.9.negativepriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00040000)
-omi_cme_futures_mdp3_sbe_v1_9.fields.negative_strike_eligible = ProtoField.new("Negative Strike Eligible", "cme.futures.mdp3.sbe.v1.9.negativestrikeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00020000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.negative_price_outright_eligible = ProtoField.new("Negative Price Outright Eligible", "cme.futures.mdp3.sbe.v1.9.negativepriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000400)
+omi_cme_futures_mdp3_sbe_v1_9.fields.negative_strike_eligible = ProtoField.new("Negative Strike Eligible", "cme.futures.mdp3.sbe.v1.9.negativestrikeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000200)
 omi_cme_futures_mdp3_sbe_v1_9.fields.no_chunks = ProtoField.new("No Chunks", "cme.futures.mdp3.sbe.v1.9.nochunks", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_9.fields.null_value = ProtoField.new("Null Value", "cme.futures.mdp3.sbe.v1.9.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_cme_futures_mdp3_sbe_v1_9.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.mdp3.sbe.v1.9.numingroup", ftypes.UINT8)
@@ -202,13 +202,13 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.option_related_instruments_group = ProtoFie
 omi_cme_futures_mdp3_sbe_v1_9.fields.option_related_instruments_groups = ProtoField.new("Option Related Instruments Groups", "cme.futures.mdp3.sbe.v1.9.optionrelatedinstrumentsgroups", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.option_underlyings_group = ProtoField.new("Option Underlyings Group", "cme.futures.mdp3.sbe.v1.9.optionunderlyingsgroup", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.option_underlyings_groups = ProtoField.new("Option Underlyings Groups", "cme.futures.mdp3.sbe.v1.9.optionunderlyingsgroups", ftypes.STRING)
-omi_cme_futures_mdp3_sbe_v1_9.fields.order_cross_eligible = ProtoField.new("Order Cross Eligible", "cme.futures.mdp3.sbe.v1.9.ordercrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x02000000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.order_cross_eligible = ProtoField.new("Order Cross Eligible", "cme.futures.mdp3.sbe.v1.9.ordercrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000002)
 omi_cme_futures_mdp3_sbe_v1_9.fields.order_id = ProtoField.new("Order Id", "cme.futures.mdp3.sbe.v1.9.orderid", ftypes.UINT64)
 omi_cme_futures_mdp3_sbe_v1_9.fields.order_id_optional = ProtoField.new("Order Id Optional", "cme.futures.mdp3.sbe.v1.9.orderidoptional", ftypes.UINT64)
 omi_cme_futures_mdp3_sbe_v1_9.fields.order_qty = ProtoField.new("Order Qty", "cme.futures.mdp3.sbe.v1.9.orderqty", ftypes.INT32)
 omi_cme_futures_mdp3_sbe_v1_9.fields.order_update_action = ProtoField.new("Order Update Action", "cme.futures.mdp3.sbe.v1.9.orderupdateaction", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_9.fields.original_contract_size = ProtoField.new("Original Contract Size", "cme.futures.mdp3.sbe.v1.9.originalcontractsize", ftypes.INT32)
-omi_cme_futures_mdp3_sbe_v1_9.fields.otc_eligible = ProtoField.new("Otc Eligible", "cme.futures.mdp3.sbe.v1.9.otceligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x80000000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.otc_eligible = ProtoField.new("Otc Eligible", "cme.futures.mdp3.sbe.v1.9.otceligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000080)
 omi_cme_futures_mdp3_sbe_v1_9.fields.packet = ProtoField.new("Packet", "cme.futures.mdp3.sbe.v1.9.packet", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.futures.mdp3.sbe.v1.9.packetsequencenumber", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_9.fields.padding_1 = ProtoField.new("Padding 1", "cme.futures.mdp3.sbe.v1.9.padding1", ftypes.BYTES)
@@ -232,10 +232,9 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.related_sym_group = ProtoField.new("Related
 omi_cme_futures_mdp3_sbe_v1_9.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.futures.mdp3.sbe.v1.9.relatedsymgroups", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.related_symbol = ProtoField.new("Related Symbol", "cme.futures.mdp3.sbe.v1.9.relatedsymbol", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.reserved = ProtoField.new("Reserved", "cme.futures.mdp3.sbe.v1.9.reserved", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-omi_cme_futures_mdp3_sbe_v1_9.fields.reserved_2 = ProtoField.new("Reserved 2", "cme.futures.mdp3.sbe.v1.9.reserved2", ftypes.UINT32, nil, base.DEC, 0x0000C000)
-omi_cme_futures_mdp3_sbe_v1_9.fields.reserved_8 = ProtoField.new("Reserved 8", "cme.futures.mdp3.sbe.v1.9.reserved8", ftypes.UINT32, nil, base.DEC, 0x000000FF)
-omi_cme_futures_mdp3_sbe_v1_9.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.mdp3.sbe.v1.9.reservedbits", ftypes.UINT8, nil, base.DEC, 0x70)
-omi_cme_futures_mdp3_sbe_v1_9.fields.rfq_cross_eligible = ProtoField.new("Rfq Cross Eligible", "cme.futures.mdp3.sbe.v1.9.rfqcrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00200000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.reserved_10 = ProtoField.new("Reserved 10", "cme.futures.mdp3.sbe.v1.9.reserved10", ftypes.UINT32, nil, base.DEC, 0xFFC00000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.mdp3.sbe.v1.9.reservedbits", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
+omi_cme_futures_mdp3_sbe_v1_9.fields.rfq_cross_eligible = ProtoField.new("Rfq Cross Eligible", "cme.futures.mdp3.sbe.v1.9.rfqcrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00002000)
 omi_cme_futures_mdp3_sbe_v1_9.fields.rounded = ProtoField.new("Rounded", "cme.futures.mdp3.sbe.v1.9.rounded", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 omi_cme_futures_mdp3_sbe_v1_9.fields.rpt_seq = ProtoField.new("Rpt Seq", "cme.futures.mdp3.sbe.v1.9.rptseq", ftypes.UINT32)
 omi_cme_futures_mdp3_sbe_v1_9.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.mdp3.sbe.v1.9.schemaid", ftypes.UINT16)
@@ -275,7 +274,7 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.trading_reference_date = ProtoField.new("Tr
 omi_cme_futures_mdp3_sbe_v1_9.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "cme.futures.mdp3.sbe.v1.9.tradingreferenceprice", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_9.fields.trading_reference_price_ex = ProtoField.new("Trading Reference Price Ex", "cme.futures.mdp3.sbe.v1.9.tradingreferencepriceex", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_9.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.mdp3.sbe.v1.9.transacttime", ftypes.UINT64)
-omi_cme_futures_mdp3_sbe_v1_9.fields.triangulation_eligible = ProtoField.new("Triangulation Eligible", "cme.futures.mdp3.sbe.v1.9.triangulationeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00001000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.triangulation_eligible = ProtoField.new("Triangulation Eligible", "cme.futures.mdp3.sbe.v1.9.triangulationeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00100000)
 omi_cme_futures_mdp3_sbe_v1_9.fields.underlying_product = ProtoField.new("Underlying Product", "cme.futures.mdp3.sbe.v1.9.underlyingproduct", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_9.fields.underlying_product_optional = ProtoField.new("Underlying Product Optional", "cme.futures.mdp3.sbe.v1.9.underlyingproductoptional", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_9.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.futures.mdp3.sbe.v1.9.underlyingsecurityid", ftypes.INT32)
@@ -283,14 +282,16 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.underlying_symbol = ProtoField.new("Underly
 omi_cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.futures.mdp3.sbe.v1.9.unitofmeasure", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.futures.mdp3.sbe.v1.9.unitofmeasureqty", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure_qty_ex = ProtoField.new("Unit Of Measure Qty Ex", "cme.futures.mdp3.sbe.v1.9.unitofmeasureqtyex", ftypes.DOUBLE)
+omi_cme_futures_mdp3_sbe_v1_9.fields.unused_settl_price_type_5 = ProtoField.new("Unused Settl Price Type 5", "cme.futures.mdp3.sbe.v1.9.unusedsettlpricetype5", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_cme_futures_mdp3_sbe_v1_9.fields.unused_settl_price_type_6 = ProtoField.new("Unused Settl Price Type 6", "cme.futures.mdp3.sbe.v1.9.unusedsettlpricetype6", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_cme_futures_mdp3_sbe_v1_9.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.futures.mdp3.sbe.v1.9.userdefinedinstrument", ftypes.STRING)
-omi_cme_futures_mdp3_sbe_v1_9.fields.variable_cab_eligible = ProtoField.new("Variable Cab Eligible", "cme.futures.mdp3.sbe.v1.9.variablecabeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00002000)
-omi_cme_futures_mdp3_sbe_v1_9.fields.variable_product_eligibility = ProtoField.new("Variable Product Eligibility", "cme.futures.mdp3.sbe.v1.9.variableproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000100)
+omi_cme_futures_mdp3_sbe_v1_9.fields.variable_cab_eligible = ProtoField.new("Variable Cab Eligible", "cme.futures.mdp3.sbe.v1.9.variablecabeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00200000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.variable_product_eligibility = ProtoField.new("Variable Product Eligibility", "cme.futures.mdp3.sbe.v1.9.variableproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00010000)
 omi_cme_futures_mdp3_sbe_v1_9.fields.version = ProtoField.new("Version", "cme.futures.mdp3.sbe.v1.9.version", ftypes.UINT16)
-omi_cme_futures_mdp3_sbe_v1_9.fields.volatility_quoted_option = ProtoField.new("Volatility Quoted Option", "cme.futures.mdp3.sbe.v1.9.volatilityquotedoption", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00100000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.volatility_quoted_option = ProtoField.new("Volatility Quoted Option", "cme.futures.mdp3.sbe.v1.9.volatilityquotedoption", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00001000)
 omi_cme_futures_mdp3_sbe_v1_9.fields.week = ProtoField.new("Week", "cme.futures.mdp3.sbe.v1.9.week", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_9.fields.year = ProtoField.new("Year", "cme.futures.mdp3.sbe.v1.9.year", ftypes.UINT16)
-omi_cme_futures_mdp3_sbe_v1_9.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.futures.mdp3.sbe.v1.9.zeropriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00400000)
+omi_cme_futures_mdp3_sbe_v1_9.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.futures.mdp3.sbe.v1.9.zeropriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00004000)
 
 -- Cme Futures Mdp3 Sbe 1.9 messages
 omi_cme_futures_mdp3_sbe_v1_9.fields.admin_login = ProtoField.new("Admin Login", "cme.futures.mdp3.sbe.v1.9.adminlogin", ftypes.STRING)
@@ -1641,189 +1642,191 @@ cme_futures_mdp3_sbe_v1_9.inst_attrib_value = {}
 cme_futures_mdp3_sbe_v1_9.inst_attrib_value.size = 4
 
 -- Display: Inst Attrib Value
-cme_futures_mdp3_sbe_v1_9.inst_attrib_value.display = function(buffer, packet, parent)
+cme_futures_mdp3_sbe_v1_9.inst_attrib_value.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Otc Eligible flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Otc Eligible|"
-  end
-  -- Is Efr Eligible flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Efr Eligible|"
-  end
-  -- Is Efs Eligible flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Efs Eligible|"
-  end
-  -- Is Ebf Eligible flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Ebf Eligible|"
-  end
-  -- Is Efp Eligible flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Efp Eligible|"
-  end
-  -- Is Block Trade Eligible flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Block Trade Eligible|"
-  end
-  -- Is Order Cross Eligible flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Order Cross Eligible|"
-  end
   -- Is Electronic Match Eligible flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x00000001) ~= 0 then
     display = display.."Electronic Match Eligible|"
   end
-  -- Is Decaying Product Eligibility flag set?
-  if buffer:bitfield(8) > 0 then
-    display = display.."Decaying Product Eligibility|"
+  -- Is Order Cross Eligible flag set?
+  if bit.band(value, 0x00000002) ~= 0 then
+    display = display.."Order Cross Eligible|"
   end
-  -- Is Zero Price Outright Eligible flag set?
-  if buffer:bitfield(9) > 0 then
-    display = display.."Zero Price Outright Eligible|"
+  -- Is Block Trade Eligible flag set?
+  if bit.band(value, 0x00000004) ~= 0 then
+    display = display.."Block Trade Eligible|"
   end
-  -- Is Rfq Cross Eligible flag set?
-  if buffer:bitfield(10) > 0 then
-    display = display.."Rfq Cross Eligible|"
+  -- Is Efp Eligible flag set?
+  if bit.band(value, 0x00000008) ~= 0 then
+    display = display.."Efp Eligible|"
   end
-  -- Is Volatility Quoted Option flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Volatility Quoted Option|"
+  -- Is Ebf Eligible flag set?
+  if bit.band(value, 0x00000010) ~= 0 then
+    display = display.."Ebf Eligible|"
   end
-  -- Is Is Fractional flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Is Fractional|"
+  -- Is Efs Eligible flag set?
+  if bit.band(value, 0x00000020) ~= 0 then
+    display = display.."Efs Eligible|"
   end
-  -- Is Negative Price Outright Eligible flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Negative Price Outright Eligible|"
+  -- Is Efr Eligible flag set?
+  if bit.band(value, 0x00000040) ~= 0 then
+    display = display.."Efr Eligible|"
   end
-  -- Is Negative Strike Eligible flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Negative Strike Eligible|"
+  -- Is Otc Eligible flag set?
+  if bit.band(value, 0x00000080) ~= 0 then
+    display = display.."Otc Eligible|"
   end
   -- Is ILink Indicative Mass Quoting Eligible flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x00000100) ~= 0 then
     display = display.."ILink Indicative Mass Quoting Eligible|"
   end
-  -- Is Variable Cab Eligible flag set?
-  if buffer:bitfield(18) > 0 then
-    display = display.."Variable Cab Eligible|"
+  -- Is Negative Strike Eligible flag set?
+  if bit.band(value, 0x00000200) ~= 0 then
+    display = display.."Negative Strike Eligible|"
   end
-  -- Is Triangulation Eligible flag set?
-  if buffer:bitfield(19) > 0 then
-    display = display.."Triangulation Eligible|"
+  -- Is Negative Price Outright Eligible flag set?
+  if bit.band(value, 0x00000400) ~= 0 then
+    display = display.."Negative Price Outright Eligible|"
   end
-  -- Is Implied Matching Eligibility flag set?
-  if buffer:bitfield(20) > 0 then
-    display = display.."Implied Matching Eligibility|"
+  -- Is Is Fractional flag set?
+  if bit.band(value, 0x00000800) ~= 0 then
+    display = display.."Is Fractional|"
   end
-  -- Is Gt Orders Eligibility flag set?
-  if buffer:bitfield(21) > 0 then
-    display = display.."Gt Orders Eligibility|"
+  -- Is Volatility Quoted Option flag set?
+  if bit.band(value, 0x00001000) ~= 0 then
+    display = display.."Volatility Quoted Option|"
   end
-  -- Is Daily Product Eligibility flag set?
-  if buffer:bitfield(22) > 0 then
-    display = display.."Daily Product Eligibility|"
+  -- Is Rfq Cross Eligible flag set?
+  if bit.band(value, 0x00002000) ~= 0 then
+    display = display.."Rfq Cross Eligible|"
+  end
+  -- Is Zero Price Outright Eligible flag set?
+  if bit.band(value, 0x00004000) ~= 0 then
+    display = display.."Zero Price Outright Eligible|"
+  end
+  -- Is Decaying Product Eligibility flag set?
+  if bit.band(value, 0x00008000) ~= 0 then
+    display = display.."Decaying Product Eligibility|"
   end
   -- Is Variable Product Eligibility flag set?
-  if buffer:bitfield(23) > 0 then
+  if bit.band(value, 0x00010000) ~= 0 then
     display = display.."Variable Product Eligibility|"
   end
+  -- Is Daily Product Eligibility flag set?
+  if bit.band(value, 0x00020000) ~= 0 then
+    display = display.."Daily Product Eligibility|"
+  end
+  -- Is Gt Orders Eligibility flag set?
+  if bit.band(value, 0x00040000) ~= 0 then
+    display = display.."Gt Orders Eligibility|"
+  end
+  -- Is Implied Matching Eligibility flag set?
+  if bit.band(value, 0x00080000) ~= 0 then
+    display = display.."Implied Matching Eligibility|"
+  end
+  -- Is Triangulation Eligible flag set?
+  if bit.band(value, 0x00100000) ~= 0 then
+    display = display.."Triangulation Eligible|"
+  end
+  -- Is Variable Cab Eligible flag set?
+  if bit.band(value, 0x00200000) ~= 0 then
+    display = display.."Variable Cab Eligible|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Inst Attrib Value
-cme_futures_mdp3_sbe_v1_9.inst_attrib_value.bits = function(buffer, offset, packet, parent)
-
-  -- Otc Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.otc_eligible, buffer(offset, 4))
-
-  -- Efr Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.efr_eligible, buffer(offset, 4))
-
-  -- Efs Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.efs_eligible, buffer(offset, 4))
-
-  -- Ebf Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.ebf_eligible, buffer(offset, 4))
-
-  -- Efp Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.efp_eligible, buffer(offset, 4))
-
-  -- Block Trade Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.block_trade_eligible, buffer(offset, 4))
-
-  -- Order Cross Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.order_cross_eligible, buffer(offset, 4))
+cme_futures_mdp3_sbe_v1_9.inst_attrib_value.bits = function(range, value, packet, parent)
 
   -- Electronic Match Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.electronic_match_eligible, buffer(offset, 4))
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.electronic_match_eligible, range, value)
 
-  -- Decaying Product Eligibility: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.decaying_product_eligibility, buffer(offset, 4))
+  -- Order Cross Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.order_cross_eligible, range, value)
 
-  -- Zero Price Outright Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.zero_price_outright_eligible, buffer(offset, 4))
+  -- Block Trade Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.block_trade_eligible, range, value)
 
-  -- Rfq Cross Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.rfq_cross_eligible, buffer(offset, 4))
+  -- Efp Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.efp_eligible, range, value)
 
-  -- Volatility Quoted Option: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.volatility_quoted_option, buffer(offset, 4))
+  -- Ebf Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.ebf_eligible, range, value)
 
-  -- Is Fractional: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.is_fractional, buffer(offset, 4))
+  -- Efs Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.efs_eligible, range, value)
 
-  -- Negative Price Outright Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.negative_price_outright_eligible, buffer(offset, 4))
+  -- Efr Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.efr_eligible, range, value)
 
-  -- Negative Strike Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.negative_strike_eligible, buffer(offset, 4))
+  -- Otc Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.otc_eligible, range, value)
 
   -- ILink Indicative Mass Quoting Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.ilink_indicative_mass_quoting_eligible, buffer(offset, 4))
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.ilink_indicative_mass_quoting_eligible, range, value)
 
-  -- Reserved 2: 2 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.reserved_2, buffer(offset, 4))
+  -- Negative Strike Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.negative_strike_eligible, range, value)
 
-  -- Variable Cab Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.variable_cab_eligible, buffer(offset, 4))
+  -- Negative Price Outright Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.negative_price_outright_eligible, range, value)
 
-  -- Triangulation Eligible: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.triangulation_eligible, buffer(offset, 4))
+  -- Is Fractional: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.is_fractional, range, value)
 
-  -- Implied Matching Eligibility: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.implied_matching_eligibility, buffer(offset, 4))
+  -- Volatility Quoted Option: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.volatility_quoted_option, range, value)
 
-  -- Gt Orders Eligibility: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.gt_orders_eligibility, buffer(offset, 4))
+  -- Rfq Cross Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.rfq_cross_eligible, range, value)
 
-  -- Daily Product Eligibility: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.daily_product_eligibility, buffer(offset, 4))
+  -- Zero Price Outright Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.zero_price_outright_eligible, range, value)
+
+  -- Decaying Product Eligibility: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.decaying_product_eligibility, range, value)
 
   -- Variable Product Eligibility: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.variable_product_eligibility, buffer(offset, 4))
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.variable_product_eligibility, range, value)
 
-  -- Reserved 8: 8 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.reserved_8, buffer(offset, 4))
+  -- Daily Product Eligibility: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.daily_product_eligibility, range, value)
+
+  -- Gt Orders Eligibility: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.gt_orders_eligibility, range, value)
+
+  -- Implied Matching Eligibility: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.implied_matching_eligibility, range, value)
+
+  -- Triangulation Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.triangulation_eligible, range, value)
+
+  -- Variable Cab Eligible: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.variable_cab_eligible, range, value)
+
+  -- Reserved 10: 10 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.reserved_10, range, value)
 end
 
 -- Dissect: Inst Attrib Value
 cme_futures_mdp3_sbe_v1_9.inst_attrib_value.dissect = function(buffer, offset, packet, parent)
-  local size = 4
+  local size = cme_futures_mdp3_sbe_v1_9.inst_attrib_value.size
   local range = buffer(offset, size)
-  local display = cme_futures_mdp3_sbe_v1_9.inst_attrib_value.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = cme_futures_mdp3_sbe_v1_9.inst_attrib_value.display(range, value, packet, parent)
   local element = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.inst_attrib_value, range, display)
 
   if show.inst_attrib_value then
-    cme_futures_mdp3_sbe_v1_9.inst_attrib_value.bits(buffer, offset, packet, element)
+    cme_futures_mdp3_sbe_v1_9.inst_attrib_value.bits(range, value, packet, element)
   end
 
-  return offset + 4, range
+  return offset + size, range
 end
 
 -- Inst Attrib Group
@@ -1848,7 +1851,7 @@ cme_futures_mdp3_sbe_v1_9.inst_attrib_group.fields = function(buffer, offset, pa
     iteration:set_generated()
   end
 
-  -- Inst Attrib Value: Struct of 24 fields
+  -- Inst Attrib Value: Struct of 23 fields
   index, inst_attrib_value = cme_futures_mdp3_sbe_v1_9.inst_attrib_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -2511,67 +2514,90 @@ cme_futures_mdp3_sbe_v1_9.settl_price_type = {}
 cme_futures_mdp3_sbe_v1_9.settl_price_type.size = 1
 
 -- Display: Settl Price Type
-cme_futures_mdp3_sbe_v1_9.settl_price_type.display = function(buffer, packet, parent)
+cme_futures_mdp3_sbe_v1_9.settl_price_type.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Null Value flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Null Value|"
-  end
-  -- Is Intraday flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Intraday|"
-  end
-  -- Is Rounded flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Rounded|"
-  end
-  -- Is Actual flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Actual|"
-  end
   -- Is Final Daily flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Final Daily|"
   end
+  -- Is Actual flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Actual|"
+  end
+  -- Is Rounded flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Rounded|"
+  end
+  -- Is Intraday flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Intraday|"
+  end
+  -- Is Reserved Bits flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Reserved Bits|"
+  end
+  -- Is Unused Settl Price Type 5 flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Unused Settl Price Type 5|"
+  end
+  -- Is Unused Settl Price Type 6 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Unused Settl Price Type 6|"
+  end
+  -- Is Null Value flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Null Value|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Settl Price Type
-cme_futures_mdp3_sbe_v1_9.settl_price_type.bits = function(buffer, offset, packet, parent)
-
-  -- Null Value: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.null_value, buffer(offset, 1))
-
-  -- Reserved Bits: 3 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.reserved_bits, buffer(offset, 1))
-
-  -- Intraday: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.intraday, buffer(offset, 1))
-
-  -- Rounded: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.rounded, buffer(offset, 1))
-
-  -- Actual: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.actual, buffer(offset, 1))
+cme_futures_mdp3_sbe_v1_9.settl_price_type.bits = function(range, value, packet, parent)
 
   -- Final Daily: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.final_daily, buffer(offset, 1))
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.final_daily, range, value)
+
+  -- Actual: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.actual, range, value)
+
+  -- Rounded: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.rounded, range, value)
+
+  -- Intraday: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.intraday, range, value)
+
+  -- Reserved Bits: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.reserved_bits, range, value)
+
+  -- Unused Settl Price Type 5: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.unused_settl_price_type_5, range, value)
+
+  -- Unused Settl Price Type 6: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.unused_settl_price_type_6, range, value)
+
+  -- Null Value: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.null_value, range, value)
 end
 
 -- Dissect: Settl Price Type
 cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = cme_futures_mdp3_sbe_v1_9.settl_price_type.size
   local range = buffer(offset, size)
-  local display = cme_futures_mdp3_sbe_v1_9.settl_price_type.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = cme_futures_mdp3_sbe_v1_9.settl_price_type.display(range, value, packet, parent)
   local element = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.settl_price_type, range, display)
 
   if show.settl_price_type then
-    cme_futures_mdp3_sbe_v1_9.settl_price_type.bits(buffer, offset, packet, element)
+    cme_futures_mdp3_sbe_v1_9.settl_price_type.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Trading Reference Price Ex
@@ -3674,85 +3700,90 @@ cme_futures_mdp3_sbe_v1_9.match_event_indicator = {}
 cme_futures_mdp3_sbe_v1_9.match_event_indicator.size = 1
 
 -- Display: Match Event Indicator
-cme_futures_mdp3_sbe_v1_9.match_event_indicator.display = function(buffer, packet, parent)
+cme_futures_mdp3_sbe_v1_9.match_event_indicator.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is End Of Event flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."End Of Event|"
-  end
-  -- Is Reserved flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Reserved|"
-  end
-  -- Is Recovery Msg flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Recovery Msg|"
-  end
-  -- Is Last Implied Msg flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Last Implied Msg|"
-  end
-  -- Is Last Stats Msg flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Last Stats Msg|"
-  end
-  -- Is Last Quote Msg flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Last Quote Msg|"
-  end
-  -- Is Last Volume Msg flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Last Volume Msg|"
-  end
   -- Is Last Trade Msg flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Last Trade Msg|"
   end
+  -- Is Last Volume Msg flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Last Volume Msg|"
+  end
+  -- Is Last Quote Msg flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Last Quote Msg|"
+  end
+  -- Is Last Stats Msg flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Last Stats Msg|"
+  end
+  -- Is Last Implied Msg flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Last Implied Msg|"
+  end
+  -- Is Recovery Msg flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Recovery Msg|"
+  end
+  -- Is Reserved flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Reserved|"
+  end
+  -- Is End Of Event flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."End Of Event|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Match Event Indicator
-cme_futures_mdp3_sbe_v1_9.match_event_indicator.bits = function(buffer, offset, packet, parent)
-
-  -- End Of Event: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.end_of_event, buffer(offset, 1))
-
-  -- Reserved: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.reserved, buffer(offset, 1))
-
-  -- Recovery Msg: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.recovery_msg, buffer(offset, 1))
-
-  -- Last Implied Msg: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.last_implied_msg, buffer(offset, 1))
-
-  -- Last Stats Msg: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.last_stats_msg, buffer(offset, 1))
-
-  -- Last Quote Msg: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.last_quote_msg, buffer(offset, 1))
-
-  -- Last Volume Msg: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.last_volume_msg, buffer(offset, 1))
+cme_futures_mdp3_sbe_v1_9.match_event_indicator.bits = function(range, value, packet, parent)
 
   -- Last Trade Msg: 1 Bit
-  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.last_trade_msg, buffer(offset, 1))
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.last_trade_msg, range, value)
+
+  -- Last Volume Msg: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.last_volume_msg, range, value)
+
+  -- Last Quote Msg: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.last_quote_msg, range, value)
+
+  -- Last Stats Msg: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.last_stats_msg, range, value)
+
+  -- Last Implied Msg: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.last_implied_msg, range, value)
+
+  -- Recovery Msg: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.recovery_msg, range, value)
+
+  -- Reserved: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.reserved, range, value)
+
+  -- End Of Event: 1 Bit
+  parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.end_of_event, range, value)
 end
 
 -- Dissect: Match Event Indicator
 cme_futures_mdp3_sbe_v1_9.match_event_indicator.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = cme_futures_mdp3_sbe_v1_9.match_event_indicator.size
   local range = buffer(offset, size)
-  local display = cme_futures_mdp3_sbe_v1_9.match_event_indicator.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = cme_futures_mdp3_sbe_v1_9.match_event_indicator.display(range, value, packet, parent)
   local element = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.match_event_indicator, range, display)
 
   if show.match_event_indicator then
-    cme_futures_mdp3_sbe_v1_9.match_event_indicator.bits(buffer, offset, packet, element)
+    cme_futures_mdp3_sbe_v1_9.match_event_indicator.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Md Instrument Definition Spread
@@ -3949,7 +3980,7 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_spread.fields = function(buff
   -- Trading Reference Price Ex: 8 Byte Signed Fixed Width Integer Nullable
   index, trading_reference_price_ex = cme_futures_mdp3_sbe_v1_9.trading_reference_price_ex.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
@@ -4849,7 +4880,7 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_option.fields = function(buff
   -- Trading Reference Price Ex: 8 Byte Signed Fixed Width Integer Nullable
   index, trading_reference_price_ex = cme_futures_mdp3_sbe_v1_9.trading_reference_price_ex.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
@@ -5310,7 +5341,7 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_future.fields = function(buff
   -- Trading Reference Price Ex: 8 Byte Signed Fixed Width Integer Nullable
   index, trading_reference_price_ex = cme_futures_mdp3_sbe_v1_9.trading_reference_price_ex.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
@@ -6137,7 +6168,7 @@ cme_futures_mdp3_sbe_v1_9.snapshot_full_refresh_group.fields = function(buffer, 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, open_close_settl_flag = cme_futures_mdp3_sbe_v1_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Type : 1 Byte Ascii String Enum with 17 values
@@ -6969,7 +7000,7 @@ cme_futures_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_group.fields = fu
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_9.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -9341,7 +9372,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_option_41_no_inst_attrib_gro
     iteration:set_generated()
   end
 
-  -- Inst Attrib Value: Struct of 24 fields
+  -- Inst Attrib Value: Struct of 23 fields
   index, inst_attrib_value = cme_futures_mdp3_sbe_v1_9.inst_attrib_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -10143,7 +10174,7 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_option_legacy.fields = functi
   -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
   index, trading_reference_price = cme_futures_mdp3_sbe_v1_9.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
@@ -10564,7 +10595,7 @@ cme_futures_mdp3_sbe_v1_9.snapshot_full_refresh_38_no_m_d_entries_group.fields =
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, open_close_settl_flag = cme_futures_mdp3_sbe_v1_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Type : 1 Byte Ascii String Enum with 17 values
@@ -11341,7 +11372,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_incremental_refresh_daily_statistics_33_no_m_d_ent
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_9.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -12310,7 +12341,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_inst_attrib_gro
     iteration:set_generated()
   end
 
-  -- Inst Attrib Value: Struct of 24 fields
+  -- Inst Attrib Value: Struct of 23 fields
   index, inst_attrib_value = cme_futures_mdp3_sbe_v1_9.inst_attrib_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -12821,7 +12852,7 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy.fields = functi
   -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
   index, trading_reference_price = cme_futures_mdp3_sbe_v1_9.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
@@ -13003,7 +13034,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_future_27_no_inst_attrib_gro
     iteration:set_generated()
   end
 
-  -- Inst Attrib Value: Struct of 24 fields
+  -- Inst Attrib Value: Struct of 23 fields
   index, inst_attrib_value = cme_futures_mdp3_sbe_v1_9.inst_attrib_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -13485,7 +13516,7 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_future_legacy.fields = functi
   -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
   index, trading_reference_price = cme_futures_mdp3_sbe_v1_9.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable

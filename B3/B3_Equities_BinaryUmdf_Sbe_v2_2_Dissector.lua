@@ -129,7 +129,7 @@ omi_b3_equities_binaryumdf_sbe_v2_2.fields.open_close_settl_flag = ProtoField.ne
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.opening_price = ProtoField.new("Opening Price", "b3.equities.binaryumdf.sbe.v2.2.openingprice", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.opt_payout_type = ProtoField.new("Opt Payout Type", "b3.equities.binaryumdf.sbe.v2.2.optpayouttype", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.orig_time = ProtoField.new("Orig Time", "b3.equities.binaryumdf.sbe.v2.2.origtime", ftypes.UINT64)
-omi_b3_equities_binaryumdf_sbe_v2_2.fields.out_of_sequence = ProtoField.new("Out Of Sequence", "b3.equities.binaryumdf.sbe.v2.2.outofsequence", ftypes.UINT16, nil, base.DEC, 0x0038)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.out_of_sequence = ProtoField.new("Out Of Sequence", "b3.equities.binaryumdf.sbe.v2.2.outofsequence", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0008)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.packet = ProtoField.new("Packet", "b3.equities.binaryumdf.sbe.v2.2.packet", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.packet_header = ProtoField.new("Packet Header", "b3.equities.binaryumdf.sbe.v2.2.packetheader", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.padding_1 = ProtoField.new("Padding 1", "b3.equities.binaryumdf.sbe.v2.2.padding1", ftypes.BYTES)
@@ -146,13 +146,10 @@ omi_b3_equities_binaryumdf_sbe_v2_2.fields.price_type_price_type = ProtoField.ne
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.price_type_price_type_optional = ProtoField.new("Price Type Price Type optional", "b3.equities.binaryumdf.sbe.v2.2.pricetypepricetypeoptional", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.product = ProtoField.new("Product", "b3.equities.binaryumdf.sbe.v2.2.product", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.put_or_call = ProtoField.new("Put Or Call", "b3.equities.binaryumdf.sbe.v2.2.putorcall", ftypes.UINT8)
-omi_b3_equities_binaryumdf_sbe_v2_2.fields.recovery_msg = ProtoField.new("Recovery Msg", "b3.equities.binaryumdf.sbe.v2.2.recoverymsg", ftypes.UINT8, nil, base.DEC, 0x60)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.recovery_msg = ProtoField.new("Recovery Msg", "b3.equities.binaryumdf.sbe.v2.2.recoverymsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.regular_trade = ProtoField.new("Regular Trade", "b3.equities.binaryumdf.sbe.v2.2.regulartrade", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x2000)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.reserved = ProtoField.new("Reserved", "b3.equities.binaryumdf.sbe.v2.2.reserved", ftypes.UINT8)
-omi_b3_equities_binaryumdf_sbe_v2_2.fields.reserved_1 = ProtoField.new("Reserved 1", "b3.equities.binaryumdf.sbe.v2.2.reserved1", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x8000)
-omi_b3_equities_binaryumdf_sbe_v2_2.fields.reserved_4 = ProtoField.new("Reserved 4", "b3.equities.binaryumdf.sbe.v2.2.reserved4", ftypes.UINT8, nil, base.DEC, 0x0F)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.reserved_6 = ProtoField.new("Reserved 6", "b3.equities.binaryumdf.sbe.v2.2.reserved6", ftypes.UINT16, nil, base.DEC, 0xFC00)
-omi_b3_equities_binaryumdf_sbe_v2_2.fields.reserved_8 = ProtoField.new("Reserved 8", "b3.equities.binaryumdf.sbe.v2.2.reserved8", ftypes.UINT16, nil, base.DEC, 0x00FF)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.rpt_seq = ProtoField.new("Rpt Seq", "b3.equities.binaryumdf.sbe.v2.2.rptseq", ftypes.UINT32)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.schema_id = ProtoField.new("Schema Id", "b3.equities.binaryumdf.sbe.v2.2.schemaid", ftypes.UINT16)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "b3.equities.binaryumdf.sbe.v2.2.secondaryorderid", ftypes.UINT64)
@@ -201,7 +198,7 @@ omi_b3_equities_binaryumdf_sbe_v2_2.fields.trad_ses_open_time = ProtoField.new("
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.trade_condition = ProtoField.new("Trade Condition", "b3.equities.binaryumdf.sbe.v2.2.tradecondition", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.trade_date = ProtoField.new("Trade Date", "b3.equities.binaryumdf.sbe.v2.2.tradedate", ftypes.UINT16)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.trade_id = ProtoField.new("Trade Id", "b3.equities.binaryumdf.sbe.v2.2.tradeid", ftypes.UINT32)
-omi_b3_equities_binaryumdf_sbe_v2_2.fields.trade_on_behalf = ProtoField.new("Trade On Behalf", "b3.equities.binaryumdf.sbe.v2.2.tradeonbehalf", ftypes.UINT16, nil, base.DEC, 0x1FC0)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.trade_on_behalf = ProtoField.new("Trade On Behalf", "b3.equities.binaryumdf.sbe.v2.2.tradeonbehalf", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0040)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.trade_volume = ProtoField.new("Trade Volume", "b3.equities.binaryumdf.sbe.v2.2.tradevolume", ftypes.INT64)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.traded_hidden_qty = ProtoField.new("Traded Hidden Qty", "b3.equities.binaryumdf.sbe.v2.2.tradedhiddenqty", ftypes.INT64)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "b3.equities.binaryumdf.sbe.v2.2.tradingreferenceprice", ftypes.DOUBLE)
@@ -213,6 +210,28 @@ omi_b3_equities_binaryumdf_sbe_v2_2.fields.underlying_security_id = ProtoField.n
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "b3.equities.binaryumdf.sbe.v2.2.underlyingsymbol", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.underlyings_group = ProtoField.new("Underlyings Group", "b3.equities.binaryumdf.sbe.v2.2.underlyingsgroup", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.underlyings_groups = ProtoField.new("Underlyings Groups", "b3.equities.binaryumdf.sbe.v2.2.underlyingsgroups", ftypes.STRING)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_0 = ProtoField.new("Unused Imbalance Condition 0", "b3.equities.binaryumdf.sbe.v2.2.unusedimbalancecondition0", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_1 = ProtoField.new("Unused Imbalance Condition 1", "b3.equities.binaryumdf.sbe.v2.2.unusedimbalancecondition1", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_2 = ProtoField.new("Unused Imbalance Condition 2", "b3.equities.binaryumdf.sbe.v2.2.unusedimbalancecondition2", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_3 = ProtoField.new("Unused Imbalance Condition 3", "b3.equities.binaryumdf.sbe.v2.2.unusedimbalancecondition3", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0008)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_4 = ProtoField.new("Unused Imbalance Condition 4", "b3.equities.binaryumdf.sbe.v2.2.unusedimbalancecondition4", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0010)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_5 = ProtoField.new("Unused Imbalance Condition 5", "b3.equities.binaryumdf.sbe.v2.2.unusedimbalancecondition5", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0020)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_6 = ProtoField.new("Unused Imbalance Condition 6", "b3.equities.binaryumdf.sbe.v2.2.unusedimbalancecondition6", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0040)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_7 = ProtoField.new("Unused Imbalance Condition 7", "b3.equities.binaryumdf.sbe.v2.2.unusedimbalancecondition7", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_0 = ProtoField.new("Unused Match Event Indicator 0", "b3.equities.binaryumdf.sbe.v2.2.unusedmatcheventindicator0", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_1 = ProtoField.new("Unused Match Event Indicator 1", "b3.equities.binaryumdf.sbe.v2.2.unusedmatcheventindicator1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_2 = ProtoField.new("Unused Match Event Indicator 2", "b3.equities.binaryumdf.sbe.v2.2.unusedmatcheventindicator2", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_3 = ProtoField.new("Unused Match Event Indicator 3", "b3.equities.binaryumdf.sbe.v2.2.unusedmatcheventindicator3", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_6 = ProtoField.new("Unused Match Event Indicator 6", "b3.equities.binaryumdf.sbe.v2.2.unusedmatcheventindicator6", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_10 = ProtoField.new("Unused Trade Condition 10", "b3.equities.binaryumdf.sbe.v2.2.unusedtradecondition10", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0400)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_11 = ProtoField.new("Unused Trade Condition 11", "b3.equities.binaryumdf.sbe.v2.2.unusedtradecondition11", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0800)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_12 = ProtoField.new("Unused Trade Condition 12", "b3.equities.binaryumdf.sbe.v2.2.unusedtradecondition12", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x1000)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_15 = ProtoField.new("Unused Trade Condition 15", "b3.equities.binaryumdf.sbe.v2.2.unusedtradecondition15", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x8000)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_4 = ProtoField.new("Unused Trade Condition 4", "b3.equities.binaryumdf.sbe.v2.2.unusedtradecondition4", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0010)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_5 = ProtoField.new("Unused Trade Condition 5", "b3.equities.binaryumdf.sbe.v2.2.unusedtradecondition5", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0020)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_7 = ProtoField.new("Unused Trade Condition 7", "b3.equities.binaryumdf.sbe.v2.2.unusedtradecondition7", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_8 = ProtoField.new("Unused Trade Condition 8", "b3.equities.binaryumdf.sbe.v2.2.unusedtradecondition8", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
+omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_9 = ProtoField.new("Unused Trade Condition 9", "b3.equities.binaryumdf.sbe.v2.2.unusedtradecondition9", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0200)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.url_link = ProtoField.new("Url Link", "b3.equities.binaryumdf.sbe.v2.2.urllink", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.url_link_data = ProtoField.new("Url Link Data", "b3.equities.binaryumdf.sbe.v2.2.urllinkdata", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v2_2.fields.url_link_length = ProtoField.new("Url Link Length", "b3.equities.binaryumdf.sbe.v2.2.urllinklength", ftypes.UINT16)
@@ -603,49 +622,90 @@ b3_equities_binaryumdf_sbe_v2_2.match_event_indicator = {}
 b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.size = 1
 
 -- Display: Match Event Indicator
-b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.display = function(buffer, packet, parent)
+b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is End Of Event flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."End Of Event|"
+  -- Is Unused Match Event Indicator 0 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    display = display.."Unused Match Event Indicator 0|"
+  end
+  -- Is Unused Match Event Indicator 1 flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Unused Match Event Indicator 1|"
+  end
+  -- Is Unused Match Event Indicator 2 flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Unused Match Event Indicator 2|"
+  end
+  -- Is Unused Match Event Indicator 3 flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Unused Match Event Indicator 3|"
   end
   -- Is Implied flag set?
-  if buffer:bitfield(3) > 0 then
+  if bit.band(value, 0x10) ~= 0 then
     display = display.."Implied|"
   end
+  -- Is Recovery Msg flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Recovery Msg|"
+  end
+  -- Is Unused Match Event Indicator 6 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Unused Match Event Indicator 6|"
+  end
+  -- Is End Of Event flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."End Of Event|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Match Event Indicator
-b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.bits = function(buffer, offset, packet, parent)
+b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.bits = function(range, value, packet, parent)
 
-  -- End Of Event: 1 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.end_of_event, buffer(offset, 1))
+  -- Unused Match Event Indicator 0: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_0, range, value)
 
-  -- Recovery Msg: 2 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.recovery_msg, buffer(offset, 1))
+  -- Unused Match Event Indicator 1: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_1, range, value)
+
+  -- Unused Match Event Indicator 2: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_2, range, value)
+
+  -- Unused Match Event Indicator 3: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_3, range, value)
 
   -- Implied: 1 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.implied, buffer(offset, 1))
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.implied, range, value)
 
-  -- Reserved 4: 4 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.reserved_4, buffer(offset, 1))
+  -- Recovery Msg: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.recovery_msg, range, value)
+
+  -- Unused Match Event Indicator 6: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_6, range, value)
+
+  -- End Of Event: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.end_of_event, range, value)
 end
 
 -- Dissect: Match Event Indicator
 b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.size
   local range = buffer(offset, size)
-  local display = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.display(range, value, packet, parent)
   local element = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.match_event_indicator, range, display)
 
   if show.match_event_indicator then
-    b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.bits(buffer, offset, packet, element)
+    b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Md Entry Type
@@ -956,7 +1016,7 @@ b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message_no_
   -- Md Entry Type: 1 Byte Ascii String Enum with 21 values
   index, md_entry_type = b3_equities_binaryumdf_sbe_v2_2.md_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -1416,7 +1476,7 @@ b3_equities_binaryumdf_sbe_v2_2.trade_bust_57_message.fields = function(buffer, 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -1646,7 +1706,7 @@ b3_equities_binaryumdf_sbe_v2_2.execution_statistics_56_message.fields = functio
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -2170,77 +2230,146 @@ b3_equities_binaryumdf_sbe_v2_2.trade_condition = {}
 b3_equities_binaryumdf_sbe_v2_2.trade_condition.size = 2
 
 -- Display: Trade Condition
-b3_equities_binaryumdf_sbe_v2_2.trade_condition.display = function(buffer, packet, parent)
+b3_equities_binaryumdf_sbe_v2_2.trade_condition.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Reserved 1 flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Reserved 1|"
-  end
-  -- Is Block Trade flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Block Trade|"
-  end
-  -- Is Regular Trade flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Regular Trade|"
-  end
-  -- Is Last Trade At The Same Price flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Last Trade At The Same Price|"
-  end
-  -- Is Crossed flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Crossed|"
-  end
   -- Is Opening Price flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Opening Price|"
   end
+  -- Is Crossed flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Crossed|"
+  end
+  -- Is Last Trade At The Same Price flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Last Trade At The Same Price|"
+  end
+  -- Is Out Of Sequence flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Out Of Sequence|"
+  end
+  -- Is Unused Trade Condition 4 flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    display = display.."Unused Trade Condition 4|"
+  end
+  -- Is Unused Trade Condition 5 flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    display = display.."Unused Trade Condition 5|"
+  end
+  -- Is Trade On Behalf flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    display = display.."Trade On Behalf|"
+  end
+  -- Is Unused Trade Condition 7 flag set?
+  if bit.band(value, 0x0080) ~= 0 then
+    display = display.."Unused Trade Condition 7|"
+  end
+  -- Is Unused Trade Condition 8 flag set?
+  if bit.band(value, 0x0100) ~= 0 then
+    display = display.."Unused Trade Condition 8|"
+  end
+  -- Is Unused Trade Condition 9 flag set?
+  if bit.band(value, 0x0200) ~= 0 then
+    display = display.."Unused Trade Condition 9|"
+  end
+  -- Is Unused Trade Condition 10 flag set?
+  if bit.band(value, 0x0400) ~= 0 then
+    display = display.."Unused Trade Condition 10|"
+  end
+  -- Is Unused Trade Condition 11 flag set?
+  if bit.band(value, 0x0800) ~= 0 then
+    display = display.."Unused Trade Condition 11|"
+  end
+  -- Is Unused Trade Condition 12 flag set?
+  if bit.band(value, 0x1000) ~= 0 then
+    display = display.."Unused Trade Condition 12|"
+  end
+  -- Is Regular Trade flag set?
+  if bit.band(value, 0x2000) ~= 0 then
+    display = display.."Regular Trade|"
+  end
+  -- Is Block Trade flag set?
+  if bit.band(value, 0x4000) ~= 0 then
+    display = display.."Block Trade|"
+  end
+  -- Is Unused Trade Condition 15 flag set?
+  if bit.band(value, 0x8000) ~= 0 then
+    display = display.."Unused Trade Condition 15|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Trade Condition
-b3_equities_binaryumdf_sbe_v2_2.trade_condition.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 1: 1 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.reserved_1, buffer(offset, 2))
-
-  -- Block Trade: 1 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.block_trade, buffer(offset, 2))
-
-  -- Regular Trade: 1 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.regular_trade, buffer(offset, 2))
-
-  -- Trade On Behalf: 7 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.trade_on_behalf, buffer(offset, 2))
-
-  -- Out Of Sequence: 3 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.out_of_sequence, buffer(offset, 2))
-
-  -- Last Trade At The Same Price: 1 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.last_trade_at_the_same_price, buffer(offset, 2))
-
-  -- Crossed: 1 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.crossed, buffer(offset, 2))
+b3_equities_binaryumdf_sbe_v2_2.trade_condition.bits = function(range, value, packet, parent)
 
   -- Opening Price: 1 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.opening_price, buffer(offset, 2))
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.opening_price, range, value)
+
+  -- Crossed: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.crossed, range, value)
+
+  -- Last Trade At The Same Price: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.last_trade_at_the_same_price, range, value)
+
+  -- Out Of Sequence: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.out_of_sequence, range, value)
+
+  -- Unused Trade Condition 4: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_4, range, value)
+
+  -- Unused Trade Condition 5: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_5, range, value)
+
+  -- Trade On Behalf: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.trade_on_behalf, range, value)
+
+  -- Unused Trade Condition 7: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_7, range, value)
+
+  -- Unused Trade Condition 8: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_8, range, value)
+
+  -- Unused Trade Condition 9: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_9, range, value)
+
+  -- Unused Trade Condition 10: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_10, range, value)
+
+  -- Unused Trade Condition 11: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_11, range, value)
+
+  -- Unused Trade Condition 12: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_12, range, value)
+
+  -- Regular Trade: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.regular_trade, range, value)
+
+  -- Block Trade: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.block_trade, range, value)
+
+  -- Unused Trade Condition 15: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_trade_condition_15, range, value)
 end
 
 -- Dissect: Trade Condition
 b3_equities_binaryumdf_sbe_v2_2.trade_condition.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = b3_equities_binaryumdf_sbe_v2_2.trade_condition.size
   local range = buffer(offset, size)
-  local display = b3_equities_binaryumdf_sbe_v2_2.trade_condition.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = b3_equities_binaryumdf_sbe_v2_2.trade_condition.display(range, value, packet, parent)
   local element = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.trade_condition, range, display)
 
   if show.trade_condition then
-    b3_equities_binaryumdf_sbe_v2_2.trade_condition.bits(buffer, offset, packet, element)
+    b3_equities_binaryumdf_sbe_v2_2.trade_condition.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Forward Trade 54 Message
@@ -2277,13 +2406,13 @@ b3_equities_binaryumdf_sbe_v2_2.forward_trade_54_message.fields = function(buffe
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, trading_session_id = b3_equities_binaryumdf_sbe_v2_2.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: Struct of 8 fields
+  -- Trade Condition: Struct of 16 fields
   index, trade_condition = b3_equities_binaryumdf_sbe_v2_2.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Md Future Price: 8 Byte Signed Fixed Width Integer
@@ -2398,13 +2527,13 @@ b3_equities_binaryumdf_sbe_v2_2.trade_53_message.fields = function(buffer, offse
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, trading_session_id = b3_equities_binaryumdf_sbe_v2_2.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: Struct of 8 fields
+  -- Trade Condition: Struct of 16 fields
   index, trade_condition = b3_equities_binaryumdf_sbe_v2_2.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Md Future Price: 8 Byte Signed Fixed Width Integer
@@ -2548,7 +2677,7 @@ b3_equities_binaryumdf_sbe_v2_2.mass_delete_orders_mb_o_52_message.fields = func
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -2638,7 +2767,7 @@ b3_equities_binaryumdf_sbe_v2_2.delete_order_mb_o_51_message.fields = function(b
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
@@ -2769,7 +2898,7 @@ b3_equities_binaryumdf_sbe_v2_2.order_mb_o_50_message.fields = function(buffer, 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -3110,7 +3239,7 @@ b3_equities_binaryumdf_sbe_v2_2.open_interest_29_message.fields = function(buffe
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
@@ -3306,7 +3435,7 @@ b3_equities_binaryumdf_sbe_v2_2.settlement_price_28_message.fields = function(bu
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
@@ -3391,13 +3520,13 @@ b3_equities_binaryumdf_sbe_v2_2.last_trade_price_27_message.fields = function(bu
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, trading_session_id = b3_equities_binaryumdf_sbe_v2_2.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: Struct of 8 fields
+  -- Trade Condition: Struct of 16 fields
   index, trade_condition = b3_equities_binaryumdf_sbe_v2_2.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Md Future Price: 8 Byte Signed Fixed Width Integer
@@ -3482,7 +3611,7 @@ b3_equities_binaryumdf_sbe_v2_2.low_price_25_message.fields = function(buffer, o
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -3546,7 +3675,7 @@ b3_equities_binaryumdf_sbe_v2_2.high_price_24_message.fields = function(buffer, 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -3841,7 +3970,7 @@ b3_equities_binaryumdf_sbe_v2_2.price_band_22_message.fields = function(buffer, 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Price Band Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
@@ -3983,7 +4112,7 @@ b3_equities_binaryumdf_sbe_v2_2.quantity_band_21_message.fields = function(buffe
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 3: 3 Byte
@@ -4052,49 +4181,107 @@ b3_equities_binaryumdf_sbe_v2_2.imbalance_condition = {}
 b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.size = 2
 
 -- Display: Imbalance Condition
-b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.display = function(buffer, packet, parent)
+b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Imbalance More Sellers flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Imbalance More Sellers|"
+  -- Is Unused Imbalance Condition 0 flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    display = display.."Unused Imbalance Condition 0|"
+  end
+  -- Is Unused Imbalance Condition 1 flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Unused Imbalance Condition 1|"
+  end
+  -- Is Unused Imbalance Condition 2 flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Unused Imbalance Condition 2|"
+  end
+  -- Is Unused Imbalance Condition 3 flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Unused Imbalance Condition 3|"
+  end
+  -- Is Unused Imbalance Condition 4 flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    display = display.."Unused Imbalance Condition 4|"
+  end
+  -- Is Unused Imbalance Condition 5 flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    display = display.."Unused Imbalance Condition 5|"
+  end
+  -- Is Unused Imbalance Condition 6 flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    display = display.."Unused Imbalance Condition 6|"
+  end
+  -- Is Unused Imbalance Condition 7 flag set?
+  if bit.band(value, 0x0080) ~= 0 then
+    display = display.."Unused Imbalance Condition 7|"
   end
   -- Is Imbalance More Buyers flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x0100) ~= 0 then
     display = display.."Imbalance More Buyers|"
   end
+  -- Is Imbalance More Sellers flag set?
+  if bit.band(value, 0x0200) ~= 0 then
+    display = display.."Imbalance More Sellers|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Imbalance Condition
-b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.bits = function(buffer, offset, packet, parent)
+b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.bits = function(range, value, packet, parent)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.reserved_6, buffer(offset, 2))
+  -- Unused Imbalance Condition 0: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_0, range, value)
 
-  -- Imbalance More Sellers: 1 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.imbalance_more_sellers, buffer(offset, 2))
+  -- Unused Imbalance Condition 1: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_1, range, value)
+
+  -- Unused Imbalance Condition 2: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_2, range, value)
+
+  -- Unused Imbalance Condition 3: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_3, range, value)
+
+  -- Unused Imbalance Condition 4: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_4, range, value)
+
+  -- Unused Imbalance Condition 5: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_5, range, value)
+
+  -- Unused Imbalance Condition 6: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_6, range, value)
+
+  -- Unused Imbalance Condition 7: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_7, range, value)
 
   -- Imbalance More Buyers: 1 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.imbalance_more_buyers, buffer(offset, 2))
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.imbalance_more_buyers, range, value)
 
-  -- Reserved 8: 8 Bit
-  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.reserved_8, buffer(offset, 2))
+  -- Imbalance More Sellers: 1 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.imbalance_more_sellers, range, value)
+
+  -- Reserved 6: 6 Bit
+  parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.reserved_6, range, value)
 end
 
 -- Dissect: Imbalance Condition
 b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.size
   local range = buffer(offset, size)
-  local display = b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.display(range, value, packet, parent)
   local element = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.imbalance_condition, range, display)
 
   if show.imbalance_condition then
-    b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.bits(buffer, offset, packet, element)
+    b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Auction Imbalance 19 Message
@@ -4122,13 +4309,13 @@ b3_equities_binaryumdf_sbe_v2_2.auction_imbalance_19_message.fields = function(b
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, md_update_action = b3_equities_binaryumdf_sbe_v2_2.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Condition: Struct of 4 fields
+  -- Imbalance Condition: Struct of 11 fields
   index, imbalance_condition = b3_equities_binaryumdf_sbe_v2_2.imbalance_condition.dissect(buffer, index, packet, parent)
 
   -- Md Entry Size Quantity Optional: 8 Byte Signed Fixed Width Integer
@@ -4245,7 +4432,7 @@ b3_equities_binaryumdf_sbe_v2_2.closing_price_17_message.fields = function(buffe
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
@@ -4316,7 +4503,7 @@ b3_equities_binaryumdf_sbe_v2_2.theoretical_opening_price_16_message.fields = fu
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -4410,7 +4597,7 @@ b3_equities_binaryumdf_sbe_v2_2.opening_price_15_message.fields = function(buffe
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -5067,7 +5254,7 @@ b3_equities_binaryumdf_sbe_v2_2.news_5_message.fields = function(buffer, offset,
   -- Security Id Optional: 8 Byte Unsigned Fixed Width Integer
   index, security_id_optional = b3_equities_binaryumdf_sbe_v2_2.security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- News Source: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
@@ -8267,7 +8454,7 @@ b3_equities_binaryumdf_sbe_v2_2.security_group_phase_10_message.fields = functio
   -- Offset 3 Padding 5: 5 Byte
   index, offset_3_padding_5 = b3_equities_binaryumdf_sbe_v2_2.offset_3_padding_5.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -8385,7 +8572,7 @@ b3_equities_binaryumdf_sbe_v2_2.security_status_3_message.fields = function(buff
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -8474,7 +8661,7 @@ end
 b3_equities_binaryumdf_sbe_v2_2.channel_reset_11_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 1 Padding 3: 3 Byte
@@ -8526,7 +8713,7 @@ b3_equities_binaryumdf_sbe_v2_2.empty_book_message.fields = function(buffer, off
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 4 fields
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 3: 3 Byte

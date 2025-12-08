@@ -215,7 +215,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.recipient_type = ProtoField
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rejected_client_message_sequence_number = ProtoField.new("Rejected Client Message Sequence Number", "euronext.optiq.orderentrygateway.sbe.v1.3.rejectedclientmessagesequencenumber", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rejected_message = ProtoField.new("Rejected Message", "euronext.optiq.orderentrygateway.sbe.v1.3.rejectedmessage", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rejected_message_id = ProtoField.new("Rejected Message Id", "euronext.optiq.orderentrygateway.sbe.v1.3.rejectedmessageid", ftypes.UINT16)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_1 = ProtoField.new("Reserved 1", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_2 = ProtoField.new("Reserved 2", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved2", ftypes.UINT8, nil, base.DEC, 0xC0)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_3 = ProtoField.new("Reserved 3", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved3", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_4 = ProtoField.new("Reserved 4", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved4", ftypes.UINT8, nil, base.DEC, 0xF0)
@@ -268,6 +267,8 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.uncrossing_trade = ProtoFie
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "euronext.optiq.orderentrygateway.sbe.v1.3.underlyinginstrumentid", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.undisclosed_iceberg_type = ProtoField.new("Undisclosed Iceberg Type", "euronext.optiq.orderentrygateway.sbe.v1.3.undisclosedicebergtype", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.undisclosed_price = ProtoField.new("Undisclosed Price", "euronext.optiq.orderentrygateway.sbe.v1.3.undisclosedprice", ftypes.INT64)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_trade_qualifierset_7 = ProtoField.new("Unused Trade Qualifierset 7", "euronext.optiq.orderentrygateway.sbe.v1.3.unusedtradequalifierset7", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_trading_session_validityset_0 = ProtoField.new("Unused Trading Session Validityset 0", "euronext.optiq.orderentrygateway.sbe.v1.3.unusedtradingsessionvalidityset0", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.user_status = ProtoField.new("User Status", "euronext.optiq.orderentrygateway.sbe.v1.3.userstatus", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.version = ProtoField.new("Version", "euronext.optiq.orderentrygateway.sbe.v1.3.version", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.waiver_indicator = ProtoField.new("Waiver Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.waiverindicator", ftypes.STRING)
@@ -2633,85 +2634,90 @@ euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.size = 1
 
 -- Display: Waiver Indicator
-euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.display = function(buffer, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Omf flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Omf|"
-  end
-  -- Is Ilqd flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Ilqd|"
-  end
-  -- Is Size flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Size|"
-  end
-  -- Is Pric flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Pric|"
-  end
-  -- Is Oilq flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Oilq|"
-  end
-  -- Is Nliq flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Nliq|"
-  end
-  -- Is Rfpt flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Rfpt|"
-  end
   -- Is Lrgs flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Lrgs|"
   end
+  -- Is Rfpt flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Rfpt|"
+  end
+  -- Is Nliq flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Nliq|"
+  end
+  -- Is Oilq flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Oilq|"
+  end
+  -- Is Pric flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Pric|"
+  end
+  -- Is Size flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Size|"
+  end
+  -- Is Ilqd flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Ilqd|"
+  end
+  -- Is Omf flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Omf|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Waiver Indicator
-euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.bits = function(buffer, offset, packet, parent)
-
-  -- Omf: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.omf, buffer(offset, 1))
-
-  -- Ilqd: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.ilqd, buffer(offset, 1))
-
-  -- Size: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.size, buffer(offset, 1))
-
-  -- Pric: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.pric, buffer(offset, 1))
-
-  -- Oilq: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oilq, buffer(offset, 1))
-
-  -- Nliq: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nliq, buffer(offset, 1))
-
-  -- Rfpt: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfpt, buffer(offset, 1))
+euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.bits = function(range, value, packet, parent)
 
   -- Lrgs: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.lrgs, buffer(offset, 1))
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.lrgs, range, value)
+
+  -- Rfpt: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfpt, range, value)
+
+  -- Nliq: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nliq, range, value)
+
+  -- Oilq: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oilq, range, value)
+
+  -- Pric: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.pric, range, value)
+
+  -- Size: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.size, range, value)
+
+  -- Ilqd: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.ilqd, range, value)
+
+  -- Omf: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.omf, range, value)
 end
 
 -- Dissect: Waiver Indicator
 euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.waiver_indicator, range, display)
 
   if show.waiver_indicator then
-    euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.bits(buffer, offset, packet, element)
+    euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Free Text Cross
@@ -4043,67 +4049,72 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.size = 1
 
 -- Display: Mi Fid Indicators
-euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.display = function(buffer, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Deferral Indicator flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Deferral Indicator|"
-  end
-  -- Is Commodity Derivative Indicator flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Commodity Derivative Indicator|"
-  end
-  -- Is Execution Algo Indicator flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Execution Algo Indicator|"
-  end
-  -- Is Investment Algo Indicator flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Investment Algo Indicator|"
-  end
   -- Is Dea Indicator flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Dea Indicator|"
   end
+  -- Is Investment Algo Indicator flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Investment Algo Indicator|"
+  end
+  -- Is Execution Algo Indicator flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Execution Algo Indicator|"
+  end
+  -- Is Commodity Derivative Indicator flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Commodity Derivative Indicator|"
+  end
+  -- Is Deferral Indicator flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Deferral Indicator|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Mi Fid Indicators
-euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 3: 3 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_3, buffer(offset, 1))
-
-  -- Deferral Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.deferral_indicator, buffer(offset, 1))
-
-  -- Commodity Derivative Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.commodity_derivative_indicator, buffer(offset, 1))
-
-  -- Execution Algo Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_algo_indicator, buffer(offset, 1))
-
-  -- Investment Algo Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.investment_algo_indicator, buffer(offset, 1))
+euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.bits = function(range, value, packet, parent)
 
   -- Dea Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.dea_indicator, buffer(offset, 1))
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.dea_indicator, range, value)
+
+  -- Investment Algo Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.investment_algo_indicator, range, value)
+
+  -- Execution Algo Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_algo_indicator, range, value)
+
+  -- Commodity Derivative Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.commodity_derivative_indicator, range, value)
+
+  -- Deferral Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.deferral_indicator, range, value)
+
+  -- Reserved 3: 3 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_3, range, value)
 end
 
 -- Dissect: Mi Fid Indicators
 euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.mi_fid_indicators, range, display)
 
   if show.mi_fid_indicators then
-    euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.bits(buffer, offset, packet, element)
+    euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Guarantee Flag
@@ -7703,102 +7714,107 @@ euronext_optiq_orderentrygateway_sbe_v1_3.open_close = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.open_close.size = 2
 
 -- Display: Open Close
-euronext_optiq_orderentrygateway_sbe_v1_3.open_close.display = function(buffer, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v1_3.open_close.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Leg 9 flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Leg 9|"
-  end
-  -- Is Leg 8 flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Leg 8|"
-  end
-  -- Is Leg 7 flag set?
-  if buffer:bitfield(8) > 0 then
-    display = display.."Leg 7|"
-  end
-  -- Is Leg 6 flag set?
-  if buffer:bitfield(9) > 0 then
-    display = display.."Leg 6|"
-  end
-  -- Is Leg 5 flag set?
-  if buffer:bitfield(10) > 0 then
-    display = display.."Leg 5|"
-  end
-  -- Is Leg 4 flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Leg 4|"
-  end
-  -- Is Leg 3 flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Leg 3|"
-  end
-  -- Is Leg 2 flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Leg 2|"
-  end
-  -- Is Leg 1 flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Leg 1|"
-  end
   -- Is Field Actively Used flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Field Actively Used|"
   end
+  -- Is Leg 1 flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Leg 1|"
+  end
+  -- Is Leg 2 flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Leg 2|"
+  end
+  -- Is Leg 3 flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Leg 3|"
+  end
+  -- Is Leg 4 flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    display = display.."Leg 4|"
+  end
+  -- Is Leg 5 flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    display = display.."Leg 5|"
+  end
+  -- Is Leg 6 flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    display = display.."Leg 6|"
+  end
+  -- Is Leg 7 flag set?
+  if bit.band(value, 0x0080) ~= 0 then
+    display = display.."Leg 7|"
+  end
+  -- Is Leg 8 flag set?
+  if bit.band(value, 0x0100) ~= 0 then
+    display = display.."Leg 8|"
+  end
+  -- Is Leg 9 flag set?
+  if bit.band(value, 0x0200) ~= 0 then
+    display = display.."Leg 9|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Open Close
-euronext_optiq_orderentrygateway_sbe_v1_3.open_close.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 6: 6 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_6, buffer(offset, 2))
-
-  -- Leg 9: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_9, buffer(offset, 2))
-
-  -- Leg 8: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_8, buffer(offset, 2))
-
-  -- Leg 7: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_7, buffer(offset, 2))
-
-  -- Leg 6: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_6, buffer(offset, 2))
-
-  -- Leg 5: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_5, buffer(offset, 2))
-
-  -- Leg 4: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_4, buffer(offset, 2))
-
-  -- Leg 3: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_3, buffer(offset, 2))
-
-  -- Leg 2: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_2, buffer(offset, 2))
-
-  -- Leg 1: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_1, buffer(offset, 2))
+euronext_optiq_orderentrygateway_sbe_v1_3.open_close.bits = function(range, value, packet, parent)
 
   -- Field Actively Used: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.field_actively_used, buffer(offset, 2))
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.field_actively_used, range, value)
+
+  -- Leg 1: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_1, range, value)
+
+  -- Leg 2: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_2, range, value)
+
+  -- Leg 3: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_3, range, value)
+
+  -- Leg 4: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_4, range, value)
+
+  -- Leg 5: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_5, range, value)
+
+  -- Leg 6: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_6, range, value)
+
+  -- Leg 7: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_7, range, value)
+
+  -- Leg 8: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_8, range, value)
+
+  -- Leg 9: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_9, range, value)
+
+  -- Reserved 6: 6 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_6, range, value)
 end
 
 -- Dissect: Open Close
 euronext_optiq_orderentrygateway_sbe_v1_3.open_close.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = euronext_optiq_orderentrygateway_sbe_v1_3.open_close.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.open_close.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.open_close.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.open_close, range, display)
 
   if show.open_close then
-    euronext_optiq_orderentrygateway_sbe_v1_3.open_close.bits(buffer, offset, packet, element)
+    euronext_optiq_orderentrygateway_sbe_v1_3.open_close.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Technical Origin
@@ -8811,60 +8827,65 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trading_session = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.size = 1
 
 -- Display: Trading Session
-euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.display = function(buffer, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Session 3 flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Session 3|"
-  end
-  -- Is Session 2 flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Session 2|"
+  -- Is Unused Trading Session Validityset 0 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    display = display.."Unused Trading Session Validityset 0|"
   end
   -- Is Session 1 flag set?
-  if buffer:bitfield(6) > 0 then
+  if bit.band(value, 0x02) ~= 0 then
     display = display.."Session 1|"
   end
-  -- Is Reserved 1 flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Reserved 1|"
+  -- Is Session 2 flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Session 2|"
+  end
+  -- Is Session 3 flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Session 3|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Trading Session
-euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.bits = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.bits = function(range, value, packet, parent)
 
-  -- Reserved 4: 4 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_4, buffer(offset, 1))
-
-  -- Session 3: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_3, buffer(offset, 1))
-
-  -- Session 2: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_2, buffer(offset, 1))
+  -- Unused Trading Session Validityset 0: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_trading_session_validityset_0, range, value)
 
   -- Session 1: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_1, buffer(offset, 1))
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_1, range, value)
 
-  -- Reserved 1: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_1, buffer(offset, 1))
+  -- Session 2: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_2, range, value)
+
+  -- Session 3: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_3, range, value)
+
+  -- Reserved 4: 4 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_4, range, value)
 end
 
 -- Dissect: Trading Session
 euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trading_session, range, display)
 
   if show.trading_session then
-    euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.bits(buffer, offset, packet, element)
+    euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Order Expiration Date
@@ -9298,67 +9319,72 @@ euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.size = 1
 
 -- Display: Dark Execution Instruction
-euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.display = function(buffer, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Minimum Quantity Type flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Minimum Quantity Type|"
-  end
-  -- Is Sweep Order Indicator flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Sweep Order Indicator|"
-  end
-  -- Is Displayed Order Interaction flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Displayed Order Interaction|"
-  end
-  -- Is Deferred Trade Indicator flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Deferred Trade Indicator|"
-  end
   -- Is Dark Indicator flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Dark Indicator|"
   end
+  -- Is Deferred Trade Indicator flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Deferred Trade Indicator|"
+  end
+  -- Is Displayed Order Interaction flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Displayed Order Interaction|"
+  end
+  -- Is Sweep Order Indicator flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Sweep Order Indicator|"
+  end
+  -- Is Minimum Quantity Type flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Minimum Quantity Type|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Dark Execution Instruction
-euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 3: 3 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_3, buffer(offset, 1))
-
-  -- Minimum Quantity Type: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.minimum_quantity_type, buffer(offset, 1))
-
-  -- Sweep Order Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.sweep_order_indicator, buffer(offset, 1))
-
-  -- Displayed Order Interaction: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.displayed_order_interaction, buffer(offset, 1))
-
-  -- Deferred Trade Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.deferred_trade_indicator, buffer(offset, 1))
+euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.bits = function(range, value, packet, parent)
 
   -- Dark Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.dark_indicator, buffer(offset, 1))
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.dark_indicator, range, value)
+
+  -- Deferred Trade Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.deferred_trade_indicator, range, value)
+
+  -- Displayed Order Interaction: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.displayed_order_interaction, range, value)
+
+  -- Sweep Order Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.sweep_order_indicator, range, value)
+
+  -- Minimum Quantity Type: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.minimum_quantity_type, range, value)
+
+  -- Reserved 3: 3 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_3, range, value)
 end
 
 -- Dissect: Dark Execution Instruction
 euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.dark_execution_instruction, range, display)
 
   if show.dark_execution_instruction then
-    euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.bits(buffer, offset, packet, element)
+    euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Execution Instruction
@@ -9368,74 +9394,79 @@ euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.size = 1
 
 -- Display: Execution Instruction
-euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.display = function(buffer, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Rfq Confirmation flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Rfq Confirmation|"
-  end
-  -- Is Rfq Answer flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Rfq Answer|"
-  end
-  -- Is Disabled Cancel On Disconnect Indicator flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Disabled Cancel On Disconnect Indicator|"
-  end
-  -- Is Disclosed Quantity Randomization flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Disclosed Quantity Randomization|"
-  end
-  -- Is Stp Incoming Order flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Stp Incoming Order|"
-  end
   -- Is Stp Resting Order flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Stp Resting Order|"
   end
+  -- Is Stp Incoming Order flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Stp Incoming Order|"
+  end
+  -- Is Disclosed Quantity Randomization flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Disclosed Quantity Randomization|"
+  end
+  -- Is Disabled Cancel On Disconnect Indicator flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Disabled Cancel On Disconnect Indicator|"
+  end
+  -- Is Rfq Answer flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Rfq Answer|"
+  end
+  -- Is Rfq Confirmation flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Rfq Confirmation|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Execution Instruction
-euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 2: 2 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_2, buffer(offset, 1))
-
-  -- Rfq Confirmation: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_confirmation, buffer(offset, 1))
-
-  -- Rfq Answer: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_answer, buffer(offset, 1))
-
-  -- Disabled Cancel On Disconnect Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.disabled_cancel_on_disconnect_indicator, buffer(offset, 1))
-
-  -- Disclosed Quantity Randomization: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.disclosed_quantity_randomization, buffer(offset, 1))
-
-  -- Stp Incoming Order: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stp_incoming_order, buffer(offset, 1))
+euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.bits = function(range, value, packet, parent)
 
   -- Stp Resting Order: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stp_resting_order, buffer(offset, 1))
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stp_resting_order, range, value)
+
+  -- Stp Incoming Order: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stp_incoming_order, range, value)
+
+  -- Disclosed Quantity Randomization: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.disclosed_quantity_randomization, range, value)
+
+  -- Disabled Cancel On Disconnect Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.disabled_cancel_on_disconnect_indicator, range, value)
+
+  -- Rfq Answer: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_answer, range, value)
+
+  -- Rfq Confirmation: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_confirmation, range, value)
+
+  -- Reserved 2: 2 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_2, range, value)
 end
 
 -- Dissect: Execution Instruction
 euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_instruction, range, display)
 
   if show.execution_instruction then
-    euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.bits(buffer, offset, packet, element)
+    euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Time In Force
@@ -10364,85 +10395,90 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.size = 1
 
 -- Display: Trade Qualifier
-euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.display = function(buffer, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Reserved 1 flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Reserved 1|"
-  end
-  -- Is Nav Trade Expressed In Price Currency flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Nav Trade Expressed In Price Currency|"
-  end
-  -- Is Nav Trade Expressed In Bps flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Nav Trade Expressed In Bps|"
-  end
-  -- Is Trade Creation By Market Operations flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Trade Creation By Market Operations|"
-  end
-  -- Is Aggressive Order flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Aggressive Order|"
-  end
-  -- Is Passive Order flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Passive Order|"
-  end
-  -- Is First Trade Price flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."First Trade Price|"
-  end
   -- Is Uncrossing Trade flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Uncrossing Trade|"
   end
+  -- Is First Trade Price flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."First Trade Price|"
+  end
+  -- Is Passive Order flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Passive Order|"
+  end
+  -- Is Aggressive Order flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Aggressive Order|"
+  end
+  -- Is Trade Creation By Market Operations flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Trade Creation By Market Operations|"
+  end
+  -- Is Nav Trade Expressed In Bps flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Nav Trade Expressed In Bps|"
+  end
+  -- Is Nav Trade Expressed In Price Currency flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Nav Trade Expressed In Price Currency|"
+  end
+  -- Is Unused Trade Qualifierset 7 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Unused Trade Qualifierset 7|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Trade Qualifier
-euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 1: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_1, buffer(offset, 1))
-
-  -- Nav Trade Expressed In Price Currency: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nav_trade_expressed_in_price_currency, buffer(offset, 1))
-
-  -- Nav Trade Expressed In Bps: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nav_trade_expressed_in_bps, buffer(offset, 1))
-
-  -- Trade Creation By Market Operations: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_creation_by_market_operations, buffer(offset, 1))
-
-  -- Aggressive Order: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.aggressive_order, buffer(offset, 1))
-
-  -- Passive Order: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.passive_order, buffer(offset, 1))
-
-  -- First Trade Price: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.first_trade_price, buffer(offset, 1))
+euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.bits = function(range, value, packet, parent)
 
   -- Uncrossing Trade: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.uncrossing_trade, buffer(offset, 1))
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.uncrossing_trade, range, value)
+
+  -- First Trade Price: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.first_trade_price, range, value)
+
+  -- Passive Order: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.passive_order, range, value)
+
+  -- Aggressive Order: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.aggressive_order, range, value)
+
+  -- Trade Creation By Market Operations: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_creation_by_market_operations, range, value)
+
+  -- Nav Trade Expressed In Bps: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nav_trade_expressed_in_bps, range, value)
+
+  -- Nav Trade Expressed In Price Currency: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nav_trade_expressed_in_price_currency, range, value)
+
+  -- Unused Trade Qualifierset 7: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_trade_qualifierset_7, range, value)
 end
 
 -- Dissect: Trade Qualifier
 euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_qualifier, range, display)
 
   if show.trade_qualifier then
-    euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.bits(buffer, offset, packet, element)
+    euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Trade Type
@@ -10742,46 +10778,51 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.size = 1
 
 -- Display: Ack Qualifiers
-euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.display = function(buffer, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Queue Indicator flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Queue Indicator|"
-  end
   -- Is Dark Indicator flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Dark Indicator|"
   end
+  -- Is Queue Indicator flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Queue Indicator|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Ack Qualifiers
-euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 6: 6 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_6, buffer(offset, 1))
-
-  -- Queue Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.queue_indicator, buffer(offset, 1))
+euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.bits = function(range, value, packet, parent)
 
   -- Dark Indicator: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.dark_indicator, buffer(offset, 1))
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.dark_indicator, range, value)
+
+  -- Queue Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.queue_indicator, range, value)
+
+  -- Reserved 6: 6 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_6, range, value)
 end
 
 -- Dissect: Ack Qualifiers
 euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.ack_qualifiers, range, display)
 
   if show.ack_qualifiers then
-    euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.bits(buffer, offset, packet, element)
+    euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Order Qty Optional

@@ -31,7 +31,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.box = ProtoField.new("Box"
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.bundle = ProtoField.new("Bundle", "euronext.optiq.marketdatagateway.sbe.v5.19.bundle", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000400000)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.butterfly = ProtoField.new("Butterfly", "euronext.optiq.marketdatagateway.sbe.v5.19.butterfly", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000002)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.butterfly_versus_underlying = ProtoField.new("Butterfly Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.butterflyversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000002000000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.buy_write = ProtoField.new("Buy Write", "euronext.optiq.marketdatagateway.sbe.v5.19.buywrite", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000040000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.buy_write = ProtoField.new("Buy Write", "euronext.optiq.marketdatagateway.sbe.v5.19.buywrite", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000400)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.calendar_spread = ProtoField.new("Calendar Spread", "euronext.optiq.marketdatagateway.sbe.v5.19.calendarspread", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000010)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_bbo_only = ProtoField.new("Call Bbo Only", "euronext.optiq.marketdatagateway.sbe.v5.19.callbboonly", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_or_put_cabinet = ProtoField.new("Call Or Put Cabinet", "euronext.optiq.marketdatagateway.sbe.v5.19.callorputcabinet", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000004)
@@ -39,7 +39,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_or_put_calendar_sprea
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_or_put_spread_versus_underlying = ProtoField.new("Call Or Put Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.callorputspreadversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000008000000)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_put_diagonal_calendar_spread_versus_underlying = ProtoField.new("Call Put Diagonal Calendar Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.callputdiagonalcalendarspreadversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000020000000)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_spread_versus_put_versus_underlying = ProtoField.new("Call Spread Versus Put Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.callspreadversusputversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000004000000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_spread_versus_sell_a_put = ProtoField.new("Call Spread Versus Sell A Put", "euronext.optiq.marketdatagateway.sbe.v5.19.callspreadversussellaput", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000200000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_spread_versus_sell_a_put = ProtoField.new("Call Spread Versus Sell A Put", "euronext.optiq.marketdatagateway.sbe.v5.19.callspreadversussellaput", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000002000)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.cfi = ProtoField.new("Cfi", "euronext.optiq.marketdatagateway.sbe.v5.19.cfi", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.cfi_optional = ProtoField.new("Cfi Optional", "euronext.optiq.marketdatagateway.sbe.v5.19.cfioptional", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.change_type = ProtoField.new("Change Type", "euronext.optiq.marketdatagateway.sbe.v5.19.changetype", ftypes.UINT8)
@@ -51,10 +51,10 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.collar_expansion_factor = 
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.collar_max_unhalt_nb = ProtoField.new("Collar Max Unhalt Nb", "euronext.optiq.marketdatagateway.sbe.v5.19.collarmaxunhaltnb", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.collar_unhalt_delay = ProtoField.new("Collar Unhalt Delay", "euronext.optiq.marketdatagateway.sbe.v5.19.collarunhaltdelay", ftypes.UINT32)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.combo = ProtoField.new("Combo", "euronext.optiq.marketdatagateway.sbe.v5.19.combo", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000200)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.combo_versus_underlying = ProtoField.new("Combo Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.comboversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000200000000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.compression = ProtoField.new("Compression", "euronext.optiq.marketdatagateway.sbe.v5.19.compression", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.combo_versus_underlying = ProtoField.new("Combo Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.comboversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000002)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.compression = ProtoField.new("Compression", "euronext.optiq.marketdatagateway.sbe.v5.19.compression", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x8000)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.condor = ProtoField.new("Condor", "euronext.optiq.marketdatagateway.sbe.v5.19.condor", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000100000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.condor_versus_underlying = ProtoField.new("Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.condorversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000020000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.condor_versus_underlying = ProtoField.new("Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.condorversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000200)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.confirmed_reference_level = ProtoField.new("Confirmed Reference Level", "euronext.optiq.marketdatagateway.sbe.v5.19.confirmedreferencelevel", ftypes.INT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.confirmed_reference_time = ProtoField.new("Confirmed Reference Time", "euronext.optiq.marketdatagateway.sbe.v5.19.confirmedreferencetime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.contract_emm_properties_group = ProtoField.new("Contract Emm Properties Group", "euronext.optiq.marketdatagateway.sbe.v5.19.contractemmpropertiesgroup", ftypes.STRING)
@@ -86,7 +86,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.derivatives_instrument_typ
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.derivatives_market_model = ProtoField.new("Derivatives Market Model", "euronext.optiq.marketdatagateway.sbe.v5.19.derivativesmarketmodel", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.diagonal_calendar_spread = ProtoField.new("Diagonal Calendar Spread", "euronext.optiq.marketdatagateway.sbe.v5.19.diagonalcalendarspread", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000020)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.diagonal_straddle_calendar_spread = ProtoField.new("Diagonal Straddle Calendar Spread", "euronext.optiq.marketdatagateway.sbe.v5.19.diagonalstraddlecalendarspread", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000008000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.diagonal_straddle_calendar_spread_versus_underlying = ProtoField.new("Diagonal Straddle Calendar Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.diagonalstraddlecalendarspreadversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000004000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.diagonal_straddle_calendar_spread_versus_underlying = ProtoField.new("Diagonal Straddle Calendar Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.diagonalstraddlecalendarspreadversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000040)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.dividend_currency = ProtoField.new("Dividend Currency", "euronext.optiq.marketdatagateway.sbe.v5.19.dividendcurrency", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.dividend_payment_date = ProtoField.new("Dividend Payment Date", "euronext.optiq.marketdatagateway.sbe.v5.19.dividendpaymentdate", ftypes.UINT16)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.dividend_rate = ProtoField.new("Dividend Rate", "euronext.optiq.marketdatagateway.sbe.v5.19.dividendrate", ftypes.UINT64)
@@ -117,9 +117,9 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.evaluated_price = ProtoFie
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.event_time = ProtoField.new("Event Time", "euronext.optiq.marketdatagateway.sbe.v5.19.eventtime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.event_time_optional = ProtoField.new("Event Time Optional", "euronext.optiq.marketdatagateway.sbe.v5.19.eventtimeoptional", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.ex_dividend_date = ProtoField.new("Ex Dividend Date", "euronext.optiq.marketdatagateway.sbe.v5.19.exdividenddate", ftypes.UINT16)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exceptional_market_conditions = ProtoField.new("Exceptional Market Conditions", "euronext.optiq.marketdatagateway.sbe.v5.19.exceptionalmarketconditions", ftypes.UINT16, nil, base.DEC, 0x0180)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exceptional_market_conditions = ProtoField.new("Exceptional Market Conditions", "euronext.optiq.marketdatagateway.sbe.v5.19.exceptionalmarketconditions", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exchange_code = ProtoField.new("Exchange Code", "euronext.optiq.marketdatagateway.sbe.v5.19.exchangecode", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exchange_for_physical = ProtoField.new("Exchange For Physical", "euronext.optiq.marketdatagateway.sbe.v5.19.exchangeforphysical", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000800000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exchange_for_physical = ProtoField.new("Exchange For Physical", "euronext.optiq.marketdatagateway.sbe.v5.19.exchangeforphysical", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000008)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exer_style = ProtoField.new("Exer Style", "euronext.optiq.marketdatagateway.sbe.v5.19.exerstyle", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.expiry_cycle_type = ProtoField.new("Expiry Cycle Type", "euronext.optiq.marketdatagateway.sbe.v5.19.expirycycletype", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.expiry_date = ProtoField.new("Expiry Date", "euronext.optiq.marketdatagateway.sbe.v5.19.expirydate", ftypes.STRING)
@@ -135,9 +135,9 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.group_size_encoding = Prot
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.guarantee_indicator = ProtoField.new("Guarantee Indicator", "euronext.optiq.marketdatagateway.sbe.v5.19.guaranteeindicator", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.guts = ProtoField.new("Guts", "euronext.optiq.marketdatagateway.sbe.v5.19.guts", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000040)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.guts_versus_underlying = ProtoField.new("Guts Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.gutsversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000040000000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_end_of_day_snapshot = ProtoField.new("Has End Of Day Snapshot", "euronext.optiq.marketdatagateway.sbe.v5.19.hasendofdaysnapshot", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_start_of_day_snapshot = ProtoField.new("Has Start Of Day Snapshot", "euronext.optiq.marketdatagateway.sbe.v5.19.hasstartofdaysnapshot", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_status_message = ProtoField.new("Has Status Message", "euronext.optiq.marketdatagateway.sbe.v5.19.hasstatusmessage", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0200)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_end_of_day_snapshot = ProtoField.new("Has End Of Day Snapshot", "euronext.optiq.marketdatagateway.sbe.v5.19.hasendofdaysnapshot", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_start_of_day_snapshot = ProtoField.new("Has Start Of Day Snapshot", "euronext.optiq.marketdatagateway.sbe.v5.19.hasstartofdaysnapshot", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_status_message = ProtoField.new("Has Status Message", "euronext.optiq.marketdatagateway.sbe.v5.19.hasstatusmessage", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0040)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.high_level = ProtoField.new("High Level", "euronext.optiq.marketdatagateway.sbe.v5.19.highlevel", ftypes.INT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.high_time = ProtoField.new("High Time", "euronext.optiq.marketdatagateway.sbe.v5.19.hightime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.icb = ProtoField.new("Icb", "euronext.optiq.marketdatagateway.sbe.v5.19.icb", ftypes.STRING)
@@ -158,9 +158,9 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.interest_payment_date = Pr
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.interest_payment_date_rep_group = ProtoField.new("Interest Payment Date Rep Group", "euronext.optiq.marketdatagateway.sbe.v5.19.interestpaymentdaterepgroup", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.interest_payment_date_rep_groups = ProtoField.new("Interest Payment Date Rep Groups", "euronext.optiq.marketdatagateway.sbe.v5.19.interestpaymentdaterepgroups", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_butterfly = ProtoField.new("Iron Butterfly", "euronext.optiq.marketdatagateway.sbe.v5.19.ironbutterfly", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000100)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_butterfly_versus_underlying = ProtoField.new("Iron Butterfly Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.ironbutterflyversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000100000000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_condor = ProtoField.new("Iron Condor", "euronext.optiq.marketdatagateway.sbe.v5.19.ironcondor", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000100000000000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_condor_versus_underlying = ProtoField.new("Iron Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.ironcondorversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000080000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_butterfly_versus_underlying = ProtoField.new("Iron Butterfly Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.ironbutterflyversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000001)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_condor = ProtoField.new("Iron Condor", "euronext.optiq.marketdatagateway.sbe.v5.19.ironcondor", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000001000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_condor_versus_underlying = ProtoField.new("Iron Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.ironcondorversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000800)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.isin_code = ProtoField.new("Isin Code", "euronext.optiq.marketdatagateway.sbe.v5.19.isincode", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.isin_code_optional = ProtoField.new("Isin Code Optional", "euronext.optiq.marketdatagateway.sbe.v5.19.isincodeoptional", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.issue_date = ProtoField.new("Issue Date", "euronext.optiq.marketdatagateway.sbe.v5.19.issuedate", ftypes.UINT16)
@@ -214,7 +214,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.max_order_quantity_continu
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.maximum_decimals_in_quantity = ProtoField.new("Maximum Decimals In Quantity", "euronext.optiq.marketdatagateway.sbe.v5.19.maximumdecimalsinquantity", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.md_seq_num = ProtoField.new("Md Seq Num", "euronext.optiq.marketdatagateway.sbe.v5.19.mdseqnum", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.md_seq_num_optional = ProtoField.new("Md Seq Num Optional", "euronext.optiq.marketdatagateway.sbe.v5.19.mdseqnumoptional", ftypes.UINT64)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.mdg_restart_count = ProtoField.new("Mdg Restart Count", "euronext.optiq.marketdatagateway.sbe.v5.19.mdgrestartcount", ftypes.UINT16, nil, base.DEC, 0x000E)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.mdg_restart_count = ProtoField.new("Mdg Restart Count", "euronext.optiq.marketdatagateway.sbe.v5.19.mdgrestartcount", ftypes.UINT16, nil, base.DEC, 0x7000)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.message = ProtoField.new("Message", "euronext.optiq.marketdatagateway.sbe.v5.19.message", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatagateway.sbe.v5.19.messageheader", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.message_price_notation = ProtoField.new("Message Price Notation", "euronext.optiq.marketdatagateway.sbe.v5.19.messagepricenotation", ftypes.UINT8)
@@ -326,11 +326,11 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.price_updates_group = Prot
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.price_updates_groups = ProtoField.new("Price Updates Groups", "euronext.optiq.marketdatagateway.sbe.v5.19.priceupdatesgroups", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.pricing_algorithm = ProtoField.new("Pricing Algorithm", "euronext.optiq.marketdatagateway.sbe.v5.19.pricingalgorithm", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.product_code = ProtoField.new("Product Code", "euronext.optiq.marketdatagateway.sbe.v5.19.productcode", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.psn_high_weight = ProtoField.new("Psn High Weight", "euronext.optiq.marketdatagateway.sbe.v5.19.psnhighweight", ftypes.UINT16, nil, base.DEC, 0x0070)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.psn_high_weight = ProtoField.new("Psn High Weight", "euronext.optiq.marketdatagateway.sbe.v5.19.psnhighweight", ftypes.UINT16, nil, base.DEC, 0x0E00)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.publication_date_time = ProtoField.new("Publication Date Time", "euronext.optiq.marketdatagateway.sbe.v5.19.publicationdatetime", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_spread_versus_call_versus_underlying = ProtoField.new("Put Spread Versus Call Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.putspreadversuscallversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000002000000000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_spread_versus_sell_a_call = ProtoField.new("Put Spread Versus Sell A Call", "euronext.optiq.marketdatagateway.sbe.v5.19.putspreadversussellacall", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000400000000000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_straddle_versus_sell_a_call_or_a_put = ProtoField.new("Put Straddle Versus Sell A Call Or A Put", "euronext.optiq.marketdatagateway.sbe.v5.19.putstraddleversussellacalloraput", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000800000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_spread_versus_call_versus_underlying = ProtoField.new("Put Spread Versus Call Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.putspreadversuscallversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000020)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_spread_versus_sell_a_call = ProtoField.new("Put Spread Versus Sell A Call", "euronext.optiq.marketdatagateway.sbe.v5.19.putspreadversussellacall", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000004000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_straddle_versus_sell_a_call_or_a_put = ProtoField.new("Put Straddle Versus Sell A Call Or A Put", "euronext.optiq.marketdatagateway.sbe.v5.19.putstraddleversussellacalloraput", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000008000)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.quantity = ProtoField.new("Quantity", "euronext.optiq.marketdatagateway.sbe.v5.19.quantity", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.quantity_decimals = ProtoField.new("Quantity Decimals", "euronext.optiq.marketdatagateway.sbe.v5.19.quantitydecimals", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.quantity_notation = ProtoField.new("Quantity Notation", "euronext.optiq.marketdatagateway.sbe.v5.19.quantitynotation", ftypes.STRING)
@@ -351,9 +351,9 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reference_spread_table_id 
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.repo_indicator = ProtoField.new("Repo Indicator", "euronext.optiq.marketdatagateway.sbe.v5.19.repoindicator", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.repo_settlement_date = ProtoField.new("Repo Settlement Date", "euronext.optiq.marketdatagateway.sbe.v5.19.reposettlementdate", ftypes.UINT16)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_10 = ProtoField.new("Reserved 10", "euronext.optiq.marketdatagateway.sbe.v5.19.reserved10", ftypes.UINT16, nil, base.DEC, 0xFFC0)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_16 = ProtoField.new("Reserved 16", "euronext.optiq.marketdatagateway.sbe.v5.19.reserved16", ftypes.UINT64, nil, base.DEC, 0xFFFF000000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_16 = ProtoField.new("Reserved 16", "euronext.optiq.marketdatagateway.sbe.v5.19.reserved16", ftypes.UINT64, nil, base.DEC, 0x00000000FFFF0000)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_6 = ProtoField.new("Reserved 6", "euronext.optiq.marketdatagateway.sbe.v5.19.reserved6", ftypes.UINT16, nil, base.DEC, 0xFC00)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_bits = ProtoField.new("Reserved Bits", "euronext.optiq.marketdatagateway.sbe.v5.19.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFC00)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_bits = ProtoField.new("Reserved Bits", "euronext.optiq.marketdatagateway.sbe.v5.19.reservedbits", ftypes.UINT16, nil, base.DEC, 0x003F)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.retransmission_end_time = ProtoField.new("Retransmission End Time", "euronext.optiq.marketdatagateway.sbe.v5.19.retransmissionendtime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.retransmission_start_time = ProtoField.new("Retransmission Start Time", "euronext.optiq.marketdatagateway.sbe.v5.19.retransmissionstarttime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.scheduled_event = ProtoField.new("Scheduled Event", "euronext.optiq.marketdatagateway.sbe.v5.19.scheduledevent", ftypes.UINT8)
@@ -380,10 +380,10 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.stop_limit = ProtoField.ne
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.stop_stop_loss = ProtoField.new("Stop Stop Loss", "euronext.optiq.marketdatagateway.sbe.v5.19.stopstoploss", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle = ProtoField.new("Straddle", "euronext.optiq.marketdatagateway.sbe.v5.19.straddle", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000040000)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_calendar_spread = ProtoField.new("Straddle Calendar Spread", "euronext.optiq.marketdatagateway.sbe.v5.19.straddlecalendarspread", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000002000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_calendar_spread_versus_underlying = ProtoField.new("Straddle Calendar Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.straddlecalendarspreadversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000001000000000)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_versus_underlying = ProtoField.new("Straddle Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.straddleversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000010000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_calendar_spread_versus_underlying = ProtoField.new("Straddle Calendar Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.straddlecalendarspreadversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000010)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_versus_underlying = ProtoField.new("Straddle Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.straddleversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000100)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strangle = ProtoField.new("Strangle", "euronext.optiq.marketdatagateway.sbe.v5.19.strangle", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000400)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strangle_versus_underlying = ProtoField.new("Strangle Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.strangleversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000400000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strangle_versus_underlying = ProtoField.new("Strangle Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v5.19.strangleversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000004)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strategy_authorized = ProtoField.new("Strategy Authorized", "euronext.optiq.marketdatagateway.sbe.v5.19.strategyauthorized", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strategy_code = ProtoField.new("Strategy Code", "euronext.optiq.marketdatagateway.sbe.v5.19.strategycode", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strategy_standing_data_group = ProtoField.new("Strategy Standing Data Group", "euronext.optiq.marketdatagateway.sbe.v5.19.strategystandingdatagroup", ftypes.STRING)
@@ -398,7 +398,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strip = ProtoField.new("St
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.suspended = ProtoField.new("Suspended", "euronext.optiq.marketdatagateway.sbe.v5.19.suspended", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0010)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.symbol_index = ProtoField.new("Symbol Index", "euronext.optiq.marketdatagateway.sbe.v5.19.symbolindex", ftypes.UINT32)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.symbol_index_optional = ProtoField.new("Symbol Index Optional", "euronext.optiq.marketdatagateway.sbe.v5.19.symbolindexoptional", ftypes.UINT32)
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.synthetic = ProtoField.new("Synthetic", "euronext.optiq.marketdatagateway.sbe.v5.19.synthetic", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000008000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.synthetic = ProtoField.new("Synthetic", "euronext.optiq.marketdatagateway.sbe.v5.19.synthetic", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000080)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.tax_code = ProtoField.new("Tax Code", "euronext.optiq.marketdatagateway.sbe.v5.19.taxcode", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.tax_description_attaching_to_a_dividend = ProtoField.new("Tax Description Attaching To A Dividend", "euronext.optiq.marketdatagateway.sbe.v5.19.taxdescriptionattachingtoadividend", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.technical_notification_type = ProtoField.new("Technical Notification Type", "euronext.optiq.marketdatagateway.sbe.v5.19.technicalnotificationtype", ftypes.UINT8)
@@ -441,6 +441,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.underlying_mic = ProtoFiel
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.underlying_subtype = ProtoField.new("Underlying Subtype", "euronext.optiq.marketdatagateway.sbe.v5.19.underlyingsubtype", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.underlying_symbol_index = ProtoField.new("Underlying Symbol Index", "euronext.optiq.marketdatagateway.sbe.v5.19.underlyingsymbolindex", ftypes.UINT32)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.underlying_type = ProtoField.new("Underlying Type", "euronext.optiq.marketdatagateway.sbe.v5.19.underlyingtype", ftypes.STRING)
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.unused_phase_qualifierset_8 = ProtoField.new("Unused Phase Qualifierset 8", "euronext.optiq.marketdatagateway.sbe.v5.19.unusedphasequalifierset8", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.update_type = ProtoField.new("Update Type", "euronext.optiq.marketdatagateway.sbe.v5.19.updatetype", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.venue = ProtoField.new("Venue", "euronext.optiq.marketdatagateway.sbe.v5.19.venue", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.version = ProtoField.new("Version", "euronext.optiq.marketdatagateway.sbe.v5.19.version", ftypes.UINT16)
@@ -8488,368 +8489,373 @@ euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized = {}
 euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.size = 8
 
 -- Display: Strategy Authorized
-euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.display = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Put Straddle Versus Sell A Call Or A Put flag set?
-  if buffer:bitfield(16) > 0 then
-    display = display.."Put Straddle Versus Sell A Call Or A Put|"
-  end
-  -- Is Put Spread Versus Sell A Call flag set?
-  if buffer:bitfield(17) > 0 then
-    display = display.."Put Spread Versus Sell A Call|"
-  end
-  -- Is Call Spread Versus Sell A Put flag set?
-  if buffer:bitfield(18) > 0 then
-    display = display.."Call Spread Versus Sell A Put|"
-  end
-  -- Is Iron Condor flag set?
-  if buffer:bitfield(19) > 0 then
-    display = display.."Iron Condor|"
-  end
-  -- Is Iron Condor Versus Underlying flag set?
-  if buffer:bitfield(20) > 0 then
-    display = display.."Iron Condor Versus Underlying|"
-  end
-  -- Is Buy Write flag set?
-  if buffer:bitfield(21) > 0 then
-    display = display.."Buy Write|"
-  end
-  -- Is Condor Versus Underlying flag set?
-  if buffer:bitfield(22) > 0 then
-    display = display.."Condor Versus Underlying|"
-  end
-  -- Is Straddle Versus Underlying flag set?
-  if buffer:bitfield(23) > 0 then
-    display = display.."Straddle Versus Underlying|"
-  end
-  -- Is Synthetic flag set?
-  if buffer:bitfield(24) > 0 then
-    display = display.."Synthetic|"
-  end
-  -- Is Diagonal Straddle Calendar Spread Versus Underlying flag set?
-  if buffer:bitfield(25) > 0 then
-    display = display.."Diagonal Straddle Calendar Spread Versus Underlying|"
-  end
-  -- Is Put Spread Versus Call Versus Underlying flag set?
-  if buffer:bitfield(26) > 0 then
-    display = display.."Put Spread Versus Call Versus Underlying|"
-  end
-  -- Is Straddle Calendar Spread Versus Underlying flag set?
-  if buffer:bitfield(27) > 0 then
-    display = display.."Straddle Calendar Spread Versus Underlying|"
-  end
-  -- Is Exchange For Physical flag set?
-  if buffer:bitfield(28) > 0 then
-    display = display.."Exchange For Physical|"
-  end
-  -- Is Strangle Versus Underlying flag set?
-  if buffer:bitfield(29) > 0 then
-    display = display.."Strangle Versus Underlying|"
-  end
-  -- Is Combo Versus Underlying flag set?
-  if buffer:bitfield(30) > 0 then
-    display = display.."Combo Versus Underlying|"
-  end
-  -- Is Iron Butterfly Versus Underlying flag set?
-  if buffer:bitfield(31) > 0 then
-    display = display.."Iron Butterfly Versus Underlying|"
-  end
-  -- Is Two By One Call Or Put Ratio Spread Versus Underlying flag set?
-  if buffer:bitfield(32) > 0 then
-    display = display.."Two By One Call Or Put Ratio Spread Versus Underlying|"
-  end
-  -- Is Guts Versus Underlying flag set?
-  if buffer:bitfield(33) > 0 then
-    display = display.."Guts Versus Underlying|"
-  end
-  -- Is Call Put Diagonal Calendar Spread Versus Underlying flag set?
-  if buffer:bitfield(34) > 0 then
-    display = display.."Call Put Diagonal Calendar Spread Versus Underlying|"
-  end
-  -- Is Call Or Put Calendar Spread Versus Underlying flag set?
-  if buffer:bitfield(35) > 0 then
-    display = display.."Call Or Put Calendar Spread Versus Underlying|"
-  end
-  -- Is Call Or Put Spread Versus Underlying flag set?
-  if buffer:bitfield(36) > 0 then
-    display = display.."Call Or Put Spread Versus Underlying|"
-  end
-  -- Is Call Spread Versus Put Versus Underlying flag set?
-  if buffer:bitfield(37) > 0 then
-    display = display.."Call Spread Versus Put Versus Underlying|"
-  end
-  -- Is Butterfly Versus Underlying flag set?
-  if buffer:bitfield(38) > 0 then
-    display = display.."Butterfly Versus Underlying|"
-  end
-  -- Is Ladder Versus Underlying flag set?
-  if buffer:bitfield(39) > 0 then
-    display = display.."Ladder Versus Underlying|"
-  end
-  -- Is Reduced Tick Spread flag set?
-  if buffer:bitfield(40) > 0 then
-    display = display.."Reduced Tick Spread|"
-  end
-  -- Is Bundle flag set?
-  if buffer:bitfield(41) > 0 then
-    display = display.."Bundle|"
-  end
-  -- Is Box flag set?
-  if buffer:bitfield(42) > 0 then
-    display = display.."Box|"
-  end
-  -- Is Condor flag set?
-  if buffer:bitfield(43) > 0 then
-    display = display.."Condor|"
-  end
-  -- Is Volatility Trade flag set?
-  if buffer:bitfield(44) > 0 then
-    display = display.."Volatility Trade|"
-  end
-  -- Is Straddle flag set?
-  if buffer:bitfield(45) > 0 then
-    display = display.."Straddle|"
-  end
-  -- Is Conversion Reversal flag set?
-  if buffer:bitfield(46) > 0 then
-    display = display.."Conversion Reversal|"
-  end
-  -- Is Simple Inter Commodity Spread flag set?
-  if buffer:bitfield(47) > 0 then
-    display = display.."Simple Inter Commodity Spread|"
-  end
-  -- Is Diagonal Straddle Calendar Spread flag set?
-  if buffer:bitfield(48) > 0 then
-    display = display.."Diagonal Straddle Calendar Spread|"
-  end
-  -- Is Pack flag set?
-  if buffer:bitfield(49) > 0 then
-    display = display.."Pack|"
-  end
-  -- Is Straddle Calendar Spread flag set?
-  if buffer:bitfield(50) > 0 then
-    display = display.."Straddle Calendar Spread|"
-  end
-  -- Is Strip flag set?
-  if buffer:bitfield(51) > 0 then
-    display = display.."Strip|"
-  end
-  -- Is Ladder flag set?
-  if buffer:bitfield(52) > 0 then
-    display = display.."Ladder|"
-  end
-  -- Is Strangle flag set?
-  if buffer:bitfield(53) > 0 then
-    display = display.."Strangle|"
-  end
-  -- Is Combo flag set?
-  if buffer:bitfield(54) > 0 then
-    display = display.."Combo|"
-  end
-  -- Is Iron Butterfly flag set?
-  if buffer:bitfield(55) > 0 then
-    display = display.."Iron Butterfly|"
-  end
-  -- Is Two By One Ratio Spread flag set?
-  if buffer:bitfield(56) > 0 then
-    display = display.."Two By One Ratio Spread|"
-  end
-  -- Is Guts flag set?
-  if buffer:bitfield(57) > 0 then
-    display = display.."Guts|"
-  end
-  -- Is Diagonal Calendar Spread flag set?
-  if buffer:bitfield(58) > 0 then
-    display = display.."Diagonal Calendar Spread|"
-  end
-  -- Is Calendar Spread flag set?
-  if buffer:bitfield(59) > 0 then
-    display = display.."Calendar Spread|"
-  end
-  -- Is Spread flag set?
-  if buffer:bitfield(60) > 0 then
-    display = display.."Spread|"
-  end
-  -- Is Call Or Put Cabinet flag set?
-  if buffer:bitfield(61) > 0 then
-    display = display.."Call Or Put Cabinet|"
-  end
-  -- Is Butterfly flag set?
-  if buffer:bitfield(62) > 0 then
-    display = display.."Butterfly|"
-  end
   -- Is Jelly Roll flag set?
-  if buffer:bitfield(63) > 0 then
+  if bit.band(value, 0x0000000000000001) ~= 0 then
     display = display.."Jelly Roll|"
   end
+  -- Is Butterfly flag set?
+  if bit.band(value, 0x0000000000000002) ~= 0 then
+    display = display.."Butterfly|"
+  end
+  -- Is Call Or Put Cabinet flag set?
+  if bit.band(value, 0x0000000000000004) ~= 0 then
+    display = display.."Call Or Put Cabinet|"
+  end
+  -- Is Spread flag set?
+  if bit.band(value, 0x0000000000000008) ~= 0 then
+    display = display.."Spread|"
+  end
+  -- Is Calendar Spread flag set?
+  if bit.band(value, 0x0000000000000010) ~= 0 then
+    display = display.."Calendar Spread|"
+  end
+  -- Is Diagonal Calendar Spread flag set?
+  if bit.band(value, 0x0000000000000020) ~= 0 then
+    display = display.."Diagonal Calendar Spread|"
+  end
+  -- Is Guts flag set?
+  if bit.band(value, 0x0000000000000040) ~= 0 then
+    display = display.."Guts|"
+  end
+  -- Is Two By One Ratio Spread flag set?
+  if bit.band(value, 0x0000000000000080) ~= 0 then
+    display = display.."Two By One Ratio Spread|"
+  end
+  -- Is Iron Butterfly flag set?
+  if bit.band(value, 0x0000000000000100) ~= 0 then
+    display = display.."Iron Butterfly|"
+  end
+  -- Is Combo flag set?
+  if bit.band(value, 0x0000000000000200) ~= 0 then
+    display = display.."Combo|"
+  end
+  -- Is Strangle flag set?
+  if bit.band(value, 0x0000000000000400) ~= 0 then
+    display = display.."Strangle|"
+  end
+  -- Is Ladder flag set?
+  if bit.band(value, 0x0000000000000800) ~= 0 then
+    display = display.."Ladder|"
+  end
+  -- Is Strip flag set?
+  if bit.band(value, 0x0000000000001000) ~= 0 then
+    display = display.."Strip|"
+  end
+  -- Is Straddle Calendar Spread flag set?
+  if bit.band(value, 0x0000000000002000) ~= 0 then
+    display = display.."Straddle Calendar Spread|"
+  end
+  -- Is Pack flag set?
+  if bit.band(value, 0x0000000000004000) ~= 0 then
+    display = display.."Pack|"
+  end
+  -- Is Diagonal Straddle Calendar Spread flag set?
+  if bit.band(value, 0x0000000000008000) ~= 0 then
+    display = display.."Diagonal Straddle Calendar Spread|"
+  end
+  -- Is Simple Inter Commodity Spread flag set?
+  if bit.band(value, 0x0000000000010000) ~= 0 then
+    display = display.."Simple Inter Commodity Spread|"
+  end
+  -- Is Conversion Reversal flag set?
+  if bit.band(value, 0x0000000000020000) ~= 0 then
+    display = display.."Conversion Reversal|"
+  end
+  -- Is Straddle flag set?
+  if bit.band(value, 0x0000000000040000) ~= 0 then
+    display = display.."Straddle|"
+  end
+  -- Is Volatility Trade flag set?
+  if bit.band(value, 0x0000000000080000) ~= 0 then
+    display = display.."Volatility Trade|"
+  end
+  -- Is Condor flag set?
+  if bit.band(value, 0x0000000000100000) ~= 0 then
+    display = display.."Condor|"
+  end
+  -- Is Box flag set?
+  if bit.band(value, 0x0000000000200000) ~= 0 then
+    display = display.."Box|"
+  end
+  -- Is Bundle flag set?
+  if bit.band(value, 0x0000000000400000) ~= 0 then
+    display = display.."Bundle|"
+  end
+  -- Is Reduced Tick Spread flag set?
+  if bit.band(value, 0x0000000000800000) ~= 0 then
+    display = display.."Reduced Tick Spread|"
+  end
+  -- Is Ladder Versus Underlying flag set?
+  if bit.band(value, 0x0000000001000000) ~= 0 then
+    display = display.."Ladder Versus Underlying|"
+  end
+  -- Is Butterfly Versus Underlying flag set?
+  if bit.band(value, 0x0000000002000000) ~= 0 then
+    display = display.."Butterfly Versus Underlying|"
+  end
+  -- Is Call Spread Versus Put Versus Underlying flag set?
+  if bit.band(value, 0x0000000004000000) ~= 0 then
+    display = display.."Call Spread Versus Put Versus Underlying|"
+  end
+  -- Is Call Or Put Spread Versus Underlying flag set?
+  if bit.band(value, 0x0000000008000000) ~= 0 then
+    display = display.."Call Or Put Spread Versus Underlying|"
+  end
+  -- Is Call Or Put Calendar Spread Versus Underlying flag set?
+  if bit.band(value, 0x0000000010000000) ~= 0 then
+    display = display.."Call Or Put Calendar Spread Versus Underlying|"
+  end
+  -- Is Call Put Diagonal Calendar Spread Versus Underlying flag set?
+  if bit.band(value, 0x0000000020000000) ~= 0 then
+    display = display.."Call Put Diagonal Calendar Spread Versus Underlying|"
+  end
+  -- Is Guts Versus Underlying flag set?
+  if bit.band(value, 0x0000000040000000) ~= 0 then
+    display = display.."Guts Versus Underlying|"
+  end
+  -- Is Two By One Call Or Put Ratio Spread Versus Underlying flag set?
+  if bit.band(value, 0x0000000080000000) ~= 0 then
+    display = display.."Two By One Call Or Put Ratio Spread Versus Underlying|"
+  end
+  -- Is Iron Butterfly Versus Underlying flag set?
+  if bit.band(value, 0x0000000000000001) ~= 0 then
+    display = display.."Iron Butterfly Versus Underlying|"
+  end
+  -- Is Combo Versus Underlying flag set?
+  if bit.band(value, 0x0000000000000002) ~= 0 then
+    display = display.."Combo Versus Underlying|"
+  end
+  -- Is Strangle Versus Underlying flag set?
+  if bit.band(value, 0x0000000000000004) ~= 0 then
+    display = display.."Strangle Versus Underlying|"
+  end
+  -- Is Exchange For Physical flag set?
+  if bit.band(value, 0x0000000000000008) ~= 0 then
+    display = display.."Exchange For Physical|"
+  end
+  -- Is Straddle Calendar Spread Versus Underlying flag set?
+  if bit.band(value, 0x0000000000000010) ~= 0 then
+    display = display.."Straddle Calendar Spread Versus Underlying|"
+  end
+  -- Is Put Spread Versus Call Versus Underlying flag set?
+  if bit.band(value, 0x0000000000000020) ~= 0 then
+    display = display.."Put Spread Versus Call Versus Underlying|"
+  end
+  -- Is Diagonal Straddle Calendar Spread Versus Underlying flag set?
+  if bit.band(value, 0x0000000000000040) ~= 0 then
+    display = display.."Diagonal Straddle Calendar Spread Versus Underlying|"
+  end
+  -- Is Synthetic flag set?
+  if bit.band(value, 0x0000000000000080) ~= 0 then
+    display = display.."Synthetic|"
+  end
+  -- Is Straddle Versus Underlying flag set?
+  if bit.band(value, 0x0000000000000100) ~= 0 then
+    display = display.."Straddle Versus Underlying|"
+  end
+  -- Is Condor Versus Underlying flag set?
+  if bit.band(value, 0x0000000000000200) ~= 0 then
+    display = display.."Condor Versus Underlying|"
+  end
+  -- Is Buy Write flag set?
+  if bit.band(value, 0x0000000000000400) ~= 0 then
+    display = display.."Buy Write|"
+  end
+  -- Is Iron Condor Versus Underlying flag set?
+  if bit.band(value, 0x0000000000000800) ~= 0 then
+    display = display.."Iron Condor Versus Underlying|"
+  end
+  -- Is Iron Condor flag set?
+  if bit.band(value, 0x0000000000001000) ~= 0 then
+    display = display.."Iron Condor|"
+  end
+  -- Is Call Spread Versus Sell A Put flag set?
+  if bit.band(value, 0x0000000000002000) ~= 0 then
+    display = display.."Call Spread Versus Sell A Put|"
+  end
+  -- Is Put Spread Versus Sell A Call flag set?
+  if bit.band(value, 0x0000000000004000) ~= 0 then
+    display = display.."Put Spread Versus Sell A Call|"
+  end
+  -- Is Put Straddle Versus Sell A Call Or A Put flag set?
+  if bit.band(value, 0x0000000000008000) ~= 0 then
+    display = display.."Put Straddle Versus Sell A Call Or A Put|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Strategy Authorized
-euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 16: 16 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_16, buffer(offset, 8))
-
-  -- Put Straddle Versus Sell A Call Or A Put: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_straddle_versus_sell_a_call_or_a_put, buffer(offset, 8))
-
-  -- Put Spread Versus Sell A Call: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_spread_versus_sell_a_call, buffer(offset, 8))
-
-  -- Call Spread Versus Sell A Put: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_spread_versus_sell_a_put, buffer(offset, 8))
-
-  -- Iron Condor: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_condor, buffer(offset, 8))
-
-  -- Iron Condor Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_condor_versus_underlying, buffer(offset, 8))
-
-  -- Buy Write: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.buy_write, buffer(offset, 8))
-
-  -- Condor Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.condor_versus_underlying, buffer(offset, 8))
-
-  -- Straddle Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_versus_underlying, buffer(offset, 8))
-
-  -- Synthetic: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.synthetic, buffer(offset, 8))
-
-  -- Diagonal Straddle Calendar Spread Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.diagonal_straddle_calendar_spread_versus_underlying, buffer(offset, 8))
-
-  -- Put Spread Versus Call Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_spread_versus_call_versus_underlying, buffer(offset, 8))
-
-  -- Straddle Calendar Spread Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_calendar_spread_versus_underlying, buffer(offset, 8))
-
-  -- Exchange For Physical: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exchange_for_physical, buffer(offset, 8))
-
-  -- Strangle Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strangle_versus_underlying, buffer(offset, 8))
-
-  -- Combo Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.combo_versus_underlying, buffer(offset, 8))
-
-  -- Iron Butterfly Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_butterfly_versus_underlying, buffer(offset, 8))
-
-  -- Two By One Call Or Put Ratio Spread Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.two_by_one_call_or_put_ratio_spread_versus_underlying, buffer(offset, 8))
-
-  -- Guts Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.guts_versus_underlying, buffer(offset, 8))
-
-  -- Call Put Diagonal Calendar Spread Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_put_diagonal_calendar_spread_versus_underlying, buffer(offset, 8))
-
-  -- Call Or Put Calendar Spread Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_or_put_calendar_spread_versus_underlying, buffer(offset, 8))
-
-  -- Call Or Put Spread Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_or_put_spread_versus_underlying, buffer(offset, 8))
-
-  -- Call Spread Versus Put Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_spread_versus_put_versus_underlying, buffer(offset, 8))
-
-  -- Butterfly Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.butterfly_versus_underlying, buffer(offset, 8))
-
-  -- Ladder Versus Underlying: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.ladder_versus_underlying, buffer(offset, 8))
-
-  -- Reduced Tick Spread: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reduced_tick_spread, buffer(offset, 8))
-
-  -- Bundle: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.bundle, buffer(offset, 8))
-
-  -- Box: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.box, buffer(offset, 8))
-
-  -- Condor: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.condor, buffer(offset, 8))
-
-  -- Volatility Trade: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.volatility_trade, buffer(offset, 8))
-
-  -- Straddle: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle, buffer(offset, 8))
-
-  -- Conversion Reversal: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.conversion_reversal, buffer(offset, 8))
-
-  -- Simple Inter Commodity Spread: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.simple_inter_commodity_spread, buffer(offset, 8))
-
-  -- Diagonal Straddle Calendar Spread: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.diagonal_straddle_calendar_spread, buffer(offset, 8))
-
-  -- Pack: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.pack, buffer(offset, 8))
-
-  -- Straddle Calendar Spread: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_calendar_spread, buffer(offset, 8))
-
-  -- Strip: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strip, buffer(offset, 8))
-
-  -- Ladder: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.ladder, buffer(offset, 8))
-
-  -- Strangle: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strangle, buffer(offset, 8))
-
-  -- Combo: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.combo, buffer(offset, 8))
-
-  -- Iron Butterfly: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_butterfly, buffer(offset, 8))
-
-  -- Two By One Ratio Spread: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.two_by_one_ratio_spread, buffer(offset, 8))
-
-  -- Guts: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.guts, buffer(offset, 8))
-
-  -- Diagonal Calendar Spread: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.diagonal_calendar_spread, buffer(offset, 8))
-
-  -- Calendar Spread: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.calendar_spread, buffer(offset, 8))
-
-  -- Spread: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.spread, buffer(offset, 8))
-
-  -- Call Or Put Cabinet: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_or_put_cabinet, buffer(offset, 8))
-
-  -- Butterfly: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.butterfly, buffer(offset, 8))
+euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.bits = function(range, value, packet, parent)
 
   -- Jelly Roll: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.jelly_roll, buffer(offset, 8))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.jelly_roll, range, value)
+
+  -- Butterfly: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.butterfly, range, value)
+
+  -- Call Or Put Cabinet: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_or_put_cabinet, range, value)
+
+  -- Spread: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.spread, range, value)
+
+  -- Calendar Spread: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.calendar_spread, range, value)
+
+  -- Diagonal Calendar Spread: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.diagonal_calendar_spread, range, value)
+
+  -- Guts: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.guts, range, value)
+
+  -- Two By One Ratio Spread: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.two_by_one_ratio_spread, range, value)
+
+  -- Iron Butterfly: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_butterfly, range, value)
+
+  -- Combo: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.combo, range, value)
+
+  -- Strangle: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strangle, range, value)
+
+  -- Ladder: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.ladder, range, value)
+
+  -- Strip: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strip, range, value)
+
+  -- Straddle Calendar Spread: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_calendar_spread, range, value)
+
+  -- Pack: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.pack, range, value)
+
+  -- Diagonal Straddle Calendar Spread: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.diagonal_straddle_calendar_spread, range, value)
+
+  -- Simple Inter Commodity Spread: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.simple_inter_commodity_spread, range, value)
+
+  -- Conversion Reversal: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.conversion_reversal, range, value)
+
+  -- Straddle: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle, range, value)
+
+  -- Volatility Trade: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.volatility_trade, range, value)
+
+  -- Condor: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.condor, range, value)
+
+  -- Box: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.box, range, value)
+
+  -- Bundle: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.bundle, range, value)
+
+  -- Reduced Tick Spread: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reduced_tick_spread, range, value)
+
+  -- Ladder Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.ladder_versus_underlying, range, value)
+
+  -- Butterfly Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.butterfly_versus_underlying, range, value)
+
+  -- Call Spread Versus Put Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_spread_versus_put_versus_underlying, range, value)
+
+  -- Call Or Put Spread Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_or_put_spread_versus_underlying, range, value)
+
+  -- Call Or Put Calendar Spread Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_or_put_calendar_spread_versus_underlying, range, value)
+
+  -- Call Put Diagonal Calendar Spread Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_put_diagonal_calendar_spread_versus_underlying, range, value)
+
+  -- Guts Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.guts_versus_underlying, range, value)
+
+  -- Two By One Call Or Put Ratio Spread Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.two_by_one_call_or_put_ratio_spread_versus_underlying, range, value)
+
+  -- Iron Butterfly Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_butterfly_versus_underlying, range, value)
+
+  -- Combo Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.combo_versus_underlying, range, value)
+
+  -- Strangle Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strangle_versus_underlying, range, value)
+
+  -- Exchange For Physical: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exchange_for_physical, range, value)
+
+  -- Straddle Calendar Spread Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_calendar_spread_versus_underlying, range, value)
+
+  -- Put Spread Versus Call Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_spread_versus_call_versus_underlying, range, value)
+
+  -- Diagonal Straddle Calendar Spread Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.diagonal_straddle_calendar_spread_versus_underlying, range, value)
+
+  -- Synthetic: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.synthetic, range, value)
+
+  -- Straddle Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.straddle_versus_underlying, range, value)
+
+  -- Condor Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.condor_versus_underlying, range, value)
+
+  -- Buy Write: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.buy_write, range, value)
+
+  -- Iron Condor Versus Underlying: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_condor_versus_underlying, range, value)
+
+  -- Iron Condor: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.iron_condor, range, value)
+
+  -- Call Spread Versus Sell A Put: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_spread_versus_sell_a_put, range, value)
+
+  -- Put Spread Versus Sell A Call: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_spread_versus_sell_a_call, range, value)
+
+  -- Put Straddle Versus Sell A Call Or A Put: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.put_straddle_versus_sell_a_call_or_a_put, range, value)
+
+  -- Reserved 16: 16 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_16, range, value)
 end
 
 -- Dissect: Strategy Authorized
 euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.dissect = function(buffer, offset, packet, parent)
-  local size = 8
+  local size = euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.strategy_authorized, range, display)
 
   if show.strategy_authorized then
-    euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v5_19.strategy_authorized.bits(range, value, packet, element)
   end
 
-  return offset + 8, range
+  return offset + size, range
 end
 
 -- Lot Size Optional
@@ -9735,46 +9741,51 @@ euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections = {}
 euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.size = 1
 
 -- Display: Mm Protections
-euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.display = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Volume flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Volume|"
-  end
   -- Is Delta flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Delta|"
   end
+  -- Is Volume flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Volume|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Mm Protections
-euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 6: 6 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_6, buffer(offset, 1))
-
-  -- Volume: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.volume, buffer(offset, 1))
+euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.bits = function(range, value, packet, parent)
 
   -- Delta: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.delta, buffer(offset, 1))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.delta, range, value)
+
+  -- Volume: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.volume, range, value)
+
+  -- Reserved 6: 6 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_6, range, value)
 end
 
 -- Dissect: Mm Protections
 euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.mm_protections, range, display)
 
   if show.mm_protections then
-    euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v5_19.mm_protections.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Strike Price Decimals Ratio
@@ -9851,74 +9862,79 @@ euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules = {}
 euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.size = 2
 
 -- Display: Order Type Rules
-euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.display = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Trade At Settlement flag set?
-  if buffer:bitfield(10) > 0 then
-    display = display.."Trade At Settlement|"
-  end
-  -- Is Market On Open Moo flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Market On Open Moo|"
-  end
-  -- Is Stop Limit flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Stop Limit|"
-  end
-  -- Is Stop Stop Loss flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Stop Stop Loss|"
-  end
-  -- Is Limit flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Limit|"
-  end
   -- Is Market flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Market|"
   end
+  -- Is Limit flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Limit|"
+  end
+  -- Is Stop Stop Loss flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Stop Stop Loss|"
+  end
+  -- Is Stop Limit flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Stop Limit|"
+  end
+  -- Is Market On Open Moo flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    display = display.."Market On Open Moo|"
+  end
+  -- Is Trade At Settlement flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    display = display.."Trade At Settlement|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Order Type Rules
-euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 10: 10 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_10, buffer(offset, 2))
-
-  -- Trade At Settlement: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.trade_at_settlement, buffer(offset, 2))
-
-  -- Market On Open Moo: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.market_on_open_moo, buffer(offset, 2))
-
-  -- Stop Limit: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.stop_limit, buffer(offset, 2))
-
-  -- Stop Stop Loss: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.stop_stop_loss, buffer(offset, 2))
-
-  -- Limit: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.limit, buffer(offset, 2))
+euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.bits = function(range, value, packet, parent)
 
   -- Market: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.market, buffer(offset, 2))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.market, range, value)
+
+  -- Limit: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.limit, range, value)
+
+  -- Stop Stop Loss: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.stop_stop_loss, range, value)
+
+  -- Stop Limit: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.stop_limit, range, value)
+
+  -- Market On Open Moo: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.market_on_open_moo, range, value)
+
+  -- Trade At Settlement: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.trade_at_settlement, range, value)
+
+  -- Reserved 10: 10 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_10, range, value)
 end
 
 -- Dissect: Order Type Rules
 euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.order_type_rules, range, display)
 
   if show.order_type_rules then
-    euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v5_19.order_type_rules.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Underlying Expiry
@@ -14318,91 +14334,107 @@ euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier = {}
 euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.size = 2
 
 -- Display: Phase Qualifier
-euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.display = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Quoting Period flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Quoting Period|"
-  end
-  -- Is Stressed Market Conditions flag set?
-  if buffer:bitfield(9) > 0 then
-    display = display.."Stressed Market Conditions|"
-  end
-  -- Is Wholesale Allowed flag set?
-  if buffer:bitfield(10) > 0 then
-    display = display.."Wholesale Allowed|"
-  end
-  -- Is Suspended flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Suspended|"
-  end
-  -- Is Random Uncrossing flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Random Uncrossing|"
-  end
-  -- Is Trading At Last flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Trading At Last|"
-  end
-  -- Is Call Bbo Only flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Call Bbo Only|"
-  end
   -- Is No Qualifier flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."No Qualifier|"
   end
+  -- Is Call Bbo Only flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Call Bbo Only|"
+  end
+  -- Is Trading At Last flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Trading At Last|"
+  end
+  -- Is Random Uncrossing flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Random Uncrossing|"
+  end
+  -- Is Suspended flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    display = display.."Suspended|"
+  end
+  -- Is Wholesale Allowed flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    display = display.."Wholesale Allowed|"
+  end
+  -- Is Stressed Market Conditions flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    display = display.."Stressed Market Conditions|"
+  end
+  -- Is Exceptional Market Conditions flag set?
+  if bit.band(value, 0x0080) ~= 0 then
+    display = display.."Exceptional Market Conditions|"
+  end
+  -- Is Unused Phase Qualifierset 8 flag set?
+  if bit.band(value, 0x0100) ~= 0 then
+    display = display.."Unused Phase Qualifierset 8|"
+  end
+  -- Is Quoting Period flag set?
+  if bit.band(value, 0x0200) ~= 0 then
+    display = display.."Quoting Period|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Phase Qualifier
-euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 6: 6 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_6, buffer(offset, 2))
-
-  -- Quoting Period: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.quoting_period, buffer(offset, 2))
-
-  -- Exceptional Market Conditions: 2 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exceptional_market_conditions, buffer(offset, 2))
-
-  -- Stressed Market Conditions: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.stressed_market_conditions, buffer(offset, 2))
-
-  -- Wholesale Allowed: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.wholesale_allowed, buffer(offset, 2))
-
-  -- Suspended: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.suspended, buffer(offset, 2))
-
-  -- Random Uncrossing: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.random_uncrossing, buffer(offset, 2))
-
-  -- Trading At Last: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.trading_at_last, buffer(offset, 2))
-
-  -- Call Bbo Only: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_bbo_only, buffer(offset, 2))
+euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.bits = function(range, value, packet, parent)
 
   -- No Qualifier: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.no_qualifier, buffer(offset, 2))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.no_qualifier, range, value)
+
+  -- Call Bbo Only: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.call_bbo_only, range, value)
+
+  -- Trading At Last: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.trading_at_last, range, value)
+
+  -- Random Uncrossing: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.random_uncrossing, range, value)
+
+  -- Suspended: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.suspended, range, value)
+
+  -- Wholesale Allowed: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.wholesale_allowed, range, value)
+
+  -- Stressed Market Conditions: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.stressed_market_conditions, range, value)
+
+  -- Exceptional Market Conditions: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exceptional_market_conditions, range, value)
+
+  -- Unused Phase Qualifierset 8: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.unused_phase_qualifierset_8, range, value)
+
+  -- Quoting Period: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.quoting_period, range, value)
+
+  -- Reserved 6: 6 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_6, range, value)
 end
 
 -- Dissect: Phase Qualifier
 euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.phase_qualifier, range, display)
 
   if show.phase_qualifier then
-    euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Phase Id
@@ -14504,7 +14536,7 @@ euronext_optiq_marketdatagateway_sbe_v5_19.timetables_group.fields = function(bu
   -- Phase Id: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, phase_id = euronext_optiq_marketdatagateway_sbe_v5_19.phase_id.dissect(buffer, index, packet, parent)
 
-  -- Phase Qualifier: Struct of 10 fields
+  -- Phase Qualifier: Struct of 11 fields
   index, phase_qualifier = euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.dissect(buffer, index, packet, parent)
 
   -- Trading Period: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -15154,7 +15186,7 @@ euronext_optiq_marketdatagateway_sbe_v5_19.market_states_group.fields = function
   -- Status Reason: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
   index, status_reason = euronext_optiq_marketdatagateway_sbe_v5_19.status_reason.dissect(buffer, index, packet, parent)
 
-  -- Phase Qualifier: Struct of 10 fields
+  -- Phase Qualifier: Struct of 11 fields
   index, phase_qualifier = euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.dissect(buffer, index, packet, parent)
 
   -- Trading Period Optional: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -15716,85 +15748,90 @@ euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier = {}
 euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.size = 1
 
 -- Display: Trade Qualifier
-euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.display = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Deferred Publication flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Deferred Publication|"
-  end
-  -- Is Nav Trade Expressed In Price Currency flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Nav Trade Expressed In Price Currency|"
-  end
-  -- Is Nav Trade Expressed In Bps flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Nav Trade Expressed In Bps|"
-  end
-  -- Is Trade Creation By Market Operations flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Trade Creation By Market Operations|"
-  end
-  -- Is Aggressive Order flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Aggressive Order|"
-  end
-  -- Is Passive Order flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Passive Order|"
-  end
-  -- Is First Trade Price flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."First Trade Price|"
-  end
   -- Is Uncrossing Trade flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Uncrossing Trade|"
   end
+  -- Is First Trade Price flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."First Trade Price|"
+  end
+  -- Is Passive Order flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Passive Order|"
+  end
+  -- Is Aggressive Order flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Aggressive Order|"
+  end
+  -- Is Trade Creation By Market Operations flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Trade Creation By Market Operations|"
+  end
+  -- Is Nav Trade Expressed In Bps flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Nav Trade Expressed In Bps|"
+  end
+  -- Is Nav Trade Expressed In Price Currency flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Nav Trade Expressed In Price Currency|"
+  end
+  -- Is Deferred Publication flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Deferred Publication|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Trade Qualifier
-euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.bits = function(buffer, offset, packet, parent)
-
-  -- Deferred Publication: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.deferred_publication, buffer(offset, 1))
-
-  -- Nav Trade Expressed In Price Currency: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.nav_trade_expressed_in_price_currency, buffer(offset, 1))
-
-  -- Nav Trade Expressed In Bps: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.nav_trade_expressed_in_bps, buffer(offset, 1))
-
-  -- Trade Creation By Market Operations: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.trade_creation_by_market_operations, buffer(offset, 1))
-
-  -- Aggressive Order: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.aggressive_order, buffer(offset, 1))
-
-  -- Passive Order: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.passive_order, buffer(offset, 1))
-
-  -- First Trade Price: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.first_trade_price, buffer(offset, 1))
+euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.bits = function(range, value, packet, parent)
 
   -- Uncrossing Trade: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.uncrossing_trade, buffer(offset, 1))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.uncrossing_trade, range, value)
+
+  -- First Trade Price: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.first_trade_price, range, value)
+
+  -- Passive Order: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.passive_order, range, value)
+
+  -- Aggressive Order: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.aggressive_order, range, value)
+
+  -- Trade Creation By Market Operations: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.trade_creation_by_market_operations, range, value)
+
+  -- Nav Trade Expressed In Bps: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.nav_trade_expressed_in_bps, range, value)
+
+  -- Nav Trade Expressed In Price Currency: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.nav_trade_expressed_in_price_currency, range, value)
+
+  -- Deferred Publication: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.deferred_publication, range, value)
 end
 
 -- Dissect: Trade Qualifier
 euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.trade_qualifier, range, display)
 
   if show.trade_qualifier then
-    euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v5_19.trade_qualifier.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Mmt Duplicative Indicator
@@ -18543,66 +18580,71 @@ euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags = {}
 euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.size = 2
 
 -- Display: Packet Flags
-euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.display = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Has Status Message flag set?
-  if buffer:bitfield(6) > 0 then
+  if bit.band(value, 0x0040) ~= 0 then
     display = display.."Has Status Message|"
   end
   -- Is Has End Of Day Snapshot flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x0080) ~= 0 then
     display = display.."Has End Of Day Snapshot|"
   end
   -- Is Has Start Of Day Snapshot flag set?
-  if buffer:bitfield(8) > 0 then
+  if bit.band(value, 0x0100) ~= 0 then
     display = display.."Has Start Of Day Snapshot|"
   end
   -- Is Compression flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x8000) ~= 0 then
     display = display.."Compression|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Packet Flags
-euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.bits = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.bits = function(range, value, packet, parent)
 
   -- Reserved Bits: 6 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_bits, buffer(offset, 2))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.reserved_bits, range, value)
 
   -- Has Status Message: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_status_message, buffer(offset, 2))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_status_message, range, value)
 
   -- Has End Of Day Snapshot: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_end_of_day_snapshot, buffer(offset, 2))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_end_of_day_snapshot, range, value)
 
   -- Has Start Of Day Snapshot: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_start_of_day_snapshot, buffer(offset, 2))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.has_start_of_day_snapshot, range, value)
 
   -- Psn High Weight: 3 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.psn_high_weight, buffer(offset, 2))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.psn_high_weight, range, value)
 
   -- Mdg Restart Count: 3 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.mdg_restart_count, buffer(offset, 2))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.mdg_restart_count, range, value)
 
   -- Compression: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.compression, buffer(offset, 2))
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.compression, range, value)
 end
 
 -- Dissect: Packet Flags
 euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.size
   local range = buffer(offset, size)
-  local display = euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.packet_flags, range, display)
 
   if show.packet_flags then
-    euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v5_19.packet_flags.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Packet Sequence Number

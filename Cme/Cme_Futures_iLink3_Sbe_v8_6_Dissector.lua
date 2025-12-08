@@ -6951,85 +6951,90 @@ cme_futures_ilink3_sbe_v8_6.exec_inst = {}
 cme_futures_ilink3_sbe_v8_6.exec_inst.size = 1
 
 -- Display: Exec Inst
-cme_futures_ilink3_sbe_v8_6.exec_inst.display = function(buffer, packet, parent)
+cme_futures_ilink3_sbe_v8_6.exec_inst.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Reserved 5 flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Reserved 5|"
-  end
-  -- Is Reserved 4 flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Reserved 4|"
-  end
-  -- Is Reserved 3 flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Reserved 3|"
-  end
-  -- Is Reserved 2 flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Reserved 2|"
-  end
-  -- Is Reserved 1 flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Reserved 1|"
-  end
-  -- Is Nh flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Nh|"
-  end
-  -- Is Ob flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Ob|"
-  end
   -- Is Aon flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Aon|"
   end
+  -- Is Ob flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Ob|"
+  end
+  -- Is Nh flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Nh|"
+  end
+  -- Is Reserved 1 flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Reserved 1|"
+  end
+  -- Is Reserved 2 flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Reserved 2|"
+  end
+  -- Is Reserved 3 flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Reserved 3|"
+  end
+  -- Is Reserved 4 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Reserved 4|"
+  end
+  -- Is Reserved 5 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Reserved 5|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Exec Inst
-cme_futures_ilink3_sbe_v8_6.exec_inst.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 5: 1 Bit
-  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_5, buffer(offset, 1))
-
-  -- Reserved 4: 1 Bit
-  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_4, buffer(offset, 1))
-
-  -- Reserved 3: 1 Bit
-  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_3, buffer(offset, 1))
-
-  -- Reserved 2: 1 Bit
-  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_2, buffer(offset, 1))
-
-  -- Reserved 1: 1 Bit
-  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_1, buffer(offset, 1))
-
-  -- Nh: 1 Bit
-  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.nh, buffer(offset, 1))
-
-  -- Ob: 1 Bit
-  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.ob, buffer(offset, 1))
+cme_futures_ilink3_sbe_v8_6.exec_inst.bits = function(range, value, packet, parent)
 
   -- Aon: 1 Bit
-  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.aon, buffer(offset, 1))
+  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.aon, range, value)
+
+  -- Ob: 1 Bit
+  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.ob, range, value)
+
+  -- Nh: 1 Bit
+  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.nh, range, value)
+
+  -- Reserved 1: 1 Bit
+  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_1, range, value)
+
+  -- Reserved 2: 1 Bit
+  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_2, range, value)
+
+  -- Reserved 3: 1 Bit
+  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_3, range, value)
+
+  -- Reserved 4: 1 Bit
+  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_4, range, value)
+
+  -- Reserved 5: 1 Bit
+  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.reserved_5, range, value)
 end
 
 -- Dissect: Exec Inst
 cme_futures_ilink3_sbe_v8_6.exec_inst.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = cme_futures_ilink3_sbe_v8_6.exec_inst.size
   local range = buffer(offset, size)
-  local display = cme_futures_ilink3_sbe_v8_6.exec_inst.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_6.exec_inst.display(range, value, packet, parent)
   local element = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.exec_inst, range, display)
 
   if show.exec_inst then
-    cme_futures_ilink3_sbe_v8_6.exec_inst.bits(buffer, offset, packet, element)
+    cme_futures_ilink3_sbe_v8_6.exec_inst.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Total Num Securities

@@ -983,67 +983,72 @@ coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags = {}
 coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.size = 2
 
 -- Display: Definition Flags
-coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.display = function(buffer, packet, parent)
+coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Funding Rate Applicable flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Funding Rate Applicable|"
-  end
-  -- Is Is Strike Delisted flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Is Strike Delisted|"
-  end
-  -- Is Is Call flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Is Call|"
-  end
-  -- Is Is Announced flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Is Announced|"
-  end
   -- Is Is Prior Settlement Theoretical flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Is Prior Settlement Theoretical|"
   end
+  -- Is Is Announced flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Is Announced|"
+  end
+  -- Is Is Call flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Is Call|"
+  end
+  -- Is Is Strike Delisted flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Is Strike Delisted|"
+  end
+  -- Is Funding Rate Applicable flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    display = display.."Funding Rate Applicable|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Definition Flags
-coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 11: 11 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.reserved_11, buffer(offset, 2))
-
-  -- Funding Rate Applicable: 1 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.funding_rate_applicable, buffer(offset, 2))
-
-  -- Is Strike Delisted: 1 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.is_strike_delisted, buffer(offset, 2))
-
-  -- Is Call: 1 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.is_call, buffer(offset, 2))
-
-  -- Is Announced: 1 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.is_announced, buffer(offset, 2))
+coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.bits = function(range, value, packet, parent)
 
   -- Is Prior Settlement Theoretical: 1 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.is_prior_settlement_theoretical, buffer(offset, 2))
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.is_prior_settlement_theoretical, range, value)
+
+  -- Is Announced: 1 Bit
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.is_announced, range, value)
+
+  -- Is Call: 1 Bit
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.is_call, range, value)
+
+  -- Is Strike Delisted: 1 Bit
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.is_strike_delisted, range, value)
+
+  -- Funding Rate Applicable: 1 Bit
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.funding_rate_applicable, range, value)
+
+  -- Reserved 11: 11 Bit
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.reserved_11, range, value)
 end
 
 -- Dissect: Definition Flags
 coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.size
   local range = buffer(offset, size)
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.definition_flags, range, display)
 
   if show.definition_flags then
-    coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.bits(buffer, offset, packet, element)
+    coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, range
 end
 
 -- Prior Settlement Price Optional
@@ -3437,39 +3442,44 @@ coinbase_derivatives_marketdataapi_sbe_v1_9.flags = {}
 coinbase_derivatives_marketdataapi_sbe_v1_9.flags.size = 1
 
 -- Display: Flags
-coinbase_derivatives_marketdataapi_sbe_v1_9.flags.display = function(buffer, packet, parent)
+coinbase_derivatives_marketdataapi_sbe_v1_9.flags.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Is Final flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Is Final|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Flags
-coinbase_derivatives_marketdataapi_sbe_v1_9.flags.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 7: 7 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.reserved_7, buffer(offset, 1))
+coinbase_derivatives_marketdataapi_sbe_v1_9.flags.bits = function(range, value, packet, parent)
 
   -- Is Final: 1 Bit
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.is_final, buffer(offset, 1))
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.is_final, range, value)
+
+  -- Reserved 7: 7 Bit
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.reserved_7, range, value)
 end
 
 -- Dissect: Flags
 coinbase_derivatives_marketdataapi_sbe_v1_9.flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = coinbase_derivatives_marketdataapi_sbe_v1_9.flags.size
   local range = buffer(offset, size)
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_9.flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_9.flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.flags, range, display)
 
   if show.flags then
-    coinbase_derivatives_marketdataapi_sbe_v1_9.flags.bits(buffer, offset, packet, element)
+    coinbase_derivatives_marketdataapi_sbe_v1_9.flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, range
 end
 
 -- Correlation Id
