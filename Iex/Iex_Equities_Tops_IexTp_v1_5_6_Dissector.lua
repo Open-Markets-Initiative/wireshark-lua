@@ -67,7 +67,7 @@ omi_iex_equities_tops_iextp_v1_5_6.fields.short_sale_price_test_status = ProtoFi
 omi_iex_equities_tops_iextp_v1_5_6.fields.size = ProtoField.new("Size", "iex.equities.tops.iextp.v1.5.6.size", ftypes.UINT32)
 omi_iex_equities_tops_iextp_v1_5_6.fields.stream_offset = ProtoField.new("Stream Offset", "iex.equities.tops.iextp.v1.5.6.streamoffset", ftypes.UINT64)
 omi_iex_equities_tops_iextp_v1_5_6.fields.symbol = ProtoField.new("Symbol", "iex.equities.tops.iextp.v1.5.6.symbol", ftypes.STRING)
-omi_iex_equities_tops_iextp_v1_5_6.fields.symbol_halt = ProtoField.new("Symbol Halt", "iex.equities.tops.iextp.v1.5.6.symbolhalt", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_iex_equities_tops_iextp_v1_5_6.fields.symbol_availability = ProtoField.new("Symbol Availability", "iex.equities.tops.iextp.v1.5.6.symbolavailability", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_iex_equities_tops_iextp_v1_5_6.fields.system_event = ProtoField.new("System Event", "iex.equities.tops.iextp.v1.5.6.systemevent", ftypes.STRING)
 omi_iex_equities_tops_iextp_v1_5_6.fields.test_security = ProtoField.new("Test Security", "iex.equities.tops.iextp.v1.5.6.testsecurity", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_iex_equities_tops_iextp_v1_5_6.fields.timestamp = ProtoField.new("Timestamp", "iex.equities.tops.iextp.v1.5.6.timestamp", ftypes.INT64)
@@ -819,60 +819,65 @@ iex_equities_tops_iextp_v1_5_6.sale_condition_flags = {}
 iex_equities_tops_iextp_v1_5_6.sale_condition_flags.size = 1
 
 -- Display: Sale Condition Flags
-iex_equities_tops_iextp_v1_5_6.sale_condition_flags.display = function(buffer, packet, parent)
+iex_equities_tops_iextp_v1_5_6.sale_condition_flags.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Intermarket Sweep flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Intermarket Sweep|"
-  end
-  -- Is Extended Hours flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Extended Hours|"
-  end
-  -- Is Odd Lot flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Odd Lot|"
-  end
   -- Is Trade Through Exempt flag set?
-  if buffer:bitfield(3) > 0 then
+  if bit.band(value, 0x10) ~= 0 then
     display = display.."Trade Through Exempt|"
   end
+  -- Is Odd Lot flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Odd Lot|"
+  end
+  -- Is Extended Hours flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Extended Hours|"
+  end
+  -- Is Intermarket Sweep flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Intermarket Sweep|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Sale Condition Flags
-iex_equities_tops_iextp_v1_5_6.sale_condition_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Intermarket Sweep: 1 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.intermarket_sweep, buffer(offset, 1))
-
-  -- Extended Hours: 1 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.extended_hours, buffer(offset, 1))
-
-  -- Odd Lot: 1 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.odd_lot, buffer(offset, 1))
-
-  -- Trade Through Exempt: 1 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.trade_through_exempt, buffer(offset, 1))
+iex_equities_tops_iextp_v1_5_6.sale_condition_flags.bits = function(range, value, packet, parent)
 
   -- Unused 4: 4 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.unused_4, buffer(offset, 1))
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.unused_4, range, value)
+
+  -- Trade Through Exempt: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.trade_through_exempt, range, value)
+
+  -- Odd Lot: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.odd_lot, range, value)
+
+  -- Extended Hours: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.extended_hours, range, value)
+
+  -- Intermarket Sweep: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.intermarket_sweep, range, value)
 end
 
 -- Dissect: Sale Condition Flags
 iex_equities_tops_iextp_v1_5_6.sale_condition_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = iex_equities_tops_iextp_v1_5_6.sale_condition_flags.size
   local range = buffer(offset, size)
-  local display = iex_equities_tops_iextp_v1_5_6.sale_condition_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = iex_equities_tops_iextp_v1_5_6.sale_condition_flags.display(range, value, packet, parent)
   local element = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.sale_condition_flags, range, display)
 
   if show.sale_condition_flags then
-    iex_equities_tops_iextp_v1_5_6.sale_condition_flags.bits(buffer, offset, packet, element)
+    iex_equities_tops_iextp_v1_5_6.sale_condition_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Trade Break Message
@@ -1217,46 +1222,51 @@ iex_equities_tops_iextp_v1_5_6.quote_update_flags = {}
 iex_equities_tops_iextp_v1_5_6.quote_update_flags.size = 1
 
 -- Display: Quote Update Flags
-iex_equities_tops_iextp_v1_5_6.quote_update_flags.display = function(buffer, packet, parent)
+iex_equities_tops_iextp_v1_5_6.quote_update_flags.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Symbol Halt flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Symbol Halt|"
-  end
   -- Is Market Session flag set?
-  if buffer:bitfield(1) > 0 then
+  if bit.band(value, 0x40) ~= 0 then
     display = display.."Market Session|"
   end
+  -- Is Symbol Availability flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Symbol Availability|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Quote Update Flags
-iex_equities_tops_iextp_v1_5_6.quote_update_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Symbol Halt: 1 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.symbol_halt, buffer(offset, 1))
-
-  -- Market Session: 1 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.market_session, buffer(offset, 1))
+iex_equities_tops_iextp_v1_5_6.quote_update_flags.bits = function(range, value, packet, parent)
 
   -- Unused 6: 6 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.unused_6, buffer(offset, 1))
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.unused_6, range, value)
+
+  -- Market Session: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.market_session, range, value)
+
+  -- Symbol Availability: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.symbol_availability, range, value)
 end
 
 -- Dissect: Quote Update Flags
 iex_equities_tops_iextp_v1_5_6.quote_update_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = iex_equities_tops_iextp_v1_5_6.quote_update_flags.size
   local range = buffer(offset, size)
-  local display = iex_equities_tops_iextp_v1_5_6.quote_update_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = iex_equities_tops_iextp_v1_5_6.quote_update_flags.display(range, value, packet, parent)
   local element = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.quote_update_flags, range, display)
 
   if show.quote_update_flags then
-    iex_equities_tops_iextp_v1_5_6.quote_update_flags.bits(buffer, offset, packet, element)
+    iex_equities_tops_iextp_v1_5_6.quote_update_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Quote Update Message
@@ -1800,53 +1810,58 @@ iex_equities_tops_iextp_v1_5_6.security_directory_flags = {}
 iex_equities_tops_iextp_v1_5_6.security_directory_flags.size = 1
 
 -- Display: Security Directory Flags
-iex_equities_tops_iextp_v1_5_6.security_directory_flags.display = function(buffer, packet, parent)
+iex_equities_tops_iextp_v1_5_6.security_directory_flags.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Test Security flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Test Security|"
-  end
-  -- Is When Issued flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."When Issued|"
-  end
   -- Is Etp flag set?
-  if buffer:bitfield(2) > 0 then
+  if bit.band(value, 0x20) ~= 0 then
     display = display.."Etp|"
   end
+  -- Is When Issued flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."When Issued|"
+  end
+  -- Is Test Security flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Test Security|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Security Directory Flags
-iex_equities_tops_iextp_v1_5_6.security_directory_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Test Security: 1 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.test_security, buffer(offset, 1))
-
-  -- When Issued: 1 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.when_issued, buffer(offset, 1))
-
-  -- Etp: 1 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.etp, buffer(offset, 1))
+iex_equities_tops_iextp_v1_5_6.security_directory_flags.bits = function(range, value, packet, parent)
 
   -- Unused 5: 5 Bit
-  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.unused_5, buffer(offset, 1))
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.unused_5, range, value)
+
+  -- Etp: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.etp, range, value)
+
+  -- When Issued: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.when_issued, range, value)
+
+  -- Test Security: 1 Bit
+  parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.test_security, range, value)
 end
 
 -- Dissect: Security Directory Flags
 iex_equities_tops_iextp_v1_5_6.security_directory_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = iex_equities_tops_iextp_v1_5_6.security_directory_flags.size
   local range = buffer(offset, size)
-  local display = iex_equities_tops_iextp_v1_5_6.security_directory_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = iex_equities_tops_iextp_v1_5_6.security_directory_flags.display(range, value, packet, parent)
   local element = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.security_directory_flags, range, display)
 
   if show.security_directory_flags then
-    iex_equities_tops_iextp_v1_5_6.security_directory_flags.bits(buffer, offset, packet, element)
+    iex_equities_tops_iextp_v1_5_6.security_directory_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Security Directory Message
