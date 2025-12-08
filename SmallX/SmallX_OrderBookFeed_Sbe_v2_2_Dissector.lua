@@ -1342,7 +1342,7 @@ smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect = function(b
     smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Instrument Trading Status
@@ -2294,7 +2294,7 @@ smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.dissect = functio
     smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Multileg Definition Incremental V 2 Message
@@ -3329,7 +3329,7 @@ smallx_orderbookfeed_sbe_v2_2.order_attributes.dissect = function(buffer, offset
     smallx_orderbookfeed_sbe_v2_2.order_attributes.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Order Priority
@@ -4151,7 +4151,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_conditions.dissect = function(buffer, offset
     smallx_orderbookfeed_sbe_v2_2.trade_conditions.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Sell Order Id
@@ -5560,7 +5560,7 @@ smallx_orderbookfeed_sbe_v2_2.packet_flags.dissect = function(buffer, offset, pa
     smallx_orderbookfeed_sbe_v2_2.packet_flags.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Source

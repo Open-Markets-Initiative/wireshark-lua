@@ -3338,7 +3338,7 @@ cme_futures_streamlined_sbe_v5_9.match_event_indicator.dissect = function(buffer
     cme_futures_streamlined_sbe_v5_9.match_event_indicator.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Trade Date
@@ -12208,7 +12208,7 @@ cme_futures_streamlined_sbe_v5_9.settl_price_type.dissect = function(buffer, off
     cme_futures_streamlined_sbe_v5_9.settl_price_type.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Md Entry Px Decimal Optional

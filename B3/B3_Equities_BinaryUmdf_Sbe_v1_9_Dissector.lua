@@ -707,7 +707,7 @@ b3_equities_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_opti
     b3_equities_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Md Entry Type
@@ -1543,7 +1543,7 @@ b3_equities_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.diss
     b3_equities_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Trade Bust 57 Message
@@ -2441,7 +2441,7 @@ b3_equities_binaryumdf_sbe_v1_9.trade_condition.dissect = function(buffer, offse
     b3_equities_binaryumdf_sbe_v1_9.trade_condition.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Forward Trade 54 Message
@@ -4252,7 +4252,7 @@ b3_equities_binaryumdf_sbe_v1_9.imbalance_condition.dissect = function(buffer, o
     b3_equities_binaryumdf_sbe_v1_9.imbalance_condition.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Auction Imbalance 19 Message

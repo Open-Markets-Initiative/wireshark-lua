@@ -2457,7 +2457,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.waiver_indicator.dissect = function(bu
     euronext_optiq_orderentrygateway_sbe_v4_5.waiver_indicator.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Free Text Cross
@@ -3938,7 +3938,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.mifid_indicators.dissect = function(bu
     euronext_optiq_orderentrygateway_sbe_v4_5.mifid_indicators.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Guarantee Flag
@@ -5661,7 +5661,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.target_counterparties.dissect = functi
     euronext_optiq_orderentrygateway_sbe_v4_5.target_counterparties.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Ioi Transaction Type
@@ -5908,7 +5908,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.dark_execution_instruction_optional.di
     euronext_optiq_orderentrygateway_sbe_v4_5.dark_execution_instruction_optional.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Last Traded Quantity
@@ -6659,7 +6659,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.open_close.dissect = function(buffer, 
     euronext_optiq_orderentrygateway_sbe_v4_5.open_close.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Technical Origin
@@ -7986,7 +7986,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.ack_qualifiers.dissect = function(buff
     euronext_optiq_orderentrygateway_sbe_v4_5.ack_qualifiers.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Response Type
@@ -9529,7 +9529,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.mmp_execution_type.dissect = function(
     euronext_optiq_orderentrygateway_sbe_v4_5.mmp_execution_type.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Mm Protection Ack Message
@@ -11258,7 +11258,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.execution_instruction_optional.dissect
     euronext_optiq_orderentrygateway_sbe_v4_5.execution_instruction_optional.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- User Notification Message
@@ -11727,7 +11727,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.dark_execution_instruction.dissect = f
     euronext_optiq_orderentrygateway_sbe_v4_5.dark_execution_instruction.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- End Client
@@ -13070,7 +13070,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.mifid_indicators_optional.dissect = fu
     euronext_optiq_orderentrygateway_sbe_v4_5.mifid_indicators_optional.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Mifid Fields Group
@@ -13297,7 +13297,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.ack_qualifiers_optional.dissect = func
     euronext_optiq_orderentrygateway_sbe_v4_5.ack_qualifiers_optional.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Option Type
@@ -15635,7 +15635,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.trading_session.dissect = function(buf
     euronext_optiq_orderentrygateway_sbe_v4_5.trading_session.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Order Expiration Date
@@ -16054,7 +16054,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.execution_instruction.dissect = functi
     euronext_optiq_orderentrygateway_sbe_v4_5.execution_instruction.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Time In Force
@@ -17227,7 +17227,7 @@ euronext_optiq_orderentrygateway_sbe_v4_5.trade_qualifier.dissect = function(buf
     euronext_optiq_orderentrygateway_sbe_v4_5.trade_qualifier.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Trade Type

@@ -7668,7 +7668,7 @@ cme_futures_ilink3_sbe_v8_8.exec_inst.dissect = function(buffer, offset, packet,
     cme_futures_ilink3_sbe_v8_8.exec_inst.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Total Num Securities

@@ -477,7 +477,7 @@ a2x_equities_snapshot_amd_v1_3_2.market_flags.dissect = function(buffer, offset,
     a2x_equities_snapshot_amd_v1_3_2.market_flags.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Trading Status

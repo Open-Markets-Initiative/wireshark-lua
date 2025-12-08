@@ -491,7 +491,7 @@ memx_options_memoirdepth_sbe_v1_3.trade_conditions.dissect = function(buffer, of
     memx_options_memoirdepth_sbe_v1_3.trade_conditions.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Order Capacity

@@ -1048,7 +1048,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.dissect = function(
     coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Prior Settlement Price Optional
@@ -3479,7 +3479,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_9.flags.dissect = function(buffer, off
     coinbase_derivatives_marketdataapi_sbe_v1_9.flags.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Correlation Id

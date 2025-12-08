@@ -3050,7 +3050,7 @@ memx_options_memo_sbe_v1_8.mass_cancel_inst.dissect = function(buffer, offset, p
     memx_options_memo_sbe_v1_8.mass_cancel_inst.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Cancel Group Id
@@ -6006,7 +6006,7 @@ memx_options_memo_sbe_v1_8.exec_inst.dissect = function(buffer, offset, packet, 
     memx_options_memo_sbe_v1_8.exec_inst.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Time In Force

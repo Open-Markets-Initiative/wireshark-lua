@@ -2010,7 +2010,7 @@ cme_futures_settlements_sbe_v7_0.settl_price_type.dissect = function(buffer, off
     cme_futures_settlements_sbe_v7_0.settl_price_type.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Md Entry Px

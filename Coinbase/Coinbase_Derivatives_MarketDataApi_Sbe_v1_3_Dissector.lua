@@ -656,7 +656,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.dissect = function(
     coinbase_derivatives_marketdataapi_sbe_v1_3.definition_flags.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Prior Settlement Price Optional

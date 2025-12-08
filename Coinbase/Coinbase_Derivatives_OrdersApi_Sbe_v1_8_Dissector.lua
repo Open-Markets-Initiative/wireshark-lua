@@ -3251,7 +3251,7 @@ coinbase_derivatives_ordersapi_sbe_v1_8.flags.dissect = function(buffer, offset,
     coinbase_derivatives_ordersapi_sbe_v1_8.flags.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- New Order Message

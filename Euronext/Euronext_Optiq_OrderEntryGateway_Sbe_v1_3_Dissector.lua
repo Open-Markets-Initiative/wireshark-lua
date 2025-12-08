@@ -2717,7 +2717,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.dissect = function(bu
     euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Free Text Cross
@@ -4114,7 +4114,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.dissect = function(b
     euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Guarantee Flag
@@ -7814,7 +7814,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.open_close.dissect = function(buffer, 
     euronext_optiq_orderentrygateway_sbe_v1_3.open_close.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Technical Origin
@@ -8885,7 +8885,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.dissect = function(buf
     euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Order Expiration Date
@@ -9384,7 +9384,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.dissect = f
     euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Execution Instruction
@@ -9466,7 +9466,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.dissect = functi
     euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Time In Force
@@ -10478,7 +10478,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.dissect = function(buf
     euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Trade Type
@@ -10822,7 +10822,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.dissect = function(buff
     euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Order Qty Optional

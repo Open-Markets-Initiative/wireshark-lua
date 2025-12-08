@@ -1826,7 +1826,7 @@ cme_futures_mdp3_sbe_v1_9.inst_attrib_value.dissect = function(buffer, offset, p
     cme_futures_mdp3_sbe_v1_9.inst_attrib_value.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Inst Attrib Group
@@ -2597,7 +2597,7 @@ cme_futures_mdp3_sbe_v1_9.settl_price_type.dissect = function(buffer, offset, pa
     cme_futures_mdp3_sbe_v1_9.settl_price_type.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Trading Reference Price Ex
@@ -3783,7 +3783,7 @@ cme_futures_mdp3_sbe_v1_9.match_event_indicator.dissect = function(buffer, offse
     cme_futures_mdp3_sbe_v1_9.match_event_indicator.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Md Instrument Definition Spread

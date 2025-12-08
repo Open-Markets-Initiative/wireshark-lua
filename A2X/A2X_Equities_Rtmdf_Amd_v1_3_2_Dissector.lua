@@ -499,7 +499,7 @@ a2x_equities_rtmdf_amd_v1_3_2.market_flags.dissect = function(buffer, offset, pa
     a2x_equities_rtmdf_amd_v1_3_2.market_flags.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Trading Status
@@ -661,7 +661,7 @@ a2x_equities_rtmdf_amd_v1_3_2.security_flags.dissect = function(buffer, offset, 
     a2x_equities_rtmdf_amd_v1_3_2.security_flags.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Tick Table Id

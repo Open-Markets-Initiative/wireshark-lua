@@ -431,7 +431,7 @@ smallx_headers_sbe_v1_0.packet_flags.dissect = function(buffer, offset, packet, 
     smallx_headers_sbe_v1_0.packet_flags.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Source

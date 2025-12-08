@@ -3420,7 +3420,7 @@ memx_equities_memo_sbe_v1_1.exec_inst.dissect = function(buffer, offset, packet,
     memx_equities_memo_sbe_v1_1.exec_inst.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Cust Order Capacity

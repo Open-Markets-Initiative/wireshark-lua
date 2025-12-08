@@ -2212,7 +2212,7 @@ cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect = function(buffer, offs
     cme_futures_mdp3_sbe_v1_12.match_event_indicator.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Snapshot Full Refresh Tcp Long Qty
@@ -4405,7 +4405,7 @@ cme_futures_mdp3_sbe_v1_12.inst_attrib_value.dissect = function(buffer, offset, 
     cme_futures_mdp3_sbe_v1_12.inst_attrib_value.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Inst Attrib Group
@@ -6920,7 +6920,7 @@ cme_futures_mdp3_sbe_v1_12.settl_price_type.dissect = function(buffer, offset, p
     cme_futures_mdp3_sbe_v1_12.settl_price_type.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Trading Reference Date

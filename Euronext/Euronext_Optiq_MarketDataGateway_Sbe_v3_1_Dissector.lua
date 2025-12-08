@@ -5549,7 +5549,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.strategy_authorized.dissect = function
     euronext_optiq_marketdatagateway_sbe_v3_1.strategy_authorized.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Lot Size Optional
@@ -6476,7 +6476,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.mm_protections.dissect = function(buff
     euronext_optiq_marketdatagateway_sbe_v3_1.mm_protections.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Strike Price Decimals Ratio
@@ -6625,7 +6625,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.order_type_rules.dissect = function(bu
     euronext_optiq_marketdatagateway_sbe_v3_1.order_type_rules.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Underlying Expiry
@@ -11036,7 +11036,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.phase_qualifier.dissect = function(buf
     euronext_optiq_marketdatagateway_sbe_v3_1.phase_qualifier.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Phase Id
@@ -12377,7 +12377,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.trade_qualifier.dissect = function(buf
     euronext_optiq_marketdatagateway_sbe_v3_1.trade_qualifier.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Mmt Duplicative Indicator
@@ -15546,7 +15546,7 @@ euronext_optiq_marketdatagateway_sbe_v3_1.packet_flags.dissect = function(buffer
     euronext_optiq_marketdatagateway_sbe_v3_1.packet_flags.bits(range, value, packet, element)
   end
 
-  return offset + size, range
+  return offset + size, value
 end
 
 -- Packet Sequence Number
