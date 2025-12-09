@@ -714,38 +714,43 @@ nasdaq_phlxoptions_orders_itch_v1_9.expiration = {}
 nasdaq_phlxoptions_orders_itch_v1_9.expiration.size = 2
 
 -- Display: Expiration
-nasdaq_phlxoptions_orders_itch_v1_9.expiration.display = function(buffer, packet, parent)
+nasdaq_phlxoptions_orders_itch_v1_9.expiration.display = function(range, value, packet, parent)
   local display = ""
 
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Expiration
-nasdaq_phlxoptions_orders_itch_v1_9.expiration.bits = function(buffer, offset, packet, parent)
-
-  -- Year: 7 Bit
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.year, buffer(offset, 2))
-
-  -- Month: 4 Bit
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.month, buffer(offset, 2))
+nasdaq_phlxoptions_orders_itch_v1_9.expiration.bits = function(range, value, packet, parent)
 
   -- Day: 5 Bit
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.day, buffer(offset, 2))
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.day, range, value)
+
+  -- Month: 4 Bit
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.month, range, value)
+
+  -- Year: 7 Bit
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.year, range, value)
 end
 
 -- Dissect: Expiration
 nasdaq_phlxoptions_orders_itch_v1_9.expiration.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = nasdaq_phlxoptions_orders_itch_v1_9.expiration.size
   local range = buffer(offset, size)
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.expiration.display(range, packet, parent)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.expiration.display(range, value, packet, parent)
   local element = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.expiration, range, display)
 
   if show.expiration then
-    nasdaq_phlxoptions_orders_itch_v1_9.expiration.bits(buffer, offset, packet, element)
+    nasdaq_phlxoptions_orders_itch_v1_9.expiration.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, value
 end
 
 -- Security Symbol
