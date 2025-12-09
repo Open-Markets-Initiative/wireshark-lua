@@ -1631,60 +1631,65 @@ hkex_derivatives_premium_omd_v1_47.trade_condition = {}
 hkex_derivatives_premium_omd_v1_47.trade_condition.size = 2
 
 -- Display: Trade Condition
-hkex_derivatives_premium_omd_v1_47.trade_condition.display = function(buffer, packet, parent)
+hkex_derivatives_premium_omd_v1_47.trade_condition.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Off Market flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Off Market|"
-  end
-  -- Is Buy Write flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Buy Write|"
-  end
-  -- Is Internal Trade Or Cross flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Internal Trade Or Cross|"
-  end
   -- Is Late Trade flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Late Trade|"
   end
+  -- Is Internal Trade Or Cross flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Internal Trade Or Cross|"
+  end
+  -- Is Buy Write flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Buy Write|"
+  end
+  -- Is Off Market flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Off Market|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Trade Condition
-hkex_derivatives_premium_omd_v1_47.trade_condition.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 12: 12 Bit
-  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.unused_12, buffer(offset, 2))
-
-  -- Off Market: 1 Bit
-  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.off_market, buffer(offset, 2))
-
-  -- Buy Write: 1 Bit
-  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.buy_write, buffer(offset, 2))
-
-  -- Internal Trade Or Cross: 1 Bit
-  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.internal_trade_or_cross, buffer(offset, 2))
+hkex_derivatives_premium_omd_v1_47.trade_condition.bits = function(range, value, packet, parent)
 
   -- Late Trade: 1 Bit
-  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.late_trade, buffer(offset, 2))
+  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.late_trade, range, value)
+
+  -- Internal Trade Or Cross: 1 Bit
+  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.internal_trade_or_cross, range, value)
+
+  -- Buy Write: 1 Bit
+  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.buy_write, range, value)
+
+  -- Off Market: 1 Bit
+  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.off_market, range, value)
+
+  -- Unused 12: 12 Bit
+  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.unused_12, range, value)
 end
 
 -- Dissect: Trade Condition
 hkex_derivatives_premium_omd_v1_47.trade_condition.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = hkex_derivatives_premium_omd_v1_47.trade_condition.size
   local range = buffer(offset, size)
-  local display = hkex_derivatives_premium_omd_v1_47.trade_condition.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = hkex_derivatives_premium_omd_v1_47.trade_condition.display(range, value, packet, parent)
   local element = parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.trade_condition, range, display)
 
   if show.trade_condition then
-    hkex_derivatives_premium_omd_v1_47.trade_condition.bits(buffer, offset, packet, element)
+    hkex_derivatives_premium_omd_v1_47.trade_condition.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, value
 end
 
 -- Deal Type
@@ -1694,53 +1699,58 @@ hkex_derivatives_premium_omd_v1_47.deal_type = {}
 hkex_derivatives_premium_omd_v1_47.deal_type.size = 1
 
 -- Display: Deal Type
-hkex_derivatives_premium_omd_v1_47.deal_type.display = function(buffer, packet, parent)
+hkex_derivatives_premium_omd_v1_47.deal_type.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Reported Trade flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Reported Trade|"
-  end
-  -- Is Occurred At Cross flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Occurred At Cross|"
-  end
   -- Is Printable flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Printable|"
   end
+  -- Is Occurred At Cross flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Occurred At Cross|"
+  end
+  -- Is Reported Trade flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Reported Trade|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Deal Type
-hkex_derivatives_premium_omd_v1_47.deal_type.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 5: 5 Bit
-  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.unused_5, buffer(offset, 1))
-
-  -- Reported Trade: 1 Bit
-  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.reported_trade, buffer(offset, 1))
-
-  -- Occurred At Cross: 1 Bit
-  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.occurred_at_cross, buffer(offset, 1))
+hkex_derivatives_premium_omd_v1_47.deal_type.bits = function(range, value, packet, parent)
 
   -- Printable: 1 Bit
-  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.printable, buffer(offset, 1))
+  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.printable, range, value)
+
+  -- Occurred At Cross: 1 Bit
+  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.occurred_at_cross, range, value)
+
+  -- Reported Trade: 1 Bit
+  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.reported_trade, range, value)
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.unused_5, range, value)
 end
 
 -- Dissect: Deal Type
 hkex_derivatives_premium_omd_v1_47.deal_type.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = hkex_derivatives_premium_omd_v1_47.deal_type.size
   local range = buffer(offset, size)
-  local display = hkex_derivatives_premium_omd_v1_47.deal_type.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = hkex_derivatives_premium_omd_v1_47.deal_type.display(range, value, packet, parent)
   local element = parent:add(omi_hkex_derivatives_premium_omd_v1_47.fields.deal_type, range, display)
 
   if show.deal_type then
-    hkex_derivatives_premium_omd_v1_47.deal_type.bits(buffer, offset, packet, element)
+    hkex_derivatives_premium_omd_v1_47.deal_type.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Trade Side

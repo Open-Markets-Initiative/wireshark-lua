@@ -136,9 +136,13 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.underlying_price_unit = ProtoFiel
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.underlying_type = ProtoField.new("Underlying Type", "hkex.derivatives.fulltick.omd.v1.47.underlyingtype", ftypes.UINT8)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.undisclosed = ProtoField.new("Undisclosed", "hkex.derivatives.fulltick.omd.v1.47.undisclosed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0020)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_12 = ProtoField.new("Unused 12", "hkex.derivatives.fulltick.omd.v1.47.unused12", ftypes.UINT16, nil, base.DEC, 0xFFF0)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_2 = ProtoField.new("Unused 2", "hkex.derivatives.fulltick.omd.v1.47.unused2", ftypes.UINT16, nil, base.DEC, 0xC000)
-omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_4 = ProtoField.new("Unused 4", "hkex.derivatives.fulltick.omd.v1.47.unused4", ftypes.UINT16, nil, base.DEC, 0x03C0)
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_5 = ProtoField.new("Unused 5", "hkex.derivatives.fulltick.omd.v1.47.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_10 = ProtoField.new("Unused Order Type Bit 10", "hkex.derivatives.fulltick.omd.v1.47.unusedordertypebit10", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0200)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_15 = ProtoField.new("Unused Order Type Bit 15", "hkex.derivatives.fulltick.omd.v1.47.unusedordertypebit15", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x4000)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_16 = ProtoField.new("Unused Order Type Bit 16", "hkex.derivatives.fulltick.omd.v1.47.unusedordertypebit16", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x8000)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_7 = ProtoField.new("Unused Order Type Bit 7", "hkex.derivatives.fulltick.omd.v1.47.unusedordertypebit7", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0040)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_8 = ProtoField.new("Unused Order Type Bit 8", "hkex.derivatives.fulltick.omd.v1.47.unusedordertypebit8", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
+omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_9 = ProtoField.new("Unused Order Type Bit 9", "hkex.derivatives.fulltick.omd.v1.47.unusedordertypebit9", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
 
 -- Hkex Derivatives FullTick Omd 1.47 messages
 omi_hkex_derivatives_fulltick_omd_v1_47.fields.add_order_message = ProtoField.new("Add Order Message", "hkex.derivatives.fulltick.omd.v1.47.addordermessage", ftypes.STRING)
@@ -1130,60 +1134,65 @@ hkex_derivatives_fulltick_omd_v1_47.trade_condition = {}
 hkex_derivatives_fulltick_omd_v1_47.trade_condition.size = 2
 
 -- Display: Trade Condition
-hkex_derivatives_fulltick_omd_v1_47.trade_condition.display = function(buffer, packet, parent)
+hkex_derivatives_fulltick_omd_v1_47.trade_condition.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Off Market flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Off Market|"
-  end
-  -- Is Buy Write flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Buy Write|"
-  end
-  -- Is Internal Trade Or Cross flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Internal Trade Or Cross|"
-  end
   -- Is Late Trade flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Late Trade|"
   end
+  -- Is Internal Trade Or Cross flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Internal Trade Or Cross|"
+  end
+  -- Is Buy Write flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Buy Write|"
+  end
+  -- Is Off Market flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Off Market|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Trade Condition
-hkex_derivatives_fulltick_omd_v1_47.trade_condition.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 12: 12 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_12, buffer(offset, 2))
-
-  -- Off Market: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.off_market, buffer(offset, 2))
-
-  -- Buy Write: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.buy_write, buffer(offset, 2))
-
-  -- Internal Trade Or Cross: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.internal_trade_or_cross, buffer(offset, 2))
+hkex_derivatives_fulltick_omd_v1_47.trade_condition.bits = function(range, value, packet, parent)
 
   -- Late Trade: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.late_trade, buffer(offset, 2))
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.late_trade, range, value)
+
+  -- Internal Trade Or Cross: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.internal_trade_or_cross, range, value)
+
+  -- Buy Write: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.buy_write, range, value)
+
+  -- Off Market: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.off_market, range, value)
+
+  -- Unused 12: 12 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_12, range, value)
 end
 
 -- Dissect: Trade Condition
 hkex_derivatives_fulltick_omd_v1_47.trade_condition.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = hkex_derivatives_fulltick_omd_v1_47.trade_condition.size
   local range = buffer(offset, size)
-  local display = hkex_derivatives_fulltick_omd_v1_47.trade_condition.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = hkex_derivatives_fulltick_omd_v1_47.trade_condition.display(range, value, packet, parent)
   local element = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_condition, range, display)
 
   if show.trade_condition then
-    hkex_derivatives_fulltick_omd_v1_47.trade_condition.bits(buffer, offset, packet, element)
+    hkex_derivatives_fulltick_omd_v1_47.trade_condition.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, value
 end
 
 -- Deal Type
@@ -1193,53 +1202,58 @@ hkex_derivatives_fulltick_omd_v1_47.deal_type = {}
 hkex_derivatives_fulltick_omd_v1_47.deal_type.size = 1
 
 -- Display: Deal Type
-hkex_derivatives_fulltick_omd_v1_47.deal_type.display = function(buffer, packet, parent)
+hkex_derivatives_fulltick_omd_v1_47.deal_type.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Reported Trade flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Reported Trade|"
-  end
-  -- Is Occurred At Cross flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Occurred At Cross|"
-  end
   -- Is Printable flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Printable|"
   end
+  -- Is Occurred At Cross flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Occurred At Cross|"
+  end
+  -- Is Reported Trade flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Reported Trade|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Deal Type
-hkex_derivatives_fulltick_omd_v1_47.deal_type.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 5: 5 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_5, buffer(offset, 1))
-
-  -- Reported Trade: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.reported_trade, buffer(offset, 1))
-
-  -- Occurred At Cross: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.occurred_at_cross, buffer(offset, 1))
+hkex_derivatives_fulltick_omd_v1_47.deal_type.bits = function(range, value, packet, parent)
 
   -- Printable: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.printable, buffer(offset, 1))
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.printable, range, value)
+
+  -- Occurred At Cross: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.occurred_at_cross, range, value)
+
+  -- Reported Trade: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.reported_trade, range, value)
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_5, range, value)
 end
 
 -- Dissect: Deal Type
 hkex_derivatives_fulltick_omd_v1_47.deal_type.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = hkex_derivatives_fulltick_omd_v1_47.deal_type.size
   local range = buffer(offset, size)
-  local display = hkex_derivatives_fulltick_omd_v1_47.deal_type.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = hkex_derivatives_fulltick_omd_v1_47.deal_type.display(range, value, packet, parent)
   local element = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.deal_type, range, display)
 
   if show.deal_type then
-    hkex_derivatives_fulltick_omd_v1_47.deal_type.bits(buffer, offset, packet, element)
+    hkex_derivatives_fulltick_omd_v1_47.deal_type.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Trade Side
@@ -1645,105 +1659,146 @@ hkex_derivatives_fulltick_omd_v1_47.order_type = {}
 hkex_derivatives_fulltick_omd_v1_47.order_type.size = 2
 
 -- Display: Order Type
-hkex_derivatives_fulltick_omd_v1_47.order_type.display = function(buffer, packet, parent)
+hkex_derivatives_fulltick_omd_v1_47.order_type.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Bait Or Implied Order flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Bait Or Implied Order|"
-  end
-  -- Is Convert To Aggressive flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Convert To Aggressive|"
-  end
-  -- Is Firm Color Disabled flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Firm Color Disabled|"
-  end
-  -- Is Fill And Kill Immediately flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Fill And Kill Immediately|"
-  end
-  -- Is Undisclosed flag set?
-  if buffer:bitfield(10) > 0 then
-    display = display.."Undisclosed|"
-  end
-  -- Is Override Crossing flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Override Crossing|"
-  end
-  -- Is Price Stabilization flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Price Stabilization|"
-  end
-  -- Is Market Bid flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Market Bid|"
-  end
-  -- Is Short Sell flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Short Sell|"
-  end
   -- Is Force flag set?
-  if buffer:bitfield(15) > 0 then
+  if bit.band(value, 0x0001) ~= 0 then
     display = display.."Force|"
   end
+  -- Is Short Sell flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    display = display.."Short Sell|"
+  end
+  -- Is Market Bid flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Market Bid|"
+  end
+  -- Is Price Stabilization flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Price Stabilization|"
+  end
+  -- Is Override Crossing flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    display = display.."Override Crossing|"
+  end
+  -- Is Undisclosed flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    display = display.."Undisclosed|"
+  end
+  -- Is Unused Order Type Bit 7 flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    display = display.."Unused Order Type Bit 7|"
+  end
+  -- Is Unused Order Type Bit 8 flag set?
+  if bit.band(value, 0x0080) ~= 0 then
+    display = display.."Unused Order Type Bit 8|"
+  end
+  -- Is Unused Order Type Bit 9 flag set?
+  if bit.band(value, 0x0100) ~= 0 then
+    display = display.."Unused Order Type Bit 9|"
+  end
+  -- Is Unused Order Type Bit 10 flag set?
+  if bit.band(value, 0x0200) ~= 0 then
+    display = display.."Unused Order Type Bit 10|"
+  end
+  -- Is Fill And Kill Immediately flag set?
+  if bit.band(value, 0x0400) ~= 0 then
+    display = display.."Fill And Kill Immediately|"
+  end
+  -- Is Firm Color Disabled flag set?
+  if bit.band(value, 0x0800) ~= 0 then
+    display = display.."Firm Color Disabled|"
+  end
+  -- Is Convert To Aggressive flag set?
+  if bit.band(value, 0x1000) ~= 0 then
+    display = display.."Convert To Aggressive|"
+  end
+  -- Is Bait Or Implied Order flag set?
+  if bit.band(value, 0x2000) ~= 0 then
+    display = display.."Bait Or Implied Order|"
+  end
+  -- Is Unused Order Type Bit 15 flag set?
+  if bit.band(value, 0x4000) ~= 0 then
+    display = display.."Unused Order Type Bit 15|"
+  end
+  -- Is Unused Order Type Bit 16 flag set?
+  if bit.band(value, 0x8000) ~= 0 then
+    display = display.."Unused Order Type Bit 16|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Order Type
-hkex_derivatives_fulltick_omd_v1_47.order_type.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 2: 2 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_2, buffer(offset, 2))
-
-  -- Bait Or Implied Order: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.bait_or_implied_order, buffer(offset, 2))
-
-  -- Convert To Aggressive: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.convert_to_aggressive, buffer(offset, 2))
-
-  -- Firm Color Disabled: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.firm_color_disabled, buffer(offset, 2))
-
-  -- Fill And Kill Immediately: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.fill_and_kill_immediately, buffer(offset, 2))
-
-  -- Unused 4: 4 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_4, buffer(offset, 2))
-
-  -- Undisclosed: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.undisclosed, buffer(offset, 2))
-
-  -- Override Crossing: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.override_crossing, buffer(offset, 2))
-
-  -- Price Stabilization: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.price_stabilization, buffer(offset, 2))
-
-  -- Market Bid: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_bid, buffer(offset, 2))
-
-  -- Short Sell: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.short_sell, buffer(offset, 2))
+hkex_derivatives_fulltick_omd_v1_47.order_type.bits = function(range, value, packet, parent)
 
   -- Force: 1 Bit
-  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.force, buffer(offset, 2))
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.force, range, value)
+
+  -- Short Sell: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.short_sell, range, value)
+
+  -- Market Bid: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_bid, range, value)
+
+  -- Price Stabilization: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.price_stabilization, range, value)
+
+  -- Override Crossing: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.override_crossing, range, value)
+
+  -- Undisclosed: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.undisclosed, range, value)
+
+  -- Unused Order Type Bit 7: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_7, range, value)
+
+  -- Unused Order Type Bit 8: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_8, range, value)
+
+  -- Unused Order Type Bit 9: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_9, range, value)
+
+  -- Unused Order Type Bit 10: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_10, range, value)
+
+  -- Fill And Kill Immediately: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.fill_and_kill_immediately, range, value)
+
+  -- Firm Color Disabled: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.firm_color_disabled, range, value)
+
+  -- Convert To Aggressive: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.convert_to_aggressive, range, value)
+
+  -- Bait Or Implied Order: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.bait_or_implied_order, range, value)
+
+  -- Unused Order Type Bit 15: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_15, range, value)
+
+  -- Unused Order Type Bit 16: 1 Bit
+  parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.unused_order_type_bit_16, range, value)
 end
 
 -- Dissect: Order Type
 hkex_derivatives_fulltick_omd_v1_47.order_type.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = hkex_derivatives_fulltick_omd_v1_47.order_type.size
   local range = buffer(offset, size)
-  local display = hkex_derivatives_fulltick_omd_v1_47.order_type.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = hkex_derivatives_fulltick_omd_v1_47.order_type.display(range, value, packet, parent)
   local element = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.order_type, range, display)
 
   if show.order_type then
-    hkex_derivatives_fulltick_omd_v1_47.order_type.bits(buffer, offset, packet, element)
+    hkex_derivatives_fulltick_omd_v1_47.order_type.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, value
 end
 
 -- Quantity
@@ -1806,7 +1861,7 @@ hkex_derivatives_fulltick_omd_v1_47.modify_order_message.fields = function(buffe
   -- Side: Uint8
   index, side = hkex_derivatives_fulltick_omd_v1_47.side.dissect(buffer, index, packet, parent)
 
-  -- Order Type: Struct of 12 fields
+  -- Order Type: Struct of 16 fields
   index, order_type = hkex_derivatives_fulltick_omd_v1_47.order_type.dissect(buffer, index, packet, parent)
 
   -- Order Book Position: Uint32
@@ -1897,7 +1952,7 @@ hkex_derivatives_fulltick_omd_v1_47.add_order_message.fields = function(buffer, 
   -- Lot Type: Uint8
   index, lot_type = hkex_derivatives_fulltick_omd_v1_47.lot_type.dissect(buffer, index, packet, parent)
 
-  -- Order Type: Struct of 12 fields
+  -- Order Type: Struct of 16 fields
   index, order_type = hkex_derivatives_fulltick_omd_v1_47.order_type.dissect(buffer, index, packet, parent)
 
   -- Order Book Position: Uint32
