@@ -4053,16 +4053,20 @@ end
 
 -- Dissect: Quote Req Id
 b3_equities_binaryentrypoint_sbe_v7_0.quote_req_id.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.quote_req_id then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.quote_req_id.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:bytes():tohex(false, " ")
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_req_id.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_req_id, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_req_id, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.quote_req_id.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_req_id.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.quote_req_id.fields(buffer, offset, packet, parent)
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.quote_req_id.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Sides Group
@@ -10746,16 +10750,20 @@ end
 
 -- Dissect: Investor Id
 b3_equities_binaryentrypoint_sbe_v7_0.investor_id.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.investor_id then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.investor_id.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:bytes():tohex(false, " ")
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.investor_id.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.investor_id, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.investor_id, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.investor_id.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.investor_id.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.investor_id.fields(buffer, offset, packet, parent)
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.investor_id.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Custody Allocation Type

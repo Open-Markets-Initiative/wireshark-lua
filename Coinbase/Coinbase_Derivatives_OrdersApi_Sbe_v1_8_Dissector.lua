@@ -3886,16 +3886,20 @@ end
 
 -- Dissect: Data
 coinbase_derivatives_ordersapi_sbe_v1_8.data.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.data then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_8.data.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:bytes():tohex(false, " ")
-    local display = coinbase_derivatives_ordersapi_sbe_v1_8.data.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.data, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.data, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_8.data.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_8.data.display(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_8.data.fields(buffer, offset, packet, parent)
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_8.data.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trading Instrument Status

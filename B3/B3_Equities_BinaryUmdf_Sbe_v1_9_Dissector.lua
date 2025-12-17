@@ -4709,16 +4709,20 @@ end
 
 -- Dissect: Url Link
 b3_equities_binaryumdf_sbe_v1_9.url_link.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.url_link then
-    local length = b3_equities_binaryumdf_sbe_v1_9.url_link.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:bytes():tohex(false, " ")
-    local display = b3_equities_binaryumdf_sbe_v1_9.url_link.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.url_link, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.url_link, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v1_9.url_link.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v1_9.url_link.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v1_9.url_link.fields(buffer, offset, packet, parent)
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v1_9.url_link.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Text Data
@@ -4811,16 +4815,20 @@ end
 
 -- Dissect: Text
 b3_equities_binaryumdf_sbe_v1_9.text.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.text then
-    local length = b3_equities_binaryumdf_sbe_v1_9.text.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:bytes():tohex(false, " ")
-    local display = b3_equities_binaryumdf_sbe_v1_9.text.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.text, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.text, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v1_9.text.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v1_9.text.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v1_9.text.fields(buffer, offset, packet, parent)
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v1_9.text.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Headline Data
@@ -4913,16 +4921,20 @@ end
 
 -- Dissect: Headline
 b3_equities_binaryumdf_sbe_v1_9.headline.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.headline then
-    local length = b3_equities_binaryumdf_sbe_v1_9.headline.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:bytes():tohex(false, " ")
-    local display = b3_equities_binaryumdf_sbe_v1_9.headline.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.headline, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.headline, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v1_9.headline.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v1_9.headline.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v1_9.headline.fields(buffer, offset, packet, parent)
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v1_9.headline.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Total Text Length

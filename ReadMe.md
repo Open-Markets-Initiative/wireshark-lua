@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 394 | 4,078,037 |
+| 395 | 4,071,484 |
 
 ## Testing
 
@@ -52,7 +52,7 @@ For a list of Omi Hft projects: [Omi Projects](https://github.com/Open-Markets-I
 For details of Omi rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
 ## Protocols
 
-Dissectors by exchange: [24X][24X.Directory], [A2X][A2X.Directory], [Asx][Asx.Directory], [Aquis][Aquis.Directory], [B3][B3.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Lseg][Lseg.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
+Dissectors by exchange: [24X][24X.Directory], [A2X][A2X.Directory], [Asx][Asx.Directory], [Aquis][Aquis.Directory], [B3][B3.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Lseg][Lseg.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
 
 ## Disclaimer
 
@@ -88,6 +88,7 @@ Enjoy.
 [Iex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Iex "Investors Exchange"
 [Imperative.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Imperative "Imperative Execution"
 [Jnx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jnx "Japannext"
+[Jpx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jpx "Japan Exchange Group"
 [Lseg.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Lseg "London Stock Exchange Group"
 [Miax.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Miax "Miami International Holdings"
 [Memx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Memx "Members Exchange"
