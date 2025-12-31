@@ -680,11 +680,14 @@ nyse_options_streamprotocol_pillar_v1_6.seq_msg.fields = function(buffer, offset
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = nyse_options_streamprotocol_pillar_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index - 30, 2):le_uint()
+  -- Seq Msg Header: Struct of 2 fields
+  index, seq_msg_header = nyse_options_streamprotocol_pillar_v1_6.seq_msg_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Seq Msg Length
+  local seq_msg_length = buffer(index - 2, 2):le_uint()
 
   -- Runtime Size Of: Sequenced Message
-  local size_of_sequenced_message = msg_length - 32
+  local size_of_sequenced_message = seq_msg_length - 32
 
   -- Sequenced Message: Struct of 2 fields
   index, sequenced_message = nyse_options_streamprotocol_pillar_v1_6.sequenced_message.dissect(buffer, index, packet, parent, size_of_sequenced_message)
