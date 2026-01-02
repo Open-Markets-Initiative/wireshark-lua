@@ -907,7 +907,7 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.size = function(bu
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Mass Cancel Result Message
@@ -999,64 +999,64 @@ txse_equities_orderentry_seed_v0_1.reject_reason.size = 1
 -- Display: Reject Reason
 txse_equities_orderentry_seed_v0_1.reject_reason.display = function(value)
   if value == 1 then
-    return "Reject Reason: Invalidclientorderid (1)"
+    return "Reject Reason: Invalid Client Order Id (1)"
   end
   if value == 2 then
-    return "Reject Reason: Duplicateclientorderid (2)"
+    return "Reject Reason: Duplicate Client Order Id (2)"
   end
   if value == 3 then
-    return "Reject Reason: Unknownoriginalclientorderid (3)"
+    return "Reject Reason: Unknown Original Client Order Id (3)"
   end
   if value == 4 then
-    return "Reject Reason: Nolongeronbook (4)"
+    return "Reject Reason: No Longer On Book (4)"
   end
   if value == 5 then
-    return "Reject Reason: Invalidsymbol (5)"
+    return "Reject Reason: Invalid Symbol (5)"
   end
   if value == 6 then
-    return "Reject Reason: Invalidprice (6)"
+    return "Reject Reason: Invalid Price (6)"
   end
   if value == 7 then
-    return "Reject Reason: Invalidorderquantity (7)"
+    return "Reject Reason: Invalid Order Quantity (7)"
   end
   if value == 8 then
-    return "Reject Reason: Invalidreferencepricetarget (8)"
+    return "Reject Reason: Invalid Reference Price Target (8)"
   end
   if value == 9 then
-    return "Reject Reason: Invalidishiddenflag (9)"
+    return "Reject Reason: Invalid Is Hidden Flag (9)"
   end
   if value == 10 then
-    return "Reject Reason: Invalidordertype (10)"
+    return "Reject Reason: Invalid Order Type (10)"
   end
   if value == 11 then
-    return "Reject Reason: Invalidside (11)"
+    return "Reject Reason: Invalid Side (11)"
   end
   if value == 12 then
-    return "Reject Reason: Invalidmaxfloorquantity (12)"
+    return "Reject Reason: Invalid Max Floor Quantity (12)"
   end
   if value == 13 then
-    return "Reject Reason: Invalidmaxreplenishquantityrange (13)"
+    return "Reject Reason: Invalid Max Replenish Quantity Range (13)"
   end
   if value == 14 then
-    return "Reject Reason: Invalidmaxreplenishtimerange (14)"
+    return "Reject Reason: Invalid Max Replenish Time Range (14)"
   end
   if value == 15 then
-    return "Reject Reason: Invalidminimumquantity (15)"
+    return "Reject Reason: Invalid Minimum Quantity (15)"
   end
   if value == 16 then
-    return "Reject Reason: Invalidlocaterequiredflag (16)"
+    return "Reject Reason: Invalid Locate Required Flag (16)"
   end
   if value == 17 then
-    return "Reject Reason: Invalidtimeinforce (17)"
+    return "Reject Reason: Invalid Time In Force (17)"
   end
   if value == 18 then
-    return "Reject Reason: Unsupportedmodification (18)"
+    return "Reject Reason: Unsupported Modification (18)"
   end
   if value == 19 then
-    return "Reject Reason: Invalidmpid (19)"
+    return "Reject Reason: Invalid Mpid (19)"
   end
   if value == 20 then
-    return "Reject Reason: Invalidsendercomp (20)"
+    return "Reject Reason: Invalid Sender Comp (20)"
   end
 
   return "Reject Reason: Unknown("..value..")"
@@ -1083,10 +1083,10 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_scope.size = 1
 -- Display: Mass Cancel Scope
 txse_equities_orderentry_seed_v0_1.mass_cancel_scope.display = function(value)
   if value == 0 then
-    return "Mass Cancel Scope: Bymemberownedsendercomps (0)"
+    return "Mass Cancel Scope: By Member Owned Sender Comps (0)"
   end
   if value == 1 then
-    return "Mass Cancel Scope: Bymemberownedmpids (1)"
+    return "Mass Cancel Scope: By Member Owned Mpids (1)"
   end
 
   return "Mass Cancel Scope: Unknown("..value..")"
@@ -1182,7 +1182,7 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.size = function(
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Mass Cancel Rejected Message
@@ -1343,7 +1343,7 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.size = function(
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Mass Cancel Accepted Message
@@ -1504,7 +1504,7 @@ txse_equities_orderentry_seed_v0_1.restatement_reason.size = 1
 -- Display: Restatement Reason
 txse_equities_orderentry_seed_v0_1.restatement_reason.display = function(value)
   if value == 1 then
-    return "Restatement Reason: Reservereplenished (1)"
+    return "Restatement Reason: Reserve Replenished (1)"
   end
   if value == 2 then
     return "Restatement Reason: Repriced (2)"
@@ -1619,7 +1619,7 @@ txse_equities_orderentry_seed_v0_1.order_restated_message.size = function(buffer
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Order Restated Message
@@ -1795,7 +1795,7 @@ txse_equities_orderentry_seed_v0_1.order_executed_message.size = function(buffer
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Order Executed Message
@@ -2059,7 +2059,7 @@ txse_equities_orderentry_seed_v0_1.replace_rejected_message.size = function(buff
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Replace Rejected Message
@@ -2237,7 +2237,7 @@ txse_equities_orderentry_seed_v0_1.order_replaced_message.size = function(buffer
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Order Replaced Message
@@ -2465,7 +2465,7 @@ txse_equities_orderentry_seed_v0_1.modify_rejected_message.size = function(buffe
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Modify Rejected Message
@@ -2612,7 +2612,7 @@ txse_equities_orderentry_seed_v0_1.order_modified_message.size = function(buffer
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Order Modified Message
@@ -2701,7 +2701,7 @@ txse_equities_orderentry_seed_v0_1.cancel_rejected_message.size = function(buffe
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Cancel Rejected Message
@@ -2751,34 +2751,34 @@ txse_equities_orderentry_seed_v0_1.cancel_reason.size = 1
 -- Display: Cancel Reason
 txse_equities_orderentry_seed_v0_1.cancel_reason.display = function(value)
   if value == 1 then
-    return "Cancel Reason: Requestedbyuser (1)"
+    return "Cancel Reason: Requested By User (1)"
   end
   if value == 2 then
-    return "Cancel Reason: Relatedtotimeinforce (2)"
+    return "Cancel Reason: Related To Time In Force (2)"
   end
   if value == 3 then
-    return "Cancel Reason: Relatedtominqty (3)"
+    return "Cancel Reason: Related To Min Qty (3)"
   end
   if value == 4 then
-    return "Cancel Reason: Nmsviolationnoslide (4)"
+    return "Cancel Reason: Nms Violation No Slide (4)"
   end
   if value == 5 then
-    return "Cancel Reason: Marketablereserve (5)"
+    return "Cancel Reason: Marketable Reserve (5)"
   end
   if value == 6 then
-    return "Cancel Reason: Selfmatchprevention (6)"
+    return "Cancel Reason: Self Match Prevention (6)"
   end
   if value == 7 then
-    return "Cancel Reason: Replenishmentcanceledduetoreserve (7)"
+    return "Cancel Reason: Replenishment Canceled Due To Reserve (7)"
   end
   if value == 8 then
-    return "Cancel Reason: Relatedtoordertype (8)"
+    return "Cancel Reason: Related To Order Type (8)"
   end
   if value == 9 then
-    return "Cancel Reason: Canceledduetocrossedmarkets (9)"
+    return "Cancel Reason: Canceled Due To Crossed Markets (9)"
   end
   if value == 10 then
-    return "Cancel Reason: Canceledduetomasscancelrequest (10)"
+    return "Cancel Reason: Canceled Due To Mass Cancel Request (10)"
   end
 
   return "Cancel Reason: Unknown("..value..")"
@@ -2806,7 +2806,7 @@ txse_equities_orderentry_seed_v0_1.order_canceled_message.size = function(buffer
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Order Canceled Message
@@ -2882,22 +2882,22 @@ txse_equities_orderentry_seed_v0_1.self_match_instruction.size = 1
 -- Display: Self Match Instruction
 txse_equities_orderentry_seed_v0_1.self_match_instruction.display = function(value)
   if value == 0 then
-    return "Self Match Instruction: Noselfmatchprevention (0)"
+    return "Self Match Instruction: No Self Match Prevention (0)"
   end
   if value == 1 then
-    return "Self Match Instruction: Cancelnewest (1)"
+    return "Self Match Instruction: Cancel Newest (1)"
   end
   if value == 2 then
-    return "Self Match Instruction: Canceloldest (2)"
+    return "Self Match Instruction: Cancel Oldest (2)"
   end
   if value == 3 then
-    return "Self Match Instruction: Cancelboth (3)"
+    return "Self Match Instruction: Cancel Both (3)"
   end
   if value == 4 then
-    return "Self Match Instruction: Cancelsmallest (4)"
+    return "Self Match Instruction: Cancel Smallest (4)"
   end
   if value == 5 then
-    return "Self Match Instruction: Decrementandcancel (5)"
+    return "Self Match Instruction: Decrement And Cancel (5)"
   end
 
   return "Self Match Instruction: Unknown("..value..")"
@@ -2924,16 +2924,16 @@ txse_equities_orderentry_seed_v0_1.self_match_scope.size = 1
 -- Display: Self Match Scope
 txse_equities_orderentry_seed_v0_1.self_match_scope.display = function(value)
   if value == 0 then
-    return "Self Match Scope: Bymember (0)"
+    return "Self Match Scope: By Member (0)"
   end
   if value == 1 then
-    return "Self Match Scope: Bympid (1)"
+    return "Self Match Scope: By Mpid (1)"
   end
   if value == 2 then
-    return "Self Match Scope: Bymembergroup (2)"
+    return "Self Match Scope: By Member Group (2)"
   end
   if value == 3 then
-    return "Self Match Scope: Bympidandmembergroup (3)"
+    return "Self Match Scope: By Mpid And Member Group (3)"
   end
 
   return "Self Match Scope: Unknown("..value..")"
@@ -3122,7 +3122,7 @@ txse_equities_orderentry_seed_v0_1.market_order_rejected_message.size = function
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Market Order Rejected Message
@@ -3321,7 +3321,7 @@ txse_equities_orderentry_seed_v0_1.market_order_accepted_message.size = function
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Market Order Accepted Message
@@ -3556,16 +3556,16 @@ txse_equities_orderentry_seed_v0_1.price_slide_instruction.size = 1
 -- Display: Price Slide Instruction
 txse_equities_orderentry_seed_v0_1.price_slide_instruction.display = function(value)
   if value == 0 then
-    return "Price Slide Instruction: Nopriceslide (0)"
+    return "Price Slide Instruction: No Price Slide (0)"
   end
   if value == 1 then
-    return "Price Slide Instruction: Singlepriceslideonlockandcross (1)"
+    return "Price Slide Instruction: Single Price Slide On Lock And Cross (1)"
   end
   if value == 2 then
-    return "Price Slide Instruction: Multiplepriceslidesonlockandcross (2)"
+    return "Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)"
   end
   if value == 3 then
-    return "Price Slide Instruction: Singlepriceslidelockonly (3)"
+    return "Price Slide Instruction: Single Price Slide Lock Only (3)"
   end
 
   return "Price Slide Instruction: Unknown("..value..")"
@@ -3822,7 +3822,7 @@ txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.size = function(
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Limit Order Rejected Message
@@ -4168,7 +4168,7 @@ txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.size = function(
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Limit Order Accepted Message
@@ -4368,58 +4368,58 @@ txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.size = 1
 -- Display: Regulatory Halt Reason
 txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.display = function(value)
   if value == 0 then
-    return "Regulatory Halt Reason: Reasonnotavailable (0)"
+    return "Regulatory Halt Reason: Reason Not Available (0)"
   end
   if value == 1 then
-    return "Regulatory Halt Reason: Newspending (1)"
+    return "Regulatory Halt Reason: News Pending (1)"
   end
   if value == 2 then
-    return "Regulatory Halt Reason: Newsdissemination (2)"
+    return "Regulatory Halt Reason: News Dissemination (2)"
   end
   if value == 3 then
-    return "Regulatory Halt Reason: Inforequested (3)"
+    return "Regulatory Halt Reason: Info Requested (3)"
   end
   if value == 4 then
-    return "Regulatory Halt Reason: Orderimbalance (4)"
+    return "Regulatory Halt Reason: Order Imbalance (4)"
   end
   if value == 5 then
-    return "Regulatory Halt Reason: Extraordinarymarketactivity (5)"
+    return "Regulatory Halt Reason: Extraordinary Market Activity (5)"
   end
   if value == 6 then
-    return "Regulatory Halt Reason: Luldpause (6)"
+    return "Regulatory Halt Reason: Luld Pause (6)"
   end
   if value == 7 then
-    return "Regulatory Halt Reason: Noncompliance (7)"
+    return "Regulatory Halt Reason: Non Compliance (7)"
   end
   if value == 8 then
-    return "Regulatory Halt Reason: Filingsnotcurrent (8)"
+    return "Regulatory Halt Reason: Filings Not Current (8)"
   end
   if value == 9 then
-    return "Regulatory Halt Reason: Secsuspension (9)"
+    return "Regulatory Halt Reason: Sec Suspension (9)"
   end
   if value == 10 then
-    return "Regulatory Halt Reason: Regulatoryconcern (10)"
+    return "Regulatory Halt Reason: Regulatory Concern (10)"
   end
   if value == 11 then
-    return "Regulatory Halt Reason: Subpennytrading (11)"
+    return "Regulatory Halt Reason: Sub Penny Trading (11)"
   end
   if value == 12 then
     return "Regulatory Halt Reason: Etf (12)"
   end
   if value == 13 then
-    return "Regulatory Halt Reason: Iponottrading (13)"
+    return "Regulatory Halt Reason: Ipo Not Trading (13)"
   end
   if value == 14 then
-    return "Regulatory Halt Reason: Corporateaction (14)"
+    return "Regulatory Halt Reason: Corporate Action (14)"
   end
   if value == 15 then
-    return "Regulatory Halt Reason: Circuitbreakerl 1 (15)"
+    return "Regulatory Halt Reason: Circuit Breaker L 1 (15)"
   end
   if value == 16 then
-    return "Regulatory Halt Reason: Circuitbreakerl 2 (16)"
+    return "Regulatory Halt Reason: Circuit Breaker L 2 (16)"
   end
   if value == 17 then
-    return "Regulatory Halt Reason: Circuitbreakerl 3 (17)"
+    return "Regulatory Halt Reason: Circuit Breaker L 3 (17)"
   end
 
   return "Regulatory Halt Reason: Unknown("..value..")"
@@ -4860,19 +4860,19 @@ txse_equities_orderentry_seed_v0_1.market_hours_state.size = 1
 -- Display: Market Hours State
 txse_equities_orderentry_seed_v0_1.market_hours_state.display = function(value)
   if value == 0 then
-    return "Market Hours State: Closedbeforehours (0)"
+    return "Market Hours State: Closed Before Hours (0)"
   end
   if value == 1 then
-    return "Market Hours State: Earlysession (1)"
+    return "Market Hours State: Early Session (1)"
   end
   if value == 2 then
-    return "Market Hours State: Regularsession (2)"
+    return "Market Hours State: Regular Session (2)"
   end
   if value == 3 then
-    return "Market Hours State: Afterhourssession (3)"
+    return "Market Hours State: After Hours Session (3)"
   end
   if value == 4 then
-    return "Market Hours State: Closedafterhours (4)"
+    return "Market Hours State: Closed After Hours (4)"
   end
 
   return "Market Hours State: Unknown("..value..")"
@@ -4954,7 +4954,7 @@ txse_equities_orderentry_seed_v0_1.trading_session_status_message.size = functio
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Trading Session Status Message
