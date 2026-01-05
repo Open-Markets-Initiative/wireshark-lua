@@ -4584,7 +4584,7 @@ txse_equities_orderentry_seed_v0_1.symbol_status_message.size = function(buffer,
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Symbol Status Message
@@ -4798,7 +4798,7 @@ txse_equities_orderentry_seed_v0_1.define_symbol_message.size = function(buffer,
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):le_uint()
 
-  return message_length - 2
+  return message_length - 3
 end
 
 -- Display: Define Symbol Message
