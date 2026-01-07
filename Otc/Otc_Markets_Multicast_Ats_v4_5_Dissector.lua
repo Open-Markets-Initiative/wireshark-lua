@@ -92,10 +92,9 @@ omi_otc_markets_multicast_ats_v4_5.fields.reference_price_action = ProtoField.ne
 omi_otc_markets_multicast_ats_v4_5.fields.reference_price_id = ProtoField.new("Reference Price Id", "otc.markets.multicast.ats.v4.5.referencepriceid", ftypes.UINT32)
 omi_otc_markets_multicast_ats_v4_5.fields.replay = ProtoField.new("Replay", "otc.markets.multicast.ats.v4.5.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_otc_markets_multicast_ats_v4_5.fields.reporting_status = ProtoField.new("Reporting Status", "otc.markets.multicast.ats.v4.5.reportingstatus", ftypes.STRING)
-omi_otc_markets_multicast_ats_v4_5.fields.reserved_extended_quote_flag_bits = ProtoField.new("Reserved Extended Quote Flag Bits", "otc.markets.multicast.ats.v4.5.reservedextendedquoteflagbits", ftypes.UINT8, nil, base.DEC, 0xF0)
-omi_otc_markets_multicast_ats_v4_5.fields.reserved_extended_security_flag_bits = ProtoField.new("Reserved Extended Security Flag Bits", "otc.markets.multicast.ats.v4.5.reservedextendedsecurityflagbits", ftypes.UINT16, nil, base.DEC, 0xF800)
-omi_otc_markets_multicast_ats_v4_5.fields.reserved_packet_flags = ProtoField.new("Reserved Packet Flags", "otc.markets.multicast.ats.v4.5.reservedpacketflags", ftypes.UINT8, nil, base.DEC, 0x3C)
-omi_otc_markets_multicast_ats_v4_5.fields.reserved_trade_status_bits = ProtoField.new("Reserved Trade Status Bits", "otc.markets.multicast.ats.v4.5.reservedtradestatusbits", ftypes.UINT8, nil, base.DEC, 0xFE)
+omi_otc_markets_multicast_ats_v4_5.fields.reserved_4 = ProtoField.new("Reserved 4", "otc.markets.multicast.ats.v4.5.reserved4", ftypes.UINT8, nil, base.DEC, 0x3C)
+omi_otc_markets_multicast_ats_v4_5.fields.reserved_5 = ProtoField.new("Reserved 5", "otc.markets.multicast.ats.v4.5.reserved5", ftypes.UINT16, nil, base.DEC, 0xF800)
+omi_otc_markets_multicast_ats_v4_5.fields.reserved_7 = ProtoField.new("Reserved 7", "otc.markets.multicast.ats.v4.5.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_otc_markets_multicast_ats_v4_5.fields.saturation_eligible = ProtoField.new("Saturation Eligible", "otc.markets.multicast.ats.v4.5.saturationeligible", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_otc_markets_multicast_ats_v4_5.fields.security_action = ProtoField.new("Security Action", "otc.markets.multicast.ats.v4.5.securityaction", ftypes.UINT8)
 omi_otc_markets_multicast_ats_v4_5.fields.security_desc = ProtoField.new("Security Desc", "otc.markets.multicast.ats.v4.5.securitydesc", ftypes.STRING)
@@ -419,39 +418,44 @@ otc_markets_multicast_ats_v4_5.trade_status = {}
 otc_markets_multicast_ats_v4_5.trade_status.size = 1
 
 -- Display: Trade Status
-otc_markets_multicast_ats_v4_5.trade_status.display = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5.trade_status.display = function(range, value, packet, parent)
   local display = ""
 
   -- Is Irregular flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Irregular|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Trade Status
-otc_markets_multicast_ats_v4_5.trade_status.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved Trade Status Bits: 7 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_trade_status_bits, buffer(offset, 1))
+otc_markets_multicast_ats_v4_5.trade_status.bits = function(range, value, packet, parent)
 
   -- Irregular: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.irregular, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.irregular, range, value)
+
+  -- Reserved 7: 7 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_7, range, value)
 end
 
 -- Dissect: Trade Status
 otc_markets_multicast_ats_v4_5.trade_status.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = otc_markets_multicast_ats_v4_5.trade_status.size
   local range = buffer(offset, size)
-  local display = otc_markets_multicast_ats_v4_5.trade_status.display(range, packet, parent)
+  local value = range:uint()
+  local display = otc_markets_multicast_ats_v4_5.trade_status.display(range, value, packet, parent)
   local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trade_status, range, display)
 
   if show.trade_status then
-    otc_markets_multicast_ats_v4_5.trade_status.bits(buffer, offset, packet, element)
+    otc_markets_multicast_ats_v4_5.trade_status.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Security Id
@@ -598,34 +602,34 @@ end
 otc_markets_multicast_ats_v4_5.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Unsigned Integer
   index, trade_id = otc_markets_multicast_ats_v4_5.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Action: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Trade Action: Unsigned Integer
   index, trade_action = otc_markets_multicast_ats_v4_5.trade_action.dissect(buffer, index, packet, parent)
 
-  -- Trade Flags: 1 Byte Unsigned Fixed Width Integer
+  -- Trade Flags: Unsigned Integer
   index, trade_flags = otc_markets_multicast_ats_v4_5.trade_flags.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: Unsigned Integer
   index, security_id = otc_markets_multicast_ats_v4_5.security_id.dissect(buffer, index, packet, parent)
 
   -- Trade Status: Struct of 2 fields
   index, trade_status = otc_markets_multicast_ats_v4_5.trade_status.dissect(buffer, index, packet, parent)
 
-  -- Deprecated: 8 Byte Ascii String
+  -- Deprecated: UTF-8
   index, deprecated = otc_markets_multicast_ats_v4_5.deprecated.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Price: Unsigned Integer
   index, trade_price = otc_markets_multicast_ats_v4_5.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Size: Unsigned Integer
   index, trade_size = otc_markets_multicast_ats_v4_5.trade_size.dissect(buffer, index, packet, parent)
 
-  -- Trade Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Time Milli: Unsigned Integer
   index, trade_time_milli = otc_markets_multicast_ats_v4_5.trade_time_milli.dissect(buffer, index, packet, parent)
 
   return index
@@ -925,7 +929,7 @@ otc_markets_multicast_ats_v4_5.disclosure_status.size = 1
 -- Display: Disclosure Status
 otc_markets_multicast_ats_v4_5.disclosure_status.display = function(value)
   if value == 0 then
-    return "Disclosure Status: No Disclosure Status (0)"
+    return "Disclosure Status: No Disclosure (0)"
   end
   if value == 2 then
     return "Disclosure Status: Current Information (2)"
@@ -961,7 +965,7 @@ otc_markets_multicast_ats_v4_5.reporting_status.size = 1
 -- Display: Reporting Status
 otc_markets_multicast_ats_v4_5.reporting_status.display = function(value)
   if value == "A" then
-    return "Reporting Status: Alternative Reporting Standard (A)"
+    return "Reporting Status: Alternative Reporting (A)"
   end
   if value == "B" then
     return "Reporting Status: Bank Thrift (B)"
@@ -982,13 +986,13 @@ otc_markets_multicast_ats_v4_5.reporting_status.display = function(value)
     return "Reporting Status: No Reporting (N)"
   end
   if value == "O" then
-    return "Reporting Status: Other Reporting Standard (O)"
+    return "Reporting Status: Other Reporting (O)"
   end
   if value == "R" then
     return "Reporting Status: Finra Reporting (R)"
   end
   if value == "V" then
-    return "Reporting Status: Sec Reporting Investment Company (V)"
+    return "Reporting Status: Sec Investment Company (V)"
   end
   if value == "W" then
     return "Reporting Status: Sec Reporting Reg A (W)"
@@ -1021,10 +1025,10 @@ otc_markets_multicast_ats_v4_5.tier.display = function(value)
     return "Tier: No Tier (0)"
   end
   if value == 1 then
-    return "Tier: Otcqx Us Premier (1)"
+    return "Tier: Otcqxus Premier (1)"
   end
   if value == 2 then
-    return "Tier: Otcqx Us (2)"
+    return "Tier: Otcqxus (2)"
   end
   if value == 5 then
     return "Tier: Otcqx International Premier (5)"
@@ -1072,92 +1076,121 @@ otc_markets_multicast_ats_v4_5.tier.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Security Flags
-otc_markets_multicast_ats_v4_5.security_flags = {}
+-- Extended Security Flags
+otc_markets_multicast_ats_v4_5.extended_security_flags = {}
 
--- Size: Security Flags
-otc_markets_multicast_ats_v4_5.security_flags.size = 1
+-- Size: Extended Security Flags
+otc_markets_multicast_ats_v4_5.extended_security_flags.size = 2
 
--- Display: Security Flags
-otc_markets_multicast_ats_v4_5.security_flags.display = function(buffer, packet, parent)
+-- Display: Extended Security Flags
+otc_markets_multicast_ats_v4_5.extended_security_flags.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Saturation Eligible flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Saturation Eligible|"
-  end
-  -- Is Otc Link Messaging Disabled flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Otc Link Messaging Disabled|"
-  end
-  -- Is Otc Link Ecn Eligible flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Otc Link Ecn Eligible|"
-  end
-  -- Is Bb Quoted flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Bb Quoted|"
-  end
-  -- Is Unsolicited Only flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Unsolicited Only|"
-  end
-  -- Is Qualified Institutional Buyers Only flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Qualified Institutional Buyers Only|"
+  -- Is Piggyback flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    display = display.."Piggyback|"
   end
   -- Is Caveat Emptor Warning flag set?
-  if buffer:bitfield(6) > 0 then
+  if bit.band(value, 0x0002) ~= 0 then
     display = display.."Caveat Emptor Warning|"
   end
-  -- Is Proprietary Quote Eligible flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Proprietary Quote Eligible|"
+  -- Is Qualified Institutional Buyers Only flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    display = display.."Qualified Institutional Buyers Only|"
+  end
+  -- Is Unsolicited Only flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    display = display.."Unsolicited Only|"
+  end
+  -- Is Sponsored Status flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    display = display.."Sponsored Status|"
+  end
+  -- Is Otc Link Ecn Eligible flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    display = display.."Otc Link Ecn Eligible|"
+  end
+  -- Is Otc Link Messaging Disabled flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    display = display.."Otc Link Messaging Disabled|"
+  end
+  -- Is Saturation Eligible flag set?
+  if bit.band(value, 0x0080) ~= 0 then
+    display = display.."Saturation Eligible|"
+  end
+  -- Is Investment Grade flag set?
+  if bit.band(value, 0x0100) ~= 0 then
+    display = display.."Investment Grade|"
+  end
+  -- Is Trading Flat flag set?
+  if bit.band(value, 0x0200) ~= 0 then
+    display = display.."Trading Flat|"
+  end
+  -- Is Callable flag set?
+  if bit.band(value, 0x0400) ~= 0 then
+    display = display.."Callable|"
   end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
--- Dissect Bit Fields: Security Flags
-otc_markets_multicast_ats_v4_5.security_flags.bits = function(buffer, offset, packet, parent)
+-- Dissect Bit Fields: Extended Security Flags
+otc_markets_multicast_ats_v4_5.extended_security_flags.bits = function(range, value, packet, parent)
 
-  -- Saturation Eligible: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.saturation_eligible, buffer(offset, 1))
-
-  -- Otc Link Messaging Disabled: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_messaging_disabled, buffer(offset, 1))
-
-  -- Otc Link Ecn Eligible: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_ecn_eligible, buffer(offset, 1))
-
-  -- Bb Quoted: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bb_quoted, buffer(offset, 1))
-
-  -- Unsolicited Only: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.unsolicited_only, buffer(offset, 1))
-
-  -- Qualified Institutional Buyers Only: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.qualified_institutional_buyers_only, buffer(offset, 1))
+  -- Piggyback: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.piggyback, range, value)
 
   -- Caveat Emptor Warning: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.caveat_emptor_warning, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.caveat_emptor_warning, range, value)
 
-  -- Proprietary Quote Eligible: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.proprietary_quote_eligible, buffer(offset, 1))
+  -- Qualified Institutional Buyers Only: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.qualified_institutional_buyers_only, range, value)
+
+  -- Unsolicited Only: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.unsolicited_only, range, value)
+
+  -- Sponsored Status: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.sponsored_status, range, value)
+
+  -- Otc Link Ecn Eligible: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_ecn_eligible, range, value)
+
+  -- Otc Link Messaging Disabled: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_messaging_disabled, range, value)
+
+  -- Saturation Eligible: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.saturation_eligible, range, value)
+
+  -- Investment Grade: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.investment_grade, range, value)
+
+  -- Trading Flat: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trading_flat, range, value)
+
+  -- Callable: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.callable, range, value)
+
+  -- Reserved 5: 5 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_5, range, value)
 end
 
--- Dissect: Security Flags
-otc_markets_multicast_ats_v4_5.security_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+-- Dissect: Extended Security Flags
+otc_markets_multicast_ats_v4_5.extended_security_flags.dissect = function(buffer, offset, packet, parent)
+  local size = otc_markets_multicast_ats_v4_5.extended_security_flags.size
   local range = buffer(offset, size)
-  local display = otc_markets_multicast_ats_v4_5.security_flags.display(range, packet, parent)
-  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_flags, range, display)
+  local value = range:uint()
+  local display = otc_markets_multicast_ats_v4_5.extended_security_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.extended_security_flags, range, display)
 
-  if show.security_flags then
-    otc_markets_multicast_ats_v4_5.security_flags.bits(buffer, offset, packet, element)
+  if show.extended_security_flags then
+    otc_markets_multicast_ats_v4_5.extended_security_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Primary Market
@@ -1416,7 +1449,7 @@ otc_markets_multicast_ats_v4_5.extended_security_no_cusip_message.size = functio
 
   index = index + otc_markets_multicast_ats_v4_5.security_id.size
 
-  index = index + otc_markets_multicast_ats_v4_5.security_flags.size
+  index = index + otc_markets_multicast_ats_v4_5.extended_security_flags.size
 
   index = index + otc_markets_multicast_ats_v4_5.tier.size
 
@@ -1460,79 +1493,79 @@ end
 otc_markets_multicast_ats_v4_5.extended_security_no_cusip_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 10 Byte Ascii String
+  -- Symbol: UTF-8
   index, symbol = otc_markets_multicast_ats_v4_5.symbol.dissect(buffer, index, packet, parent)
 
-  -- Last Update Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Milli: Unsigned Integer
   index, last_update_milli = otc_markets_multicast_ats_v4_5.last_update_milli.dissect(buffer, index, packet, parent)
 
-  -- Security Action: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Security Action: Unsigned Integer
   index, security_action = otc_markets_multicast_ats_v4_5.security_action.dissect(buffer, index, packet, parent)
 
-  -- Otc Issuer Id: 4 Byte Unsigned Fixed Width Integer
+  -- Otc Issuer Id: Unsigned Integer
   index, otc_issuer_id = otc_markets_multicast_ats_v4_5.otc_issuer_id.dissect(buffer, index, packet, parent)
 
-  -- Security Desc: 25 Byte Ascii String
+  -- Security Desc: UTF-8
   index, security_desc = otc_markets_multicast_ats_v4_5.security_desc.dissect(buffer, index, packet, parent)
 
-  -- Short Name: 25 Byte Ascii String
+  -- Short Name: UTF-8
   index, short_name = otc_markets_multicast_ats_v4_5.short_name.dissect(buffer, index, packet, parent)
 
-  -- Asset Class: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Asset Class: Unsigned Integer
   index, asset_class = otc_markets_multicast_ats_v4_5.asset_class.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 5 Byte Ascii String
+  -- Security Type: UTF-8
   index, security_type = otc_markets_multicast_ats_v4_5.security_type.dissect(buffer, index, packet, parent)
 
-  -- Primary Market: 3 Byte Ascii String
+  -- Primary Market: UTF-8
   index, primary_market = otc_markets_multicast_ats_v4_5.primary_market.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: Unsigned Integer
   index, security_id = otc_markets_multicast_ats_v4_5.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Flags: Struct of 8 fields
-  index, security_flags = otc_markets_multicast_ats_v4_5.security_flags.dissect(buffer, index, packet, parent)
+  -- Extended Security Flags: Struct of 12 fields
+  index, extended_security_flags = otc_markets_multicast_ats_v4_5.extended_security_flags.dissect(buffer, index, packet, parent)
 
-  -- Tier: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Tier: Unsigned Integer
   index, tier = otc_markets_multicast_ats_v4_5.tier.dissect(buffer, index, packet, parent)
 
-  -- Reporting Status: 1 Byte Ascii String Enum with 11 values
+  -- Reporting Status: UTF-8
   index, reporting_status = otc_markets_multicast_ats_v4_5.reporting_status.dissect(buffer, index, packet, parent)
 
-  -- Disclosure Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Disclosure Status: Unsigned Integer
   index, disclosure_status = otc_markets_multicast_ats_v4_5.disclosure_status.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 7 values
+  -- Security Status: UTF-8
   index, security_status = otc_markets_multicast_ats_v4_5.security_status.dissect(buffer, index, packet, parent)
 
-  -- Par Value: 8 Byte Unsigned Fixed Width Integer
+  -- Par Value: Unsigned Integer
   index, par_value = otc_markets_multicast_ats_v4_5.par_value.dissect(buffer, index, packet, parent)
 
-  -- Coupon: 8 Byte Unsigned Fixed Width Integer
+  -- Coupon: Unsigned Integer
   index, coupon = otc_markets_multicast_ats_v4_5.coupon.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Maturity Date Milli: Unsigned Integer
   index, maturity_date_milli = otc_markets_multicast_ats_v4_5.maturity_date_milli.dissect(buffer, index, packet, parent)
 
-  -- Callable Date Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Callable Date Milli: Unsigned Integer
   index, callable_date_milli = otc_markets_multicast_ats_v4_5.callable_date_milli.dissect(buffer, index, packet, parent)
 
-  -- Adr Ratio: 8 Byte Unsigned Fixed Width Integer
+  -- Adr Ratio: Unsigned Integer
   index, adr_ratio = otc_markets_multicast_ats_v4_5.adr_ratio.dissect(buffer, index, packet, parent)
 
-  -- Adr Level: 15 Byte Ascii String
+  -- Adr Level: UTF-8
   index, adr_level = otc_markets_multicast_ats_v4_5.adr_level.dissect(buffer, index, packet, parent)
 
-  -- Security Detail Size: 1 Byte Unsigned Fixed Width Integer
+  -- Security Detail Size: Unsigned Integer
   index, security_detail_size = otc_markets_multicast_ats_v4_5.security_detail_size.dissect(buffer, index, packet, parent)
 
   -- Runtime Size Of: Security Detail
   index, security_detail = otc_markets_multicast_ats_v4_5.security_detail.dissect(buffer, index, packet, parent, security_detail_size)
 
-  -- Issuer Size: 1 Byte Unsigned Fixed Width Integer
+  -- Issuer Size: Unsigned Integer
   index, issuer_size = otc_markets_multicast_ats_v4_5.issuer_size.dissect(buffer, index, packet, parent)
 
   -- Runtime Size Of: Issuer Name
@@ -1575,118 +1608,6 @@ otc_markets_multicast_ats_v4_5.cusip.dissect = function(buffer, offset, packet, 
   parent:add(omi_otc_markets_multicast_ats_v4_5.fields.cusip, range, value, display)
 
   return offset + length, value
-end
-
--- Extended Security Flags
-otc_markets_multicast_ats_v4_5.extended_security_flags = {}
-
--- Size: Extended Security Flags
-otc_markets_multicast_ats_v4_5.extended_security_flags.size = 2
-
--- Display: Extended Security Flags
-otc_markets_multicast_ats_v4_5.extended_security_flags.display = function(buffer, packet, parent)
-  local display = ""
-
-  -- Is Callable flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Callable|"
-  end
-  -- Is Trading Flat flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Trading Flat|"
-  end
-  -- Is Investment Grade flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Investment Grade|"
-  end
-  -- Is Saturation Eligible flag set?
-  if buffer:bitfield(8) > 0 then
-    display = display.."Saturation Eligible|"
-  end
-  -- Is Otc Link Messaging Disabled flag set?
-  if buffer:bitfield(9) > 0 then
-    display = display.."Otc Link Messaging Disabled|"
-  end
-  -- Is Otc Link Ecn Eligible flag set?
-  if buffer:bitfield(10) > 0 then
-    display = display.."Otc Link Ecn Eligible|"
-  end
-  -- Is Sponsored Status flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Sponsored Status|"
-  end
-  -- Is Unsolicited Only flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Unsolicited Only|"
-  end
-  -- Is Qualified Institutional Buyers Only flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Qualified Institutional Buyers Only|"
-  end
-  -- Is Caveat Emptor Warning flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Caveat Emptor Warning|"
-  end
-  -- Is Piggyback flag set?
-  if buffer:bitfield(15) > 0 then
-    display = display.."Piggyback|"
-  end
-
-  return display:sub(1, -2)
-end
-
--- Dissect Bit Fields: Extended Security Flags
-otc_markets_multicast_ats_v4_5.extended_security_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved Extended Security Flag Bits: 5 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_extended_security_flag_bits, buffer(offset, 2))
-
-  -- Callable: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.callable, buffer(offset, 2))
-
-  -- Trading Flat: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trading_flat, buffer(offset, 2))
-
-  -- Investment Grade: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.investment_grade, buffer(offset, 2))
-
-  -- Saturation Eligible: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.saturation_eligible, buffer(offset, 2))
-
-  -- Otc Link Messaging Disabled: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_messaging_disabled, buffer(offset, 2))
-
-  -- Otc Link Ecn Eligible: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_ecn_eligible, buffer(offset, 2))
-
-  -- Sponsored Status: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.sponsored_status, buffer(offset, 2))
-
-  -- Unsolicited Only: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.unsolicited_only, buffer(offset, 2))
-
-  -- Qualified Institutional Buyers Only: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.qualified_institutional_buyers_only, buffer(offset, 2))
-
-  -- Caveat Emptor Warning: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.caveat_emptor_warning, buffer(offset, 2))
-
-  -- Piggyback: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.piggyback, buffer(offset, 2))
-end
-
--- Dissect: Extended Security Flags
-otc_markets_multicast_ats_v4_5.extended_security_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
-  local display = otc_markets_multicast_ats_v4_5.extended_security_flags.display(range, packet, parent)
-  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.extended_security_flags, range, display)
-
-  if show.extended_security_flags then
-    otc_markets_multicast_ats_v4_5.extended_security_flags.bits(buffer, offset, packet, element)
-  end
-
-  return offset + 2, range
 end
 
 -- Extended Security Message
@@ -1764,85 +1685,85 @@ end
 otc_markets_multicast_ats_v4_5.extended_security_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 10 Byte Ascii String
+  -- Symbol: UTF-8
   index, symbol = otc_markets_multicast_ats_v4_5.symbol.dissect(buffer, index, packet, parent)
 
-  -- Last Update Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Milli: Unsigned Integer
   index, last_update_milli = otc_markets_multicast_ats_v4_5.last_update_milli.dissect(buffer, index, packet, parent)
 
-  -- Security Action: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Security Action: Unsigned Integer
   index, security_action = otc_markets_multicast_ats_v4_5.security_action.dissect(buffer, index, packet, parent)
 
-  -- Otc Issuer Id: 4 Byte Unsigned Fixed Width Integer
+  -- Otc Issuer Id: Unsigned Integer
   index, otc_issuer_id = otc_markets_multicast_ats_v4_5.otc_issuer_id.dissect(buffer, index, packet, parent)
 
-  -- Security Desc: 25 Byte Ascii String
+  -- Security Desc: UTF-8
   index, security_desc = otc_markets_multicast_ats_v4_5.security_desc.dissect(buffer, index, packet, parent)
 
-  -- Short Name: 25 Byte Ascii String
+  -- Short Name: UTF-8
   index, short_name = otc_markets_multicast_ats_v4_5.short_name.dissect(buffer, index, packet, parent)
 
-  -- Asset Class: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Asset Class: Unsigned Integer
   index, asset_class = otc_markets_multicast_ats_v4_5.asset_class.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 5 Byte Ascii String
+  -- Security Type: UTF-8
   index, security_type = otc_markets_multicast_ats_v4_5.security_type.dissect(buffer, index, packet, parent)
 
-  -- Primary Market: 3 Byte Ascii String
+  -- Primary Market: UTF-8
   index, primary_market = otc_markets_multicast_ats_v4_5.primary_market.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: Unsigned Integer
   index, security_id = otc_markets_multicast_ats_v4_5.security_id.dissect(buffer, index, packet, parent)
 
   -- Extended Security Flags: Struct of 12 fields
   index, extended_security_flags = otc_markets_multicast_ats_v4_5.extended_security_flags.dissect(buffer, index, packet, parent)
 
-  -- Tier: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Tier: Unsigned Integer
   index, tier = otc_markets_multicast_ats_v4_5.tier.dissect(buffer, index, packet, parent)
 
-  -- Reporting Status: 1 Byte Ascii String Enum with 11 values
+  -- Reporting Status: UTF-8
   index, reporting_status = otc_markets_multicast_ats_v4_5.reporting_status.dissect(buffer, index, packet, parent)
 
-  -- Disclosure Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Disclosure Status: Unsigned Integer
   index, disclosure_status = otc_markets_multicast_ats_v4_5.disclosure_status.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 7 values
+  -- Security Status: UTF-8
   index, security_status = otc_markets_multicast_ats_v4_5.security_status.dissect(buffer, index, packet, parent)
 
-  -- Par Value: 8 Byte Unsigned Fixed Width Integer
+  -- Par Value: Unsigned Integer
   index, par_value = otc_markets_multicast_ats_v4_5.par_value.dissect(buffer, index, packet, parent)
 
-  -- Coupon: 8 Byte Unsigned Fixed Width Integer
+  -- Coupon: Unsigned Integer
   index, coupon = otc_markets_multicast_ats_v4_5.coupon.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Maturity Date Milli: Unsigned Integer
   index, maturity_date_milli = otc_markets_multicast_ats_v4_5.maturity_date_milli.dissect(buffer, index, packet, parent)
 
-  -- Callable Date Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Callable Date Milli: Unsigned Integer
   index, callable_date_milli = otc_markets_multicast_ats_v4_5.callable_date_milli.dissect(buffer, index, packet, parent)
 
-  -- Adr Ratio: 8 Byte Unsigned Fixed Width Integer
+  -- Adr Ratio: Unsigned Integer
   index, adr_ratio = otc_markets_multicast_ats_v4_5.adr_ratio.dissect(buffer, index, packet, parent)
 
-  -- Adr Level: 15 Byte Ascii String
+  -- Adr Level: UTF-8
   index, adr_level = otc_markets_multicast_ats_v4_5.adr_level.dissect(buffer, index, packet, parent)
 
-  -- Security Detail Size: 1 Byte Unsigned Fixed Width Integer
+  -- Security Detail Size: Unsigned Integer
   index, security_detail_size = otc_markets_multicast_ats_v4_5.security_detail_size.dissect(buffer, index, packet, parent)
 
   -- Runtime Size Of: Security Detail
   index, security_detail = otc_markets_multicast_ats_v4_5.security_detail.dissect(buffer, index, packet, parent, security_detail_size)
 
-  -- Issuer Size: 1 Byte Unsigned Fixed Width Integer
+  -- Issuer Size: Unsigned Integer
   index, issuer_size = otc_markets_multicast_ats_v4_5.issuer_size.dissect(buffer, index, packet, parent)
 
   -- Runtime Size Of: Issuer Name
   index, issuer_name = otc_markets_multicast_ats_v4_5.issuer_name.dissect(buffer, index, packet, parent, issuer_size)
 
-  -- Cusip: 9 Byte Ascii String
+  -- Cusip: UTF-8
   index, cusip = otc_markets_multicast_ats_v4_5.cusip.dissect(buffer, index, packet, parent)
 
   return index
@@ -1937,85 +1858,90 @@ otc_markets_multicast_ats_v4_5.quote_flags = {}
 otc_markets_multicast_ats_v4_5.quote_flags.size = 1
 
 -- Display: Quote Flags
-otc_markets_multicast_ats_v4_5.quote_flags.display = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5.quote_flags.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Bid Ask Wanted flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Bid Ask Wanted|"
-  end
-  -- Is Bid Priced flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Bid Priced|"
-  end
-  -- Is Bid Unsolicited flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Bid Unsolicited|"
-  end
-  -- Is Ask Bid Wanted flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Ask Bid Wanted|"
-  end
-  -- Is Ask Priced flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Ask Priced|"
-  end
-  -- Is Ask Unsolicited flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Ask Unsolicited|"
-  end
-  -- Is State flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."State|"
-  end
   -- Is Update Side flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Update Side|"
   end
+  -- Is State flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."State|"
+  end
+  -- Is Ask Unsolicited flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Ask Unsolicited|"
+  end
+  -- Is Ask Priced flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Ask Priced|"
+  end
+  -- Is Ask Bid Wanted flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Ask Bid Wanted|"
+  end
+  -- Is Bid Unsolicited flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Bid Unsolicited|"
+  end
+  -- Is Bid Priced flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Bid Priced|"
+  end
+  -- Is Bid Ask Wanted flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Bid Ask Wanted|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Quote Flags
-otc_markets_multicast_ats_v4_5.quote_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Bid Ask Wanted: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_ask_wanted, buffer(offset, 1))
-
-  -- Bid Priced: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_priced, buffer(offset, 1))
-
-  -- Bid Unsolicited: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_unsolicited, buffer(offset, 1))
-
-  -- Ask Bid Wanted: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_bid_wanted, buffer(offset, 1))
-
-  -- Ask Priced: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_priced, buffer(offset, 1))
-
-  -- Ask Unsolicited: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_unsolicited, buffer(offset, 1))
-
-  -- State: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.state, buffer(offset, 1))
+otc_markets_multicast_ats_v4_5.quote_flags.bits = function(range, value, packet, parent)
 
   -- Update Side: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.update_side, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.update_side, range, value)
+
+  -- State: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.state, range, value)
+
+  -- Ask Unsolicited: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_unsolicited, range, value)
+
+  -- Ask Priced: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_priced, range, value)
+
+  -- Ask Bid Wanted: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_bid_wanted, range, value)
+
+  -- Bid Unsolicited: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_unsolicited, range, value)
+
+  -- Bid Priced: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_priced, range, value)
+
+  -- Bid Ask Wanted: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_ask_wanted, range, value)
 end
 
 -- Dissect: Quote Flags
 otc_markets_multicast_ats_v4_5.quote_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = otc_markets_multicast_ats_v4_5.quote_flags.size
   local range = buffer(offset, size)
-  local display = otc_markets_multicast_ats_v4_5.quote_flags.display(range, packet, parent)
+  local value = range:uint()
+  local display = otc_markets_multicast_ats_v4_5.quote_flags.display(range, value, packet, parent)
   local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_flags, range, display)
 
   if show.quote_flags then
-    otc_markets_multicast_ats_v4_5.quote_flags.bits(buffer, offset, packet, element)
+    otc_markets_multicast_ats_v4_5.quote_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Reference Price Id
@@ -2062,22 +1988,22 @@ end
 otc_markets_multicast_ats_v4_5.reference_price_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Id: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Price Id: Unsigned Integer
   index, reference_price_id = otc_markets_multicast_ats_v4_5.reference_price_id.dissect(buffer, index, packet, parent)
 
   -- Quote Flags: Struct of 8 fields
   index, quote_flags = otc_markets_multicast_ats_v4_5.quote_flags.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Unsigned Integer
   index, price = otc_markets_multicast_ats_v4_5.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Unsigned Integer
   index, size = otc_markets_multicast_ats_v4_5.size.dissect(buffer, index, packet, parent)
 
-  -- Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Time Milli: Unsigned Integer
   index, time_milli = otc_markets_multicast_ats_v4_5.time_milli.dissect(buffer, index, packet, parent)
 
   return index
@@ -2298,37 +2224,37 @@ end
 otc_markets_multicast_ats_v4_5.reference_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Id: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Price Id: Unsigned Integer
   index, reference_price_id = otc_markets_multicast_ats_v4_5.reference_price_id.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Reference Price Action: Unsigned Integer
   index, reference_price_action = otc_markets_multicast_ats_v4_5.reference_price_action.dissect(buffer, index, packet, parent)
 
   -- Quote Flags: Struct of 8 fields
   index, quote_flags = otc_markets_multicast_ats_v4_5.quote_flags.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: Unsigned Integer
   index, security_id = otc_markets_multicast_ats_v4_5.security_id.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 8 Byte Unsigned Fixed Width Integer
+  -- Ask Price: Unsigned Integer
   index, ask_price = otc_markets_multicast_ats_v4_5.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size: Unsigned Integer
   index, ask_size = otc_markets_multicast_ats_v4_5.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Ask Time Milli: Unsigned Integer
   index, ask_time_milli = otc_markets_multicast_ats_v4_5.ask_time_milli.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Price: Unsigned Integer
   index, bid_price = otc_markets_multicast_ats_v4_5.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: Unsigned Integer
   index, bid_size = otc_markets_multicast_ats_v4_5.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Time Milli: Unsigned Integer
   index, bid_time_milli = otc_markets_multicast_ats_v4_5.bid_time_milli.dissect(buffer, index, packet, parent)
 
   return index
@@ -2443,25 +2369,25 @@ end
 otc_markets_multicast_ats_v4_5.inside_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Inside Id: 4 Byte Unsigned Fixed Width Integer
+  -- Inside Id: Unsigned Integer
   index, inside_id = otc_markets_multicast_ats_v4_5.inside_id.dissect(buffer, index, packet, parent)
 
   -- Quote Flags: Struct of 8 fields
   index, quote_flags = otc_markets_multicast_ats_v4_5.quote_flags.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Unsigned Integer
   index, price = otc_markets_multicast_ats_v4_5.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Unsigned Integer
   index, size = otc_markets_multicast_ats_v4_5.size.dissect(buffer, index, packet, parent)
 
-  -- Inside Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Inside Time Milli: Unsigned Integer
   index, inside_time_milli = otc_markets_multicast_ats_v4_5.inside_time_milli.dissect(buffer, index, packet, parent)
 
-  -- Num Priced Mp: 1 Byte Unsigned Fixed Width Integer
+  -- Num Priced Mp: Unsigned Integer
   index, num_priced_mp = otc_markets_multicast_ats_v4_5.num_priced_mp.dissect(buffer, index, packet, parent)
 
   return index
@@ -2549,13 +2475,13 @@ end
 otc_markets_multicast_ats_v4_5.market_open_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Market Open: 8 Byte Unsigned Fixed Width Integer
+  -- Market Open: Unsigned Integer
   index, market_open = otc_markets_multicast_ats_v4_5.market_open.dissect(buffer, index, packet, parent)
 
-  -- Market Close: 8 Byte Unsigned Fixed Width Integer
+  -- Market Close: Unsigned Integer
   index, market_close = otc_markets_multicast_ats_v4_5.market_close.dissect(buffer, index, packet, parent)
 
   return index
@@ -2586,60 +2512,65 @@ otc_markets_multicast_ats_v4_5.extended_quote_flags = {}
 otc_markets_multicast_ats_v4_5.extended_quote_flags.size = 1
 
 -- Display: Extended Quote Flags
-otc_markets_multicast_ats_v4_5.extended_quote_flags.display = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5.extended_quote_flags.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Nms Conditional Quote flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Nms Conditional Quote|"
-  end
-  -- Is Offer Auto Ex flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Offer Auto Ex|"
-  end
-  -- Is Bid Auto Ex flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Bid Auto Ex|"
-  end
   -- Is Quote Saturated flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Quote Saturated|"
   end
+  -- Is Bid Auto Ex flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Bid Auto Ex|"
+  end
+  -- Is Offer Auto Ex flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Offer Auto Ex|"
+  end
+  -- Is Nms Conditional Quote flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Nms Conditional Quote|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Extended Quote Flags
-otc_markets_multicast_ats_v4_5.extended_quote_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved Extended Quote Flag Bits: 4 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_extended_quote_flag_bits, buffer(offset, 1))
-
-  -- Nms Conditional Quote: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.nms_conditional_quote, buffer(offset, 1))
-
-  -- Offer Auto Ex: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.offer_auto_ex, buffer(offset, 1))
-
-  -- Bid Auto Ex: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_auto_ex, buffer(offset, 1))
+otc_markets_multicast_ats_v4_5.extended_quote_flags.bits = function(range, value, packet, parent)
 
   -- Quote Saturated: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_saturated, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_saturated, range, value)
+
+  -- Bid Auto Ex: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_auto_ex, range, value)
+
+  -- Offer Auto Ex: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.offer_auto_ex, range, value)
+
+  -- Nms Conditional Quote: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.nms_conditional_quote, range, value)
+
+  -- Reserved 4: 4 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_4, range, value)
 end
 
 -- Dissect: Extended Quote Flags
 otc_markets_multicast_ats_v4_5.extended_quote_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = otc_markets_multicast_ats_v4_5.extended_quote_flags.size
   local range = buffer(offset, size)
-  local display = otc_markets_multicast_ats_v4_5.extended_quote_flags.display(range, packet, parent)
+  local value = range:uint()
+  local display = otc_markets_multicast_ats_v4_5.extended_quote_flags.display(range, value, packet, parent)
   local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.extended_quote_flags, range, display)
 
   if show.extended_quote_flags then
-    otc_markets_multicast_ats_v4_5.extended_quote_flags.bits(buffer, offset, packet, element)
+    otc_markets_multicast_ats_v4_5.extended_quote_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Quote Reference Id
@@ -2758,28 +2689,28 @@ end
 otc_markets_multicast_ats_v4_5.quote_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Quote Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Id: Unsigned Integer
   index, quote_id = otc_markets_multicast_ats_v4_5.quote_id.dissect(buffer, index, packet, parent)
 
   -- Quote Flags: Struct of 8 fields
   index, quote_flags = otc_markets_multicast_ats_v4_5.quote_flags.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Unsigned Integer
   index, price = otc_markets_multicast_ats_v4_5.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Unsigned Integer
   index, size = otc_markets_multicast_ats_v4_5.size.dissect(buffer, index, packet, parent)
 
-  -- Qap: 1 Byte Signed Fixed Width Integer
+  -- Qap: Integer
   index, qap = otc_markets_multicast_ats_v4_5.qap.dissect(buffer, index, packet, parent)
 
-  -- Quote Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Time Milli: Unsigned Integer
   index, quote_time_milli = otc_markets_multicast_ats_v4_5.quote_time_milli.dissect(buffer, index, packet, parent)
 
-  -- Quote Reference Id: 2 Byte Unsigned Fixed Width Integer
+  -- Quote Reference Id: Unsigned Integer
   index, quote_reference_id = otc_markets_multicast_ats_v4_5.quote_reference_id.dissect(buffer, index, packet, parent)
 
   -- Extended Quote Flags: Struct of 5 fields
@@ -2929,49 +2860,49 @@ end
 otc_markets_multicast_ats_v4_5.quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Quote Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Id: Unsigned Integer
   index, quote_id = otc_markets_multicast_ats_v4_5.quote_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Action: 1 Byte Unsigned Fixed Width Integer
+  -- Quote Action: Unsigned Integer
   index, quote_action = otc_markets_multicast_ats_v4_5.quote_action.dissect(buffer, index, packet, parent)
 
   -- Quote Flags: Struct of 8 fields
   index, quote_flags = otc_markets_multicast_ats_v4_5.quote_flags.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: Unsigned Integer
   index, security_id = otc_markets_multicast_ats_v4_5.security_id.dissect(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: UTF-8
   index, mpid = otc_markets_multicast_ats_v4_5.mpid.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 8 Byte Unsigned Fixed Width Integer
+  -- Ask Price: Unsigned Integer
   index, ask_price = otc_markets_multicast_ats_v4_5.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size: Unsigned Integer
   index, ask_size = otc_markets_multicast_ats_v4_5.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Qap: 1 Byte Signed Fixed Width Integer
+  -- Ask Qap: Integer
   index, ask_qap = otc_markets_multicast_ats_v4_5.ask_qap.dissect(buffer, index, packet, parent)
 
-  -- Ask Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Ask Time Milli: Unsigned Integer
   index, ask_time_milli = otc_markets_multicast_ats_v4_5.ask_time_milli.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Price: Unsigned Integer
   index, bid_price = otc_markets_multicast_ats_v4_5.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: Unsigned Integer
   index, bid_size = otc_markets_multicast_ats_v4_5.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Qap: 1 Byte Signed Fixed Width Integer
+  -- Bid Qap: Integer
   index, bid_qap = otc_markets_multicast_ats_v4_5.bid_qap.dissect(buffer, index, packet, parent)
 
-  -- Bid Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Time Milli: Unsigned Integer
   index, bid_time_milli = otc_markets_multicast_ats_v4_5.bid_time_milli.dissect(buffer, index, packet, parent)
 
-  -- Quote Reference Id: 2 Byte Unsigned Fixed Width Integer
+  -- Quote Reference Id: Unsigned Integer
   index, quote_reference_id = otc_markets_multicast_ats_v4_5.quote_reference_id.dissect(buffer, index, packet, parent)
 
   -- Extended Quote Flags: Struct of 5 fields
@@ -2996,6 +2927,99 @@ otc_markets_multicast_ats_v4_5.quote_message.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return otc_markets_multicast_ats_v4_5.quote_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Security Flags
+otc_markets_multicast_ats_v4_5.security_flags = {}
+
+-- Size: Security Flags
+otc_markets_multicast_ats_v4_5.security_flags.size = 1
+
+-- Display: Security Flags
+otc_markets_multicast_ats_v4_5.security_flags.display = function(range, value, packet, parent)
+  local display = ""
+
+  -- Is Proprietary Quote Eligible flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    display = display.."Proprietary Quote Eligible|"
+  end
+  -- Is Caveat Emptor Warning flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Caveat Emptor Warning|"
+  end
+  -- Is Qualified Institutional Buyers Only flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Qualified Institutional Buyers Only|"
+  end
+  -- Is Unsolicited Only flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    display = display.."Unsolicited Only|"
+  end
+  -- Is Bb Quoted flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    display = display.."Bb Quoted|"
+  end
+  -- Is Otc Link Ecn Eligible flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    display = display.."Otc Link Ecn Eligible|"
+  end
+  -- Is Otc Link Messaging Disabled flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Otc Link Messaging Disabled|"
+  end
+  -- Is Saturation Eligible flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Saturation Eligible|"
+  end
+
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
+end
+
+-- Dissect Bit Fields: Security Flags
+otc_markets_multicast_ats_v4_5.security_flags.bits = function(range, value, packet, parent)
+
+  -- Proprietary Quote Eligible: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.proprietary_quote_eligible, range, value)
+
+  -- Caveat Emptor Warning: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.caveat_emptor_warning, range, value)
+
+  -- Qualified Institutional Buyers Only: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.qualified_institutional_buyers_only, range, value)
+
+  -- Unsolicited Only: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.unsolicited_only, range, value)
+
+  -- Bb Quoted: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bb_quoted, range, value)
+
+  -- Otc Link Ecn Eligible: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_ecn_eligible, range, value)
+
+  -- Otc Link Messaging Disabled: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_messaging_disabled, range, value)
+
+  -- Saturation Eligible: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.saturation_eligible, range, value)
+end
+
+-- Dissect: Security Flags
+otc_markets_multicast_ats_v4_5.security_flags.dissect = function(buffer, offset, packet, parent)
+  local size = otc_markets_multicast_ats_v4_5.security_flags.size
+  local range = buffer(offset, size)
+  local value = range:uint()
+  local display = otc_markets_multicast_ats_v4_5.security_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_flags, range, display)
+
+  if show.security_flags then
+    otc_markets_multicast_ats_v4_5.security_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
 end
 
 -- Security Message
@@ -3023,34 +3047,34 @@ end
 otc_markets_multicast_ats_v4_5.security_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 10 Byte Ascii String
+  -- Symbol: UTF-8
   index, symbol = otc_markets_multicast_ats_v4_5.symbol.dissect(buffer, index, packet, parent)
 
-  -- Last Update Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Milli: Unsigned Integer
   index, last_update_milli = otc_markets_multicast_ats_v4_5.last_update_milli.dissect(buffer, index, packet, parent)
 
-  -- Security Action: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Security Action: Unsigned Integer
   index, security_action = otc_markets_multicast_ats_v4_5.security_action.dissect(buffer, index, packet, parent)
 
-  -- Asset Class: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Asset Class: Unsigned Integer
   index, asset_class = otc_markets_multicast_ats_v4_5.asset_class.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: Unsigned Integer
   index, security_id = otc_markets_multicast_ats_v4_5.security_id.dissect(buffer, index, packet, parent)
 
   -- Security Flags: Struct of 8 fields
   index, security_flags = otc_markets_multicast_ats_v4_5.security_flags.dissect(buffer, index, packet, parent)
 
-  -- Tier: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Tier: Unsigned Integer
   index, tier = otc_markets_multicast_ats_v4_5.tier.dissect(buffer, index, packet, parent)
 
-  -- Reporting Status: 1 Byte Ascii String Enum with 11 values
+  -- Reporting Status: UTF-8
   index, reporting_status = otc_markets_multicast_ats_v4_5.reporting_status.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 7 values
+  -- Security Status: UTF-8
   index, security_status = otc_markets_multicast_ats_v4_5.security_status.dissect(buffer, index, packet, parent)
 
   return index
@@ -3138,13 +3162,13 @@ end
 otc_markets_multicast_ats_v4_5.market_close_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Market Close Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Market Close Time Milli: Unsigned Integer
   index, market_close_time_milli = otc_markets_multicast_ats_v4_5.market_close_time_milli.dissect(buffer, index, packet, parent)
 
-  -- Market Msg Ct: 4 Byte Unsigned Fixed Width Integer
+  -- Market Msg Ct: Unsigned Integer
   index, market_msg_ct = otc_markets_multicast_ats_v4_5.market_msg_ct.dissect(buffer, index, packet, parent)
 
   return index
@@ -3290,19 +3314,19 @@ end
 otc_markets_multicast_ats_v4_5.end_of_spin_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Spin Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Spin Type: Unsigned Byte
   index, spin_type = otc_markets_multicast_ats_v4_5.spin_type.dissect(buffer, index, packet, parent)
 
-  -- Spin Msg Ct: 4 Byte Unsigned Fixed Width Integer
+  -- Spin Msg Ct: Unsigned Integer
   index, spin_msg_ct = otc_markets_multicast_ats_v4_5.spin_msg_ct.dissect(buffer, index, packet, parent)
 
-  -- Spin End Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Spin End Time Milli: Unsigned Integer
   index, spin_end_time_milli = otc_markets_multicast_ats_v4_5.spin_end_time_milli.dissect(buffer, index, packet, parent)
 
-  -- Spin Last Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Spin Last Seq Num: Unsigned Integer
   index, spin_last_seq_num = otc_markets_multicast_ats_v4_5.spin_last_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -3368,16 +3392,16 @@ end
 otc_markets_multicast_ats_v4_5.start_of_spin_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otc_markets_multicast_ats_v4_5.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Spin Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Spin Type: Unsigned Byte
   index, spin_type = otc_markets_multicast_ats_v4_5.spin_type.dissect(buffer, index, packet, parent)
 
-  -- Spin Start Time Milli: 8 Byte Unsigned Fixed Width Integer
+  -- Spin Start Time Milli: Unsigned Integer
   index, spin_start_time_milli = otc_markets_multicast_ats_v4_5.spin_start_time_milli.dissect(buffer, index, packet, parent)
 
-  -- Spin Last Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Spin Last Seq Num: Unsigned Integer
   index, spin_last_seq_num = otc_markets_multicast_ats_v4_5.spin_last_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -3561,7 +3585,50 @@ otc_markets_multicast_ats_v4_5.message_type.size = 1
 
 -- Display: Message Type
 otc_markets_multicast_ats_v4_5.message_type.display = function(value)
-  return "Message Type: "..value
+  if value == 11 then
+    return "Message Type: Start Of Spin Message (11)"
+  end
+  if value == 12 then
+    return "Message Type: End Of Spin Message (12)"
+  end
+  if value == 13 then
+    return "Message Type: Market Open Message (13)"
+  end
+  if value == 14 then
+    return "Message Type: Market Close Message (14)"
+  end
+  if value == 9 then
+    return "Message Type: Security Message (9)"
+  end
+  if value == 1 then
+    return "Message Type: Quote Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Quote Update Message (2)"
+  end
+  if value == 3 then
+    return "Message Type: Market Open Message (3)"
+  end
+  if value == 4 then
+    return "Message Type: Inside Update Message (4)"
+  end
+  if value == 7 then
+    return "Message Type: Reference Price Message (7)"
+  end
+  if value == 8 then
+    return "Message Type: Reference Price Update Message (8)"
+  end
+  if value == 15 then
+    return "Message Type: Extended Security Message (15)"
+  end
+  if value == 16 then
+    return "Message Type: Extended Security No Cusip Message (16)"
+  end
+  if value == 17 then
+    return "Message Type: Trade Message (17)"
+  end
+
+  return "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -3619,7 +3686,7 @@ otc_markets_multicast_ats_v4_5.message_header.fields = function(buffer, offset, 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
   index, message_size = otc_markets_multicast_ats_v4_5.message_size.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, message_type = otc_markets_multicast_ats_v4_5.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -3747,60 +3814,65 @@ otc_markets_multicast_ats_v4_5.packet_flag = {}
 otc_markets_multicast_ats_v4_5.packet_flag.size = 1
 
 -- Display: Packet Flag
-otc_markets_multicast_ats_v4_5.packet_flag.display = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5.packet_flag.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Test flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Test|"
-  end
-  -- Is Replay flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Replay|"
-  end
-  -- Is Seq Num Reset flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Seq Num Reset|"
-  end
   -- Is Heartbeat flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Heartbeat|"
   end
+  -- Is Seq Num Reset flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Seq Num Reset|"
+  end
+  -- Is Replay flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Replay|"
+  end
+  -- Is Test flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Test|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Packet Flag
-otc_markets_multicast_ats_v4_5.packet_flag.bits = function(buffer, offset, packet, parent)
-
-  -- Test: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.test, buffer(offset, 1))
-
-  -- Replay: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.replay, buffer(offset, 1))
-
-  -- Reserved Packet Flags: 4 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_packet_flags, buffer(offset, 1))
-
-  -- Seq Num Reset: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.seq_num_reset, buffer(offset, 1))
+otc_markets_multicast_ats_v4_5.packet_flag.bits = function(range, value, packet, parent)
 
   -- Heartbeat: 1 Bit
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.heartbeat, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.heartbeat, range, value)
+
+  -- Seq Num Reset: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.seq_num_reset, range, value)
+
+  -- Reserved 4: 4 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_4, range, value)
+
+  -- Replay: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.replay, range, value)
+
+  -- Test: 1 Bit
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.test, range, value)
 end
 
 -- Dissect: Packet Flag
 otc_markets_multicast_ats_v4_5.packet_flag.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = otc_markets_multicast_ats_v4_5.packet_flag.size
   local range = buffer(offset, size)
-  local display = otc_markets_multicast_ats_v4_5.packet_flag.display(range, packet, parent)
+  local value = range:uint()
+  local display = otc_markets_multicast_ats_v4_5.packet_flag.display(range, value, packet, parent)
   local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.packet_flag, range, display)
 
   if show.packet_flag then
-    otc_markets_multicast_ats_v4_5.packet_flag.bits(buffer, offset, packet, element)
+    otc_markets_multicast_ats_v4_5.packet_flag.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Seq Num

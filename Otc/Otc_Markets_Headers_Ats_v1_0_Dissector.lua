@@ -28,7 +28,7 @@ omi_otc_markets_headers_ats_v1_0.fields.packet_milli = ProtoField.new("Packet Mi
 omi_otc_markets_headers_ats_v1_0.fields.packet_size = ProtoField.new("Packet Size", "otc.markets.headers.ats.v1.0.packetsize", ftypes.UINT16)
 omi_otc_markets_headers_ats_v1_0.fields.payload = ProtoField.new("Payload", "otc.markets.headers.ats.v1.0.payload", ftypes.BYTES)
 omi_otc_markets_headers_ats_v1_0.fields.replay = ProtoField.new("Replay", "otc.markets.headers.ats.v1.0.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-omi_otc_markets_headers_ats_v1_0.fields.reserved_packet_flags = ProtoField.new("Reserved Packet Flags", "otc.markets.headers.ats.v1.0.reservedpacketflags", ftypes.UINT8, nil, base.DEC, 0x3C)
+omi_otc_markets_headers_ats_v1_0.fields.reserved_4 = ProtoField.new("Reserved 4", "otc.markets.headers.ats.v1.0.reserved4", ftypes.UINT8, nil, base.DEC, 0x3C)
 omi_otc_markets_headers_ats_v1_0.fields.seq_num = ProtoField.new("Seq Num", "otc.markets.headers.ats.v1.0.seqnum", ftypes.UINT32)
 omi_otc_markets_headers_ats_v1_0.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otc.markets.headers.ats.v1.0.seqnumreset", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 omi_otc_markets_headers_ats_v1_0.fields.test = ProtoField.new("Test", "otc.markets.headers.ats.v1.0.test", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
@@ -307,60 +307,65 @@ otc_markets_headers_ats_v1_0.packet_flag = {}
 otc_markets_headers_ats_v1_0.packet_flag.size = 1
 
 -- Display: Packet Flag
-otc_markets_headers_ats_v1_0.packet_flag.display = function(buffer, packet, parent)
+otc_markets_headers_ats_v1_0.packet_flag.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Test flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Test|"
-  end
-  -- Is Replay flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Replay|"
-  end
-  -- Is Seq Num Reset flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Seq Num Reset|"
-  end
   -- Is Heartbeat flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Heartbeat|"
   end
+  -- Is Seq Num Reset flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Seq Num Reset|"
+  end
+  -- Is Replay flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    display = display.."Replay|"
+  end
+  -- Is Test flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    display = display.."Test|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Packet Flag
-otc_markets_headers_ats_v1_0.packet_flag.bits = function(buffer, offset, packet, parent)
-
-  -- Test: 1 Bit
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.test, buffer(offset, 1))
-
-  -- Replay: 1 Bit
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.replay, buffer(offset, 1))
-
-  -- Reserved Packet Flags: 4 Bit
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.reserved_packet_flags, buffer(offset, 1))
-
-  -- Seq Num Reset: 1 Bit
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.seq_num_reset, buffer(offset, 1))
+otc_markets_headers_ats_v1_0.packet_flag.bits = function(range, value, packet, parent)
 
   -- Heartbeat: 1 Bit
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.heartbeat, buffer(offset, 1))
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.heartbeat, range, value)
+
+  -- Seq Num Reset: 1 Bit
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.seq_num_reset, range, value)
+
+  -- Reserved 4: 4 Bit
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.reserved_4, range, value)
+
+  -- Replay: 1 Bit
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.replay, range, value)
+
+  -- Test: 1 Bit
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.test, range, value)
 end
 
 -- Dissect: Packet Flag
 otc_markets_headers_ats_v1_0.packet_flag.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = otc_markets_headers_ats_v1_0.packet_flag.size
   local range = buffer(offset, size)
-  local display = otc_markets_headers_ats_v1_0.packet_flag.display(range, packet, parent)
+  local value = range:uint()
+  local display = otc_markets_headers_ats_v1_0.packet_flag.display(range, value, packet, parent)
   local element = parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_flag, range, display)
 
   if show.packet_flag then
-    otc_markets_headers_ats_v1_0.packet_flag.bits(buffer, offset, packet, element)
+    otc_markets_headers_ats_v1_0.packet_flag.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Seq Num
