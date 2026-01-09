@@ -6,6 +6,7 @@
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | OseDerivatives | [GeniumInet][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector] | Itch | [1.1][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector] | 5/8/2024 | 3133 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Pdf] |
+| OseDerivatives | [GeniumInet][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector] | Ouch | [5.0][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector] | 9/16/2020 | 2905 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Pdf] |
 
 
 Jpx: [website](https://www.jpx.co.jp/english "Go to Japan Exchange Group")
@@ -25,3 +26,5 @@ Jpx: [website](https://www.jpx.co.jp/english "Go to Japan Exchange Group")
 
 [Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jpx/Jpx_OseDerivatives_GeniumInet_Itch_v1_1_Dissector.lua "Jpx OseDerivatives GeniumInet Itch v1.1 Wireshark Dissector"
 [Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Specifications/OseDerivatives\Itch\Jpx.OseDerivatives.GeniumInet.Itch.v1.1.pdf "Japan Exchange Group 1.1 Pdf"
+[Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jpx/Jpx_OseDerivatives_GeniumInet_Ouch_v5_0_Dissector.lua "Jpx OseDerivatives GeniumInet Ouch v5.0 Wireshark Dissector"
+[Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Specifications/ "Japan Exchange Group 5.0 Pdf"
