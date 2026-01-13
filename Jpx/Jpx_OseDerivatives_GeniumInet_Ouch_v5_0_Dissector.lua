@@ -18,14 +18,10 @@ local jpx_osederivatives_geniuminet_ouch_v5_0 = {}
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_reason = ProtoField.new("Cancel Reason", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelreason", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_account = ProtoField.new("Client Account", "jpx.osederivatives.geniuminet.ouch.v5.0.clientaccount", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.combo_group_id = ProtoField.new("Combo Group Id", "jpx.osederivatives.geniuminet.ouch.v5.0.combogroupid", ftypes.UINT32)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info_alpha_50 = ProtoField.new("Customer Info Alpha 50", "jpx.osederivatives.geniuminet.ouch.v5.0.customerinfoalpha50", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info_alpha_55 = ProtoField.new("Customer Info Alpha 55", "jpx.osederivatives.geniuminet.ouch.v5.0.customerinfoalpha55", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info_alpha_56 = ProtoField.new("Customer Info Alpha 56", "jpx.osederivatives.geniuminet.ouch.v5.0.customerinfoalpha56", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info_alpha_58 = ProtoField.new("Customer Info Alpha 58", "jpx.osederivatives.geniuminet.ouch.v5.0.customerinfoalpha58", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info = ProtoField.new("Customer Info", "jpx.osederivatives.geniuminet.ouch.v5.0.customerinfo", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.deal_source = ProtoField.new("Deal Source", "jpx.osederivatives.geniuminet.ouch.v5.0.dealsource", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.debug_packet = ProtoField.new("Debug Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.debugpacket", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.exchange_info_alpha_32 = ProtoField.new("Exchange Info Alpha 32", "jpx.osederivatives.geniuminet.ouch.v5.0.exchangeinfoalpha32", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.exchange_info_alpha_50 = ProtoField.new("Exchange Info Alpha 50", "jpx.osederivatives.geniuminet.ouch.v5.0.exchangeinfoalpha50", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.exchange_info = ProtoField.new("Exchange Info", "jpx.osederivatives.geniuminet.ouch.v5.0.exchangeinfo", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.existing_order_token = ProtoField.new("Existing Order Token", "jpx.osederivatives.geniuminet.ouch.v5.0.existingordertoken", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginacceptedpacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginrejectedpacket", ftypes.STRING)
@@ -43,7 +39,7 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet_type = ProtoField.new(
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.password = ProtoField.new("Password", "jpx.osederivatives.geniuminet.ouch.v5.0.password", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.payload = ProtoField.new("Payload", "jpx.osederivatives.geniuminet.ouch.v5.0.payload", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.previous_order_token = ProtoField.new("Previous Order Token", "jpx.osederivatives.geniuminet.ouch.v5.0.previousordertoken", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.price = ProtoField.new("Price", "jpx.osederivatives.geniuminet.ouch.v5.0.price", ftypes.INT32)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.price = ProtoField.new("Price", "jpx.osederivatives.geniuminet.ouch.v5.0.price", ftypes.DOUBLE)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.quantity = ProtoField.new("Quantity", "jpx.osederivatives.geniuminet.ouch.v5.0.quantity", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.reject_code = ProtoField.new("Reject Code", "jpx.osederivatives.geniuminet.ouch.v5.0.rejectcode", ftypes.INT32)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jpx.osederivatives.geniuminet.ouch.v5.0.rejectreasoncode", ftypes.STRING)
@@ -61,8 +57,8 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.soup_bin_tcp_packet = ProtoFi
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.status = ProtoField.new("Status", "jpx.osederivatives.geniuminet.ouch.v5.0.status", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.text = ProtoField.new("Text", "jpx.osederivatives.geniuminet.ouch.v5.0.text", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.time_in_force = ProtoField.new("Time In Force", "jpx.osederivatives.geniuminet.ouch.v5.0.timeinforce", ftypes.UINT8)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "jpx.osederivatives.geniuminet.ouch.v5.0.timestamp", ftypes.UINT64)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.trade_price = ProtoField.new("Trade Price", "jpx.osederivatives.geniuminet.ouch.v5.0.tradeprice", ftypes.INT32)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jpx.osederivatives.geniuminet.ouch.v5.0.timestampnanoseconds", ftypes.UINT64)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.trade_price = ProtoField.new("Trade Price", "jpx.osederivatives.geniuminet.ouch.v5.0.tradeprice", ftypes.DOUBLE)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.traded_quantity = ProtoField.new("Traded Quantity", "jpx.osederivatives.geniuminet.ouch.v5.0.tradedquantity", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.underlying_id = ProtoField.new("Underlying Id", "jpx.osederivatives.geniuminet.ouch.v5.0.underlyingid", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequenceddatapacket", ftypes.STRING)
@@ -71,18 +67,18 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_message_type = Pr
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.username = ProtoField.new("Username", "jpx.osederivatives.geniuminet.ouch.v5.0.username", ftypes.STRING)
 
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 messages
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_by_order_id_message = ProtoField.new("Cancel By Order Id Message", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelbyorderidmessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelordermessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_market_maker_order_message = ProtoField.new("Enter Market Maker Order Message", "jpx.osederivatives.geniuminet.ouch.v5.0.entermarketmakerordermessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_order_message = ProtoField.new("Enter Order Message", "jpx.osederivatives.geniuminet.ouch.v5.0.enterordermessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel_accepted_message = ProtoField.new("Mass Cancel Accepted Message", "jpx.osederivatives.geniuminet.ouch.v5.0.masscancelacceptedmessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel_message = ProtoField.new("Mass Cancel Message", "jpx.osederivatives.geniuminet.ouch.v5.0.masscancelmessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jpx.osederivatives.geniuminet.ouch.v5.0.orderacceptedmessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "jpx.osederivatives.geniuminet.ouch.v5.0.ordercanceledmessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_executed_message = ProtoField.new("Order Executed Message", "jpx.osederivatives.geniuminet.ouch.v5.0.orderexecutedmessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "jpx.osederivatives.geniuminet.ouch.v5.0.orderrejectedmessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jpx.osederivatives.geniuminet.ouch.v5.0.orderreplacedmessage", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order_message = ProtoField.new("Replace Order Message", "jpx.osederivatives.geniuminet.ouch.v5.0.replaceordermessage", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_by_order_id = ProtoField.new("Cancel By Order Id", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelbyorderid", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_order = ProtoField.new("Cancel Order", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelorder", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_mm_order = ProtoField.new("Enter Mm Order", "jpx.osederivatives.geniuminet.ouch.v5.0.entermmorder", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_order = ProtoField.new("Enter Order", "jpx.osederivatives.geniuminet.ouch.v5.0.enterorder", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel = ProtoField.new("Mass Cancel", "jpx.osederivatives.geniuminet.ouch.v5.0.masscancel", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel_accepted = ProtoField.new("Mass Cancel Accepted", "jpx.osederivatives.geniuminet.ouch.v5.0.masscancelaccepted", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_accepted = ProtoField.new("Order Accepted", "jpx.osederivatives.geniuminet.ouch.v5.0.orderaccepted", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_canceled = ProtoField.new("Order Canceled", "jpx.osederivatives.geniuminet.ouch.v5.0.ordercanceled", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_executed = ProtoField.new("Order Executed", "jpx.osederivatives.geniuminet.ouch.v5.0.orderexecuted", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_rejected = ProtoField.new("Order Rejected", "jpx.osederivatives.geniuminet.ouch.v5.0.orderrejected", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_replaced = ProtoField.new("Order Replaced", "jpx.osederivatives.geniuminet.ouch.v5.0.orderreplaced", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order = ProtoField.new("Replace Order", "jpx.osederivatives.geniuminet.ouch.v5.0.replaceorder", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -91,24 +87,24 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order_message = Proto
 local show = {}
 
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Element Dissection Options
-show.cancel_by_order_id_message = true
-show.cancel_order_message = true
+show.cancel_by_order_id = true
+show.cancel_order = true
 show.debug_packet = true
-show.enter_market_maker_order_message = true
-show.enter_order_message = true
+show.enter_mm_order = true
+show.enter_order = true
 show.login_accepted_packet = true
 show.login_rejected_packet = true
 show.login_request_packet = true
-show.mass_cancel_accepted_message = true
-show.mass_cancel_message = true
-show.order_accepted_message = true
-show.order_canceled_message = true
-show.order_executed_message = true
-show.order_rejected_message = true
-show.order_replaced_message = true
+show.mass_cancel = true
+show.mass_cancel_accepted = true
+show.order_accepted = true
+show.order_canceled = true
+show.order_executed = true
+show.order_rejected = true
+show.order_replaced = true
 show.packet = true
 show.packet_header = true
-show.replace_order_message = true
+show.replace_order = true
 show.sequenced_data_packet = true
 show.soup_bin_tcp_packet = true
 show.unsequenced_data_packet = true
@@ -117,24 +113,24 @@ show.sequenced_message = false
 show.unsequenced_message = false
 
 -- Register Jpx OseDerivatives GeniumInet Ouch 5.0 Show Options
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_by_order_id_message = Pref.bool("Show Cancel By Order Id Message", show.cancel_by_order_id_message, "Parse and add Cancel By Order Id Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_by_order_id = Pref.bool("Show Cancel By Order Id", show.cancel_by_order_id, "Parse and add Cancel By Order Id to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_order = Pref.bool("Show Cancel Order", show.cancel_order, "Parse and add Cancel Order to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_market_maker_order_message = Pref.bool("Show Enter Market Maker Order Message", show.enter_market_maker_order_message, "Parse and add Enter Market Maker Order Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_mm_order = Pref.bool("Show Enter Mm Order", show.enter_mm_order, "Parse and add Enter Mm Order to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_order = Pref.bool("Show Enter Order", show.enter_order, "Parse and add Enter Order to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_accepted_message = Pref.bool("Show Mass Cancel Accepted Message", show.mass_cancel_accepted_message, "Parse and add Mass Cancel Accepted Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_message = Pref.bool("Show Mass Cancel Message", show.mass_cancel_message, "Parse and add Mass Cancel Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel = Pref.bool("Show Mass Cancel", show.mass_cancel, "Parse and add Mass Cancel to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_accepted = Pref.bool("Show Mass Cancel Accepted", show.mass_cancel_accepted, "Parse and add Mass Cancel Accepted to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_accepted = Pref.bool("Show Order Accepted", show.order_accepted, "Parse and add Order Accepted to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_canceled = Pref.bool("Show Order Canceled", show.order_canceled, "Parse and add Order Canceled to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_executed = Pref.bool("Show Order Executed", show.order_executed, "Parse and add Order Executed to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_rejected = Pref.bool("Show Order Rejected", show.order_rejected, "Parse and add Order Rejected to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_replaced = Pref.bool("Show Order Replaced", show.order_replaced, "Parse and add Order Replaced to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_replace_order = Pref.bool("Show Replace Order", show.replace_order, "Parse and add Replace Order to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
@@ -147,24 +143,24 @@ function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_by_order_id_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_by_order_id_message then
-    show.cancel_by_order_id_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_by_order_id_message
+  if show.cancel_by_order_id ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_by_order_id then
+    show.cancel_by_order_id = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_by_order_id
     changed = true
   end
-  if show.cancel_order_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_order_message then
-    show.cancel_order_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_order_message
+  if show.cancel_order ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_order then
+    show.cancel_order = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_order
     changed = true
   end
   if show.debug_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_debug_packet then
     show.debug_packet = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_debug_packet
     changed = true
   end
-  if show.enter_market_maker_order_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_market_maker_order_message then
-    show.enter_market_maker_order_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_market_maker_order_message
+  if show.enter_mm_order ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_mm_order then
+    show.enter_mm_order = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_mm_order
     changed = true
   end
-  if show.enter_order_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_order_message then
-    show.enter_order_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_order_message
+  if show.enter_order ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_order then
+    show.enter_order = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_order
     changed = true
   end
   if show.login_accepted_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_accepted_packet then
@@ -179,32 +175,32 @@ function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()
     show.login_request_packet = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_request_packet
     changed = true
   end
-  if show.mass_cancel_accepted_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_accepted_message then
-    show.mass_cancel_accepted_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_accepted_message
+  if show.mass_cancel ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel then
+    show.mass_cancel = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel
     changed = true
   end
-  if show.mass_cancel_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_message then
-    show.mass_cancel_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_message
+  if show.mass_cancel_accepted ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_accepted then
+    show.mass_cancel_accepted = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_accepted
     changed = true
   end
-  if show.order_accepted_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_accepted_message then
-    show.order_accepted_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_accepted_message
+  if show.order_accepted ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_accepted then
+    show.order_accepted = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_accepted
     changed = true
   end
-  if show.order_canceled_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_canceled_message then
-    show.order_canceled_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_canceled_message
+  if show.order_canceled ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_canceled then
+    show.order_canceled = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_canceled
     changed = true
   end
-  if show.order_executed_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_executed_message then
-    show.order_executed_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_executed_message
+  if show.order_executed ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_executed then
+    show.order_executed = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_executed
     changed = true
   end
-  if show.order_rejected_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_rejected_message then
-    show.order_rejected_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_rejected_message
+  if show.order_rejected ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_rejected then
+    show.order_rejected = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_rejected
     changed = true
   end
-  if show.order_replaced_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_replaced_message then
-    show.order_replaced_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_replaced_message
+  if show.order_replaced ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_replaced then
+    show.order_replaced = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_replaced
     changed = true
   end
   if show.packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_packet then
@@ -215,8 +211,8 @@ function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()
     show.packet_header = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_packet_header
     changed = true
   end
-  if show.replace_order_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_replace_order_message then
-    show.replace_order_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_replace_order_message
+  if show.replace_order ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_replace_order then
+    show.replace_order = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_replace_order
     changed = true
   end
   if show.sequenced_data_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequenced_data_packet then
@@ -369,23 +365,23 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Mass Cancel Message
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message = {}
+-- Mass Cancel
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel = {}
 
--- Size: Mass Cancel Message
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message.size =
+-- Size: Mass Cancel
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.underlying_id.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.scope.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size
 
--- Display: Mass Cancel Message
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message.display = function(packet, parent, length)
+-- Display: Mass Cancel
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Cancel Message
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mass Cancel
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Token: Alpha
@@ -403,21 +399,21 @@ jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message.fields = function(bu
   return index
 end
 
--- Dissect: Mass Cancel Message
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_message then
+-- Dissect: Mass Cancel
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.dissect = function(buffer, offset, packet, parent)
+  if show.mass_cancel then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -497,22 +493,22 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.dissect = function(buffer,
   return offset + length, value
 end
 
--- Cancel By Order Id Message
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message = {}
+-- Cancel By Order Id
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id = {}
 
--- Size: Cancel By Order Id Message
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message.size =
+-- Size: Cancel By Order Id
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_id.size
 
--- Display: Cancel By Order Id Message
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message.display = function(packet, parent, length)
+-- Display: Cancel By Order Id
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Cancel By Order Id Message
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Cancel By Order Id
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Book Id: Numeric signed
@@ -527,38 +523,38 @@ jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message.fields = func
   return index
 end
 
--- Dissect: Cancel By Order Id Message
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_by_order_id_message then
+-- Dissect: Cancel By Order Id
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.dissect = function(buffer, offset, packet, parent)
+  if show.cancel_by_order_id then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_by_order_id_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_by_order_id, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.fields(buffer, offset, packet, parent)
   end
 end
 
--- Cancel Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message = {}
+-- Cancel Order
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order = {}
 
--- Size: Cancel Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message.size =
+-- Size: Cancel Order
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size
 
--- Display: Cancel Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message.display = function(packet, parent, length)
+-- Display: Cancel Order
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Cancel Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Cancel Order
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Token: Alpha
@@ -567,66 +563,66 @@ jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message.fields = function(b
   return index
 end
 
--- Dissect: Cancel Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_message then
+-- Dissect: Cancel Order
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.dissect = function(buffer, offset, packet, parent)
+  if show.cancel_order then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_order_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_order, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.fields(buffer, offset, packet, parent)
   end
 end
 
--- Exchange Info Alpha 32
-jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32 = {}
+-- Exchange Info
+jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info = {}
 
--- Size: Exchange Info Alpha 32
-jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.size = 32
+-- Size: Exchange Info
+jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size = 32
 
--- Display: Exchange Info Alpha 32
-jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.display = function(value)
-  return "Exchange Info Alpha 32: "..value
+-- Display: Exchange Info
+jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.display = function(value)
+  return "Exchange Info: "..value
 end
 
--- Dissect: Exchange Info Alpha 32
-jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.size
+-- Dissect: Exchange Info
+jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.display(value, buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.exchange_info_alpha_32, range, value, display)
+  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.exchange_info, range, value, display)
 
   return offset + length, value
 end
 
--- Customer Info Alpha 55
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_55 = {}
+-- Customer Info
+jpx_osederivatives_geniuminet_ouch_v5_0.customer_info = {}
 
--- Size: Customer Info Alpha 55
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_55.size = 55
+-- Size: Customer Info
+jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size = 15
 
--- Display: Customer Info Alpha 55
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_55.display = function(value)
-  return "Customer Info Alpha 55: "..value
+-- Display: Customer Info
+jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.display = function(value)
+  return "Customer Info: "..value
 end
 
--- Dissect: Customer Info Alpha 55
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_55.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_55.size
+-- Dissect: Customer Info
+jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_55.display(value, buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info_alpha_55, range, value, display)
+  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info, range, value, display)
 
   return offset + length, value
 end
@@ -681,11 +677,17 @@ jpx_osederivatives_geniuminet_ouch_v5_0.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+jpx_osederivatives_geniuminet_ouch_v5_0.price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price
 jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = jpx_osederivatives_geniuminet_ouch_v5_0.price.translate(raw)
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.price, range, value, display)
@@ -762,27 +764,27 @@ jpx_osederivatives_geniuminet_ouch_v5_0.existing_order_token.dissect = function(
   return offset + length, value
 end
 
--- Replace Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message = {}
+-- Replace Order
+jpx_osederivatives_geniuminet_ouch_v5_0.replace_order = {}
 
--- Size: Replace Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.size =
+-- Size: Replace Order
+jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.existing_order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.replacement_order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.quantity.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.price.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.open_close.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_55.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.size
+  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
 
--- Display: Replace Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.display = function(packet, parent, length)
+-- Display: Replace Order
+jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Replace Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Replace Order
+jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Existing Order Token: Alpha
@@ -794,7 +796,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.fields = function(
   -- Quantity: Numeric unsigned
   index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: Numeric signed
+  -- Price: Price
   index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
   -- Open Close: Numeric unsigned
@@ -803,53 +805,53 @@ jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.fields = function(
   -- Client Account: Alpha
   index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
 
-  -- Customer Info Alpha 55: Alpha
-  index, customer_info_alpha_55 = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_55.dissect(buffer, index, packet, parent)
+  -- Customer Info: Alpha
+  index, customer_info = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.dissect(buffer, index, packet, parent)
 
-  -- Exchange Info Alpha 32: Alpha
-  index, exchange_info_alpha_32 = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.dissect(buffer, index, packet, parent)
+  -- Exchange Info: Alpha
+  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Replace Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.replace_order_message then
+-- Dissect: Replace Order
+jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.dissect = function(buffer, offset, packet, parent)
+  if show.replace_order then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.fields(buffer, offset, packet, parent)
   end
 end
 
--- Enter Market Maker Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message = {}
+-- Enter Mm Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order = {}
 
--- Size: Enter Market Maker Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message.size =
+-- Size: Enter Mm Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.quantity.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.price.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.size
+  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
 
--- Display: Enter Market Maker Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message.display = function(packet, parent, length)
+-- Display: Enter Mm Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Enter Market Maker Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Enter Mm Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Token: Alpha
@@ -864,80 +866,34 @@ jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message.fields 
   -- Quantity: Numeric unsigned
   index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: Numeric signed
+  -- Price: Price
   index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
   -- Client Account: Alpha
   index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
 
-  -- Exchange Info Alpha 32: Alpha
-  index, exchange_info_alpha_32 = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.dissect(buffer, index, packet, parent)
+  -- Exchange Info: Alpha
+  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Enter Market Maker Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.enter_market_maker_order_message then
+-- Dissect: Enter Mm Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.dissect = function(buffer, offset, packet, parent)
+  if show.enter_mm_order then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_market_maker_order_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_mm_order, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.fields(buffer, offset, packet, parent)
   end
-end
-
--- Exchange Info Alpha 50
-jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_50 = {}
-
--- Size: Exchange Info Alpha 50
-jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_50.size = 50
-
--- Display: Exchange Info Alpha 50
-jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_50.display = function(value)
-  return "Exchange Info Alpha 50: "..value
-end
-
--- Dissect: Exchange Info Alpha 50
-jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_50.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_50.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_50.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.exchange_info_alpha_50, range, value, display)
-
-  return offset + length, value
-end
-
--- Customer Info Alpha 50
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_50 = {}
-
--- Size: Customer Info Alpha 50
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_50.size = 50
-
--- Display: Customer Info Alpha 50
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_50.display = function(value)
-  return "Customer Info Alpha 50: "..value
-end
-
--- Dissect: Customer Info Alpha 50
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_50.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_50.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_50.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info_alpha_50, range, value, display)
-
-  return offset + length, value
 end
 
 -- Time In Force
@@ -973,11 +929,11 @@ jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.dissect = function(buffer,
   return offset + length, value
 end
 
--- Enter Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message = {}
+-- Enter Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_order = {}
 
--- Size: Enter Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.size =
+-- Size: Enter Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
@@ -986,16 +942,16 @@ jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.open_close.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_50.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_50.size
+  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
 
--- Display: Enter Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.display = function(packet, parent, length)
+-- Display: Enter Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Enter Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Enter Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Token: Alpha
@@ -1010,7 +966,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.fields = function(bu
   -- Quantity: Numeric unsigned
   index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: Numeric signed
+  -- Price: Price
   index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
   -- Time In Force: Numeric unsigned
@@ -1022,30 +978,30 @@ jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.fields = function(bu
   -- Client Account: Alpha
   index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
 
-  -- Customer Info Alpha 50: Alpha
-  index, customer_info_alpha_50 = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_50.dissect(buffer, index, packet, parent)
+  -- Customer Info: Alpha
+  index, customer_info = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.dissect(buffer, index, packet, parent)
 
-  -- Exchange Info Alpha 50: Alpha
-  index, exchange_info_alpha_50 = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_50.dissect(buffer, index, packet, parent)
+  -- Exchange Info: Alpha
+  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Enter Order Message
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.enter_order_message then
+-- Dissect: Enter Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect = function(buffer, offset, packet, parent)
+  if show.enter_order then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_order_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_order, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1054,29 +1010,29 @@ jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message = {}
 
 -- Size: Unsequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.size = function(buffer, offset, unsequenced_message_type)
-  -- Size of Enter Order Message
+  -- Size of Enter Order
   if unsequenced_message_type == "O" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.size
   end
-  -- Size of Enter Market Maker Order Message
+  -- Size of Enter Mm Order
   if unsequenced_message_type == "P" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.size
   end
-  -- Size of Replace Order Message
+  -- Size of Replace Order
   if unsequenced_message_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.size
   end
-  -- Size of Cancel Order Message
+  -- Size of Cancel Order
   if unsequenced_message_type == "X" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.size
   end
-  -- Size of Cancel By Order Id Message
+  -- Size of Cancel By Order Id
   if unsequenced_message_type == "Y" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.size
   end
-  -- Size of Mass Cancel Message
+  -- Size of Mass Cancel
   if unsequenced_message_type == "M" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.size
   end
 
   return 0
@@ -1089,29 +1045,29 @@ end
 
 -- Dissect Branches: Unsequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order Message
+  -- Dissect Enter Order
   if unsequenced_message_type == "O" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Enter Market Maker Order Message
+  -- Dissect Enter Mm Order
   if unsequenced_message_type == "P" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_market_maker_order_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Replace Order Message
+  -- Dissect Replace Order
   if unsequenced_message_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Cancel Order Message
+  -- Dissect Cancel Order
   if unsequenced_message_type == "X" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Cancel By Order Id Message
+  -- Dissect Cancel By Order Id
   if unsequenced_message_type == "Y" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Mass Cancel Message
+  -- Dissect Mass Cancel
   if unsequenced_message_type == "M" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1146,22 +1102,22 @@ jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message_type.size = 1
 -- Display: Unsequenced Message Type
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message_type.display = function(value)
   if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
+    return "Unsequenced Message Type: Enter Order (O)"
   end
   if value == "P" then
-    return "Unsequenced Message Type: Enter Market Maker Order Message (P)"
+    return "Unsequenced Message Type: Enter Mm Order (P)"
   end
   if value == "U" then
-    return "Unsequenced Message Type: Replace Order Message (U)"
+    return "Unsequenced Message Type: Replace Order (U)"
   end
   if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Message (X)"
+    return "Unsequenced Message Type: Cancel Order (X)"
   end
   if value == "Y" then
-    return "Unsequenced Message Type: Cancel By Order Id Message (Y)"
+    return "Unsequenced Message Type: Cancel By Order Id (Y)"
   end
   if value == "M" then
-    return "Unsequenced Message Type: Mass Cancel Message (M)"
+    return "Unsequenced Message Type: Mass Cancel (M)"
   end
 
   return "Unsequenced Message Type: Unknown("..value..")"
@@ -1461,11 +1417,17 @@ jpx_osederivatives_geniuminet_ouch_v5_0.trade_price.display = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+jpx_osederivatives_geniuminet_ouch_v5_0.trade_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Trade Price
 jpx_osederivatives_geniuminet_ouch_v5_0.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.trade_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = jpx_osederivatives_geniuminet_ouch_v5_0.trade_price.translate(raw)
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.trade_price, range, value, display)
@@ -1496,39 +1458,35 @@ jpx_osederivatives_geniuminet_ouch_v5_0.traded_quantity.dissect = function(buffe
   return offset + length, value
 end
 
--- Timestamp
-jpx_osederivatives_geniuminet_ouch_v5_0.timestamp = {}
+-- Timestamp Nanoseconds
+jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds = {}
 
--- Size: Timestamp
-jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.size = 8
+-- Size: Timestamp Nanoseconds
+jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size = 8
 
--- Display: Timestamp
-jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
-
-  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+-- Display: Timestamp Nanoseconds
+jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.display = function(value)
+  return "Timestamp Nanoseconds: "..value
 end
 
--- Dissect: Timestamp
-jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.size
+-- Dissect: Timestamp Nanoseconds
+jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.display(value, buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp, range, value, display)
+  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds, range, value, display)
 
   return offset + length, value
 end
 
--- Order Executed Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message = {}
+-- Order Executed
+jpx_osederivatives_geniuminet_ouch_v5_0.order_executed = {}
 
--- Size: Order Executed Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.size + 
+-- Size: Order Executed
+jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.traded_quantity.size + 
@@ -1537,17 +1495,17 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.combo_group_id.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.deal_source.size
 
--- Display: Order Executed Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.display = function(packet, parent, length)
+-- Display: Order Executed
+jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Executed Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Executed
+jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric unsigned
-  index, timestamp = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Timestamp
+  index, timestamp_nanoseconds = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Token: Alpha
   index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
@@ -1558,7 +1516,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.fields = function
   -- Traded Quantity: Numeric unsigned
   index, traded_quantity = jpx_osederivatives_geniuminet_ouch_v5_0.traded_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: Numeric signed
+  -- Trade Price: Price
   index, trade_price = jpx_osederivatives_geniuminet_ouch_v5_0.trade_price.dissect(buffer, index, packet, parent)
 
   -- Match Id: Numeric unsigned
@@ -1573,21 +1531,21 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.fields = function
   return index
 end
 
--- Dissect: Order Executed Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+-- Dissect: Order Executed
+jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.dissect = function(buffer, offset, packet, parent)
+  if show.order_executed then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_executed_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_executed, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1651,29 +1609,29 @@ jpx_osederivatives_geniuminet_ouch_v5_0.cancel_reason.dissect = function(buffer,
   return offset + length, value
 end
 
--- Order Canceled Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message = {}
+-- Order Canceled
+jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled = {}
 
--- Size: Order Canceled Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.size + 
+-- Size: Order Canceled
+jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_id.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.cancel_reason.size
 
--- Display: Order Canceled Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message.display = function(packet, parent, length)
+-- Display: Order Canceled
+jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Canceled Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Canceled
+jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric unsigned
-  index, timestamp = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Timestamp
+  index, timestamp_nanoseconds = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Token: Alpha
   index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
@@ -1693,45 +1651,22 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message.fields = function
   return index
 end
 
--- Dissect: Order Canceled Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_canceled_message then
+-- Dissect: Order Canceled
+jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.dissect = function(buffer, offset, packet, parent)
+  if show.order_canceled then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_canceled_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_canceled, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.fields(buffer, offset, packet, parent)
   end
-end
-
--- Customer Info Alpha 58
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_58 = {}
-
--- Size: Customer Info Alpha 58
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_58.size = 58
-
--- Display: Customer Info Alpha 58
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_58.display = function(value)
-  return "Customer Info Alpha 58: "..value
-end
-
--- Dissect: Customer Info Alpha 58
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_58.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_58.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_58.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info_alpha_58, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order State
@@ -1787,12 +1722,12 @@ jpx_osederivatives_geniuminet_ouch_v5_0.previous_order_token.dissect = function(
   return offset + length, value
 end
 
--- Order Replaced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message = {}
+-- Order Replaced
+jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced = {}
 
--- Size: Order Replaced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.size + 
+-- Size: Order Replaced
+jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.replacement_order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.previous_order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
@@ -1804,20 +1739,20 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.open_close.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_state.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_58.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.size
+  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
 
--- Display: Order Replaced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.display = function(packet, parent, length)
+-- Display: Order Replaced
+jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Replaced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Replaced
+jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric unsigned
-  index, timestamp = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Timestamp
+  index, timestamp_nanoseconds = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Replacement Order Token: Alpha
   index, replacement_order_token = jpx_osederivatives_geniuminet_ouch_v5_0.replacement_order_token.dissect(buffer, index, packet, parent)
@@ -1837,7 +1772,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.fields = function
   -- Quantity: Numeric unsigned
   index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: Numeric signed
+  -- Price: Price
   index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
   -- Time In Force: Numeric unsigned
@@ -1852,30 +1787,30 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.fields = function
   -- Order State: Numeric unsigned
   index, order_state = jpx_osederivatives_geniuminet_ouch_v5_0.order_state.dissect(buffer, index, packet, parent)
 
-  -- Customer Info Alpha 58: Alpha
-  index, customer_info_alpha_58 = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_58.dissect(buffer, index, packet, parent)
+  -- Customer Info: Alpha
+  index, customer_info = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.dissect(buffer, index, packet, parent)
 
-  -- Exchange Info Alpha 32: Alpha
-  index, exchange_info_alpha_32 = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.dissect(buffer, index, packet, parent)
+  -- Exchange Info: Alpha
+  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Order Replaced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_replaced_message then
+-- Dissect: Order Replaced
+jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.dissect = function(buffer, offset, packet, parent)
+  if show.order_replaced then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_replaced_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_replaced, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1902,26 +1837,26 @@ jpx_osederivatives_geniuminet_ouch_v5_0.reject_code.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Order Rejected Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message = {}
+-- Order Rejected
+jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected = {}
 
--- Size: Order Rejected Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.size + 
+-- Size: Order Rejected
+jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.reject_code.size
 
--- Display: Order Rejected Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message.display = function(packet, parent, length)
+-- Display: Order Rejected
+jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Rejected Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Rejected
+jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric unsigned
-  index, timestamp = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Timestamp
+  index, timestamp_nanoseconds = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Token: Alpha
   index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
@@ -1932,21 +1867,21 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message.fields = function
   return index
 end
 
--- Dissect: Order Rejected Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_rejected_message then
+-- Dissect: Order Rejected
+jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.dissect = function(buffer, offset, packet, parent)
+  if show.order_rejected then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_rejected_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_rejected, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1973,26 +1908,26 @@ jpx_osederivatives_geniuminet_ouch_v5_0.status.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Mass Cancel Accepted Message
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message = {}
+-- Mass Cancel Accepted
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted = {}
 
--- Size: Mass Cancel Accepted Message
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.size + 
+-- Size: Mass Cancel Accepted
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.status.size
 
--- Display: Mass Cancel Accepted Message
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message.display = function(packet, parent, length)
+-- Display: Mass Cancel Accepted
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Cancel Accepted Message
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mass Cancel Accepted
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric unsigned
-  index, timestamp = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Timestamp
+  index, timestamp_nanoseconds = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Token: Alpha
   index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
@@ -2003,53 +1938,30 @@ jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message.fields = fu
   return index
 end
 
--- Dissect: Mass Cancel Accepted Message
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_accepted_message then
+-- Dissect: Mass Cancel Accepted
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.dissect = function(buffer, offset, packet, parent)
+  if show.mass_cancel_accepted then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel_accepted_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel_accepted, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.fields(buffer, offset, packet, parent)
   end
 end
 
--- Customer Info Alpha 56
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_56 = {}
+-- Order Accepted
+jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted = {}
 
--- Size: Customer Info Alpha 56
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_56.size = 56
-
--- Display: Customer Info Alpha 56
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_56.display = function(value)
-  return "Customer Info Alpha 56: "..value
-end
-
--- Dissect: Customer Info Alpha 56
-jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_56.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_56.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_56.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info_alpha_56, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Accepted Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message = {}
-
--- Size: Order Accepted Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.size + 
+-- Size: Order Accepted
+jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
@@ -2060,20 +1972,20 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.open_close.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
   jpx_osederivatives_geniuminet_ouch_v5_0.order_state.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_56.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.size
+  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
 
--- Display: Order Accepted Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.display = function(packet, parent, length)
+-- Display: Order Accepted
+jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Accepted Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Accepted
+jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric unsigned
-  index, timestamp = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Timestamp
+  index, timestamp_nanoseconds = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Token: Alpha
   index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
@@ -2090,7 +2002,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.fields = function
   -- Quantity: Numeric unsigned
   index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: Numeric signed
+  -- Price: Price
   index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
   -- Time In Force: Numeric unsigned
@@ -2105,30 +2017,30 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.fields = function
   -- Order State: Numeric unsigned
   index, order_state = jpx_osederivatives_geniuminet_ouch_v5_0.order_state.dissect(buffer, index, packet, parent)
 
-  -- Customer Info Alpha 56: Alpha
-  index, customer_info_alpha_56 = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info_alpha_56.dissect(buffer, index, packet, parent)
+  -- Customer Info: Alpha
+  index, customer_info = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.dissect(buffer, index, packet, parent)
 
-  -- Exchange Info Alpha 32: Alpha
-  index, exchange_info_alpha_32 = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info_alpha_32.dissect(buffer, index, packet, parent)
+  -- Exchange Info: Alpha
+  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Order Accepted Message
-jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_accepted_message then
+-- Dissect: Order Accepted
+jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.dissect = function(buffer, offset, packet, parent)
+  if show.order_accepted then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_accepted_message, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_accepted, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2137,29 +2049,29 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message = {}
 
 -- Size: Sequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.size = function(buffer, offset, sequenced_message_type)
-  -- Size of Order Accepted Message
+  -- Size of Order Accepted
   if sequenced_message_type == "A" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.size
   end
-  -- Size of Mass Cancel Accepted Message
+  -- Size of Mass Cancel Accepted
   if sequenced_message_type == "M" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.size
   end
-  -- Size of Order Rejected Message
+  -- Size of Order Rejected
   if sequenced_message_type == "J" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.size
   end
-  -- Size of Order Replaced Message
+  -- Size of Order Replaced
   if sequenced_message_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.size
   end
-  -- Size of Order Canceled Message
+  -- Size of Order Canceled
   if sequenced_message_type == "C" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.size
   end
-  -- Size of Order Executed Message
+  -- Size of Order Executed
   if sequenced_message_type == "E" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.size
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.size
   end
 
   return 0
@@ -2172,29 +2084,29 @@ end
 
 -- Dissect Branches: Sequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Order Accepted Message
+  -- Dissect Order Accepted
   if sequenced_message_type == "A" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Mass Cancel Accepted Message
+  -- Dissect Mass Cancel Accepted
   if sequenced_message_type == "M" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Rejected Message
+  -- Dissect Order Rejected
   if sequenced_message_type == "J" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Replaced Message
+  -- Dissect Order Replaced
   if sequenced_message_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Canceled Message
+  -- Dissect Order Canceled
   if sequenced_message_type == "C" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Executed Message
+  -- Dissect Order Executed
   if sequenced_message_type == "E" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_executed_message.dissect(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2229,22 +2141,22 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message_type.size = 1
 -- Display: Sequenced Message Type
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message_type.display = function(value)
   if value == "A" then
-    return "Sequenced Message Type: Order Accepted Message (A)"
+    return "Sequenced Message Type: Order Accepted (A)"
   end
   if value == "M" then
-    return "Sequenced Message Type: Mass Cancel Accepted Message (M)"
+    return "Sequenced Message Type: Mass Cancel Accepted (M)"
   end
   if value == "J" then
-    return "Sequenced Message Type: Order Rejected Message (J)"
+    return "Sequenced Message Type: Order Rejected (J)"
   end
   if value == "U" then
-    return "Sequenced Message Type: Order Replaced Message (U)"
+    return "Sequenced Message Type: Order Replaced (U)"
   end
   if value == "C" then
-    return "Sequenced Message Type: Order Canceled Message (C)"
+    return "Sequenced Message Type: Order Canceled (C)"
   end
   if value == "E" then
-    return "Sequenced Message Type: Order Executed Message (E)"
+    return "Sequenced Message Type: Order Executed (E)"
   end
 
   return "Sequenced Message Type: Unknown("..value..")"
