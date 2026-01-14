@@ -1826,7 +1826,527 @@ jpx_osederivatives_geniuminet_ouch_v5_0.reject_code.size = 4
 
 -- Display: Reject Code
 jpx_osederivatives_geniuminet_ouch_v5_0.reject_code.display = function(value)
-  return "Reject Code: "..value
+  if value == -800014 then
+    return "Reject Code: De Can Not Cancel (-800014)"
+  end
+  if value == -800002 then
+    return "Reject Code: De Duplicate Token (-800002)"
+  end
+  if value == -800016 then
+    return "Reject Code: De Invalid Mass Cancel Scope (-800016)"
+  end
+  if value == -800006 then
+    return "Reject Code: De Invalid Orderbook (-800006)"
+  end
+  if value == -800012 then
+    return "Reject Code: De Invalid Order Number (-800012)"
+  end
+  if value == -800008 then
+    return "Reject Code: De Invalid Side (-800008)"
+  end
+  if value == -800010 then
+    return "Reject Code: De Invalid Tif (-800010)"
+  end
+  if value == -800018 then
+    return "Reject Code: De Invalid Underlying (-800018)"
+  end
+  if value == -800015 then
+    return "Reject Code: De Throttling (-800015)"
+  end
+  if value == -800004 then
+    return "Reject Code: De Unknown Token (-800004)"
+  end
+  if value == -110210 then
+    return "Reject Code: Gen Cdc Aex Full (-110210)"
+  end
+  if value == -110244 then
+    return "Reject Code: Gen Cdc Asc Full (-110244)"
+  end
+  if value == -110262 then
+    return "Reject Code: Gen Cdc Cac Full (-110262)"
+  end
+  if value == -110235 then
+    return "Reject Code: Gen Cdc Cbs Not Ready (-110235)"
+  end
+  if value == -110196 then
+    return "Reject Code: Gen Cdc Cbx Full (-110196)"
+  end
+  if value == -110204 then
+    return "Reject Code: Gen Cdc Ccr Full (-110204)"
+  end
+  if value == -110186 then
+    return "Reject Code: Gen Cdc Cib Full (-110186)"
+  end
+  if value == -110019 then
+    return "Reject Code: Gen Cdc Cli Notfou (-110019)"
+  end
+  if value == -110118 then
+    return "Reject Code: Gen Cdc Cog Full (-110118)"
+  end
+  if value == -110242 then
+    return "Reject Code: Gen Cdc Cpa Full (-110242)"
+  end
+  if value == -110194 then
+    return "Reject Code: Gen Cdc Crf Full (-110194)"
+  end
+  if value == -110202 then
+    return "Reject Code: Gen Cdc Cro Full (-110202)"
+  end
+  if value == -110274 then
+    return "Reject Code: Gen Cdc Crp Full (-110274)"
+  end
+  if value == -110165 then
+    return "Reject Code: Gen Cdc Crsclose (-110165)"
+  end
+  if value == -110212 then
+    return "Reject Code: Gen Cdc Csa Full (-110212)"
+  end
+  if value == -110282 then
+    return "Reject Code: Gen Cdc Cse Full (-110282)"
+  end
+  if value == -110081 then
+    return "Reject Code: Gen Cdc Cst Susp (-110081)"
+  end
+  if value == -110218 then
+    return "Reject Code: Gen Cdc Cup Full (-110218)"
+  end
+  if value == -110264 then
+    return "Reject Code: Gen Cdc Cur Full (-110264)"
+  end
+  if value == -110136 then
+    return "Reject Code: Gen Cdc Des Full (-110136)"
+  end
+  if value == -110146 then
+    return "Reject Code: Gen Cdc Dgr Full (-110146)"
+  end
+  if value == -110148 then
+    return "Reject Code: Gen Cdc Dhb Full (-110148)"
+  end
+  if value == -110268 then
+    return "Reject Code: Gen Cdc Dio Full (-110268)"
+  end
+  if value == -110232 then
+    return "Reject Code: Gen Cdc Ecb Full (-110232)"
+  end
+  if value == -110126 then
+    return "Reject Code: Gen Cdc Edg Full (-110126)"
+  end
+  if value == -110222 then
+    return "Reject Code: Gen Cdc Edl Full (-110222)"
+  end
+  if value == -110138 then
+    return "Reject Code: Gen Cdc Eid Full (-110138)"
+  end
+  if value == -110142 then
+    return "Reject Code: Gen Cdc Exc Full (-110142)"
+  end
+  if value == -110120 then
+    return "Reject Code: Gen Cdc Fml Full (-110120)"
+  end
+  if value == -110132 then
+    return "Reject Code: Gen Cdc Fov Full (-110132)"
+  end
+  if value == -110284 then
+    return "Reject Code: Gen Cdc Hse Full (-110284)"
+  end
+  if value == -110061 then
+    return "Reject Code: Gen Cdc Ill Commodity (-110061)"
+  end
+  if value == -110220 then
+    return "Reject Code: Gen Cdc Ing Full (-110220)"
+  end
+  if value == -110023 then
+    return "Reject Code: Gen Cdc Int Closed (-110023)"
+  end
+  if value == -110167 then
+    return "Reject Code: Gen Cdc Invopenclose (-110167)"
+  end
+  if value == -110171 then
+    return "Reject Code: Gen Cdc Invuser (-110171)"
+  end
+  if value == -110157 then
+    return "Reject Code: Gen Cdc Inv Block (-110157)"
+  end
+  if value == -110163 then
+    return "Reject Code: Gen Cdc Inv Open Close Req (-110163)"
+  end
+  if value == -110161 then
+    return "Reject Code: Gen Cdc Inv Premium (-110161)"
+  end
+  if value == -110159 then
+    return "Reject Code: Gen Cdc Inv Quantity (-110159)"
+  end
+  if value == -110206 then
+    return "Reject Code: Gen Cdc Ixv Full (-110206)"
+  end
+  if value == -110011 then
+    return "Reject Code: Gen Cdc Liu Notfou (-110011)"
+  end
+  if value == -110013 then
+    return "Reject Code: Gen Cdc Ltt Notfou (-110013)"
+  end
+  if value == -110169 then
+    return "Reject Code: Gen Cdc Match Validity (-110169)"
+  end
+  if value == -110201 then
+    return "Reject Code: Gen Cdc Max Mem Quantity (-110201)"
+  end
+  if value == -110173 then
+    return "Reject Code: Gen Cdc Max Quantity (-110173)"
+  end
+  if value == -110002 then
+    return "Reject Code: Gen Cdc Mem Full (-110002)"
+  end
+  if value == -110175 then
+    return "Reject Code: Gen Cdc Min Of Sil (-110175)"
+  end
+  if value == -110278 then
+    return "Reject Code: Gen Cdc Mpm Full (-110278)"
+  end
+  if value == -110276 then
+    return "Reject Code: Gen Cdc Mpr Full (-110276)"
+  end
+  if value == -110116 then
+    return "Reject Code: Gen Cdc Msu Full (-110116)"
+  end
+  if value == -110247 then
+    return "Reject Code: Gen Cdc Not Traded (-110247)"
+  end
+  if value == -110193 then
+    return "Reject Code: Gen Cdc No Hedge Price (-110193)"
+  end
+  if value == -110190 then
+    return "Reject Code: Gen Cdc Ntd Full (-110190)"
+  end
+  if value == -110236 then
+    return "Reject Code: Gen Cdc Oat Full (-110236)"
+  end
+  if value == -110122 then
+    return "Reject Code: Gen Cdc Obk Full (-110122)"
+  end
+  if value == -110114 then
+    return "Reject Code: Gen Cdc Obl Full (-110114)"
+  end
+  if value == -110115 then
+    return "Reject Code: Gen Cdc Obl Notfou (-110115)"
+  end
+  if value == -110255 then
+    return "Reject Code: Gen Cdc Only In Eq Cbo (-110255)"
+  end
+  if value == -110266 then
+    return "Reject Code: Gen Cdc Opp Full (-110266)"
+  end
+  if value == -110130 then
+    return "Reject Code: Gen Cdc Pdp Full (-110130)"
+  end
+  if value == -110252 then
+    return "Reject Code: Gen Cdc Pid Full (-110252)"
+  end
+  if value == -110216 then
+    return "Reject Code: Gen Cdc Pod Full (-110216)"
+  end
+  if value == -110152 then
+    return "Reject Code: Gen Cdc Prl Full (-110152)"
+  end
+  if value == -110270 then
+    return "Reject Code: Gen Cdc Rpt Full (-110270)"
+  end
+  if value == -110272 then
+    return "Reject Code: Gen Cdc Rtm Full (-110272)"
+  end
+  if value == -110214 then
+    return "Reject Code: Gen Cdc Sec Full (-110214)"
+  end
+  if value == -110155 then
+    return "Reject Code: Gen Cdc Series Stopped (-110155)"
+  end
+  if value == -110188 then
+    return "Reject Code: Gen Cdc Sid Full (-110188)"
+  end
+  if value == -110128 then
+    return "Reject Code: Gen Cdc Spg Full (-110128)"
+  end
+  if value == -110224 then
+    return "Reject Code: Gen Cdc Spl Full (-110224)"
+  end
+  if value == -110230 then
+    return "Reject Code: Gen Cdc Sss Full (-110230)"
+  end
+  if value == -110150 then
+    return "Reject Code: Gen Cdc Sst Full (-110150)"
+  end
+  if value == -110257 then
+    return "Reject Code: Gen Cdc Trc Ins Notfound (-110257)"
+  end
+  if value == -110259 then
+    return "Reject Code: Gen Cdc Trc Sst Notfound (-110259)"
+  end
+  if value == -110261 then
+    return "Reject Code: Gen Cdc Trc Ust Notfound (-110261)"
+  end
+  if value == -110134 then
+    return "Reject Code: Gen Cdc Tse Full (-110134)"
+  end
+  if value == -110124 then
+    return "Reject Code: Gen Cdc Tsr Full (-110124)"
+  end
+  if value == -110077 then
+    return "Reject Code: Gen Cdc Usr Susp (-110077)"
+  end
+  if value == -110140 then
+    return "Reject Code: Gen Cdc Ust Full (-110140)"
+  end
+  if value == -110208 then
+    return "Reject Code: Gen Cdc Vbs Full (-110208)"
+  end
+  if value == -110144 then
+    return "Reject Code: Gen Cdc Vds Full (-110144)"
+  end
+  if value == -110226 then
+    return "Reject Code: Gen Cdc Vsp Full (-110226)"
+  end
+  if value == -110198 then
+    return "Reject Code: Gen Cdc Wkp Full (-110198)"
+  end
+  if value == -197004 then
+    return "Reject Code: Gen Shr Dvpcancellednocancel (-197004)"
+  end
+  if value == -197000 then
+    return "Reject Code: Gen Shr Dvpcompletednocancel (-197000)"
+  end
+  if value == -197002 then
+    return "Reject Code: Gen Shr Dvprecallednocancel (-197002)"
+  end
+  if value == -197014 then
+    return "Reject Code: Gen Shr Fixedincomepricetype (-197014)"
+  end
+  if value == -197012 then
+    return "Reject Code: Gen Shr Fixedincomeproduct (-197012)"
+  end
+  if value == -197008 then
+    return "Reject Code: Gen Shr Illegalargument (-197008)"
+  end
+  if value == -197022 then
+    return "Reject Code: Gen Shr Interror (-197022)"
+  end
+  if value == -197006 then
+    return "Reject Code: Gen Shr Invfixedincometype (-197006)"
+  end
+  if value == -197026 then
+    return "Reject Code: Gen Shr Invinsid (-197026)"
+  end
+  if value == -197010 then
+    return "Reject Code: Gen Shr Invpremiumunit (-197010)"
+  end
+  if value == -197016 then
+    return "Reject Code: Gen Shr Invseries (-197016)"
+  end
+  if value == -197020 then
+    return "Reject Code: Gen Shr Nottmseries (-197020)"
+  end
+  if value == -197018 then
+    return "Reject Code: Gen Shr Nottmtemplate (-197018)"
+  end
+  if value == -197024 then
+    return "Reject Code: Gen Shr Seriesmismatch (-197024)"
+  end
+  if value == -140001 then
+    return "Reject Code: Oc Brx Not All (-140001)"
+  end
+  if value == -140006 then
+    return "Reject Code: Oc Error (-140006)"
+  end
+  if value == -140008 then
+    return "Reject Code: Oc Fatal (-140008)"
+  end
+  if value == -140010 then
+    return "Reject Code: Oc Invargs (-140010)"
+  end
+  if value == -140012 then
+    return "Reject Code: Oc Invchn Type (-140012)"
+  end
+  if value == -140074 then
+    return "Reject Code: Oc Tx Notsamclu (-140074)"
+  end
+  if value == -140076 then
+    return "Reject Code: Oc Tx Notsamnod (-140076)"
+  end
+  if value == -140070 then
+    return "Reject Code: Oc Tx Not Open (-140070)"
+  end
+  if value == -140078 then
+    return "Reject Code: Oc Tx Nrsegsdif (-140078)"
+  end
+  if value == -140080 then
+    return "Reject Code: Oc Tx Outst Evtsdwn (-140080)"
+  end
+  if value == -140082 then
+    return "Reject Code: Oc Tx Reqabort (-140082)"
+  end
+  if value == -140084 then
+    return "Reject Code: Oc Tx Reqcallun (-140084)"
+  end
+  if value == -140085 then
+    return "Reject Code: Oc Tx Shutcall (-140085)"
+  end
+  if value == -140087 then
+    return "Reject Code: Oc Tx Shutdown (-140087)"
+  end
+  if value == -140092 then
+    return "Reject Code: Oc Tx Toomansha (-140092)"
+  end
+  if value == -140094 then
+    return "Reject Code: Oc Tx Truncate (-140094)"
+  end
+  if value == -140098 then
+    return "Reject Code: Oc Tx Uppleslow (-140098)"
+  end
+  if value == -510192 then
+    return "Reject Code: Info Abortnomatch (-510192)"
+  end
+  if value == -510190 then
+    return "Reject Code: Info Abortstateready (-510190)"
+  end
+  if value == -510228 then
+    return "Reject Code: Info Abortstateundo (-510228)"
+  end
+  if value == -510080 then
+    return "Reject Code: Info Badseg (-510080)"
+  end
+  if value == -510270 then
+    return "Reject Code: Info Bdcsem (-510270)"
+  end
+  if value == -510268 then
+    return "Reject Code: Info Bdcsyn (-510268)"
+  end
+  if value == -510224 then
+    return "Reject Code: Info Calcrulenotaplund (-510224)"
+  end
+  if value == -510206 then
+    return "Reject Code: Info Colfailnosource (-510206)"
+  end
+  if value == -510194 then
+    return "Reject Code: Info Datalckbysignal (-510194)"
+  end
+  if value == -510214 then
+    return "Reject Code: Info Dirtyfuture (-510214)"
+  end
+  if value == -510218 then
+    return "Reject Code: Info Dirtymoney (-510218)"
+  end
+  if value == -510216 then
+    return "Reject Code: Info Dirtywi (-510216)"
+  end
+  if value == -510348 then
+    return "Reject Code: Info Emergsplocked (-510348)"
+  end
+  if value == -510272 then
+    return "Reject Code: Info Errorcode (-510272)"
+  end
+  if value == -510186 then
+    return "Reject Code: Info Funcnotsup (-510186)"
+  end
+  if value == -510284 then
+    return "Reject Code: Info Hisdatenotalwd (-510284)"
+  end
+  if value == -510308 then
+    return "Reject Code: Info Indexcalcfail (-510308)"
+  end
+  if value == -510312 then
+    return "Reject Code: Info Indexindiceslogfail (-510312)"
+  end
+  if value == -510310 then
+    return "Reject Code: Info Indexjournalfail (-510310)"
+  end
+  if value == -510300 then
+    return "Reject Code: Info Indexvalidfail (-510300)"
+  end
+  if value == -510220 then
+    return "Reject Code: Info Indicativepricetype (-510220)"
+  end
+  if value == -510280 then
+    return "Reject Code: Info Insnotallowed (-510280)"
+  end
+  if value == -510332 then
+    return "Reject Code: Info Spgenericerror (-510332)"
+  end
+  if value == -510326 then
+    return "Reject Code: Info Spinvalgo (-510326)"
+  end
+  if value == -510328 then
+    return "Reject Code: Info Spinvalgoforprod (-510328)"
+  end
+  if value == -510346 then
+    return "Reject Code: Info Spinvalgoparam (-510346)"
+  end
+  if value == -510330 then
+    return "Reject Code: Info Spinvaslocked (-510330)"
+  end
+  if value == -510340 then
+    return "Reject Code: Info Spinvclearingdate (-510340)"
+  end
+  if value == -510322 then
+    return "Reject Code: Info Spinvforalg (-510322)"
+  end
+  if value == -510320 then
+    return "Reject Code: Info Spinvfortheoalg (-510320)"
+  end
+  if value == -510334 then
+    return "Reject Code: Info Spinvmanuallyflag (-510334)"
+  end
+  if value == -510350 then
+    return "Reject Code: Info Spinvsource (-510350)"
+  end
+  if value == -510352 then
+    return "Reject Code: Info Spmixderupp (-510352)"
+  end
+  if value == -510336 then
+    return "Reject Code: Info Spmixfutopt (-510336)"
+  end
+  if value == -510338 then
+    return "Reject Code: Info Spnotallopt (-510338)"
+  end
+  if value == -510354 then
+    return "Reject Code: Info Spnoupperlp (-510354)"
+  end
+  if value == -510344 then
+    return "Reject Code: Info Spoptexpandmaxlimit (-510344)"
+  end
+  if value == -510342 then
+    return "Reject Code: Info Spruleoutofrange (-510342)"
+  end
+  if value == -510358 then
+    return "Reject Code: Info Spsavecalcinprog (-510358)"
+  end
+  if value == -510360 then
+    return "Reject Code: Info Spsavelck (-510360)"
+  end
+  if value == -510362 then
+    return "Reject Code: Info Spsavenewcday (-510362)"
+  end
+  if value == -510324 then
+    return "Reject Code: Info Sptomanymatches (-510324)"
+  end
+  if value == -510317 then
+    return "Reject Code: Info Strtruncated (-510317)"
+  end
+  if value == -510234 then
+    return "Reject Code: Info Subitemdropped (-510234)"
+  end
+  if value == -510079 then
+    return "Reject Code: Info Todaynotavail (-510079)"
+  end
+  if value == -510370 then
+    return "Reject Code: Info Txdupitem (-510370)"
+  end
+  if value == -510144 then
+    return "Reject Code: Info Unknownoper (-510144)"
+  end
+  if value == -510368 then
+    return "Reject Code: Info Wrongchildstate (-510368)"
+  end
+
+  return "Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Code
