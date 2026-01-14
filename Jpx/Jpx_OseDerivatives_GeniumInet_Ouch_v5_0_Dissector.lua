@@ -1466,7 +1466,11 @@ jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size = 8
 
 -- Display: Timestamp Nanoseconds
 jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.display = function(value)
-  return "Timestamp Nanoseconds: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Timestamp Nanoseconds: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp Nanoseconds

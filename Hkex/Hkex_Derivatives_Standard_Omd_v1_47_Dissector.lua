@@ -5074,7 +5074,7 @@ omi_hkex_derivatives_standard_omd_v1_47:register_heuristic("udp", omi_hkex_deriv
 --   Organization: Hong Kong Exchanges and Clearing
 --   Version: 1.47
 --   Date: Tuesday, October 14, 2025
---   Specification: HKEX_OMD_Derivatives_Binary_Interface_Specifications_v1-47.pdf
+--   Specification: HKEX_OMD_Derivatives_Binary_Interface_Specifications_v1 47.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0
