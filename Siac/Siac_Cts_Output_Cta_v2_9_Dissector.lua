@@ -791,25 +791,25 @@ end
 siac_cts_output_cta_v2_9.participant_data.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
+  -- Previous Close Price Date: Integer
   index, previous_close_price_date = siac_cts_output_cta_v2_9.previous_close_price_date.dissect(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Unsigned Fixed Width Integer
+  -- Last Price: Long
   index, last_price = siac_cts_output_cta_v2_9.last_price.dissect(buffer, index, packet, parent)
 
-  -- High Price: 8 Byte Unsigned Fixed Width Integer
+  -- High Price: Long
   index, high_price = siac_cts_output_cta_v2_9.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 8 Byte Unsigned Fixed Width Integer
+  -- Low Price: Long
   index, low_price = siac_cts_output_cta_v2_9.low_price.dissect(buffer, index, packet, parent)
 
-  -- Open Price: 8 Byte Unsigned Fixed Width Integer
+  -- Open Price: Long
   index, open_price = siac_cts_output_cta_v2_9.open_price.dissect(buffer, index, packet, parent)
 
-  -- Total Volume Short: 4 Byte Unsigned Fixed Width Integer
+  -- Total Volume Short: Integer
   index, total_volume_short = siac_cts_output_cta_v2_9.total_volume_short.dissect(buffer, index, packet, parent)
 
-  -- Tick: 1 Byte Ascii String Enum with 5 values
+  -- Tick: Char
   index, tick = siac_cts_output_cta_v2_9.tick.dissect(buffer, index, packet, parent)
 
   return index
@@ -933,25 +933,25 @@ end
 siac_cts_output_cta_v2_9.consolidated_data.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
+  -- Previous Close Price Date: Integer
   index, previous_close_price_date = siac_cts_output_cta_v2_9.previous_close_price_date.dissect(buffer, index, packet, parent)
 
-  -- Last Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Last Participant Id: Char
   index, last_participant_id = siac_cts_output_cta_v2_9.last_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Unsigned Fixed Width Integer
+  -- Last Price: Long
   index, last_price = siac_cts_output_cta_v2_9.last_price.dissect(buffer, index, packet, parent)
 
-  -- High Price: 8 Byte Unsigned Fixed Width Integer
+  -- High Price: Long
   index, high_price = siac_cts_output_cta_v2_9.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 8 Byte Unsigned Fixed Width Integer
+  -- Low Price: Long
   index, low_price = siac_cts_output_cta_v2_9.low_price.dissect(buffer, index, packet, parent)
 
-  -- Total Volume Short: 4 Byte Unsigned Fixed Width Integer
+  -- Total Volume Short: Integer
   index, total_volume_short = siac_cts_output_cta_v2_9.total_volume_short.dissect(buffer, index, packet, parent)
 
-  -- Tick: 1 Byte Ascii String Enum with 5 values
+  -- Tick: Char
   index, tick = siac_cts_output_cta_v2_9.tick.dissect(buffer, index, packet, parent)
 
   return index
@@ -1236,10 +1236,10 @@ end
 siac_cts_output_cta_v2_9.timestamp_2.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Seconds: Integer
   index, seconds = siac_cts_output_cta_v2_9.seconds.dissect(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = siac_cts_output_cta_v2_9.nanoseconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -1659,16 +1659,16 @@ end
 siac_cts_output_cta_v2_9.sale_conditions.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Settlement Type: 1 Byte Ascii String Enum with 4 values
+  -- Settlement Type: Char
   index, settlement_type = siac_cts_output_cta_v2_9.settlement_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Through Exempt Reason: 1 Byte Ascii String Enum with 9 values
+  -- Trade Through Exempt Reason: Char
   index, trade_through_exempt_reason = siac_cts_output_cta_v2_9.trade_through_exempt_reason.dissect(buffer, index, packet, parent)
 
-  -- Extended Hours Or Sequence Type: 1 Byte Ascii String Enum with 5 values
+  -- Extended Hours Or Sequence Type: Char
   index, extended_hours_or_sequence_type = siac_cts_output_cta_v2_9.extended_hours_or_sequence_type.dissect(buffer, index, packet, parent)
 
-  -- Sro Trade Detail: 1 Byte Ascii String Enum with 11 values
+  -- Sro Trade Detail: Char
   index, sro_trade_detail = siac_cts_output_cta_v2_9.sro_trade_detail.dissect(buffer, index, packet, parent)
 
   return index
@@ -1837,10 +1837,10 @@ end
 siac_cts_output_cta_v2_9.timestamp_1.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Seconds: Integer
   index, seconds = siac_cts_output_cta_v2_9.seconds.dissect(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = siac_cts_output_cta_v2_9.nanoseconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -1970,64 +1970,64 @@ end
 siac_cts_output_cta_v2_9.trade_cancel_error_message.fields = function(buffer, offset, packet, parent, size_of_trade_cancel_error_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_9.sale_conditions.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Price: Long
   index, trade_price = siac_cts_output_cta_v2_9.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Volume: Integer
   index, trade_volume = siac_cts_output_cta_v2_9.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
+  -- Sellers Sale Days: Byte
   index, sellers_sale_days = siac_cts_output_cta_v2_9.sellers_sale_days.dissect(buffer, index, packet, parent)
 
-  -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Stop Stock Indicator: Char
   index, stop_stock_indicator = siac_cts_output_cta_v2_9.stop_stock_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Trade Through Exempt Indicator: Char
   index, trade_through_exempt_indicator = siac_cts_output_cta_v2_9.trade_through_exempt_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 4 values
+  -- Trade Reporting Facility Id: Char
   index, trade_reporting_facility_id = siac_cts_output_cta_v2_9.trade_reporting_facility_id.dissect(buffer, index, packet, parent)
 
-  -- Original Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Original Participant Reference Number: Signed Long
   index, original_participant_reference_number = siac_cts_output_cta_v2_9.original_participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Timestamp 2: Struct of 2 fields
   index, timestamp_2 = siac_cts_output_cta_v2_9.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Cancel Error Action: 1 Byte Ascii String Enum with 2 values
+  -- Cancel Error Action: Char
   index, cancel_error_action = siac_cts_output_cta_v2_9.cancel_error_action.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_9.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cts_output_cta_v2_9.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Char
   index, financial_status_indicator = siac_cts_output_cta_v2_9.financial_status_indicator.dissect(buffer, index, packet, parent)
 
   -- Consolidated Data: Struct of 7 fields
@@ -2417,43 +2417,43 @@ end
 siac_cts_output_cta_v2_9.short_trade_message.fields = function(buffer, offset, packet, parent, size_of_short_trade_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol Short: 5 Byte Ascii String
+  -- Security Symbol Short: Char[]
   index, security_symbol_short = siac_cts_output_cta_v2_9.security_symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition: 1 Byte Ascii String Enum with 26 values
+  -- Sale Condition: Char
   index, sale_condition = siac_cts_output_cta_v2_9.sale_condition.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Category: 1 Byte Ascii String Enum with 5 values
+  -- Sale Condition Category: Char
   index, sale_condition_category = siac_cts_output_cta_v2_9.sale_condition_category.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Price Short: Short
   index, trade_price_short = siac_cts_output_cta_v2_9.trade_price_short.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume Short: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Volume Short: Short
   index, trade_volume_short = siac_cts_output_cta_v2_9.trade_volume_short.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cts_output_cta_v2_9.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Consolidated High Low Last Indicator: 1 Byte Ascii String Enum with 8 values
+  -- Consolidated High Low Last Indicator: Char
   index, consolidated_high_low_last_indicator = siac_cts_output_cta_v2_9.consolidated_high_low_last_indicator.dissect(buffer, index, packet, parent)
 
-  -- Participant Open High Low Last Indicator: 1 Byte Ascii String Enum with 17 values
+  -- Participant Open High Low Last Indicator: Char
   index, participant_open_high_low_last_indicator = siac_cts_output_cta_v2_9.participant_open_high_low_last_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2797,58 +2797,58 @@ end
 siac_cts_output_cta_v2_9.trading_status_message.fields = function(buffer, offset, packet, parent, size_of_trading_status_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Unsigned Fixed Width Integer
+  -- Last Price: Long
   index, last_price = siac_cts_output_cta_v2_9.last_price.dissect(buffer, index, packet, parent)
 
-  -- High Indication Price Upper Limit Price Band: 8 Byte Unsigned Fixed Width Integer
+  -- High Indication Price Upper Limit Price Band: Long
   index, high_indication_price_upper_limit_price_band = siac_cts_output_cta_v2_9.high_indication_price_upper_limit_price_band.dissect(buffer, index, packet, parent)
 
-  -- Low Indication Price Lower Limit Price Band: 8 Byte Unsigned Fixed Width Integer
+  -- Low Indication Price Lower Limit Price Band: Long
   index, low_indication_price_lower_limit_price_band = siac_cts_output_cta_v2_9.low_indication_price_lower_limit_price_band.dissect(buffer, index, packet, parent)
 
-  -- Buy Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Buy Volume: Integer
   index, buy_volume = siac_cts_output_cta_v2_9.buy_volume.dissect(buffer, index, packet, parent)
 
-  -- Sell Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Sell Volume: Integer
   index, sell_volume = siac_cts_output_cta_v2_9.sell_volume.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 13 values
+  -- Security Status: Char
   index, security_status = siac_cts_output_cta_v2_9.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Reason: 1 Byte Ascii String Enum with 17 values
+  -- Halt Reason: Char
   index, halt_reason = siac_cts_output_cta_v2_9.halt_reason.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_9.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cts_output_cta_v2_9.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Char
   index, financial_status_indicator = siac_cts_output_cta_v2_9.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Limit Up Limit Down Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Limit Up Limit Down Indicator: Char
   index, limit_up_limit_down_indicator = siac_cts_output_cta_v2_9.limit_up_limit_down_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2929,67 +2929,67 @@ end
 siac_cts_output_cta_v2_9.long_trade_message.fields = function(buffer, offset, packet, parent, size_of_long_trade_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_9.sale_conditions.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Price: Long
   index, trade_price = siac_cts_output_cta_v2_9.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Volume: Integer
   index, trade_volume = siac_cts_output_cta_v2_9.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
+  -- Sellers Sale Days: Byte
   index, sellers_sale_days = siac_cts_output_cta_v2_9.sellers_sale_days.dissect(buffer, index, packet, parent)
 
-  -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Stop Stock Indicator: Char
   index, stop_stock_indicator = siac_cts_output_cta_v2_9.stop_stock_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Trade Through Exempt Indicator: Char
   index, trade_through_exempt_indicator = siac_cts_output_cta_v2_9.trade_through_exempt_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 4 values
+  -- Trade Reporting Facility Id: Char
   index, trade_reporting_facility_id = siac_cts_output_cta_v2_9.trade_reporting_facility_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 2: Struct of 2 fields
   index, timestamp_2 = siac_cts_output_cta_v2_9.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_9.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cts_output_cta_v2_9.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Char
   index, financial_status_indicator = siac_cts_output_cta_v2_9.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Held Trade Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Held Trade Indicator: Char
   index, held_trade_indicator = siac_cts_output_cta_v2_9.held_trade_indicator.dissect(buffer, index, packet, parent)
 
-  -- Consolidated High Low Last Indicator: 1 Byte Ascii String Enum with 8 values
+  -- Consolidated High Low Last Indicator: Char
   index, consolidated_high_low_last_indicator = siac_cts_output_cta_v2_9.consolidated_high_low_last_indicator.dissect(buffer, index, packet, parent)
 
-  -- Participant Open High Low Last Indicator: 1 Byte Ascii String Enum with 17 values
+  -- Participant Open High Low Last Indicator: Char
   index, participant_open_high_low_last_indicator = siac_cts_output_cta_v2_9.participant_open_high_low_last_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -3029,10 +3029,10 @@ end
 siac_cts_output_cta_v2_9.prior_day_trade_date_and_time.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Seconds: Integer
   index, seconds = siac_cts_output_cta_v2_9.seconds.dissect(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = siac_cts_output_cta_v2_9.nanoseconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -3082,22 +3082,22 @@ siac_cts_output_cta_v2_9.original_trade.fields = function(buffer, offset, packet
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_9.sale_conditions.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Price: Long
   index, trade_price = siac_cts_output_cta_v2_9.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Volume: Integer
   index, trade_volume = siac_cts_output_cta_v2_9.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
+  -- Sellers Sale Days: Byte
   index, sellers_sale_days = siac_cts_output_cta_v2_9.sellers_sale_days.dissect(buffer, index, packet, parent)
 
-  -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Stop Stock Indicator: Char
   index, stop_stock_indicator = siac_cts_output_cta_v2_9.stop_stock_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Trade Through Exempt Indicator: Char
   index, trade_through_exempt_indicator = siac_cts_output_cta_v2_9.trade_through_exempt_indicator.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_9.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
   -- Prior Day Trade Date And Time: Struct of 2 fields
@@ -3150,22 +3150,22 @@ siac_cts_output_cta_v2_9.corrected_trade.fields = function(buffer, offset, packe
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_9.sale_conditions.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Price: Long
   index, trade_price = siac_cts_output_cta_v2_9.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Volume: Integer
   index, trade_volume = siac_cts_output_cta_v2_9.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
+  -- Sellers Sale Days: Byte
   index, sellers_sale_days = siac_cts_output_cta_v2_9.sellers_sale_days.dissect(buffer, index, packet, parent)
 
-  -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Stop Stock Indicator: Char
   index, stop_stock_indicator = siac_cts_output_cta_v2_9.stop_stock_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Trade Through Exempt Indicator: Char
   index, trade_through_exempt_indicator = siac_cts_output_cta_v2_9.trade_through_exempt_indicator.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_9.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
   -- Prior Day Trade Date And Time: Struct of 2 fields
@@ -3214,46 +3214,46 @@ end
 siac_cts_output_cta_v2_9.trade_correction_message.fields = function(buffer, offset, packet, parent, size_of_trade_correction_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Corrected Trade: Struct of 8 fields
   index, corrected_trade = siac_cts_output_cta_v2_9.corrected_trade.dissect(buffer, index, packet, parent)
 
-  -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 4 values
+  -- Trade Reporting Facility Id: Char
   index, trade_reporting_facility_id = siac_cts_output_cta_v2_9.trade_reporting_facility_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 2: Struct of 2 fields
   index, timestamp_2 = siac_cts_output_cta_v2_9.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Original Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Original Participant Reference Number: Signed Long
   index, original_participant_reference_number = siac_cts_output_cta_v2_9.original_participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Original Trade: Struct of 8 fields
   index, original_trade = siac_cts_output_cta_v2_9.original_trade.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cts_output_cta_v2_9.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Char
   index, financial_status_indicator = siac_cts_output_cta_v2_9.financial_status_indicator.dissect(buffer, index, packet, parent)
 
   -- Consolidated Data: Struct of 7 fields
@@ -3437,49 +3437,49 @@ end
 siac_cts_output_cta_v2_9.auction_status_message.fields = function(buffer, offset, packet, parent, size_of_auction_status_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Auction Collar Reference Price: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Collar Reference Price: Long
   index, auction_collar_reference_price = siac_cts_output_cta_v2_9.auction_collar_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Auction Collar Upper Threshold Price: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Collar Upper Threshold Price: Long
   index, auction_collar_upper_threshold_price = siac_cts_output_cta_v2_9.auction_collar_upper_threshold_price.dissect(buffer, index, packet, parent)
 
-  -- Auction Collar Lower Threshold Price: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Collar Lower Threshold Price: Long
   index, auction_collar_lower_threshold_price = siac_cts_output_cta_v2_9.auction_collar_lower_threshold_price.dissect(buffer, index, packet, parent)
 
-  -- Number Of Extensions: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Extensions: Byte
   index, number_of_extensions = siac_cts_output_cta_v2_9.number_of_extensions.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_9.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cts_output_cta_v2_9.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Char
   index, financial_status_indicator = siac_cts_output_cta_v2_9.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Future Use: 62 Byte Ascii String
+  -- Future Use: Char[]
   index, future_use = siac_cts_output_cta_v2_9.future_use.dissect(buffer, index, packet, parent)
 
   return index
@@ -3809,49 +3809,49 @@ end
 siac_cts_output_cta_v2_9.participant_end_of_day_summary_message.fields = function(buffer, offset, packet, parent, size_of_participant_end_of_day_summary_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Initiating Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Initiating Participant Id: Char
   index, initiating_participant_id = siac_cts_output_cta_v2_9.initiating_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
+  -- Previous Close Price Date: Integer
   index, previous_close_price_date = siac_cts_output_cta_v2_9.previous_close_price_date.dissect(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Unsigned Fixed Width Integer
+  -- Last Price: Long
   index, last_price = siac_cts_output_cta_v2_9.last_price.dissect(buffer, index, packet, parent)
 
-  -- High Price: 8 Byte Unsigned Fixed Width Integer
+  -- High Price: Long
   index, high_price = siac_cts_output_cta_v2_9.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 8 Byte Unsigned Fixed Width Integer
+  -- Low Price: Long
   index, low_price = siac_cts_output_cta_v2_9.low_price.dissect(buffer, index, packet, parent)
 
-  -- Open Price: 8 Byte Unsigned Fixed Width Integer
+  -- Open Price: Long
   index, open_price = siac_cts_output_cta_v2_9.open_price.dissect(buffer, index, packet, parent)
 
-  -- Total Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Total Volume: Long
   index, total_volume = siac_cts_output_cta_v2_9.total_volume.dissect(buffer, index, packet, parent)
 
-  -- Tick: 1 Byte Ascii String Enum with 5 values
+  -- Tick: Char
   index, tick = siac_cts_output_cta_v2_9.tick.dissect(buffer, index, packet, parent)
 
   return index
@@ -3919,55 +3919,55 @@ end
 siac_cts_output_cta_v2_9.consolidated_end_of_day_summary_message.fields = function(buffer, offset, packet, parent, size_of_consolidated_end_of_day_summary_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Last Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Last Participant Id: Char
   index, last_participant_id = siac_cts_output_cta_v2_9.last_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
+  -- Previous Close Price Date: Integer
   index, previous_close_price_date = siac_cts_output_cta_v2_9.previous_close_price_date.dissect(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Unsigned Fixed Width Integer
+  -- Last Price: Long
   index, last_price = siac_cts_output_cta_v2_9.last_price.dissect(buffer, index, packet, parent)
 
-  -- High Price: 8 Byte Unsigned Fixed Width Integer
+  -- High Price: Long
   index, high_price = siac_cts_output_cta_v2_9.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 8 Byte Unsigned Fixed Width Integer
+  -- Low Price: Long
   index, low_price = siac_cts_output_cta_v2_9.low_price.dissect(buffer, index, packet, parent)
 
-  -- Total Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Total Volume: Long
   index, total_volume = siac_cts_output_cta_v2_9.total_volume.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_9.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cts_output_cta_v2_9.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Char
   index, financial_status_indicator = siac_cts_output_cta_v2_9.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Number Of Participants: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Participants: Byte
   index, number_of_participants = siac_cts_output_cta_v2_9.number_of_participants.dissect(buffer, index, packet, parent)
 
   return index
@@ -4041,34 +4041,34 @@ end
 siac_cts_output_cta_v2_9.participant_start_of_day_summary_message.fields = function(buffer, offset, packet, parent, size_of_participant_start_of_day_summary_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
-  -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
+  -- Previous Close Price Date: Integer
   index, previous_close_price_date = siac_cts_output_cta_v2_9.previous_close_price_date.dissect(buffer, index, packet, parent)
 
-  -- Previous Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Previous Close Price: Long
   index, previous_close_price = siac_cts_output_cta_v2_9.previous_close_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -4113,46 +4113,46 @@ end
 siac_cts_output_cta_v2_9.consolidated_start_of_day_summary_message.fields = function(buffer, offset, packet, parent, size_of_consolidated_start_of_day_summary_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
-  -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
+  -- Previous Close Price Date: Integer
   index, previous_close_price_date = siac_cts_output_cta_v2_9.previous_close_price_date.dissect(buffer, index, packet, parent)
 
-  -- Previous Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Previous Close Price: Long
   index, previous_close_price = siac_cts_output_cta_v2_9.previous_close_price.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_9.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cts_output_cta_v2_9.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Char
   index, financial_status_indicator = siac_cts_output_cta_v2_9.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Number Of Participants: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Participants: Byte
   index, number_of_participants = siac_cts_output_cta_v2_9.number_of_participants.dissect(buffer, index, packet, parent)
 
   return index
@@ -4353,49 +4353,49 @@ end
 siac_cts_output_cta_v2_9.prior_day_trade_message.fields = function(buffer, offset, packet, parent, size_of_prior_day_trade_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_9.sale_conditions.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Price: Long
   index, trade_price = siac_cts_output_cta_v2_9.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Volume: Integer
   index, trade_volume = siac_cts_output_cta_v2_9.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
+  -- Sellers Sale Days: Byte
   index, sellers_sale_days = siac_cts_output_cta_v2_9.sellers_sale_days.dissect(buffer, index, packet, parent)
 
-  -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Stop Stock Indicator: Char
   index, stop_stock_indicator = siac_cts_output_cta_v2_9.stop_stock_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Trade Through Exempt Indicator: Char
   index, trade_through_exempt_indicator = siac_cts_output_cta_v2_9.trade_through_exempt_indicator.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_9.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 4 values
+  -- Trade Reporting Facility Id: Char
   index, trade_reporting_facility_id = siac_cts_output_cta_v2_9.trade_reporting_facility_id.dissect(buffer, index, packet, parent)
 
   -- Prior Day Trade Date And Time: Struct of 2 fields
@@ -4443,31 +4443,31 @@ end
 siac_cts_output_cta_v2_9.prior_day_trade_correction_message.fields = function(buffer, offset, packet, parent, size_of_prior_day_trade_correction_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 11 Byte Ascii String
+  -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Corrected Trade: Struct of 8 fields
   index, corrected_trade = siac_cts_output_cta_v2_9.corrected_trade.dissect(buffer, index, packet, parent)
 
-  -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 4 values
+  -- Trade Reporting Facility Id: Char
   index, trade_reporting_facility_id = siac_cts_output_cta_v2_9.trade_reporting_facility_id.dissect(buffer, index, packet, parent)
 
   -- Original Trade: Struct of 8 fields
@@ -4729,28 +4729,28 @@ end
 siac_cts_output_cta_v2_9.crossing_session_summary_message.fields = function(buffer, offset, packet, parent, size_of_crossing_session_summary_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Crossing Session 1 Total Trades Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Crossing Session 1 Total Trades Volume: Long
   index, crossing_session_1_total_trades_volume = siac_cts_output_cta_v2_9.crossing_session_1_total_trades_volume.dissect(buffer, index, packet, parent)
 
-  -- Crossing Session 2 Dollar Value: 8 Byte Unsigned Fixed Width Integer
+  -- Crossing Session 2 Dollar Value: Long
   index, crossing_session_2_dollar_value = siac_cts_output_cta_v2_9.crossing_session_2_dollar_value.dissect(buffer, index, packet, parent)
 
-  -- Crossing Session 2 Total Trades Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Crossing Session 2 Total Trades Volume: Long
   index, crossing_session_2_total_trades_volume = siac_cts_output_cta_v2_9.crossing_session_2_total_trades_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -4841,25 +4841,25 @@ end
 siac_cts_output_cta_v2_9.approximate_trades_and_total_dollar_value_message.fields = function(buffer, offset, packet, parent, size_of_approximate_trades_and_total_dollar_value_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Total Trades: 4 Byte Unsigned Fixed Width Integer
+  -- Total Trades: Integer
   index, total_trades = siac_cts_output_cta_v2_9.total_trades.dissect(buffer, index, packet, parent)
 
-  -- Dollar Value: 8 Byte Unsigned Fixed Width Integer
+  -- Dollar Value: Long
   index, dollar_value = siac_cts_output_cta_v2_9.dollar_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -4928,10 +4928,10 @@ siac_cts_output_cta_v2_9.participants.fields = function(buffer, offset, packet, 
     iteration:set_generated()
   end
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Total Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Total Volume: Long
   index, trade_total_volume = siac_cts_output_cta_v2_9.trade_total_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -4977,22 +4977,22 @@ end
 siac_cts_output_cta_v2_9.approximate_adjusted_volume_market_center_message.fields = function(buffer, offset, packet, parent, size_of_approximate_adjusted_volume_market_center_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Number Of Participants: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Participants: Byte
   index, number_of_participants = siac_cts_output_cta_v2_9.number_of_participants.dissect(buffer, index, packet, parent)
 
   -- Repeating: Participants
@@ -5101,25 +5101,25 @@ end
 siac_cts_output_cta_v2_9.market_wide_circuit_breaker_status_message.fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Market Wide Circuit Breaker Level Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Market Wide Circuit Breaker Level Indicator: Char
   index, market_wide_circuit_breaker_level_indicator = siac_cts_output_cta_v2_9.market_wide_circuit_breaker_level_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
+  -- Reserved: Byte
   index, reserved = siac_cts_output_cta_v2_9.reserved.dissect(buffer, index, packet, parent)
 
   return index
@@ -5233,31 +5233,31 @@ end
 siac_cts_output_cta_v2_9.market_wide_circuit_breaker_decline_level_status_message.fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 1: 8 Byte Signed Fixed Width Integer
+  -- Mwcb Level 1: Signed Long
   index, mwcb_level_1 = siac_cts_output_cta_v2_9.mwcb_level_1.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 2: 8 Byte Signed Fixed Width Integer
+  -- Mwcb Level 2: Signed Long
   index, mwcb_level_2 = siac_cts_output_cta_v2_9.mwcb_level_2.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 3: 8 Byte Signed Fixed Width Integer
+  -- Mwcb Level 3: Signed Long
   index, mwcb_level_3 = siac_cts_output_cta_v2_9.mwcb_level_3.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
+  -- Reserved: Byte
   index, reserved = siac_cts_output_cta_v2_9.reserved.dissect(buffer, index, packet, parent)
 
   return index
@@ -5538,28 +5538,28 @@ end
 siac_cts_output_cta_v2_9.bid_and_offer_index_message.fields = function(buffer, offset, packet, parent, size_of_bid_and_offer_index_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Index Symbol: 11 Byte Ascii String
+  -- Index Symbol: Char[]
   index, index_symbol = siac_cts_output_cta_v2_9.index_symbol.dissect(buffer, index, packet, parent)
 
-  -- Bid Index Value: 8 Byte Signed Fixed Width Integer
+  -- Bid Index Value: Signed Long
   index, bid_index_value = siac_cts_output_cta_v2_9.bid_index_value.dissect(buffer, index, packet, parent)
 
-  -- Offer Index Value: 8 Byte Signed Fixed Width Integer
+  -- Offer Index Value: Signed Long
   index, offer_index_value = siac_cts_output_cta_v2_9.offer_index_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -5627,25 +5627,25 @@ end
 siac_cts_output_cta_v2_9.index_message.fields = function(buffer, offset, packet, parent, size_of_index_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Index Symbol: 11 Byte Ascii String
+  -- Index Symbol: Char[]
   index, index_symbol = siac_cts_output_cta_v2_9.index_symbol.dissect(buffer, index, packet, parent)
 
-  -- Index Value: 8 Byte Signed Fixed Width Integer
+  -- Index Value: Signed Long
   index, index_value = siac_cts_output_cta_v2_9.index_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -5824,19 +5824,19 @@ end
 siac_cts_output_cta_v2_9.end_of_day_message.fields = function(buffer, offset, packet, parent, size_of_end_of_day_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -5881,19 +5881,19 @@ end
 siac_cts_output_cta_v2_9.line_integrity_message.fields = function(buffer, offset, packet, parent, size_of_line_integrity_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -5938,19 +5938,19 @@ end
 siac_cts_output_cta_v2_9.disaster_recovery_data_center_activation_message.fields = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -5995,19 +5995,19 @@ end
 siac_cts_output_cta_v2_9.reset_block_sequence_number_message.fields = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -6052,19 +6052,19 @@ end
 siac_cts_output_cta_v2_9.start_of_day_message.fields = function(buffer, offset, packet, parent, size_of_start_of_day_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -6276,19 +6276,19 @@ end
 siac_cts_output_cta_v2_9.end_of_start_of_day_message.fields = function(buffer, offset, packet, parent, size_of_end_of_start_of_day_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -6333,19 +6333,19 @@ end
 siac_cts_output_cta_v2_9.start_of_start_of_day_message.fields = function(buffer, offset, packet, parent, size_of_start_of_start_of_day_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -6390,19 +6390,19 @@ end
 siac_cts_output_cta_v2_9.end_of_end_of_day_message.fields = function(buffer, offset, packet, parent, size_of_end_of_end_of_day_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -6447,19 +6447,19 @@ end
 siac_cts_output_cta_v2_9.start_of_end_of_day_message.fields = function(buffer, offset, packet, parent, size_of_start_of_end_of_day_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 20 values
+  -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
   index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -6819,10 +6819,10 @@ end
 siac_cts_output_cta_v2_9.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  -- Message Length: Short
   index, message_length = siac_cts_output_cta_v2_9.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Category: 1 Byte Ascii String Enum with 7 values
+  -- Message Category: Char
   index, message_category = siac_cts_output_cta_v2_9.message_category.dissect(buffer, index, packet, parent)
 
   return index
@@ -6937,10 +6937,10 @@ end
 siac_cts_output_cta_v2_9.sip_block_timestamp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Seconds: Integer
   index, seconds = siac_cts_output_cta_v2_9.seconds.dissect(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = siac_cts_output_cta_v2_9.nanoseconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -7132,28 +7132,28 @@ end
 siac_cts_output_cta_v2_9.block_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Version: 1 Byte Unsigned Fixed Width Integer
+  -- Version: Byte
   index, version = siac_cts_output_cta_v2_9.version.dissect(buffer, index, packet, parent)
 
-  -- Block Size: 2 Byte Unsigned Fixed Width Integer
+  -- Block Size: Short
   index, block_size = siac_cts_output_cta_v2_9.block_size.dissect(buffer, index, packet, parent)
 
-  -- Data Feed Indicator: 1 Byte Ascii String
+  -- Data Feed Indicator: Char
   index, data_feed_indicator = siac_cts_output_cta_v2_9.data_feed_indicator.dissect(buffer, index, packet, parent)
 
-  -- Retransmission Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Retransmission Indicator: Char
   index, retransmission_indicator = siac_cts_output_cta_v2_9.retransmission_indicator.dissect(buffer, index, packet, parent)
 
-  -- Block Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Block Sequence Number: Integer
   index, block_sequence_number = siac_cts_output_cta_v2_9.block_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Messages In Block: 1 Byte Unsigned Fixed Width Integer
+  -- Messages In Block: Byte
   index, messages_in_block = siac_cts_output_cta_v2_9.messages_in_block.dissect(buffer, index, packet, parent)
 
   -- Sip Block Timestamp: Struct of 2 fields
   index, sip_block_timestamp = siac_cts_output_cta_v2_9.sip_block_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Block Checksum: 2 Byte Unsigned Fixed Width Integer
+  -- Block Checksum: Short
   index, block_checksum = siac_cts_output_cta_v2_9.block_checksum.dissect(buffer, index, packet, parent)
 
   return index

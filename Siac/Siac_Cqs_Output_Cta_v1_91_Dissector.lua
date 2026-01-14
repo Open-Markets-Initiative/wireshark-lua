@@ -554,13 +554,13 @@ end
 siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Best Offer Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Best Offer Participant Id: Char
   index, best_offer_participant_id = siac_cqs_output_cta_v1_91.best_offer_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Best Offer Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Best Offer Price Short: Short
   index, best_offer_price_short = siac_cqs_output_cta_v1_91.best_offer_price_short.dissect(buffer, index, packet, parent)
 
-  -- Best Offer Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- Best Offer Size Short: Short
   index, best_offer_size_short = siac_cqs_output_cta_v1_91.best_offer_size_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -732,13 +732,13 @@ end
 siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Best Bid Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Best Bid Participant Id: Char
   index, best_bid_participant_id = siac_cqs_output_cta_v1_91.best_bid_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Best Bid Price Short: Short
   index, best_bid_price_short = siac_cqs_output_cta_v1_91.best_bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- Best Bid Size Short: Short
   index, best_bid_size_short = siac_cqs_output_cta_v1_91.best_bid_size_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -880,19 +880,19 @@ end
 siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Best Offer Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Best Offer Participant Id: Char
   index, best_offer_participant_id = siac_cqs_output_cta_v1_91.best_offer_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Best Offer Quote Condition: 1 Byte Ascii String
+  -- Best Offer Quote Condition: Char
   index, best_offer_quote_condition = siac_cqs_output_cta_v1_91.best_offer_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Best Offer Price Long: 8 Byte Unsigned Fixed Width Integer
+  -- Best Offer Price Long: Long
   index, best_offer_price_long = siac_cqs_output_cta_v1_91.best_offer_price_long.dissect(buffer, index, packet, parent)
 
-  -- Best Offer Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Best Offer Size Long: Integer
   index, best_offer_size_long = siac_cqs_output_cta_v1_91.best_offer_size_long.dissect(buffer, index, packet, parent)
 
-  -- Finra Best Offer Market Maker Id: 4 Byte Ascii String
+  -- Finra Best Offer Market Maker Id: Char[]
   index, finra_best_offer_market_maker_id = siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1034,19 +1034,19 @@ end
 siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Best Bid Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Best Bid Participant Id: Char
   index, best_bid_participant_id = siac_cqs_output_cta_v1_91.best_bid_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Quote Condition: 1 Byte Ascii String
+  -- Best Bid Quote Condition: Char
   index, best_bid_quote_condition = siac_cqs_output_cta_v1_91.best_bid_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Price Long: 8 Byte Unsigned Fixed Width Integer
+  -- Best Bid Price Long: Long
   index, best_bid_price_long = siac_cqs_output_cta_v1_91.best_bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Best Bid Size Long: Integer
   index, best_bid_size_long = siac_cqs_output_cta_v1_91.best_bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Finra Best Bid Market Maker Id: 4 Byte Ascii String
+  -- Finra Best Bid Market Maker Id: Char[]
   index, finra_best_bid_market_maker_id = siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1523,10 +1523,10 @@ end
 siac_cqs_output_cta_v1_91.adf_timestamp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Seconds: Integer
   index, seconds = siac_cqs_output_cta_v1_91.seconds.dissect(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = siac_cqs_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -2209,10 +2209,10 @@ end
 siac_cqs_output_cta_v1_91.participant_timestamp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Seconds: Integer
   index, seconds = siac_cqs_output_cta_v1_91.seconds.dissect(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = siac_cqs_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -2336,103 +2336,103 @@ end
 siac_cqs_output_cta_v1_91.special_long_quote_message.fields = function(buffer, offset, packet, parent, size_of_special_long_quote_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol Long: 11 Byte Ascii String
+  -- Security Symbol Long: Char[]
   index, security_symbol_long = siac_cqs_output_cta_v1_91.security_symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cqs_output_cta_v1_91.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 14 values
+  -- Quote Condition: Char
   index, quote_condition = siac_cqs_output_cta_v1_91.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Security Status Indicator: 1 Byte Ascii String Enum with 15 values
+  -- Security Status Indicator: Char
   index, security_status_indicator = siac_cqs_output_cta_v1_91.security_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Long: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Price Long: Long
   index, bid_price_long = siac_cqs_output_cta_v1_91.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size Long: Integer
   index, bid_size_long = siac_cqs_output_cta_v1_91.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Long: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Price Long: Long
   index, offer_price_long = siac_cqs_output_cta_v1_91.offer_price_long.dissect(buffer, index, packet, parent)
 
-  -- Offer Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Offer Size Long: Integer
   index, offer_size_long = siac_cqs_output_cta_v1_91.offer_size_long.dissect(buffer, index, packet, parent)
 
-  -- Retail Interest Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Retail Interest Indicator: Char
   index, retail_interest_indicator = siac_cqs_output_cta_v1_91.retail_interest_indicator.dissect(buffer, index, packet, parent)
 
-  -- Settlement Condition: 1 Byte Ascii String Enum with 3 values
+  -- Settlement Condition: Char
   index, settlement_condition = siac_cqs_output_cta_v1_91.settlement_condition.dissect(buffer, index, packet, parent)
 
-  -- Market Condition: 1 Byte Ascii String Enum with 3 values
+  -- Market Condition: Char
   index, market_condition = siac_cqs_output_cta_v1_91.market_condition.dissect(buffer, index, packet, parent)
 
-  -- Finra Market Maker Id: 4 Byte Ascii String
+  -- Finra Market Maker Id: Char[]
   index, finra_market_maker_id = siac_cqs_output_cta_v1_91.finra_market_maker_id.dissect(buffer, index, packet, parent)
 
-  -- Finra Best Bid Quote Condition: 1 Byte Ascii String
+  -- Finra Best Bid Quote Condition: Char
   index, finra_best_bid_quote_condition = siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Finra Best Bid Price: 8 Byte Unsigned Fixed Width Integer
+  -- Finra Best Bid Price: Long
   index, finra_best_bid_price = siac_cqs_output_cta_v1_91.finra_best_bid_price.dissect(buffer, index, packet, parent)
 
-  -- Finra Best Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Finra Best Bid Size: Integer
   index, finra_best_bid_size = siac_cqs_output_cta_v1_91.finra_best_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Finra Best Bid Market Maker Id: 4 Byte Ascii String
+  -- Finra Best Bid Market Maker Id: Char[]
   index, finra_best_bid_market_maker_id = siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.dissect(buffer, index, packet, parent)
 
-  -- Finra Best Offer Quote Condition: 1 Byte Ascii String
+  -- Finra Best Offer Quote Condition: Char
   index, finra_best_offer_quote_condition = siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Finra Best Offer Price: 8 Byte Unsigned Fixed Width Integer
+  -- Finra Best Offer Price: Long
   index, finra_best_offer_price = siac_cqs_output_cta_v1_91.finra_best_offer_price.dissect(buffer, index, packet, parent)
 
-  -- Finra Best Offer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Finra Best Offer Size: Integer
   index, finra_best_offer_size = siac_cqs_output_cta_v1_91.finra_best_offer_size.dissect(buffer, index, packet, parent)
 
-  -- Finra Best Offer Market Maker Id: 4 Byte Ascii String
+  -- Finra Best Offer Market Maker Id: Char[]
   index, finra_best_offer_market_maker_id = siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.dissect(buffer, index, packet, parent)
 
   -- Adf Timestamp: Struct of 2 fields
   index, adf_timestamp = siac_cqs_output_cta_v1_91.adf_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Char
   index, financial_status_indicator = siac_cqs_output_cta_v1_91.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Sip Generated Message Identifier: 1 Byte Ascii String Enum with 2 values
+  -- Sip Generated Message Identifier: Char
   index, sip_generated_message_identifier = siac_cqs_output_cta_v1_91.sip_generated_message_identifier.dissect(buffer, index, packet, parent)
 
-  -- Finra Bbo Luld Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Finra Bbo Luld Indicator: Char
   index, finra_bbo_luld_indicator = siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.dissect(buffer, index, packet, parent)
 
-  -- National Bbo Luld Indicator: 1 Byte Ascii String Enum with 10 values
+  -- National Bbo Luld Indicator: Char
   index, national_bbo_luld_indicator = siac_cqs_output_cta_v1_91.national_bbo_luld_indicator.dissect(buffer, index, packet, parent)
 
-  -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
+  -- National Bbo Indicator: Char
   index, national_bbo_indicator = siac_cqs_output_cta_v1_91.national_bbo_indicator.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: National Best Bid Long Appendage
@@ -2640,40 +2640,40 @@ end
 siac_cqs_output_cta_v1_91.short_quote_message.fields = function(buffer, offset, packet, parent, size_of_short_quote_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol Short: 5 Byte Ascii String
+  -- Security Symbol Short: Char[]
   index, security_symbol_short = siac_cqs_output_cta_v1_91.security_symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Price Short: Short
   index, bid_price_short = siac_cqs_output_cta_v1_91.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size Short: Short
   index, bid_size_short = siac_cqs_output_cta_v1_91.bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Price Short: Short
   index, offer_price_short = siac_cqs_output_cta_v1_91.offer_price_short.dissect(buffer, index, packet, parent)
 
-  -- Offer Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Size Short: Short
   index, offer_size_short = siac_cqs_output_cta_v1_91.offer_size_short.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
+  -- National Bbo Indicator: Char
   index, national_bbo_indicator = siac_cqs_output_cta_v1_91.national_bbo_indicator.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: National Best Bid Long Appendage
@@ -2868,82 +2868,82 @@ end
 siac_cqs_output_cta_v1_91.long_quote_message.fields = function(buffer, offset, packet, parent, size_of_long_quote_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol Long: 11 Byte Ascii String
+  -- Security Symbol Long: Char[]
   index, security_symbol_long = siac_cqs_output_cta_v1_91.security_symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cqs_output_cta_v1_91.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 14 values
+  -- Quote Condition: Char
   index, quote_condition = siac_cqs_output_cta_v1_91.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Security Status Indicator: 1 Byte Ascii String Enum with 15 values
+  -- Security Status Indicator: Char
   index, security_status_indicator = siac_cqs_output_cta_v1_91.security_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Lower Limit Price Band: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Price Lower Limit Price Band: Long
   index, bid_price_lower_limit_price_band = siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size Long: Integer
   index, bid_size_long = siac_cqs_output_cta_v1_91.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Upper Limit Price Band: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Price Upper Limit Price Band: Long
   index, offer_price_upper_limit_price_band = siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.dissect(buffer, index, packet, parent)
 
-  -- Offer Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Offer Size Long: Integer
   index, offer_size_long = siac_cqs_output_cta_v1_91.offer_size_long.dissect(buffer, index, packet, parent)
 
-  -- Retail Interest Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Retail Interest Indicator: Char
   index, retail_interest_indicator = siac_cqs_output_cta_v1_91.retail_interest_indicator.dissect(buffer, index, packet, parent)
 
-  -- Settlement Condition: 1 Byte Ascii String Enum with 3 values
+  -- Settlement Condition: Char
   index, settlement_condition = siac_cqs_output_cta_v1_91.settlement_condition.dissect(buffer, index, packet, parent)
 
-  -- Market Condition: 1 Byte Ascii String Enum with 3 values
+  -- Market Condition: Char
   index, market_condition = siac_cqs_output_cta_v1_91.market_condition.dissect(buffer, index, packet, parent)
 
-  -- Finra Market Maker Id: 4 Byte Ascii String
+  -- Finra Market Maker Id: Char[]
   index, finra_market_maker_id = siac_cqs_output_cta_v1_91.finra_market_maker_id.dissect(buffer, index, packet, parent)
 
-  -- Finra Bbo Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Finra Bbo Indicator: Char
   index, finra_bbo_indicator = siac_cqs_output_cta_v1_91.finra_bbo_indicator.dissect(buffer, index, packet, parent)
 
   -- Adf Timestamp: Struct of 2 fields
   index, adf_timestamp = siac_cqs_output_cta_v1_91.adf_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Char
   index, financial_status_indicator = siac_cqs_output_cta_v1_91.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Sip Generated Message Identifier: 1 Byte Ascii String Enum with 2 values
+  -- Sip Generated Message Identifier: Char
   index, sip_generated_message_identifier = siac_cqs_output_cta_v1_91.sip_generated_message_identifier.dissect(buffer, index, packet, parent)
 
-  -- Luld Indicator: 1 Byte Ascii String
+  -- Luld Indicator: Char
   index, luld_indicator = siac_cqs_output_cta_v1_91.luld_indicator.dissect(buffer, index, packet, parent)
 
-  -- National Bbo Luld Indicator: 1 Byte Ascii String Enum with 10 values
+  -- National Bbo Luld Indicator: Char
   index, national_bbo_luld_indicator = siac_cqs_output_cta_v1_91.national_bbo_luld_indicator.dissect(buffer, index, packet, parent)
 
-  -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
+  -- National Bbo Indicator: Char
   index, national_bbo_indicator = siac_cqs_output_cta_v1_91.national_bbo_indicator.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: National Best Bid Long Appendage
@@ -3070,25 +3070,25 @@ end
 siac_cqs_output_cta_v1_91.auction_status_message.fields = function(buffer, offset, packet, parent, size_of_auction_status_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol Long: 11 Byte Ascii String
+  -- Security Symbol Long: Char[]
   index, security_symbol_long = siac_cqs_output_cta_v1_91.security_symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
+  -- Instrument Type: Char
   index, instrument_type = siac_cqs_output_cta_v1_91.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Auction Collar Reference Price
@@ -3100,19 +3100,19 @@ siac_cqs_output_cta_v1_91.auction_status_message.fields = function(buffer, offse
   -- Auction Collar Lower Threshold Price
   index, auction_collar_lower_threshold_price = siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.dissect(buffer, index, packet, parent)
 
-  -- Number Of Extensions: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Extensions: Byte
   index, number_of_extensions = siac_cqs_output_cta_v1_91.number_of_extensions.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Short Sale Restriction Indicator: Char
   index, short_sale_restriction_indicator = siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
+  -- Primary Listing Market Participant Id: Char
   index, primary_listing_market_participant_id = siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Char
   index, financial_status_indicator = siac_cqs_output_cta_v1_91.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Future: 1 Byte Ascii String
+  -- Future: Char[]
   index, future = siac_cqs_output_cta_v1_91.future.dissect(buffer, index, packet, parent)
 
   return index
@@ -3336,25 +3336,25 @@ end
 siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Market Wide Circuit Breaker Level Indicator
   index, market_wide_circuit_breaker_level_indicator = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_level_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
+  -- Reserved: Byte
   index, reserved = siac_cqs_output_cta_v1_91.reserved.dissect(buffer, index, packet, parent)
 
   return index
@@ -3445,31 +3445,31 @@ end
 siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Mwcb Level 1
   index, mwcb_level_1 = siac_cqs_output_cta_v1_91.mwcb_level_1.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 2: 8 Byte Signed Fixed Width Integer
+  -- Mwcb Level 2: Signed Long
   index, mwcb_level_2 = siac_cqs_output_cta_v1_91.mwcb_level_2.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 3: 8 Byte Signed Fixed Width Integer
+  -- Mwcb Level 3: Signed Long
   index, mwcb_level_3 = siac_cqs_output_cta_v1_91.mwcb_level_3.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
+  -- Reserved: Byte
   index, reserved = siac_cqs_output_cta_v1_91.reserved.dissect(buffer, index, packet, parent)
 
   return index
@@ -3648,19 +3648,19 @@ end
 siac_cqs_output_cta_v1_91.end_of_day_message.fields = function(buffer, offset, packet, parent, size_of_end_of_day_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -3705,19 +3705,19 @@ end
 siac_cqs_output_cta_v1_91.line_integrity_message.fields = function(buffer, offset, packet, parent, size_of_line_integrity_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -3762,19 +3762,19 @@ end
 siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -3819,19 +3819,19 @@ end
 siac_cqs_output_cta_v1_91.finra_open_message.fields = function(buffer, offset, packet, parent, size_of_finra_open_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -3876,19 +3876,19 @@ end
 siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields = function(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -3933,19 +3933,19 @@ end
 siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields = function(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -3990,19 +3990,19 @@ end
 siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -4047,19 +4047,19 @@ end
 siac_cqs_output_cta_v1_91.finra_close_message.fields = function(buffer, offset, packet, parent, size_of_finra_close_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -4104,19 +4104,19 @@ end
 siac_cqs_output_cta_v1_91.start_of_day_message.fields = function(buffer, offset, packet, parent, size_of_start_of_day_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -4372,19 +4372,19 @@ end
 siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields = function(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 18 values
+  -- Participant Id: Char
   index, participant_id = siac_cqs_output_cta_v1_91.participant_id.dissect(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
   index, participant_timestamp = siac_cqs_output_cta_v1_91.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  -- Message Id: Byte
   index, message_id = siac_cqs_output_cta_v1_91.message_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: Integer
   index, transaction_id = siac_cqs_output_cta_v1_91.transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Text
@@ -4681,10 +4681,10 @@ end
 siac_cqs_output_cta_v1_91.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  -- Message Length: Short
   index, message_length = siac_cqs_output_cta_v1_91.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Category: 1 Byte Ascii String Enum with 4 values
+  -- Message Category: Char
   index, message_category = siac_cqs_output_cta_v1_91.message_category.dissect(buffer, index, packet, parent)
 
   return index
@@ -4799,10 +4799,10 @@ end
 siac_cqs_output_cta_v1_91.sip_block_timestamp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Seconds: Integer
   index, seconds = siac_cqs_output_cta_v1_91.seconds.dissect(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = siac_cqs_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -4994,28 +4994,28 @@ end
 siac_cqs_output_cta_v1_91.block_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Version: 1 Byte Unsigned Fixed Width Integer
+  -- Version: Byte
   index, version = siac_cqs_output_cta_v1_91.version.dissect(buffer, index, packet, parent)
 
-  -- Block Size: 2 Byte Unsigned Fixed Width Integer
+  -- Block Size: Short
   index, block_size = siac_cqs_output_cta_v1_91.block_size.dissect(buffer, index, packet, parent)
 
-  -- Data Feed Indicator: 1 Byte Ascii String
+  -- Data Feed Indicator: Char
   index, data_feed_indicator = siac_cqs_output_cta_v1_91.data_feed_indicator.dissect(buffer, index, packet, parent)
 
-  -- Retransmission Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Retransmission Indicator: Char
   index, retransmission_indicator = siac_cqs_output_cta_v1_91.retransmission_indicator.dissect(buffer, index, packet, parent)
 
-  -- Block Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Block Sequence Number: Integer
   index, block_sequence_number = siac_cqs_output_cta_v1_91.block_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Messages In Block: 1 Byte Unsigned Fixed Width Integer
+  -- Messages In Block: Byte
   index, messages_in_block = siac_cqs_output_cta_v1_91.messages_in_block.dissect(buffer, index, packet, parent)
 
   -- Sip Block Timestamp: Struct of 2 fields
   index, sip_block_timestamp = siac_cqs_output_cta_v1_91.sip_block_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Block Checksum: 2 Byte Unsigned Fixed Width Integer
+  -- Block Checksum: Short
   index, block_checksum = siac_cqs_output_cta_v1_91.block_checksum.dissect(buffer, index, packet, parent)
 
   return index
