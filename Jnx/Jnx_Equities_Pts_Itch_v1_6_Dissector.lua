@@ -349,19 +349,19 @@ end
 jnx_equities_pts_itch_v1_6.order_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Integer
   index, timestamp_nanoseconds = jnx_equities_pts_itch_v1_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Original Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Original Order Number: Integer
   index, original_order_number = jnx_equities_pts_itch_v1_6.original_order_number.dissect(buffer, index, packet, parent)
 
-  -- New Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- New Order Number: Integer
   index, new_order_number = jnx_equities_pts_itch_v1_6.new_order_number.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = jnx_equities_pts_itch_v1_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Integer
   index, price = jnx_equities_pts_itch_v1_6.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -425,10 +425,10 @@ end
 jnx_equities_pts_itch_v1_6.order_deleted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Integer
   index, timestamp_nanoseconds = jnx_equities_pts_itch_v1_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Integer
   index, order_number = jnx_equities_pts_itch_v1_6.order_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -517,16 +517,16 @@ end
 jnx_equities_pts_itch_v1_6.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Integer
   index, timestamp_nanoseconds = jnx_equities_pts_itch_v1_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Integer
   index, order_number = jnx_equities_pts_itch_v1_6.order_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Integer
   index, executed_quantity = jnx_equities_pts_itch_v1_6.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = jnx_equities_pts_itch_v1_6.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -713,31 +713,31 @@ end
 jnx_equities_pts_itch_v1_6.order_added_with_attributes_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Integer
   index, timestamp_nanoseconds = jnx_equities_pts_itch_v1_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Integer
   index, order_number = jnx_equities_pts_itch_v1_6.order_number.dissect(buffer, index, packet, parent)
 
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = jnx_equities_pts_itch_v1_6.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = jnx_equities_pts_itch_v1_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: 4 Byte Unsigned Fixed Width Integer
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_equities_pts_itch_v1_6.orderbook_id.dissect(buffer, index, packet, parent)
 
-  -- Group: 4 Byte Ascii String Enum with 4 values
+  -- Group: Alpha
   index, group = jnx_equities_pts_itch_v1_6.group.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Integer
   index, price = jnx_equities_pts_itch_v1_6.price.dissect(buffer, index, packet, parent)
 
-  -- Attribution: 4 Byte Ascii String
+  -- Attribution: Alpha
   index, attribution = jnx_equities_pts_itch_v1_6.attribution.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String Enum with 1 values
+  -- Order Type: Alpha
   index, order_type = jnx_equities_pts_itch_v1_6.order_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -783,25 +783,25 @@ end
 jnx_equities_pts_itch_v1_6.order_added_without_attributes_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Integer
   index, timestamp_nanoseconds = jnx_equities_pts_itch_v1_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Integer
   index, order_number = jnx_equities_pts_itch_v1_6.order_number.dissect(buffer, index, packet, parent)
 
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = jnx_equities_pts_itch_v1_6.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = jnx_equities_pts_itch_v1_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: 4 Byte Unsigned Fixed Width Integer
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_equities_pts_itch_v1_6.orderbook_id.dissect(buffer, index, packet, parent)
 
-  -- Group: 4 Byte Ascii String Enum with 4 values
+  -- Group: Alpha
   index, group = jnx_equities_pts_itch_v1_6.group.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Integer
   index, price = jnx_equities_pts_itch_v1_6.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -874,16 +874,16 @@ end
 jnx_equities_pts_itch_v1_6.short_selling_price_restriction_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Integer
   index, timestamp_nanoseconds = jnx_equities_pts_itch_v1_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: 4 Byte Unsigned Fixed Width Integer
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_equities_pts_itch_v1_6.orderbook_id.dissect(buffer, index, packet, parent)
 
-  -- Group: 4 Byte Ascii String Enum with 4 values
+  -- Group: Alpha
   index, group = jnx_equities_pts_itch_v1_6.group.dissect(buffer, index, packet, parent)
 
-  -- Short Selling State: 1 Byte Ascii String Enum with 2 values
+  -- Short Selling State: Alpha
   index, short_selling_state = jnx_equities_pts_itch_v1_6.short_selling_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -956,16 +956,16 @@ end
 jnx_equities_pts_itch_v1_6.trading_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Integer
   index, timestamp_nanoseconds = jnx_equities_pts_itch_v1_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: 4 Byte Unsigned Fixed Width Integer
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_equities_pts_itch_v1_6.orderbook_id.dissect(buffer, index, packet, parent)
 
-  -- Group: 4 Byte Ascii String Enum with 4 values
+  -- Group: Alpha
   index, group = jnx_equities_pts_itch_v1_6.group.dissect(buffer, index, packet, parent)
 
-  -- Trading State: 1 Byte Ascii String Enum with 2 values
+  -- Trading State: Alpha
   index, trading_state = jnx_equities_pts_itch_v1_6.trading_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -1175,31 +1175,31 @@ end
 jnx_equities_pts_itch_v1_6.orderbook_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Integer
   index, timestamp_nanoseconds = jnx_equities_pts_itch_v1_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: 4 Byte Unsigned Fixed Width Integer
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_equities_pts_itch_v1_6.orderbook_id.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Code: 12 Byte Ascii String
+  -- Orderbook Code: Alpha
   index, orderbook_code = jnx_equities_pts_itch_v1_6.orderbook_code.dissect(buffer, index, packet, parent)
 
-  -- Group: 4 Byte Ascii String Enum with 4 values
+  -- Group: Alpha
   index, group = jnx_equities_pts_itch_v1_6.group.dissect(buffer, index, packet, parent)
 
-  -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot Size: Integer
   index, round_lot_size = jnx_equities_pts_itch_v1_6.round_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Price Tick Size Table Id: 4 Byte Unsigned Fixed Width Integer
+  -- Price Tick Size Table Id: Integer
   index, price_tick_size_table_id = jnx_equities_pts_itch_v1_6.price_tick_size_table_id.dissect(buffer, index, packet, parent)
 
-  -- Price Decimals: 4 Byte Unsigned Fixed Width Integer
+  -- Price Decimals: Integer
   index, price_decimals = jnx_equities_pts_itch_v1_6.price_decimals.dissect(buffer, index, packet, parent)
 
-  -- Upper Price Limit: 4 Byte Unsigned Fixed Width Integer
+  -- Upper Price Limit: Integer
   index, upper_price_limit = jnx_equities_pts_itch_v1_6.upper_price_limit.dissect(buffer, index, packet, parent)
 
-  -- Lower Price Limit: 4 Byte Unsigned Fixed Width Integer
+  -- Lower Price Limit: Integer
   index, lower_price_limit = jnx_equities_pts_itch_v1_6.lower_price_limit.dissect(buffer, index, packet, parent)
 
   return index
@@ -1300,16 +1300,16 @@ end
 jnx_equities_pts_itch_v1_6.price_tick_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Integer
   index, timestamp_nanoseconds = jnx_equities_pts_itch_v1_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Price Tick Size Table Id: 4 Byte Unsigned Fixed Width Integer
+  -- Price Tick Size Table Id: Integer
   index, price_tick_size_table_id = jnx_equities_pts_itch_v1_6.price_tick_size_table_id.dissect(buffer, index, packet, parent)
 
-  -- Price Tick Size: 4 Byte Unsigned Fixed Width Integer
+  -- Price Tick Size: Integer
   index, price_tick_size = jnx_equities_pts_itch_v1_6.price_tick_size.dissect(buffer, index, packet, parent)
 
-  -- Price Start: 4 Byte Unsigned Fixed Width Integer
+  -- Price Start: Integer
   index, price_start = jnx_equities_pts_itch_v1_6.price_start.dissect(buffer, index, packet, parent)
 
   return index
@@ -1374,13 +1374,13 @@ end
 jnx_equities_pts_itch_v1_6.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Integer
   index, timestamp_nanoseconds = jnx_equities_pts_itch_v1_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Group: 4 Byte Ascii String Enum with 4 values
+  -- Group: Alpha
   index, group = jnx_equities_pts_itch_v1_6.group.dissect(buffer, index, packet, parent)
 
-  -- System Event: 1 Byte Ascii String
+  -- System Event: Alpha
   index, system_event = jnx_equities_pts_itch_v1_6.system_event.dissect(buffer, index, packet, parent)
 
   return index
@@ -1443,7 +1443,7 @@ end
 jnx_equities_pts_itch_v1_6.timestamp_seconds_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Seconds: Integer
   index, timestamp_seconds = jnx_equities_pts_itch_v1_6.timestamp_seconds.dissect(buffer, index, packet, parent)
 
   return index
