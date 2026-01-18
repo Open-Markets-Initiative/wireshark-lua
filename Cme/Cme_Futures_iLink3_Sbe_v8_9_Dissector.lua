@@ -53,8 +53,8 @@ omi_cme_futures_ilink3_sbe_v8_9.fields.credentials_data = ProtoField.new("Creden
 omi_cme_futures_ilink3_sbe_v8_9.fields.credentials_length = ProtoField.new("Credentials Length", "cme.futures.ilink3.sbe.v8.9.credentialslength", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_9.fields.cross_id = ProtoField.new("Cross Id", "cme.futures.ilink3.sbe.v8.9.crossid", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_9.fields.cross_id_optional = ProtoField.new("Cross Id Optional", "cme.futures.ilink3.sbe.v8.9.crossidoptional", ftypes.UINT64)
-omi_cme_futures_ilink3_sbe_v8_9.fields.cross_type_cross_type_enum = ProtoField.new("Cross Type Cross Type Enum", "cme.futures.ilink3.sbe.v8.9.crosstypecrosstypeenum", ftypes.UINT8)
-omi_cme_futures_ilink3_sbe_v8_9.fields.cross_type_u_int_8_null = ProtoField.new("Cross Type u Int 8 Null", "cme.futures.ilink3.sbe.v8.9.crosstypeuint8null", ftypes.UINT8)
+omi_cme_futures_ilink3_sbe_v8_9.fields.cross_type = ProtoField.new("Cross Type", "cme.futures.ilink3.sbe.v8.9.crosstype", ftypes.UINT8)
+omi_cme_futures_ilink3_sbe_v8_9.fields.cross_type_optional = ProtoField.new("Cross Type Optional", "cme.futures.ilink3.sbe.v8.9.crosstypeoptional", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_9.fields.cum_qty = ProtoField.new("Cum Qty", "cme.futures.ilink3.sbe.v8.9.cumqty", ftypes.UINT32)
 omi_cme_futures_ilink3_sbe_v8_9.fields.currency = ProtoField.new("Currency", "cme.futures.ilink3.sbe.v8.9.currency", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_9.fields.cust_order_capacity = ProtoField.new("Cust Order Capacity", "cme.futures.ilink3.sbe.v8.9.custordercapacity", ftypes.UINT8)
@@ -3699,35 +3699,35 @@ cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.dissect = func
   return cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.fields(buffer, offset, packet, parent)
 end
 
--- Cross Type Cross Type Enum
-cme_futures_ilink3_sbe_v8_9.cross_type_cross_type_enum = {}
+-- Cross Type
+cme_futures_ilink3_sbe_v8_9.cross_type = {}
 
--- Size: Cross Type Cross Type Enum
-cme_futures_ilink3_sbe_v8_9.cross_type_cross_type_enum.size = 1
+-- Size: Cross Type
+cme_futures_ilink3_sbe_v8_9.cross_type.size = 1
 
--- Display: Cross Type Cross Type Enum
-cme_futures_ilink3_sbe_v8_9.cross_type_cross_type_enum.display = function(value)
+-- Display: Cross Type
+cme_futures_ilink3_sbe_v8_9.cross_type.display = function(value)
   if value == 3 then
-    return "Cross Type Cross Type Enum: Cross (3)"
+    return "Cross Type: Cross (3)"
   end
   if value == 20 then
-    return "Cross Type Cross Type Enum: R Cross (20)"
+    return "Cross Type: R Cross (20)"
   end
   if value == 21 then
-    return "Cross Type Cross Type Enum: C Cross (21)"
+    return "Cross Type: C Cross (21)"
   end
 
-  return "Cross Type Cross Type Enum: Unknown("..value..")"
+  return "Cross Type: Unknown("..value..")"
 end
 
--- Dissect: Cross Type Cross Type Enum
-cme_futures_ilink3_sbe_v8_9.cross_type_cross_type_enum.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_9.cross_type_cross_type_enum.size
+-- Dissect: Cross Type
+cme_futures_ilink3_sbe_v8_9.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_9.cross_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_9.cross_type_cross_type_enum.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_ilink3_sbe_v8_9.cross_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.cross_type_cross_type_enum, range, value, display)
+  parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -3795,7 +3795,7 @@ cme_futures_ilink3_sbe_v8_9.request_for_cross.size = function(buffer, offset)
 
   index = index + cme_futures_ilink3_sbe_v8_9.sender_id.size
 
-  index = index + cme_futures_ilink3_sbe_v8_9.cross_type_cross_type_enum.size
+  index = index + cme_futures_ilink3_sbe_v8_9.cross_type.size
 
   index = index + cme_futures_ilink3_sbe_v8_9.price.size
 
@@ -3834,8 +3834,8 @@ cme_futures_ilink3_sbe_v8_9.request_for_cross.fields = function(buffer, offset, 
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = cme_futures_ilink3_sbe_v8_9.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Type Cross Type Enum: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, cross_type_cross_type_enum = cme_futures_ilink3_sbe_v8_9.cross_type_cross_type_enum.dissect(buffer, index, packet, parent)
+  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, cross_type = cme_futures_ilink3_sbe_v8_9.cross_type.dissect(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
   index, price = cme_futures_ilink3_sbe_v8_9.price.dissect(buffer, index, packet, parent)
@@ -13188,30 +13188,30 @@ cme_futures_ilink3_sbe_v8_9.order_cancel_reject.dissect = function(buffer, offse
   end
 end
 
--- Cross Type u Int 8 Null
-cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null = {}
+-- Cross Type Optional
+cme_futures_ilink3_sbe_v8_9.cross_type_optional = {}
 
--- Size: Cross Type u Int 8 Null
-cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.size = 1
+-- Size: Cross Type Optional
+cme_futures_ilink3_sbe_v8_9.cross_type_optional.size = 1
 
--- Display: Cross Type u Int 8 Null
-cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.display = function(value)
+-- Display: Cross Type Optional
+cme_futures_ilink3_sbe_v8_9.cross_type_optional.display = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Cross Type u Int 8 Null: No Value"
+    return "Cross Type Optional: No Value"
   end
 
-  return "Cross Type u Int 8 Null: "..value
+  return "Cross Type Optional: "..value
 end
 
--- Dissect: Cross Type u Int 8 Null
-cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.size
+-- Dissect: Cross Type Optional
+cme_futures_ilink3_sbe_v8_9.cross_type_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_9.cross_type_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_ilink3_sbe_v8_9.cross_type_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.cross_type_u_int_8_null, range, value, display)
+  parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.cross_type_optional, range, value, display)
 
   return offset + length, value
 end
@@ -13345,7 +13345,7 @@ cme_futures_ilink3_sbe_v8_9.execution_report_cancel.size =
   cme_futures_ilink3_sbe_v8_9.poss_retrans_flag.size + 
   cme_futures_ilink3_sbe_v8_9.split_msg.size + 
   cme_futures_ilink3_sbe_v8_9.exec_restatement_reason.size + 
-  cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.size + 
+  cme_futures_ilink3_sbe_v8_9.cross_type_optional.size + 
   cme_futures_ilink3_sbe_v8_9.exec_inst.size + 
   cme_futures_ilink3_sbe_v8_9.execution_mode.size + 
   cme_futures_ilink3_sbe_v8_9.liquidity_flag.size + 
@@ -13454,8 +13454,8 @@ cme_futures_ilink3_sbe_v8_9.execution_report_cancel.fields = function(buffer, of
   -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
   index, exec_restatement_reason = cme_futures_ilink3_sbe_v8_9.exec_restatement_reason.dissect(buffer, index, packet, parent)
 
-  -- Cross Type u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_type_u_int_8_null = cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.dissect(buffer, index, packet, parent)
+  -- Cross Type Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_type_optional = cme_futures_ilink3_sbe_v8_9.cross_type_optional.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_9.exec_inst.dissect(buffer, index, packet, parent)
@@ -13834,7 +13834,7 @@ cme_futures_ilink3_sbe_v8_9.execution_report_status.size =
   cme_futures_ilink3_sbe_v8_9.manual_order_indicator.size + 
   cme_futures_ilink3_sbe_v8_9.poss_retrans_flag.size + 
   cme_futures_ilink3_sbe_v8_9.last_rpt_requested.size + 
-  cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.size + 
+  cme_futures_ilink3_sbe_v8_9.cross_type_optional.size + 
   cme_futures_ilink3_sbe_v8_9.exec_inst.size + 
   cme_futures_ilink3_sbe_v8_9.execution_mode.size + 
   cme_futures_ilink3_sbe_v8_9.liquidity_flag.size + 
@@ -13951,8 +13951,8 @@ cme_futures_ilink3_sbe_v8_9.execution_report_status.fields = function(buffer, of
   -- Last Rpt Requested: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_rpt_requested = cme_futures_ilink3_sbe_v8_9.last_rpt_requested.dissect(buffer, index, packet, parent)
 
-  -- Cross Type u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_type_u_int_8_null = cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.dissect(buffer, index, packet, parent)
+  -- Cross Type Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_type_optional = cme_futures_ilink3_sbe_v8_9.cross_type_optional.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_9.exec_inst.dissect(buffer, index, packet, parent)
@@ -14039,7 +14039,7 @@ cme_futures_ilink3_sbe_v8_9.execution_report_modify.size =
   cme_futures_ilink3_sbe_v8_9.manual_order_indicator.size + 
   cme_futures_ilink3_sbe_v8_9.poss_retrans_flag.size + 
   cme_futures_ilink3_sbe_v8_9.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.size + 
+  cme_futures_ilink3_sbe_v8_9.cross_type_optional.size + 
   cme_futures_ilink3_sbe_v8_9.exec_inst.size + 
   cme_futures_ilink3_sbe_v8_9.execution_mode.size + 
   cme_futures_ilink3_sbe_v8_9.liquidity_flag.size + 
@@ -14145,8 +14145,8 @@ cme_futures_ilink3_sbe_v8_9.execution_report_modify.fields = function(buffer, of
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, split_msg = cme_futures_ilink3_sbe_v8_9.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Cross Type u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_type_u_int_8_null = cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.dissect(buffer, index, packet, parent)
+  -- Cross Type Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_type_optional = cme_futures_ilink3_sbe_v8_9.cross_type_optional.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_9.exec_inst.dissect(buffer, index, packet, parent)
@@ -15751,7 +15751,7 @@ cme_futures_ilink3_sbe_v8_9.execution_report_trade_spread.size = function(buffer
 
   index = index + cme_futures_ilink3_sbe_v8_9.aggressor_indicator.size
 
-  index = index + cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.size
+  index = index + cme_futures_ilink3_sbe_v8_9.cross_type_optional.size
 
   index = index + cme_futures_ilink3_sbe_v8_9.total_num_securities.size
 
@@ -15880,8 +15880,8 @@ cme_futures_ilink3_sbe_v8_9.execution_report_trade_spread.fields = function(buff
   -- Aggressor Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, aggressor_indicator = cme_futures_ilink3_sbe_v8_9.aggressor_indicator.dissect(buffer, index, packet, parent)
 
-  -- Cross Type u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_type_u_int_8_null = cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.dissect(buffer, index, packet, parent)
+  -- Cross Type Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_type_optional = cme_futures_ilink3_sbe_v8_9.cross_type_optional.dissect(buffer, index, packet, parent)
 
   -- Total Num Securities: 1 Byte Unsigned Fixed Width Integer
   index, total_num_securities = cme_futures_ilink3_sbe_v8_9.total_num_securities.dissect(buffer, index, packet, parent)
@@ -16214,7 +16214,7 @@ cme_futures_ilink3_sbe_v8_9.execution_report_trade_outright.size = function(buff
 
   index = index + cme_futures_ilink3_sbe_v8_9.aggressor_indicator.size
 
-  index = index + cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.size
+  index = index + cme_futures_ilink3_sbe_v8_9.cross_type_optional.size
 
   index = index + cme_futures_ilink3_sbe_v8_9.exec_inst.size
 
@@ -16368,8 +16368,8 @@ cme_futures_ilink3_sbe_v8_9.execution_report_trade_outright.fields = function(bu
   -- Aggressor Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, aggressor_indicator = cme_futures_ilink3_sbe_v8_9.aggressor_indicator.dissect(buffer, index, packet, parent)
 
-  -- Cross Type u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_type_u_int_8_null = cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.dissect(buffer, index, packet, parent)
+  -- Cross Type Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_type_optional = cme_futures_ilink3_sbe_v8_9.cross_type_optional.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_9.exec_inst.dissect(buffer, index, packet, parent)
@@ -16475,7 +16475,7 @@ cme_futures_ilink3_sbe_v8_9.execution_report_elimination.size =
   cme_futures_ilink3_sbe_v8_9.time_in_force.size + 
   cme_futures_ilink3_sbe_v8_9.manual_order_indicator.size + 
   cme_futures_ilink3_sbe_v8_9.poss_retrans_flag.size + 
-  cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.size + 
+  cme_futures_ilink3_sbe_v8_9.cross_type_optional.size + 
   cme_futures_ilink3_sbe_v8_9.exec_inst.size + 
   cme_futures_ilink3_sbe_v8_9.execution_mode.size + 
   cme_futures_ilink3_sbe_v8_9.liquidity_flag.size + 
@@ -16572,8 +16572,8 @@ cme_futures_ilink3_sbe_v8_9.execution_report_elimination.fields = function(buffe
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_9.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Cross Type u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_type_u_int_8_null = cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.dissect(buffer, index, packet, parent)
+  -- Cross Type Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_type_optional = cme_futures_ilink3_sbe_v8_9.cross_type_optional.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_9.exec_inst.dissect(buffer, index, packet, parent)
@@ -16677,7 +16677,7 @@ cme_futures_ilink3_sbe_v8_9.execution_report_reject.size =
   cme_futures_ilink3_sbe_v8_9.manual_order_indicator.size + 
   cme_futures_ilink3_sbe_v8_9.poss_retrans_flag.size + 
   cme_futures_ilink3_sbe_v8_9.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.size + 
+  cme_futures_ilink3_sbe_v8_9.cross_type_optional.size + 
   cme_futures_ilink3_sbe_v8_9.exec_inst.size + 
   cme_futures_ilink3_sbe_v8_9.execution_mode.size + 
   cme_futures_ilink3_sbe_v8_9.liquidity_flag.size + 
@@ -16783,8 +16783,8 @@ cme_futures_ilink3_sbe_v8_9.execution_report_reject.fields = function(buffer, of
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, split_msg = cme_futures_ilink3_sbe_v8_9.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Cross Type u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_type_u_int_8_null = cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.dissect(buffer, index, packet, parent)
+  -- Cross Type Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_type_optional = cme_futures_ilink3_sbe_v8_9.cross_type_optional.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_9.exec_inst.dissect(buffer, index, packet, parent)
@@ -16863,7 +16863,7 @@ cme_futures_ilink3_sbe_v8_9.execution_report_new.size =
   cme_futures_ilink3_sbe_v8_9.manual_order_indicator.size + 
   cme_futures_ilink3_sbe_v8_9.poss_retrans_flag.size + 
   cme_futures_ilink3_sbe_v8_9.split_msg.size + 
-  cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.size + 
+  cme_futures_ilink3_sbe_v8_9.cross_type_optional.size + 
   cme_futures_ilink3_sbe_v8_9.exec_inst.size + 
   cme_futures_ilink3_sbe_v8_9.execution_mode.size + 
   cme_futures_ilink3_sbe_v8_9.liquidity_flag.size + 
@@ -16964,8 +16964,8 @@ cme_futures_ilink3_sbe_v8_9.execution_report_new.fields = function(buffer, offse
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, split_msg = cme_futures_ilink3_sbe_v8_9.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Cross Type u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_type_u_int_8_null = cme_futures_ilink3_sbe_v8_9.cross_type_u_int_8_null.dissect(buffer, index, packet, parent)
+  -- Cross Type Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_type_optional = cme_futures_ilink3_sbe_v8_9.cross_type_optional.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_9.exec_inst.dissect(buffer, index, packet, parent)
