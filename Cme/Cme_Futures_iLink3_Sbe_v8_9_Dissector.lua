@@ -258,8 +258,6 @@ omi_cme_futures_ilink3_sbe_v8_9.fields.ref_seq_num = ProtoField.new("Ref Seq Num
 omi_cme_futures_ilink3_sbe_v8_9.fields.ref_tag_id = ProtoField.new("Ref Tag Id", "cme.futures.ilink3.sbe.v8.9.reftagid", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_9.fields.related_sym_group = ProtoField.new("Related Sym Group", "cme.futures.ilink3.sbe.v8.9.relatedsymgroup", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_9.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.futures.ilink3.sbe.v8.9.relatedsymgroups", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_9.fields.request_for_cross_566_no_sides_group = ProtoField.new("Request For Cross 566 No Sides Group", "cme.futures.ilink3.sbe.v8.9.requestforcross566nosidesgroup", ftypes.STRING)
-omi_cme_futures_ilink3_sbe_v8_9.fields.request_for_cross_566_no_sides_groups = ProtoField.new("Request For Cross 566 No Sides Groups", "cme.futures.ilink3.sbe.v8.9.requestforcross566nosidesgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_9.fields.request_legs_group = ProtoField.new("Request Legs Group", "cme.futures.ilink3.sbe.v8.9.requestlegsgroup", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_9.fields.request_legs_groups = ProtoField.new("Request Legs Groups", "cme.futures.ilink3.sbe.v8.9.requestlegsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_9.fields.request_result = ProtoField.new("Request Result", "cme.futures.ilink3.sbe.v8.9.requestresult", ftypes.UINT8)
@@ -436,7 +434,6 @@ omi_cme_futures_ilink3_sbe_v8_9.fields.quote_cancel_entries_group_index = ProtoF
 omi_cme_futures_ilink3_sbe_v8_9.fields.quote_cancel_sets_group_index = ProtoField.new("Quote Cancel Sets Group Index", "cme.futures.ilink3.sbe.v8.9.quotecancelsetsgroupindex", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_9.fields.quote_entries_group_index = ProtoField.new("Quote Entries Group Index", "cme.futures.ilink3.sbe.v8.9.quoteentriesgroupindex", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_9.fields.related_sym_group_index = ProtoField.new("Related Sym Group Index", "cme.futures.ilink3.sbe.v8.9.relatedsymgroupindex", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_9.fields.request_for_cross_566_no_sides_group_index = ProtoField.new("Request For Cross 566 No Sides Group Index", "cme.futures.ilink3.sbe.v8.9.requestforcross566nosidesgroupindex", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_9.fields.request_legs_group_index = ProtoField.new("Request Legs Group Index", "cme.futures.ilink3.sbe.v8.9.requestlegsgroupindex", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_9.fields.requesting_party_ids_group_index = ProtoField.new("Requesting Party Ids Group Index", "cme.futures.ilink3.sbe.v8.9.requestingpartyidsgroupindex", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_9.fields.response_legs_group_index = ProtoField.new("Response Legs Group Index", "cme.futures.ilink3.sbe.v8.9.responselegsgroupindex", ftypes.UINT16)
@@ -553,8 +550,6 @@ show.quote_entries_groups = true
 show.related_sym_group = true
 show.related_sym_groups = true
 show.request_for_cross = true
-show.request_for_cross_566_no_sides_group = true
-show.request_for_cross_566_no_sides_groups = true
 show.request_for_quote = true
 show.request_for_quote_ack = true
 show.request_legs_group = true
@@ -689,8 +684,6 @@ omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_entries_groups = Pref.bool("Sho
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross = Pref.bool("Show Request For Cross", show.request_for_cross, "Parse and add Request For Cross to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross_566_no_sides_group = Pref.bool("Show Request For Cross 566 No Sides Group", show.request_for_cross_566_no_sides_group, "Parse and add Request For Cross 566 No Sides Group to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross_566_no_sides_groups = Pref.bool("Show Request For Cross 566 No Sides Groups", show.request_for_cross_566_no_sides_groups, "Parse and add Request For Cross 566 No Sides Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_quote = Pref.bool("Show Request For Quote", show.request_for_quote, "Parse and add Request For Quote to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_quote_ack = Pref.bool("Show Request For Quote Ack", show.request_for_quote_ack, "Parse and add Request For Quote Ack to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_legs_group = Pref.bool("Show Request Legs Group", show.request_legs_group, "Parse and add Request Legs Group to protocol tree")
@@ -1124,14 +1117,6 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
   end
   if show.request_for_cross ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross then
     show.request_for_cross = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross
-    changed = true
-  end
-  if show.request_for_cross_566_no_sides_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross_566_no_sides_group then
-    show.request_for_cross_566_no_sides_group = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross_566_no_sides_group
-    changed = true
-  end
-  if show.request_for_cross_566_no_sides_groups ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross_566_no_sides_groups then
-    show.request_for_cross_566_no_sides_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross_566_no_sides_groups
     changed = true
   end
   if show.request_for_quote ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_quote then
@@ -3585,29 +3570,29 @@ cme_futures_ilink3_sbe_v8_9.clordid.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Request For Cross 566 No Sides Group
-cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_group = {}
+-- Sides Group
+cme_futures_ilink3_sbe_v8_9.sides_group = {}
 
--- Size: Request For Cross 566 No Sides Group
-cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_group.size =
+-- Size: Sides Group
+cme_futures_ilink3_sbe_v8_9.sides_group.size =
   cme_futures_ilink3_sbe_v8_9.clordid.size + 
   cme_futures_ilink3_sbe_v8_9.party_details_list_req_id.size + 
   cme_futures_ilink3_sbe_v8_9.order_qty.size + 
   cme_futures_ilink3_sbe_v8_9.side.size + 
   cme_futures_ilink3_sbe_v8_9.side_time_in_force.size
 
--- Display: Request For Cross 566 No Sides Group
-cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_group.display = function(packet, parent, length)
+-- Display: Sides Group
+cme_futures_ilink3_sbe_v8_9.sides_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Request For Cross 566 No Sides Group
-cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_group.fields = function(buffer, offset, packet, parent, request_for_cross_566_no_sides_group_index)
+-- Dissect Fields: Sides Group
+cme_futures_ilink3_sbe_v8_9.sides_group.fields = function(buffer, offset, packet, parent, sides_group_index)
   local index = offset
 
-  -- Implicit Request For Cross 566 No Sides Group Index
-  if request_for_cross_566_no_sides_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.request_for_cross_566_no_sides_group_index, request_for_cross_566_no_sides_group_index)
+  -- Implicit Sides Group Index
+  if sides_group_index ~= nil then
+    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.sides_group_index, sides_group_index)
     iteration:set_generated()
   end
 
@@ -3629,47 +3614,47 @@ cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_group.fields = functi
   return index
 end
 
--- Dissect: Request For Cross 566 No Sides Group
-cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_group.dissect = function(buffer, offset, packet, parent, request_for_cross_566_no_sides_group_index)
-  if show.request_for_cross_566_no_sides_group then
+-- Dissect: Sides Group
+cme_futures_ilink3_sbe_v8_9.sides_group.dissect = function(buffer, offset, packet, parent, sides_group_index)
+  if show.sides_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.request_for_cross_566_no_sides_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_group.fields(buffer, offset, packet, parent, request_for_cross_566_no_sides_group_index)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.sides_group, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_9.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_group.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_9.sides_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_group.fields(buffer, offset, packet, parent, request_for_cross_566_no_sides_group_index)
+    return cme_futures_ilink3_sbe_v8_9.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
   end
 end
 
--- Request For Cross 566 No Sides Groups
-cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups = {}
+-- Sides Groups
+cme_futures_ilink3_sbe_v8_9.sides_groups = {}
 
--- Calculate size of: Request For Cross 566 No Sides Groups
-cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.size = function(buffer, offset)
+-- Calculate size of: Sides Groups
+cme_futures_ilink3_sbe_v8_9.sides_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_futures_ilink3_sbe_v8_9.group_size.size
 
   -- Calculate field size from count
-  local request_for_cross_566_no_sides_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + request_for_cross_566_no_sides_group_count * 34
+  local sides_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + sides_group_count * 34
 
   return index
 end
 
--- Display: Request For Cross 566 No Sides Groups
-cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.display = function(packet, parent, length)
+-- Display: Sides Groups
+cme_futures_ilink3_sbe_v8_9.sides_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Request For Cross 566 No Sides Groups
-cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Sides Groups
+cme_futures_ilink3_sbe_v8_9.sides_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -3678,25 +3663,25 @@ cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.fields = funct
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Request For Cross 566 No Sides Group
-  for request_for_cross_566_no_sides_group_index = 1, num_in_group do
-    index, request_for_cross_566_no_sides_group = cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_group.dissect(buffer, index, packet, parent, request_for_cross_566_no_sides_group_index)
+  -- Repeating: Sides Group
+  for sides_group_index = 1, num_in_group do
+    index, sides_group = cme_futures_ilink3_sbe_v8_9.sides_group.dissect(buffer, index, packet, parent, sides_group_index)
   end
 
   return index
 end
 
--- Dissect: Request For Cross 566 No Sides Groups
-cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Sides Groups
+cme_futures_ilink3_sbe_v8_9.sides_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.request_for_cross_566_no_sides_groups then
-    local length = cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.size(buffer, offset)
+  if show.sides_groups then
+    local length = cme_futures_ilink3_sbe_v8_9.sides_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.request_for_cross_566_no_sides_groups, range, display)
+    local display = cme_futures_ilink3_sbe_v8_9.sides_groups.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.sides_groups, range, display)
   end
 
-  return cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.fields(buffer, offset, packet, parent)
+  return cme_futures_ilink3_sbe_v8_9.sides_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Cross Type
@@ -3805,7 +3790,7 @@ cme_futures_ilink3_sbe_v8_9.request_for_cross.size = function(buffer, offset)
 
   index = index + cme_futures_ilink3_sbe_v8_9.security_id.size
 
-  index = index + cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.size(buffer, offset + index)
+  index = index + cme_futures_ilink3_sbe_v8_9.sides_groups.size(buffer, offset + index)
 
   return index
 end
@@ -3849,8 +3834,8 @@ cme_futures_ilink3_sbe_v8_9.request_for_cross.fields = function(buffer, offset, 
   -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = cme_futures_ilink3_sbe_v8_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Request For Cross 566 No Sides Groups: Struct of 2 fields
-  index, request_for_cross_566_no_sides_groups = cme_futures_ilink3_sbe_v8_9.request_for_cross_566_no_sides_groups.dissect(buffer, index, packet, parent)
+  -- Sides Groups: Struct of 2 fields
+  index, sides_groups = cme_futures_ilink3_sbe_v8_9.sides_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10815,120 +10800,6 @@ cme_futures_ilink3_sbe_v8_9.mass_quote_ack.dissect = function(buffer, offset, pa
   end
 
   return cme_futures_ilink3_sbe_v8_9.mass_quote_ack.fields(buffer, offset, packet, parent)
-end
-
--- Sides Group
-cme_futures_ilink3_sbe_v8_9.sides_group = {}
-
--- Size: Sides Group
-cme_futures_ilink3_sbe_v8_9.sides_group.size =
-  cme_futures_ilink3_sbe_v8_9.clordid.size + 
-  cme_futures_ilink3_sbe_v8_9.party_details_list_req_id.size + 
-  cme_futures_ilink3_sbe_v8_9.order_qty.size + 
-  cme_futures_ilink3_sbe_v8_9.side.size + 
-  cme_futures_ilink3_sbe_v8_9.side_time_in_force.size
-
--- Display: Sides Group
-cme_futures_ilink3_sbe_v8_9.sides_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sides Group
-cme_futures_ilink3_sbe_v8_9.sides_group.fields = function(buffer, offset, packet, parent, sides_group_index)
-  local index = offset
-
-  -- Implicit Sides Group Index
-  if sides_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.sides_group_index, sides_group_index)
-    iteration:set_generated()
-  end
-
-  -- ClOrdId: 20 Byte Ascii String
-  index, clordid = cme_futures_ilink3_sbe_v8_9.clordid.dissect(buffer, index, packet, parent)
-
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_9.party_details_list_req_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
-  index, order_qty = cme_futures_ilink3_sbe_v8_9.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = cme_futures_ilink3_sbe_v8_9.side.dissect(buffer, index, packet, parent)
-
-  -- Side Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, side_time_in_force = cme_futures_ilink3_sbe_v8_9.side_time_in_force.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sides Group
-cme_futures_ilink3_sbe_v8_9.sides_group.dissect = function(buffer, offset, packet, parent, sides_group_index)
-  if show.sides_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.sides_group, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_9.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_9.sides_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_9.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
-  end
-end
-
--- Sides Groups
-cme_futures_ilink3_sbe_v8_9.sides_groups = {}
-
--- Calculate size of: Sides Groups
-cme_futures_ilink3_sbe_v8_9.sides_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_ilink3_sbe_v8_9.group_size.size
-
-  -- Calculate field size from count
-  local sides_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + sides_group_count * 34
-
-  return index
-end
-
--- Display: Sides Groups
-cme_futures_ilink3_sbe_v8_9.sides_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sides Groups
-cme_futures_ilink3_sbe_v8_9.sides_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_futures_ilink3_sbe_v8_9.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Sides Group
-  for sides_group_index = 1, num_in_group do
-    index, sides_group = cme_futures_ilink3_sbe_v8_9.sides_group.dissect(buffer, index, packet, parent, sides_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Sides Groups
-cme_futures_ilink3_sbe_v8_9.sides_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.sides_groups then
-    local length = cme_futures_ilink3_sbe_v8_9.sides_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_9.sides_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.sides_groups, range, display)
-  end
-
-  return cme_futures_ilink3_sbe_v8_9.sides_groups.fields(buffer, offset, packet, parent)
 end
 
 -- Trans Bkd Time
