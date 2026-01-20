@@ -91,6 +91,7 @@ omi_cme_futures_ilink3_sbe_v8_8.fields.fills_groups = ProtoField.new("Fills Grou
 omi_cme_futures_ilink3_sbe_v8_8.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.futures.ilink3.sbe.v8.8.financialinstrumentfullname", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_8.fields.firm = ProtoField.new("Firm", "cme.futures.ilink3.sbe.v8.8.firm", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_8.fields.from_seq_no = ProtoField.new("From Seq No", "cme.futures.ilink3.sbe.v8.8.fromseqno", ftypes.UINT32)
+omi_cme_futures_ilink3_sbe_v8_8.fields.future_30 = ProtoField.new("Future 30", "cme.futures.ilink3.sbe.v8.8.future30", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_8.fields.gross_trade_amt = ProtoField.new("Gross Trade Amt", "cme.futures.ilink3.sbe.v8.8.grosstradeamt", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_8.fields.group_size = ProtoField.new("Group Size", "cme.futures.ilink3.sbe.v8.8.groupsize", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_8.fields.hmac_signature = ProtoField.new("Hmac Signature", "cme.futures.ilink3.sbe.v8.8.hmacsignature", ftypes.BYTES)
@@ -255,7 +256,6 @@ omi_cme_futures_ilink3_sbe_v8_8.fields.requesting_party_role = ProtoField.new("R
 omi_cme_futures_ilink3_sbe_v8_8.fields.reservation_price = ProtoField.new("Reservation Price", "cme.futures.ilink3.sbe.v8.8.reservationprice", ftypes.DOUBLE)
 omi_cme_futures_ilink3_sbe_v8_8.fields.reserved = ProtoField.new("Reserved", "cme.futures.ilink3.sbe.v8.8.reserved", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_8.fields.reserved_1 = ProtoField.new("Reserved 1", "cme.futures.ilink3.sbe.v8.8.reserved1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-omi_cme_futures_ilink3_sbe_v8_8.fields.reserved_1_string_30 = ProtoField.new("Reserved 1 String 30", "cme.futures.ilink3.sbe.v8.8.reserved1string30", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_8.fields.reserved_2 = ProtoField.new("Reserved 2", "cme.futures.ilink3.sbe.v8.8.reserved2", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
 omi_cme_futures_ilink3_sbe_v8_8.fields.reserved_3 = ProtoField.new("Reserved 3", "cme.futures.ilink3.sbe.v8.8.reserved3", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_cme_futures_ilink3_sbe_v8_8.fields.reserved_4 = ProtoField.new("Reserved 4", "cme.futures.ilink3.sbe.v8.8.reserved4", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
@@ -16277,25 +16277,25 @@ cme_futures_ilink3_sbe_v8_8.quote_entries_groups.dissect = function(buffer, offs
   return cme_futures_ilink3_sbe_v8_8.quote_entries_groups.fields(buffer, offset, packet, parent)
 end
 
--- Reserved 1 String 30
-cme_futures_ilink3_sbe_v8_8.reserved_1_string_30 = {}
+-- Future 30
+cme_futures_ilink3_sbe_v8_8.future_30 = {}
 
--- Size: Reserved 1 String 30
-cme_futures_ilink3_sbe_v8_8.reserved_1_string_30.size = 30
+-- Size: Future 30
+cme_futures_ilink3_sbe_v8_8.future_30.size = 30
 
--- Display: Reserved 1 String 30
-cme_futures_ilink3_sbe_v8_8.reserved_1_string_30.display = function(value)
+-- Display: Future 30
+cme_futures_ilink3_sbe_v8_8.future_30.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Reserved 1 String 30: No Value"
+    return "Future 30: No Value"
   end
 
-  return "Reserved 1 String 30: "..value
+  return "Future 30: "..value
 end
 
--- Dissect: Reserved 1 String 30
-cme_futures_ilink3_sbe_v8_8.reserved_1_string_30.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_8.reserved_1_string_30.size
+-- Dissect: Future 30
+cme_futures_ilink3_sbe_v8_8.future_30.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_8.future_30.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -16309,9 +16309,9 @@ cme_futures_ilink3_sbe_v8_8.reserved_1_string_30.dissect = function(buffer, offs
     value = range:string()
   end
 
-  local display = cme_futures_ilink3_sbe_v8_8.reserved_1_string_30.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_ilink3_sbe_v8_8.future_30.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.reserved_1_string_30, range, value, display)
+  parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.future_30, range, value, display)
 
   return offset + length, value
 end
@@ -16411,7 +16411,7 @@ cme_futures_ilink3_sbe_v8_8.mass_quote.size = function(buffer, offset)
 
   index = index + cme_futures_ilink3_sbe_v8_8.reserved.size
 
-  index = index + cme_futures_ilink3_sbe_v8_8.reserved_1_string_30.size
+  index = index + cme_futures_ilink3_sbe_v8_8.future_30.size
 
   index = index + cme_futures_ilink3_sbe_v8_8.quote_entry_open.size
 
@@ -16468,8 +16468,8 @@ cme_futures_ilink3_sbe_v8_8.mass_quote.fields = function(buffer, offset, packet,
   -- Reserved: 30 Byte Ascii String
   index, reserved = cme_futures_ilink3_sbe_v8_8.reserved.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 String 30: 30 Byte Ascii String
-  index, reserved_1_string_30 = cme_futures_ilink3_sbe_v8_8.reserved_1_string_30.dissect(buffer, index, packet, parent)
+  -- Future 30: 30 Byte Ascii String
+  index, future_30 = cme_futures_ilink3_sbe_v8_8.future_30.dissect(buffer, index, packet, parent)
 
   -- Quote Entry Open: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, quote_entry_open = cme_futures_ilink3_sbe_v8_8.quote_entry_open.dissect(buffer, index, packet, parent)
