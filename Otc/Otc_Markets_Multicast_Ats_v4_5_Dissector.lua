@@ -49,6 +49,7 @@ omi_otc_markets_multicast_ats_v4_5.fields.inside_id = ProtoField.new("Inside Id"
 omi_otc_markets_multicast_ats_v4_5.fields.inside_time_milli = ProtoField.new("Inside Time Milli", "otc.markets.multicast.ats.v4.5.insidetimemilli", ftypes.UINT64)
 omi_otc_markets_multicast_ats_v4_5.fields.investment_grade = ProtoField.new("Investment Grade", "otc.markets.multicast.ats.v4.5.investmentgrade", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
 omi_otc_markets_multicast_ats_v4_5.fields.irregular = ProtoField.new("Irregular", "otc.markets.multicast.ats.v4.5.irregular", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_otc_markets_multicast_ats_v4_5.fields.issuer = ProtoField.new("Issuer", "otc.markets.multicast.ats.v4.5.issuer", ftypes.STRING)
 omi_otc_markets_multicast_ats_v4_5.fields.issuer_name = ProtoField.new("Issuer Name", "otc.markets.multicast.ats.v4.5.issuername", ftypes.STRING)
 omi_otc_markets_multicast_ats_v4_5.fields.issuer_size = ProtoField.new("Issuer Size", "otc.markets.multicast.ats.v4.5.issuersize", ftypes.UINT8)
 omi_otc_markets_multicast_ats_v4_5.fields.last_update_milli = ProtoField.new("Last Update Milli", "otc.markets.multicast.ats.v4.5.lastupdatemilli", ftypes.UINT64)
@@ -99,6 +100,7 @@ omi_otc_markets_multicast_ats_v4_5.fields.saturation_eligible = ProtoField.new("
 omi_otc_markets_multicast_ats_v4_5.fields.security_action = ProtoField.new("Security Action", "otc.markets.multicast.ats.v4.5.securityaction", ftypes.UINT8)
 omi_otc_markets_multicast_ats_v4_5.fields.security_desc = ProtoField.new("Security Desc", "otc.markets.multicast.ats.v4.5.securitydesc", ftypes.STRING)
 omi_otc_markets_multicast_ats_v4_5.fields.security_detail = ProtoField.new("Security Detail", "otc.markets.multicast.ats.v4.5.securitydetail", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.security_detail_name = ProtoField.new("Security Detail Name", "otc.markets.multicast.ats.v4.5.securitydetailname", ftypes.STRING)
 omi_otc_markets_multicast_ats_v4_5.fields.security_detail_size = ProtoField.new("Security Detail Size", "otc.markets.multicast.ats.v4.5.securitydetailsize", ftypes.UINT8)
 omi_otc_markets_multicast_ats_v4_5.fields.security_flags = ProtoField.new("Security Flags", "otc.markets.multicast.ats.v4.5.securityflags", ftypes.STRING)
 omi_otc_markets_multicast_ats_v4_5.fields.security_id = ProtoField.new("Security Id", "otc.markets.multicast.ats.v4.5.securityid", ftypes.UINT32)
@@ -161,6 +163,7 @@ show.extended_security_flags = true
 show.extended_security_message = true
 show.extended_security_no_cusip_message = true
 show.inside_update_message = true
+show.issuer = true
 show.market_close_message = true
 show.market_open_message = true
 show.message = true
@@ -173,6 +176,7 @@ show.quote_message = true
 show.quote_update_message = true
 show.reference_price_message = true
 show.reference_price_update_message = true
+show.security_detail = true
 show.security_flags = true
 show.security_message = true
 show.start_of_spin_message = true
@@ -187,6 +191,7 @@ omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_flags = Pref.boo
 omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_message = Pref.bool("Show Extended Security Message", show.extended_security_message, "Parse and add Extended Security Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_no_cusip_message = Pref.bool("Show Extended Security No Cusip Message", show.extended_security_no_cusip_message, "Parse and add Extended Security No Cusip Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message = Pref.bool("Show Inside Update Message", show.inside_update_message, "Parse and add Inside Update Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_issuer = Pref.bool("Show Issuer", show.issuer, "Parse and add Issuer to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_market_close_message = Pref.bool("Show Market Close Message", show.market_close_message, "Parse and add Market Close Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_market_open_message = Pref.bool("Show Market Open Message", show.market_open_message, "Parse and add Market Open Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -199,6 +204,7 @@ omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_message = Pref.bool("Show Qu
 omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_update_message = Pref.bool("Show Quote Update Message", show.quote_update_message, "Parse and add Quote Update Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_message = Pref.bool("Show Reference Price Message", show.reference_price_message, "Parse and add Reference Price Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message = Pref.bool("Show Reference Price Update Message", show.reference_price_update_message, "Parse and add Reference Price Update Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_security_detail = Pref.bool("Show Security Detail", show.security_detail, "Parse and add Security Detail to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_security_message = Pref.bool("Show Security Message", show.security_message, "Parse and add Security Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_start_of_spin_message = Pref.bool("Show Start Of Spin Message", show.start_of_spin_message, "Parse and add Start Of Spin Message to protocol tree")
@@ -233,6 +239,10 @@ function omi_otc_markets_multicast_ats_v4_5.prefs_changed()
   end
   if show.inside_update_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message then
     show.inside_update_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message
+    changed = true
+  end
+  if show.issuer ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_issuer then
+    show.issuer = omi_otc_markets_multicast_ats_v4_5.prefs.show_issuer
     changed = true
   end
   if show.market_close_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_market_close_message then
@@ -281,6 +291,10 @@ function omi_otc_markets_multicast_ats_v4_5.prefs_changed()
   end
   if show.reference_price_update_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message then
     show.reference_price_update_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message
+    changed = true
+  end
+  if show.security_detail ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_security_detail then
+    show.security_detail = omi_otc_markets_multicast_ats_v4_5.prefs.show_security_detail
     changed = true
   end
   if show.security_flags ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_security_flags then
@@ -695,21 +709,80 @@ otc_markets_multicast_ats_v4_5.issuer_size.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Security Detail
-otc_markets_multicast_ats_v4_5.security_detail = {}
+-- Issuer
+otc_markets_multicast_ats_v4_5.issuer = {}
 
--- Display: Security Detail
-otc_markets_multicast_ats_v4_5.security_detail.display = function(value)
-  return "Security Detail: "..value
+-- Calculate size of: Issuer
+otc_markets_multicast_ats_v4_5.issuer.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.issuer_size.size
+
+  local issuer_size = buffer(offset + index - 1, 1):uint()
+
+  if issuer_size > 0 then
+    -- Parse runtime size of: Issuer Name
+    index = index + buffer(offset + index - 1, 1):uint()
+
+  end
+
+  return index
 end
 
--- Dissect runtime sized field: Security Detail
-otc_markets_multicast_ats_v4_5.security_detail.dissect = function(buffer, offset, packet, parent, size)
+-- Display: Issuer
+otc_markets_multicast_ats_v4_5.issuer.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Issuer
+otc_markets_multicast_ats_v4_5.issuer.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Issuer Size: Unsigned Integer
+  index, issuer_size = otc_markets_multicast_ats_v4_5.issuer_size.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Issuer Name
+  local issuer_name = nil
+
+  local issuer_name_exists = issuer_size > 0
+
+  if issuer_name_exists then
+
+    -- Runtime Size Of: Issuer Name
+    index, issuer_name = otc_markets_multicast_ats_v4_5.issuer_name.dissect(buffer, index, packet, parent, issuer_size)
+  end
+
+  return index
+end
+
+-- Dissect: Issuer
+otc_markets_multicast_ats_v4_5.issuer.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.issuer then
+    local length = otc_markets_multicast_ats_v4_5.issuer.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = otc_markets_multicast_ats_v4_5.issuer.display(buffer, packet, parent)
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.issuer, range, display)
+  end
+
+  return otc_markets_multicast_ats_v4_5.issuer.fields(buffer, offset, packet, parent)
+end
+
+-- Security Detail Name
+otc_markets_multicast_ats_v4_5.security_detail_name = {}
+
+-- Display: Security Detail Name
+otc_markets_multicast_ats_v4_5.security_detail_name.display = function(value)
+  return "Security Detail Name: "..value
+end
+
+-- Dissect runtime sized field: Security Detail Name
+otc_markets_multicast_ats_v4_5.security_detail_name.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = otc_markets_multicast_ats_v4_5.security_detail.display(value, packet, parent, size)
+  local display = otc_markets_multicast_ats_v4_5.security_detail_name.display(value, packet, parent, size)
 
-  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_detail, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_detail_name, range, value, display)
 
   return offset + size, value
 end
@@ -735,6 +808,65 @@ otc_markets_multicast_ats_v4_5.security_detail_size.dissect = function(buffer, o
   parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_detail_size, range, value, display)
 
   return offset + length, value
+end
+
+-- Security Detail
+otc_markets_multicast_ats_v4_5.security_detail = {}
+
+-- Calculate size of: Security Detail
+otc_markets_multicast_ats_v4_5.security_detail.size = function(buffer, offset)
+  local index = 0
+
+  index = index + otc_markets_multicast_ats_v4_5.security_detail_size.size
+
+  local security_detail_size = buffer(offset + index - 1, 1):uint()
+
+  if security_detail_size > 0 then
+    -- Parse runtime size of: Security Detail Name
+    index = index + buffer(offset + index - 1, 1):uint()
+
+  end
+
+  return index
+end
+
+-- Display: Security Detail
+otc_markets_multicast_ats_v4_5.security_detail.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Detail
+otc_markets_multicast_ats_v4_5.security_detail.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Security Detail Size: Unsigned Integer
+  index, security_detail_size = otc_markets_multicast_ats_v4_5.security_detail_size.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Security Detail Name
+  local security_detail_name = nil
+
+  local security_detail_name_exists = security_detail_size > 0
+
+  if security_detail_name_exists then
+
+    -- Runtime Size Of: Security Detail Name
+    index, security_detail_name = otc_markets_multicast_ats_v4_5.security_detail_name.dissect(buffer, index, packet, parent, security_detail_size)
+  end
+
+  return index
+end
+
+-- Dissect: Security Detail
+otc_markets_multicast_ats_v4_5.security_detail.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.security_detail then
+    local length = otc_markets_multicast_ats_v4_5.security_detail.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = otc_markets_multicast_ats_v4_5.security_detail.display(buffer, packet, parent)
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_detail, range, display)
+  end
+
+  return otc_markets_multicast_ats_v4_5.security_detail.fields(buffer, offset, packet, parent)
 end
 
 -- Adr Level
@@ -1471,15 +1603,9 @@ otc_markets_multicast_ats_v4_5.extended_security_no_cusip_message.size = functio
 
   index = index + otc_markets_multicast_ats_v4_5.adr_level.size
 
-  index = index + otc_markets_multicast_ats_v4_5.security_detail_size.size
+  index = index + otc_markets_multicast_ats_v4_5.security_detail.size(buffer, offset + index)
 
-  -- Parse runtime size of: Security Detail
-  index = index + buffer(offset + index - 1, 1):uint()
-
-  index = index + otc_markets_multicast_ats_v4_5.issuer_size.size
-
-  -- Parse runtime size of: Issuer Name
-  index = index + buffer(offset + index - 1, 1):uint()
+  index = index + otc_markets_multicast_ats_v4_5.issuer.size(buffer, offset + index)
 
   return index
 end
@@ -1559,17 +1685,11 @@ otc_markets_multicast_ats_v4_5.extended_security_no_cusip_message.fields = funct
   -- Adr Level: UTF-8
   index, adr_level = otc_markets_multicast_ats_v4_5.adr_level.dissect(buffer, index, packet, parent)
 
-  -- Security Detail Size: Unsigned Integer
-  index, security_detail_size = otc_markets_multicast_ats_v4_5.security_detail_size.dissect(buffer, index, packet, parent)
+  -- Security Detail: Struct of 2 fields
+  index, security_detail = otc_markets_multicast_ats_v4_5.security_detail.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Security Detail
-  index, security_detail = otc_markets_multicast_ats_v4_5.security_detail.dissect(buffer, index, packet, parent, security_detail_size)
-
-  -- Issuer Size: Unsigned Integer
-  index, issuer_size = otc_markets_multicast_ats_v4_5.issuer_size.dissect(buffer, index, packet, parent)
-
-  -- Runtime Size Of: Issuer Name
-  index, issuer_name = otc_markets_multicast_ats_v4_5.issuer_name.dissect(buffer, index, packet, parent, issuer_size)
+  -- Issuer: Struct of 2 fields
+  index, issuer = otc_markets_multicast_ats_v4_5.issuer.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1661,15 +1781,9 @@ otc_markets_multicast_ats_v4_5.extended_security_message.size = function(buffer,
 
   index = index + otc_markets_multicast_ats_v4_5.adr_level.size
 
-  index = index + otc_markets_multicast_ats_v4_5.security_detail_size.size
+  index = index + otc_markets_multicast_ats_v4_5.security_detail.size(buffer, offset + index)
 
-  -- Parse runtime size of: Security Detail
-  index = index + buffer(offset + index - 1, 1):uint()
-
-  index = index + otc_markets_multicast_ats_v4_5.issuer_size.size
-
-  -- Parse runtime size of: Issuer Name
-  index = index + buffer(offset + index - 1, 1):uint()
+  index = index + otc_markets_multicast_ats_v4_5.issuer.size(buffer, offset + index)
 
   index = index + otc_markets_multicast_ats_v4_5.cusip.size
 
@@ -1751,17 +1865,11 @@ otc_markets_multicast_ats_v4_5.extended_security_message.fields = function(buffe
   -- Adr Level: UTF-8
   index, adr_level = otc_markets_multicast_ats_v4_5.adr_level.dissect(buffer, index, packet, parent)
 
-  -- Security Detail Size: Unsigned Integer
-  index, security_detail_size = otc_markets_multicast_ats_v4_5.security_detail_size.dissect(buffer, index, packet, parent)
+  -- Security Detail: Struct of 2 fields
+  index, security_detail = otc_markets_multicast_ats_v4_5.security_detail.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Security Detail
-  index, security_detail = otc_markets_multicast_ats_v4_5.security_detail.dissect(buffer, index, packet, parent, security_detail_size)
-
-  -- Issuer Size: Unsigned Integer
-  index, issuer_size = otc_markets_multicast_ats_v4_5.issuer_size.dissect(buffer, index, packet, parent)
-
-  -- Runtime Size Of: Issuer Name
-  index, issuer_name = otc_markets_multicast_ats_v4_5.issuer_name.dissect(buffer, index, packet, parent, issuer_size)
+  -- Issuer: Struct of 2 fields
+  index, issuer = otc_markets_multicast_ats_v4_5.issuer.dissect(buffer, index, packet, parent)
 
   -- Cusip: UTF-8
   index, cusip = otc_markets_multicast_ats_v4_5.cusip.dissect(buffer, index, packet, parent)
