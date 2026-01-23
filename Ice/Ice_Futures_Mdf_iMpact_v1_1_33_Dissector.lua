@@ -6542,27 +6542,27 @@ ice_futures_mdf_impact_v1_1_33.variable_field = {}
 ice_futures_mdf_impact_v1_1_33.variable_field.size = function(buffer, offset, special_field_id)
   -- Size of Alt Price
   if special_field_id == 1 then
-    return ice_futures_mdf_impact_v1_1_33.alt_price.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_33.alt_price.size
   end
   -- Size of Alt High Price
   if special_field_id == 2 then
-    return ice_futures_mdf_impact_v1_1_33.alt_high_price.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_33.alt_high_price.size
   end
   -- Size of Alt Low Price
   if special_field_id == 3 then
-    return ice_futures_mdf_impact_v1_1_33.alt_low_price.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_33.alt_low_price.size
   end
   -- Size of Alt Vwap
   if special_field_id == 4 then
-    return ice_futures_mdf_impact_v1_1_33.alt_vwap.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_33.alt_vwap.size
   end
   -- Size of Alt Last Trade Price
   if special_field_id == 5 then
-    return ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.size
   end
   -- Size of Aon
   if special_field_id == 6 then
-    return ice_futures_mdf_impact_v1_1_33.aon.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_33.aon.size
   end
 
   return 0

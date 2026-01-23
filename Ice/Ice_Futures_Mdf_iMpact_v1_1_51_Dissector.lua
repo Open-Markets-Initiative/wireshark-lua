@@ -7118,47 +7118,47 @@ ice_futures_mdf_impact_v1_1_51.variable_field = {}
 ice_futures_mdf_impact_v1_1_51.variable_field.size = function(buffer, offset, special_field_id)
   -- Size of Alt Price
   if special_field_id == 1 then
-    return ice_futures_mdf_impact_v1_1_51.alt_price.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.alt_price.size
   end
   -- Size of Alt High Price
   if special_field_id == 2 then
-    return ice_futures_mdf_impact_v1_1_51.alt_high_price.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.alt_high_price.size
   end
   -- Size of Alt Low Price
   if special_field_id == 3 then
-    return ice_futures_mdf_impact_v1_1_51.alt_low_price.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.alt_low_price.size
   end
   -- Size of Alt Vwap
   if special_field_id == 4 then
-    return ice_futures_mdf_impact_v1_1_51.alt_vwap.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.alt_vwap.size
   end
   -- Size of Alt Last Trade Price
   if special_field_id == 5 then
-    return ice_futures_mdf_impact_v1_1_51.alt_last_trade_price.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.alt_last_trade_price.size
   end
   -- Size of Aon
   if special_field_id == 6 then
-    return ice_futures_mdf_impact_v1_1_51.aon.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.aon.size
   end
   -- Size of Accrued Distribution
   if special_field_id == 18 then
-    return ice_futures_mdf_impact_v1_1_51.accrued_distribution.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.accrued_distribution.size
   end
   -- Size of Accrued Funding
   if special_field_id == 19 then
-    return ice_futures_mdf_impact_v1_1_51.accrued_funding.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.accrued_funding.size
   end
   -- Size of Annualization Factor
   if special_field_id == 20 then
-    return ice_futures_mdf_impact_v1_1_51.annualization_factor.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.annualization_factor.size
   end
   -- Size of Trf Days To Maturity
   if special_field_id == 21 then
-    return ice_futures_mdf_impact_v1_1_51.trf_days_to_maturity.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.trf_days_to_maturity.size
   end
   -- Size of Seconds To End Tpl Hold
   if special_field_id == 22 then
-    return ice_futures_mdf_impact_v1_1_51.seconds_to_end_tpl_hold.size(buffer, offset)
+    return ice_futures_mdf_impact_v1_1_51.seconds_to_end_tpl_hold.size
   end
 
   return 0

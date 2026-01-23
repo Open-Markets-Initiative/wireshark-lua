@@ -778,31 +778,31 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value = {}
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.size = function(buffer, offset, replace_order_optional_field)
   -- Size of Min Qty
   if replace_order_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size
   end
   -- Size of Max Floor
   if replace_order_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size
   end
   -- Size of Price Type
   if replace_order_optional_field == 6 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.size
   end
   -- Size of Post Only
   if replace_order_optional_field == 12 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.size
   end
   -- Size of Expire Time
   if replace_order_optional_field == 15 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.size
   end
   -- Size of Trade Now
   if replace_order_optional_field == 16 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size
   end
   -- Size of Handle Inst
   if replace_order_optional_field == 17 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size
   end
 
   return 0
@@ -1344,19 +1344,19 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value = {}
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.size = function(buffer, offset, enter_order_optional_field)
   -- Size of Firm
   if enter_order_optional_field == 2 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.firm.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.firm.size
   end
   -- Size of Min Qty
   if enter_order_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size
   end
   -- Size of Customer Type
   if enter_order_optional_field == 4 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.customer_type.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.customer_type.size
   end
   -- Size of Max Floor
   if enter_order_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size
   end
 
   return 0
@@ -2166,15 +2166,15 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value = {}
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.size = function(buffer, offset, order_restated_optional_field)
   -- Size of Display Quantity
   if order_restated_optional_field == 22 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.display_quantity.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.display_quantity.size
   end
   -- Size of Display Price
   if order_restated_optional_field == 23 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.display_price.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.display_price.size
   end
   -- Size of Secondary Ord Ref Num
   if order_restated_optional_field == 1 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.secondary_ord_ref_num.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.secondary_ord_ref_num.size
   end
 
   return 0
@@ -3193,11 +3193,11 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value = {}
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.size = function(buffer, offset, order_executed_optional_field)
   -- Size of Reference Price
   if order_executed_optional_field == 19 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.reference_price.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.reference_price.size
   end
   -- Size of Reference Price Type
   if order_executed_optional_field == 20 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.reference_price_type.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.reference_price_type.size
   end
 
   return 0
@@ -3699,39 +3699,39 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value = {}
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.size = function(buffer, offset, replaced_message_optional_field)
   -- Size of Firm
   if replaced_message_optional_field == 2 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.firm.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.firm.size
   end
   -- Size of Min Qty
   if replaced_message_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size
   end
   -- Size of Max Floor
   if replaced_message_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size
   end
   -- Size of Price Type
   if replaced_message_optional_field == 6 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.size
   end
   -- Size of Post Only
   if replaced_message_optional_field == 12 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.size
   end
   -- Size of Expire Time
   if replaced_message_optional_field == 15 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.size
   end
   -- Size of Trade Now
   if replaced_message_optional_field == 16 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size
   end
   -- Size of Handle Inst
   if replaced_message_optional_field == 17 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size
   end
   -- Size of Bbo Weight Indicator
   if replaced_message_optional_field == 18 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.size
   end
 
   return 0
@@ -4215,71 +4215,71 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value = {}
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.size = function(buffer, offset, order_accepted_optional_field)
   -- Size of Firm
   if order_accepted_optional_field == 2 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.firm.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.firm.size
   end
   -- Size of Min Qty
   if order_accepted_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size
   end
   -- Size of Customer Type
   if order_accepted_optional_field == 4 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.customer_type.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.customer_type.size
   end
   -- Size of Max Floor
   if order_accepted_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size
   end
   -- Size of Price Type
   if order_accepted_optional_field == 6 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.size
   end
   -- Size of Peg Offset
   if order_accepted_optional_field == 7 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.size
   end
   -- Size of Discretion
   if order_accepted_optional_field == 8 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion.size
   end
   -- Size of Discretion Price
   if order_accepted_optional_field == 9 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.size
   end
   -- Size of Discretion Peg Type
   if order_accepted_optional_field == 10 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_type.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_type.size
   end
   -- Size of Discretion Peg Offset
   if order_accepted_optional_field == 11 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.size
   end
   -- Size of Post Only
   if order_accepted_optional_field == 12 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.size
   end
   -- Size of Random Reserves
   if order_accepted_optional_field == 13 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.size
   end
   -- Size of Route
   if order_accepted_optional_field == 14 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.route.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.route.size
   end
   -- Size of Expire Time
   if order_accepted_optional_field == 15 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.size
   end
   -- Size of Trade Now
   if order_accepted_optional_field == 16 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size
   end
   -- Size of Handle Inst
   if order_accepted_optional_field == 17 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size
   end
   -- Size of Bbo Weight Indicator
   if order_accepted_optional_field == 18 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.size(buffer, offset)
+    return nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.size
   end
 
   return 0
