@@ -996,10 +996,10 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.end_of_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Last Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Md Seq Num: uint64_t
   index, last_md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.last_md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Time: 8 Byte Unsigned Fixed Width Integer
+  -- Snapshot Time: uint64_t
   index, snapshot_time = euronext_optiq_marketdatagateway_sbe_v5_29.snapshot_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -1040,10 +1040,10 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.start_of_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Last Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Md Seq Num: uint64_t
   index, last_md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.last_md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Time: 8 Byte Unsigned Fixed Width Integer
+  -- Snapshot Time: uint64_t
   index, snapshot_time = euronext_optiq_marketdatagateway_sbe_v5_29.snapshot_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -1245,19 +1245,19 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.bf_instrument_suspension_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Seq Num Optional: uint64_t
   index, md_seq_num_optional = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num_optional.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
-  -- Security Condition: 1 Byte Ascii String Enum with 8 values
+  -- Security Condition: SecurityCondition_enum
   index, security_condition = euronext_optiq_marketdatagateway_sbe_v5_29.security_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -1524,34 +1524,34 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.bfnav_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Seq Num Optional: uint64_t
   index, md_seq_num_optional = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num_optional.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Bid Offer Date Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Offer Date Time: uint64_t
   index, bid_offer_date_time = euronext_optiq_marketdatagateway_sbe_v5_29.bid_offer_date_time.dissect(buffer, index, packet, parent)
 
-  -- Mifid Transaction Id: 52 Byte Ascii String
+  -- Mifid Transaction Id: char52
   index, mifid_transaction_id = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Mmt Modification Indicator: 4 Byte Ascii String
+  -- Mmt Modification Indicator: char4
   index, mmt_modification_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_modification_indicator.dissect(buffer, index, packet, parent)
 
-  -- Nav Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Nav Price: int64_t
   index, nav_price = euronext_optiq_marketdatagateway_sbe_v5_29.nav_price.dissect(buffer, index, packet, parent)
 
-  -- Event Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Event Time Optional: uint64_t
   index, event_time_optional = euronext_optiq_marketdatagateway_sbe_v5_29.event_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Nav Bid Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Nav Bid Price: int64_t
   index, nav_bid_price = euronext_optiq_marketdatagateway_sbe_v5_29.nav_bid_price.dissect(buffer, index, packet, parent)
 
-  -- Nav Offer Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Nav Offer Price: int64_t
   index, nav_offer_price = euronext_optiq_marketdatagateway_sbe_v5_29.nav_offer_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2051,61 +2051,61 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.bf_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Seq Num Optional: uint64_t
   index, md_seq_num_optional = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num_optional.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Mifid Transaction Id: 52 Byte Ascii String
+  -- Mifid Transaction Id: char52
   index, mifid_transaction_id = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
-  -- Bid Offer Date Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Offer Date Time: uint64_t
   index, bid_offer_date_time = euronext_optiq_marketdatagateway_sbe_v5_29.bid_offer_date_time.dissect(buffer, index, packet, parent)
 
-  -- Mmt Modification Indicator: 4 Byte Ascii String
+  -- Mmt Modification Indicator: char4
   index, mmt_modification_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_modification_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: int64_t
   index, price = euronext_optiq_marketdatagateway_sbe_v5_29.price.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Bid Price: int64_t
   index, bid_price = euronext_optiq_marketdatagateway_sbe_v5_29.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Offer Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Offer Price: int64_t
   index, offer_price = euronext_optiq_marketdatagateway_sbe_v5_29.offer_price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: uint64_t
   index, quantity = euronext_optiq_marketdatagateway_sbe_v5_29.quantity.dissect(buffer, index, packet, parent)
 
-  -- Mmt Agency Cross Trade Indicator: 4 Byte Ascii String Nullable
+  -- Mmt Agency Cross Trade Indicator: char4
   index, mmt_agency_cross_trade_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_agency_cross_trade_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mmt Benchmark Indicator: 4 Byte Ascii String Nullable
+  -- Mmt Benchmark Indicator: char4
   index, mmt_benchmark_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_benchmark_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mmt Special Dividend Indicator: 4 Byte Ascii String Nullable
+  -- Mmt Special Dividend Indicator: char4
   index, mmt_special_dividend_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_special_dividend_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mmt Trading Mode: 1 Byte Ascii String Enum with 12 values
+  -- Mmt Trading Mode: MMTTradingMode_enum
   index, mmt_trading_mode = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_trading_mode.dissect(buffer, index, packet, parent)
 
-  -- Mifid Price Notation: 4 Byte Ascii String Nullable
+  -- Mifid Price Notation: char4
   index, mifid_price_notation = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_price_notation.dissect(buffer, index, packet, parent)
 
-  -- Quantity Notation: 3 Byte Ascii String Nullable
+  -- Quantity Notation: char3
   index, quantity_notation = euronext_optiq_marketdatagateway_sbe_v5_29.quantity_notation.dissect(buffer, index, packet, parent)
 
-  -- Notional Amount Traded: 8 Byte Signed Fixed Width Integer Nullable
+  -- Notional Amount Traded: int64_t
   index, notional_amount_traded = euronext_optiq_marketdatagateway_sbe_v5_29.notional_amount_traded.dissect(buffer, index, packet, parent)
 
-  -- Trading Currency Optional: 3 Byte Ascii String Nullable
+  -- Trading Currency Optional: char3
   index, trading_currency_optional = euronext_optiq_marketdatagateway_sbe_v5_29.trading_currency_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -2179,7 +2179,7 @@ euronext_optiq_marketdatagateway_sbe_v5_29.interest_payment_date_rep_group.field
     iteration:set_generated()
   end
 
-  -- Interest Payment Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Interest Payment Date: uint16_t
   index, interest_payment_date = euronext_optiq_marketdatagateway_sbe_v5_29.interest_payment_date.dissect(buffer, index, packet, parent)
 
   return index
@@ -2266,10 +2266,10 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.group_size_encoding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length Short: 1 Byte Unsigned Fixed Width Integer
+  -- Block Length Short: uint8
   index, block_length_short = euronext_optiq_marketdatagateway_sbe_v5_29.block_length_short.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = euronext_optiq_marketdatagateway_sbe_v5_29.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -3688,121 +3688,121 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.bf_instrument_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Seq Num Optional: uint64_t
   index, md_seq_num_optional = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num_optional.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Optiq Segment: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Optiq Segment: OptiqSegment_enum
   index, optiq_segment = euronext_optiq_marketdatagateway_sbe_v5_29.optiq_segment.dissect(buffer, index, packet, parent)
 
-  -- Isin Code Optional: 12 Byte Ascii String Nullable
+  -- Isin Code Optional: char12
   index, isin_code_optional = euronext_optiq_marketdatagateway_sbe_v5_29.isin_code_optional.dissect(buffer, index, packet, parent)
 
-  -- Sedol Code: 7 Byte Ascii String Nullable
+  -- Sedol Code: char7
   index, sedol_code = euronext_optiq_marketdatagateway_sbe_v5_29.sedol_code.dissect(buffer, index, packet, parent)
 
-  -- Long Issuer Name: 250 Byte Ascii String Nullable
+  -- Long Issuer Name: char250
   index, long_issuer_name = euronext_optiq_marketdatagateway_sbe_v5_29.long_issuer_name.dissect(buffer, index, packet, parent)
 
-  -- Long Instrument Name: 250 Byte Ascii String Nullable
+  -- Long Instrument Name: char250
   index, long_instrument_name = euronext_optiq_marketdatagateway_sbe_v5_29.long_instrument_name.dissect(buffer, index, packet, parent)
 
-  -- Currency optional: 3 Byte Ascii String Nullable
+  -- Currency optional: char3
   index, currency_optional = euronext_optiq_marketdatagateway_sbe_v5_29.currency_optional.dissect(buffer, index, packet, parent)
 
-  -- Date Of Initial Listing: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Date Of Initial Listing: uint16_t
   index, date_of_initial_listing = euronext_optiq_marketdatagateway_sbe_v5_29.date_of_initial_listing.dissect(buffer, index, packet, parent)
 
-  -- Share Amount In Issue: 8 Byte Signed Fixed Width Integer Nullable
+  -- Share Amount In Issue: int64_t
   index, share_amount_in_issue = euronext_optiq_marketdatagateway_sbe_v5_29.share_amount_in_issue.dissect(buffer, index, packet, parent)
 
-  -- Opened Closed Fund: 1 Byte Ascii String Enum with 3 values
+  -- Opened Closed Fund: OpenedClosedFund_enum
   index, opened_closed_fund = euronext_optiq_marketdatagateway_sbe_v5_29.opened_closed_fund.dissect(buffer, index, packet, parent)
 
-  -- Last Nav Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Last Nav Price: int64_t
   index, last_nav_price = euronext_optiq_marketdatagateway_sbe_v5_29.last_nav_price.dissect(buffer, index, packet, parent)
 
-  -- Gross Of Cdsc Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Gross Of Cdsc Indicator: GrossofCDSCIndicator_enum
   index, gross_of_cdsc_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.gross_of_cdsc_indicator.dissect(buffer, index, packet, parent)
 
-  -- Coupon: 8 Byte Signed Fixed Width Integer Nullable
+  -- Coupon: int64_t
   index, coupon = euronext_optiq_marketdatagateway_sbe_v5_29.coupon.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date Optional: 8 Byte Ascii String Nullable
+  -- Maturity Date Optional: char8
   index, maturity_date_optional = euronext_optiq_marketdatagateway_sbe_v5_29.maturity_date_optional.dissect(buffer, index, packet, parent)
 
-  -- Closing Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Closing Price: int64_t
   index, closing_price = euronext_optiq_marketdatagateway_sbe_v5_29.closing_price.dissect(buffer, index, packet, parent)
 
-  -- mic Optional: 4 Byte Ascii String Nullable
+  -- mic Optional: char4
   index, mic_optional = euronext_optiq_marketdatagateway_sbe_v5_29.mic_optional.dissect(buffer, index, packet, parent)
 
-  -- Gross Dividend Payable Per Unit: 8 Byte Signed Fixed Width Integer Nullable
+  -- Gross Dividend Payable Per Unit: int64_t
   index, gross_dividend_payable_per_unit = euronext_optiq_marketdatagateway_sbe_v5_29.gross_dividend_payable_per_unit.dissect(buffer, index, packet, parent)
 
-  -- Dividend Currency: 3 Byte Ascii String Nullable
+  -- Dividend Currency: char3
   index, dividend_currency = euronext_optiq_marketdatagateway_sbe_v5_29.dividend_currency.dissect(buffer, index, packet, parent)
 
-  -- Dividend Record Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Dividend Record Date: uint16_t
   index, dividend_record_date = euronext_optiq_marketdatagateway_sbe_v5_29.dividend_record_date.dissect(buffer, index, packet, parent)
 
-  -- Dividend Rate: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Dividend Rate: uint64_t
   index, dividend_rate = euronext_optiq_marketdatagateway_sbe_v5_29.dividend_rate.dissect(buffer, index, packet, parent)
 
-  -- Ex Dividend Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Ex Dividend Date: uint16_t
   index, ex_dividend_date = euronext_optiq_marketdatagateway_sbe_v5_29.ex_dividend_date.dissect(buffer, index, packet, parent)
 
-  -- Dividend Payment Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Dividend Payment Date: uint16_t
   index, dividend_payment_date = euronext_optiq_marketdatagateway_sbe_v5_29.dividend_payment_date.dissect(buffer, index, packet, parent)
 
-  -- Tax Description Attaching To A Dividend: 1 Byte Ascii String Enum with 2 values
+  -- Tax Description Attaching To A Dividend: TaxDescriptionAttachingtoaDividend_enum
   index, tax_description_attaching_to_a_dividend = euronext_optiq_marketdatagateway_sbe_v5_29.tax_description_attaching_to_a_dividend.dissect(buffer, index, packet, parent)
 
-  -- Next Meeting: 8 Byte Ascii String Nullable
+  -- Next Meeting: char8
   index, next_meeting = euronext_optiq_marketdatagateway_sbe_v5_29.next_meeting.dissect(buffer, index, packet, parent)
 
-  -- Gross Dividend In Euros: 8 Byte Signed Fixed Width Integer Nullable
+  -- Gross Dividend In Euros: int64_t
   index, gross_dividend_in_euros = euronext_optiq_marketdatagateway_sbe_v5_29.gross_dividend_in_euros.dissect(buffer, index, packet, parent)
 
-  -- Issue Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Issue Date: uint16_t
   index, issue_date = euronext_optiq_marketdatagateway_sbe_v5_29.issue_date.dissect(buffer, index, packet, parent)
 
-  -- Issuing Country: 3 Byte Ascii String Nullable
+  -- Issuing Country: char3
   index, issuing_country = euronext_optiq_marketdatagateway_sbe_v5_29.issuing_country.dissect(buffer, index, packet, parent)
 
-  -- Cfi Optional: 6 Byte Ascii String Nullable
+  -- Cfi Optional: char6
   index, cfi_optional = euronext_optiq_marketdatagateway_sbe_v5_29.cfi_optional.dissect(buffer, index, packet, parent)
 
-  -- Payment Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Payment Frequency: PaymentFrequency_enum
   index, payment_frequency = euronext_optiq_marketdatagateway_sbe_v5_29.payment_frequency.dissect(buffer, index, packet, parent)
 
-  -- Minimum Amount: 8 Byte Signed Fixed Width Integer Nullable
+  -- Minimum Amount: int64_t
   index, minimum_amount = euronext_optiq_marketdatagateway_sbe_v5_29.minimum_amount.dissect(buffer, index, packet, parent)
 
-  -- Instrument Category: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Instrument Category: InstrumentCategory_enum
   index, instrument_category = euronext_optiq_marketdatagateway_sbe_v5_29.instrument_category.dissect(buffer, index, packet, parent)
 
-  -- Security Condition: 1 Byte Ascii String Enum with 8 values
+  -- Security Condition: SecurityCondition_enum
   index, security_condition = euronext_optiq_marketdatagateway_sbe_v5_29.security_condition.dissect(buffer, index, packet, parent)
 
-  -- Mifid Price Notation: 4 Byte Ascii String Nullable
+  -- Mifid Price Notation: char4
   index, mifid_price_notation = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_price_notation.dissect(buffer, index, packet, parent)
 
-  -- Price Index Level Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Index Level Decimals: unsigned_char
   index, price_index_level_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.price_index_level_decimals.dissect(buffer, index, packet, parent)
 
-  -- Quantity Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Quantity Decimals: unsigned_char
   index, quantity_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.quantity_decimals.dissect(buffer, index, packet, parent)
 
-  -- Amount Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Amount Decimals: unsigned_char
   index, amount_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.amount_decimals.dissect(buffer, index, packet, parent)
 
-  -- Ratio Multiplier Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Ratio Multiplier Decimals: unsigned_char
   index, ratio_multiplier_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.ratio_multiplier_decimals.dissect(buffer, index, packet, parent)
 
   -- Interest Payment Date Rep Groups: Struct of 2 fields
@@ -5678,130 +5678,130 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.apa_full_trade_information_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Date Time: 27 Byte Ascii String
+  -- Trading Date Time: char27
   index, trading_date_time = euronext_optiq_marketdatagateway_sbe_v5_29.trading_date_time.dissect(buffer, index, packet, parent)
 
-  -- Publication Date Time: 27 Byte Ascii String Nullable
+  -- Publication Date Time: char27
   index, publication_date_time = euronext_optiq_marketdatagateway_sbe_v5_29.publication_date_time.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 50 values
+  -- Trade Type: TradeType_enum
   index, trade_type = euronext_optiq_marketdatagateway_sbe_v5_29.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Mifid Instrument Id Type Optional: 4 Byte Ascii String Nullable
+  -- Mifid Instrument Id Type Optional: char4
   index, mifid_instrument_id_type_optional = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_instrument_id_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Mifid Instrument Id Optional: 12 Byte Ascii String Nullable
+  -- Mifid Instrument Id Optional: char12
   index, mifid_instrument_id_optional = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_instrument_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Mifid Transaction Id: 52 Byte Ascii String
+  -- Mifid Transaction Id: char52
   index, mifid_transaction_id = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Mifid Price Optional: 20 Byte Ascii String Nullable
+  -- Mifid Price Optional: char20
   index, mifid_price_optional = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Mifid Quantity: 20 Byte Ascii String
+  -- Mifid Quantity: char20
   index, mifid_quantity = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_quantity.dissect(buffer, index, packet, parent)
 
-  -- Mifid Price Notation: 4 Byte Ascii String Nullable
+  -- Mifid Price Notation: char4
   index, mifid_price_notation = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_price_notation.dissect(buffer, index, packet, parent)
 
-  -- Mifid Currency: 3 Byte Ascii String Nullable
+  -- Mifid Currency: char3
   index, mifid_currency = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_currency.dissect(buffer, index, packet, parent)
 
-  -- Mifid Qty In Msrmt Unit Notation: 25 Byte Ascii String Nullable
+  -- Mifid Qty In Msrmt Unit Notation: char25
   index, mifid_qty_in_msrmt_unit_notation = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_qty_in_msrmt_unit_notation.dissect(buffer, index, packet, parent)
 
-  -- Mifid Quantity Measurement Unit: 20 Byte Ascii String Nullable
+  -- Mifid Quantity Measurement Unit: char20
   index, mifid_quantity_measurement_unit = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_quantity_measurement_unit.dissect(buffer, index, packet, parent)
 
-  -- Mifid Notional Amount: 20 Byte Ascii String Nullable
+  -- Mifid Notional Amount: char20
   index, mifid_notional_amount = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_notional_amount.dissect(buffer, index, packet, parent)
 
-  -- Notional Currency: 3 Byte Ascii String Nullable
+  -- Notional Currency: char3
   index, notional_currency = euronext_optiq_marketdatagateway_sbe_v5_29.notional_currency.dissect(buffer, index, packet, parent)
 
-  -- Mifid Clearing Flag: 5 Byte Ascii String Nullable
+  -- Mifid Clearing Flag: char5
   index, mifid_clearing_flag = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_clearing_flag.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Market Mechanism: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Efficient Mmt Market Mechanism: EfficientMMTMarketMechanism_enum
   index, efficient_mmt_market_mechanism = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_market_mechanism.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Trading Mode: 1 Byte Ascii String Enum with 12 values
+  -- Efficient Mmt Trading Mode: EfficientMMTTradingMode_enum
   index, efficient_mmt_trading_mode = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_trading_mode.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Transaction Category: 1 Byte Ascii String Enum with 6 values
+  -- Efficient Mmt Transaction Category: EfficientMMTTransactionCategory_enum
   index, efficient_mmt_transaction_category = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_transaction_category.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Negotiation Indicator: 1 Byte Ascii String Enum with 9 values
+  -- Efficient Mmt Negotiation Indicator: EfficientMMTNegotiationIndicator_enum
   index, efficient_mmt_negotiation_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_negotiation_indicator.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Agency Cross Trade Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Efficient Mmt Agency Cross Trade Indicator: EfficientMMTAgencyCrossTradeIndicator_enum
   index, efficient_mmt_agency_cross_trade_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_agency_cross_trade_indicator.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Modification Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Efficient Mmt Modification Indicator: EfficientMMTModificationIndicator_enum
   index, efficient_mmt_modification_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_modification_indicator.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Benchmark Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Efficient Mmt Benchmark Indicator: EfficientMMTBenchmarkIndicator_enum
   index, efficient_mmt_benchmark_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_benchmark_indicator.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Special Dividend Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Efficient Mmt Special Dividend Indicator: EfficientMMTSpecialDividendIndicator_enum
   index, efficient_mmt_special_dividend_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_special_dividend_indicator.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Off Book Automated Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Efficient Mmt Off Book Automated Indicator: EfficientMMTOffBookAutomatedIndicator_enum
   index, efficient_mmt_off_book_automated_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_off_book_automated_indicator.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Contributionto Price: 1 Byte Ascii String Enum with 5 values
+  -- Efficient Mmt Contributionto Price: EfficientMMTContributiontoPrice_enum
   index, efficient_mmt_contributionto_price = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_contributionto_price.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Algorithmic Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Efficient Mmt Algorithmic Indicator: EfficientMMTAlgorithmicIndicator_enum
   index, efficient_mmt_algorithmic_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_algorithmic_indicator.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Publication Mode: 1 Byte Ascii String Enum with 8 values
+  -- Efficient Mmt Publication Mode: EfficientMMTPublicationMode_enum
   index, efficient_mmt_publication_mode = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_publication_mode.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Post Trade Deferral: 1 Byte Ascii String Enum with 13 values
+  -- Efficient Mmt Post Trade Deferral: EfficientMMTPostTradeDeferral_enum
   index, efficient_mmt_post_trade_deferral = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_post_trade_deferral.dissect(buffer, index, packet, parent)
 
-  -- Efficient Mmt Duplicative Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Efficient Mmt Duplicative Indicator: EfficientMMTDuplicativeIndicator_enum
   index, efficient_mmt_duplicative_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.efficient_mmt_duplicative_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Reference: 30 Byte Ascii String Nullable
+  -- Trade Reference: char30
   index, trade_reference = euronext_optiq_marketdatagateway_sbe_v5_29.trade_reference.dissect(buffer, index, packet, parent)
 
-  -- Original Report Timestamp: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Original Report Timestamp: uint64_t
   index, original_report_timestamp = euronext_optiq_marketdatagateway_sbe_v5_29.original_report_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Price Multiplier: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Multiplier: uint32_t
   index, price_multiplier = euronext_optiq_marketdatagateway_sbe_v5_29.price_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Price Multiplier Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Multiplier Decimals: unsigned_char
   index, price_multiplier_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.price_multiplier_decimals.dissect(buffer, index, packet, parent)
 
-  -- Venue: 11 Byte Ascii String
+  -- Venue: char11
   index, venue = euronext_optiq_marketdatagateway_sbe_v5_29.venue.dissect(buffer, index, packet, parent)
 
-  -- Mifid Emission Allowance Type: 4 Byte Ascii String Nullable
+  -- Mifid Emission Allowance Type: char4
   index, mifid_emission_allowance_type = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_emission_allowance_type.dissect(buffer, index, packet, parent)
 
-  -- Long Trade Reference: 52 Byte Ascii String Nullable
+  -- Long Trade Reference: char52
   index, long_trade_reference = euronext_optiq_marketdatagateway_sbe_v5_29.long_trade_reference.dissect(buffer, index, packet, parent)
 
-  -- Apa Origin: 4 Byte Ascii String Nullable
+  -- Apa Origin: char4
   index, apa_origin = euronext_optiq_marketdatagateway_sbe_v5_29.apa_origin.dissect(buffer, index, packet, parent)
 
-  -- Trade Unique Identifier: 16 Byte Ascii String Nullable
+  -- Trade Unique Identifier: char16
   index, trade_unique_identifier = euronext_optiq_marketdatagateway_sbe_v5_29.trade_unique_identifier.dissect(buffer, index, packet, parent)
 
   return index
@@ -6345,64 +6345,64 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.apa_standing_data_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Seq Num Optional: uint64_t
   index, md_seq_num_optional = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num_optional.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mifid Instrument Id Type: 4 Byte Ascii String
+  -- Mifid Instrument Id Type: char4
   index, mifid_instrument_id_type = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_instrument_id_type.dissect(buffer, index, packet, parent)
 
-  -- Mifid Instrument Id: 12 Byte Ascii String
+  -- Mifid Instrument Id: char12
   index, mifid_instrument_id = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Full Instrument Name: 102 Byte Ascii String Nullable
+  -- Full Instrument Name: char102
   index, full_instrument_name = euronext_optiq_marketdatagateway_sbe_v5_29.full_instrument_name.dissect(buffer, index, packet, parent)
 
-  -- Cfi Optional: 6 Byte Ascii String Nullable
+  -- Cfi Optional: char6
   index, cfi_optional = euronext_optiq_marketdatagateway_sbe_v5_29.cfi_optional.dissect(buffer, index, packet, parent)
 
-  -- Notional Currency: 3 Byte Ascii String Nullable
+  -- Notional Currency: char3
   index, notional_currency = euronext_optiq_marketdatagateway_sbe_v5_29.notional_currency.dissect(buffer, index, packet, parent)
 
-  -- Second Notional Currency: 3 Byte Ascii String Nullable
+  -- Second Notional Currency: char3
   index, second_notional_currency = euronext_optiq_marketdatagateway_sbe_v5_29.second_notional_currency.dissect(buffer, index, packet, parent)
 
-  -- Price Multiplier: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Multiplier: uint32_t
   index, price_multiplier = euronext_optiq_marketdatagateway_sbe_v5_29.price_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Price Multiplier Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Multiplier Decimals: unsigned_char
   index, price_multiplier_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.price_multiplier_decimals.dissect(buffer, index, packet, parent)
 
-  -- Underlying Isin Code: 12 Byte Ascii String Nullable
+  -- Underlying Isin Code: char12
   index, underlying_isin_code = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_isin_code.dissect(buffer, index, packet, parent)
 
-  -- Underlying Index Name: 25 Byte Ascii String Nullable
+  -- Underlying Index Name: char25
   index, underlying_index_name = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_index_name.dissect(buffer, index, packet, parent)
 
-  -- Underlying Index Term: 8 Byte Ascii String Nullable
+  -- Underlying Index Term: char8
   index, underlying_index_term = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_index_term.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Option Type: OptionType_enum
   index, option_type = euronext_optiq_marketdatagateway_sbe_v5_29.option_type.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Strike Price: int64_t
   index, strike_price = euronext_optiq_marketdatagateway_sbe_v5_29.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Strike Price Decimals: unsigned_char
   index, strike_price_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.strike_price_decimals.dissect(buffer, index, packet, parent)
 
-  -- Exer Style: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Exer Style: ExerciseStyle_enum
   index, exer_style = euronext_optiq_marketdatagateway_sbe_v5_29.exer_style.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date Optional: 8 Byte Ascii String Nullable
+  -- Maturity Date Optional: char8
   index, maturity_date_optional = euronext_optiq_marketdatagateway_sbe_v5_29.maturity_date_optional.dissect(buffer, index, packet, parent)
 
-  -- Expiry Date: 8 Byte Ascii String Nullable
+  -- Expiry Date: char8
   index, expiry_date = euronext_optiq_marketdatagateway_sbe_v5_29.expiry_date.dissect(buffer, index, packet, parent)
 
-  -- Settlement Method: 1 Byte Ascii String Nullable
+  -- Settlement Method: char
   index, settlement_method = euronext_optiq_marketdatagateway_sbe_v5_29.settlement_method.dissect(buffer, index, packet, parent)
 
   return index
@@ -6645,40 +6645,40 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.apa_quotes_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Seq Num Optional: uint64_t
   index, md_seq_num_optional = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num_optional.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mifid Instrument Id Type: 4 Byte Ascii String
+  -- Mifid Instrument Id Type: char4
   index, mifid_instrument_id_type = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_instrument_id_type.dissect(buffer, index, packet, parent)
 
-  -- Mifid Instrument Id: 12 Byte Ascii String
+  -- Mifid Instrument Id: char12
   index, mifid_instrument_id = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Mic: 4 Byte Ascii String
+  -- Mic: char4
   index, mic = euronext_optiq_marketdatagateway_sbe_v5_29.mic.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: char3
   index, currency = euronext_optiq_marketdatagateway_sbe_v5_29.currency.dissect(buffer, index, packet, parent)
 
-  -- Lei Code: 20 Byte Ascii String
+  -- Lei Code: char20
   index, lei_code = euronext_optiq_marketdatagateway_sbe_v5_29.lei_code.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
-  -- Quote Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Quote Update Type: QuoteUpdateType_enum
   index, quote_update_type = euronext_optiq_marketdatagateway_sbe_v5_29.quote_update_type.dissect(buffer, index, packet, parent)
 
-  -- Mifid Price: 20 Byte Ascii String
+  -- Mifid Price: char20
   index, mifid_price = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_price.dissect(buffer, index, packet, parent)
 
-  -- Mifid Quantity: 20 Byte Ascii String
+  -- Mifid Quantity: char20
   index, mifid_quantity = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_quantity.dissect(buffer, index, packet, parent)
 
-  -- Apa Origin: 4 Byte Ascii String Nullable
+  -- Apa Origin: char4
   index, apa_origin = euronext_optiq_marketdatagateway_sbe_v5_29.apa_origin.dissect(buffer, index, packet, parent)
 
   return index
@@ -6829,16 +6829,16 @@ euronext_optiq_marketdatagateway_sbe_v5_29.package_components_group.fields = fun
     iteration:set_generated()
   end
 
-  -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Symbol Index: uint32_t
   index, leg_symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.leg_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: uint32_t
   index, leg_ratio = euronext_optiq_marketdatagateway_sbe_v5_29.leg_ratio.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Last Px: int64_t
   index, leg_last_px = euronext_optiq_marketdatagateway_sbe_v5_29.leg_last_px.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Last Qty: uint64_t
   index, leg_last_qty = euronext_optiq_marketdatagateway_sbe_v5_29.leg_last_qty.dissect(buffer, index, packet, parent)
 
   return index
@@ -7192,25 +7192,25 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.lis_package_structure_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
-  -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Symbol Index: uint32_t
   index, contract_symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.contract_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Mifid Execution Id: 52 Byte Ascii String
+  -- Mifid Execution Id: char52
   index, mifid_execution_id = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_execution_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Code: 1 Byte Ascii String Enum with 48 values
+  -- Strategy Code: StrategyCode_enum
   index, strategy_code = euronext_optiq_marketdatagateway_sbe_v5_29.strategy_code.dissect(buffer, index, packet, parent)
 
   -- Package Components Groups: Struct of 2 fields
@@ -7635,37 +7635,37 @@ euronext_optiq_marketdatagateway_sbe_v5_29.long_order_updates_group.fields = fun
     iteration:set_generated()
   end
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Action Type: MarketDataActionType_enum
   index, action_type = euronext_optiq_marketdatagateway_sbe_v5_29.action_type.dissect(buffer, index, packet, parent)
 
-  -- Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Priority: uint64_t
   index, order_priority = euronext_optiq_marketdatagateway_sbe_v5_29.order_priority.dissect(buffer, index, packet, parent)
 
-  -- Previous Priority: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Previous Priority: uint64_t
   index, previous_priority = euronext_optiq_marketdatagateway_sbe_v5_29.previous_priority.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Order Type: OrderType_enum
   index, order_type = euronext_optiq_marketdatagateway_sbe_v5_29.order_type.dissect(buffer, index, packet, parent)
 
-  -- Order Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Px: int64_t
   index, order_px = euronext_optiq_marketdatagateway_sbe_v5_29.order_px.dissect(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Order Side: OrderSide_enum
   index, order_side = euronext_optiq_marketdatagateway_sbe_v5_29.order_side.dissect(buffer, index, packet, parent)
 
-  -- Order Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Quantity: uint64_t
   index, order_quantity = euronext_optiq_marketdatagateway_sbe_v5_29.order_quantity.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset: 1 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset: int8_t
   index, peg_offset = euronext_optiq_marketdatagateway_sbe_v5_29.peg_offset.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_marketdatagateway_sbe_v5_29.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Account Type: AccountType_enum
   index, account_type = euronext_optiq_marketdatagateway_sbe_v5_29.account_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -7770,16 +7770,16 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.long_order_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
   -- Long Order Updates Groups: Struct of 2 fields
@@ -7823,7 +7823,7 @@ euronext_optiq_marketdatagateway_sbe_v5_29.outright_rep_group.fields = function(
     iteration:set_generated()
   end
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
   return index
@@ -8408,64 +8408,64 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.outright_standing_data_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Symbol Index: uint32_t
   index, contract_symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.contract_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Instrument Event Date: 2 Byte Unsigned Fixed Width Integer
+  -- Instrument Event Date: uint16_t
   index, instrument_event_date = euronext_optiq_marketdatagateway_sbe_v5_29.instrument_event_date.dissect(buffer, index, packet, parent)
 
-  -- Isin Code: 12 Byte Ascii String
+  -- Isin Code: char12
   index, isin_code = euronext_optiq_marketdatagateway_sbe_v5_29.isin_code.dissect(buffer, index, packet, parent)
 
-  -- Cfi Optional: 6 Byte Ascii String Nullable
+  -- Cfi Optional: char6
   index, cfi_optional = euronext_optiq_marketdatagateway_sbe_v5_29.cfi_optional.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 8 Byte Ascii String
+  -- Maturity Date: char8
   index, maturity_date = euronext_optiq_marketdatagateway_sbe_v5_29.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Lot Size: 8 Byte Unsigned Fixed Width Integer
+  -- Lot Size: uint64_t
   index, lot_size = euronext_optiq_marketdatagateway_sbe_v5_29.lot_size.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Strike Price: int64_t
   index, strike_price = euronext_optiq_marketdatagateway_sbe_v5_29.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Trading Date: uint16_t
   index, last_trading_date = euronext_optiq_marketdatagateway_sbe_v5_29.last_trading_date.dissect(buffer, index, packet, parent)
 
-  -- Days To Expiry: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Days To Expiry: uint16_t
   index, days_to_expiry = euronext_optiq_marketdatagateway_sbe_v5_29.days_to_expiry.dissect(buffer, index, packet, parent)
 
-  -- Derivatives Instrument Trading Code Optional: 18 Byte Ascii String Nullable
+  -- Derivatives Instrument Trading Code Optional: char18
   index, derivatives_instrument_trading_code_optional = euronext_optiq_marketdatagateway_sbe_v5_29.derivatives_instrument_trading_code_optional.dissect(buffer, index, packet, parent)
 
-  -- Derivatives Instrument Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Derivatives Instrument Type: DerivativesInstrumentType_enum
   index, derivatives_instrument_type = euronext_optiq_marketdatagateway_sbe_v5_29.derivatives_instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Expiry Cycle Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Expiry Cycle Type: ExpiryCycleType_enum
   index, expiry_cycle_type = euronext_optiq_marketdatagateway_sbe_v5_29.expiry_cycle_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Derivatives Instrument Trading Code: 18 Byte Ascii String Nullable
+  -- Underlying Derivatives Instrument Trading Code: char18
   index, underlying_derivatives_instrument_trading_code = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_derivatives_instrument_trading_code.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Symbol Index: uint32_t
   index, underlying_symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Trading Unit: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Unit: uint64_t
   index, trading_unit = euronext_optiq_marketdatagateway_sbe_v5_29.trading_unit.dissect(buffer, index, packet, parent)
 
-  -- Lot Multiplier: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lot Multiplier: uint64_t
   index, lot_multiplier = euronext_optiq_marketdatagateway_sbe_v5_29.lot_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Expiration Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expiration Date: uint16_t
   index, expiration_date = euronext_optiq_marketdatagateway_sbe_v5_29.expiration_date.dissect(buffer, index, packet, parent)
 
   -- Outright Rep Groups: Struct of 2 fields
@@ -9125,28 +9125,28 @@ euronext_optiq_marketdatagateway_sbe_v5_29.contract_emm_properties_group.fields 
     iteration:set_generated()
   end
 
-  -- Emm Optional: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Emm Optional: EMM_enum
   index, emm_optional = euronext_optiq_marketdatagateway_sbe_v5_29.emm_optional.dissect(buffer, index, packet, parent)
 
-  -- Tick Size Index Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Tick Size Index Id: uint16_t
   index, tick_size_index_id = euronext_optiq_marketdatagateway_sbe_v5_29.tick_size_index_id.dissect(buffer, index, packet, parent)
 
-  -- Pattern Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Pattern Id: uint16_t
   index, pattern_id = euronext_optiq_marketdatagateway_sbe_v5_29.pattern_id.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lot Size Optional: uint64_t
   index, lot_size_optional = euronext_optiq_marketdatagateway_sbe_v5_29.lot_size_optional.dissect(buffer, index, packet, parent)
 
   -- Strategy Authorized: Struct of 49 fields
   index, strategy_authorized = euronext_optiq_marketdatagateway_sbe_v5_29.strategy_authorized.dissect(buffer, index, packet, parent)
 
-  -- Dynamic Collar Logic: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Dynamic Collar Logic: DynamicCollarLogic_enum
   index, dynamic_collar_logic = euronext_optiq_marketdatagateway_sbe_v5_29.dynamic_collar_logic.dissect(buffer, index, packet, parent)
 
-  -- Collar Max Unhalt Nb: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Collar Max Unhalt Nb: unsigned_char
   index, collar_max_unhalt_nb = euronext_optiq_marketdatagateway_sbe_v5_29.collar_max_unhalt_nb.dissect(buffer, index, packet, parent)
 
-  -- Collar Unhalt Delay: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Collar Unhalt Delay: uint32_t
   index, collar_unhalt_delay = euronext_optiq_marketdatagateway_sbe_v5_29.collar_unhalt_delay.dissect(buffer, index, packet, parent)
 
   return index
@@ -10733,139 +10733,139 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.contract_standing_data_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Optiq Segment: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Optiq Segment: OptiqSegment_enum
   index, optiq_segment = euronext_optiq_marketdatagateway_sbe_v5_29.optiq_segment.dissect(buffer, index, packet, parent)
 
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Partition Id: uint16_t
   index, partition_id = euronext_optiq_marketdatagateway_sbe_v5_29.partition_id.dissect(buffer, index, packet, parent)
 
-  -- Contract Event Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Contract Event Date: uint16_t
   index, contract_event_date = euronext_optiq_marketdatagateway_sbe_v5_29.contract_event_date.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 21 values
+  -- Exchange Code: ExchangeCode_enum
   index, exchange_code = euronext_optiq_marketdatagateway_sbe_v5_29.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Exer Style: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Exer Style: ExerciseStyle_enum
   index, exer_style = euronext_optiq_marketdatagateway_sbe_v5_29.exer_style.dissect(buffer, index, packet, parent)
 
-  -- Contract Name: 60 Byte Ascii String
+  -- Contract Name: char60
   index, contract_name = euronext_optiq_marketdatagateway_sbe_v5_29.contract_name.dissect(buffer, index, packet, parent)
 
-  -- Contract Type: 1 Byte Ascii String Enum with 4 values
+  -- Contract Type: ContractType_enum
   index, contract_type = euronext_optiq_marketdatagateway_sbe_v5_29.contract_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Type: 1 Byte Ascii String Enum with 23 values
+  -- Underlying Type: UnderlyingType_enum
   index, underlying_type = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_type.dissect(buffer, index, packet, parent)
 
-  -- Price Decimals Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Decimals Optional: unsigned_char
   index, price_decimals_optional = euronext_optiq_marketdatagateway_sbe_v5_29.price_decimals_optional.dissect(buffer, index, packet, parent)
 
-  -- Quantity Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Quantity Decimals: unsigned_char
   index, quantity_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.quantity_decimals.dissect(buffer, index, packet, parent)
 
-  -- Amount Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Amount Decimals: unsigned_char
   index, amount_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.amount_decimals.dissect(buffer, index, packet, parent)
 
-  -- Ratio Decimals Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Ratio Decimals Optional: unsigned_char
   index, ratio_decimals_optional = euronext_optiq_marketdatagateway_sbe_v5_29.ratio_decimals_optional.dissect(buffer, index, packet, parent)
 
-  -- Main Depositary: 5 Byte Ascii String Nullable
+  -- Main Depositary: char5
   index, main_depositary = euronext_optiq_marketdatagateway_sbe_v5_29.main_depositary.dissect(buffer, index, packet, parent)
 
-  -- Mic: 4 Byte Ascii String
+  -- Mic: char4
   index, mic = euronext_optiq_marketdatagateway_sbe_v5_29.mic.dissect(buffer, index, packet, parent)
 
-  -- Country Of Exchange: 3 Byte Ascii String
+  -- Country Of Exchange: char3
   index, country_of_exchange = euronext_optiq_marketdatagateway_sbe_v5_29.country_of_exchange.dissect(buffer, index, packet, parent)
 
-  -- Product Code: 4 Byte Ascii String
+  -- Product Code: char4
   index, product_code = euronext_optiq_marketdatagateway_sbe_v5_29.product_code.dissect(buffer, index, packet, parent)
 
-  -- Underlying Mic: 4 Byte Ascii String Nullable
+  -- Underlying Mic: char4
   index, underlying_mic = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_mic.dissect(buffer, index, packet, parent)
 
-  -- Underlying Isin Code: 12 Byte Ascii String Nullable
+  -- Underlying Isin Code: char12
   index, underlying_isin_code = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_isin_code.dissect(buffer, index, packet, parent)
 
-  -- Underlying Expiry: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Expiry: uint32_t
   index, underlying_expiry = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_expiry.dissect(buffer, index, packet, parent)
 
   -- Order Type Rules: Struct of 7 fields
   index, order_type_rules = euronext_optiq_marketdatagateway_sbe_v5_29.order_type_rules.dissect(buffer, index, packet, parent)
 
-  -- Settlement Method: 1 Byte Ascii String Nullable
+  -- Settlement Method: char
   index, settlement_method = euronext_optiq_marketdatagateway_sbe_v5_29.settlement_method.dissect(buffer, index, packet, parent)
 
-  -- Trading Currency: 3 Byte Ascii String
+  -- Trading Currency: char3
   index, trading_currency = euronext_optiq_marketdatagateway_sbe_v5_29.trading_currency.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Decimals Ratio: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Strike Price Decimals Ratio: unsigned_char
   index, strike_price_decimals_ratio = euronext_optiq_marketdatagateway_sbe_v5_29.strike_price_decimals_ratio.dissect(buffer, index, packet, parent)
 
   -- Mm Protections: Struct of 3 fields
   index, mm_protections = euronext_optiq_marketdatagateway_sbe_v5_29.mm_protections.dissect(buffer, index, packet, parent)
 
-  -- Contract Trading Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Contract Trading Type: ContractTradingType_enum
   index, contract_trading_type = euronext_optiq_marketdatagateway_sbe_v5_29.contract_trading_type.dissect(buffer, index, packet, parent)
 
-  -- Inst Unit Exp: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Inst Unit Exp: InstrumentUnitExpression_enum
   index, inst_unit_exp = euronext_optiq_marketdatagateway_sbe_v5_29.inst_unit_exp.dissect(buffer, index, packet, parent)
 
-  -- Underlying Subtype: 1 Byte Unsigned Fixed Width Integer Enum with 27 values
+  -- Underlying Subtype: UnderlyingSubtype_enum
   index, underlying_subtype = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_subtype.dissect(buffer, index, packet, parent)
 
-  -- Mother Stock Isin: 12 Byte Ascii String Nullable
+  -- Mother Stock Isin: char12
   index, mother_stock_isin = euronext_optiq_marketdatagateway_sbe_v5_29.mother_stock_isin.dissect(buffer, index, packet, parent)
 
-  -- Settlement Tick Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Settlement Tick Size: uint64_t
   index, settlement_tick_size = euronext_optiq_marketdatagateway_sbe_v5_29.settlement_tick_size.dissect(buffer, index, packet, parent)
 
-  -- Edsp Tick Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Edsp Tick Size: uint64_t
   index, edsp_tick_size = euronext_optiq_marketdatagateway_sbe_v5_29.edsp_tick_size.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Symbol Index: uint32_t
   index, underlying_symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Trading Policy: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Policy: TradingPolicy_enum
   index, trading_policy = euronext_optiq_marketdatagateway_sbe_v5_29.trading_policy.dissect(buffer, index, packet, parent)
 
-  -- Reference Spread Table Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Reference Spread Table Id: uint16_t
   index, reference_spread_table_id = euronext_optiq_marketdatagateway_sbe_v5_29.reference_spread_table_id.dissect(buffer, index, packet, parent)
 
-  -- Derivatives Market Model: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Derivatives Market Model: DerivativesMarketModel_enum
   index, derivatives_market_model = euronext_optiq_marketdatagateway_sbe_v5_29.derivatives_market_model.dissect(buffer, index, packet, parent)
 
-  -- Trading Unit: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Unit: uint64_t
   index, trading_unit = euronext_optiq_marketdatagateway_sbe_v5_29.trading_unit.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Origin In Opening Call: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Reference Price Origin In Opening Call: ReferencePriceOrigin_enum
   index, reference_price_origin_in_opening_call = euronext_optiq_marketdatagateway_sbe_v5_29.reference_price_origin_in_opening_call.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Origin In Continuous: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Reference Price Origin In Continuous: ReferencePriceOrigin_enum
   index, reference_price_origin_in_continuous = euronext_optiq_marketdatagateway_sbe_v5_29.reference_price_origin_in_continuous.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Origin In Trading Interruption: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Reference Price Origin In Trading Interruption: ReferencePriceOrigin_enum
   index, reference_price_origin_in_trading_interruption = euronext_optiq_marketdatagateway_sbe_v5_29.reference_price_origin_in_trading_interruption.dissect(buffer, index, packet, parent)
 
-  -- Collar Expansion Factor: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Collar Expansion Factor: unsigned_char
   index, collar_expansion_factor = euronext_optiq_marketdatagateway_sbe_v5_29.collar_expansion_factor.dissect(buffer, index, packet, parent)
 
-  -- Mifidii Liquid Flag: 1 Byte Unsigned Fixed Width Integer
+  -- Mifidii Liquid Flag: unsigned_char
   index, mifidii_liquid_flag = euronext_optiq_marketdatagateway_sbe_v5_29.mifidii_liquid_flag.dissect(buffer, index, packet, parent)
 
-  -- Pricing Algorithm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Pricing Algorithm: PricingAlgorithm_enum
   index, pricing_algorithm = euronext_optiq_marketdatagateway_sbe_v5_29.pricing_algorithm.dissect(buffer, index, packet, parent)
 
-  -- Lot Multiplier: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lot Multiplier: uint64_t
   index, lot_multiplier = euronext_optiq_marketdatagateway_sbe_v5_29.lot_multiplier.dissect(buffer, index, packet, parent)
 
   -- Contract Emm Properties Groups: Struct of 2 fields
@@ -10983,16 +10983,16 @@ euronext_optiq_marketdatagateway_sbe_v5_29.strategy_standing_data_group.fields =
     iteration:set_generated()
   end
 
-  -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Symbol Index: uint32_t
   index, leg_symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.leg_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Price: int64_t
   index, leg_price = euronext_optiq_marketdatagateway_sbe_v5_29.leg_price.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: uint32_t
   index, leg_ratio = euronext_optiq_marketdatagateway_sbe_v5_29.leg_ratio.dissect(buffer, index, packet, parent)
 
-  -- Leg Buy Sell: 1 Byte Ascii String Enum with 2 values
+  -- Leg Buy Sell: LegBuyorSell_enum
   index, leg_buy_sell = euronext_optiq_marketdatagateway_sbe_v5_29.leg_buy_sell.dissect(buffer, index, packet, parent)
 
   return index
@@ -11148,34 +11148,34 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.strategy_standing_data_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Derivatives Instrument Trading Code: 18 Byte Ascii String
+  -- Derivatives Instrument Trading Code: char18
   index, derivatives_instrument_trading_code = euronext_optiq_marketdatagateway_sbe_v5_29.derivatives_instrument_trading_code.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 21 values
+  -- Exchange Code: ExchangeCode_enum
   index, exchange_code = euronext_optiq_marketdatagateway_sbe_v5_29.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 8 Byte Ascii String
+  -- Maturity Date: char8
   index, maturity_date = euronext_optiq_marketdatagateway_sbe_v5_29.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Strategy Code: 1 Byte Ascii String Enum with 48 values
+  -- Strategy Code: StrategyCode_enum
   index, strategy_code = euronext_optiq_marketdatagateway_sbe_v5_29.strategy_code.dissect(buffer, index, packet, parent)
 
-  -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Symbol Index: uint32_t
   index, contract_symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.contract_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Cfi Optional: 6 Byte Ascii String Nullable
+  -- Cfi Optional: char6
   index, cfi_optional = euronext_optiq_marketdatagateway_sbe_v5_29.cfi_optional.dissect(buffer, index, packet, parent)
 
   -- Strategy Standing Data Groups: Struct of 2 fields
@@ -11549,58 +11549,58 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.index_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Opening Level: 8 Byte Signed Fixed Width Integer
+  -- Opening Level: int64_t
   index, opening_level = euronext_optiq_marketdatagateway_sbe_v5_29.opening_level.dissect(buffer, index, packet, parent)
 
-  -- Opening Time: 8 Byte Unsigned Fixed Width Integer
+  -- Opening Time: uint64_t
   index, opening_time = euronext_optiq_marketdatagateway_sbe_v5_29.opening_time.dissect(buffer, index, packet, parent)
 
-  -- Confirmed Reference Level: 8 Byte Signed Fixed Width Integer Nullable
+  -- Confirmed Reference Level: int64_t
   index, confirmed_reference_level = euronext_optiq_marketdatagateway_sbe_v5_29.confirmed_reference_level.dissect(buffer, index, packet, parent)
 
-  -- Confirmed Reference Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Confirmed Reference Time: uint64_t
   index, confirmed_reference_time = euronext_optiq_marketdatagateway_sbe_v5_29.confirmed_reference_time.dissect(buffer, index, packet, parent)
 
-  -- Closing Reference Level: 8 Byte Signed Fixed Width Integer
+  -- Closing Reference Level: int64_t
   index, closing_reference_level = euronext_optiq_marketdatagateway_sbe_v5_29.closing_reference_level.dissect(buffer, index, packet, parent)
 
-  -- Closing Reference Time: 8 Byte Unsigned Fixed Width Integer
+  -- Closing Reference Time: uint64_t
   index, closing_reference_time = euronext_optiq_marketdatagateway_sbe_v5_29.closing_reference_time.dissect(buffer, index, packet, parent)
 
-  -- Prct Varfrom Prev Close: 8 Byte Signed Fixed Width Integer
+  -- Prct Varfrom Prev Close: int64_t
   index, prct_varfrom_prev_close = euronext_optiq_marketdatagateway_sbe_v5_29.prct_varfrom_prev_close.dissect(buffer, index, packet, parent)
 
-  -- High Level: 8 Byte Signed Fixed Width Integer
+  -- High Level: int64_t
   index, high_level = euronext_optiq_marketdatagateway_sbe_v5_29.high_level.dissect(buffer, index, packet, parent)
 
-  -- High Time: 8 Byte Unsigned Fixed Width Integer
+  -- High Time: uint64_t
   index, high_time = euronext_optiq_marketdatagateway_sbe_v5_29.high_time.dissect(buffer, index, packet, parent)
 
-  -- Low Level: 8 Byte Signed Fixed Width Integer
+  -- Low Level: int64_t
   index, low_level = euronext_optiq_marketdatagateway_sbe_v5_29.low_level.dissect(buffer, index, packet, parent)
 
-  -- Low Time: 8 Byte Unsigned Fixed Width Integer
+  -- Low Time: uint64_t
   index, low_time = euronext_optiq_marketdatagateway_sbe_v5_29.low_time.dissect(buffer, index, packet, parent)
 
-  -- Liquidation Level: 8 Byte Signed Fixed Width Integer Nullable
+  -- Liquidation Level: int64_t
   index, liquidation_level = euronext_optiq_marketdatagateway_sbe_v5_29.liquidation_level.dissect(buffer, index, packet, parent)
 
-  -- Liquidation Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Liquidation Time: uint64_t
   index, liquidation_time = euronext_optiq_marketdatagateway_sbe_v5_29.liquidation_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -11744,10 +11744,10 @@ euronext_optiq_marketdatagateway_sbe_v5_29.new_stats_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Stats Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  -- Stats Update Type: StatsUpdateType_enum
   index, stats_update_type = euronext_optiq_marketdatagateway_sbe_v5_29.stats_update_type.dissect(buffer, index, packet, parent)
 
-  -- Stats Update Value: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stats Update Value: int64_t
   index, stats_update_value = euronext_optiq_marketdatagateway_sbe_v5_29.stats_update_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -11850,13 +11850,13 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.statistics_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
   -- New Stats Groups: Struct of 2 fields
@@ -12076,37 +12076,37 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.real_time_index_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Index Level: 8 Byte Signed Fixed Width Integer
+  -- Index Level: int64_t
   index, index_level = euronext_optiq_marketdatagateway_sbe_v5_29.index_level.dissect(buffer, index, packet, parent)
 
-  -- Pctg Of Capitalization: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Pctg Of Capitalization: uint64_t
   index, pctg_of_capitalization = euronext_optiq_marketdatagateway_sbe_v5_29.pctg_of_capitalization.dissect(buffer, index, packet, parent)
 
-  -- Prct Varfrom Prev Close: 8 Byte Signed Fixed Width Integer
+  -- Prct Varfrom Prev Close: int64_t
   index, prct_varfrom_prev_close = euronext_optiq_marketdatagateway_sbe_v5_29.prct_varfrom_prev_close.dissect(buffer, index, packet, parent)
 
-  -- Num Traded Instruments: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Num Traded Instruments: uint16_t
   index, num_traded_instruments = euronext_optiq_marketdatagateway_sbe_v5_29.num_traded_instruments.dissect(buffer, index, packet, parent)
 
-  -- Index Level Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Index Level Type: IndexLevelType_enum
   index, index_level_type = euronext_optiq_marketdatagateway_sbe_v5_29.index_level_type.dissect(buffer, index, packet, parent)
 
-  -- Index Price Code: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Index Price Code: IndexPriceCode_enum
   index, index_price_code = euronext_optiq_marketdatagateway_sbe_v5_29.index_price_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -12236,25 +12236,25 @@ euronext_optiq_marketdatagateway_sbe_v5_29.emm_pattern_rep_group.fields = functi
     iteration:set_generated()
   end
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Pattern Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Pattern Id: uint16_t
   index, pattern_id = euronext_optiq_marketdatagateway_sbe_v5_29.pattern_id.dissect(buffer, index, packet, parent)
 
-  -- Tick Size Index Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Tick Size Index Id: uint16_t
   index, tick_size_index_id = euronext_optiq_marketdatagateway_sbe_v5_29.tick_size_index_id.dissect(buffer, index, packet, parent)
 
-  -- Market Model: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Market Model: MarketModel_enum
   index, market_model = euronext_optiq_marketdatagateway_sbe_v5_29.market_model.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lot Size Optional: uint64_t
   index, lot_size_optional = euronext_optiq_marketdatagateway_sbe_v5_29.lot_size_optional.dissect(buffer, index, packet, parent)
 
-  -- Inst Unit Exp: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Inst Unit Exp: InstrumentUnitExpression_enum
   index, inst_unit_exp = euronext_optiq_marketdatagateway_sbe_v5_29.inst_unit_exp.dissect(buffer, index, packet, parent)
 
-  -- Anonymous: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Anonymous: Anonymous_enum
   index, anonymous = euronext_optiq_marketdatagateway_sbe_v5_29.anonymous.dissect(buffer, index, packet, parent)
 
   return index
@@ -14020,205 +14020,205 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.standing_data_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Optiq Segment: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Optiq Segment: OptiqSegment_enum
   index, optiq_segment = euronext_optiq_marketdatagateway_sbe_v5_29.optiq_segment.dissect(buffer, index, packet, parent)
 
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Partition Id: uint16_t
   index, partition_id = euronext_optiq_marketdatagateway_sbe_v5_29.partition_id.dissect(buffer, index, packet, parent)
 
-  -- Full Instrument Name: 102 Byte Ascii String Nullable
+  -- Full Instrument Name: char102
   index, full_instrument_name = euronext_optiq_marketdatagateway_sbe_v5_29.full_instrument_name.dissect(buffer, index, packet, parent)
 
-  -- Instrument Name: 18 Byte Ascii String
+  -- Instrument Name: char18
   index, instrument_name = euronext_optiq_marketdatagateway_sbe_v5_29.instrument_name.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Code: 15 Byte Ascii String Nullable
+  -- Instrument Trading Code: char15
   index, instrument_trading_code = euronext_optiq_marketdatagateway_sbe_v5_29.instrument_trading_code.dissect(buffer, index, packet, parent)
 
-  -- Instrument Group Code: 2 Byte Ascii String
+  -- Instrument Group Code: char2
   index, instrument_group_code = euronext_optiq_marketdatagateway_sbe_v5_29.instrument_group_code.dissect(buffer, index, packet, parent)
 
-  -- Isin Code: 12 Byte Ascii String
+  -- Isin Code: char12
   index, isin_code = euronext_optiq_marketdatagateway_sbe_v5_29.isin_code.dissect(buffer, index, packet, parent)
 
-  -- Price Decimals: 1 Byte Unsigned Fixed Width Integer
+  -- Price Decimals: unsigned_char
   index, price_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.price_decimals.dissect(buffer, index, packet, parent)
 
-  -- Quantity Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Quantity Decimals: unsigned_char
   index, quantity_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.quantity_decimals.dissect(buffer, index, packet, parent)
 
-  -- Amount Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Amount Decimals: unsigned_char
   index, amount_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.amount_decimals.dissect(buffer, index, packet, parent)
 
-  -- Ratio Decimals: 1 Byte Unsigned Fixed Width Integer
+  -- Ratio Decimals: unsigned_char
   index, ratio_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.ratio_decimals.dissect(buffer, index, packet, parent)
 
-  -- Cfi: 6 Byte Ascii String
+  -- Cfi: char6
   index, cfi = euronext_optiq_marketdatagateway_sbe_v5_29.cfi.dissect(buffer, index, packet, parent)
 
-  -- Instrument Event Date: 2 Byte Unsigned Fixed Width Integer
+  -- Instrument Event Date: uint16_t
   index, instrument_event_date = euronext_optiq_marketdatagateway_sbe_v5_29.instrument_event_date.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Strike Price: int64_t
   index, strike_price = euronext_optiq_marketdatagateway_sbe_v5_29.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Dark Eligibility: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Dark Eligibility: unsigned_char
   index, dark_eligibility = euronext_optiq_marketdatagateway_sbe_v5_29.dark_eligibility.dissect(buffer, index, packet, parent)
 
-  -- Dark Lis Threshold: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Dark Lis Threshold: uint64_t
   index, dark_lis_threshold = euronext_optiq_marketdatagateway_sbe_v5_29.dark_lis_threshold.dissect(buffer, index, packet, parent)
 
-  -- Dark Min Quantity: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Dark Min Quantity: uint32_t
   index, dark_min_quantity = euronext_optiq_marketdatagateway_sbe_v5_29.dark_min_quantity.dissect(buffer, index, packet, parent)
 
-  -- Date Of Last Trade: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Date Of Last Trade: uint16_t
   index, date_of_last_trade = euronext_optiq_marketdatagateway_sbe_v5_29.date_of_last_trade.dissect(buffer, index, packet, parent)
 
-  -- Depositary List: 20 Byte Ascii String Nullable
+  -- Depositary List: char20
   index, depositary_list = euronext_optiq_marketdatagateway_sbe_v5_29.depositary_list.dissect(buffer, index, packet, parent)
 
-  -- Main Depositary: 5 Byte Ascii String Nullable
+  -- Main Depositary: char5
   index, main_depositary = euronext_optiq_marketdatagateway_sbe_v5_29.main_depositary.dissect(buffer, index, packet, parent)
 
-  -- First Settlement Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- First Settlement Date: uint16_t
   index, first_settlement_date = euronext_optiq_marketdatagateway_sbe_v5_29.first_settlement_date.dissect(buffer, index, packet, parent)
 
-  -- Guarantee Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Guarantee Indicator: GuaranteeIndicator_enum
   index, guarantee_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.guarantee_indicator.dissect(buffer, index, packet, parent)
 
-  -- Icb: 16 Byte Ascii String Nullable
+  -- Icb: char16
   index, icb = euronext_optiq_marketdatagateway_sbe_v5_29.icb.dissect(buffer, index, packet, parent)
 
-  -- Issuing Country: 3 Byte Ascii String Nullable
+  -- Issuing Country: char3
   index, issuing_country = euronext_optiq_marketdatagateway_sbe_v5_29.issuing_country.dissect(buffer, index, packet, parent)
 
-  -- Last Adjusted Closing Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Last Adjusted Closing Price: int64_t
   index, last_adjusted_closing_price = euronext_optiq_marketdatagateway_sbe_v5_29.last_adjusted_closing_price.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lot Size Optional: uint64_t
   index, lot_size_optional = euronext_optiq_marketdatagateway_sbe_v5_29.lot_size_optional.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date Optional: 8 Byte Ascii String Nullable
+  -- Maturity Date Optional: char8
   index, maturity_date_optional = euronext_optiq_marketdatagateway_sbe_v5_29.maturity_date_optional.dissect(buffer, index, packet, parent)
 
-  -- Maximum Decimals In Quantity: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Maximum Decimals In Quantity: unsigned_char
   index, maximum_decimals_in_quantity = euronext_optiq_marketdatagateway_sbe_v5_29.maximum_decimals_in_quantity.dissect(buffer, index, packet, parent)
 
-  -- Mic: 4 Byte Ascii String
+  -- Mic: char4
   index, mic = euronext_optiq_marketdatagateway_sbe_v5_29.mic.dissect(buffer, index, packet, parent)
 
-  -- Mic List: 20 Byte Ascii String Nullable
+  -- Mic List: char20
   index, mic_list = euronext_optiq_marketdatagateway_sbe_v5_29.mic_list.dissect(buffer, index, packet, parent)
 
-  -- Country Of Exchange Optional: 3 Byte Ascii String Nullable
+  -- Country Of Exchange Optional: char3
   index, country_of_exchange_optional = euronext_optiq_marketdatagateway_sbe_v5_29.country_of_exchange_optional.dissect(buffer, index, packet, parent)
 
-  -- Mnemonic: 5 Byte Ascii String Nullable
+  -- Mnemonic: char5
   index, mnemonic = euronext_optiq_marketdatagateway_sbe_v5_29.mnemonic.dissect(buffer, index, packet, parent)
 
-  -- Underlying Mic: 4 Byte Ascii String Nullable
+  -- Underlying Mic: char4
   index, underlying_mic = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_mic.dissect(buffer, index, packet, parent)
 
-  -- Underlying Isin Code: 12 Byte Ascii String Nullable
+  -- Underlying Isin Code: char12
   index, underlying_isin_code = euronext_optiq_marketdatagateway_sbe_v5_29.underlying_isin_code.dissect(buffer, index, packet, parent)
 
-  -- Trading Currency Optional: 3 Byte Ascii String Nullable
+  -- Trading Currency Optional: char3
   index, trading_currency_optional = euronext_optiq_marketdatagateway_sbe_v5_29.trading_currency_optional.dissect(buffer, index, packet, parent)
 
-  -- Currency Coefficient: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Currency Coefficient: uint32_t
   index, currency_coefficient = euronext_optiq_marketdatagateway_sbe_v5_29.currency_coefficient.dissect(buffer, index, packet, parent)
 
-  -- Trading Currency Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Currency Indicator: TradingCurrencyIndicator_enum
   index, trading_currency_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.trading_currency_indicator.dissect(buffer, index, packet, parent)
 
-  -- Strike Currency Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Strike Currency Indicator: StrikeCurrencyIndicator_enum
   index, strike_currency_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.strike_currency_indicator.dissect(buffer, index, packet, parent)
 
-  -- Number Instrument Circulating: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Number Instrument Circulating: uint64_t
   index, number_instrument_circulating = euronext_optiq_marketdatagateway_sbe_v5_29.number_instrument_circulating.dissect(buffer, index, packet, parent)
 
-  -- Par Value: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Par Value: uint64_t
   index, par_value = euronext_optiq_marketdatagateway_sbe_v5_29.par_value.dissect(buffer, index, packet, parent)
 
-  -- Quantity Notation: 3 Byte Ascii String Nullable
+  -- Quantity Notation: char3
   index, quantity_notation = euronext_optiq_marketdatagateway_sbe_v5_29.quantity_notation.dissect(buffer, index, packet, parent)
 
-  -- Inst Unit Exp: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Inst Unit Exp: InstrumentUnitExpression_enum
   index, inst_unit_exp = euronext_optiq_marketdatagateway_sbe_v5_29.inst_unit_exp.dissect(buffer, index, packet, parent)
 
-  -- Settlement Delay: 2 Byte Ascii String Nullable
+  -- Settlement Delay: char2
   index, settlement_delay = euronext_optiq_marketdatagateway_sbe_v5_29.settlement_delay.dissect(buffer, index, packet, parent)
 
-  -- Strike Currency: 3 Byte Ascii String Nullable
+  -- Strike Currency: char3
   index, strike_currency = euronext_optiq_marketdatagateway_sbe_v5_29.strike_currency.dissect(buffer, index, packet, parent)
 
-  -- Tax Code: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Tax Code: TaxCode_enum
   index, tax_code = euronext_optiq_marketdatagateway_sbe_v5_29.tax_code.dissect(buffer, index, packet, parent)
 
-  -- Type Of Corporate Event: 2 Byte Ascii String Nullable
+  -- Type Of Corporate Event: char2
   index, type_of_corporate_event = euronext_optiq_marketdatagateway_sbe_v5_29.type_of_corporate_event.dissect(buffer, index, packet, parent)
 
-  -- Type Of Market Admission: 1 Byte Ascii String Enum with 17 values
+  -- Type Of Market Admission: TypeOfMarketAdmission_enum
   index, type_of_market_admission = euronext_optiq_marketdatagateway_sbe_v5_29.type_of_market_admission.dissect(buffer, index, packet, parent)
 
-  -- Repo Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Repo Indicator: RepoIndicator_enum
   index, repo_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.repo_indicator.dissect(buffer, index, packet, parent)
 
-  -- Issue Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Issue Price: int64_t
   index, issue_price = euronext_optiq_marketdatagateway_sbe_v5_29.issue_price.dissect(buffer, index, packet, parent)
 
-  -- Nominal Currency: 3 Byte Ascii String Nullable
+  -- Nominal Currency: char3
   index, nominal_currency = euronext_optiq_marketdatagateway_sbe_v5_29.nominal_currency.dissect(buffer, index, packet, parent)
 
-  -- Issue Price Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Issue Price Decimals: unsigned_char
   index, issue_price_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.issue_price_decimals.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Strike Price Decimals: unsigned_char
   index, strike_price_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.strike_price_decimals.dissect(buffer, index, packet, parent)
 
-  -- Liquid Instrument Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Liquid Instrument Indicator: unsigned_char
   index, liquid_instrument_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.liquid_instrument_indicator.dissect(buffer, index, packet, parent)
 
-  -- Market Of Reference Mic: 4 Byte Ascii String Nullable
+  -- Market Of Reference Mic: char4
   index, market_of_reference_mic = euronext_optiq_marketdatagateway_sbe_v5_29.market_of_reference_mic.dissect(buffer, index, packet, parent)
 
-  -- Icb Code: 8 Byte Ascii String Nullable
+  -- Icb Code: char8
   index, icb_code = euronext_optiq_marketdatagateway_sbe_v5_29.icb_code.dissect(buffer, index, packet, parent)
 
-  -- Threshold Lis Post Trade 60mn: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Threshold Lis Post Trade 60mn: uint64_t
   index, threshold_lis_post_trade_60mn = euronext_optiq_marketdatagateway_sbe_v5_29.threshold_lis_post_trade_60mn.dissect(buffer, index, packet, parent)
 
-  -- Threshold Lis Post Trade 120mn: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Threshold Lis Post Trade 120mn: uint64_t
   index, threshold_lis_post_trade_120mn = euronext_optiq_marketdatagateway_sbe_v5_29.threshold_lis_post_trade_120mn.dissect(buffer, index, packet, parent)
 
-  -- Threshold Lis Post Trade Eod: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Threshold Lis Post Trade Eod: uint64_t
   index, threshold_lis_post_trade_eod = euronext_optiq_marketdatagateway_sbe_v5_29.threshold_lis_post_trade_eod.dissect(buffer, index, packet, parent)
 
-  -- Long Mnemonic: 6 Byte Ascii String Nullable
+  -- Long Mnemonic: char6
   index, long_mnemonic = euronext_optiq_marketdatagateway_sbe_v5_29.long_mnemonic.dissect(buffer, index, packet, parent)
 
-  -- Max Order Amount Call: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Order Amount Call: uint64_t
   index, max_order_amount_call = euronext_optiq_marketdatagateway_sbe_v5_29.max_order_amount_call.dissect(buffer, index, packet, parent)
 
-  -- Max Order Amount Continuous: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Order Amount Continuous: uint64_t
   index, max_order_amount_continuous = euronext_optiq_marketdatagateway_sbe_v5_29.max_order_amount_continuous.dissect(buffer, index, packet, parent)
 
-  -- Max Order Quantity Call: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Order Quantity Call: uint64_t
   index, max_order_quantity_call = euronext_optiq_marketdatagateway_sbe_v5_29.max_order_quantity_call.dissect(buffer, index, packet, parent)
 
-  -- Max Order Quantity Continuous: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Order Quantity Continuous: uint64_t
   index, max_order_quantity_continuous = euronext_optiq_marketdatagateway_sbe_v5_29.max_order_quantity_continuous.dissect(buffer, index, packet, parent)
 
-  -- Pool Factor: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Pool Factor: uint32_t
   index, pool_factor = euronext_optiq_marketdatagateway_sbe_v5_29.pool_factor.dissect(buffer, index, packet, parent)
 
   -- Emm Pattern Rep Groups: Struct of 2 fields
@@ -14651,25 +14651,25 @@ euronext_optiq_marketdatagateway_sbe_v5_29.timetables_group.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Phase Time: 8 Byte Unsigned Fixed Width Integer
+  -- Phase Time: uint64_t
   index, phase_time = euronext_optiq_marketdatagateway_sbe_v5_29.phase_time.dissect(buffer, index, packet, parent)
 
-  -- Phase Id: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Phase Id: PhaseId_enum
   index, phase_id = euronext_optiq_marketdatagateway_sbe_v5_29.phase_id.dissect(buffer, index, packet, parent)
 
   -- Phase Qualifier: Struct of 12 fields
   index, phase_qualifier = euronext_optiq_marketdatagateway_sbe_v5_29.phase_qualifier.dissect(buffer, index, packet, parent)
 
-  -- Trading Period: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Period: TradingPeriod_enum
   index, trading_period = euronext_optiq_marketdatagateway_sbe_v5_29.trading_period.dissect(buffer, index, packet, parent)
 
-  -- Order Entry Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Entry Qualifier: OrderEntryQualifier_enum
   index, order_entry_qualifier = euronext_optiq_marketdatagateway_sbe_v5_29.order_entry_qualifier.dissect(buffer, index, packet, parent)
 
-  -- Session: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Session: Session_enum
   index, session = euronext_optiq_marketdatagateway_sbe_v5_29.session.dissect(buffer, index, packet, parent)
 
-  -- Scheduled Event: 1 Byte Unsigned Fixed Width Integer Enum with 17 values
+  -- Scheduled Event: ScheduledEvent_enum
   index, scheduled_event = euronext_optiq_marketdatagateway_sbe_v5_29.scheduled_event.dissect(buffer, index, packet, parent)
 
   return index
@@ -14804,19 +14804,19 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.timetable_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm Optional: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Emm Optional: EMM_enum
   index, emm_optional = euronext_optiq_marketdatagateway_sbe_v5_29.emm_optional.dissect(buffer, index, packet, parent)
 
-  -- Pattern Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Pattern Id: uint16_t
   index, pattern_id = euronext_optiq_marketdatagateway_sbe_v5_29.pattern_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Symbol Index Optional: uint32_t
   index, symbol_index_optional = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index_optional.dissect(buffer, index, packet, parent)
 
   -- Timetables Groups: Struct of 2 fields
@@ -15295,49 +15295,49 @@ euronext_optiq_marketdatagateway_sbe_v5_29.market_states_group.fields = function
     iteration:set_generated()
   end
 
-  -- Change Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Change Type: MarketDataChangeType_enum
   index, change_type = euronext_optiq_marketdatagateway_sbe_v5_29.change_type.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
-  -- Book State: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Book State: BookState_enum
   index, book_state = euronext_optiq_marketdatagateway_sbe_v5_29.book_state.dissect(buffer, index, packet, parent)
 
-  -- Status Reason: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  -- Status Reason: StatusReason_enum
   index, status_reason = euronext_optiq_marketdatagateway_sbe_v5_29.status_reason.dissect(buffer, index, packet, parent)
 
   -- Phase Qualifier: Struct of 12 fields
   index, phase_qualifier = euronext_optiq_marketdatagateway_sbe_v5_29.phase_qualifier.dissect(buffer, index, packet, parent)
 
-  -- Trading Period Optional: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Period Optional: TradingPeriod_enum
   index, trading_period_optional = euronext_optiq_marketdatagateway_sbe_v5_29.trading_period_optional.dissect(buffer, index, packet, parent)
 
-  -- Trading Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Side: TradingSide_enum
   index, trading_side = euronext_optiq_marketdatagateway_sbe_v5_29.trading_side.dissect(buffer, index, packet, parent)
 
-  -- Price Limits: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Price Limits: PriceLimits_enum
   index, price_limits = euronext_optiq_marketdatagateway_sbe_v5_29.price_limits.dissect(buffer, index, packet, parent)
 
-  -- Quote Spread Multiplier: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Quote Spread Multiplier: QuoteSpreadMultiplier_enum
   index, quote_spread_multiplier = euronext_optiq_marketdatagateway_sbe_v5_29.quote_spread_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Order Entry Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Entry Qualifier: OrderEntryQualifier_enum
   index, order_entry_qualifier = euronext_optiq_marketdatagateway_sbe_v5_29.order_entry_qualifier.dissect(buffer, index, packet, parent)
 
-  -- Session: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Session: Session_enum
   index, session = euronext_optiq_marketdatagateway_sbe_v5_29.session.dissect(buffer, index, packet, parent)
 
-  -- Scheduled Event: 1 Byte Unsigned Fixed Width Integer Enum with 17 values
+  -- Scheduled Event: ScheduledEvent_enum
   index, scheduled_event = euronext_optiq_marketdatagateway_sbe_v5_29.scheduled_event.dissect(buffer, index, packet, parent)
 
-  -- Scheduled Event Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Scheduled Event Time: uint64_t
   index, scheduled_event_time = euronext_optiq_marketdatagateway_sbe_v5_29.scheduled_event_time.dissect(buffer, index, packet, parent)
 
-  -- Instrument State: 1 Byte Unsigned Fixed Width Integer Enum with 21 values
+  -- Instrument State: InstrumentState_enum
   index, instrument_state = euronext_optiq_marketdatagateway_sbe_v5_29.instrument_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -15440,13 +15440,13 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.market_status_change_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
   -- Market States Groups: Struct of 2 fields
@@ -16493,166 +16493,166 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.full_trade_information_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Symbol Index Optional: uint32_t
   index, symbol_index_optional = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index_optional.dissect(buffer, index, packet, parent)
 
-  -- Trading Date Time: 27 Byte Ascii String
+  -- Trading Date Time: char27
   index, trading_date_time = euronext_optiq_marketdatagateway_sbe_v5_29.trading_date_time.dissect(buffer, index, packet, parent)
 
-  -- Publication Date Time: 27 Byte Ascii String Nullable
+  -- Publication Date Time: char27
   index, publication_date_time = euronext_optiq_marketdatagateway_sbe_v5_29.publication_date_time.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 50 values
+  -- Trade Type: TradeType_enum
   index, trade_type = euronext_optiq_marketdatagateway_sbe_v5_29.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Mifid Instrument Id Type Optional: 4 Byte Ascii String Nullable
+  -- Mifid Instrument Id Type Optional: char4
   index, mifid_instrument_id_type_optional = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_instrument_id_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Mifid Instrument Id Optional: 12 Byte Ascii String Nullable
+  -- Mifid Instrument Id Optional: char12
   index, mifid_instrument_id_optional = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_instrument_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Mifid Execution Id: 52 Byte Ascii String
+  -- Mifid Execution Id: char52
   index, mifid_execution_id = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_execution_id.dissect(buffer, index, packet, parent)
 
-  -- Mifid Price Optional: 20 Byte Ascii String Nullable
+  -- Mifid Price Optional: char20
   index, mifid_price_optional = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Mifid Quantity: 20 Byte Ascii String
+  -- Mifid Quantity: char20
   index, mifid_quantity = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_quantity.dissect(buffer, index, packet, parent)
 
-  -- Mifid Price Notation: 4 Byte Ascii String Nullable
+  -- Mifid Price Notation: char4
   index, mifid_price_notation = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_price_notation.dissect(buffer, index, packet, parent)
 
-  -- Mifid Currency: 3 Byte Ascii String Nullable
+  -- Mifid Currency: char3
   index, mifid_currency = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_currency.dissect(buffer, index, packet, parent)
 
-  -- Mifid Qty In Msrmt Unit Notation: 25 Byte Ascii String Nullable
+  -- Mifid Qty In Msrmt Unit Notation: char25
   index, mifid_qty_in_msrmt_unit_notation = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_qty_in_msrmt_unit_notation.dissect(buffer, index, packet, parent)
 
-  -- Mifid Quantity Measurement Unit: 20 Byte Ascii String Nullable
+  -- Mifid Quantity Measurement Unit: char20
   index, mifid_quantity_measurement_unit = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_quantity_measurement_unit.dissect(buffer, index, packet, parent)
 
-  -- Mifid Notional Amount: 20 Byte Ascii String Nullable
+  -- Mifid Notional Amount: char20
   index, mifid_notional_amount = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_notional_amount.dissect(buffer, index, packet, parent)
 
-  -- Notional Currency: 3 Byte Ascii String Nullable
+  -- Notional Currency: char3
   index, notional_currency = euronext_optiq_marketdatagateway_sbe_v5_29.notional_currency.dissect(buffer, index, packet, parent)
 
-  -- Mifid Clearing Flag: 5 Byte Ascii String Nullable
+  -- Mifid Clearing Flag: char5
   index, mifid_clearing_flag = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_clearing_flag.dissect(buffer, index, packet, parent)
 
-  -- Mmt Market Mechanism: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Mmt Market Mechanism: MMTMarketMechanism_enum
   index, mmt_market_mechanism = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_market_mechanism.dissect(buffer, index, packet, parent)
 
-  -- Mmt Trading Mode: 1 Byte Ascii String Enum with 12 values
+  -- Mmt Trading Mode: MMTTradingMode_enum
   index, mmt_trading_mode = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_trading_mode.dissect(buffer, index, packet, parent)
 
-  -- Mmt Transaction Category: 4 Byte Ascii String Nullable
+  -- Mmt Transaction Category: char4
   index, mmt_transaction_category = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_transaction_category.dissect(buffer, index, packet, parent)
 
-  -- Mmt Negotiation Indicator: 4 Byte Ascii String Nullable
+  -- Mmt Negotiation Indicator: char4
   index, mmt_negotiation_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_negotiation_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mmt Agency Cross Trade Indicator: 4 Byte Ascii String Nullable
+  -- Mmt Agency Cross Trade Indicator: char4
   index, mmt_agency_cross_trade_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_agency_cross_trade_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mmt Modification Indicator char 4 optional: 4 Byte Ascii String Nullable
+  -- Mmt Modification Indicator char 4 optional: char4
   index, mmt_modification_indicator_char_4_optional = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_modification_indicator_char_4_optional.dissect(buffer, index, packet, parent)
 
-  -- Mmt Benchmark Indicator: 4 Byte Ascii String Nullable
+  -- Mmt Benchmark Indicator: char4
   index, mmt_benchmark_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_benchmark_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mmt Special Dividend Indicator: 4 Byte Ascii String Nullable
+  -- Mmt Special Dividend Indicator: char4
   index, mmt_special_dividend_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_special_dividend_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mmt Off Book Automated Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Mmt Off Book Automated Indicator: MMTOffBookAutomatedIndicator_enum
   index, mmt_off_book_automated_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_off_book_automated_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mmt Contributionto Price: 4 Byte Ascii String Nullable
+  -- Mmt Contributionto Price: char4
   index, mmt_contributionto_price = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_contributionto_price.dissect(buffer, index, packet, parent)
 
-  -- Mmt Algorithmic Indicator: 4 Byte Ascii String Nullable
+  -- Mmt Algorithmic Indicator: char4
   index, mmt_algorithmic_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_algorithmic_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mmt Publication Mode: 4 Byte Ascii String Nullable
+  -- Mmt Publication Mode: char4
   index, mmt_publication_mode = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_publication_mode.dissect(buffer, index, packet, parent)
 
-  -- Mmt Post Trade Deferral: 4 Byte Ascii String Nullable
+  -- Mmt Post Trade Deferral: char4
   index, mmt_post_trade_deferral = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_post_trade_deferral.dissect(buffer, index, packet, parent)
 
-  -- Mmt Duplicative Indicator: 4 Byte Ascii String Nullable
+  -- Mmt Duplicative Indicator: char4
   index, mmt_duplicative_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.mmt_duplicative_indicator.dissect(buffer, index, packet, parent)
 
   -- Trade Qualifier: Struct of 8 fields
   index, trade_qualifier = euronext_optiq_marketdatagateway_sbe_v5_29.trade_qualifier.dissect(buffer, index, packet, parent)
 
-  -- Transaction Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Transaction Type: TransactionType_enum
   index, transaction_type = euronext_optiq_marketdatagateway_sbe_v5_29.transaction_type.dissect(buffer, index, packet, parent)
 
-  -- Effective Date Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Effective Date Indicator: EffectiveDateIndicator_enum
   index, effective_date_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.effective_date_indicator.dissect(buffer, index, packet, parent)
 
-  -- Block Trade Code: 1 Byte Ascii String Enum with 4 values
+  -- Block Trade Code: BlockTradeCode_enum
   index, block_trade_code = euronext_optiq_marketdatagateway_sbe_v5_29.block_trade_code.dissect(buffer, index, packet, parent)
 
-  -- Trade Reference: 30 Byte Ascii String Nullable
+  -- Trade Reference: char30
   index, trade_reference = euronext_optiq_marketdatagateway_sbe_v5_29.trade_reference.dissect(buffer, index, packet, parent)
 
-  -- Original Report Timestamp: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Original Report Timestamp: uint64_t
   index, original_report_timestamp = euronext_optiq_marketdatagateway_sbe_v5_29.original_report_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Transparency Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Transparency Indicator: TransparencyIndicator_enum
   index, transparency_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.transparency_indicator.dissect(buffer, index, packet, parent)
 
-  -- Currency Coefficient: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Currency Coefficient: uint32_t
   index, currency_coefficient = euronext_optiq_marketdatagateway_sbe_v5_29.currency_coefficient.dissect(buffer, index, packet, parent)
 
-  -- Price Multiplier: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Multiplier: uint32_t
   index, price_multiplier = euronext_optiq_marketdatagateway_sbe_v5_29.price_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Price Multiplier Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Multiplier Decimals: unsigned_char
   index, price_multiplier_decimals = euronext_optiq_marketdatagateway_sbe_v5_29.price_multiplier_decimals.dissect(buffer, index, packet, parent)
 
-  -- Venue: 11 Byte Ascii String
+  -- Venue: char11
   index, venue = euronext_optiq_marketdatagateway_sbe_v5_29.venue.dissect(buffer, index, packet, parent)
 
-  -- Start Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Start Time Vwap: uint32_t
   index, start_time_vwap = euronext_optiq_marketdatagateway_sbe_v5_29.start_time_vwap.dissect(buffer, index, packet, parent)
 
-  -- End Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- End Time Vwap: uint32_t
   index, end_time_vwap = euronext_optiq_marketdatagateway_sbe_v5_29.end_time_vwap.dissect(buffer, index, packet, parent)
 
-  -- Mifid Emission Allowance Type: 4 Byte Ascii String Nullable
+  -- Mifid Emission Allowance Type: char4
   index, mifid_emission_allowance_type = euronext_optiq_marketdatagateway_sbe_v5_29.mifid_emission_allowance_type.dissect(buffer, index, packet, parent)
 
-  -- Market Of Reference Mic: 4 Byte Ascii String Nullable
+  -- Market Of Reference Mic: char4
   index, market_of_reference_mic = euronext_optiq_marketdatagateway_sbe_v5_29.market_of_reference_mic.dissect(buffer, index, packet, parent)
 
-  -- Evaluated Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Evaluated Price: int64_t
   index, evaluated_price = euronext_optiq_marketdatagateway_sbe_v5_29.evaluated_price.dissect(buffer, index, packet, parent)
 
-  -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Message Price Notation: MessagePriceNotation_enum
   index, message_price_notation = euronext_optiq_marketdatagateway_sbe_v5_29.message_price_notation.dissect(buffer, index, packet, parent)
 
-  -- Settlement Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Settlement Date: uint16_t
   index, settlement_date = euronext_optiq_marketdatagateway_sbe_v5_29.settlement_date.dissect(buffer, index, packet, parent)
 
-  -- Repo Settlement Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Repo Settlement Date: uint16_t
   index, repo_settlement_date = euronext_optiq_marketdatagateway_sbe_v5_29.repo_settlement_date.dissect(buffer, index, packet, parent)
 
-  -- Trade Unique Identifier: 16 Byte Ascii String Nullable
+  -- Trade Unique Identifier: char16
   index, trade_unique_identifier = euronext_optiq_marketdatagateway_sbe_v5_29.trade_unique_identifier.dissect(buffer, index, packet, parent)
 
   -- Not Used Groups: Struct of 2 fields
@@ -16941,25 +16941,25 @@ euronext_optiq_marketdatagateway_sbe_v5_29.price_updates_group.fields = function
     iteration:set_generated()
   end
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 23 values
+  -- Price Type: MarketDataPriceType_enum
   index, price_type = euronext_optiq_marketdatagateway_sbe_v5_29.price_type.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: int64_t
   index, price = euronext_optiq_marketdatagateway_sbe_v5_29.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quantity Optional: uint64_t
   index, quantity_optional = euronext_optiq_marketdatagateway_sbe_v5_29.quantity_optional.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Imbalance Qty: uint64_t
   index, imbalance_qty = euronext_optiq_marketdatagateway_sbe_v5_29.imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Qty Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Imbalance Qty Side: ImbalanceQuantitySide_enum
   index, imbalance_qty_side = euronext_optiq_marketdatagateway_sbe_v5_29.imbalance_qty_side.dissect(buffer, index, packet, parent)
 
-  -- Price Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Price Qualifier: PriceQualifier_enum
   index, price_qualifier = euronext_optiq_marketdatagateway_sbe_v5_29.price_qualifier.dissect(buffer, index, packet, parent)
 
   return index
@@ -17064,16 +17064,16 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.price_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
   -- Price Updates Groups: Struct of 2 fields
@@ -17125,31 +17125,31 @@ euronext_optiq_marketdatagateway_sbe_v5_29.order_updates_group.fields = function
     iteration:set_generated()
   end
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Action Type: MarketDataActionType_enum
   index, action_type = euronext_optiq_marketdatagateway_sbe_v5_29.action_type.dissect(buffer, index, packet, parent)
 
-  -- Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Priority: uint64_t
   index, order_priority = euronext_optiq_marketdatagateway_sbe_v5_29.order_priority.dissect(buffer, index, packet, parent)
 
-  -- Previous Priority: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Previous Priority: uint64_t
   index, previous_priority = euronext_optiq_marketdatagateway_sbe_v5_29.previous_priority.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Order Type: OrderType_enum
   index, order_type = euronext_optiq_marketdatagateway_sbe_v5_29.order_type.dissect(buffer, index, packet, parent)
 
-  -- Order Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Px: int64_t
   index, order_px = euronext_optiq_marketdatagateway_sbe_v5_29.order_px.dissect(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Order Side: OrderSide_enum
   index, order_side = euronext_optiq_marketdatagateway_sbe_v5_29.order_side.dissect(buffer, index, packet, parent)
 
-  -- Order Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Quantity: uint64_t
   index, order_quantity = euronext_optiq_marketdatagateway_sbe_v5_29.order_quantity.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset: 1 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset: int8_t
   index, peg_offset = euronext_optiq_marketdatagateway_sbe_v5_29.peg_offset.dissect(buffer, index, packet, parent)
 
   return index
@@ -17254,16 +17254,16 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.order_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
   -- Order Updates Groups: Struct of 2 fields
@@ -17651,19 +17651,19 @@ euronext_optiq_marketdatagateway_sbe_v5_29.market_updates_group.fields = functio
     iteration:set_generated()
   end
 
-  -- Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 96 values
+  -- Update Type: MarketDataUpdateType_enum
   index, update_type = euronext_optiq_marketdatagateway_sbe_v5_29.update_type.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Number Of Orders: uint16_t
   index, number_of_orders = euronext_optiq_marketdatagateway_sbe_v5_29.number_of_orders.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: int64_t
   index, price = euronext_optiq_marketdatagateway_sbe_v5_29.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quantity Optional: uint64_t
   index, quantity_optional = euronext_optiq_marketdatagateway_sbe_v5_29.quantity_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -17768,16 +17768,16 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.market_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_marketdatagateway_sbe_v5_29.emm.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
   -- Market Updates Groups: Struct of 2 fields
@@ -17909,22 +17909,22 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.technical_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Seq Num Optional: uint64_t
   index, md_seq_num_optional = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num_optional.dissect(buffer, index, packet, parent)
 
-  -- Technical Notification Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Technical Notification Type: TechnicalNotificationType_enum
   index, technical_notification_type = euronext_optiq_marketdatagateway_sbe_v5_29.technical_notification_type.dissect(buffer, index, packet, parent)
 
-  -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Rebroadcast Indicator: unsigned_char
   index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v5_29.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
-  -- Retransmission Start Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Retransmission Start Time: uint64_t
   index, retransmission_start_time = euronext_optiq_marketdatagateway_sbe_v5_29.retransmission_start_time.dissect(buffer, index, packet, parent)
 
-  -- Retransmission End Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Retransmission End Time: uint64_t
   index, retransmission_end_time = euronext_optiq_marketdatagateway_sbe_v5_29.retransmission_end_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Symbol Index Optional: uint32_t
   index, symbol_index_optional = euronext_optiq_marketdatagateway_sbe_v5_29.symbol_index_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -17965,10 +17965,10 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.health_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uint64_t
   index, event_time = euronext_optiq_marketdatagateway_sbe_v5_29.event_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -18032,10 +18032,10 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.end_of_day_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Session Trading Day: 2 Byte Unsigned Fixed Width Integer
+  -- Session Trading Day: uint16_t
   index, session_trading_day = euronext_optiq_marketdatagateway_sbe_v5_29.session_trading_day.dissect(buffer, index, packet, parent)
 
   return index
@@ -18076,10 +18076,10 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.start_of_day_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Md Seq Num: uint64_t
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v5_29.md_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Session Trading Day: 2 Byte Unsigned Fixed Width Integer
+  -- Session Trading Day: uint16_t
   index, session_trading_day = euronext_optiq_marketdatagateway_sbe_v5_29.session_trading_day.dissect(buffer, index, packet, parent)
 
   return index
@@ -18571,16 +18571,16 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_29.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = euronext_optiq_marketdatagateway_sbe_v5_29.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 28 values
+  -- Template Id: uint16
   index, template_id = euronext_optiq_marketdatagateway_sbe_v5_29.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = euronext_optiq_marketdatagateway_sbe_v5_29.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = euronext_optiq_marketdatagateway_sbe_v5_29.version.dissect(buffer, index, packet, parent)
 
   return index

@@ -1327,10 +1327,10 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.group_size_encoding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length Short: 1 Byte Unsigned Fixed Width Integer
+  -- Block Length Short: uint8
   index, block_length_short = euronext_optiq_orderentrygateway_sbe_v5_51.block_length_short.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = euronext_optiq_orderentrygateway_sbe_v5_51.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -1769,34 +1769,34 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.declaration_entry_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm Optional: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Emm Optional: EMM_enum
   index, emm_optional = euronext_optiq_orderentrygateway_sbe_v5_51.emm_optional.dissect(buffer, index, packet, parent)
 
-  -- Mi Cof Secondary Listing: 4 Byte Ascii String Nullable
+  -- Mi Cof Secondary Listing: char4
   index, mi_cof_secondary_listing = euronext_optiq_orderentrygateway_sbe_v5_51.mi_cof_secondary_listing.dissect(buffer, index, packet, parent)
 
-  -- Operation Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Operation Type: OperationType_enum
   index, operation_type = euronext_optiq_orderentrygateway_sbe_v5_51.operation_type.dissect(buffer, index, packet, parent)
 
-  -- Error Code: 2 Byte Unsigned Fixed Width Integer
+  -- Error Code: uint16_t
   index, error_code = euronext_optiq_orderentrygateway_sbe_v5_51.error_code.dissect(buffer, index, packet, parent)
 
-  -- Rejected Message: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Rejected Message: unsigned_char
   index, rejected_message = euronext_optiq_orderentrygateway_sbe_v5_51.rejected_message.dissect(buffer, index, packet, parent)
 
-  -- Rejected Message Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Rejected Message Id: uint16_t
   index, rejected_message_id = euronext_optiq_orderentrygateway_sbe_v5_51.rejected_message_id.dissect(buffer, index, packet, parent)
 
   -- Not Used Groups: Struct of 2 fields
@@ -1945,25 +1945,25 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.fund_price_input_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: int64_t
   index, price = euronext_optiq_orderentrygateway_sbe_v5_51.price.dissect(buffer, index, packet, parent)
 
-  -- Bypass Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Bypass Indicator: unsigned_char
   index, bypass_indicator = euronext_optiq_orderentrygateway_sbe_v5_51.bypass_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2060,28 +2060,28 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.fund_price_input_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: int64_t
   index, price = euronext_optiq_orderentrygateway_sbe_v5_51.price.dissect(buffer, index, packet, parent)
 
-  -- Bypass Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Bypass Indicator: unsigned_char
   index, bypass_indicator = euronext_optiq_orderentrygateway_sbe_v5_51.bypass_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2224,31 +2224,31 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.declaration_cancel_and_refusal_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Declaration Id: 8 Byte Unsigned Fixed Width Integer
+  -- Declaration Id: uint64_t
   index, declaration_id = euronext_optiq_orderentrygateway_sbe_v5_51.declaration_id.dissect(buffer, index, packet, parent)
 
-  -- Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Action Type: ActionType_enum
   index, action_type = euronext_optiq_orderentrygateway_sbe_v5_51.action_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Unique Identifier: 16 Byte Ascii String Nullable
+  -- Trade Unique Identifier: char16
   index, trade_unique_identifier = euronext_optiq_orderentrygateway_sbe_v5_51.trade_unique_identifier.dissect(buffer, index, packet, parent)
 
   return index
@@ -3618,121 +3618,121 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.declaration_notice_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Client Order Id Optional: int64_t
   index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Declaration Id: 8 Byte Unsigned Fixed Width Integer
+  -- Declaration Id: uint64_t
   index, declaration_id = euronext_optiq_orderentrygateway_sbe_v5_51.declaration_id.dissect(buffer, index, packet, parent)
 
-  -- Declaration Status: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Declaration Status: DeclarationStatus_enum
   index, declaration_status = euronext_optiq_orderentrygateway_sbe_v5_51.declaration_status.dissect(buffer, index, packet, parent)
 
-  -- Operation Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Operation Type: OperationType_enum
   index, operation_type = euronext_optiq_orderentrygateway_sbe_v5_51.operation_type.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Entering Counterparty: 8 Byte Ascii String Nullable
+  -- Entering Counterparty: char8
   index, entering_counterparty = euronext_optiq_orderentrygateway_sbe_v5_51.entering_counterparty.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side Optional: MassCancelAckOrderSide_enum
   index, side_optional = euronext_optiq_orderentrygateway_sbe_v5_51.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Quantity Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quantity Optional: uint64_t
   index, quantity_optional = euronext_optiq_orderentrygateway_sbe_v5_51.quantity_optional.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: int64_t
   index, price_optional = euronext_optiq_orderentrygateway_sbe_v5_51.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Pre Matching Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Pre Matching Type: PreMatchingType_enum
   index, pre_matching_type = euronext_optiq_orderentrygateway_sbe_v5_51.pre_matching_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Time Optional: uint64_t
   index, trade_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.trade_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Mi Cof Secondary Listing: 4 Byte Ascii String Nullable
+  -- Mi Cof Secondary Listing: char4
   index, mi_cof_secondary_listing = euronext_optiq_orderentrygateway_sbe_v5_51.mi_cof_secondary_listing.dissect(buffer, index, packet, parent)
 
-  -- Centralisation Date: 10 Byte Ascii String Nullable
+  -- Centralisation Date: char10
   index, centralisation_date = euronext_optiq_orderentrygateway_sbe_v5_51.centralisation_date.dissect(buffer, index, packet, parent)
 
-  -- Clearing Firm Id: 8 Byte Ascii String Nullable
+  -- Clearing Firm Id: char8
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Account Type Optional: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Account Type Optional: AccountType_enum
   index, account_type_optional = euronext_optiq_orderentrygateway_sbe_v5_51.account_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Account Type Cross: AccountTypeCross_enum
   index, account_type_cross = euronext_optiq_orderentrygateway_sbe_v5_51.account_type_cross.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Optional: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Capacity Optional: TradingCapacity_enum
   index, trading_capacity_optional = euronext_optiq_orderentrygateway_sbe_v5_51.trading_capacity_optional.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Cross: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Capacity Cross: TradingCapacityCross_enum
   index, trading_capacity_cross = euronext_optiq_orderentrygateway_sbe_v5_51.trading_capacity_cross.dissect(buffer, index, packet, parent)
 
-  -- Settlement Flag Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Settlement Flag Optional: unsigned_char
   index, settlement_flag_optional = euronext_optiq_orderentrygateway_sbe_v5_51.settlement_flag_optional.dissect(buffer, index, packet, parent)
 
-  -- Settlement Period Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Settlement Period Optional: unsigned_char
   index, settlement_period_optional = euronext_optiq_orderentrygateway_sbe_v5_51.settlement_period_optional.dissect(buffer, index, packet, parent)
 
-  -- Guarantee Flag Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Guarantee Flag Optional: GuaranteeFlag_enum
   index, guarantee_flag_optional = euronext_optiq_orderentrygateway_sbe_v5_51.guarantee_flag_optional.dissect(buffer, index, packet, parent)
 
-  -- Transaction Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Transaction Price Type: TransactionPriceType_enum
   index, transaction_price_type = euronext_optiq_orderentrygateway_sbe_v5_51.transaction_price_type.dissect(buffer, index, packet, parent)
 
-  -- Principal Code: 8 Byte Ascii String Nullable
+  -- Principal Code: char8
   index, principal_code = euronext_optiq_orderentrygateway_sbe_v5_51.principal_code.dissect(buffer, index, packet, parent)
 
-  -- Principal Code Cross: 8 Byte Ascii String Nullable
+  -- Principal Code Cross: char8
   index, principal_code_cross = euronext_optiq_orderentrygateway_sbe_v5_51.principal_code_cross.dissect(buffer, index, packet, parent)
 
-  -- Start Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Start Time Vwap: uint32_t
   index, start_time_vwap = euronext_optiq_orderentrygateway_sbe_v5_51.start_time_vwap.dissect(buffer, index, packet, parent)
 
-  -- End Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- End Time Vwap: uint32_t
   index, end_time_vwap = euronext_optiq_orderentrygateway_sbe_v5_51.end_time_vwap.dissect(buffer, index, packet, parent)
 
-  -- Gross Trade Amount: 8 Byte Signed Fixed Width Integer Nullable
+  -- Gross Trade Amount: int64_t
   index, gross_trade_amount = euronext_optiq_orderentrygateway_sbe_v5_51.gross_trade_amount.dissect(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String Nullable
+  -- Account Number: char12
   index, account_number = euronext_optiq_orderentrygateway_sbe_v5_51.account_number.dissect(buffer, index, packet, parent)
 
-  -- Account Number Cross: 12 Byte Ascii String Nullable
+  -- Account Number Cross: char12
   index, account_number_cross = euronext_optiq_orderentrygateway_sbe_v5_51.account_number_cross.dissect(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String Nullable
+  -- Free Text: char18
   index, free_text = euronext_optiq_orderentrygateway_sbe_v5_51.free_text.dissect(buffer, index, packet, parent)
 
-  -- Free Text Cross: 18 Byte Ascii String Nullable
+  -- Free Text Cross: char18
   index, free_text_cross = euronext_optiq_orderentrygateway_sbe_v5_51.free_text_cross.dissect(buffer, index, packet, parent)
 
   -- Waiver Indicator: Struct of 8 fields
   index, waiver_indicator = euronext_optiq_orderentrygateway_sbe_v5_51.waiver_indicator.dissect(buffer, index, packet, parent)
 
-  -- Previous Day Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Previous Day Indicator: unsigned_char
   index, previous_day_indicator = euronext_optiq_orderentrygateway_sbe_v5_51.previous_day_indicator.dissect(buffer, index, packet, parent)
 
-  -- Miscellaneous Fee Amount: 8 Byte Signed Fixed Width Integer Nullable
+  -- Miscellaneous Fee Amount: int64_t
   index, miscellaneous_fee_amount = euronext_optiq_orderentrygateway_sbe_v5_51.miscellaneous_fee_amount.dissect(buffer, index, packet, parent)
 
-  -- Ccpid: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Ccpid: CCPID_enum
   index, ccpid = euronext_optiq_orderentrygateway_sbe_v5_51.ccpid.dissect(buffer, index, packet, parent)
 
-  -- Trade Unique Identifier: 16 Byte Ascii String Nullable
+  -- Trade Unique Identifier: char16
   index, trade_unique_identifier = euronext_optiq_orderentrygateway_sbe_v5_51.trade_unique_identifier.dissect(buffer, index, packet, parent)
 
   -- Not Used Groups: Struct of 2 fields
@@ -3826,31 +3826,31 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.declaration_entry_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Declaration Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Declaration Id Optional: uint64_t
   index, declaration_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.declaration_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Mi Cof Secondary Listing: 4 Byte Ascii String Nullable
+  -- Mi Cof Secondary Listing: char4
   index, mi_cof_secondary_listing = euronext_optiq_orderentrygateway_sbe_v5_51.mi_cof_secondary_listing.dissect(buffer, index, packet, parent)
 
-  -- Operation Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Operation Type: OperationType_enum
   index, operation_type = euronext_optiq_orderentrygateway_sbe_v5_51.operation_type.dissect(buffer, index, packet, parent)
 
-  -- Pre Matching Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Pre Matching Type: PreMatchingType_enum
   index, pre_matching_type = euronext_optiq_orderentrygateway_sbe_v5_51.pre_matching_type.dissect(buffer, index, packet, parent)
 
   -- Waiver Indicator: Struct of 8 fields
@@ -4347,112 +4347,112 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.declaration_entry_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Operation Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Operation Type: OperationType_enum
   index, operation_type = euronext_optiq_orderentrygateway_sbe_v5_51.operation_type.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Entering Counterparty: 8 Byte Ascii String Nullable
+  -- Entering Counterparty: char8
   index, entering_counterparty = euronext_optiq_orderentrygateway_sbe_v5_51.entering_counterparty.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: CancelReplaceOrderSide_enum
   index, side = euronext_optiq_orderentrygateway_sbe_v5_51.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quantity Optional: uint64_t
   index, quantity_optional = euronext_optiq_orderentrygateway_sbe_v5_51.quantity_optional.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: int64_t
   index, price_optional = euronext_optiq_orderentrygateway_sbe_v5_51.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Mi Cof Secondary Listing: 4 Byte Ascii String Nullable
+  -- Mi Cof Secondary Listing: char4
   index, mi_cof_secondary_listing = euronext_optiq_orderentrygateway_sbe_v5_51.mi_cof_secondary_listing.dissect(buffer, index, packet, parent)
 
-  -- Centralisation Date: 10 Byte Ascii String Nullable
+  -- Centralisation Date: char10
   index, centralisation_date = euronext_optiq_orderentrygateway_sbe_v5_51.centralisation_date.dissect(buffer, index, packet, parent)
 
-  -- Clearing Firm Id: 8 Byte Ascii String Nullable
+  -- Clearing Firm Id: char8
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Account Type: AccountType_enum
   index, account_type = euronext_optiq_orderentrygateway_sbe_v5_51.account_type.dissect(buffer, index, packet, parent)
 
-  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Account Type Cross: AccountTypeCross_enum
   index, account_type_cross = euronext_optiq_orderentrygateway_sbe_v5_51.account_type_cross.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity: TradingCapacity_enum
   index, trading_capacity = euronext_optiq_orderentrygateway_sbe_v5_51.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Cross: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Capacity Cross: TradingCapacityCross_enum
   index, trading_capacity_cross = euronext_optiq_orderentrygateway_sbe_v5_51.trading_capacity_cross.dissect(buffer, index, packet, parent)
 
-  -- Settlement Period: 1 Byte Unsigned Fixed Width Integer
+  -- Settlement Period: unsigned_char
   index, settlement_period = euronext_optiq_orderentrygateway_sbe_v5_51.settlement_period.dissect(buffer, index, packet, parent)
 
-  -- Settlement Flag: 1 Byte Unsigned Fixed Width Integer
+  -- Settlement Flag: unsigned_char
   index, settlement_flag = euronext_optiq_orderentrygateway_sbe_v5_51.settlement_flag.dissect(buffer, index, packet, parent)
 
-  -- Guarantee Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Guarantee Flag: GuaranteeFlag_enum
   index, guarantee_flag = euronext_optiq_orderentrygateway_sbe_v5_51.guarantee_flag.dissect(buffer, index, packet, parent)
 
   -- Mifid Indicators: Struct of 7 fields
   index, mifid_indicators = euronext_optiq_orderentrygateway_sbe_v5_51.mifid_indicators.dissect(buffer, index, packet, parent)
 
-  -- Transaction Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Transaction Price Type: TransactionPriceType_enum
   index, transaction_price_type = euronext_optiq_orderentrygateway_sbe_v5_51.transaction_price_type.dissect(buffer, index, packet, parent)
 
-  -- Principal Code: 8 Byte Ascii String Nullable
+  -- Principal Code: char8
   index, principal_code = euronext_optiq_orderentrygateway_sbe_v5_51.principal_code.dissect(buffer, index, packet, parent)
 
-  -- Principal Code Cross: 8 Byte Ascii String Nullable
+  -- Principal Code Cross: char8
   index, principal_code_cross = euronext_optiq_orderentrygateway_sbe_v5_51.principal_code_cross.dissect(buffer, index, packet, parent)
 
-  -- Start Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Start Time Vwap: uint32_t
   index, start_time_vwap = euronext_optiq_orderentrygateway_sbe_v5_51.start_time_vwap.dissect(buffer, index, packet, parent)
 
-  -- End Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- End Time Vwap: uint32_t
   index, end_time_vwap = euronext_optiq_orderentrygateway_sbe_v5_51.end_time_vwap.dissect(buffer, index, packet, parent)
 
-  -- Gross Trade Amount: 8 Byte Signed Fixed Width Integer Nullable
+  -- Gross Trade Amount: int64_t
   index, gross_trade_amount = euronext_optiq_orderentrygateway_sbe_v5_51.gross_trade_amount.dissect(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String Nullable
+  -- Account Number: char12
   index, account_number = euronext_optiq_orderentrygateway_sbe_v5_51.account_number.dissect(buffer, index, packet, parent)
 
-  -- Account Number Cross: 12 Byte Ascii String Nullable
+  -- Account Number Cross: char12
   index, account_number_cross = euronext_optiq_orderentrygateway_sbe_v5_51.account_number_cross.dissect(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String Nullable
+  -- Free Text: char18
   index, free_text = euronext_optiq_orderentrygateway_sbe_v5_51.free_text.dissect(buffer, index, packet, parent)
 
-  -- Free Text Cross: 18 Byte Ascii String Nullable
+  -- Free Text Cross: char18
   index, free_text_cross = euronext_optiq_orderentrygateway_sbe_v5_51.free_text_cross.dissect(buffer, index, packet, parent)
 
-  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
+  -- Investment Decision W Firm Short Code: int32_t
   index, investment_decision_w_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.investment_decision_w_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Short Code Cross: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Short Code Cross: int32_t
   index, client_identification_short_code_cross = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_short_code_cross.dissect(buffer, index, packet, parent)
 
   -- Not Used Groups: Struct of 2 fields
@@ -4550,19 +4550,19 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.technical_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Rejected Client Message Sequence Number: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Rejected Client Message Sequence Number: uint32_t
   index, rejected_client_message_sequence_number = euronext_optiq_orderentrygateway_sbe_v5_51.rejected_client_message_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Rejected Message: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Rejected Message: unsigned_char
   index, rejected_message = euronext_optiq_orderentrygateway_sbe_v5_51.rejected_message.dissect(buffer, index, packet, parent)
 
-  -- Error Code: 2 Byte Unsigned Fixed Width Integer
+  -- Error Code: uint16_t
   index, error_code = euronext_optiq_orderentrygateway_sbe_v5_51.error_code.dissect(buffer, index, packet, parent)
 
-  -- Rejected Message Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Rejected Message Id: uint16_t
   index, rejected_message_id = euronext_optiq_orderentrygateway_sbe_v5_51.rejected_message_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4644,7 +4644,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.logout_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Log Out Reason Code: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Log Out Reason Code: LogOutReasonCode_enum
   index, log_out_reason_code = euronext_optiq_orderentrygateway_sbe_v5_51.log_out_reason_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -4817,16 +4817,16 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.logon_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 8 Byte Ascii String
+  -- Exchange Id: char8
   index, exchange_id = euronext_optiq_orderentrygateway_sbe_v5_51.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Logon Reject Code: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Logon Reject Code: LogonRejectCode_enum
   index, logon_reject_code = euronext_optiq_orderentrygateway_sbe_v5_51.logon_reject_code.dissect(buffer, index, packet, parent)
 
-  -- Last Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Cl Msg Seq Num: uint32_t
   index, last_cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.last_cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Last Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Msg Seq Num: uint32_t
   index, last_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.last_msg_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -4867,10 +4867,10 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.logon_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 8 Byte Ascii String
+  -- Exchange Id: char8
   index, exchange_id = euronext_optiq_orderentrygateway_sbe_v5_51.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Last Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Cl Msg Seq Num: uint32_t
   index, last_cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.last_cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -5050,19 +5050,19 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.logon_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: uint32_t
   index, logical_access_id = euronext_optiq_orderentrygateway_sbe_v5_51.logical_access_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Oe Partition Id: uint16_t
   index, oe_partition_id = euronext_optiq_orderentrygateway_sbe_v5_51.oe_partition_id.dissect(buffer, index, packet, parent)
 
-  -- Last Msg Seq Num Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Msg Seq Num Optional: uint32_t
   index, last_msg_seq_num_optional = euronext_optiq_orderentrygateway_sbe_v5_51.last_msg_seq_num_optional.dissect(buffer, index, packet, parent)
 
-  -- Software Provider: 8 Byte Ascii String Nullable
+  -- Software Provider: char8
   index, software_provider = euronext_optiq_orderentrygateway_sbe_v5_51.software_provider.dissect(buffer, index, packet, parent)
 
-  -- Queueing Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Queueing Indicator: unsigned_char
   index, queueing_indicator = euronext_optiq_orderentrygateway_sbe_v5_51.queueing_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -5105,16 +5105,16 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.clear_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
   return index
@@ -5600,64 +5600,64 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.wave_for_liquidity_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Member: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book In Optional: uint64_t
   index, book_in_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_in_optional.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Ioi Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Ioi Id Optional: int64_t
   index, ioi_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Exchange Ioi Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Exchange Ioi Id Optional: int64_t
   index, exchange_ioi_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.exchange_ioi_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Ioi Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Ioi Type: IOIType_enum
   index, ioi_type = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_type.dissect(buffer, index, packet, parent)
 
-  -- Original Ioiid: 8 Byte Signed Fixed Width Integer Nullable
+  -- Original Ioiid: int64_t
   index, original_ioiid = euronext_optiq_orderentrygateway_sbe_v5_51.original_ioiid.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm Optional: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Emm Optional: EMM_enum
   index, emm_optional = euronext_optiq_orderentrygateway_sbe_v5_51.emm_optional.dissect(buffer, index, packet, parent)
 
-  -- Ioi Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Ioi Side: IOISide_enum
   index, ioi_side = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_side.dissect(buffer, index, packet, parent)
 
-  -- Order Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Quantity: uint64_t
   index, order_quantity = euronext_optiq_orderentrygateway_sbe_v5_51.order_quantity.dissect(buffer, index, packet, parent)
 
-  -- Ioi Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Ioi Quantity: IOIQuantity_enum
   index, ioi_quantity = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_quantity.dissect(buffer, index, packet, parent)
 
-  -- Ioi Quality Indication: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Ioi Quality Indication: IOIQualityIndication_enum
   index, ioi_quality_indication = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_quality_indication.dissect(buffer, index, packet, parent)
 
-  -- Error Code Optional: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Error Code Optional: uint16_t
   index, error_code_optional = euronext_optiq_orderentrygateway_sbe_v5_51.error_code_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -5875,43 +5875,43 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.wave_for_liquidity_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Ioi Id: 8 Byte Signed Fixed Width Integer
+  -- Ioi Id: int64_t
   index, ioi_id = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_id.dissect(buffer, index, packet, parent)
 
-  -- Ioi Transaction Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Ioi Transaction Type: WaveForLiquidityIOITransactionType_enum
   index, ioi_transaction_type = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_transaction_type.dissect(buffer, index, packet, parent)
 
-  -- Original Ioiid: 8 Byte Signed Fixed Width Integer Nullable
+  -- Original Ioiid: int64_t
   index, original_ioiid = euronext_optiq_orderentrygateway_sbe_v5_51.original_ioiid.dissect(buffer, index, packet, parent)
 
   -- Target Counterparties: Struct of 11 fields
   index, target_counterparties = euronext_optiq_orderentrygateway_sbe_v5_51.target_counterparties.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Ioi Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Ioi Side: IOISide_enum
   index, ioi_side = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_side.dissect(buffer, index, packet, parent)
 
-  -- Order Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Quantity: uint64_t
   index, order_quantity = euronext_optiq_orderentrygateway_sbe_v5_51.order_quantity.dissect(buffer, index, packet, parent)
 
-  -- Ioi Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Ioi Quantity: IOIQuantity_enum
   index, ioi_quantity = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_quantity.dissect(buffer, index, packet, parent)
 
-  -- Ioi Quality Indication: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Ioi Quality Indication: IOIQualityIndication_enum
   index, ioi_quality_indication = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_quality_indication.dissect(buffer, index, packet, parent)
 
   return index
@@ -6153,19 +6153,19 @@ euronext_optiq_orderentrygateway_sbe_v5_51.rfq_counterparts_group.fields = funct
     iteration:set_generated()
   end
 
-  -- Order Origin: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Origin: OrderOrigin_enum
   index, order_origin = euronext_optiq_orderentrygateway_sbe_v5_51.order_origin.dissect(buffer, index, packet, parent)
 
-  -- Order Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Price: int64_t
   index, order_price = euronext_optiq_orderentrygateway_sbe_v5_51.order_price.dissect(buffer, index, packet, parent)
 
-  -- Last Traded Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Traded Quantity: uint64_t
   index, last_traded_quantity = euronext_optiq_orderentrygateway_sbe_v5_51.last_traded_quantity.dissect(buffer, index, packet, parent)
 
   -- Dark Execution Instruction Optional: Struct of 6 fields
   index, dark_execution_instruction_optional = euronext_optiq_orderentrygateway_sbe_v5_51.dark_execution_instruction_optional.dissect(buffer, index, packet, parent)
 
-  -- Minimum Order Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Minimum Order Quantity: uint64_t
   index, minimum_order_quantity = euronext_optiq_orderentrygateway_sbe_v5_51.minimum_order_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -6395,31 +6395,31 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.rfq_audit_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v5_51.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: uint64_t
   index, book_out_time = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oeg In From Me: uint64_t
   index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oeg Out To Member: uint64_t
   index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Req Id: uint64_t
   index, quote_req_id = euronext_optiq_orderentrygateway_sbe_v5_51.quote_req_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
   -- Rfq Counterparts Groups: Struct of 2 fields
@@ -6549,13 +6549,13 @@ euronext_optiq_orderentrygateway_sbe_v5_51.cross_strategy_fields_group.fields = 
     iteration:set_generated()
   end
 
-  -- Leg Last Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Last Px: int64_t
   index, leg_last_px = euronext_optiq_orderentrygateway_sbe_v5_51.leg_last_px.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Last Qty: uint64_t
   index, leg_last_qty = euronext_optiq_orderentrygateway_sbe_v5_51.leg_last_qty.dissect(buffer, index, packet, parent)
 
-  -- Leg Instrument Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Instrument Id: uint32_t
   index, leg_instrument_id = euronext_optiq_orderentrygateway_sbe_v5_51.leg_instrument_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -6899,28 +6899,28 @@ euronext_optiq_orderentrygateway_sbe_v5_51.cross_clearing_fields_group.fields = 
     iteration:set_generated()
   end
 
-  -- Clearing Firm Id: 8 Byte Ascii String Nullable
+  -- Clearing Firm Id: char8
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Long Client Id: 16 Byte Ascii String Nullable
+  -- Long Client Id: char16
   index, long_client_id = euronext_optiq_orderentrygateway_sbe_v5_51.long_client_id.dissect(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String Nullable
+  -- Account Number: char12
   index, account_number = euronext_optiq_orderentrygateway_sbe_v5_51.account_number.dissect(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Technical Origin: TechnicalOrigin_enum
   index, technical_origin = euronext_optiq_orderentrygateway_sbe_v5_51.technical_origin.dissect(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = euronext_optiq_orderentrygateway_sbe_v5_51.open_close.dissect(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Clearing Instruction: ClearingInstruction_enum
   index, clearing_instruction = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Account Type: AccountType_enum
   index, account_type = euronext_optiq_orderentrygateway_sbe_v5_51.account_type.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Optional: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Capacity Optional: TradingCapacity_enum
   index, trading_capacity_optional = euronext_optiq_orderentrygateway_sbe_v5_51.trading_capacity_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -7048,13 +7048,13 @@ euronext_optiq_orderentrygateway_sbe_v5_51.mifid_short_codes_group.fields = func
     iteration:set_generated()
   end
 
-  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
+  -- Investment Decision W Firm Short Code: int32_t
   index, investment_decision_w_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.investment_decision_w_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Non Executing Broker Short Code: 4 Byte Signed Fixed Width Integer Nullable
+  -- Non Executing Broker Short Code: int32_t
   index, non_executing_broker_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.non_executing_broker_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
   return index
@@ -7152,7 +7152,7 @@ euronext_optiq_orderentrygateway_sbe_v5_51.new_order_message_free_text_section_g
     iteration:set_generated()
   end
 
-  -- Free Text: 18 Byte Ascii String Nullable
+  -- Free Text: char18
   index, free_text = euronext_optiq_orderentrygateway_sbe_v5_51.free_text.dissect(buffer, index, packet, parent)
 
   return index
@@ -7509,52 +7509,52 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.cross_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: CancelReplaceOrderSide_enum
   index, side = euronext_optiq_orderentrygateway_sbe_v5_51.side.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Order Type: OrderType_enum
   index, order_type = euronext_optiq_orderentrygateway_sbe_v5_51.order_type.dissect(buffer, index, packet, parent)
 
-  -- Order Px: 8 Byte Signed Fixed Width Integer
+  -- Order Px: int64_t
   index, order_px = euronext_optiq_orderentrygateway_sbe_v5_51.order_px.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint64_t
   index, order_qty = euronext_optiq_orderentrygateway_sbe_v5_51.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
   -- Mifid Indicators: Struct of 7 fields
   index, mifid_indicators = euronext_optiq_orderentrygateway_sbe_v5_51.mifid_indicators.dissect(buffer, index, packet, parent)
 
-  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Non Executing Client Id: uint16_t
   index, non_executing_client_id = euronext_optiq_orderentrygateway_sbe_v5_51.non_executing_client_id.dissect(buffer, index, packet, parent)
 
-  -- Order Actor Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Actor Type: OrderActorType_enum
   index, order_actor_type = euronext_optiq_orderentrygateway_sbe_v5_51.order_actor_type.dissect(buffer, index, packet, parent)
 
-  -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Message Price Notation: MessagePriceNotation_enum
   index, message_price_notation = euronext_optiq_orderentrygateway_sbe_v5_51.message_price_notation.dissect(buffer, index, packet, parent)
 
-  -- Order Tolerable Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Tolerable Price: int64_t
   index, order_tolerable_price = euronext_optiq_orderentrygateway_sbe_v5_51.order_tolerable_price.dissect(buffer, index, packet, parent)
 
   -- Free Text Groups: Struct of 2 fields
@@ -7633,31 +7633,31 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.request_for_implied_execution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64_t
   index, order_id = euronext_optiq_orderentrygateway_sbe_v5_51.order_id.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
   -- Mifid Indicators: Struct of 7 fields
@@ -7711,22 +7711,22 @@ euronext_optiq_orderentrygateway_sbe_v5_51.wholesale_ack_clearing_group.fields =
     iteration:set_generated()
   end
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: CancelReplaceOrderSide_enum
   index, side = euronext_optiq_orderentrygateway_sbe_v5_51.side.dissect(buffer, index, packet, parent)
 
-  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
+  -- Investment Decision W Firm Short Code: int32_t
   index, investment_decision_w_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.investment_decision_w_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Non Executing Broker Short Code: 4 Byte Signed Fixed Width Integer Nullable
+  -- Non Executing Broker Short Code: int32_t
   index, non_executing_broker_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.non_executing_broker_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Non Executing Client Id: uint16_t
   index, non_executing_client_id = euronext_optiq_orderentrygateway_sbe_v5_51.non_executing_client_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -7968,19 +7968,19 @@ euronext_optiq_orderentrygateway_sbe_v5_51.wholesale_ack_legs_group.fields = fun
     iteration:set_generated()
   end
 
-  -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Symbol Index: uint32_t
   index, leg_symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.leg_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Leg Bid Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Bid Order Id: uint64_t
   index, leg_bid_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.leg_bid_order_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Offer Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Offer Order Id: uint64_t
   index, leg_offer_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.leg_offer_order_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Side Optional: LegSide_enum
   index, leg_side_optional = euronext_optiq_orderentrygateway_sbe_v5_51.leg_side_optional.dissect(buffer, index, packet, parent)
 
-  -- Leg Error Code: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Error Code: uint16_t
   index, leg_error_code = euronext_optiq_orderentrygateway_sbe_v5_51.leg_error_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -8605,70 +8605,70 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.wholesale_order_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Sending Time Optional: uint64_t
   index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Member: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book In Optional: uint64_t
   index, book_in_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_in_optional.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Client Order Id Optional: int64_t
   index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Symbol Index: uint32_t
   index, contract_symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.contract_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Wholesale Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Wholesale Trade Type: WholesaleTradeType_enum
   index, wholesale_trade_type = euronext_optiq_orderentrygateway_sbe_v5_51.wholesale_trade_type.dissect(buffer, index, packet, parent)
 
-  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Lis Transaction Id: uint32_t
   index, lis_transaction_id = euronext_optiq_orderentrygateway_sbe_v5_51.lis_transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Code Optional: 1 Byte Ascii String Enum with 49 values
+  -- Strategy Code Optional: StrategyCode_enum
   index, strategy_code_optional = euronext_optiq_orderentrygateway_sbe_v5_51.strategy_code_optional.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: int64_t
   index, price_optional = euronext_optiq_orderentrygateway_sbe_v5_51.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Quantity Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quantity Optional: uint64_t
   index, quantity_optional = euronext_optiq_orderentrygateway_sbe_v5_51.quantity_optional.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
   -- Mifid Indicators: Struct of 7 fields
   index, mifid_indicators = euronext_optiq_orderentrygateway_sbe_v5_51.mifid_indicators.dissect(buffer, index, packet, parent)
 
-  -- Wholesale Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Wholesale Side: WholesaleSide_enum
   index, wholesale_side = euronext_optiq_orderentrygateway_sbe_v5_51.wholesale_side.dissect(buffer, index, packet, parent)
 
-  -- Escb Membership: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Escb Membership: unsigned_char
   index, escb_membership = euronext_optiq_orderentrygateway_sbe_v5_51.escb_membership.dissect(buffer, index, packet, parent)
 
-  -- Response Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Response Type: ResponseType_enum
   index, response_type = euronext_optiq_orderentrygateway_sbe_v5_51.response_type.dissect(buffer, index, packet, parent)
 
-  -- Error Code: 2 Byte Unsigned Fixed Width Integer
+  -- Error Code: uint16_t
   index, error_code = euronext_optiq_orderentrygateway_sbe_v5_51.error_code.dissect(buffer, index, packet, parent)
 
   -- Ack Qualifiers: Struct of 8 fields
@@ -8732,49 +8732,49 @@ euronext_optiq_orderentrygateway_sbe_v5_51.wholesale_client_group.fields = funct
     iteration:set_generated()
   end
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: CancelReplaceOrderSide_enum
   index, side = euronext_optiq_orderentrygateway_sbe_v5_51.side.dissect(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Account Type: AccountType_enum
   index, account_type = euronext_optiq_orderentrygateway_sbe_v5_51.account_type.dissect(buffer, index, packet, parent)
 
-  -- Clearing Firm Id: 8 Byte Ascii String Nullable
+  -- Clearing Firm Id: char8
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Long Client Id: 16 Byte Ascii String Nullable
+  -- Long Client Id: char16
   index, long_client_id = euronext_optiq_orderentrygateway_sbe_v5_51.long_client_id.dissect(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String Nullable
+  -- Account Number: char12
   index, account_number = euronext_optiq_orderentrygateway_sbe_v5_51.account_number.dissect(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Technical Origin: TechnicalOrigin_enum
   index, technical_origin = euronext_optiq_orderentrygateway_sbe_v5_51.technical_origin.dissect(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = euronext_optiq_orderentrygateway_sbe_v5_51.open_close.dissect(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Clearing Instruction: ClearingInstruction_enum
   index, clearing_instruction = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String Nullable
+  -- Free Text: char18
   index, free_text = euronext_optiq_orderentrygateway_sbe_v5_51.free_text.dissect(buffer, index, packet, parent)
 
-  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Non Executing Client Id: uint16_t
   index, non_executing_client_id = euronext_optiq_orderentrygateway_sbe_v5_51.non_executing_client_id.dissect(buffer, index, packet, parent)
 
-  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
+  -- Investment Decision W Firm Short Code: int32_t
   index, investment_decision_w_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.investment_decision_w_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Non Executing Broker Short Code: 4 Byte Signed Fixed Width Integer Nullable
+  -- Non Executing Broker Short Code: int32_t
   index, non_executing_broker_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.non_executing_broker_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Optional: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Capacity Optional: TradingCapacity_enum
   index, trading_capacity_optional = euronext_optiq_orderentrygateway_sbe_v5_51.trading_capacity_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -9121,34 +9121,34 @@ euronext_optiq_orderentrygateway_sbe_v5_51.wholesale_legs_group.fields = functio
     iteration:set_generated()
   end
 
-  -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Symbol Index: uint32_t
   index, leg_symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.leg_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer
+  -- Leg Price: int64_t
   index, leg_price = euronext_optiq_orderentrygateway_sbe_v5_51.leg_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Quantity: uint64_t
   index, bid_quantity = euronext_optiq_orderentrygateway_sbe_v5_51.bid_quantity.dissect(buffer, index, packet, parent)
 
-  -- Offer Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Quantity: uint64_t
   index, offer_quantity = euronext_optiq_orderentrygateway_sbe_v5_51.offer_quantity.dissect(buffer, index, packet, parent)
 
-  -- Leg Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Side Optional: LegSide_enum
   index, leg_side_optional = euronext_optiq_orderentrygateway_sbe_v5_51.leg_side_optional.dissect(buffer, index, packet, parent)
 
-  -- Leg Strike Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Strike Price: int64_t
   index, leg_strike_price = euronext_optiq_orderentrygateway_sbe_v5_51.leg_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Ratio Optional: uint32_t
   index, leg_ratio_optional = euronext_optiq_orderentrygateway_sbe_v5_51.leg_ratio_optional.dissect(buffer, index, packet, parent)
 
-  -- Leg Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Put Or Call: LegPutOrCall_enum
   index, leg_put_or_call = euronext_optiq_orderentrygateway_sbe_v5_51.leg_put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Security Type: LegSecurityType_enum
   index, leg_security_type = euronext_optiq_orderentrygateway_sbe_v5_51.leg_security_type.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Trading Date: 8 Byte Ascii String Nullable
+  -- Leg Last Trading Date: char8
   index, leg_last_trading_date = euronext_optiq_orderentrygateway_sbe_v5_51.leg_last_trading_date.dissect(buffer, index, packet, parent)
 
   return index
@@ -9300,49 +9300,49 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.new_wholesale_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Symbol Index: uint32_t
   index, contract_symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.contract_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Wholesale Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Wholesale Trade Type: WholesaleTradeType_enum
   index, wholesale_trade_type = euronext_optiq_orderentrygateway_sbe_v5_51.wholesale_trade_type.dissect(buffer, index, packet, parent)
 
-  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Lis Transaction Id: uint32_t
   index, lis_transaction_id = euronext_optiq_orderentrygateway_sbe_v5_51.lis_transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Code Optional: 1 Byte Ascii String Enum with 49 values
+  -- Strategy Code Optional: StrategyCode_enum
   index, strategy_code_optional = euronext_optiq_orderentrygateway_sbe_v5_51.strategy_code_optional.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: int64_t
   index, price = euronext_optiq_orderentrygateway_sbe_v5_51.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: uint64_t
   index, quantity = euronext_optiq_orderentrygateway_sbe_v5_51.quantity.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
   -- Mifid Indicators: Struct of 7 fields
   index, mifid_indicators = euronext_optiq_orderentrygateway_sbe_v5_51.mifid_indicators.dissect(buffer, index, packet, parent)
 
-  -- Wholesale Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Wholesale Side: WholesaleSide_enum
   index, wholesale_side = euronext_optiq_orderentrygateway_sbe_v5_51.wholesale_side.dissect(buffer, index, packet, parent)
 
-  -- Escb Membership: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Escb Membership: unsigned_char
   index, escb_membership = euronext_optiq_orderentrygateway_sbe_v5_51.escb_membership.dissect(buffer, index, packet, parent)
 
-  -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Message Price Notation: MessagePriceNotation_enum
   index, message_price_notation = euronext_optiq_orderentrygateway_sbe_v5_51.message_price_notation.dissect(buffer, index, packet, parent)
 
   -- Wholesale Legs Groups: Struct of 2 fields
@@ -9543,19 +9543,19 @@ euronext_optiq_orderentrygateway_sbe_v5_51.mmp_ack_group.fields = function(buffe
     iteration:set_generated()
   end
 
-  -- Protection Type Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Protection Type Optional: ProtectionType_enum
   index, protection_type_optional = euronext_optiq_orderentrygateway_sbe_v5_51.protection_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Protection Threshold: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Protection Threshold: uint64_t
   index, protection_threshold = euronext_optiq_orderentrygateway_sbe_v5_51.protection_threshold.dissect(buffer, index, packet, parent)
 
-  -- Breach Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Breach Action: BreachAction_enum
   index, breach_action = euronext_optiq_orderentrygateway_sbe_v5_51.breach_action.dissect(buffer, index, packet, parent)
 
-  -- Current Mmp Position: 8 Byte Signed Fixed Width Integer Nullable
+  -- Current Mmp Position: int64_t
   index, current_mmp_position = euronext_optiq_orderentrygateway_sbe_v5_51.current_mmp_position.dissect(buffer, index, packet, parent)
 
-  -- Breach Status: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Breach Status: unsigned_char
   index, breach_status = euronext_optiq_orderentrygateway_sbe_v5_51.breach_status.dissect(buffer, index, packet, parent)
 
   return index
@@ -9741,43 +9741,43 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.mm_protection_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Sending Time Optional: uint64_t
   index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Member: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book In Optional: uint64_t
   index, book_in_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_in_optional.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Client Order Id Optional: int64_t
   index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
   -- Mmp Execution Type: Struct of 4 fields
@@ -9856,13 +9856,13 @@ euronext_optiq_orderentrygateway_sbe_v5_51.mmp_request_group.fields = function(b
     iteration:set_generated()
   end
 
-  -- Protection Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Protection Type: ProtectionType_enum
   index, protection_type = euronext_optiq_orderentrygateway_sbe_v5_51.protection_type.dissect(buffer, index, packet, parent)
 
-  -- Protection Threshold: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Protection Threshold: uint64_t
   index, protection_threshold = euronext_optiq_orderentrygateway_sbe_v5_51.protection_threshold.dissect(buffer, index, packet, parent)
 
-  -- Breach Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Breach Action: BreachAction_enum
   index, breach_action = euronext_optiq_orderentrygateway_sbe_v5_51.breach_action.dissect(buffer, index, packet, parent)
 
   return index
@@ -10008,28 +10008,28 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.mm_protection_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Request Type: RequestType_enum
   index, request_type = euronext_optiq_orderentrygateway_sbe_v5_51.request_type.dissect(buffer, index, packet, parent)
 
   -- Mmp Request Groups: Struct of 2 fields
@@ -10100,37 +10100,37 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.security_definition_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Sending Time Optional: uint64_t
   index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Member: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book In Optional: uint64_t
   index, book_in_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_in_optional.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Req Id: 8 Byte Signed Fixed Width Integer
+  -- Security Req Id: int64_t
   index, security_req_id = euronext_optiq_orderentrygateway_sbe_v5_51.security_req_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
   return index
@@ -10264,28 +10264,28 @@ euronext_optiq_orderentrygateway_sbe_v5_51.strategy_legs_group.fields = function
     iteration:set_generated()
   end
 
-  -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Symbol Index: uint32_t
   index, leg_symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.leg_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: uint32_t
   index, leg_ratio = euronext_optiq_orderentrygateway_sbe_v5_51.leg_ratio.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Security Type: LegSecurityType_enum
   index, leg_security_type = euronext_optiq_orderentrygateway_sbe_v5_51.leg_security_type.dissect(buffer, index, packet, parent)
 
-  -- Leg Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Put Or Call: LegPutOrCall_enum
   index, leg_put_or_call = euronext_optiq_orderentrygateway_sbe_v5_51.leg_put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Leg Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Price Optional: int64_t
   index, leg_price_optional = euronext_optiq_orderentrygateway_sbe_v5_51.leg_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Leg Strike Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Strike Price: int64_t
   index, leg_strike_price = euronext_optiq_orderentrygateway_sbe_v5_51.leg_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Trading Date: 8 Byte Ascii String Nullable
+  -- Leg Last Trading Date: char8
   index, leg_last_trading_date = euronext_optiq_orderentrygateway_sbe_v5_51.leg_last_trading_date.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Side: LegSide_enum
   index, leg_side = euronext_optiq_orderentrygateway_sbe_v5_51.leg_side.dissect(buffer, index, packet, parent)
 
   return index
@@ -10575,22 +10575,22 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.security_definition_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Security Req Id: 8 Byte Signed Fixed Width Integer
+  -- Security Req Id: int64_t
   index, security_req_id = euronext_optiq_orderentrygateway_sbe_v5_51.security_req_id.dissect(buffer, index, packet, parent)
 
-  -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Symbol Index: uint32_t
   index, contract_symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.contract_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Strategy Code: 1 Byte Ascii String Enum with 48 values
+  -- Strategy Code: StrategyCode_enum
   index, strategy_code = euronext_optiq_orderentrygateway_sbe_v5_51.strategy_code.dissect(buffer, index, packet, parent)
 
   -- Strategy Legs Groups: Struct of 2 fields
@@ -10677,16 +10677,16 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.synchronization_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Resynchronization Id: 2 Byte Unsigned Fixed Width Integer
+  -- Resynchronization Id: uint16_t
   index, resynchronization_id = euronext_optiq_orderentrygateway_sbe_v5_51.resynchronization_id.dissect(buffer, index, packet, parent)
 
-  -- Last Book In Time: 8 Byte Unsigned Fixed Width Integer
+  -- Last Book In Time: uint64_t
   index, last_book_in_time = euronext_optiq_orderentrygateway_sbe_v5_51.last_book_in_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -10733,10 +10733,10 @@ euronext_optiq_orderentrygateway_sbe_v5_51.instrument_synchronization_group.fiel
     iteration:set_generated()
   end
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
   return index
@@ -10839,13 +10839,13 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.instrument_synchronization_list_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Resynchronization Id: 2 Byte Unsigned Fixed Width Integer
+  -- Resynchronization Id: uint16_t
   index, resynchronization_id = euronext_optiq_orderentrygateway_sbe_v5_51.resynchronization_id.dissect(buffer, index, packet, parent)
 
   -- Instrument Synchronization Groups: Struct of 2 fields
@@ -10904,70 +10904,70 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.mm_sign_in_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Sending Time Optional: uint64_t
   index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Member: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v5_51.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: uint32_t
   index, logical_access_id = euronext_optiq_orderentrygateway_sbe_v5_51.logical_access_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Oe Partition Id: uint16_t
   index, oe_partition_id = euronext_optiq_orderentrygateway_sbe_v5_51.oe_partition_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Clearing Firm Id: 8 Byte Ascii String Nullable
+  -- Clearing Firm Id: char8
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String Nullable
+  -- Account Number: char12
   index, account_number = euronext_optiq_orderentrygateway_sbe_v5_51.account_number.dissect(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Technical Origin: TechnicalOrigin_enum
   index, technical_origin = euronext_optiq_orderentrygateway_sbe_v5_51.technical_origin.dissect(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = euronext_optiq_orderentrygateway_sbe_v5_51.open_close.dissect(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Clearing Instruction: ClearingInstruction_enum
   index, clearing_instruction = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String Nullable
+  -- Free Text: char18
   index, free_text = euronext_optiq_orderentrygateway_sbe_v5_51.free_text.dissect(buffer, index, packet, parent)
 
-  -- Long Client Id: 16 Byte Ascii String Nullable
+  -- Long Client Id: char16
   index, long_client_id = euronext_optiq_orderentrygateway_sbe_v5_51.long_client_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -11022,52 +11022,52 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.mm_sign_in_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: uint32_t
   index, logical_access_id = euronext_optiq_orderentrygateway_sbe_v5_51.logical_access_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Oe Partition Id: uint16_t
   index, oe_partition_id = euronext_optiq_orderentrygateway_sbe_v5_51.oe_partition_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Clearing Firm Id: 8 Byte Ascii String Nullable
+  -- Clearing Firm Id: char8
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String Nullable
+  -- Account Number: char12
   index, account_number = euronext_optiq_orderentrygateway_sbe_v5_51.account_number.dissect(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Technical Origin: TechnicalOrigin_enum
   index, technical_origin = euronext_optiq_orderentrygateway_sbe_v5_51.technical_origin.dissect(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = euronext_optiq_orderentrygateway_sbe_v5_51.open_close.dissect(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Clearing Instruction: ClearingInstruction_enum
   index, clearing_instruction = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String Nullable
+  -- Free Text: char18
   index, free_text = euronext_optiq_orderentrygateway_sbe_v5_51.free_text.dissect(buffer, index, packet, parent)
 
-  -- Long Client Id: 16 Byte Ascii String Nullable
+  -- Long Client Id: char16
   index, long_client_id = euronext_optiq_orderentrygateway_sbe_v5_51.long_client_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -11558,37 +11558,37 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.user_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
   -- Execution Instruction Optional: Struct of 8 fields
   index, execution_instruction_optional = euronext_optiq_orderentrygateway_sbe_v5_51.execution_instruction_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Family Id: 8 Byte Ascii String Nullable
+  -- Family Id: char8
   index, family_id = euronext_optiq_orderentrygateway_sbe_v5_51.family_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Symbol Index Optional: uint32_t
   index, symbol_index_optional = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index_optional.dissect(buffer, index, packet, parent)
 
-  -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 41 values
+  -- User Status: UserStatus_enum
   index, user_status = euronext_optiq_orderentrygateway_sbe_v5_51.user_status.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Lp Role Optional: uint32_t
   index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v5_51.lp_role_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Size Limit: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Size Limit: uint64_t
   index, order_size_limit = euronext_optiq_orderentrygateway_sbe_v5_51.order_size_limit.dissect(buffer, index, packet, parent)
 
-  -- Order Amount Limit: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Amount Limit: uint64_t
   index, order_amount_limit = euronext_optiq_orderentrygateway_sbe_v5_51.order_amount_limit.dissect(buffer, index, packet, parent)
 
-  -- Exposure Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Exposure Side: ExposureSide_enum
   index, exposure_side = euronext_optiq_orderentrygateway_sbe_v5_51.exposure_side.dissect(buffer, index, packet, parent)
 
   -- Not Used Groups: Struct of 2 fields
@@ -11659,37 +11659,37 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.rfqlp_matching_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v5_51.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Req Id: uint64_t
   index, quote_req_id = euronext_optiq_orderentrygateway_sbe_v5_51.quote_req_id.dissect(buffer, index, packet, parent)
 
-  -- Potential Matching Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Potential Matching Qty: uint64_t
   index, potential_matching_qty = euronext_optiq_orderentrygateway_sbe_v5_51.potential_matching_qty.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: CancelReplaceOrderSide_enum
   index, side = euronext_optiq_orderentrygateway_sbe_v5_51.side.dissect(buffer, index, packet, parent)
 
   return index
@@ -11828,46 +11828,46 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.rfq_matching_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v5_51.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Req Id: uint64_t
   index, quote_req_id = euronext_optiq_orderentrygateway_sbe_v5_51.quote_req_id.dissect(buffer, index, packet, parent)
 
-  -- Potential Matching Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Potential Matching Px: int64_t
   index, potential_matching_px = euronext_optiq_orderentrygateway_sbe_v5_51.potential_matching_px.dissect(buffer, index, packet, parent)
 
-  -- Potential Matching Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Potential Matching Qty: uint64_t
   index, potential_matching_qty = euronext_optiq_orderentrygateway_sbe_v5_51.potential_matching_qty.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: CancelReplaceOrderSide_enum
   index, side = euronext_optiq_orderentrygateway_sbe_v5_51.side.dissect(buffer, index, packet, parent)
 
-  -- Number Of Lps: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Number Of Lps: unsigned_char
   index, number_of_lps = euronext_optiq_orderentrygateway_sbe_v5_51.number_of_lps.dissect(buffer, index, packet, parent)
 
-  -- Recipient Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Recipient Type: RecipientType_enum
   index, recipient_type = euronext_optiq_orderentrygateway_sbe_v5_51.recipient_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -12140,55 +12140,55 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.rfq_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v5_51.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Req Id: uint64_t
   index, quote_req_id = euronext_optiq_orderentrygateway_sbe_v5_51.quote_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint64_t
   index, order_qty = euronext_optiq_orderentrygateway_sbe_v5_51.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Counterpart Firm Id: 8 Byte Ascii String Nullable
+  -- Counterpart Firm Id: char8
   index, counterpart_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.counterpart_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Rfq Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Rfq Update Type: RFQUpdateType_enum
   index, rfq_update_type = euronext_optiq_orderentrygateway_sbe_v5_51.rfq_update_type.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side Optional: MassCancelAckOrderSide_enum
   index, side_optional = euronext_optiq_orderentrygateway_sbe_v5_51.side_optional.dissect(buffer, index, packet, parent)
 
-  -- End Client: 11 Byte Ascii String Nullable
+  -- End Client: char11
   index, end_client = euronext_optiq_orderentrygateway_sbe_v5_51.end_client.dissect(buffer, index, packet, parent)
 
   -- Dark Execution Instruction: Struct of 6 fields
   index, dark_execution_instruction = euronext_optiq_orderentrygateway_sbe_v5_51.dark_execution_instruction.dissect(buffer, index, packet, parent)
 
-  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Order Qty: uint64_t
   index, min_order_qty = euronext_optiq_orderentrygateway_sbe_v5_51.min_order_qty.dissect(buffer, index, packet, parent)
 
-  -- Account Type Optional: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Account Type Optional: AccountType_enum
   index, account_type_optional = euronext_optiq_orderentrygateway_sbe_v5_51.account_type_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -12231,16 +12231,16 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.request_for_execution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
   return index
@@ -12323,19 +12323,19 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.ask_for_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Afq Reason: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Afq Reason: AFQReason_enum
   index, afq_reason = euronext_optiq_orderentrygateway_sbe_v5_51.afq_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -12422,31 +12422,31 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.liquidity_provider_command_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Lp Action Code: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Lp Action Code: LPActionCode_enum
   index, lp_action_code = euronext_optiq_orderentrygateway_sbe_v5_51.lp_action_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -12525,34 +12525,34 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.price_input_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Input Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Input Price Type: InputPriceType_enum
   index, input_price_type = euronext_optiq_orderentrygateway_sbe_v5_51.input_price_type.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: int64_t
   index, price_optional = euronext_optiq_orderentrygateway_sbe_v5_51.price_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -12657,34 +12657,34 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.collar_breach_confirmation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64_t
   index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.orig_client_order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -12903,52 +12903,52 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.trade_bust_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v5_51.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 4 Byte Unsigned Fixed Width Integer
+  -- Execution Id: uint32_t
   index, execution_id = euronext_optiq_orderentrygateway_sbe_v5_51.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Last Traded Px: 8 Byte Signed Fixed Width Integer
+  -- Last Traded Px: int64_t
   index, last_traded_px = euronext_optiq_orderentrygateway_sbe_v5_51.last_traded_px.dissect(buffer, index, packet, parent)
 
-  -- Last Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Last Shares: uint64_t
   index, last_shares = euronext_optiq_orderentrygateway_sbe_v5_51.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Lis Transaction Id: uint32_t
   index, lis_transaction_id = euronext_optiq_orderentrygateway_sbe_v5_51.lis_transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Parent Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Parent Exec Id: uint32_t
   index, parent_exec_id = euronext_optiq_orderentrygateway_sbe_v5_51.parent_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Parent Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Parent Symbol Index: uint32_t
   index, parent_symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.parent_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Trade Unique Identifier: 16 Byte Ascii String Nullable
+  -- Trade Unique Identifier: char16
   index, trade_unique_identifier = euronext_optiq_orderentrygateway_sbe_v5_51.trade_unique_identifier.dissect(buffer, index, packet, parent)
 
-  -- Parent Trade Unique Identifier: 16 Byte Ascii String Nullable
+  -- Parent Trade Unique Identifier: char16
   index, parent_trade_unique_identifier = euronext_optiq_orderentrygateway_sbe_v5_51.parent_trade_unique_identifier.dissect(buffer, index, packet, parent)
 
   return index
@@ -13067,43 +13067,43 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.ownership_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64_t
   index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.orig_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Lp Role Optional: uint32_t
   index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v5_51.lp_role_optional.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id Optional: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Oe Partition Id Optional: uint16_t
   index, oe_partition_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oe_partition_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Category: OrderCategory_enum
   index, order_category = euronext_optiq_orderentrygateway_sbe_v5_51.order_category.dissect(buffer, index, packet, parent)
 
   return index
@@ -13174,31 +13174,31 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.ownership_request_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64_t
   index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Lp Role Optional: uint32_t
   index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v5_51.lp_role_optional.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id Optional: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Oe Partition Id Optional: uint16_t
   index, oe_partition_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oe_partition_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Total Affected Orders: 4 Byte Signed Fixed Width Integer
+  -- Total Affected Orders: int32_t
   index, total_affected_orders = euronext_optiq_orderentrygateway_sbe_v5_51.total_affected_orders.dissect(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Category: OrderCategory_enum
   index, order_category = euronext_optiq_orderentrygateway_sbe_v5_51.order_category.dissect(buffer, index, packet, parent)
 
   return index
@@ -13248,37 +13248,37 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.open_order_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64_t
   index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.orig_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Category: OrderCategory_enum
   index, order_category = euronext_optiq_orderentrygateway_sbe_v5_51.order_category.dissect(buffer, index, packet, parent)
 
   return index
@@ -13411,7 +13411,7 @@ euronext_optiq_orderentrygateway_sbe_v5_51.mifid_fields_group.fields = function(
   -- Execution Instruction Optional: Struct of 8 fields
   index, execution_instruction_optional = euronext_optiq_orderentrygateway_sbe_v5_51.execution_instruction_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
   -- Mifid Indicators Optional: Struct of 7 fields
@@ -13822,76 +13822,76 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.mass_cancel_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Sending Time Optional: uint64_t
   index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Member: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v5_51.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: uint64_t
   index, book_out_time = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oeg In From Me: uint64_t
   index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oeg Out To Member: uint64_t
   index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Total Affected Orders: 4 Byte Signed Fixed Width Integer
+  -- Total Affected Orders: int32_t
   index, total_affected_orders = euronext_optiq_orderentrygateway_sbe_v5_51.total_affected_orders.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Symbol Index Optional: uint32_t
   index, symbol_index_optional = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index_optional.dissect(buffer, index, packet, parent)
 
-  -- Emm Optional: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Emm Optional: EMM_enum
   index, emm_optional = euronext_optiq_orderentrygateway_sbe_v5_51.emm_optional.dissect(buffer, index, packet, parent)
 
-  -- Instrument Group Code: 2 Byte Ascii String Nullable
+  -- Instrument Group Code: char2
   index, instrument_group_code = euronext_optiq_orderentrygateway_sbe_v5_51.instrument_group_code.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side Optional: MassCancelAckOrderSide_enum
   index, side_optional = euronext_optiq_orderentrygateway_sbe_v5_51.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Lp Role Optional: uint32_t
   index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v5_51.lp_role_optional.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id Optional: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Oe Partition Id Optional: uint16_t
   index, oe_partition_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oe_partition_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Contract Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Contract Id: uint32_t
   index, contract_id = euronext_optiq_orderentrygateway_sbe_v5_51.contract_id.dissect(buffer, index, packet, parent)
 
-  -- Maturity: 8 Byte Ascii String Nullable
+  -- Maturity: char8
   index, maturity = euronext_optiq_orderentrygateway_sbe_v5_51.maturity.dissect(buffer, index, packet, parent)
 
-  -- Account Type Optional: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Account Type Optional: AccountType_enum
   index, account_type_optional = euronext_optiq_orderentrygateway_sbe_v5_51.account_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Option Type: OptionType_enum
   index, option_type = euronext_optiq_orderentrygateway_sbe_v5_51.option_type.dissect(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Category: OrderCategory_enum
   index, order_category = euronext_optiq_orderentrygateway_sbe_v5_51.order_category.dissect(buffer, index, packet, parent)
 
   -- Ack Qualifiers Optional: Struct of 8 fields
   index, ack_qualifiers_optional = euronext_optiq_orderentrygateway_sbe_v5_51.ack_qualifiers_optional.dissect(buffer, index, packet, parent)
 
-  -- Target Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
+  -- Target Execution Within Firm Short Code: int32_t
   index, target_execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.target_execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
   -- Mifid Fields Groups: Struct of 2 fields
@@ -13972,58 +13972,58 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.mass_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Symbol Index Optional: uint32_t
   index, symbol_index_optional = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index_optional.dissect(buffer, index, packet, parent)
 
-  -- Emm Optional: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Emm Optional: EMM_enum
   index, emm_optional = euronext_optiq_orderentrygateway_sbe_v5_51.emm_optional.dissect(buffer, index, packet, parent)
 
-  -- Instrument Group Code: 2 Byte Ascii String Nullable
+  -- Instrument Group Code: char2
   index, instrument_group_code = euronext_optiq_orderentrygateway_sbe_v5_51.instrument_group_code.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side Optional: MassCancelAckOrderSide_enum
   index, side_optional = euronext_optiq_orderentrygateway_sbe_v5_51.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Lp Role Optional: uint32_t
   index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v5_51.lp_role_optional.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id Optional: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Oe Partition Id Optional: uint16_t
   index, oe_partition_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oe_partition_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Contract Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Contract Id: uint32_t
   index, contract_id = euronext_optiq_orderentrygateway_sbe_v5_51.contract_id.dissect(buffer, index, packet, parent)
 
-  -- Maturity: 8 Byte Ascii String Nullable
+  -- Maturity: char8
   index, maturity = euronext_optiq_orderentrygateway_sbe_v5_51.maturity.dissect(buffer, index, packet, parent)
 
-  -- Account Type Optional: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Account Type Optional: AccountType_enum
   index, account_type_optional = euronext_optiq_orderentrygateway_sbe_v5_51.account_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Option Type: OptionType_enum
   index, option_type = euronext_optiq_orderentrygateway_sbe_v5_51.option_type.dissect(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Category: OrderCategory_enum
   index, order_category = euronext_optiq_orderentrygateway_sbe_v5_51.order_category.dissect(buffer, index, packet, parent)
 
-  -- Target Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
+  -- Target Execution Within Firm Short Code: int32_t
   index, target_execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.target_execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
   -- Not Used Groups: Struct of 2 fields
@@ -14097,43 +14097,43 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.cancel_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64_t
   index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.orig_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: CancelReplaceOrderSide_enum
   index, side = euronext_optiq_orderentrygateway_sbe_v5_51.side.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Order Type: OrderType_enum
   index, order_type = euronext_optiq_orderentrygateway_sbe_v5_51.order_type.dissect(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Category: OrderCategory_enum
   index, order_category = euronext_optiq_orderentrygateway_sbe_v5_51.order_category.dissect(buffer, index, packet, parent)
 
   -- Not Used Groups: Struct of 2 fields
@@ -14216,49 +14216,49 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.quote_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint64_t
   index, order_qty = euronext_optiq_orderentrygateway_sbe_v5_51.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side Optional: MassCancelAckOrderSide_enum
   index, side_optional = euronext_optiq_orderentrygateway_sbe_v5_51.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Firm Id Publication: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Firm Id Publication: unsigned_char
   index, firm_id_publication = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id_publication.dissect(buffer, index, packet, parent)
 
-  -- End Client: 11 Byte Ascii String Nullable
+  -- End Client: char11
   index, end_client = euronext_optiq_orderentrygateway_sbe_v5_51.end_client.dissect(buffer, index, packet, parent)
 
   -- Dark Execution Instruction: Struct of 6 fields
   index, dark_execution_instruction = euronext_optiq_orderentrygateway_sbe_v5_51.dark_execution_instruction.dissect(buffer, index, packet, parent)
 
-  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Order Qty: uint64_t
   index, min_order_qty = euronext_optiq_orderentrygateway_sbe_v5_51.min_order_qty.dissect(buffer, index, packet, parent)
 
-  -- Account Type Optional: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Account Type Optional: AccountType_enum
   index, account_type_optional = euronext_optiq_orderentrygateway_sbe_v5_51.account_type_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -14495,28 +14495,28 @@ euronext_optiq_orderentrygateway_sbe_v5_51.quote_acks_group.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Bid Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Order Id: uint64_t
   index, bid_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.bid_order_id.dissect(buffer, index, packet, parent)
 
-  -- Offer Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Order Id: uint64_t
   index, offer_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.offer_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Buy Revision Flag: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Buy Revision Flag: BuyRevisionIndicator_enum
   index, buy_revision_flag = euronext_optiq_orderentrygateway_sbe_v5_51.buy_revision_flag.dissect(buffer, index, packet, parent)
 
-  -- Sell Revision Flag: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Sell Revision Flag: SellRevisionIndicator_enum
   index, sell_revision_flag = euronext_optiq_orderentrygateway_sbe_v5_51.sell_revision_flag.dissect(buffer, index, packet, parent)
 
-  -- Bid Error Code: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Error Code: uint16_t
   index, bid_error_code = euronext_optiq_orderentrygateway_sbe_v5_51.bid_error_code.dissect(buffer, index, packet, parent)
 
-  -- Offer Error Code: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Error Code: uint16_t
   index, offer_error_code = euronext_optiq_orderentrygateway_sbe_v5_51.offer_error_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -14674,40 +14674,40 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.quote_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Sending Time Optional: uint64_t
   index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Member: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v5_51.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Account Type: AccountType_enum
   index, account_type = euronext_optiq_orderentrygateway_sbe_v5_51.account_type.dissect(buffer, index, packet, parent)
 
-  -- Lp Role: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Lp Role: LPRole_enum
   index, lp_role = euronext_optiq_orderentrygateway_sbe_v5_51.lp_role.dissect(buffer, index, packet, parent)
 
   -- Execution Instruction Optional: Struct of 8 fields
@@ -14874,22 +14874,22 @@ euronext_optiq_orderentrygateway_sbe_v5_51.quotes_rep_group.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: uint64_t
   index, bid_size = euronext_optiq_orderentrygateway_sbe_v5_51.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Bid Px: int64_t
   index, bid_px = euronext_optiq_orderentrygateway_sbe_v5_51.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: uint64_t
   index, offer_size = euronext_optiq_orderentrygateway_sbe_v5_51.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Offer Px: int64_t
   index, offer_px = euronext_optiq_orderentrygateway_sbe_v5_51.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
   return index
@@ -15032,25 +15032,25 @@ euronext_optiq_orderentrygateway_sbe_v5_51.clearing_dataset_group.fields = funct
     iteration:set_generated()
   end
 
-  -- Clearing Firm Id: 8 Byte Ascii String Nullable
+  -- Clearing Firm Id: char8
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Client Id: 8 Byte Ascii String Nullable
+  -- Client Id: char8
   index, client_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_id.dissect(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String Nullable
+  -- Account Number: char12
   index, account_number = euronext_optiq_orderentrygateway_sbe_v5_51.account_number.dissect(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Technical Origin: TechnicalOrigin_enum
   index, technical_origin = euronext_optiq_orderentrygateway_sbe_v5_51.technical_origin.dissect(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = euronext_optiq_orderentrygateway_sbe_v5_51.open_close.dissect(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Clearing Instruction: ClearingInstruction_enum
   index, clearing_instruction = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String Nullable
+  -- Free Text: char18
   index, free_text = euronext_optiq_orderentrygateway_sbe_v5_51.free_text.dissect(buffer, index, packet, parent)
 
   return index
@@ -15226,40 +15226,40 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.quotes_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity: TradingCapacity_enum
   index, trading_capacity = euronext_optiq_orderentrygateway_sbe_v5_51.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Account Type: AccountType_enum
   index, account_type = euronext_optiq_orderentrygateway_sbe_v5_51.account_type.dissect(buffer, index, packet, parent)
 
-  -- Lp Role: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Lp Role: LPRole_enum
   index, lp_role = euronext_optiq_orderentrygateway_sbe_v5_51.lp_role.dissect(buffer, index, packet, parent)
 
   -- Mifid Indicators: Struct of 7 fields
   index, mifid_indicators = euronext_optiq_orderentrygateway_sbe_v5_51.mifid_indicators.dissect(buffer, index, packet, parent)
 
-  -- Rfe Answer: 1 Byte Unsigned Fixed Width Integer
+  -- Rfe Answer: unsigned_char
   index, rfe_answer = euronext_optiq_orderentrygateway_sbe_v5_51.rfe_answer.dissect(buffer, index, packet, parent)
 
   -- Execution Instruction Optional: Struct of 8 fields
   index, execution_instruction_optional = euronext_optiq_orderentrygateway_sbe_v5_51.execution_instruction_optional.dissect(buffer, index, packet, parent)
 
-  -- Stpid: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Stpid: uint16_t
   index, stpid = euronext_optiq_orderentrygateway_sbe_v5_51.stpid.dissect(buffer, index, packet, parent)
 
   -- Mifid Short Codes Groups: Struct of 2 fields
@@ -15371,10 +15371,10 @@ euronext_optiq_orderentrygateway_sbe_v5_51.collar_fields_group.fields = function
     iteration:set_generated()
   end
 
-  -- Collar Rej Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Collar Rej Type: CollarRejectionType_enum
   index, collar_rej_type = euronext_optiq_orderentrygateway_sbe_v5_51.collar_rej_type.dissect(buffer, index, packet, parent)
 
-  -- Breached Collar Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Breached Collar Price: int64_t
   index, breached_collar_price = euronext_optiq_orderentrygateway_sbe_v5_51.breached_collar_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -15546,52 +15546,52 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id Optional: 8 Byte Ascii String Nullable
+  -- Firm Id Optional: char8
   index, firm_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Sending Time Optional: uint64_t
   index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Member: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book In Optional: uint64_t
   index, book_in_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_in_optional.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Client Order Id Optional: int64_t
   index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64_t
   index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Symbol Index Optional: uint32_t
   index, symbol_index_optional = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index_optional.dissect(buffer, index, packet, parent)
 
-  -- Emm Optional: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Emm Optional: EMM_enum
   index, emm_optional = euronext_optiq_orderentrygateway_sbe_v5_51.emm_optional.dissect(buffer, index, packet, parent)
 
-  -- Rejected Message: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Rejected Message: unsigned_char
   index, rejected_message = euronext_optiq_orderentrygateway_sbe_v5_51.rejected_message.dissect(buffer, index, packet, parent)
 
-  -- Error Code: 2 Byte Unsigned Fixed Width Integer
+  -- Error Code: uint16_t
   index, error_code = euronext_optiq_orderentrygateway_sbe_v5_51.error_code.dissect(buffer, index, packet, parent)
 
-  -- Rejected Message Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Rejected Message Id: uint16_t
   index, rejected_message_id = euronext_optiq_orderentrygateway_sbe_v5_51.rejected_message_id.dissect(buffer, index, packet, parent)
 
   -- Ack Qualifiers Optional: Struct of 8 fields
@@ -15641,7 +15641,7 @@ euronext_optiq_orderentrygateway_sbe_v5_51.additional_infos_group.fields = funct
     iteration:set_generated()
   end
 
-  -- Long Client Id: 16 Byte Ascii String Nullable
+  -- Long Client Id: char16
   index, long_client_id = euronext_optiq_orderentrygateway_sbe_v5_51.long_client_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -15744,22 +15744,22 @@ euronext_optiq_orderentrygateway_sbe_v5_51.cancel_replace_clearing_fields_group.
     iteration:set_generated()
   end
 
-  -- Clearing Firm Id: 8 Byte Ascii String Nullable
+  -- Clearing Firm Id: char8
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Client Id: 8 Byte Ascii String Nullable
+  -- Client Id: char8
   index, client_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_id.dissect(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String Nullable
+  -- Account Number: char12
   index, account_number = euronext_optiq_orderentrygateway_sbe_v5_51.account_number.dissect(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Technical Origin: TechnicalOrigin_enum
   index, technical_origin = euronext_optiq_orderentrygateway_sbe_v5_51.technical_origin.dissect(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = euronext_optiq_orderentrygateway_sbe_v5_51.open_close.dissect(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Clearing Instruction: ClearingInstruction_enum
   index, clearing_instruction = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_instruction.dissect(buffer, index, packet, parent)
 
   return index
@@ -16186,31 +16186,31 @@ euronext_optiq_orderentrygateway_sbe_v5_51.cancel_replace_optional_field_group.f
     iteration:set_generated()
   end
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: int64_t
   index, stop_px = euronext_optiq_orderentrygateway_sbe_v5_51.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset: 1 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset: int8_t
   index, peg_offset = euronext_optiq_orderentrygateway_sbe_v5_51.peg_offset.dissect(buffer, index, packet, parent)
 
-  -- Undisclosed Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Undisclosed Price: int64_t
   index, undisclosed_price = euronext_optiq_orderentrygateway_sbe_v5_51.undisclosed_price.dissect(buffer, index, packet, parent)
 
-  -- Disclosed Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Disclosed Qty: uint64_t
   index, disclosed_qty = euronext_optiq_orderentrygateway_sbe_v5_51.disclosed_qty.dissect(buffer, index, packet, parent)
 
-  -- Order Expiration Time: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Expiration Time: uint32_t
   index, order_expiration_time = euronext_optiq_orderentrygateway_sbe_v5_51.order_expiration_time.dissect(buffer, index, packet, parent)
 
-  -- Order Expiration Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Expiration Date: uint16_t
   index, order_expiration_date = euronext_optiq_orderentrygateway_sbe_v5_51.order_expiration_date.dissect(buffer, index, packet, parent)
 
   -- Trading Session: Struct of 6 fields
   index, trading_session = euronext_optiq_orderentrygateway_sbe_v5_51.trading_session.dissect(buffer, index, packet, parent)
 
-  -- Stop Triggered Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Stop Triggered Time In Force: TriggeredStopTimeInForce_enum
   index, stop_triggered_time_in_force = euronext_optiq_orderentrygateway_sbe_v5_51.stop_triggered_time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Undisclosed Iceberg Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Undisclosed Iceberg Type: UndisclosedIcebergType_enum
   index, undisclosed_iceberg_type = euronext_optiq_orderentrygateway_sbe_v5_51.undisclosed_iceberg_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -16531,55 +16531,55 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.cancel_replace_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
+  -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v5_51.client_identification_shortcode.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64_t
   index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.orig_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Px Optional: int64_t
   index, order_px_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_px_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint64_t
   index, order_qty = euronext_optiq_orderentrygateway_sbe_v5_51.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: CancelReplaceOrderSide_enum
   index, side = euronext_optiq_orderentrygateway_sbe_v5_51.side.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Order Type: OrderType_enum
   index, order_type = euronext_optiq_orderentrygateway_sbe_v5_51.order_type.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Time In Force: TimeInForce_enum
   index, time_in_force = euronext_optiq_orderentrygateway_sbe_v5_51.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Account Type Optional: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Account Type Optional: AccountType_enum
   index, account_type_optional = euronext_optiq_orderentrygateway_sbe_v5_51.account_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Lp Role Optional: LPRole_enum
   index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v5_51.lp_role_optional.dissect(buffer, index, packet, parent)
 
   -- Execution Instruction: Struct of 8 fields
@@ -16591,7 +16591,7 @@ euronext_optiq_orderentrygateway_sbe_v5_51.cancel_replace_message.fields = funct
   -- Mifid Indicators: Struct of 7 fields
   index, mifid_indicators = euronext_optiq_orderentrygateway_sbe_v5_51.mifid_indicators.dissect(buffer, index, packet, parent)
 
-  -- Stpid: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Stpid: uint16_t
   index, stpid = euronext_optiq_orderentrygateway_sbe_v5_51.stpid.dissect(buffer, index, packet, parent)
 
   -- Free Text Groups: Struct of 2 fields
@@ -16804,49 +16804,49 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.kill_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Sending Time Optional: uint64_t
   index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Member: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v5_51.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Client Order Id Optional: int64_t
   index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.orig_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64_t
   index, order_id = euronext_optiq_orderentrygateway_sbe_v5_51.order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Kill Reason: 2 Byte Unsigned Fixed Width Integer Enum with 33 values
+  -- Kill Reason: KillReason_enum
   index, kill_reason = euronext_optiq_orderentrygateway_sbe_v5_51.kill_reason.dissect(buffer, index, packet, parent)
 
   -- Ack Qualifiers Optional: Struct of 8 fields
@@ -16980,16 +16980,16 @@ euronext_optiq_orderentrygateway_sbe_v5_51.fill_derivatives_field_group.fields =
     iteration:set_generated()
   end
 
-  -- Evaluated Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Evaluated Price: int64_t
   index, evaluated_price = euronext_optiq_orderentrygateway_sbe_v5_51.evaluated_price.dissect(buffer, index, packet, parent)
 
-  -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Message Price Notation: MessagePriceNotation_enum
   index, message_price_notation = euronext_optiq_orderentrygateway_sbe_v5_51.message_price_notation.dissect(buffer, index, packet, parent)
 
-  -- Final Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Final Symbol Index: uint32_t
   index, final_symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.final_symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Final Execution Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Final Execution Id: uint32_t
   index, final_execution_id = euronext_optiq_orderentrygateway_sbe_v5_51.final_execution_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -17120,22 +17120,22 @@ euronext_optiq_orderentrygateway_sbe_v5_51.fill_strategy_field_group.fields = fu
     iteration:set_generated()
   end
 
-  -- Leg Last Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Last Px: int64_t
   index, leg_last_px = euronext_optiq_orderentrygateway_sbe_v5_51.leg_last_px.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Last Qty: uint64_t
   index, leg_last_qty = euronext_optiq_orderentrygateway_sbe_v5_51.leg_last_qty.dissect(buffer, index, packet, parent)
 
-  -- Leg Instrument Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Instrument Id: uint32_t
   index, leg_instrument_id = euronext_optiq_orderentrygateway_sbe_v5_51.leg_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Side Optional: LegSide_enum
   index, leg_side_optional = euronext_optiq_orderentrygateway_sbe_v5_51.leg_side_optional.dissect(buffer, index, packet, parent)
 
-  -- Execution Id Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Execution Id Optional: uint32_t
   index, execution_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.execution_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Trade Unique Identifier: 16 Byte Ascii String Nullable
+  -- Trade Unique Identifier: char16
   index, trade_unique_identifier = euronext_optiq_orderentrygateway_sbe_v5_51.trade_unique_identifier.dissect(buffer, index, packet, parent)
 
   return index
@@ -17331,16 +17331,16 @@ euronext_optiq_orderentrygateway_sbe_v5_51.fill_optional_field_group.fields = fu
     iteration:set_generated()
   end
 
-  -- Counterpart Firm Id: 8 Byte Ascii String Nullable
+  -- Counterpart Firm Id: char8
   index, counterpart_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.counterpart_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Other Leg Last Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Other Leg Last Px: int64_t
   index, other_leg_last_px = euronext_optiq_orderentrygateway_sbe_v5_51.other_leg_last_px.dissect(buffer, index, packet, parent)
 
-  -- Package Id: 12 Byte Ascii String Nullable
+  -- Package Id: char12
   index, package_id = euronext_optiq_orderentrygateway_sbe_v5_51.package_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Instrument Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Instrument Id: uint32_t
   index, underlying_instrument_id = euronext_optiq_orderentrygateway_sbe_v5_51.underlying_instrument_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -17834,67 +17834,67 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.fill_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Time: uint64_t
   index, trade_time = euronext_optiq_orderentrygateway_sbe_v5_51.trade_time.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Client Order Id Optional: int64_t
   index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: CancelReplaceOrderSide_enum
   index, side = euronext_optiq_orderentrygateway_sbe_v5_51.side.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 49 values
+  -- Trade Type: TradeType_enum
   index, trade_type = euronext_optiq_orderentrygateway_sbe_v5_51.trade_type.dissect(buffer, index, packet, parent)
 
   -- Trade Qualifier: Struct of 8 fields
   index, trade_qualifier = euronext_optiq_orderentrygateway_sbe_v5_51.trade_qualifier.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64_t
   index, order_id = euronext_optiq_orderentrygateway_sbe_v5_51.order_id.dissect(buffer, index, packet, parent)
 
-  -- Last Traded Px: 8 Byte Signed Fixed Width Integer
+  -- Last Traded Px: int64_t
   index, last_traded_px = euronext_optiq_orderentrygateway_sbe_v5_51.last_traded_px.dissect(buffer, index, packet, parent)
 
-  -- Last Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Last Shares: uint64_t
   index, last_shares = euronext_optiq_orderentrygateway_sbe_v5_51.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint64_t
   index, leaves_qty = euronext_optiq_orderentrygateway_sbe_v5_51.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 4 Byte Unsigned Fixed Width Integer
+  -- Execution Id: uint32_t
   index, execution_id = euronext_optiq_orderentrygateway_sbe_v5_51.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Execution Phase: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Execution Phase: ExecutionPhase_enum
   index, execution_phase = euronext_optiq_orderentrygateway_sbe_v5_51.execution_phase.dissect(buffer, index, packet, parent)
 
-  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Lis Transaction Id: uint32_t
   index, lis_transaction_id = euronext_optiq_orderentrygateway_sbe_v5_51.lis_transaction_id.dissect(buffer, index, packet, parent)
 
-  -- Escb Membership: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Escb Membership: unsigned_char
   index, escb_membership = euronext_optiq_orderentrygateway_sbe_v5_51.escb_membership.dissect(buffer, index, packet, parent)
 
-  -- Trade Unique Identifier: 16 Byte Ascii String Nullable
+  -- Trade Unique Identifier: char16
   index, trade_unique_identifier = euronext_optiq_orderentrygateway_sbe_v5_51.trade_unique_identifier.dissect(buffer, index, packet, parent)
 
   -- Fill Optional Field Groups: Struct of 2 fields
@@ -18187,70 +18187,70 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Sending Time Optional: uint64_t
   index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Member: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v5_51.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Book Out Time Optional: uint64_t
   index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v5_51.book_out_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg In From Me Optional: uint64_t
   index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Oeg Out To Member Optional: uint64_t
   index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v5_51.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Client Order Id Optional: int64_t
   index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.orig_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side Optional: MassCancelAckOrderSide_enum
   index, side_optional = euronext_optiq_orderentrygateway_sbe_v5_51.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Ack Type: 1 Byte Unsigned Fixed Width Integer Enum with 22 values
+  -- Ack Type: AckType_enum
   index, ack_type = euronext_optiq_orderentrygateway_sbe_v5_51.ack_type.dissect(buffer, index, packet, parent)
 
-  -- Ack Phase: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Ack Phase: AckPhase_enum
   index, ack_phase = euronext_optiq_orderentrygateway_sbe_v5_51.ack_phase.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64_t
   index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Priority: uint64_t
   index, order_priority = euronext_optiq_orderentrygateway_sbe_v5_51.order_priority.dissect(buffer, index, packet, parent)
 
-  -- Order Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Px Optional: int64_t
   index, order_px_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_px_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty Optional: uint64_t
   index, order_qty_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_qty_optional.dissect(buffer, index, packet, parent)
 
   -- Ack Qualifiers: Struct of 8 fields
   index, ack_qualifiers = euronext_optiq_orderentrygateway_sbe_v5_51.ack_qualifiers.dissect(buffer, index, packet, parent)
 
-  -- Order Tolerable Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Tolerable Price: int64_t
   index, order_tolerable_price = euronext_optiq_orderentrygateway_sbe_v5_51.order_tolerable_price.dissect(buffer, index, packet, parent)
 
   -- Mifid Fields Groups: Struct of 2 fields
@@ -18301,28 +18301,28 @@ euronext_optiq_orderentrygateway_sbe_v5_51.order_clearing_fields_group.fields = 
     iteration:set_generated()
   end
 
-  -- Clearing Firm Id: 8 Byte Ascii String Nullable
+  -- Clearing Firm Id: char8
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Client Id: 8 Byte Ascii String Nullable
+  -- Client Id: char8
   index, client_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_id.dissect(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String Nullable
+  -- Account Number: char12
   index, account_number = euronext_optiq_orderentrygateway_sbe_v5_51.account_number.dissect(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Technical Origin: TechnicalOrigin_enum
   index, technical_origin = euronext_optiq_orderentrygateway_sbe_v5_51.technical_origin.dissect(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = euronext_optiq_orderentrygateway_sbe_v5_51.open_close.dissect(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Clearing Instruction: ClearingInstruction_enum
   index, clearing_instruction = euronext_optiq_orderentrygateway_sbe_v5_51.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Account Type Cross: AccountTypeCross_enum
   index, account_type_cross = euronext_optiq_orderentrygateway_sbe_v5_51.account_type_cross.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity Cross: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Capacity Cross: TradingCapacityCross_enum
   index, trading_capacity_cross = euronext_optiq_orderentrygateway_sbe_v5_51.trading_capacity_cross.dissect(buffer, index, packet, parent)
 
   return index
@@ -18458,37 +18458,37 @@ euronext_optiq_orderentrygateway_sbe_v5_51.order_optional_fields_group.fields = 
     iteration:set_generated()
   end
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: int64_t
   index, stop_px = euronext_optiq_orderentrygateway_sbe_v5_51.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Undisclosed Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Undisclosed Price: int64_t
   index, undisclosed_price = euronext_optiq_orderentrygateway_sbe_v5_51.undisclosed_price.dissect(buffer, index, packet, parent)
 
-  -- Disclosed Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Disclosed Qty: uint64_t
   index, disclosed_qty = euronext_optiq_orderentrygateway_sbe_v5_51.disclosed_qty.dissect(buffer, index, packet, parent)
 
-  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Order Qty: uint64_t
   index, min_order_qty = euronext_optiq_orderentrygateway_sbe_v5_51.min_order_qty.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Req Id Optional: uint64_t
   index, quote_req_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.quote_req_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Expiration Time: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Expiration Time: uint32_t
   index, order_expiration_time = euronext_optiq_orderentrygateway_sbe_v5_51.order_expiration_time.dissect(buffer, index, packet, parent)
 
-  -- Order Expiration Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Expiration Date: uint16_t
   index, order_expiration_date = euronext_optiq_orderentrygateway_sbe_v5_51.order_expiration_date.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset: 1 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset: int8_t
   index, peg_offset = euronext_optiq_orderentrygateway_sbe_v5_51.peg_offset.dissect(buffer, index, packet, parent)
 
   -- Trading Session: Struct of 6 fields
   index, trading_session = euronext_optiq_orderentrygateway_sbe_v5_51.trading_session.dissect(buffer, index, packet, parent)
 
-  -- Undisclosed Iceberg Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Undisclosed Iceberg Type: UndisclosedIcebergType_enum
   index, undisclosed_iceberg_type = euronext_optiq_orderentrygateway_sbe_v5_51.undisclosed_iceberg_type.dissect(buffer, index, packet, parent)
 
-  -- Stop Triggered Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Stop Triggered Time In Force: TriggeredStopTimeInForce_enum
   index, stop_triggered_time_in_force = euronext_optiq_orderentrygateway_sbe_v5_51.stop_triggered_time_in_force.dissect(buffer, index, packet, parent)
 
   return index
@@ -18639,49 +18639,49 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.new_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Cl Msg Seq Num: uint32_t
   index, cl_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v5_51.cl_msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v5_51.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: uint64_t
   index, sending_time = euronext_optiq_orderentrygateway_sbe_v5_51.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v5_51.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v5_51.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v5_51.emm.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: CancelReplaceOrderSide_enum
   index, side = euronext_optiq_orderentrygateway_sbe_v5_51.side.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Order Type: OrderType_enum
   index, order_type = euronext_optiq_orderentrygateway_sbe_v5_51.order_type.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Time In Force: TimeInForce_enum
   index, time_in_force = euronext_optiq_orderentrygateway_sbe_v5_51.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Order Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Px Optional: int64_t
   index, order_px_optional = euronext_optiq_orderentrygateway_sbe_v5_51.order_px_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint64_t
   index, order_qty = euronext_optiq_orderentrygateway_sbe_v5_51.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v5_51.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity: TradingCapacity_enum
   index, trading_capacity = euronext_optiq_orderentrygateway_sbe_v5_51.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Account Type: AccountType_enum
   index, account_type = euronext_optiq_orderentrygateway_sbe_v5_51.account_type.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Lp Role Optional: LPRole_enum
   index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v5_51.lp_role_optional.dissect(buffer, index, packet, parent)
 
   -- Execution Instruction: Struct of 8 fields
@@ -18693,13 +18693,13 @@ euronext_optiq_orderentrygateway_sbe_v5_51.new_order_message.fields = function(b
   -- Mifid Indicators: Struct of 7 fields
   index, mifid_indicators = euronext_optiq_orderentrygateway_sbe_v5_51.mifid_indicators.dissect(buffer, index, packet, parent)
 
-  -- Stpid: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Stpid: uint16_t
   index, stpid = euronext_optiq_orderentrygateway_sbe_v5_51.stpid.dissect(buffer, index, packet, parent)
 
-  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Non Executing Client Id: uint16_t
   index, non_executing_client_id = euronext_optiq_orderentrygateway_sbe_v5_51.non_executing_client_id.dissect(buffer, index, packet, parent)
 
-  -- Ioi Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Ioi Id Optional: int64_t
   index, ioi_id_optional = euronext_optiq_orderentrygateway_sbe_v5_51.ioi_id_optional.dissect(buffer, index, packet, parent)
 
   -- Free Text Groups: Struct of 2 fields
@@ -19502,16 +19502,16 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_51.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = euronext_optiq_orderentrygateway_sbe_v5_51.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 55 values
+  -- Template Id: uint16
   index, template_id = euronext_optiq_orderentrygateway_sbe_v5_51.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = euronext_optiq_orderentrygateway_sbe_v5_51.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = euronext_optiq_orderentrygateway_sbe_v5_51.version.dissect(buffer, index, packet, parent)
 
   return index

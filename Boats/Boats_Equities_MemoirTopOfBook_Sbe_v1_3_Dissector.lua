@@ -320,10 +320,10 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.timestamp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time: 8 Byte Unsigned Fixed Width Integer
+  -- Time: uint64
   index, time = boats_equities_memoirtopofbook_sbe_v1_3.time.dissect(buffer, index, packet, parent)
 
-  -- Unit: 1 Byte Unsigned Fixed Width Integer
+  -- Unit: uint8
   index, unit = boats_equities_memoirtopofbook_sbe_v1_3.unit.dissect(buffer, index, packet, parent)
 
   return index
@@ -367,7 +367,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.clear_book_message.fields = function(buf
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = boats_equities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -454,10 +454,10 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer
+  -- Exponent: int8
   index, exponent = boats_equities_memoirtopofbook_sbe_v1_3.exponent.dissect(buffer, index, packet, parent)
 
-  -- Mantissa: 2 Byte Signed Fixed Width Integer
+  -- Mantissa: int16
   index, mantissa = boats_equities_memoirtopofbook_sbe_v1_3.mantissa.dissect(buffer, index, packet, parent)
 
   return index
@@ -526,10 +526,10 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.fields = functi
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = boats_equities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Offer Size uint 16: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Size uint 16: uint16
   index, offer_size_uint_16 = boats_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.dissect(buffer, index, packet, parent)
 
   -- Offer Price Short Price Type: Struct of 2 fields
@@ -573,10 +573,10 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer
+  -- Exponent: int8
   index, exponent = boats_equities_memoirtopofbook_sbe_v1_3.exponent.dissect(buffer, index, packet, parent)
 
-  -- Mantissa: 2 Byte Signed Fixed Width Integer
+  -- Mantissa: int16
   index, mantissa = boats_equities_memoirtopofbook_sbe_v1_3.mantissa.dissect(buffer, index, packet, parent)
 
   return index
@@ -645,10 +645,10 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.fields = function
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = boats_equities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size Short: uint16
   index, bid_size_short = boats_equities_memoirtopofbook_sbe_v1_3.bid_size_short.dissect(buffer, index, packet, parent)
 
   -- Bid Price Short Price Type: Struct of 2 fields
@@ -749,13 +749,13 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_offer_message.fields = function(buf
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = boats_equities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Offer size: 4 Byte Unsigned Fixed Width Integer
+  -- Offer size: uint32
   index, offer_size = boats_equities_memoirtopofbook_sbe_v1_3.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Price Type: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Price Price Type: PriceType
   index, offer_price_price_type = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -853,13 +853,13 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_message.fields = function(buffe
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = boats_equities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: uint32
   index, bid_size = boats_equities_memoirtopofbook_sbe_v1_3.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price Type: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Price Price Type: PriceType
   index, bid_price_price_type = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -907,19 +907,19 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.fields = function
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = boats_equities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: uint32
   index, bid_size = boats_equities_memoirtopofbook_sbe_v1_3.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price Type: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Price Price Type: PriceType
   index, bid_price_price_type = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.dissect(buffer, index, packet, parent)
 
-  -- Offer size: 4 Byte Unsigned Fixed Width Integer
+  -- Offer size: uint32
   index, offer_size = boats_equities_memoirtopofbook_sbe_v1_3.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Price Type: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Price Price Type: PriceType
   index, offer_price_price_type = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -986,7 +986,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.fields = funct
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- As Of Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  -- As Of Sequence Number: uint64
   index, as_of_sequence_number = boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -1079,7 +1079,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.fields = 
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trading Session: 1 Byte Ascii String Enum with 4 values
+  -- Trading Session: TradingSessionType
   index, trading_session = boats_equities_memoirtopofbook_sbe_v1_3.trading_session.dissect(buffer, index, packet, parent)
 
   return index
@@ -1220,13 +1220,13 @@ boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.fields =
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = boats_equities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Ascii String Enum with 4 values
+  -- Security Trading Status: SecurityTradingStatusType
   index, security_trading_status = boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status Reason: 1 Byte Ascii String Enum with 3 values
+  -- Security Trading Status Reason: SecurityTradingStatusReasonType
   index, security_trading_status_reason = boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1301,10 +1301,10 @@ boats_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.fields = fun
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = boats_equities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Short Sale Restriction: BooleanType
   index, short_sale_restriction = boats_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.dissect(buffer, index, packet, parent)
 
   return index
@@ -1537,25 +1537,25 @@ boats_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.fields = fu
   -- Timestamp: Struct of 2 fields
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = boats_equities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: InstrumentDirectorySymbol
   index, symbol = boats_equities_memoirtopofbook_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: InstrumentDirectorySymbolSfx
   index, symbol_sfx = boats_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Round Lot: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot: uint32
   index, round_lot = boats_equities_memoirtopofbook_sbe_v1_3.round_lot.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
+  -- Reserved: uint8
   index, reserved = boats_equities_memoirtopofbook_sbe_v1_3.reserved.dissect(buffer, index, packet, parent)
 
-  -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Is Test Symbol: BooleanType
   index, is_test_symbol = boats_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 8 Byte Unsigned Fixed Width Integer
+  -- Mpv: PriceType
   index, mpv = boats_equities_memoirtopofbook_sbe_v1_3.mpv.dissect(buffer, index, packet, parent)
 
   return index
@@ -1860,16 +1860,16 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.sbe_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = boats_equities_memoirtopofbook_sbe_v1_3.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Template Id: uint8
   index, template_id = boats_equities_memoirtopofbook_sbe_v1_3.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint8
   index, schema_id = boats_equities_memoirtopofbook_sbe_v1_3.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = boats_equities_memoirtopofbook_sbe_v1_3.version.dissect(buffer, index, packet, parent)
 
   return index

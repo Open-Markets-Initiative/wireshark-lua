@@ -606,19 +606,19 @@ smallx_orderbookfeed_sbe_v2_2.legs_group.fields = function(buffer, offset, packe
     iteration:set_generated()
   end
 
-  -- Leg Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Instrument Id: InstrumentId
   index, leg_instrument_id = smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Symbol: 25 Byte Ascii String
+  -- Leg Symbol: InstrumentSymbolV2
   index, leg_symbol = smallx_orderbookfeed_sbe_v2_2.leg_symbol.dissect(buffer, index, packet, parent)
 
-  -- Leg Product: 8 Byte Ascii String
+  -- Leg Product: Product
   index, leg_product = smallx_orderbookfeed_sbe_v2_2.leg_product.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Quantity: 8 Byte Signed Fixed Width Integer
+  -- Leg Ratio Quantity: Quantity
   index, leg_ratio_quantity = smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  -- Leg Side: Side
   index, leg_side = smallx_orderbookfeed_sbe_v2_2.leg_side.dissect(buffer, index, packet, parent)
 
   return index
@@ -705,10 +705,10 @@ end
 smallx_orderbookfeed_sbe_v2_2.group_dimension.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = smallx_orderbookfeed_sbe_v2_2.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = smallx_orderbookfeed_sbe_v2_2.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -1553,64 +1553,64 @@ end
 smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Snapshot Message Instructions: Struct of 10 fields
   index, snapshot_message_instructions = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Instruments Count: 4 Byte Signed Fixed Width Integer
+  -- Snapshot Instruments Count: SnapshotInstrumentsCount
   index, snapshot_instruments_count = smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.dissect(buffer, index, packet, parent)
 
-  -- Last Incremental Message Seq: 8 Byte Signed Fixed Width Integer
+  -- Last Incremental Message Seq: LastIncrementalMessageSeq
   index, last_incremental_message_seq = smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.dissect(buffer, index, packet, parent)
 
-  -- Spread Symbol: 120 Byte Ascii String
+  -- Spread Symbol: SpreadSymbolV2
   index, spread_symbol = smallx_orderbookfeed_sbe_v2_2.spread_symbol.dissect(buffer, index, packet, parent)
 
-  -- Description: 120 Byte Ascii String
+  -- Description: InstrumentDescription
   index, description = smallx_orderbookfeed_sbe_v2_2.description.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 3 values
+  -- Instrument Type: InstrumentType
   index, instrument_type = smallx_orderbookfeed_sbe_v2_2.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: Date
   index, maturity_date = smallx_orderbookfeed_sbe_v2_2.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- First Trading Session Date: Date
   index, first_trading_session_date = smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Last Trading Session Date: Date
   index, last_trading_session_date = smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Expiration Date: 2 Byte Unsigned Fixed Width Integer
+  -- Expiration Date: Date
   index, expiration_date = smallx_orderbookfeed_sbe_v2_2.expiration_date.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CfiCode
   index, cfi_code = smallx_orderbookfeed_sbe_v2_2.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = smallx_orderbookfeed_sbe_v2_2.currency.dissect(buffer, index, packet, parent)
 
-  -- Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Price Increment: Price
   index, price_increment = smallx_orderbookfeed_sbe_v2_2.price_increment.dissect(buffer, index, packet, parent)
 
-  -- Price Multiplier: 8 Byte Signed Fixed Width Integer
+  -- Price Multiplier: InstrumentPriceMultiplier
   index, price_multiplier = smallx_orderbookfeed_sbe_v2_2.price_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Strategy Type: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Strategy Type: StrategyType
   index, strategy_type = smallx_orderbookfeed_sbe_v2_2.strategy_type.dissect(buffer, index, packet, parent)
 
   -- Legs Groups: Struct of 2 fields
@@ -2057,88 +2057,88 @@ end
 smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Snapshot Message Instructions: Struct of 10 fields
   index, snapshot_message_instructions = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Instruments Count: 4 Byte Signed Fixed Width Integer
+  -- Snapshot Instruments Count: SnapshotInstrumentsCount
   index, snapshot_instruments_count = smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.dissect(buffer, index, packet, parent)
 
-  -- Last Incremental Message Seq: 8 Byte Signed Fixed Width Integer
+  -- Last Incremental Message Seq: LastIncrementalMessageSeq
   index, last_incremental_message_seq = smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 25 Byte Ascii String
+  -- Symbol: InstrumentSymbolV2
   index, symbol = smallx_orderbookfeed_sbe_v2_2.symbol.dissect(buffer, index, packet, parent)
 
-  -- Product: 8 Byte Ascii String
+  -- Product: Product
   index, product = smallx_orderbookfeed_sbe_v2_2.product.dissect(buffer, index, packet, parent)
 
-  -- Description: 120 Byte Ascii String
+  -- Description: InstrumentDescription
   index, description = smallx_orderbookfeed_sbe_v2_2.description.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 3 values
+  -- Instrument Type: InstrumentType
   index, instrument_type = smallx_orderbookfeed_sbe_v2_2.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: Date
   index, maturity_date = smallx_orderbookfeed_sbe_v2_2.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- First Trading Session Date: Date
   index, first_trading_session_date = smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Last Trading Session Date: Date
   index, last_trading_session_date = smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Expiration Date: 2 Byte Unsigned Fixed Width Integer
+  -- Expiration Date: Date
   index, expiration_date = smallx_orderbookfeed_sbe_v2_2.expiration_date.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CfiCode
   index, cfi_code = smallx_orderbookfeed_sbe_v2_2.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = smallx_orderbookfeed_sbe_v2_2.currency.dissect(buffer, index, packet, parent)
 
-  -- Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Price Increment: Price
   index, price_increment = smallx_orderbookfeed_sbe_v2_2.price_increment.dissect(buffer, index, packet, parent)
 
-  -- Price Multiplier: 8 Byte Signed Fixed Width Integer
+  -- Price Multiplier: InstrumentPriceMultiplier
   index, price_multiplier = smallx_orderbookfeed_sbe_v2_2.price_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 25 Byte Ascii String
+  -- Underlying Symbol: InstrumentSymbolV2
   index, underlying_symbol = smallx_orderbookfeed_sbe_v2_2.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Underlying Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Underlying Instrument Id: InstrumentId
   index, underlying_instrument_id = smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Ascii String Enum with 3 values
+  -- Put Or Call: PutOrCall
   index, put_or_call = smallx_orderbookfeed_sbe_v2_2.put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: PriceOptional
   index, strike_price = smallx_orderbookfeed_sbe_v2_2.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Shares Per Contract: 8 Byte Signed Fixed Width Integer
+  -- Shares Per Contract: QuantityOptional
   index, shares_per_contract = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.dissect(buffer, index, packet, parent)
 
-  -- Expiration Style: 1 Byte Ascii String Enum with 4 values
+  -- Expiration Style: ExpirationStyle
   index, expiration_style = smallx_orderbookfeed_sbe_v2_2.expiration_style.dissect(buffer, index, packet, parent)
 
-  -- Exercise Style: 1 Byte Ascii String Enum with 3 values
+  -- Exercise Style: ExerciseStyle
   index, exercise_style = smallx_orderbookfeed_sbe_v2_2.exercise_style.dissect(buffer, index, packet, parent)
 
-  -- Delivery: 1 Byte Ascii String Enum with 2 values
+  -- Delivery: Delivery
   index, delivery = smallx_orderbookfeed_sbe_v2_2.delivery.dissect(buffer, index, packet, parent)
 
   return index
@@ -2356,61 +2356,61 @@ end
 smallx_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Incremental Message Instructions: Struct of 8 fields
   index, incremental_message_instructions = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Instrument Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Instrument Update Action: InstrumentUpdateAction
   index, instrument_update_action = smallx_orderbookfeed_sbe_v2_2.instrument_update_action.dissect(buffer, index, packet, parent)
 
-  -- Spread Symbol: 120 Byte Ascii String
+  -- Spread Symbol: SpreadSymbolV2
   index, spread_symbol = smallx_orderbookfeed_sbe_v2_2.spread_symbol.dissect(buffer, index, packet, parent)
 
-  -- Description: 120 Byte Ascii String
+  -- Description: InstrumentDescription
   index, description = smallx_orderbookfeed_sbe_v2_2.description.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 3 values
+  -- Instrument Type: InstrumentType
   index, instrument_type = smallx_orderbookfeed_sbe_v2_2.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: Date
   index, maturity_date = smallx_orderbookfeed_sbe_v2_2.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- First Trading Session Date: Date
   index, first_trading_session_date = smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Last Trading Session Date: Date
   index, last_trading_session_date = smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Expiration Date: 2 Byte Unsigned Fixed Width Integer
+  -- Expiration Date: Date
   index, expiration_date = smallx_orderbookfeed_sbe_v2_2.expiration_date.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CfiCode
   index, cfi_code = smallx_orderbookfeed_sbe_v2_2.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = smallx_orderbookfeed_sbe_v2_2.currency.dissect(buffer, index, packet, parent)
 
-  -- Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Price Increment: Price
   index, price_increment = smallx_orderbookfeed_sbe_v2_2.price_increment.dissect(buffer, index, packet, parent)
 
-  -- Price Multiplier: 8 Byte Signed Fixed Width Integer
+  -- Price Multiplier: InstrumentPriceMultiplier
   index, price_multiplier = smallx_orderbookfeed_sbe_v2_2.price_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Strategy Type: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Strategy Type: StrategyType
   index, strategy_type = smallx_orderbookfeed_sbe_v2_2.strategy_type.dissect(buffer, index, packet, parent)
 
   -- Legs Groups: Struct of 2 fields
@@ -2474,85 +2474,85 @@ end
 smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Incremental Message Instructions: Struct of 8 fields
   index, incremental_message_instructions = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Instrument Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Instrument Update Action: InstrumentUpdateAction
   index, instrument_update_action = smallx_orderbookfeed_sbe_v2_2.instrument_update_action.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 25 Byte Ascii String
+  -- Symbol: InstrumentSymbolV2
   index, symbol = smallx_orderbookfeed_sbe_v2_2.symbol.dissect(buffer, index, packet, parent)
 
-  -- Product: 8 Byte Ascii String
+  -- Product: Product
   index, product = smallx_orderbookfeed_sbe_v2_2.product.dissect(buffer, index, packet, parent)
 
-  -- Description: 120 Byte Ascii String
+  -- Description: InstrumentDescription
   index, description = smallx_orderbookfeed_sbe_v2_2.description.dissect(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 3 values
+  -- Instrument Type: InstrumentType
   index, instrument_type = smallx_orderbookfeed_sbe_v2_2.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: Date
   index, maturity_date = smallx_orderbookfeed_sbe_v2_2.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- First Trading Session Date: Date
   index, first_trading_session_date = smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Last Trading Session Date: Date
   index, last_trading_session_date = smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Expiration Date: 2 Byte Unsigned Fixed Width Integer
+  -- Expiration Date: Date
   index, expiration_date = smallx_orderbookfeed_sbe_v2_2.expiration_date.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CfiCode
   index, cfi_code = smallx_orderbookfeed_sbe_v2_2.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = smallx_orderbookfeed_sbe_v2_2.currency.dissect(buffer, index, packet, parent)
 
-  -- Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Price Increment: Price
   index, price_increment = smallx_orderbookfeed_sbe_v2_2.price_increment.dissect(buffer, index, packet, parent)
 
-  -- Price Multiplier: 8 Byte Signed Fixed Width Integer
+  -- Price Multiplier: InstrumentPriceMultiplier
   index, price_multiplier = smallx_orderbookfeed_sbe_v2_2.price_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 25 Byte Ascii String
+  -- Underlying Symbol: InstrumentSymbolV2
   index, underlying_symbol = smallx_orderbookfeed_sbe_v2_2.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Underlying Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Underlying Instrument Id: InstrumentId
   index, underlying_instrument_id = smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Ascii String Enum with 3 values
+  -- Put Or Call: PutOrCall
   index, put_or_call = smallx_orderbookfeed_sbe_v2_2.put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: PriceOptional
   index, strike_price = smallx_orderbookfeed_sbe_v2_2.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Shares Per Contract: 8 Byte Signed Fixed Width Integer
+  -- Shares Per Contract: QuantityOptional
   index, shares_per_contract = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.dissect(buffer, index, packet, parent)
 
-  -- Expiration Style: 1 Byte Ascii String Enum with 4 values
+  -- Expiration Style: ExpirationStyle
   index, expiration_style = smallx_orderbookfeed_sbe_v2_2.expiration_style.dissect(buffer, index, packet, parent)
 
-  -- Exercise Style: 1 Byte Ascii String Enum with 3 values
+  -- Exercise Style: ExerciseStyle
   index, exercise_style = smallx_orderbookfeed_sbe_v2_2.exercise_style.dissect(buffer, index, packet, parent)
 
-  -- Delivery: 1 Byte Ascii String Enum with 2 values
+  -- Delivery: Delivery
   index, delivery = smallx_orderbookfeed_sbe_v2_2.delivery.dissect(buffer, index, packet, parent)
 
   return index
@@ -2832,37 +2832,37 @@ end
 smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
   -- Snapshot Message Instructions: Struct of 10 fields
   index, snapshot_message_instructions = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Index Count: 4 Byte Signed Fixed Width Integer
+  -- Index Count: SnapshotInstrumentsCount
   index, index_count = smallx_orderbookfeed_sbe_v2_2.index_count.dissect(buffer, index, packet, parent)
 
-  -- Index Symbol: 20 Byte Ascii String
+  -- Index Symbol: IndexSymbol
   index, index_symbol = smallx_orderbookfeed_sbe_v2_2.index_symbol.dissect(buffer, index, packet, parent)
 
-  -- Value: 8 Byte Signed Fixed Width Integer
+  -- Value: PriceOptional
   index, value = smallx_orderbookfeed_sbe_v2_2.value.dissect(buffer, index, packet, parent)
 
-  -- Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Session Date: uint16
   index, session_date = smallx_orderbookfeed_sbe_v2_2.session_date.dissect(buffer, index, packet, parent)
 
-  -- Open Price: 8 Byte Signed Fixed Width Integer
+  -- Open Price: PriceOptional
   index, open_price = smallx_orderbookfeed_sbe_v2_2.open_price.dissect(buffer, index, packet, parent)
 
-  -- High Price: 8 Byte Signed Fixed Width Integer
+  -- High Price: PriceOptional
   index, high_price = smallx_orderbookfeed_sbe_v2_2.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 8 Byte Signed Fixed Width Integer
+  -- Low Price: PriceOptional
   index, low_price = smallx_orderbookfeed_sbe_v2_2.low_price.dissect(buffer, index, packet, parent)
 
-  -- Close Price: 8 Byte Signed Fixed Width Integer
+  -- Close Price: PriceOptional
   index, close_price = smallx_orderbookfeed_sbe_v2_2.close_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -3181,64 +3181,64 @@ end
 smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Snapshot Message Instructions: Struct of 10 fields
   index, snapshot_message_instructions = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Instruments Count: 4 Byte Signed Fixed Width Integer
+  -- Snapshot Instruments Count: SnapshotInstrumentsCount
   index, snapshot_instruments_count = smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.dissect(buffer, index, packet, parent)
 
-  -- Last Incremental Message Seq: 8 Byte Signed Fixed Width Integer
+  -- Last Incremental Message Seq: LastIncrementalMessageSeq
   index, last_incremental_message_seq = smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Price: PriceOptional
   index, last_trade_price = smallx_orderbookfeed_sbe_v2_2.last_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Size: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Size: QuantityOptional
   index, last_trade_size = smallx_orderbookfeed_sbe_v2_2.last_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Time Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Time Timestamp: Timestamp
   index, last_trade_time_timestamp = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Total Volume Quantity Optional: 8 Byte Signed Fixed Width Integer
+  -- Total Volume Quantity Optional: QuantityOptional
   index, total_volume_quantity_optional = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.dissect(buffer, index, packet, parent)
 
-  -- Open Price: 8 Byte Signed Fixed Width Integer
+  -- Open Price: PriceOptional
   index, open_price = smallx_orderbookfeed_sbe_v2_2.open_price.dissect(buffer, index, packet, parent)
 
-  -- Open Price Type: 1 Byte Ascii String Enum with 3 values
+  -- Open Price Type: OpenPriceType
   index, open_price_type = smallx_orderbookfeed_sbe_v2_2.open_price_type.dissect(buffer, index, packet, parent)
 
-  -- High Price: 8 Byte Signed Fixed Width Integer
+  -- High Price: PriceOptional
   index, high_price = smallx_orderbookfeed_sbe_v2_2.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 8 Byte Signed Fixed Width Integer
+  -- Low Price: PriceOptional
   index, low_price = smallx_orderbookfeed_sbe_v2_2.low_price.dissect(buffer, index, packet, parent)
 
-  -- Close Price: 8 Byte Signed Fixed Width Integer
+  -- Close Price: PriceOptional
   index, close_price = smallx_orderbookfeed_sbe_v2_2.close_price.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: 8 Byte Signed Fixed Width Integer
+  -- Open Interest: QuantityOptional
   index, open_interest = smallx_orderbookfeed_sbe_v2_2.open_interest.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: PriceOptional
   index, settlement_price = smallx_orderbookfeed_sbe_v2_2.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Type: 1 Byte Ascii String Enum with 3 values
+  -- Settlement Price Type: SettlementPriceType
   index, settlement_price_type = smallx_orderbookfeed_sbe_v2_2.settlement_price_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -3507,25 +3507,25 @@ smallx_orderbookfeed_sbe_v2_2.snaphot_orders_group.fields = function(buffer, off
     iteration:set_generated()
   end
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: OrderId
   index, order_id = smallx_orderbookfeed_sbe_v2_2.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Side
   index, side = smallx_orderbookfeed_sbe_v2_2.side.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = smallx_orderbookfeed_sbe_v2_2.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 8 Byte Signed Fixed Width Integer
+  -- Size: Quantity
   index, size = smallx_orderbookfeed_sbe_v2_2.size.dissect(buffer, index, packet, parent)
 
-  -- Order Priority: 8 Byte Signed Fixed Width Integer
+  -- Order Priority: OrderPriority
   index, order_priority = smallx_orderbookfeed_sbe_v2_2.order_priority.dissect(buffer, index, packet, parent)
 
   -- Order Attributes: Struct of 2 fields
   index, order_attributes = smallx_orderbookfeed_sbe_v2_2.order_attributes.dissect(buffer, index, packet, parent)
 
-  -- Time: 8 Byte Signed Fixed Width Integer
+  -- Time: Timestamp
   index, time = smallx_orderbookfeed_sbe_v2_2.time.dissect(buffer, index, packet, parent)
 
   return index
@@ -3638,28 +3638,28 @@ end
 smallx_orderbookfeed_sbe_v2_2.order_book_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Snapshot Message Instructions: Struct of 10 fields
   index, snapshot_message_instructions = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Instruments Count: 4 Byte Signed Fixed Width Integer
+  -- Snapshot Instruments Count: SnapshotInstrumentsCount
   index, snapshot_instruments_count = smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.dissect(buffer, index, packet, parent)
 
-  -- Last Incremental Message Seq: 8 Byte Signed Fixed Width Integer
+  -- Last Incremental Message Seq: LastIncrementalMessageSeq
   index, last_incremental_message_seq = smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.dissect(buffer, index, packet, parent)
 
   -- Snaphot Orders Groups: Struct of 2 fields
@@ -3710,46 +3710,46 @@ end
 smallx_orderbookfeed_sbe_v2_2.market_summary_incremental_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Incremental Message Instructions: Struct of 8 fields
   index, incremental_message_instructions = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Open Price: 8 Byte Signed Fixed Width Integer
+  -- Open Price: PriceOptional
   index, open_price = smallx_orderbookfeed_sbe_v2_2.open_price.dissect(buffer, index, packet, parent)
 
-  -- Open Price Type: 1 Byte Ascii String Enum with 3 values
+  -- Open Price Type: OpenPriceType
   index, open_price_type = smallx_orderbookfeed_sbe_v2_2.open_price_type.dissect(buffer, index, packet, parent)
 
-  -- High Price: 8 Byte Signed Fixed Width Integer
+  -- High Price: PriceOptional
   index, high_price = smallx_orderbookfeed_sbe_v2_2.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 8 Byte Signed Fixed Width Integer
+  -- Low Price: PriceOptional
   index, low_price = smallx_orderbookfeed_sbe_v2_2.low_price.dissect(buffer, index, packet, parent)
 
-  -- Close Price: 8 Byte Signed Fixed Width Integer
+  -- Close Price: PriceOptional
   index, close_price = smallx_orderbookfeed_sbe_v2_2.close_price.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: 8 Byte Signed Fixed Width Integer
+  -- Open Interest: QuantityOptional
   index, open_interest = smallx_orderbookfeed_sbe_v2_2.open_interest.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: PriceOptional
   index, settlement_price = smallx_orderbookfeed_sbe_v2_2.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Type: 1 Byte Ascii String Enum with 3 values
+  -- Settlement Price Type: SettlementPriceType
   index, settlement_price_type = smallx_orderbookfeed_sbe_v2_2.settlement_price_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -3933,25 +3933,25 @@ smallx_orderbookfeed_sbe_v2_2.incremetal_orders_group.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Order Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Order Update Action: OrderUpdateAction
   index, order_update_action = smallx_orderbookfeed_sbe_v2_2.order_update_action.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: OrderId
   index, order_id = smallx_orderbookfeed_sbe_v2_2.order_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Trade Id Optional: TradeId
   index, trade_id_optional = smallx_orderbookfeed_sbe_v2_2.trade_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Side
   index, side = smallx_orderbookfeed_sbe_v2_2.side.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Signed Fixed Width Integer
+  -- Price Optional: PriceOptional
   index, price_optional = smallx_orderbookfeed_sbe_v2_2.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Size: 8 Byte Signed Fixed Width Integer
+  -- Size: Quantity
   index, size = smallx_orderbookfeed_sbe_v2_2.size.dissect(buffer, index, packet, parent)
 
-  -- Order Priority Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Priority Optional: OrderPriority
   index, order_priority_optional = smallx_orderbookfeed_sbe_v2_2.order_priority_optional.dissect(buffer, index, packet, parent)
 
   -- Order Attributes: Struct of 2 fields
@@ -4063,19 +4063,19 @@ end
 smallx_orderbookfeed_sbe_v2_2.order_book_incremental_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Incremental Message Instructions: Struct of 8 fields
@@ -4298,25 +4298,25 @@ smallx_orderbookfeed_sbe_v2_2.trade_bust_group.fields = function(buffer, offset,
     iteration:set_generated()
   end
 
-  -- Trade Id: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: TradeId
   index, trade_id = smallx_orderbookfeed_sbe_v2_2.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Time: 8 Byte Signed Fixed Width Integer
+  -- Time: Timestamp
   index, time = smallx_orderbookfeed_sbe_v2_2.time.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = smallx_orderbookfeed_sbe_v2_2.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 8 Byte Signed Fixed Width Integer
+  -- Size: Quantity
   index, size = smallx_orderbookfeed_sbe_v2_2.size.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Ascii String Enum with 3 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = smallx_orderbookfeed_sbe_v2_2.aggressor_side.dissect(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer
+  -- Buy Order Id: OrderId
   index, buy_order_id = smallx_orderbookfeed_sbe_v2_2.buy_order_id.dissect(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer
+  -- Sell Order Id: OrderId
   index, sell_order_id = smallx_orderbookfeed_sbe_v2_2.sell_order_id.dissect(buffer, index, packet, parent)
 
   -- Trade Conditions: Struct of 3 fields
@@ -4488,34 +4488,34 @@ end
 smallx_orderbookfeed_sbe_v2_2.trade_bust_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Incremental Message Instructions: Struct of 8 fields
   index, incremental_message_instructions = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Price: PriceOptional
   index, last_trade_price = smallx_orderbookfeed_sbe_v2_2.last_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Size: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Size: QuantityOptional
   index, last_trade_size = smallx_orderbookfeed_sbe_v2_2.last_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Time Timestamp Optional: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Time Timestamp Optional: TimestampOptional
   index, last_trade_time_timestamp_optional = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.dissect(buffer, index, packet, parent)
 
-  -- Total Volume Quantity: 8 Byte Signed Fixed Width Integer
+  -- Total Volume Quantity: Quantity
   index, total_volume_quantity = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.dissect(buffer, index, packet, parent)
 
   -- Trade Bust Groups: Struct of 2 fields
@@ -4610,28 +4610,28 @@ smallx_orderbookfeed_sbe_v2_2.trade_correct_group.fields = function(buffer, offs
     iteration:set_generated()
   end
 
-  -- Trade Update Action: 1 Byte Ascii String Enum with 2 values
+  -- Trade Update Action: TradeUpdateAction
   index, trade_update_action = smallx_orderbookfeed_sbe_v2_2.trade_update_action.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: TradeId
   index, trade_id = smallx_orderbookfeed_sbe_v2_2.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Time: 8 Byte Signed Fixed Width Integer
+  -- Time: Timestamp
   index, time = smallx_orderbookfeed_sbe_v2_2.time.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = smallx_orderbookfeed_sbe_v2_2.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 8 Byte Signed Fixed Width Integer
+  -- Size: Quantity
   index, size = smallx_orderbookfeed_sbe_v2_2.size.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Ascii String Enum with 3 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = smallx_orderbookfeed_sbe_v2_2.aggressor_side.dissect(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer
+  -- Buy Order Id: OrderId
   index, buy_order_id = smallx_orderbookfeed_sbe_v2_2.buy_order_id.dissect(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer
+  -- Sell Order Id: OrderId
   index, sell_order_id = smallx_orderbookfeed_sbe_v2_2.sell_order_id.dissect(buffer, index, packet, parent)
 
   -- Trade Conditions: Struct of 3 fields
@@ -4751,34 +4751,34 @@ end
 smallx_orderbookfeed_sbe_v2_2.trade_correct_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Incremental Message Instructions: Struct of 8 fields
   index, incremental_message_instructions = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Price: PriceOptional
   index, last_trade_price = smallx_orderbookfeed_sbe_v2_2.last_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Size: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Size: QuantityOptional
   index, last_trade_size = smallx_orderbookfeed_sbe_v2_2.last_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Time Timestamp Optional: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Time Timestamp Optional: TimestampOptional
   index, last_trade_time_timestamp_optional = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.dissect(buffer, index, packet, parent)
 
-  -- Total Volume Quantity: 8 Byte Signed Fixed Width Integer
+  -- Total Volume Quantity: Quantity
   index, total_volume_quantity = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.dissect(buffer, index, packet, parent)
 
   -- Trade Correct Groups: Struct of 2 fields
@@ -4828,22 +4828,22 @@ smallx_orderbookfeed_sbe_v2_2.incremental_trade_group.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Trade Id: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: TradeId
   index, trade_id = smallx_orderbookfeed_sbe_v2_2.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = smallx_orderbookfeed_sbe_v2_2.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 8 Byte Signed Fixed Width Integer
+  -- Size: Quantity
   index, size = smallx_orderbookfeed_sbe_v2_2.size.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Ascii String Enum with 3 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = smallx_orderbookfeed_sbe_v2_2.aggressor_side.dissect(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer
+  -- Buy Order Id: OrderId
   index, buy_order_id = smallx_orderbookfeed_sbe_v2_2.buy_order_id.dissect(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer
+  -- Sell Order Id: OrderId
   index, sell_order_id = smallx_orderbookfeed_sbe_v2_2.sell_order_id.dissect(buffer, index, packet, parent)
 
   -- Trade Conditions: Struct of 3 fields
@@ -4963,34 +4963,34 @@ end
 smallx_orderbookfeed_sbe_v2_2.trades_incremental_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Incremental Message Instructions: Struct of 8 fields
   index, incremental_message_instructions = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Price: PriceOptional
   index, last_trade_price = smallx_orderbookfeed_sbe_v2_2.last_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Size: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Size: QuantityOptional
   index, last_trade_size = smallx_orderbookfeed_sbe_v2_2.last_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Time Timestamp Optional: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Time Timestamp Optional: TimestampOptional
   index, last_trade_time_timestamp_optional = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.dissect(buffer, index, packet, parent)
 
-  -- Total Volume Quantity: 8 Byte Signed Fixed Width Integer
+  -- Total Volume Quantity: Quantity
   index, total_volume_quantity = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.dissect(buffer, index, packet, parent)
 
   -- Incremental Trade Groups: Struct of 2 fields
@@ -5033,19 +5033,19 @@ end
 smallx_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Message No: 8 Byte Signed Fixed Width Integer
+  -- Instrument Message No: InstrumentMessageNo
   index, instrument_message_no = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = smallx_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: Date
   index, trading_session_date = smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 6 values
+  -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
   -- Incremental Message Instructions: Struct of 8 fields
@@ -5352,16 +5352,16 @@ end
 smallx_orderbookfeed_sbe_v2_2.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = smallx_orderbookfeed_sbe_v2_2.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Template Id: uint16
   index, template_id = smallx_orderbookfeed_sbe_v2_2.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = smallx_orderbookfeed_sbe_v2_2.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = smallx_orderbookfeed_sbe_v2_2.version.dissect(buffer, index, packet, parent)
 
   return index

@@ -756,13 +756,13 @@ end
 memx_options_memo_sbe_v1_6_a.mass_cancel_clear_lockout_done_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lockout Id: uint64
   index, lockout_id = memx_options_memo_sbe_v1_6_a.lockout_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -853,16 +853,16 @@ end
 memx_options_memo_sbe_v1_6_a.mass_cancel_clear_lockout_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lockout Id: uint64
   index, lockout_id = memx_options_memo_sbe_v1_6_a.lockout_id.dissect(buffer, index, packet, parent)
 
-  -- Rej Reason: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Rej Reason: MassCancelClearLockoutRejCode
   index, rej_reason = memx_options_memo_sbe_v1_6_a.rej_reason.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -936,10 +936,10 @@ end
 memx_options_memo_sbe_v1_6_a.user_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- User Status: UserStatusType
   index, user_status = memx_options_memo_sbe_v1_6_a.user_status.dissect(buffer, index, packet, parent)
 
   return index
@@ -1116,13 +1116,13 @@ memx_options_memo_sbe_v1_6_a.nested_parties_group.fields = function(buffer, offs
     iteration:set_generated()
   end
 
-  -- Nested Party Id: 16 Byte Ascii String
+  -- Nested Party Id: AllocationInstructionAckNestedPartyID
   index, nested_party_id = memx_options_memo_sbe_v1_6_a.nested_party_id.dissect(buffer, index, packet, parent)
 
-  -- Nested Party Id Source: 1 Byte Ascii String
+  -- Nested Party Id Source: char
   index, nested_party_id_source = memx_options_memo_sbe_v1_6_a.nested_party_id_source.dissect(buffer, index, packet, parent)
 
-  -- Nested Party Role: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Nested Party Role: PartyRoleType
   index, nested_party_role = memx_options_memo_sbe_v1_6_a.nested_party_role.dissect(buffer, index, packet, parent)
 
   return index
@@ -1209,10 +1209,10 @@ end
 memx_options_memo_sbe_v1_6_a.repeating_group_dimensions.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length Short: 1 Byte Unsigned Fixed Width Integer
+  -- Block Length Short: uint8
   index, block_length_short = memx_options_memo_sbe_v1_6_a.block_length_short.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = memx_options_memo_sbe_v1_6_a.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -1426,13 +1426,13 @@ memx_options_memo_sbe_v1_6_a.reported_allocations_group.fields = function(buffer
     iteration:set_generated()
   end
 
-  -- Alloc Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Alloc Qty: uint32
   index, alloc_qty = memx_options_memo_sbe_v1_6_a.alloc_qty.dissect(buffer, index, packet, parent)
 
-  -- Alloc Position Effect: 1 Byte Ascii String Enum with 2 values
+  -- Alloc Position Effect: PositionEffectType
   index, alloc_position_effect = memx_options_memo_sbe_v1_6_a.alloc_position_effect.dissect(buffer, index, packet, parent)
 
-  -- Alloc Id: 20 Byte Ascii String
+  -- Alloc Id: AllocationInstructionAckAllocID
   index, alloc_id = memx_options_memo_sbe_v1_6_a.alloc_id.dissect(buffer, index, packet, parent)
 
   -- Nested Parties Groups: Struct of 2 fields
@@ -1606,13 +1606,13 @@ memx_options_memo_sbe_v1_6_a.execution_allocations_group.fields = function(buffe
     iteration:set_generated()
   end
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: uint64
   index, trade_id = memx_options_memo_sbe_v1_6_a.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uint32
   index, last_qty = memx_options_memo_sbe_v1_6_a.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: PriceType
   index, last_px = memx_options_memo_sbe_v1_6_a.last_px.dissect(buffer, index, packet, parent)
 
   return index
@@ -1991,31 +1991,31 @@ end
 memx_options_memo_sbe_v1_6_a.allocation_instruction_alert_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Alloc Id: 20 Byte Ascii String
+  -- Alloc Id: AllocationInstructionAckAllocID
   index, alloc_id = memx_options_memo_sbe_v1_6_a.alloc_id.dissect(buffer, index, packet, parent)
 
-  -- Alloc Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Alloc Type: AllocType
   index, alloc_type = memx_options_memo_sbe_v1_6_a.alloc_type.dissect(buffer, index, packet, parent)
 
-  -- Alloc Trans Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Alloc Trans Type: AllocTransType
   index, alloc_trans_type = memx_options_memo_sbe_v1_6_a.alloc_trans_type.dissect(buffer, index, packet, parent)
 
-  -- Ref Alloc Id Optional: 20 Byte Ascii String Nullable
+  -- Ref Alloc Id Optional: AllocationInstructionAckRefAllocID
   index, ref_alloc_id_optional = memx_options_memo_sbe_v1_6_a.ref_alloc_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Alloc Canc Replace Reason: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Alloc Canc Replace Reason: AllocCancReplaceReasonType
   index, alloc_canc_replace_reason = memx_options_memo_sbe_v1_6_a.alloc_canc_replace_reason.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 8 Byte Ascii String
+  -- Trade Date: AllocationInstructionAlertTradeDate
   index, trade_date = memx_options_memo_sbe_v1_6_a.trade_date.dissect(buffer, index, packet, parent)
 
   -- Execution Allocations Groups: Struct of 2 fields
@@ -2221,28 +2221,28 @@ end
 memx_options_memo_sbe_v1_6_a.allocation_instruction_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Alloc Id: 20 Byte Ascii String
+  -- Alloc Id: AllocationInstructionAckAllocID
   index, alloc_id = memx_options_memo_sbe_v1_6_a.alloc_id.dissect(buffer, index, packet, parent)
 
-  -- Alloc Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Alloc Type: AllocType
   index, alloc_type = memx_options_memo_sbe_v1_6_a.alloc_type.dissect(buffer, index, packet, parent)
 
-  -- Alloc Trans Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Alloc Trans Type: AllocTransType
   index, alloc_trans_type = memx_options_memo_sbe_v1_6_a.alloc_trans_type.dissect(buffer, index, packet, parent)
 
-  -- Secondary Alloc Id: 20 Byte Ascii String
+  -- Secondary Alloc Id: AllocationInstructionAckSecondaryAllocID
   index, secondary_alloc_id = memx_options_memo_sbe_v1_6_a.secondary_alloc_id.dissect(buffer, index, packet, parent)
 
-  -- Ref Alloc Id Optional: 20 Byte Ascii String Nullable
+  -- Ref Alloc Id Optional: AllocationInstructionAckRefAllocID
   index, ref_alloc_id_optional = memx_options_memo_sbe_v1_6_a.ref_alloc_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Alloc Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Alloc Status: AllocStatusType
   index, alloc_status = memx_options_memo_sbe_v1_6_a.alloc_status.dissect(buffer, index, packet, parent)
 
-  -- Alloc Rej Code: 2 Byte Unsigned Fixed Width Integer Enum with 15 values
+  -- Alloc Rej Code: AllocRejCodeType
   index, alloc_rej_code = memx_options_memo_sbe_v1_6_a.alloc_rej_code.dissect(buffer, index, packet, parent)
 
   -- Reported Allocations Groups: Struct of 2 fields
@@ -2662,25 +2662,25 @@ end
 memx_options_memo_sbe_v1_6_a.order_cancel_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Cxl Rej Response To: 1 Byte Ascii String Enum with 2 values
+  -- Cxl Rej Response To: CxlRejResponseToType
   index, cxl_rej_response_to = memx_options_memo_sbe_v1_6_a.cxl_rej_response_to.dissect(buffer, index, packet, parent)
 
-  -- Cxl Rej Reason: 2 Byte Unsigned Fixed Width Integer Enum with 66 values
+  -- Cxl Rej Reason: CxlRejReasonCode
   index, cxl_rej_reason = memx_options_memo_sbe_v1_6_a.cxl_rej_reason.dissect(buffer, index, packet, parent)
 
-  -- Options Security Id Optional: 8 Byte Ascii String Nullable
+  -- Options Security Id Optional: MassCancelRejectOptionsSecurityID
   index, options_security_id_optional = memx_options_memo_sbe_v1_6_a.options_security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Ascii String Enum with 4 values
+  -- Side Optional: SideType
   index, side_optional = memx_options_memo_sbe_v1_6_a.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -2745,13 +2745,13 @@ end
 memx_options_memo_sbe_v1_6_a.mass_cancel_done_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Total Affected Orders: 4 Byte Unsigned Fixed Width Integer
+  -- Total Affected Orders: uint32
   index, total_affected_orders = memx_options_memo_sbe_v1_6_a.total_affected_orders.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -3086,31 +3086,31 @@ end
 memx_options_memo_sbe_v1_6_a.mass_cancel_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Mass Cancel Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 20 values
+  -- Mass Cancel Reject Reason: MassCxlRejReasonCode
   index, mass_cancel_reject_reason = memx_options_memo_sbe_v1_6_a.mass_cancel_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: MassCancelRejectEFID
   index, efid_optional = memx_options_memo_sbe_v1_6_a.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlying Or Series: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Underlying Or Series: UnderlyingOrSeriesType
   index, underlying_or_series = memx_options_memo_sbe_v1_6_a.underlying_or_series.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: MassCancelRejectUnderlier
   index, underlier_optional = memx_options_memo_sbe_v1_6_a.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Options Security Id Optional: 8 Byte Ascii String Nullable
+  -- Options Security Id Optional: MassCancelRejectOptionsSecurityID
   index, options_security_id_optional = memx_options_memo_sbe_v1_6_a.options_security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_options_memo_sbe_v1_6_a.cancel_group_id.dissect(buffer, index, packet, parent)
 
   -- Mass Cancel Inst: Struct of 4 fields
   index, mass_cancel_inst = memx_options_memo_sbe_v1_6_a.mass_cancel_inst.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -3158,31 +3158,31 @@ end
 memx_options_memo_sbe_v1_6_a.pending_mass_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
   -- Mass Cancel Inst: Struct of 4 fields
   index, mass_cancel_inst = memx_options_memo_sbe_v1_6_a.mass_cancel_inst.dissect(buffer, index, packet, parent)
 
-  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lockout Id: uint64
   index, lockout_id = memx_options_memo_sbe_v1_6_a.lockout_id.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: MassCancelRejectEFID
   index, efid_optional = memx_options_memo_sbe_v1_6_a.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlying Or Series: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Underlying Or Series: UnderlyingOrSeriesType
   index, underlying_or_series = memx_options_memo_sbe_v1_6_a.underlying_or_series.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: MassCancelRejectUnderlier
   index, underlier_optional = memx_options_memo_sbe_v1_6_a.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Options Security Id Optional: 8 Byte Ascii String Nullable
+  -- Options Security Id Optional: MassCancelRejectOptionsSecurityID
   index, options_security_id_optional = memx_options_memo_sbe_v1_6_a.options_security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_options_memo_sbe_v1_6_a.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -3518,49 +3518,49 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_restatement_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memo_sbe_v1_6_a.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_options_memo_sbe_v1_6_a.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Exec Restatement Reason: ExecRestatementType
   index, exec_restatement_reason = memx_options_memo_sbe_v1_6_a.exec_restatement_reason.dissect(buffer, index, packet, parent)
 
-  -- Extended Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Extended Restatement Reason: ExtendedRestatementReasonType
   index, extended_restatement_reason = memx_options_memo_sbe_v1_6_a.extended_restatement_reason.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: PriceType
   index, last_px = memx_options_memo_sbe_v1_6_a.last_px.dissect(buffer, index, packet, parent)
 
-  -- Last Qty Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty Optional: uint32
   index, last_qty_optional = memx_options_memo_sbe_v1_6_a.last_qty_optional.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_options_memo_sbe_v1_6_a.transact_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -3655,34 +3655,34 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_trade_break_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memo_sbe_v1_6_a.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: uint64
   index, trd_match_id = memx_options_memo_sbe_v1_6_a.trd_match_id.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_options_memo_sbe_v1_6_a.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Exec Ref Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Ref Id: uint64
   index, exec_ref_id = memx_options_memo_sbe_v1_6_a.exec_ref_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -3733,40 +3733,40 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memo_sbe_v1_6_a.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: uint64
   index, trd_match_id = memx_options_memo_sbe_v1_6_a.trd_match_id.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_options_memo_sbe_v1_6_a.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Exec Ref Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Ref Id: uint64
   index, exec_ref_id = memx_options_memo_sbe_v1_6_a.exec_ref_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uint32
   index, last_qty = memx_options_memo_sbe_v1_6_a.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: PriceType
   index, last_px = memx_options_memo_sbe_v1_6_a.last_px.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -3988,52 +3988,52 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memo_sbe_v1_6_a.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- OrigClOrdId: 20 Byte Ascii String
+  -- OrigClOrdId: ExecutionReport_PendingCancelOrigClOrdID
   index, origclordid = memx_options_memo_sbe_v1_6_a.origclordid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_options_memo_sbe_v1_6_a.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_options_memo_sbe_v1_6_a.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 2 values
+  -- Ord Type: OrdType
   index, ord_type = memx_options_memo_sbe_v1_6_a.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Optional: PriceType
   index, price_optional = memx_options_memo_sbe_v1_6_a.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_options_memo_sbe_v1_6_a.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Orig List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- Orig List Seq No: uint8
   index, orig_list_seq_no = memx_options_memo_sbe_v1_6_a.orig_list_seq_no.dissect(buffer, index, packet, parent)
 
   return index
@@ -4086,46 +4086,46 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_pending_replace_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memo_sbe_v1_6_a.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- OrigClOrdId: 20 Byte Ascii String
+  -- OrigClOrdId: ExecutionReport_PendingCancelOrigClOrdID
   index, origclordid = memx_options_memo_sbe_v1_6_a.origclordid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_options_memo_sbe_v1_6_a.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_options_memo_sbe_v1_6_a.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 2 values
+  -- Ord Type: OrdType
   index, ord_type = memx_options_memo_sbe_v1_6_a.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Optional: PriceType
   index, price_optional = memx_options_memo_sbe_v1_6_a.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -4343,46 +4343,46 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_canceled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memo_sbe_v1_6_a.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- OrigClOrdId Optional: 20 Byte Ascii String Nullable
+  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
   index, origclordid_optional = memx_options_memo_sbe_v1_6_a.origclordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_options_memo_sbe_v1_6_a.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Cancel Reason: 1 Byte Unsigned Fixed Width Integer Enum with 34 values
+  -- Cancel Reason: CancelReasonCode
   index, cancel_reason = memx_options_memo_sbe_v1_6_a.cancel_reason.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Ascii String Enum with 4 values
+  -- Side Optional: SideType
   index, side_optional = memx_options_memo_sbe_v1_6_a.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_options_memo_sbe_v1_6_a.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Orig List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- Orig List Seq No: uint8
   index, orig_list_seq_no = memx_options_memo_sbe_v1_6_a.orig_list_seq_no.dissect(buffer, index, packet, parent)
 
   return index
@@ -4431,34 +4431,34 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_pending_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memo_sbe_v1_6_a.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- OrigClOrdId: 20 Byte Ascii String
+  -- OrigClOrdId: ExecutionReport_PendingCancelOrigClOrdID
   index, origclordid = memx_options_memo_sbe_v1_6_a.origclordid.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Ascii String Enum with 4 values
+  -- Side Optional: SideType
   index, side_optional = memx_options_memo_sbe_v1_6_a.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -4635,13 +4635,13 @@ memx_options_memo_sbe_v1_6_a.parties_group.fields = function(buffer, offset, pac
     iteration:set_generated()
   end
 
-  -- Party Id: 16 Byte Ascii String
+  -- Party Id: NewOrderSinglePartyID
   index, party_id = memx_options_memo_sbe_v1_6_a.party_id.dissect(buffer, index, packet, parent)
 
-  -- Party Id Source: 1 Byte Ascii String
+  -- Party Id Source: char
   index, party_id_source = memx_options_memo_sbe_v1_6_a.party_id_source.dissect(buffer, index, packet, parent)
 
-  -- Party Role: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Party Role: PartyRoleType
   index, party_role = memx_options_memo_sbe_v1_6_a.party_role.dissect(buffer, index, packet, parent)
 
   return index
@@ -4987,61 +4987,61 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memo_sbe_v1_6_a.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: uint64
   index, trd_match_id = memx_options_memo_sbe_v1_6_a.trd_match_id.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_options_memo_sbe_v1_6_a.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uint32
   index, last_qty = memx_options_memo_sbe_v1_6_a.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: PriceType
   index, last_px = memx_options_memo_sbe_v1_6_a.last_px.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_options_memo_sbe_v1_6_a.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Last Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Last Liquidity Ind: LastLiquidityIndType
   index, last_liquidity_ind = memx_options_memo_sbe_v1_6_a.last_liquidity_ind.dissect(buffer, index, packet, parent)
 
-  -- Last Mkt: 4 Byte Ascii String
+  -- Last Mkt: ExecutionReport_TradeLastMkt
   index, last_mkt = memx_options_memo_sbe_v1_6_a.last_mkt.dissect(buffer, index, packet, parent)
 
-  -- Position Effect: 1 Byte Ascii String Enum with 2 values
+  -- Position Effect: PositionEffectType
   index, position_effect = memx_options_memo_sbe_v1_6_a.position_effect.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trading Capacity: TradingCapacityType
   index, trading_capacity = memx_options_memo_sbe_v1_6_a.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Contra Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Contra Trading Capacity: TradingCapacityType
   index, contra_trading_capacity = memx_options_memo_sbe_v1_6_a.contra_trading_capacity.dissect(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
@@ -5424,34 +5424,34 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_options_memo_sbe_v1_6_a.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Order Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 104 values
+  -- Order Reject Reason: OrderRejectReasonCode
   index, order_reject_reason = memx_options_memo_sbe_v1_6_a.order_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -5503,43 +5503,43 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_bulk_quote_component_new_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memo_sbe_v1_6_a.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_options_memo_sbe_v1_6_a.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_options_memo_sbe_v1_6_a.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Optional: PriceType
   index, price_optional = memx_options_memo_sbe_v1_6_a.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_options_memo_sbe_v1_6_a.transact_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -5869,40 +5869,40 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_bulk_quote_pending_new_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_BulkQuote_PendingNewSymbol
   index, symbol = memx_options_memo_sbe_v1_6_a.symbol.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 2 values
+  -- Time In Force: TimeInForceType
   index, time_in_force = memx_options_memo_sbe_v1_6_a.time_in_force.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_6_a.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trading Capacity: TradingCapacityType
   index, trading_capacity = memx_options_memo_sbe_v1_6_a.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_options_memo_sbe_v1_6_a.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Mtp Group Id: uint16
   index, mtp_group_id = memx_options_memo_sbe_v1_6_a.mtp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Match Trade Prevention: MatchTradePreventionType
   index, match_trade_prevention = memx_options_memo_sbe_v1_6_a.match_trade_prevention.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_options_memo_sbe_v1_6_a.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_memo_sbe_v1_6_a.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Orders: uint8
   index, number_of_orders = memx_options_memo_sbe_v1_6_a.number_of_orders.dissect(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
@@ -6114,76 +6114,76 @@ end
 memx_options_memo_sbe_v1_6_a.execution_report_new_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memo_sbe_v1_6_a.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_options_memo_sbe_v1_6_a.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 8 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_options_memo_sbe_v1_6_a.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_options_memo_sbe_v1_6_a.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 2 values
+  -- Ord Type: OrdType
   index, ord_type = memx_options_memo_sbe_v1_6_a.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Optional: PriceType
   index, price_optional = memx_options_memo_sbe_v1_6_a.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 2 values
+  -- Time In Force: TimeInForceType
   index, time_in_force = memx_options_memo_sbe_v1_6_a.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Position Effect Optional: 1 Byte Ascii String Enum with 3 values
+  -- Position Effect Optional: PositionEffectType
   index, position_effect_optional = memx_options_memo_sbe_v1_6_a.position_effect_optional.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_6_a.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trading Capacity: TradingCapacityType
   index, trading_capacity = memx_options_memo_sbe_v1_6_a.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Reprice Frequency: RepriceFrequencyType
   index, reprice_frequency = memx_options_memo_sbe_v1_6_a.reprice_frequency.dissect(buffer, index, packet, parent)
 
-  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Reprice Behavior: RepriceBehaviorType
   index, reprice_behavior = memx_options_memo_sbe_v1_6_a.reprice_behavior.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_options_memo_sbe_v1_6_a.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_options_memo_sbe_v1_6_a.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_options_memo_sbe_v1_6_a.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Mtp Group Id: uint16
   index, mtp_group_id = memx_options_memo_sbe_v1_6_a.mtp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Match Trade Prevention: MatchTradePreventionType
   index, match_trade_prevention = memx_options_memo_sbe_v1_6_a.match_trade_prevention.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_options_memo_sbe_v1_6_a.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_memo_sbe_v1_6_a.risk_group_id.dissect(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
@@ -6236,10 +6236,10 @@ memx_options_memo_sbe_v1_6_a.requested_allocations_group.fields = function(buffe
     iteration:set_generated()
   end
 
-  -- Alloc Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Alloc Qty: uint32
   index, alloc_qty = memx_options_memo_sbe_v1_6_a.alloc_qty.dissect(buffer, index, packet, parent)
 
-  -- Alloc Position Effect: 1 Byte Ascii String Enum with 2 values
+  -- Alloc Position Effect: PositionEffectType
   index, alloc_position_effect = memx_options_memo_sbe_v1_6_a.alloc_position_effect.dissect(buffer, index, packet, parent)
 
   -- Nested Parties Groups: Struct of 2 fields
@@ -6351,25 +6351,25 @@ end
 memx_options_memo_sbe_v1_6_a.allocation_instruction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Alloc Id: 20 Byte Ascii String
+  -- Alloc Id: AllocationInstructionAckAllocID
   index, alloc_id = memx_options_memo_sbe_v1_6_a.alloc_id.dissect(buffer, index, packet, parent)
 
-  -- Alloc Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Alloc Type: AllocType
   index, alloc_type = memx_options_memo_sbe_v1_6_a.alloc_type.dissect(buffer, index, packet, parent)
 
-  -- Alloc Trans Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Alloc Trans Type: AllocTransType
   index, alloc_trans_type = memx_options_memo_sbe_v1_6_a.alloc_trans_type.dissect(buffer, index, packet, parent)
 
-  -- Ref Alloc Id Optional: 20 Byte Ascii String Nullable
+  -- Ref Alloc Id Optional: AllocationInstructionAckRefAllocID
   index, ref_alloc_id_optional = memx_options_memo_sbe_v1_6_a.ref_alloc_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
   -- Execution Allocations Groups: Struct of 2 fields
@@ -6412,13 +6412,13 @@ end
 memx_options_memo_sbe_v1_6_a.mass_cancel_clear_lockout_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lockout Id: uint64
   index, lockout_id = memx_options_memo_sbe_v1_6_a.lockout_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -6465,25 +6465,25 @@ end
 memx_options_memo_sbe_v1_6_a.mass_cancel_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: MassCancelRejectEFID
   index, efid_optional = memx_options_memo_sbe_v1_6_a.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlying Or Series: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Underlying Or Series: UnderlyingOrSeriesType
   index, underlying_or_series = memx_options_memo_sbe_v1_6_a.underlying_or_series.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: MassCancelRejectUnderlier
   index, underlier_optional = memx_options_memo_sbe_v1_6_a.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Options Security Id Optional: 8 Byte Ascii String Nullable
+  -- Options Security Id Optional: MassCancelRejectOptionsSecurityID
   index, options_security_id_optional = memx_options_memo_sbe_v1_6_a.options_security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_options_memo_sbe_v1_6_a.cancel_group_id.dissect(buffer, index, packet, parent)
 
   -- Mass Cancel Inst: Struct of 4 fields
@@ -6560,25 +6560,25 @@ end
 memx_options_memo_sbe_v1_6_a.order_cancel_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64
   index, order_id_optional = memx_options_memo_sbe_v1_6_a.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- OrigClOrdId Optional: 20 Byte Ascii String Nullable
+  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
   index, origclordid_optional = memx_options_memo_sbe_v1_6_a.origclordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Ascii String Enum with 4 values
+  -- Side Optional: SideType
   index, side_optional = memx_options_memo_sbe_v1_6_a.side_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -6627,34 +6627,34 @@ end
 memx_options_memo_sbe_v1_6_a.order_cancel_replace_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64
   index, order_id_optional = memx_options_memo_sbe_v1_6_a.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- OrigClOrdId: 20 Byte Ascii String
+  -- OrigClOrdId: ExecutionReport_PendingCancelOrigClOrdID
   index, origclordid = memx_options_memo_sbe_v1_6_a.origclordid.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_options_memo_sbe_v1_6_a.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 2 values
+  -- Ord Type: OrdType
   index, ord_type = memx_options_memo_sbe_v1_6_a.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Optional: PriceType
   index, price_optional = memx_options_memo_sbe_v1_6_a.price_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -6756,19 +6756,19 @@ memx_options_memo_sbe_v1_6_a.one_sided_quotes_group.fields = function(buffer, of
     iteration:set_generated()
   end
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity: uint16
   index, quantity = memx_options_memo_sbe_v1_6_a.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Price Short: ShortPriceType
   index, price_short = memx_options_memo_sbe_v1_6_a.price_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -6885,31 +6885,31 @@ end
 memx_options_memo_sbe_v1_6_a.long_one_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 2 values
+  -- Time In Force: TimeInForceType
   index, time_in_force = memx_options_memo_sbe_v1_6_a.time_in_force.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_6_a.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trading Capacity: TradingCapacityType
   index, trading_capacity = memx_options_memo_sbe_v1_6_a.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Mtp Group Id: uint16
   index, mtp_group_id = memx_options_memo_sbe_v1_6_a.mtp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Match Trade Prevention: MatchTradePreventionType
   index, match_trade_prevention = memx_options_memo_sbe_v1_6_a.match_trade_prevention.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_options_memo_sbe_v1_6_a.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_memo_sbe_v1_6_a.risk_group_id.dissect(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
@@ -6975,31 +6975,31 @@ end
 memx_options_memo_sbe_v1_6_a.short_one_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 2 values
+  -- Time In Force: TimeInForceType
   index, time_in_force = memx_options_memo_sbe_v1_6_a.time_in_force.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_6_a.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trading Capacity: TradingCapacityType
   index, trading_capacity = memx_options_memo_sbe_v1_6_a.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Mtp Group Id: uint16
   index, mtp_group_id = memx_options_memo_sbe_v1_6_a.mtp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Match Trade Prevention: MatchTradePreventionType
   index, match_trade_prevention = memx_options_memo_sbe_v1_6_a.match_trade_prevention.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_options_memo_sbe_v1_6_a.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_memo_sbe_v1_6_a.risk_group_id.dissect(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
@@ -7155,22 +7155,22 @@ memx_options_memo_sbe_v1_6_a.two_sided_quotes_group.fields = function(buffer, of
     iteration:set_generated()
   end
 
-  -- List Seq No: 1 Byte Unsigned Fixed Width Integer
+  -- List Seq No: uint8
   index, list_seq_no = memx_options_memo_sbe_v1_6_a.list_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size: uint16
   index, bid_size = memx_options_memo_sbe_v1_6_a.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Px: ShortPriceType
   index, bid_px = memx_options_memo_sbe_v1_6_a.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Size: uint16
   index, offer_size = memx_options_memo_sbe_v1_6_a.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Px: ShortPriceType
   index, offer_px = memx_options_memo_sbe_v1_6_a.offer_px.dissect(buffer, index, packet, parent)
 
   return index
@@ -7287,31 +7287,31 @@ end
 memx_options_memo_sbe_v1_6_a.long_two_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 2 values
+  -- Time In Force: TimeInForceType
   index, time_in_force = memx_options_memo_sbe_v1_6_a.time_in_force.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_6_a.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trading Capacity: TradingCapacityType
   index, trading_capacity = memx_options_memo_sbe_v1_6_a.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Mtp Group Id: uint16
   index, mtp_group_id = memx_options_memo_sbe_v1_6_a.mtp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Match Trade Prevention: MatchTradePreventionType
   index, match_trade_prevention = memx_options_memo_sbe_v1_6_a.match_trade_prevention.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_options_memo_sbe_v1_6_a.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_memo_sbe_v1_6_a.risk_group_id.dissect(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
@@ -7377,31 +7377,31 @@ end
 memx_options_memo_sbe_v1_6_a.short_two_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 2 values
+  -- Time In Force: TimeInForceType
   index, time_in_force = memx_options_memo_sbe_v1_6_a.time_in_force.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_6_a.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trading Capacity: TradingCapacityType
   index, trading_capacity = memx_options_memo_sbe_v1_6_a.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Mtp Group Id: uint16
   index, mtp_group_id = memx_options_memo_sbe_v1_6_a.mtp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Match Trade Prevention: MatchTradePreventionType
   index, match_trade_prevention = memx_options_memo_sbe_v1_6_a.match_trade_prevention.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_options_memo_sbe_v1_6_a.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_memo_sbe_v1_6_a.risk_group_id.dissect(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
@@ -7481,55 +7481,55 @@ end
 memx_options_memo_sbe_v1_6_a.new_order_single_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_memo_sbe_v1_6_a.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
   index, clordid = memx_options_memo_sbe_v1_6_a.clordid.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Ascii String
+  -- Security Id: AllocationInstructionOptionsSecurityID
   index, security_id = memx_options_memo_sbe_v1_6_a.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: SideType
   index, side = memx_options_memo_sbe_v1_6_a.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_options_memo_sbe_v1_6_a.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 2 values
+  -- Ord Type: OrdType
   index, ord_type = memx_options_memo_sbe_v1_6_a.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Optional: PriceType
   index, price_optional = memx_options_memo_sbe_v1_6_a.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 2 values
+  -- Time In Force: TimeInForceType
   index, time_in_force = memx_options_memo_sbe_v1_6_a.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Position Effect Optional: 1 Byte Ascii String Enum with 3 values
+  -- Position Effect Optional: PositionEffectType
   index, position_effect_optional = memx_options_memo_sbe_v1_6_a.position_effect_optional.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_options_memo_sbe_v1_6_a.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trading Capacity: TradingCapacityType
   index, trading_capacity = memx_options_memo_sbe_v1_6_a.trading_capacity.dissect(buffer, index, packet, parent)
 
-  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Reprice Frequency: RepriceFrequencyType
   index, reprice_frequency = memx_options_memo_sbe_v1_6_a.reprice_frequency.dissect(buffer, index, packet, parent)
 
-  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Reprice Behavior: RepriceBehaviorType
   index, reprice_behavior = memx_options_memo_sbe_v1_6_a.reprice_behavior.dissect(buffer, index, packet, parent)
 
-  -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Mtp Group Id: uint16
   index, mtp_group_id = memx_options_memo_sbe_v1_6_a.mtp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Match Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Match Trade Prevention: MatchTradePreventionType
   index, match_trade_prevention = memx_options_memo_sbe_v1_6_a.match_trade_prevention.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_options_memo_sbe_v1_6_a.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_memo_sbe_v1_6_a.risk_group_id.dissect(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
@@ -8055,13 +8055,13 @@ memx_options_memo_sbe_v1_6_a.sbe_header.fields = function(buffer, offset, packet
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = memx_options_memo_sbe_v1_6_a.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 31 values
+  -- Template Id: uint8
   index, template_id = memx_options_memo_sbe_v1_6_a.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint8
   index, schema_id = memx_options_memo_sbe_v1_6_a.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = memx_options_memo_sbe_v1_6_a.version.dissect(buffer, index, packet, parent)
 
   return index

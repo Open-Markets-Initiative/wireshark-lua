@@ -801,31 +801,31 @@ end
 memx_equities_memo_sbe_v1_10.mass_cancel_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Ascii String Enum with 5 values
+  -- Side Optional: SideType
   index, side_optional = memx_equities_memo_sbe_v1_10.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Lower Than Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Lower Than Price: PriceType
   index, lower_than_price = memx_equities_memo_sbe_v1_10.lower_than_price.dissect(buffer, index, packet, parent)
 
-  -- Higher Than Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Higher Than Price: PriceType
   index, higher_than_price = memx_equities_memo_sbe_v1_10.higher_than_price.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_equities_memo_sbe_v1_10.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Mass Cancel Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Mass Cancel Reject Reason: MassCancelRejectReasonCode
   index, mass_cancel_reject_reason = memx_equities_memo_sbe_v1_10.mass_cancel_reject_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1086,19 +1086,19 @@ end
 memx_equities_memo_sbe_v1_10.order_cancel_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Cxl Rej Response To: 1 Byte Ascii String Enum with 2 values
+  -- Cxl Rej Response To: CxlRejResponseToType
   index, cxl_rej_response_to = memx_equities_memo_sbe_v1_10.cxl_rej_response_to.dissect(buffer, index, packet, parent)
 
-  -- Cxl Rej Reason: 1 Byte Unsigned Fixed Width Integer Enum with 37 values
+  -- Cxl Rej Reason: CancelRejectReasonCode
   index, cxl_rej_reason = memx_equities_memo_sbe_v1_10.cxl_rej_reason.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -1486,43 +1486,43 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_restatement_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_equities_memo_sbe_v1_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Last Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Last Px Optional: PriceType
   index, last_px_optional = memx_equities_memo_sbe_v1_10.last_px_optional.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Shares: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Shares: uint32
   index, last_shares = memx_equities_memo_sbe_v1_10.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Exec Restatement Reason: ExecRestatementType
   index, exec_restatement_reason = memx_equities_memo_sbe_v1_10.exec_restatement_reason.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_equities_memo_sbe_v1_10.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Extended Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Extended Restatement Reason: ExtendedRestatementReasonType
   index, extended_restatement_reason = memx_equities_memo_sbe_v1_10.extended_restatement_reason.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -1617,34 +1617,34 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_trade_break_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_equities_memo_sbe_v1_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Exec Ref Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Ref Id: uint64
   index, exec_ref_id = memx_equities_memo_sbe_v1_10.exec_ref_id.dissect(buffer, index, packet, parent)
 
-  -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: uint64
   index, trd_match_id = memx_equities_memo_sbe_v1_10.trd_match_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -1752,40 +1752,40 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_equities_memo_sbe_v1_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Exec Ref Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Ref Id: uint64
   index, exec_ref_id = memx_equities_memo_sbe_v1_10.exec_ref_id.dissect(buffer, index, packet, parent)
 
-  -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: uint64
   index, trd_match_id = memx_equities_memo_sbe_v1_10.trd_match_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: PriceType
   index, last_px = memx_equities_memo_sbe_v1_10.last_px.dissect(buffer, index, packet, parent)
 
-  -- Last Qty Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty Optional: uint32
   index, last_qty_optional = memx_equities_memo_sbe_v1_10.last_qty_optional.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -2102,58 +2102,58 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_equities_memo_sbe_v1_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- OrigClOrdId Optional: 16 Byte Ascii String Nullable
+  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
   index, origclordid_optional = memx_equities_memo_sbe_v1_10.origclordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: SideType
   index, side = memx_equities_memo_sbe_v1_10.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_equities_memo_sbe_v1_10.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 3 values
+  -- Ord Type: OrdType
   index, ord_type = memx_equities_memo_sbe_v1_10.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: PriceType
   index, price = memx_equities_memo_sbe_v1_10.price.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uint32
   index, display_qty = memx_equities_memo_sbe_v1_10.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Locate Reqd: 1 Byte Ascii String Nullable
+  -- Locate Reqd: char
   index, locate_reqd = memx_equities_memo_sbe_v1_10.locate_reqd.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_equities_memo_sbe_v1_10.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -2209,55 +2209,55 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_pending_replace_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_equities_memo_sbe_v1_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- OrigClOrdId Optional: 16 Byte Ascii String Nullable
+  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
   index, origclordid_optional = memx_equities_memo_sbe_v1_10.origclordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: SideType
   index, side = memx_equities_memo_sbe_v1_10.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_equities_memo_sbe_v1_10.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 3 values
+  -- Ord Type: OrdType
   index, ord_type = memx_equities_memo_sbe_v1_10.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: PriceType
   index, price = memx_equities_memo_sbe_v1_10.price.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uint32
   index, display_qty = memx_equities_memo_sbe_v1_10.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Locate Reqd: 1 Byte Ascii String Nullable
+  -- Locate Reqd: char
   index, locate_reqd = memx_equities_memo_sbe_v1_10.locate_reqd.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -2298,10 +2298,10 @@ end
 memx_equities_memo_sbe_v1_10.mass_cancel_done_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
   return index
@@ -2438,37 +2438,37 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_canceled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- OrigClOrdId Optional: 16 Byte Ascii String Nullable
+  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
   index, origclordid_optional = memx_equities_memo_sbe_v1_10.origclordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_equities_memo_sbe_v1_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cancel Reason: 1 Byte Unsigned Fixed Width Integer Enum with 21 values
+  -- Cancel Reason: CancelReasonCode
   index, cancel_reason = memx_equities_memo_sbe_v1_10.cancel_reason.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_equities_memo_sbe_v1_10.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -2515,28 +2515,28 @@ end
 memx_equities_memo_sbe_v1_10.pending_mass_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Ascii String Enum with 5 values
+  -- Side Optional: SideType
   index, side_optional = memx_equities_memo_sbe_v1_10.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Lower Than Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Lower Than Price: PriceType
   index, lower_than_price = memx_equities_memo_sbe_v1_10.lower_than_price.dissect(buffer, index, packet, parent)
 
-  -- Higher Than Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Higher Than Price: PriceType
   index, higher_than_price = memx_equities_memo_sbe_v1_10.higher_than_price.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_equities_memo_sbe_v1_10.cancel_group_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2586,37 +2586,37 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_pending_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_equities_memo_sbe_v1_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- OrigClOrdId Optional: 16 Byte Ascii String Nullable
+  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
   index, origclordid_optional = memx_equities_memo_sbe_v1_10.origclordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -2896,46 +2896,46 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_equities_memo_sbe_v1_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uint32
   index, last_qty = memx_equities_memo_sbe_v1_10.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: PriceType
   index, last_px = memx_equities_memo_sbe_v1_10.last_px.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_equities_memo_sbe_v1_10.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Last Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 24 values
+  -- Last Liquidity Ind: LastLiquidityIndType
   index, last_liquidity_ind = memx_equities_memo_sbe_v1_10.last_liquidity_ind.dissect(buffer, index, packet, parent)
 
-  -- Last Mkt: 1 Byte Ascii String Enum with 16 values
+  -- Last Mkt: ExchangeCode
   index, last_mkt = memx_equities_memo_sbe_v1_10.last_mkt.dissect(buffer, index, packet, parent)
 
-  -- Trd Matching Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Matching Id: uint64
   index, trd_matching_id = memx_equities_memo_sbe_v1_10.trd_matching_id.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -3287,34 +3287,34 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Order Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 93 values
+  -- Order Reject Reason: OrderRejectReasonCode
   index, order_reject_reason = memx_equities_memo_sbe_v1_10.order_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -4039,109 +4039,109 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_new_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_equities_memo_sbe_v1_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Mpid Optional: 4 Byte Ascii String Nullable
+  -- Mpid Optional: ExecutionReport_NewMPID
   index, mpid_optional = memx_equities_memo_sbe_v1_10.mpid_optional.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: SideType
   index, side = memx_equities_memo_sbe_v1_10.side.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 3 values
+  -- Ord Type: OrdType
   index, ord_type = memx_equities_memo_sbe_v1_10.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_equities_memo_sbe_v1_10.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: PriceType
   index, price = memx_equities_memo_sbe_v1_10.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 5 values
+  -- Time In Force: TimeInForceType
   index, time_in_force = memx_equities_memo_sbe_v1_10.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Ascii String Enum with 3 values
+  -- Order Capacity: OrderCapacityType
   index, order_capacity = memx_equities_memo_sbe_v1_10.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Cust Order Capacity: CustOrderCapacityType
   index, cust_order_capacity = memx_equities_memo_sbe_v1_10.cust_order_capacity.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_equities_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value: 8 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset Value: PriceType
   index, peg_offset_value = memx_equities_memo_sbe_v1_10.peg_offset_value.dissect(buffer, index, packet, parent)
 
-  -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Peg Price Type: PegType
   index, peg_price_type = memx_equities_memo_sbe_v1_10.peg_price_type.dissect(buffer, index, packet, parent)
 
-  -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Time: UTCTimestampNanos
   index, expire_time = memx_equities_memo_sbe_v1_10.expire_time.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uint32
   index, min_qty = memx_equities_memo_sbe_v1_10.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uint32
   index, display_qty = memx_equities_memo_sbe_v1_10.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Method: 1 Byte Ascii String Enum with 4 values
+  -- Display Method: DispMethodType
   index, display_method = memx_equities_memo_sbe_v1_10.display_method.dissect(buffer, index, packet, parent)
 
-  -- Reserve Replenish Timing: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Reserve Replenish Timing: ReserveReplenishTimingType
   index, reserve_replenish_timing = memx_equities_memo_sbe_v1_10.reserve_replenish_timing.dissect(buffer, index, packet, parent)
 
-  -- Display Min Incr: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Min Incr: uint32
   index, display_min_incr = memx_equities_memo_sbe_v1_10.display_min_incr.dissect(buffer, index, packet, parent)
 
-  -- Locate Reqd: 1 Byte Ascii String Nullable
+  -- Locate Reqd: char
   index, locate_reqd = memx_equities_memo_sbe_v1_10.locate_reqd.dissect(buffer, index, packet, parent)
 
-  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Reprice Frequency: RepriceFrequencyType
   index, reprice_frequency = memx_equities_memo_sbe_v1_10.reprice_frequency.dissect(buffer, index, packet, parent)
 
-  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Reprice Behavior: RepriceBehaviorType
   index, reprice_behavior = memx_equities_memo_sbe_v1_10.reprice_behavior.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_equities_memo_sbe_v1_10.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Stp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Stp Group Id: uint16
   index, stp_group_id = memx_equities_memo_sbe_v1_10.stp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Self Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Self Trade Prevention: SelfTradePreventionType
   index, self_trade_prevention = memx_equities_memo_sbe_v1_10.self_trade_prevention.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_equities_memo_sbe_v1_10.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_equities_memo_sbe_v1_10.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -4214,106 +4214,106 @@ end
 memx_equities_memo_sbe_v1_10.execution_report_pending_new_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_equities_memo_sbe_v1_10.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_equities_memo_sbe_v1_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: uint64
   index, exec_id = memx_equities_memo_sbe_v1_10.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Mpid Optional: 4 Byte Ascii String Nullable
+  -- Mpid Optional: ExecutionReport_NewMPID
   index, mpid_optional = memx_equities_memo_sbe_v1_10.mpid_optional.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 9 values
+  -- Ord Status: OrdStatusType
   index, ord_status = memx_equities_memo_sbe_v1_10.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: SideType
   index, side = memx_equities_memo_sbe_v1_10.side.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 3 values
+  -- Ord Type: OrdType
   index, ord_type = memx_equities_memo_sbe_v1_10.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_equities_memo_sbe_v1_10.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: PriceType
   index, price = memx_equities_memo_sbe_v1_10.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 5 values
+  -- Time In Force: TimeInForceType
   index, time_in_force = memx_equities_memo_sbe_v1_10.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Ascii String Enum with 3 values
+  -- Order Capacity: OrderCapacityType
   index, order_capacity = memx_equities_memo_sbe_v1_10.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Cust Order Capacity: CustOrderCapacityType
   index, cust_order_capacity = memx_equities_memo_sbe_v1_10.cust_order_capacity.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_equities_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value: 8 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset Value: PriceType
   index, peg_offset_value = memx_equities_memo_sbe_v1_10.peg_offset_value.dissect(buffer, index, packet, parent)
 
-  -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Peg Price Type: PegType
   index, peg_price_type = memx_equities_memo_sbe_v1_10.peg_price_type.dissect(buffer, index, packet, parent)
 
-  -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Time: UTCTimestampNanos
   index, expire_time = memx_equities_memo_sbe_v1_10.expire_time.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uint32
   index, min_qty = memx_equities_memo_sbe_v1_10.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uint32
   index, display_qty = memx_equities_memo_sbe_v1_10.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Method: 1 Byte Ascii String Enum with 4 values
+  -- Display Method: DispMethodType
   index, display_method = memx_equities_memo_sbe_v1_10.display_method.dissect(buffer, index, packet, parent)
 
-  -- Reserve Replenish Timing: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Reserve Replenish Timing: ReserveReplenishTimingType
   index, reserve_replenish_timing = memx_equities_memo_sbe_v1_10.reserve_replenish_timing.dissect(buffer, index, packet, parent)
 
-  -- Display Min Incr: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Min Incr: uint32
   index, display_min_incr = memx_equities_memo_sbe_v1_10.display_min_incr.dissect(buffer, index, packet, parent)
 
-  -- Locate Reqd: 1 Byte Ascii String Nullable
+  -- Locate Reqd: char
   index, locate_reqd = memx_equities_memo_sbe_v1_10.locate_reqd.dissect(buffer, index, packet, parent)
 
-  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Reprice Frequency: RepriceFrequencyType
   index, reprice_frequency = memx_equities_memo_sbe_v1_10.reprice_frequency.dissect(buffer, index, packet, parent)
 
-  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Reprice Behavior: RepriceBehaviorType
   index, reprice_behavior = memx_equities_memo_sbe_v1_10.reprice_behavior.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_equities_memo_sbe_v1_10.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Stp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Stp Group Id: uint16
   index, stp_group_id = memx_equities_memo_sbe_v1_10.stp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Self Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Self Trade Prevention: SelfTradePreventionType
   index, self_trade_prevention = memx_equities_memo_sbe_v1_10.self_trade_prevention.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_equities_memo_sbe_v1_10.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: uint32
   index, leaves_qty = memx_equities_memo_sbe_v1_10.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uint32
   index, cum_qty = memx_equities_memo_sbe_v1_10.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -4359,25 +4359,25 @@ end
 memx_equities_memo_sbe_v1_10.mass_cancel_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Ascii String Enum with 5 values
+  -- Side Optional: SideType
   index, side_optional = memx_equities_memo_sbe_v1_10.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Lower Than Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Lower Than Price: PriceType
   index, lower_than_price = memx_equities_memo_sbe_v1_10.lower_than_price.dissect(buffer, index, packet, parent)
 
-  -- Higher Than Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Higher Than Price: PriceType
   index, higher_than_price = memx_equities_memo_sbe_v1_10.higher_than_price.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_equities_memo_sbe_v1_10.cancel_group_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4449,19 +4449,19 @@ end
 memx_equities_memo_sbe_v1_10.order_cancel_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- OrigClOrdId Optional: 16 Byte Ascii String Nullable
+  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
   index, origclordid_optional = memx_equities_memo_sbe_v1_10.origclordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uint64
   index, order_id_optional = memx_equities_memo_sbe_v1_10.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
   return index
@@ -4550,37 +4550,37 @@ end
 memx_equities_memo_sbe_v1_10.order_cancel_replace_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- OrigClOrdId: 16 Byte Ascii String
+  -- OrigClOrdId: OrderCancelReplaceRequestOrigClOrdID
   index, origclordid = memx_equities_memo_sbe_v1_10.origclordid.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: SideType
   index, side = memx_equities_memo_sbe_v1_10.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_equities_memo_sbe_v1_10.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 3 values
+  -- Ord Type: OrdType
   index, ord_type = memx_equities_memo_sbe_v1_10.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: PriceType
   index, price = memx_equities_memo_sbe_v1_10.price.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uint32
   index, display_qty = memx_equities_memo_sbe_v1_10.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Locate Reqd: 1 Byte Ascii String Nullable
+  -- Locate Reqd: char
   index, locate_reqd = memx_equities_memo_sbe_v1_10.locate_reqd.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -4647,88 +4647,88 @@ end
 memx_equities_memo_sbe_v1_10.new_order_single_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 16 Byte Ascii String
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
   index, clordid = memx_equities_memo_sbe_v1_10.clordid.dissect(buffer, index, packet, parent)
 
-  -- Mpid Optional: 4 Byte Ascii String Nullable
+  -- Mpid Optional: ExecutionReport_NewMPID
   index, mpid_optional = memx_equities_memo_sbe_v1_10.mpid_optional.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: ExecutionReport_NewSymbol
   index, symbol = memx_equities_memo_sbe_v1_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String Nullable
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
   index, symbol_sfx = memx_equities_memo_sbe_v1_10.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: SideType
   index, side = memx_equities_memo_sbe_v1_10.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uint32
   index, order_qty = memx_equities_memo_sbe_v1_10.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 3 values
+  -- Ord Type: OrdType
   index, ord_type = memx_equities_memo_sbe_v1_10.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: PriceType
   index, price = memx_equities_memo_sbe_v1_10.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 5 values
+  -- Time In Force: TimeInForceType
   index, time_in_force = memx_equities_memo_sbe_v1_10.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Ascii String Enum with 3 values
+  -- Order Capacity: OrderCapacityType
   index, order_capacity = memx_equities_memo_sbe_v1_10.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Cust Order Capacity: CustOrderCapacityType
   index, cust_order_capacity = memx_equities_memo_sbe_v1_10.cust_order_capacity.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = memx_equities_memo_sbe_v1_10.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value: 8 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset Value: PriceType
   index, peg_offset_value = memx_equities_memo_sbe_v1_10.peg_offset_value.dissect(buffer, index, packet, parent)
 
-  -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Peg Price Type: PegType
   index, peg_price_type = memx_equities_memo_sbe_v1_10.peg_price_type.dissect(buffer, index, packet, parent)
 
-  -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Time: UTCTimestampNanos
   index, expire_time = memx_equities_memo_sbe_v1_10.expire_time.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uint32
   index, min_qty = memx_equities_memo_sbe_v1_10.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uint32
   index, display_qty = memx_equities_memo_sbe_v1_10.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Method: 1 Byte Ascii String Enum with 4 values
+  -- Display Method: DispMethodType
   index, display_method = memx_equities_memo_sbe_v1_10.display_method.dissect(buffer, index, packet, parent)
 
-  -- Reserve Replenish Timing: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Reserve Replenish Timing: ReserveReplenishTimingType
   index, reserve_replenish_timing = memx_equities_memo_sbe_v1_10.reserve_replenish_timing.dissect(buffer, index, packet, parent)
 
-  -- Display Min Incr: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Min Incr: uint32
   index, display_min_incr = memx_equities_memo_sbe_v1_10.display_min_incr.dissect(buffer, index, packet, parent)
 
-  -- Locate Reqd: 1 Byte Ascii String Nullable
+  -- Locate Reqd: char
   index, locate_reqd = memx_equities_memo_sbe_v1_10.locate_reqd.dissect(buffer, index, packet, parent)
 
-  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Reprice Frequency: RepriceFrequencyType
   index, reprice_frequency = memx_equities_memo_sbe_v1_10.reprice_frequency.dissect(buffer, index, packet, parent)
 
-  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Reprice Behavior: RepriceBehaviorType
   index, reprice_behavior = memx_equities_memo_sbe_v1_10.reprice_behavior.dissect(buffer, index, packet, parent)
 
-  -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Cancel Group Id: uint16
   index, cancel_group_id = memx_equities_memo_sbe_v1_10.cancel_group_id.dissect(buffer, index, packet, parent)
 
-  -- Stp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Stp Group Id: uint16
   index, stp_group_id = memx_equities_memo_sbe_v1_10.stp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Self Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Self Trade Prevention: SelfTradePreventionType
   index, self_trade_prevention = memx_equities_memo_sbe_v1_10.self_trade_prevention.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_equities_memo_sbe_v1_10.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Link Id Optional: 4 Byte Ascii String Nullable
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
   index, link_id_optional = memx_equities_memo_sbe_v1_10.link_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -5121,16 +5121,16 @@ end
 memx_equities_memo_sbe_v1_10.sbe_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = memx_equities_memo_sbe_v1_10.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 19 values
+  -- Template Id: uint8
   index, template_id = memx_equities_memo_sbe_v1_10.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint8
   index, schema_id = memx_equities_memo_sbe_v1_10.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = memx_equities_memo_sbe_v1_10.version.dissect(buffer, index, packet, parent)
 
   return index

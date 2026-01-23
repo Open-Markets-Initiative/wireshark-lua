@@ -500,13 +500,13 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7.retransmit_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Retry Delay Nanos: 8 Byte Signed Fixed Width Integer
+  -- Retry Delay Nanos: int64
   index, retry_delay_nanos = coinbase_derivatives_marketdataapi_sbe_v1_7.retry_delay_nanos.dissect(buffer, index, packet, parent)
 
-  -- Details: 40 Byte Ascii String
+  -- Details: char40
   index, details = coinbase_derivatives_marketdataapi_sbe_v1_7.details.dissect(buffer, index, packet, parent)
 
-  -- Reason: 1 Byte Signed Fixed Width Integer Enum with 4 values
+  -- Reason: RetransmitRejectReason
   index, reason = coinbase_derivatives_marketdataapi_sbe_v1_7.reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -593,10 +593,10 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7.retransmit_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 8 Byte Signed Fixed Width Integer
+  -- Begin Seq Num: int64
   index, begin_seq_num = coinbase_derivatives_marketdataapi_sbe_v1_7.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  -- Message Count: uint8
   index, message_count = coinbase_derivatives_marketdataapi_sbe_v1_7.message_count.dissect(buffer, index, packet, parent)
 
   return index
@@ -659,7 +659,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7.end_of_cycle_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Active Instrument Count: 4 Byte Signed Fixed Width Integer
+  -- Active Instrument Count: int32
   index, active_instrument_count = coinbase_derivatives_marketdataapi_sbe_v1_7.active_instrument_count.dissect(buffer, index, packet, parent)
 
   return index
@@ -1568,76 +1568,76 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7.end_of_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Snapshot Seq Num: 2 Byte Unsigned Fixed Width Integer
+  -- Snapshot Seq Num: uint16
   index, snapshot_seq_num = coinbase_derivatives_marketdataapi_sbe_v1_7.snapshot_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Signed Fixed Width Integer
+  -- Trade Volume: Quantity0
   index, trade_volume = coinbase_derivatives_marketdataapi_sbe_v1_7.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- Indicative Open Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Indicative Open Price: Price
   index, indicative_open_price = coinbase_derivatives_marketdataapi_sbe_v1_7.indicative_open_price.dissect(buffer, index, packet, parent)
 
-  -- Day Open Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Day Open Price: Price
   index, day_open_price = coinbase_derivatives_marketdataapi_sbe_v1_7.day_open_price.dissect(buffer, index, packet, parent)
 
-  -- Close Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Close Price: Price
   index, close_price = coinbase_derivatives_marketdataapi_sbe_v1_7.close_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Price: Price
   index, low_price = coinbase_derivatives_marketdataapi_sbe_v1_7.low_price.dissect(buffer, index, packet, parent)
 
-  -- High Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Price: Price
   index, high_price = coinbase_derivatives_marketdataapi_sbe_v1_7.high_price.dissect(buffer, index, packet, parent)
 
-  -- Vwap Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Vwap Price Optional: Price
   index, vwap_price_optional = coinbase_derivatives_marketdataapi_sbe_v1_7.vwap_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Settlement Price: Price
   index, settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_7.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Last Trade Price: Price
   index, last_trade_price = coinbase_derivatives_marketdataapi_sbe_v1_7.last_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Time: 8 Byte Signed Fixed Width Integer Nullable
+  -- Last Trade Time: int64
   index, last_trade_time = coinbase_derivatives_marketdataapi_sbe_v1_7.last_trade_time.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Implied Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Best Bid Implied Price: Price
   index, best_bid_implied_price = coinbase_derivatives_marketdataapi_sbe_v1_7.best_bid_implied_price.dissect(buffer, index, packet, parent)
 
-  -- Best Ask Implied Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Best Ask Implied Price: Price
   index, best_ask_implied_price = coinbase_derivatives_marketdataapi_sbe_v1_7.best_ask_implied_price.dissect(buffer, index, packet, parent)
 
-  -- Next Bid Implied Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Next Bid Implied Price: Price
   index, next_bid_implied_price = coinbase_derivatives_marketdataapi_sbe_v1_7.next_bid_implied_price.dissect(buffer, index, packet, parent)
 
-  -- Next Ask Implied Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Next Ask Implied Price: Price
   index, next_ask_implied_price = coinbase_derivatives_marketdataapi_sbe_v1_7.next_ask_implied_price.dissect(buffer, index, packet, parent)
 
-  -- Limit Down Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Down Price: Price
   index, limit_down_price = coinbase_derivatives_marketdataapi_sbe_v1_7.limit_down_price.dissect(buffer, index, packet, parent)
 
-  -- Limit Up Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Up Price: Price
   index, limit_up_price = coinbase_derivatives_marketdataapi_sbe_v1_7.limit_up_price.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Qty: 4 Byte Signed Fixed Width Integer
+  -- Last Trade Qty: Quantity0
   index, last_trade_qty = coinbase_derivatives_marketdataapi_sbe_v1_7.last_trade_qty.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: 4 Byte Signed Fixed Width Integer
+  -- Open Interest: Quantity0
   index, open_interest = coinbase_derivatives_marketdataapi_sbe_v1_7.open_interest.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Implied Qty: 4 Byte Signed Fixed Width Integer
+  -- Best Bid Implied Qty: Quantity0
   index, best_bid_implied_qty = coinbase_derivatives_marketdataapi_sbe_v1_7.best_bid_implied_qty.dissect(buffer, index, packet, parent)
 
-  -- Best Ask Implied Qty: 4 Byte Signed Fixed Width Integer
+  -- Best Ask Implied Qty: Quantity0
   index, best_ask_implied_qty = coinbase_derivatives_marketdataapi_sbe_v1_7.best_ask_implied_qty.dissect(buffer, index, packet, parent)
 
-  -- Next Bid Implied Qty: 4 Byte Signed Fixed Width Integer
+  -- Next Bid Implied Qty: Quantity0
   index, next_bid_implied_qty = coinbase_derivatives_marketdataapi_sbe_v1_7.next_bid_implied_qty.dissect(buffer, index, packet, parent)
 
-  -- Next Ask Implied Qty: 4 Byte Signed Fixed Width Integer
+  -- Next Ask Implied Qty: Quantity0
   index, next_ask_implied_qty = coinbase_derivatives_marketdataapi_sbe_v1_7.next_ask_implied_qty.dissect(buffer, index, packet, parent)
 
-  -- Prior Settlement Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Prior Settlement Price Optional: Price
   index, prior_settlement_price_optional = coinbase_derivatives_marketdataapi_sbe_v1_7.prior_settlement_price_optional.dissect(buffer, index, packet, parent)
 
   -- Definition Flags: Struct of 5 fields
@@ -1786,19 +1786,19 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7.order_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Snapshot Seq Num: 2 Byte Unsigned Fixed Width Integer
+  -- Snapshot Seq Num: uint16
   index, snapshot_seq_num = coinbase_derivatives_marketdataapi_sbe_v1_7.snapshot_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Quantity0
   index, quantity = coinbase_derivatives_marketdataapi_sbe_v1_7.quantity.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = coinbase_derivatives_marketdataapi_sbe_v1_7.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: int64
   index, order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = coinbase_derivatives_marketdataapi_sbe_v1_7.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1933,16 +1933,16 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7.logical_expiry.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Signed Fixed Width Integer
+  -- Year: int16
   index, year = coinbase_derivatives_marketdataapi_sbe_v1_7.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 2 Byte Signed Fixed Width Integer
+  -- Month: int16
   index, month = coinbase_derivatives_marketdataapi_sbe_v1_7.month.dissect(buffer, index, packet, parent)
 
-  -- Week Of Month: 2 Byte Signed Fixed Width Integer
+  -- Week Of Month: int16
   index, week_of_month = coinbase_derivatives_marketdataapi_sbe_v1_7.week_of_month.dissect(buffer, index, packet, parent)
 
-  -- Day Of Month: 2 Byte Signed Fixed Width Integer
+  -- Day Of Month: int16
   index, day_of_month = coinbase_derivatives_marketdataapi_sbe_v1_7.day_of_month.dissect(buffer, index, packet, parent)
 
   return index
@@ -2555,64 +2555,64 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7.start_of_option_instrument_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Snapshot Seq Num: 2 Byte Unsigned Fixed Width Integer
+  -- Snapshot Seq Num: uint16
   index, snapshot_seq_num = coinbase_derivatives_marketdataapi_sbe_v1_7.snapshot_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Last Instr Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Instr Seq Num: uint32
   index, last_instr_seq_num = coinbase_derivatives_marketdataapi_sbe_v1_7.last_instr_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 24 Byte Ascii String
+  -- Symbol: char24
   index, symbol = coinbase_derivatives_marketdataapi_sbe_v1_7.symbol.dissect(buffer, index, packet, parent)
 
-  -- Product Code: 8 Byte Ascii String
+  -- Product Code: char8
   index, product_code = coinbase_derivatives_marketdataapi_sbe_v1_7.product_code.dissect(buffer, index, packet, parent)
 
-  -- Description: 32 Byte Ascii String
+  -- Description: char32
   index, description = coinbase_derivatives_marketdataapi_sbe_v1_7.description.dissect(buffer, index, packet, parent)
 
-  -- Small Tick: 8 Byte Signed Fixed Width Integer
+  -- Small Tick: Price
   index, small_tick = coinbase_derivatives_marketdataapi_sbe_v1_7.small_tick.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 8 Byte Ascii String
+  -- Cfi Code: char8
   index, cfi_code = coinbase_derivatives_marketdataapi_sbe_v1_7.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Large Tick: 8 Byte Signed Fixed Width Integer
+  -- Large Tick: Price
   index, large_tick = coinbase_derivatives_marketdataapi_sbe_v1_7.large_tick.dissect(buffer, index, packet, parent)
 
-  -- Large Tick Threshold: 8 Byte Signed Fixed Width Integer
+  -- Large Tick Threshold: Price
   index, large_tick_threshold = coinbase_derivatives_marketdataapi_sbe_v1_7.large_tick_threshold.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: Price
   index, strike_price = coinbase_derivatives_marketdataapi_sbe_v1_7.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Signed Fixed Width Integer
+  -- Product Id: int32
   index, product_id = coinbase_derivatives_marketdataapi_sbe_v1_7.product_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Underlying Instrument Id: int32
   index, underlying_instrument_id = coinbase_derivatives_marketdataapi_sbe_v1_7.underlying_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Order Count: 4 Byte Signed Fixed Width Integer
+  -- Order Count: int32
   index, order_count = coinbase_derivatives_marketdataapi_sbe_v1_7.order_count.dissect(buffer, index, packet, parent)
 
-  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- First Trading Session Date: uint16
   index, first_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.first_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Last Trading Session Date: uint16
   index, last_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.last_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: uint16
   index, trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Product Group: ProductGroup
   index, product_group = coinbase_derivatives_marketdataapi_sbe_v1_7.product_group.dissect(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Trading Status: InstrumentTradingStatus
   index, trading_status = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_status.dissect(buffer, index, packet, parent)
 
   -- Definition Flags: Struct of 5 fields
   index, definition_flags = coinbase_derivatives_marketdataapi_sbe_v1_7.definition_flags.dissect(buffer, index, packet, parent)
 
-  -- Option Expiry Type: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Option Expiry Type: OptionExpiryType
   index, option_expiry_type = coinbase_derivatives_marketdataapi_sbe_v1_7.option_expiry_type.dissect(buffer, index, packet, parent)
 
   -- Logical Expiry: Struct of 4 fields
@@ -2841,61 +2841,61 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7.start_of_spread_instrument_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Snapshot Seq Num: 2 Byte Unsigned Fixed Width Integer
+  -- Snapshot Seq Num: uint16
   index, snapshot_seq_num = coinbase_derivatives_marketdataapi_sbe_v1_7.snapshot_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Last Instr Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Instr Seq Num: uint32
   index, last_instr_seq_num = coinbase_derivatives_marketdataapi_sbe_v1_7.last_instr_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 24 Byte Ascii String
+  -- Symbol: char24
   index, symbol = coinbase_derivatives_marketdataapi_sbe_v1_7.symbol.dissect(buffer, index, packet, parent)
 
-  -- Product Code: 8 Byte Ascii String
+  -- Product Code: char8
   index, product_code = coinbase_derivatives_marketdataapi_sbe_v1_7.product_code.dissect(buffer, index, packet, parent)
 
-  -- Description: 32 Byte Ascii String
+  -- Description: char32
   index, description = coinbase_derivatives_marketdataapi_sbe_v1_7.description.dissect(buffer, index, packet, parent)
 
-  -- Tick Size: 8 Byte Signed Fixed Width Integer
+  -- Tick Size: Price
   index, tick_size = coinbase_derivatives_marketdataapi_sbe_v1_7.tick_size.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 8 Byte Ascii String
+  -- Cfi Code: char8
   index, cfi_code = coinbase_derivatives_marketdataapi_sbe_v1_7.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 8 Byte Ascii String
+  -- Currency: char8
   index, currency = coinbase_derivatives_marketdataapi_sbe_v1_7.currency.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Signed Fixed Width Integer
+  -- Product Id: int32
   index, product_id = coinbase_derivatives_marketdataapi_sbe_v1_7.product_id.dissect(buffer, index, packet, parent)
 
-  -- Old Contract Size: 4 Byte Signed Fixed Width Integer
+  -- Old Contract Size: Quantity0
   index, old_contract_size = coinbase_derivatives_marketdataapi_sbe_v1_7.old_contract_size.dissect(buffer, index, packet, parent)
 
-  -- Order Count: 4 Byte Signed Fixed Width Integer
+  -- Order Count: int32
   index, order_count = coinbase_derivatives_marketdataapi_sbe_v1_7.order_count.dissect(buffer, index, packet, parent)
 
-  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- First Trading Session Date: uint16
   index, first_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.first_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Last Trading Session Date: uint16
   index, last_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.last_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: uint16
   index, trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Product Group: ProductGroup
   index, product_group = coinbase_derivatives_marketdataapi_sbe_v1_7.product_group.dissect(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Trading Status: InstrumentTradingStatus
   index, trading_status = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_status.dissect(buffer, index, packet, parent)
 
-  -- Leg 1 Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Leg 1 Instrument Id: int32
   index, leg_1_instrument_id = coinbase_derivatives_marketdataapi_sbe_v1_7.leg_1_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Leg 2 Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Leg 2 Instrument Id: int32
   index, leg_2_instrument_id = coinbase_derivatives_marketdataapi_sbe_v1_7.leg_2_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Spread Buy Convention: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Spread Buy Convention: SpreadBuyConvention
   index, spread_buy_convention = coinbase_derivatives_marketdataapi_sbe_v1_7.spread_buy_convention.dissect(buffer, index, packet, parent)
 
   -- Logical Expiry: Struct of 4 fields
@@ -2978,55 +2978,55 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7.start_of_outright_instrument_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Snapshot Seq Num: 2 Byte Unsigned Fixed Width Integer
+  -- Snapshot Seq Num: uint16
   index, snapshot_seq_num = coinbase_derivatives_marketdataapi_sbe_v1_7.snapshot_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Last Instr Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Instr Seq Num: uint32
   index, last_instr_seq_num = coinbase_derivatives_marketdataapi_sbe_v1_7.last_instr_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 24 Byte Ascii String
+  -- Symbol: char24
   index, symbol = coinbase_derivatives_marketdataapi_sbe_v1_7.symbol.dissect(buffer, index, packet, parent)
 
-  -- Product Code: 8 Byte Ascii String
+  -- Product Code: char8
   index, product_code = coinbase_derivatives_marketdataapi_sbe_v1_7.product_code.dissect(buffer, index, packet, parent)
 
-  -- Description: 32 Byte Ascii String
+  -- Description: char32
   index, description = coinbase_derivatives_marketdataapi_sbe_v1_7.description.dissect(buffer, index, packet, parent)
 
-  -- Tick Size: 8 Byte Signed Fixed Width Integer
+  -- Tick Size: Price
   index, tick_size = coinbase_derivatives_marketdataapi_sbe_v1_7.tick_size.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 8 Byte Ascii String
+  -- Cfi Code: char8
   index, cfi_code = coinbase_derivatives_marketdataapi_sbe_v1_7.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 8 Byte Ascii String
+  -- Currency: char8
   index, currency = coinbase_derivatives_marketdataapi_sbe_v1_7.currency.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Signed Fixed Width Integer
+  -- Product Id: int32
   index, product_id = coinbase_derivatives_marketdataapi_sbe_v1_7.product_id.dissect(buffer, index, packet, parent)
 
-  -- Old Contract Size: 4 Byte Signed Fixed Width Integer
+  -- Old Contract Size: Quantity0
   index, old_contract_size = coinbase_derivatives_marketdataapi_sbe_v1_7.old_contract_size.dissect(buffer, index, packet, parent)
 
-  -- Order Count: 4 Byte Signed Fixed Width Integer
+  -- Order Count: int32
   index, order_count = coinbase_derivatives_marketdataapi_sbe_v1_7.order_count.dissect(buffer, index, packet, parent)
 
-  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- First Trading Session Date: uint16
   index, first_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.first_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Last Trading Session Date: uint16
   index, last_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.last_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: uint16
   index, trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Product Group: ProductGroup
   index, product_group = coinbase_derivatives_marketdataapi_sbe_v1_7.product_group.dissect(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Trading Status: InstrumentTradingStatus
   index, trading_status = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_status.dissect(buffer, index, packet, parent)
 
-  -- Contract Size: 8 Byte Signed Fixed Width Integer
+  -- Contract Size: Quantity8
   index, contract_size = coinbase_derivatives_marketdataapi_sbe_v1_7.contract_size.dissect(buffer, index, packet, parent)
 
   -- Logical Expiry: Struct of 4 fields
@@ -3196,19 +3196,19 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.fields = function(buffe
   -- Instrument Side: 1 Byte Signed Fixed Width Integer
   index, instrument_side = coinbase_derivatives_marketdataapi_sbe_v1_7.instrument_side.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: int32
   index, instrument_id = coinbase_derivatives_marketdataapi_sbe_v1_7.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Instr Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Instr Seq Num: uint32
   index, instr_seq_num = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Session Date: uint16
   index, trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 2 Byte Signed Fixed Width Integer
+  -- Reserved: int16
   index, reserved = coinbase_derivatives_marketdataapi_sbe_v1_7.reserved.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: int64
   index, transact_time = coinbase_derivatives_marketdataapi_sbe_v1_7.transact_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -3252,7 +3252,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.open_interest_message.fields = funct
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Quantity0
   index, quantity = coinbase_derivatives_marketdataapi_sbe_v1_7.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -3326,10 +3326,10 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.trade_session_volume_message.fields 
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer
+  -- Vwap Price: Price
   index, vwap_price = coinbase_derivatives_marketdataapi_sbe_v1_7.vwap_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Signed Fixed Width Integer
+  -- Trade Volume: Quantity0
   index, trade_volume = coinbase_derivatives_marketdataapi_sbe_v1_7.trade_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -3432,10 +3432,10 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.market_stat_message.fields = functio
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = coinbase_derivatives_marketdataapi_sbe_v1_7.price.dissect(buffer, index, packet, parent)
 
-  -- Stat Type: 1 Byte Ascii String Enum with 7 values
+  -- Stat Type: MarketStatType
   index, stat_type = coinbase_derivatives_marketdataapi_sbe_v1_7.stat_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -3560,13 +3560,13 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.trade_bust_message.fields = function
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Match Id: 8 Byte Signed Fixed Width Integer
+  -- Match Id: int64
   index, match_id = coinbase_derivatives_marketdataapi_sbe_v1_7.match_id.dissect(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Buy Order Id: int64
   index, buy_order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.buy_order_id.dissect(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Sell Order Id: int64
   index, sell_order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.sell_order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3792,31 +3792,31 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.spread_trade_amend_message.fields = 
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Match Id: 8 Byte Signed Fixed Width Integer
+  -- Match Id: int64
   index, match_id = coinbase_derivatives_marketdataapi_sbe_v1_7.match_id.dissect(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Buy Order Id: int64
   index, buy_order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.buy_order_id.dissect(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Sell Order Id: int64
   index, sell_order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.sell_order_id.dissect(buffer, index, packet, parent)
 
-  -- Old Price: 8 Byte Signed Fixed Width Integer
+  -- Old Price: Price
   index, old_price = coinbase_derivatives_marketdataapi_sbe_v1_7.old_price.dissect(buffer, index, packet, parent)
 
-  -- New Price: 8 Byte Signed Fixed Width Integer
+  -- New Price: Price
   index, new_price = coinbase_derivatives_marketdataapi_sbe_v1_7.new_price.dissect(buffer, index, packet, parent)
 
-  -- Old Leg 1 Price: 8 Byte Signed Fixed Width Integer
+  -- Old Leg 1 Price: Price
   index, old_leg_1_price = coinbase_derivatives_marketdataapi_sbe_v1_7.old_leg_1_price.dissect(buffer, index, packet, parent)
 
-  -- New Leg 1 Price: 8 Byte Signed Fixed Width Integer
+  -- New Leg 1 Price: Price
   index, new_leg_1_price = coinbase_derivatives_marketdataapi_sbe_v1_7.new_leg_1_price.dissect(buffer, index, packet, parent)
 
-  -- Old Leg 2 Price: 8 Byte Signed Fixed Width Integer
+  -- Old Leg 2 Price: Price
   index, old_leg_2_price = coinbase_derivatives_marketdataapi_sbe_v1_7.old_leg_2_price.dissect(buffer, index, packet, parent)
 
-  -- New Leg 2 Price: 8 Byte Signed Fixed Width Integer
+  -- New Leg 2 Price: Price
   index, new_leg_2_price = coinbase_derivatives_marketdataapi_sbe_v1_7.new_leg_2_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -3864,19 +3864,19 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.trade_amend_message.fields = functio
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Match Id: 8 Byte Signed Fixed Width Integer
+  -- Match Id: int64
   index, match_id = coinbase_derivatives_marketdataapi_sbe_v1_7.match_id.dissect(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Buy Order Id: int64
   index, buy_order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.buy_order_id.dissect(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Sell Order Id: int64
   index, sell_order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.sell_order_id.dissect(buffer, index, packet, parent)
 
-  -- Old Price: 8 Byte Signed Fixed Width Integer
+  -- Old Price: Price
   index, old_price = coinbase_derivatives_marketdataapi_sbe_v1_7.old_price.dissect(buffer, index, packet, parent)
 
-  -- New Price: 8 Byte Signed Fixed Width Integer
+  -- New Price: Price
   index, new_price = coinbase_derivatives_marketdataapi_sbe_v1_7.new_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -3924,19 +3924,19 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.trade_message.fields = function(buff
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Match Id: 8 Byte Signed Fixed Width Integer
+  -- Match Id: int64
   index, match_id = coinbase_derivatives_marketdataapi_sbe_v1_7.match_id.dissect(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Buy Order Id: int64
   index, buy_order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.buy_order_id.dissect(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Sell Order Id: int64
   index, sell_order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.sell_order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = coinbase_derivatives_marketdataapi_sbe_v1_7.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Quantity0
   index, quantity = coinbase_derivatives_marketdataapi_sbe_v1_7.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -4059,19 +4059,19 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.trade_summary_message.fields = funct
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Order Id: 8 Byte Signed Fixed Width Integer
+  -- Aggressor Order Id: int64
   index, aggressor_order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.aggressor_order_id.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Receive Time: 8 Byte Signed Fixed Width Integer
+  -- Aggressor Receive Time: int64
   index, aggressor_receive_time = coinbase_derivatives_marketdataapi_sbe_v1_7.aggressor_receive_time.dissect(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer
+  -- Vwap Price: Price
   index, vwap_price = coinbase_derivatives_marketdataapi_sbe_v1_7.vwap_price.dissect(buffer, index, packet, parent)
 
-  -- Deepest Price: 8 Byte Signed Fixed Width Integer
+  -- Deepest Price: Price
   index, deepest_price = coinbase_derivatives_marketdataapi_sbe_v1_7.deepest_price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Quantity0
   index, quantity = coinbase_derivatives_marketdataapi_sbe_v1_7.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -4242,16 +4242,16 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.implied_order_update_message.fields 
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Best Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Best Price: Price
   index, best_price = coinbase_derivatives_marketdataapi_sbe_v1_7.best_price.dissect(buffer, index, packet, parent)
 
-  -- Next Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Next Price: Price
   index, next_price = coinbase_derivatives_marketdataapi_sbe_v1_7.next_price.dissect(buffer, index, packet, parent)
 
-  -- Best Qty: 4 Byte Signed Fixed Width Integer
+  -- Best Qty: Quantity0
   index, best_qty = coinbase_derivatives_marketdataapi_sbe_v1_7.best_qty.dissect(buffer, index, packet, parent)
 
-  -- Next Qty: 4 Byte Signed Fixed Width Integer
+  -- Next Qty: Quantity0
   index, next_qty = coinbase_derivatives_marketdataapi_sbe_v1_7.next_qty.dissect(buffer, index, packet, parent)
 
   return index
@@ -4295,7 +4295,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.order_delete_message.fields = functi
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: int64
   index, order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4341,13 +4341,13 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.order_put_message.fields = function(
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: int64
   index, order_id = coinbase_derivatives_marketdataapi_sbe_v1_7.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = coinbase_derivatives_marketdataapi_sbe_v1_7.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Quantity0
   index, quantity = coinbase_derivatives_marketdataapi_sbe_v1_7.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -4393,13 +4393,13 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.trading_status_update_message.fields
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Limit Down Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Down Price: Price
   index, limit_down_price = coinbase_derivatives_marketdataapi_sbe_v1_7.limit_down_price.dissect(buffer, index, packet, parent)
 
-  -- Limit Up Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Up Price: Price
   index, limit_up_price = coinbase_derivatives_marketdataapi_sbe_v1_7.limit_up_price.dissect(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Trading Status: InstrumentTradingStatus
   index, trading_status = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_status.dissect(buffer, index, packet, parent)
 
   return index
@@ -4490,58 +4490,58 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.option_instrument_definition_message
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 24 Byte Ascii String
+  -- Symbol: char24
   index, symbol = coinbase_derivatives_marketdataapi_sbe_v1_7.symbol.dissect(buffer, index, packet, parent)
 
-  -- Product Code: 8 Byte Ascii String
+  -- Product Code: char8
   index, product_code = coinbase_derivatives_marketdataapi_sbe_v1_7.product_code.dissect(buffer, index, packet, parent)
 
-  -- Description: 32 Byte Ascii String
+  -- Description: char32
   index, description = coinbase_derivatives_marketdataapi_sbe_v1_7.description.dissect(buffer, index, packet, parent)
 
-  -- Small Tick: 8 Byte Signed Fixed Width Integer
+  -- Small Tick: Price
   index, small_tick = coinbase_derivatives_marketdataapi_sbe_v1_7.small_tick.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 8 Byte Ascii String
+  -- Cfi Code: char8
   index, cfi_code = coinbase_derivatives_marketdataapi_sbe_v1_7.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Large Tick: 8 Byte Signed Fixed Width Integer
+  -- Large Tick: Price
   index, large_tick = coinbase_derivatives_marketdataapi_sbe_v1_7.large_tick.dissect(buffer, index, packet, parent)
 
-  -- Large Tick Threshold: 8 Byte Signed Fixed Width Integer
+  -- Large Tick Threshold: Price
   index, large_tick_threshold = coinbase_derivatives_marketdataapi_sbe_v1_7.large_tick_threshold.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: Price
   index, strike_price = coinbase_derivatives_marketdataapi_sbe_v1_7.strike_price.dissect(buffer, index, packet, parent)
 
-  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- First Trading Session Date: uint16
   index, first_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.first_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Last Trading Session Date: uint16
   index, last_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.last_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Prior Settlement Price: Price
   index, prior_settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_7.prior_settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Settlement Price: Price
   index, settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_7.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Signed Fixed Width Integer
+  -- Product Id: int32
   index, product_id = coinbase_derivatives_marketdataapi_sbe_v1_7.product_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Underlying Instrument Id: int32
   index, underlying_instrument_id = coinbase_derivatives_marketdataapi_sbe_v1_7.underlying_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Product Group: ProductGroup
   index, product_group = coinbase_derivatives_marketdataapi_sbe_v1_7.product_group.dissect(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Trading Status: InstrumentTradingStatus
   index, trading_status = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_status.dissect(buffer, index, packet, parent)
 
   -- Definition Flags: Struct of 5 fields
   index, definition_flags = coinbase_derivatives_marketdataapi_sbe_v1_7.definition_flags.dissect(buffer, index, packet, parent)
 
-  -- Option Expiry Type: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Option Expiry Type: OptionExpiryType
   index, option_expiry_type = coinbase_derivatives_marketdataapi_sbe_v1_7.option_expiry_type.dissect(buffer, index, packet, parent)
 
   -- Logical Expiry: Struct of 4 fields
@@ -4608,61 +4608,61 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.spread_instrument_definition_message
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 24 Byte Ascii String
+  -- Symbol: char24
   index, symbol = coinbase_derivatives_marketdataapi_sbe_v1_7.symbol.dissect(buffer, index, packet, parent)
 
-  -- Product Code: 8 Byte Ascii String
+  -- Product Code: char8
   index, product_code = coinbase_derivatives_marketdataapi_sbe_v1_7.product_code.dissect(buffer, index, packet, parent)
 
-  -- Description: 32 Byte Ascii String
+  -- Description: char32
   index, description = coinbase_derivatives_marketdataapi_sbe_v1_7.description.dissect(buffer, index, packet, parent)
 
-  -- Tick Size: 8 Byte Signed Fixed Width Integer
+  -- Tick Size: Price
   index, tick_size = coinbase_derivatives_marketdataapi_sbe_v1_7.tick_size.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 8 Byte Ascii String
+  -- Cfi Code: char8
   index, cfi_code = coinbase_derivatives_marketdataapi_sbe_v1_7.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 8 Byte Ascii String
+  -- Currency: char8
   index, currency = coinbase_derivatives_marketdataapi_sbe_v1_7.currency.dissect(buffer, index, packet, parent)
 
-  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- First Trading Session Date: uint16
   index, first_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.first_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Last Trading Session Date: uint16
   index, last_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.last_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Old Contract Size: 4 Byte Signed Fixed Width Integer
+  -- Old Contract Size: Quantity0
   index, old_contract_size = coinbase_derivatives_marketdataapi_sbe_v1_7.old_contract_size.dissect(buffer, index, packet, parent)
 
-  -- Prior Settlement Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Prior Settlement Price Optional: Price
   index, prior_settlement_price_optional = coinbase_derivatives_marketdataapi_sbe_v1_7.prior_settlement_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Settlement Price: Price
   index, settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_7.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Limit Down Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Down Price: Price
   index, limit_down_price = coinbase_derivatives_marketdataapi_sbe_v1_7.limit_down_price.dissect(buffer, index, packet, parent)
 
-  -- Limit Up Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Up Price: Price
   index, limit_up_price = coinbase_derivatives_marketdataapi_sbe_v1_7.limit_up_price.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Signed Fixed Width Integer
+  -- Product Id: int32
   index, product_id = coinbase_derivatives_marketdataapi_sbe_v1_7.product_id.dissect(buffer, index, packet, parent)
 
-  -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Product Group: ProductGroup
   index, product_group = coinbase_derivatives_marketdataapi_sbe_v1_7.product_group.dissect(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Trading Status: InstrumentTradingStatus
   index, trading_status = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_status.dissect(buffer, index, packet, parent)
 
-  -- Leg 1 Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Leg 1 Instrument Id: int32
   index, leg_1_instrument_id = coinbase_derivatives_marketdataapi_sbe_v1_7.leg_1_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Leg 2 Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Leg 2 Instrument Id: int32
   index, leg_2_instrument_id = coinbase_derivatives_marketdataapi_sbe_v1_7.leg_2_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Spread Buy Convention: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Spread Buy Convention: SpreadBuyConvention
   index, spread_buy_convention = coinbase_derivatives_marketdataapi_sbe_v1_7.spread_buy_convention.dissect(buffer, index, packet, parent)
 
   -- Definition Flags: Struct of 5 fields
@@ -4730,58 +4730,58 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.outright_instrument_definition_messa
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.instr_header.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 24 Byte Ascii String
+  -- Symbol: char24
   index, symbol = coinbase_derivatives_marketdataapi_sbe_v1_7.symbol.dissect(buffer, index, packet, parent)
 
-  -- Product Code: 8 Byte Ascii String
+  -- Product Code: char8
   index, product_code = coinbase_derivatives_marketdataapi_sbe_v1_7.product_code.dissect(buffer, index, packet, parent)
 
-  -- Description: 32 Byte Ascii String
+  -- Description: char32
   index, description = coinbase_derivatives_marketdataapi_sbe_v1_7.description.dissect(buffer, index, packet, parent)
 
-  -- Tick Size: 8 Byte Signed Fixed Width Integer
+  -- Tick Size: Price
   index, tick_size = coinbase_derivatives_marketdataapi_sbe_v1_7.tick_size.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 8 Byte Ascii String
+  -- Cfi Code: char8
   index, cfi_code = coinbase_derivatives_marketdataapi_sbe_v1_7.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 8 Byte Ascii String
+  -- Currency: char8
   index, currency = coinbase_derivatives_marketdataapi_sbe_v1_7.currency.dissect(buffer, index, packet, parent)
 
-  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- First Trading Session Date: uint16
   index, first_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.first_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  -- Last Trading Session Date: uint16
   index, last_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_7.last_trading_session_date.dissect(buffer, index, packet, parent)
 
-  -- Old Contract Size: 4 Byte Signed Fixed Width Integer
+  -- Old Contract Size: Quantity0
   index, old_contract_size = coinbase_derivatives_marketdataapi_sbe_v1_7.old_contract_size.dissect(buffer, index, packet, parent)
 
-  -- Prior Settlement Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Prior Settlement Price Optional: Price
   index, prior_settlement_price_optional = coinbase_derivatives_marketdataapi_sbe_v1_7.prior_settlement_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Settlement Price: Price
   index, settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_7.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Limit Down Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Down Price: Price
   index, limit_down_price = coinbase_derivatives_marketdataapi_sbe_v1_7.limit_down_price.dissect(buffer, index, packet, parent)
 
-  -- Limit Up Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Up Price: Price
   index, limit_up_price = coinbase_derivatives_marketdataapi_sbe_v1_7.limit_up_price.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Signed Fixed Width Integer
+  -- Product Id: int32
   index, product_id = coinbase_derivatives_marketdataapi_sbe_v1_7.product_id.dissect(buffer, index, packet, parent)
 
-  -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Product Group: ProductGroup
   index, product_group = coinbase_derivatives_marketdataapi_sbe_v1_7.product_group.dissect(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Trading Status: InstrumentTradingStatus
   index, trading_status = coinbase_derivatives_marketdataapi_sbe_v1_7.trading_status.dissect(buffer, index, packet, parent)
 
   -- Definition Flags: Struct of 5 fields
   index, definition_flags = coinbase_derivatives_marketdataapi_sbe_v1_7.definition_flags.dissect(buffer, index, packet, parent)
 
-  -- Contract Size: 8 Byte Signed Fixed Width Integer
+  -- Contract Size: Quantity8
   index, contract_size = coinbase_derivatives_marketdataapi_sbe_v1_7.contract_size.dissect(buffer, index, packet, parent)
 
   -- Logical Expiry: Struct of 4 fields
@@ -5245,19 +5245,19 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Frame Length: 2 Byte Unsigned Fixed Width Integer
+  -- Frame Length: uint16
   index, frame_length = coinbase_derivatives_marketdataapi_sbe_v1_7.frame_length.dissect(buffer, index, packet, parent)
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = coinbase_derivatives_marketdataapi_sbe_v1_7.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 23 values
+  -- Template Id: uint16
   index, template_id = coinbase_derivatives_marketdataapi_sbe_v1_7.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = coinbase_derivatives_marketdataapi_sbe_v1_7.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = coinbase_derivatives_marketdataapi_sbe_v1_7.version.dissect(buffer, index, packet, parent)
 
   return index
@@ -5487,7 +5487,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.packet_header.fields = function(buff
   -- Packet Flags: 1 Byte Unsigned Fixed Width Integer
   index, packet_flags = coinbase_derivatives_marketdataapi_sbe_v1_7.packet_flags.dissect(buffer, index, packet, parent)
 
-  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  -- Message Count: uint8
   index, message_count = coinbase_derivatives_marketdataapi_sbe_v1_7.message_count.dissect(buffer, index, packet, parent)
 
   -- Snapshot Instrument Id: 4 Byte Signed Fixed Width Integer

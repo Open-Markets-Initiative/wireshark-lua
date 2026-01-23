@@ -806,22 +806,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Max Order Msgs: 4 Byte Unsigned Fixed Width Integer
+  -- Max Order Msgs: uint32
   index, max_order_msgs = memx_options_riskcontrol_sbe_v1_6.max_order_msgs.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -920,25 +920,25 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Max Dup Orders: 4 Byte Unsigned Fixed Width Integer
+  -- Max Dup Orders: uint32
   index, max_dup_orders = memx_options_riskcontrol_sbe_v1_6.max_dup_orders.dissect(buffer, index, packet, parent)
 
-  -- Use Order Price In Dup Check: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Use Order Price In Dup Check: BooleanType
   index, use_order_price_in_dup_check = memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -1005,19 +1005,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_net_notional_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Price In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Price In Dollars: uint64
   index, price_in_dollars = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect(buffer, index, packet, parent)
 
   return index
@@ -1061,19 +1061,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_net_notional_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Price In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Price In Dollars: uint64
   index, price_in_dollars = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect(buffer, index, packet, parent)
 
   return index
@@ -1117,19 +1117,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_gross_notional_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Price In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Price In Dollars: uint64
   index, price_in_dollars = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect(buffer, index, packet, parent)
 
   return index
@@ -1173,19 +1173,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Price In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Price In Dollars: uint64
   index, price_in_dollars = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect(buffer, index, packet, parent)
 
   return index
@@ -1254,10 +1254,10 @@ end
 memx_options_riskcontrol_sbe_v1_6.breach_cleared_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Breach Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Breach Id Optional: uint64
   index, breach_id_optional = memx_options_riskcontrol_sbe_v1_6.breach_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -1512,13 +1512,13 @@ end
 memx_options_riskcontrol_sbe_v1_6.breach_clear_rej_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Breach Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Breach Id Optional: uint64
   index, breach_id_optional = memx_options_riskcontrol_sbe_v1_6.breach_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 50 values
+  -- Reject Reason: RiskRejectReason
   index, reject_reason = memx_options_riskcontrol_sbe_v1_6.reject_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1562,19 +1562,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_rej_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 50 values
+  -- Reject Reason: RiskRejectReason
   index, reject_reason = memx_options_riskcontrol_sbe_v1_6.reject_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1615,10 +1615,10 @@ end
 memx_options_riskcontrol_sbe_v1_6.risk_settings_query_rej_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 50 values
+  -- Reject Reason: RiskRejectReason
   index, reject_reason = memx_options_riskcontrol_sbe_v1_6.reject_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1682,10 +1682,10 @@ end
 memx_options_riskcontrol_sbe_v1_6.risk_settings_query_done_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Number Msgs Sent: 4 Byte Unsigned Fixed Width Integer
+  -- Number Msgs Sent: uint32
   index, number_msgs_sent = memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.dissect(buffer, index, packet, parent)
 
   return index
@@ -1752,19 +1752,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Max Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Max Contracts: uint32
   index, max_contracts = memx_options_riskcontrol_sbe_v1_6.max_contracts.dissect(buffer, index, packet, parent)
 
   return index
@@ -1831,19 +1831,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Max Notional In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Max Notional In Dollars: uint64
   index, max_notional_in_dollars = memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.dissect(buffer, index, packet, parent)
 
   return index
@@ -1917,19 +1917,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Allow Orders: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Allow Orders: BooleanType
   index, allow_orders = memx_options_riskcontrol_sbe_v1_6.allow_orders.dissect(buffer, index, packet, parent)
 
   return index
@@ -2003,19 +2003,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Allow Iso Orders: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Allow Iso Orders: BooleanType
   index, allow_iso_orders = memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.dissect(buffer, index, packet, parent)
 
   return index
@@ -2179,25 +2179,25 @@ end
 memx_options_riskcontrol_sbe_v1_6.passive_risk_threshold_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Rule Type: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Rule Type: RuleType
   index, rule_type = memx_options_riskcontrol_sbe_v1_6.rule_type.dissect(buffer, index, packet, parent)
 
-  -- Latest Percentage: 1 Byte Unsigned Fixed Width Integer
+  -- Latest Percentage: uint8
   index, latest_percentage = memx_options_riskcontrol_sbe_v1_6.latest_percentage.dissect(buffer, index, packet, parent)
 
-  -- Breach Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Breach Id Optional: uint64
   index, breach_id_optional = memx_options_riskcontrol_sbe_v1_6.breach_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_options_riskcontrol_sbe_v1_6.transact_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -2311,13 +2311,13 @@ end
 memx_options_riskcontrol_sbe_v1_6.risk_threshold_update_rej_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Risk Type: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Risk Type: RuleType
   index, risk_type = memx_options_riskcontrol_sbe_v1_6.risk_type.dissect(buffer, index, packet, parent)
 
-  -- Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 50 values
+  -- Reject Reason: RiskRejectReason
   index, reject_reason = memx_options_riskcontrol_sbe_v1_6.reject_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -2408,22 +2408,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_done_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Breach Id: 8 Byte Unsigned Fixed Width Integer
+  -- Breach Id: uint64
   index, breach_id = memx_options_riskcontrol_sbe_v1_6.breach_id.dissect(buffer, index, packet, parent)
 
-  -- Total Affected Orders: 4 Byte Unsigned Fixed Width Integer
+  -- Total Affected Orders: uint32
   index, total_affected_orders = memx_options_riskcontrol_sbe_v1_6.total_affected_orders.dissect(buffer, index, packet, parent)
 
   return index
@@ -2467,19 +2467,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_pending_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Breach Id: 8 Byte Unsigned Fixed Width Integer
+  -- Breach Id: uint64
   index, breach_id = memx_options_riskcontrol_sbe_v1_6.breach_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2547,22 +2547,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Count: 4 Byte Unsigned Fixed Width Integer
+  -- Count: uint32
   index, count = memx_options_riskcontrol_sbe_v1_6.count.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -2629,19 +2629,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Percent: 4 Byte Signed Fixed Width Integer
+  -- Percent: int32
   index, percent = memx_options_riskcontrol_sbe_v1_6.percent.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -2709,22 +2709,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_total_executions_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Total Executions: 4 Byte Unsigned Fixed Width Integer
+  -- Total Executions: uint32
   index, total_executions = memx_options_riskcontrol_sbe_v1_6.total_executions.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -2769,22 +2769,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Price In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Price In Dollars: uint64
   index, price_in_dollars = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -2852,22 +2852,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Volume: uint64
   index, volume = memx_options_riskcontrol_sbe_v1_6.volume.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -3221,37 +3221,37 @@ end
 memx_options_riskcontrol_sbe_v1_6.active_risk_quantity_update_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: UTCTimestampNanos
   index, sending_time = memx_options_riskcontrol_sbe_v1_6.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = memx_options_riskcontrol_sbe_v1_6.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_riskcontrol_sbe_v1_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: uint64
   index, trd_match_id = memx_options_riskcontrol_sbe_v1_6.trd_match_id.dissect(buffer, index, packet, parent)
 
-  -- Efid: 4 Byte Ascii String
+  -- Efid: ActiveRiskAcknowledgeRejEFID
   index, efid = memx_options_riskcontrol_sbe_v1_6.efid.dissect(buffer, index, packet, parent)
 
-  -- Underlier: 6 Byte Ascii String
+  -- Underlier: ActiveRiskAcknowledgeRejUnderlier
   index, underlier = memx_options_riskcontrol_sbe_v1_6.underlier.dissect(buffer, index, packet, parent)
 
-  -- Option Security Id: 8 Byte Ascii String
+  -- Option Security Id: ActiveRiskQuantityUpdateNotificationOptionSecurityID
   index, option_security_id = memx_options_riskcontrol_sbe_v1_6.option_security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: SideType
   index, side = memx_options_riskcontrol_sbe_v1_6.side.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: PriceType
   index, last_px = memx_options_riskcontrol_sbe_v1_6.last_px.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uint32
   index, last_qty = memx_options_riskcontrol_sbe_v1_6.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Unacked Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Unacked Quantity: uint32
   index, unacked_quantity = memx_options_riskcontrol_sbe_v1_6.unacked_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -3318,19 +3318,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledge_rej_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier: 6 Byte Ascii String
+  -- Underlier: ActiveRiskAcknowledgeRejUnderlier
   index, underlier = memx_options_riskcontrol_sbe_v1_6.underlier.dissect(buffer, index, packet, parent)
 
-  -- Efid: 4 Byte Ascii String
+  -- Efid: ActiveRiskAcknowledgeRejEFID
   index, efid = memx_options_riskcontrol_sbe_v1_6.efid.dissect(buffer, index, packet, parent)
 
-  -- Threshold Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Threshold Quantity: uint32
   index, threshold_quantity = memx_options_riskcontrol_sbe_v1_6.threshold_quantity.dissect(buffer, index, packet, parent)
 
-  -- Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 50 values
+  -- Reject Reason: RiskRejectReason
   index, reject_reason = memx_options_riskcontrol_sbe_v1_6.reject_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -3397,19 +3397,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledged_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier: 6 Byte Ascii String
+  -- Underlier: ActiveRiskAcknowledgeRejUnderlier
   index, underlier = memx_options_riskcontrol_sbe_v1_6.underlier.dissect(buffer, index, packet, parent)
 
-  -- Efid: 4 Byte Ascii String
+  -- Efid: ActiveRiskAcknowledgeRejEFID
   index, efid = memx_options_riskcontrol_sbe_v1_6.efid.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: uint32
   index, quantity = memx_options_riskcontrol_sbe_v1_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Unacked Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Unacked Quantity: uint32
   index, unacked_quantity = memx_options_riskcontrol_sbe_v1_6.unacked_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -3453,19 +3453,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_change_rej_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Threshold Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Threshold Quantity: uint32
   index, threshold_quantity = memx_options_riskcontrol_sbe_v1_6.threshold_quantity.dissect(buffer, index, packet, parent)
 
-  -- Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 50 values
+  -- Reject Reason: RiskRejectReason
   index, reject_reason = memx_options_riskcontrol_sbe_v1_6.reject_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -3509,19 +3509,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId Optional: 20 Byte Ascii String Nullable
+  -- ClOrdId Optional: ActiveRiskThresholdStateClOrdID
   index, clordid_optional = memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlier: 6 Byte Ascii String
+  -- Underlier: ActiveRiskAcknowledgeRejUnderlier
   index, underlier = memx_options_riskcontrol_sbe_v1_6.underlier.dissect(buffer, index, packet, parent)
 
-  -- Efid: 4 Byte Ascii String
+  -- Efid: ActiveRiskAcknowledgeRejEFID
   index, efid = memx_options_riskcontrol_sbe_v1_6.efid.dissect(buffer, index, packet, parent)
 
-  -- Threshold Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Threshold Quantity: uint32
   index, threshold_quantity = memx_options_riskcontrol_sbe_v1_6.threshold_quantity.dissect(buffer, index, packet, parent)
 
-  -- Unacked Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Unacked Quantity: uint32
   index, unacked_quantity = memx_options_riskcontrol_sbe_v1_6.unacked_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -3566,22 +3566,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Max Order Msgs: 4 Byte Unsigned Fixed Width Integer
+  -- Max Order Msgs: uint32
   index, max_order_msgs = memx_options_riskcontrol_sbe_v1_6.max_order_msgs.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -3660,25 +3660,25 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Max Dup Orders: 4 Byte Unsigned Fixed Width Integer
+  -- Max Dup Orders: uint32
   index, max_dup_orders = memx_options_riskcontrol_sbe_v1_6.max_dup_orders.dissect(buffer, index, packet, parent)
 
-  -- Use Order Price In Dup Check Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Use Order Price In Dup Check Optional: BooleanType
   index, use_order_price_in_dup_check_optional = memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -3722,19 +3722,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_net_notional_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Price In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Price In Dollars: uint64
   index, price_in_dollars = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect(buffer, index, packet, parent)
 
   return index
@@ -3778,19 +3778,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_net_notional_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Price In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Price In Dollars: uint64
   index, price_in_dollars = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect(buffer, index, packet, parent)
 
   return index
@@ -3834,19 +3834,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_gross_notional_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Price In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Price In Dollars: uint64
   index, price_in_dollars = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect(buffer, index, packet, parent)
 
   return index
@@ -3890,19 +3890,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Price In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Price In Dollars: uint64
   index, price_in_dollars = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect(buffer, index, packet, parent)
 
   return index
@@ -3946,19 +3946,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Max Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Max Contracts: uint32
   index, max_contracts = memx_options_riskcontrol_sbe_v1_6.max_contracts.dissect(buffer, index, packet, parent)
 
   return index
@@ -4002,19 +4002,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Max Notional In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Max Notional In Dollars: uint64
   index, max_notional_in_dollars = memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.dissect(buffer, index, packet, parent)
 
   return index
@@ -4058,19 +4058,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Allow Orders: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Allow Orders: BooleanType
   index, allow_orders = memx_options_riskcontrol_sbe_v1_6.allow_orders.dissect(buffer, index, packet, parent)
 
   return index
@@ -4114,19 +4114,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Allow Iso Orders: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Allow Iso Orders: BooleanType
   index, allow_iso_orders = memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.dissect(buffer, index, packet, parent)
 
   return index
@@ -4167,10 +4167,10 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_clear_breach_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Breach Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Breach Id Optional: uint64
   index, breach_id_optional = memx_options_riskcontrol_sbe_v1_6.breach_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -4247,19 +4247,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Send Cancels: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Send Cancels: BooleanType
   index, send_cancels = memx_options_riskcontrol_sbe_v1_6.send_cancels.dissect(buffer, index, packet, parent)
 
   return index
@@ -4304,22 +4304,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Count: 4 Byte Unsigned Fixed Width Integer
+  -- Count: uint32
   index, count = memx_options_riskcontrol_sbe_v1_6.count.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -4363,19 +4363,19 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Percent: 4 Byte Signed Fixed Width Integer
+  -- Percent: int32
   index, percent = memx_options_riskcontrol_sbe_v1_6.percent.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -4420,22 +4420,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_total_executions_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Total Executions: 4 Byte Unsigned Fixed Width Integer
+  -- Total Executions: uint32
   index, total_executions = memx_options_riskcontrol_sbe_v1_6.total_executions.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -4480,22 +4480,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Price In Dollars: 8 Byte Unsigned Fixed Width Integer
+  -- Price In Dollars: uint64
   index, price_in_dollars = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -4540,22 +4540,22 @@ end
 memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Risk Group Id: uint16
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Volume: uint64
   index, volume = memx_options_riskcontrol_sbe_v1_6.volume.dissect(buffer, index, packet, parent)
 
-  -- Period In Milli Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Period In Milli Seconds: uint32
   index, period_in_milli_seconds = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -4598,16 +4598,16 @@ end
 memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledgement_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier: 6 Byte Ascii String
+  -- Underlier: ActiveRiskAcknowledgeRejUnderlier
   index, underlier = memx_options_riskcontrol_sbe_v1_6.underlier.dissect(buffer, index, packet, parent)
 
-  -- Efid: 4 Byte Ascii String
+  -- Efid: ActiveRiskAcknowledgeRejEFID
   index, efid = memx_options_riskcontrol_sbe_v1_6.efid.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: uint32
   index, quantity = memx_options_riskcontrol_sbe_v1_6.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -4650,16 +4650,16 @@ end
 memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_change_req_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Optional: 6 Byte Ascii String Nullable
+  -- Underlier Optional: CPBreachCountThresholdChangeReqUnderlier
   index, underlier_optional = memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efid Optional: 4 Byte Ascii String Nullable
+  -- Efid Optional: ActiveRiskThresholdChangeRejEFID
   index, efid_optional = memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect(buffer, index, packet, parent)
 
-  -- Threshold Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Threshold Quantity: uint32
   index, threshold_quantity = memx_options_riskcontrol_sbe_v1_6.threshold_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -4699,7 +4699,7 @@ end
 memx_options_riskcontrol_sbe_v1_6.risk_settings_query_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_options_riskcontrol_sbe_v1_6.clordid.dissect(buffer, index, packet, parent)
 
   return index
@@ -5422,16 +5422,16 @@ end
 memx_options_riskcontrol_sbe_v1_6.sbe_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = memx_options_riskcontrol_sbe_v1_6.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 49 values
+  -- Template Id: uint8
   index, template_id = memx_options_riskcontrol_sbe_v1_6.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint8
   index, schema_id = memx_options_riskcontrol_sbe_v1_6.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = memx_options_riskcontrol_sbe_v1_6.version.dissect(buffer, index, packet, parent)
 
   return index
@@ -6338,7 +6338,7 @@ memx_options_riskcontrol_sbe_v1_6.replay_request_message.fields = function(buffe
   -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, next_sequence_number = memx_options_riskcontrol_sbe_v1_6.next_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Count: 4 Byte Unsigned Fixed Width Integer
+  -- Count: uint32
   index, count = memx_options_riskcontrol_sbe_v1_6.count.dissect(buffer, index, packet, parent)
 
   return index

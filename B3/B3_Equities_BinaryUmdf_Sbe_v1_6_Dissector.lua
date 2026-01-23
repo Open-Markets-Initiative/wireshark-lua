@@ -880,25 +880,25 @@ b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_
     iteration:set_generated()
   end
 
-  -- Md Corporate Offset Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Corporate Offset Price Optional: PriceOptional
   index, md_corporate_offset_price_optional = b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Size Quantity: Quantity
   index, md_entry_size_quantity = b3_equities_binaryumdf_sbe_v1_6.md_entry_size_quantity.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Position No: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Position No: MDEntryPositionNo
   index, md_entry_position_no = b3_equities_binaryumdf_sbe_v1_6.md_entry_position_no.dissect(buffer, index, packet, parent)
 
-  -- Entering Firm: 4 Byte Unsigned Fixed Width Integer
+  -- Entering Firm: FirmOptional
   index, entering_firm = b3_equities_binaryumdf_sbe_v1_6.entering_firm.dissect(buffer, index, packet, parent)
 
-  -- Md Insert Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Insert Timestamp: UTCTimestampNanos
   index, md_insert_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_insert_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Secondary Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Secondary Order Id: OrderID
   index, secondary_order_id = b3_equities_binaryumdf_sbe_v1_6.secondary_order_id.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 21 values
+  -- Md Entry Type: MDEntryType
   index, md_entry_type = b3_equities_binaryumdf_sbe_v1_6.md_entry_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -985,10 +985,10 @@ end
 b3_equities_binaryumdf_sbe_v1_6.group_size_encoding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = b3_equities_binaryumdf_sbe_v1_6.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = b3_equities_binaryumdf_sbe_v1_6.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -1110,7 +1110,7 @@ end
 b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups: Struct of 2 fields
@@ -1452,37 +1452,37 @@ end
 b3_equities_binaryumdf_sbe_v1_6.trade_bust_57_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_equities_binaryumdf_sbe_v1_6.trading_session_id.dissect(buffer, index, packet, parent)
 
   -- Offset 10 Padding 2: 2 Byte
   index, offset_10_padding_2 = b3_equities_binaryumdf_sbe_v1_6.offset_10_padding_2.dissect(buffer, index, packet, parent)
 
-  -- Md Future Price: 8 Byte Signed Fixed Width Integer
+  -- Md Future Price: Price
   index, md_future_price = b3_equities_binaryumdf_sbe_v1_6.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Size Quantity: Quantity
   index, md_entry_size_quantity = b3_equities_binaryumdf_sbe_v1_6.md_entry_size_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: TradeID
   index, trade_id = b3_equities_binaryumdf_sbe_v1_6.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
   -- Offset 34 Padding 2: 2 Byte
   index, offset_34_padding_2 = b3_equities_binaryumdf_sbe_v1_6.offset_34_padding_2.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -1655,34 +1655,34 @@ end
 b3_equities_binaryumdf_sbe_v1_6.execution_statistics_56_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_equities_binaryumdf_sbe_v1_6.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 8 Byte Signed Fixed Width Integer
+  -- Trade Volume: QuantityVolume
   index, trade_volume = b3_equities_binaryumdf_sbe_v1_6.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- Vwap Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Vwap Px: PriceOptional
   index, vwap_px = b3_equities_binaryumdf_sbe_v1_6.vwap_px.dissect(buffer, index, packet, parent)
 
-  -- Net Chg Prev Day: 8 Byte Signed Fixed Width Integer Nullable
+  -- Net Chg Prev Day: PriceOffset8Optional
   index, net_chg_prev_day = b3_equities_binaryumdf_sbe_v1_6.net_chg_prev_day.dissect(buffer, index, packet, parent)
 
-  -- Number Of Trades: 4 Byte Unsigned Fixed Width Integer
+  -- Number Of Trades: NumberOfTrades
   index, number_of_trades = b3_equities_binaryumdf_sbe_v1_6.number_of_trades.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -1936,37 +1936,37 @@ end
 b3_equities_binaryumdf_sbe_v1_6.execution_summary_55_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Offset 8 Padding 2: 2 Byte
   index, offset_8_padding_2 = b3_equities_binaryumdf_sbe_v1_6.offset_8_padding_2.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = b3_equities_binaryumdf_sbe_v1_6.aggressor_side.dissect(buffer, index, packet, parent)
 
   -- Offset 11 Padding 1: 1 Byte
   index, offset_11_padding_1 = b3_equities_binaryumdf_sbe_v1_6.offset_11_padding_1.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: Price
   index, last_px = b3_equities_binaryumdf_sbe_v1_6.last_px.dissect(buffer, index, packet, parent)
 
-  -- Fill Qty: 8 Byte Signed Fixed Width Integer
+  -- Fill Qty: Quantity
   index, fill_qty = b3_equities_binaryumdf_sbe_v1_6.fill_qty.dissect(buffer, index, packet, parent)
 
-  -- Traded Hidden Qty: 8 Byte Signed Fixed Width Integer
+  -- Traded Hidden Qty: QuantityOptional
   index, traded_hidden_qty = b3_equities_binaryumdf_sbe_v1_6.traded_hidden_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Signed Fixed Width Integer
+  -- Cxl Qty: QuantityOptional
   index, cxl_qty = b3_equities_binaryumdf_sbe_v1_6.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Time: 8 Byte Unsigned Fixed Width Integer
+  -- Aggressor Time: UTCTimestampNanos
   index, aggressor_time = b3_equities_binaryumdf_sbe_v1_6.aggressor_time.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -2352,49 +2352,49 @@ end
 b3_equities_binaryumdf_sbe_v1_6.forward_trade_54_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_equities_binaryumdf_sbe_v1_6.trading_session_id.dissect(buffer, index, packet, parent)
 
   -- Trade Condition: Struct of 16 fields
   index, trade_condition = b3_equities_binaryumdf_sbe_v1_6.trade_condition.dissect(buffer, index, packet, parent)
 
-  -- Md Future Price: 8 Byte Signed Fixed Width Integer
+  -- Md Future Price: Price
   index, md_future_price = b3_equities_binaryumdf_sbe_v1_6.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Size Quantity: Quantity
   index, md_entry_size_quantity = b3_equities_binaryumdf_sbe_v1_6.md_entry_size_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: TradeID
   index, trade_id = b3_equities_binaryumdf_sbe_v1_6.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Buyer: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Buyer: FirmOptional
   index, md_entry_buyer = b3_equities_binaryumdf_sbe_v1_6.md_entry_buyer.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Seller: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Seller: FirmOptional
   index, md_entry_seller = b3_equities_binaryumdf_sbe_v1_6.md_entry_seller.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Seller Days: 2 Byte Unsigned Fixed Width Integer
+  -- Seller Days: UInt16NULL
   index, seller_days = b3_equities_binaryumdf_sbe_v1_6.seller_days.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Interest Rate: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Interest Rate: Percentage
   index, md_entry_interest_rate = b3_equities_binaryumdf_sbe_v1_6.md_entry_interest_rate.dissect(buffer, index, packet, parent)
 
-  -- Trd Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Trd Sub Type: TrdSubType
   index, trd_sub_type = b3_equities_binaryumdf_sbe_v1_6.trd_sub_type.dissect(buffer, index, packet, parent)
 
   -- Padding 3: 3 Byte
@@ -2473,46 +2473,46 @@ end
 b3_equities_binaryumdf_sbe_v1_6.trade_53_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_equities_binaryumdf_sbe_v1_6.trading_session_id.dissect(buffer, index, packet, parent)
 
   -- Trade Condition: Struct of 16 fields
   index, trade_condition = b3_equities_binaryumdf_sbe_v1_6.trade_condition.dissect(buffer, index, packet, parent)
 
-  -- Md Future Price: 8 Byte Signed Fixed Width Integer
+  -- Md Future Price: Price
   index, md_future_price = b3_equities_binaryumdf_sbe_v1_6.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Size Quantity: Quantity
   index, md_entry_size_quantity = b3_equities_binaryumdf_sbe_v1_6.md_entry_size_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: TradeID
   index, trade_id = b3_equities_binaryumdf_sbe_v1_6.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Buyer: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Buyer: FirmOptional
   index, md_entry_buyer = b3_equities_binaryumdf_sbe_v1_6.md_entry_buyer.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Seller: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Seller: FirmOptional
   index, md_entry_seller = b3_equities_binaryumdf_sbe_v1_6.md_entry_seller.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Trd Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Trd Sub Type: TrdSubType
   index, trd_sub_type = b3_equities_binaryumdf_sbe_v1_6.trd_sub_type.dissect(buffer, index, packet, parent)
 
   -- Offset 43 Padding 1: 1 Byte
   index, offset_43_padding_1 = b3_equities_binaryumdf_sbe_v1_6.offset_43_padding_1.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -2601,28 +2601,28 @@ end
 b3_equities_binaryumdf_sbe_v1_6.mass_delete_orders_mb_o_52_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_equities_binaryumdf_sbe_v1_6.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 21 values
+  -- Md Entry Type: MDEntryType
   index, md_entry_type = b3_equities_binaryumdf_sbe_v1_6.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Offset 11 Padding 1: 1 Byte
   index, offset_11_padding_1 = b3_equities_binaryumdf_sbe_v1_6.offset_11_padding_1.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Position No: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Position No: MDEntryPositionNo
   index, md_entry_position_no = b3_equities_binaryumdf_sbe_v1_6.md_entry_position_no.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -2717,7 +2717,7 @@ end
 b3_equities_binaryumdf_sbe_v1_6.delete_order_mb_o_51_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -2726,25 +2726,25 @@ b3_equities_binaryumdf_sbe_v1_6.delete_order_mb_o_51_message.fields = function(b
   -- Offset 9 Padding 1: 1 Byte
   index, offset_9_padding_1 = b3_equities_binaryumdf_sbe_v1_6.offset_9_padding_1.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 21 values
+  -- Md Entry Type: MDEntryType
   index, md_entry_type = b3_equities_binaryumdf_sbe_v1_6.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Offset 11 Padding 1: 1 Byte
   index, offset_11_padding_1 = b3_equities_binaryumdf_sbe_v1_6.offset_11_padding_1.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Position No: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Position No: MDEntryPositionNo
   index, md_entry_position_no = b3_equities_binaryumdf_sbe_v1_6.md_entry_position_no.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity Optional: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Size Quantity Optional: QuantityOptional
   index, md_entry_size_quantity_optional = b3_equities_binaryumdf_sbe_v1_6.md_entry_size_quantity_optional.dissect(buffer, index, packet, parent)
 
-  -- Secondary Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Secondary Order Id: OrderID
   index, secondary_order_id = b3_equities_binaryumdf_sbe_v1_6.secondary_order_id.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -2796,43 +2796,43 @@ end
 b3_equities_binaryumdf_sbe_v1_6.order_mb_o_50_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_equities_binaryumdf_sbe_v1_6.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 21 values
+  -- Md Entry Type: MDEntryType
   index, md_entry_type = b3_equities_binaryumdf_sbe_v1_6.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Offset 11 Padding 1: 1 Byte
   index, offset_11_padding_1 = b3_equities_binaryumdf_sbe_v1_6.offset_11_padding_1.dissect(buffer, index, packet, parent)
 
-  -- Md Corporate Offset Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Corporate Offset Price Optional: PriceOptional
   index, md_corporate_offset_price_optional = b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Size Quantity: Quantity
   index, md_entry_size_quantity = b3_equities_binaryumdf_sbe_v1_6.md_entry_size_quantity.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Position No: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Position No: MDEntryPositionNo
   index, md_entry_position_no = b3_equities_binaryumdf_sbe_v1_6.md_entry_position_no.dissect(buffer, index, packet, parent)
 
-  -- Entering Firm: 4 Byte Unsigned Fixed Width Integer
+  -- Entering Firm: FirmOptional
   index, entering_firm = b3_equities_binaryumdf_sbe_v1_6.entering_firm.dissect(buffer, index, packet, parent)
 
-  -- Md Insert Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Insert Timestamp: UTCTimestampNanos
   index, md_insert_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_insert_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Secondary Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Secondary Order Id: OrderID
   index, secondary_order_id = b3_equities_binaryumdf_sbe_v1_6.secondary_order_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3040,28 +3040,28 @@ end
 b3_equities_binaryumdf_sbe_v1_6.snapshot_full_refresh_header_30_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
-  -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
+  -- Last Msg Seq Num Processed: SeqNum
   index, last_msg_seq_num_processed = b3_equities_binaryumdf_sbe_v1_6.last_msg_seq_num_processed.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Reports: UInt32
   index, tot_num_reports = b3_equities_binaryumdf_sbe_v1_6.tot_num_reports.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Bids: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Bids: UInt32
   index, tot_num_bids = b3_equities_binaryumdf_sbe_v1_6.tot_num_bids.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Offers: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Offers: UInt32
   index, tot_num_offers = b3_equities_binaryumdf_sbe_v1_6.tot_num_offers.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Stats: 2 Byte Unsigned Fixed Width Integer
+  -- Tot Num Stats: UInt16
   index, tot_num_stats = b3_equities_binaryumdf_sbe_v1_6.tot_num_stats.dissect(buffer, index, packet, parent)
 
   -- Offset 26 Padding 2: 2 Byte
   index, offset_26_padding_2 = b3_equities_binaryumdf_sbe_v1_6.offset_26_padding_2.dissect(buffer, index, packet, parent)
 
-  -- Last Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Last Rpt Seq: RptSeq
   index, last_rpt_seq = b3_equities_binaryumdf_sbe_v1_6.last_rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -3116,49 +3116,49 @@ end
 b3_equities_binaryumdf_sbe_v1_6.last_trade_price_27_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_equities_binaryumdf_sbe_v1_6.trading_session_id.dissect(buffer, index, packet, parent)
 
   -- Trade Condition: Struct of 16 fields
   index, trade_condition = b3_equities_binaryumdf_sbe_v1_6.trade_condition.dissect(buffer, index, packet, parent)
 
-  -- Md Future Price: 8 Byte Signed Fixed Width Integer
+  -- Md Future Price: Price
   index, md_future_price = b3_equities_binaryumdf_sbe_v1_6.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Size Quantity: Quantity
   index, md_entry_size_quantity = b3_equities_binaryumdf_sbe_v1_6.md_entry_size_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: TradeID
   index, trade_id = b3_equities_binaryumdf_sbe_v1_6.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Buyer: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Buyer: FirmOptional
   index, md_entry_buyer = b3_equities_binaryumdf_sbe_v1_6.md_entry_buyer.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Seller: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Seller: FirmOptional
   index, md_entry_seller = b3_equities_binaryumdf_sbe_v1_6.md_entry_seller.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Seller Days: 2 Byte Unsigned Fixed Width Integer
+  -- Seller Days: UInt16NULL
   index, seller_days = b3_equities_binaryumdf_sbe_v1_6.seller_days.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Interest Rate: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Interest Rate: Percentage
   index, md_entry_interest_rate = b3_equities_binaryumdf_sbe_v1_6.md_entry_interest_rate.dissect(buffer, index, packet, parent)
 
-  -- Trd Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Trd Sub Type: TrdSubType
   index, trd_sub_type = b3_equities_binaryumdf_sbe_v1_6.trd_sub_type.dissect(buffer, index, packet, parent)
 
   -- Padding 3: 3 Byte
@@ -3207,25 +3207,25 @@ end
 b3_equities_binaryumdf_sbe_v1_6.low_price_25_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_equities_binaryumdf_sbe_v1_6.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Md Future Price: 8 Byte Signed Fixed Width Integer
+  -- Md Future Price: Price
   index, md_future_price = b3_equities_binaryumdf_sbe_v1_6.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -3271,25 +3271,25 @@ end
 b3_equities_binaryumdf_sbe_v1_6.high_price_24_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_equities_binaryumdf_sbe_v1_6.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Md Future Price: 8 Byte Signed Fixed Width Integer
+  -- Md Future Price: Price
   index, md_future_price = b3_equities_binaryumdf_sbe_v1_6.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -3404,7 +3404,7 @@ end
 b3_equities_binaryumdf_sbe_v1_6.quantity_band_21_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -3413,16 +3413,16 @@ b3_equities_binaryumdf_sbe_v1_6.quantity_band_21_message.fields = function(buffe
   -- Offset 9 Padding 3: 3 Byte
   index, offset_9_padding_3 = b3_equities_binaryumdf_sbe_v1_6.offset_9_padding_3.dissect(buffer, index, packet, parent)
 
-  -- Avg Daily Traded Qty: 8 Byte Signed Fixed Width Integer
+  -- Avg Daily Traded Qty: QuantityVolumeOptional
   index, avg_daily_traded_qty = b3_equities_binaryumdf_sbe_v1_6.avg_daily_traded_qty.dissect(buffer, index, packet, parent)
 
-  -- Max Trade Vol: 8 Byte Signed Fixed Width Integer
+  -- Max Trade Vol: QuantityVolumeOptional
   index, max_trade_vol = b3_equities_binaryumdf_sbe_v1_6.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -3699,34 +3699,34 @@ end
 b3_equities_binaryumdf_sbe_v1_6.price_band_20_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Band Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Price Band Type: PriceBandType
   index, price_band_type = b3_equities_binaryumdf_sbe_v1_6.price_band_type.dissect(buffer, index, packet, parent)
 
-  -- Price Limit Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Price Limit Type: PriceLimitType
   index, price_limit_type = b3_equities_binaryumdf_sbe_v1_6.price_limit_type.dissect(buffer, index, packet, parent)
 
-  -- Price Band Midpoint Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Price Band Midpoint Price Type: PriceBandMidpointPriceType
   index, price_band_midpoint_price_type = b3_equities_binaryumdf_sbe_v1_6.price_band_midpoint_price_type.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PriceOptional
   index, low_limit_price = b3_equities_binaryumdf_sbe_v1_6.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PriceOptional
   index, high_limit_price = b3_equities_binaryumdf_sbe_v1_6.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Trading Reference Price: PriceOptional
   index, trading_reference_price = b3_equities_binaryumdf_sbe_v1_6.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -3882,25 +3882,25 @@ end
 b3_equities_binaryumdf_sbe_v1_6.auction_imbalance_19_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_equities_binaryumdf_sbe_v1_6.md_update_action.dissect(buffer, index, packet, parent)
 
   -- Imbalance Condition: Struct of 11 fields
   index, imbalance_condition = b3_equities_binaryumdf_sbe_v1_6.imbalance_condition.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity Optional: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Size Quantity Optional: QuantityOptional
   index, md_entry_size_quantity_optional = b3_equities_binaryumdf_sbe_v1_6.md_entry_size_quantity_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -4044,31 +4044,31 @@ end
 b3_equities_binaryumdf_sbe_v1_6.closing_price_17_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = b3_equities_binaryumdf_sbe_v1_6.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Offset 10 Padding 2: 2 Byte
   index, offset_10_padding_2 = b3_equities_binaryumdf_sbe_v1_6.offset_10_padding_2.dissect(buffer, index, packet, parent)
 
-  -- Md Corporate Price: 8 Byte Signed Fixed Width Integer
+  -- Md Corporate Price: Price8
   index, md_corporate_price = b3_equities_binaryumdf_sbe_v1_6.md_corporate_price.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Trade Date: LocalMktDateOptional
   index, last_trade_date = b3_equities_binaryumdf_sbe_v1_6.last_trade_date.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -4115,28 +4115,28 @@ end
 b3_equities_binaryumdf_sbe_v1_6.theoretical_opening_price_16_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_equities_binaryumdf_sbe_v1_6.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Md Corporate Offset Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Corporate Offset Price Optional: PriceOptional
   index, md_corporate_offset_price_optional = b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity Optional: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Size Quantity Optional: QuantityOptional
   index, md_entry_size_quantity_optional = b3_equities_binaryumdf_sbe_v1_6.md_entry_size_quantity_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -4209,34 +4209,34 @@ end
 b3_equities_binaryumdf_sbe_v1_6.opening_price_15_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_equities_binaryumdf_sbe_v1_6.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = b3_equities_binaryumdf_sbe_v1_6.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Offset 11 Padding 1: 1 Byte
   index, offset_11_padding_1 = b3_equities_binaryumdf_sbe_v1_6.offset_11_padding_1.dissect(buffer, index, packet, parent)
 
-  -- Md Future Price: 8 Byte Signed Fixed Width Integer
+  -- Md Future Price: Price
   index, md_future_price = b3_equities_binaryumdf_sbe_v1_6.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Net Chg Prev Day: 8 Byte Signed Fixed Width Integer Nullable
+  -- Net Chg Prev Day: PriceOffset8Optional
   index, net_chg_prev_day = b3_equities_binaryumdf_sbe_v1_6.net_chg_prev_day.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
@@ -4310,7 +4310,7 @@ b3_equities_binaryumdf_sbe_v1_6.channel_reset_11_message.fields = function(buffe
   -- Offset 1 Padding 3: 3 Byte
   index, offset_1_padding_3 = b3_equities_binaryumdf_sbe_v1_6.offset_1_padding_3.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -4353,7 +4353,7 @@ end
 b3_equities_binaryumdf_sbe_v1_6.empty_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -4362,7 +4362,7 @@ b3_equities_binaryumdf_sbe_v1_6.empty_book_message.fields = function(buffer, off
   -- Offset 9 Padding 3: 3 Byte
   index, offset_9_padding_3 = b3_equities_binaryumdf_sbe_v1_6.offset_9_padding_3.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -4457,7 +4457,7 @@ end
 b3_equities_binaryumdf_sbe_v1_6.url_link.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Url Link Length: 2 Byte Unsigned Fixed Width Integer
+  -- Url Link Length: uint16
   index, url_link_length = b3_equities_binaryumdf_sbe_v1_6.url_link_length.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Url Link Data
@@ -4563,7 +4563,7 @@ end
 b3_equities_binaryumdf_sbe_v1_6.text.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text Length: 2 Byte Unsigned Fixed Width Integer
+  -- Text Length: uint16
   index, text_length = b3_equities_binaryumdf_sbe_v1_6.text_length.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Text Data
@@ -4669,7 +4669,7 @@ end
 b3_equities_binaryumdf_sbe_v1_6.headline.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Headline Length: 2 Byte Unsigned Fixed Width Integer
+  -- Headline Length: uint16
   index, headline_length = b3_equities_binaryumdf_sbe_v1_6.headline_length.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Headline Data
@@ -5001,31 +5001,31 @@ end
 b3_equities_binaryumdf_sbe_v1_6.news_5_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id Optional: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id Optional: SecurityIDOptional
   index, security_id_optional = b3_equities_binaryumdf_sbe_v1_6.security_id_optional.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- News Source: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  -- News Source: NewsSource
   index, news_source = b3_equities_binaryumdf_sbe_v1_6.news_source.dissect(buffer, index, packet, parent)
 
-  -- Language Code: 2 Byte Ascii String Nullable
+  -- Language Code: LanguageCode
   index, language_code = b3_equities_binaryumdf_sbe_v1_6.language_code.dissect(buffer, index, packet, parent)
 
-  -- Part Count: 2 Byte Unsigned Fixed Width Integer
+  -- Part Count: UInt16
   index, part_count = b3_equities_binaryumdf_sbe_v1_6.part_count.dissect(buffer, index, packet, parent)
 
-  -- Part Number: 2 Byte Unsigned Fixed Width Integer
+  -- Part Number: UInt16
   index, part_number = b3_equities_binaryumdf_sbe_v1_6.part_number.dissect(buffer, index, packet, parent)
 
-  -- News Id: 8 Byte Unsigned Fixed Width Integer
+  -- News Id: NewsID
   index, news_id = b3_equities_binaryumdf_sbe_v1_6.news_id.dissect(buffer, index, packet, parent)
 
-  -- Orig Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Orig Time: UTCTimestampNanos
   index, orig_time = b3_equities_binaryumdf_sbe_v1_6.orig_time.dissect(buffer, index, packet, parent)
 
-  -- Total Text Length: 4 Byte Unsigned Fixed Width Integer
+  -- Total Text Length: UInt32
   index, total_text_length = b3_equities_binaryumdf_sbe_v1_6.total_text_length.dissect(buffer, index, packet, parent)
 
   -- Headline: Struct of 2 fields
@@ -5128,7 +5128,7 @@ end
 b3_equities_binaryumdf_sbe_v1_6.security_desc.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Desc Length: 1 Byte Unsigned Fixed Width Integer
+  -- Security Desc Length: uint8
   index, security_desc_length = b3_equities_binaryumdf_sbe_v1_6.security_desc_length.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Security Desc Data
@@ -5258,10 +5258,10 @@ b3_equities_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.fields = function
     iteration:set_generated()
   end
 
-  -- Instr Attrib Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Instr Attrib Type: InstrAttribType
   index, instr_attrib_type = b3_equities_binaryumdf_sbe_v1_6.instr_attrib_type.dissect(buffer, index, packet, parent)
 
-  -- Instr Attrib Value: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Instr Attrib Value: InstrAttribValue
   index, instr_attrib_value = b3_equities_binaryumdf_sbe_v1_6.instr_attrib_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -5559,19 +5559,19 @@ b3_equities_binaryumdf_sbe_v1_6.deprecated_legs_group.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Leg Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Security Id: SecurityID
   index, leg_security_id = b3_equities_binaryumdf_sbe_v1_6.leg_security_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty: 8 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty: RatioQty
   index, leg_ratio_qty = b3_equities_binaryumdf_sbe_v1_6.leg_ratio_qty.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 17 values
+  -- Leg Security Type: SecurityType
   index, leg_security_type = b3_equities_binaryumdf_sbe_v1_6.leg_security_type.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Side: Side
   index, leg_side = b3_equities_binaryumdf_sbe_v1_6.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Symbol: 20 Byte Ascii String
+  -- Leg Symbol: Symbol
   index, leg_symbol = b3_equities_binaryumdf_sbe_v1_6.leg_symbol.dissect(buffer, index, packet, parent)
 
   return index
@@ -5812,16 +5812,16 @@ b3_equities_binaryumdf_sbe_v1_6.deprecated_underlyings_group.fields = function(b
     iteration:set_generated()
   end
 
-  -- Underlying Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Security Id: SecurityID
   index, underlying_security_id = b3_equities_binaryumdf_sbe_v1_6.underlying_security_id.dissect(buffer, index, packet, parent)
 
-  -- Index Pct: 8 Byte Signed Fixed Width Integer Nullable
+  -- Index Pct: Percentage9
   index, index_pct = b3_equities_binaryumdf_sbe_v1_6.index_pct.dissect(buffer, index, packet, parent)
 
-  -- Index Theoretical Qty: 8 Byte Signed Fixed Width Integer Nullable
+  -- Index Theoretical Qty: Fixed8
   index, index_theoretical_qty = b3_equities_binaryumdf_sbe_v1_6.index_theoretical_qty.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 20 Byte Ascii String
+  -- Underlying Symbol: Symbol
   index, underlying_symbol = b3_equities_binaryumdf_sbe_v1_6.underlying_symbol.dissect(buffer, index, packet, parent)
 
   return index
@@ -6613,16 +6613,16 @@ end
 b3_equities_binaryumdf_sbe_v1_6.contract_settl_month.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Unsigned Fixed Width Integer
+  -- Year: uint16
   index, year = b3_equities_binaryumdf_sbe_v1_6.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Unsigned Fixed Width Integer
+  -- Month: uint8
   index, month = b3_equities_binaryumdf_sbe_v1_6.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Unsigned Fixed Width Integer
+  -- Day: uint8
   index, day = b3_equities_binaryumdf_sbe_v1_6.day.dissect(buffer, index, packet, parent)
 
-  -- Week: 1 Byte Unsigned Fixed Width Integer
+  -- Week: uint8
   index, week = b3_equities_binaryumdf_sbe_v1_6.week.dissect(buffer, index, packet, parent)
 
   return index
@@ -6665,16 +6665,16 @@ end
 b3_equities_binaryumdf_sbe_v1_6.maturity_month_year.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Unsigned Fixed Width Integer
+  -- Year: uint16
   index, year = b3_equities_binaryumdf_sbe_v1_6.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Unsigned Fixed Width Integer
+  -- Month: uint8
   index, month = b3_equities_binaryumdf_sbe_v1_6.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Unsigned Fixed Width Integer
+  -- Day: uint8
   index, day = b3_equities_binaryumdf_sbe_v1_6.day.dissect(buffer, index, packet, parent)
 
-  -- Week: 1 Byte Unsigned Fixed Width Integer
+  -- Week: uint8
   index, week = b3_equities_binaryumdf_sbe_v1_6.week.dissect(buffer, index, packet, parent)
 
   return index
@@ -7841,100 +7841,100 @@ end
 b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = b3_equities_binaryumdf_sbe_v1_6.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Security Id Source: 1 Byte Ascii String Enum with 2 values
+  -- Security Id Source: SecurityIDSource
   index, security_id_source = b3_equities_binaryumdf_sbe_v1_6.security_id_source.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 3 Byte Ascii String
+  -- Security Group: SecurityGroup
   index, security_group = b3_equities_binaryumdf_sbe_v1_6.security_group.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = b3_equities_binaryumdf_sbe_v1_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Security Update Action: SecurityUpdateAction
   index, security_update_action = b3_equities_binaryumdf_sbe_v1_6.security_update_action.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 17 values
+  -- Security Type: SecurityType
   index, security_type = b3_equities_binaryumdf_sbe_v1_6.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Sub Type: 2 Byte Unsigned Fixed Width Integer
+  -- Security Sub Type: UInt16
   index, security_sub_type = b3_equities_binaryumdf_sbe_v1_6.security_sub_type.dissect(buffer, index, packet, parent)
 
-  -- Tot No Related Sym: 4 Byte Unsigned Fixed Width Integer
+  -- Tot No Related Sym: UInt32
   index, tot_no_related_sym = b3_equities_binaryumdf_sbe_v1_6.tot_no_related_sym.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
+  -- Min Price Increment: PriceOptional
   index, min_price_increment = b3_equities_binaryumdf_sbe_v1_6.min_price_increment.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Strike Price: PriceOptional
   index, strike_price = b3_equities_binaryumdf_sbe_v1_6.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Contract Multiplier: 8 Byte Signed Fixed Width Integer Nullable
+  -- Contract Multiplier: Fixed8
   index, contract_multiplier = b3_equities_binaryumdf_sbe_v1_6.contract_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Price Divisor: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price Divisor: Fixed8
   index, price_divisor = b3_equities_binaryumdf_sbe_v1_6.price_divisor.dissect(buffer, index, packet, parent)
 
-  -- Security Validity Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Security Validity Timestamp: UTCTimestampSeconds
   index, security_validity_timestamp = b3_equities_binaryumdf_sbe_v1_6.security_validity_timestamp.dissect(buffer, index, packet, parent)
 
-  -- No Shares Issued: 8 Byte Unsigned Fixed Width Integer
+  -- No Shares Issued: UInt64NULL
   index, no_shares_issued = b3_equities_binaryumdf_sbe_v1_6.no_shares_issued.dissect(buffer, index, packet, parent)
 
-  -- Clearing House Id: 8 Byte Unsigned Fixed Width Integer
+  -- Clearing House Id: ClearingHouseID
   index, clearing_house_id = b3_equities_binaryumdf_sbe_v1_6.clearing_house_id.dissect(buffer, index, packet, parent)
 
-  -- Min Order Qty: 8 Byte Signed Fixed Width Integer
+  -- Min Order Qty: QuantityOptional
   index, min_order_qty = b3_equities_binaryumdf_sbe_v1_6.min_order_qty.dissect(buffer, index, packet, parent)
 
-  -- Max Order Qty: 8 Byte Signed Fixed Width Integer
+  -- Max Order Qty: QuantityOptional
   index, max_order_qty = b3_equities_binaryumdf_sbe_v1_6.max_order_qty.dissect(buffer, index, packet, parent)
 
-  -- Min Lot Size: 8 Byte Signed Fixed Width Integer
+  -- Min Lot Size: QuantityOptional
   index, min_lot_size = b3_equities_binaryumdf_sbe_v1_6.min_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Min Trade Vol: 8 Byte Signed Fixed Width Integer
+  -- Min Trade Vol: QuantityOptional
   index, min_trade_vol = b3_equities_binaryumdf_sbe_v1_6.min_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Corporate Action Event Id: 4 Byte Unsigned Fixed Width Integer
+  -- Corporate Action Event Id: UInt32NULL
   index, corporate_action_event_id = b3_equities_binaryumdf_sbe_v1_6.corporate_action_event_id.dissect(buffer, index, packet, parent)
 
-  -- Issue Date: 4 Byte Signed Fixed Width Integer
+  -- Issue Date: LocalMktDate32
   index, issue_date = b3_equities_binaryumdf_sbe_v1_6.issue_date.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 4 Byte Signed Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate32Optional
   index, maturity_date = b3_equities_binaryumdf_sbe_v1_6.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Country Of Issue: 2 Byte Ascii String Nullable
+  -- Country Of Issue: CountryCode
   index, country_of_issue = b3_equities_binaryumdf_sbe_v1_6.country_of_issue.dissect(buffer, index, packet, parent)
 
-  -- Start Date: 4 Byte Signed Fixed Width Integer Nullable
+  -- Start Date: LocalMktDate32Optional
   index, start_date = b3_equities_binaryumdf_sbe_v1_6.start_date.dissect(buffer, index, packet, parent)
 
-  -- End Date: 4 Byte Signed Fixed Width Integer Nullable
+  -- End Date: LocalMktDate32Optional
   index, end_date = b3_equities_binaryumdf_sbe_v1_6.end_date.dissect(buffer, index, packet, parent)
 
-  -- Settl Type: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Type: SettlType
   index, settl_type = b3_equities_binaryumdf_sbe_v1_6.settl_type.dissect(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Signed Fixed Width Integer Nullable
+  -- Settl Date: LocalMktDate32Optional
   index, settl_date = b3_equities_binaryumdf_sbe_v1_6.settl_date.dissect(buffer, index, packet, parent)
 
-  -- Dated Date: 4 Byte Signed Fixed Width Integer Nullable
+  -- Dated Date: LocalMktDate32Optional
   index, dated_date = b3_equities_binaryumdf_sbe_v1_6.dated_date.dissect(buffer, index, packet, parent)
 
-  -- Isin Number: 12 Byte Ascii String Nullable
+  -- Isin Number: ISINNumber
   index, isin_number = b3_equities_binaryumdf_sbe_v1_6.isin_number.dissect(buffer, index, packet, parent)
 
-  -- Asset: 6 Byte Ascii String
+  -- Asset: Asset
   index, asset = b3_equities_binaryumdf_sbe_v1_6.asset.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CFICode
   index, cfi_code = b3_equities_binaryumdf_sbe_v1_6.cfi_code.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
@@ -7943,55 +7943,55 @@ b3_equities_binaryumdf_sbe_v1_6.deprecated_security_definition_message.fields = 
   -- Contract Settl Month: Struct of 4 fields
   index, contract_settl_month = b3_equities_binaryumdf_sbe_v1_6.contract_settl_month.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = b3_equities_binaryumdf_sbe_v1_6.currency.dissect(buffer, index, packet, parent)
 
-  -- Strike Currency: 3 Byte Ascii String Nullable
+  -- Strike Currency: Currency
   index, strike_currency = b3_equities_binaryumdf_sbe_v1_6.strike_currency.dissect(buffer, index, packet, parent)
 
-  -- Settl Currency: 3 Byte Ascii String Nullable
+  -- Settl Currency: Currency
   index, settl_currency = b3_equities_binaryumdf_sbe_v1_6.settl_currency.dissect(buffer, index, packet, parent)
 
-  -- Security Strategy Type: 3 Byte Ascii String
+  -- Security Strategy Type: SecurityStrategyType
   index, security_strategy_type = b3_equities_binaryumdf_sbe_v1_6.security_strategy_type.dissect(buffer, index, packet, parent)
 
-  -- Lot Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Lot Type: LotType
   index, lot_type = b3_equities_binaryumdf_sbe_v1_6.lot_type.dissect(buffer, index, packet, parent)
 
-  -- Tick Size Denominator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Tick Size Denominator: UInt8
   index, tick_size_denominator = b3_equities_binaryumdf_sbe_v1_6.tick_size_denominator.dissect(buffer, index, packet, parent)
 
-  -- Product: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Product: Product
   index, product = b3_equities_binaryumdf_sbe_v1_6.product.dissect(buffer, index, packet, parent)
 
-  -- Exercise Style: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Exercise Style: ExerciseStyle
   index, exercise_style = b3_equities_binaryumdf_sbe_v1_6.exercise_style.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Put Or Call: PutOrCall
   index, put_or_call = b3_equities_binaryumdf_sbe_v1_6.put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Price Type: PriceType
   index, price_type = b3_equities_binaryumdf_sbe_v1_6.price_type.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
+  -- Market Segment Id: MarketSegmentID
   index, market_segment_id = b3_equities_binaryumdf_sbe_v1_6.market_segment_id.dissect(buffer, index, packet, parent)
 
-  -- Governance Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Governance Indicator: GovernanceIndicator
   index, governance_indicator = b3_equities_binaryumdf_sbe_v1_6.governance_indicator.dissect(buffer, index, packet, parent)
 
-  -- Security Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Security Match Type: SecurityMatchType
   index, security_match_type = b3_equities_binaryumdf_sbe_v1_6.security_match_type.dissect(buffer, index, packet, parent)
 
-  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Last Fragment: Boolean
   index, last_fragment = b3_equities_binaryumdf_sbe_v1_6.last_fragment.dissect(buffer, index, packet, parent)
 
-  -- Multi Leg Model: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Multi Leg Model: MultiLegModel
   index, multi_leg_model = b3_equities_binaryumdf_sbe_v1_6.multi_leg_model.dissect(buffer, index, packet, parent)
 
-  -- Multi Leg Price Method: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Multi Leg Price Method: MultiLegPriceMethod
   index, multi_leg_price_method = b3_equities_binaryumdf_sbe_v1_6.multi_leg_price_method.dissect(buffer, index, packet, parent)
 
-  -- Min Cross Qty: 8 Byte Signed Fixed Width Integer
+  -- Min Cross Qty: QuantityOptional
   index, min_cross_qty = b3_equities_binaryumdf_sbe_v1_6.min_cross_qty.dissect(buffer, index, packet, parent)
 
   -- Deprecated Underlyings Groups: Struct of 2 fields
@@ -8228,7 +8228,7 @@ end
 b3_equities_binaryumdf_sbe_v1_6.security_group_phase_10_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Group: 3 Byte Ascii String
+  -- Security Group: SecurityGroup
   index, security_group = b3_equities_binaryumdf_sbe_v1_6.security_group.dissect(buffer, index, packet, parent)
 
   -- Offset 3 Padding 5: 5 Byte
@@ -8237,25 +8237,25 @@ b3_equities_binaryumdf_sbe_v1_6.security_group_phase_10_message.fields = functio
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_equities_binaryumdf_sbe_v1_6.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Trading Session Sub Id: TradingSessionSubID
   index, trading_session_sub_id = b3_equities_binaryumdf_sbe_v1_6.trading_session_sub_id.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Security Trading Event: SecurityTradingEvent
   index, security_trading_event = b3_equities_binaryumdf_sbe_v1_6.security_trading_event.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
   -- Offset 14 Padding 2: 2 Byte
   index, offset_14_padding_2 = b3_equities_binaryumdf_sbe_v1_6.offset_14_padding_2.dissect(buffer, index, packet, parent)
 
-  -- Trad Ses Open Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Trad Ses Open Time: UTCTimestampNanos
   index, trad_ses_open_time = b3_equities_binaryumdf_sbe_v1_6.trad_ses_open_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = b3_equities_binaryumdf_sbe_v1_6.transact_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -8349,34 +8349,34 @@ end
 b3_equities_binaryumdf_sbe_v1_6.security_status_3_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Id: SecurityID
   index, security_id = b3_equities_binaryumdf_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_equities_binaryumdf_sbe_v1_6.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Security Trading Status: SecurityTradingStatus
   index, security_trading_status = b3_equities_binaryumdf_sbe_v1_6.security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Security Trading Event: SecurityTradingEvent
   index, security_trading_event = b3_equities_binaryumdf_sbe_v1_6.security_trading_event.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: LocalMktDate
   index, trade_date = b3_equities_binaryumdf_sbe_v1_6.trade_date.dissect(buffer, index, packet, parent)
 
   -- Offset 14 Padding 2: 2 Byte
   index, offset_14_padding_2 = b3_equities_binaryumdf_sbe_v1_6.offset_14_padding_2.dissect(buffer, index, packet, parent)
 
-  -- Trad Ses Open Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Trad Ses Open Time: UTCTimestampNanos
   index, trad_ses_open_time = b3_equities_binaryumdf_sbe_v1_6.trad_ses_open_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: UTCTimestampNanos
   index, transact_time = b3_equities_binaryumdf_sbe_v1_6.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: RptSeq
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_6.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -8439,7 +8439,7 @@ end
 b3_equities_binaryumdf_sbe_v1_6.sequence_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Next Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Next Seq No: SeqNum
   index, next_seq_no = b3_equities_binaryumdf_sbe_v1_6.next_seq_no.dissect(buffer, index, packet, parent)
 
   return index
@@ -8896,16 +8896,16 @@ end
 b3_equities_binaryumdf_sbe_v1_6.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = b3_equities_binaryumdf_sbe_v1_6.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 27 values
+  -- Template Id: uint16
   index, template_id = b3_equities_binaryumdf_sbe_v1_6.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = b3_equities_binaryumdf_sbe_v1_6.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = b3_equities_binaryumdf_sbe_v1_6.version.dissect(buffer, index, packet, parent)
 
   return index
@@ -8992,10 +8992,10 @@ end
 b3_equities_binaryumdf_sbe_v1_6.framing_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  -- Message Length: uint16
   index, message_length = b3_equities_binaryumdf_sbe_v1_6.message_length.dissect(buffer, index, packet, parent)
 
-  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
+  -- Encoding Type: uint16
   index, encoding_type = b3_equities_binaryumdf_sbe_v1_6.encoding_type.dissect(buffer, index, packet, parent)
 
   return index

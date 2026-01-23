@@ -432,10 +432,10 @@ end
 cme_futures_settlements_sbe_v7_0.high_px.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_settlements_sbe_v7_0.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -529,10 +529,10 @@ end
 cme_futures_settlements_sbe_v7_0.low_px.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_settlements_sbe_v7_0.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -785,16 +785,16 @@ end
 cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Year: uint16
   index, year = cme_futures_settlements_sbe_v7_0.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Month: uint8
   index, month = cme_futures_settlements_sbe_v7_0.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Day: uint8
   index, day = cme_futures_settlements_sbe_v7_0.day.dissect(buffer, index, packet, parent)
 
-  -- Week: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Week: uint8
   index, week = cme_futures_settlements_sbe_v7_0.week.dissect(buffer, index, packet, parent)
 
   return index
@@ -984,10 +984,10 @@ end
 cme_futures_settlements_sbe_v7_0.strike_price.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_settlements_sbe_v7_0.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -1066,16 +1066,16 @@ end
 cme_futures_settlements_sbe_v7_0.maturity_month_year.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Year: uint16
   index, year = cme_futures_settlements_sbe_v7_0.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Month: uint8
   index, month = cme_futures_settlements_sbe_v7_0.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Day: uint8
   index, day = cme_futures_settlements_sbe_v7_0.day.dissect(buffer, index, packet, parent)
 
-  -- Week: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Week: uint8
   index, week = cme_futures_settlements_sbe_v7_0.week.dissect(buffer, index, packet, parent)
 
   return index
@@ -1285,64 +1285,64 @@ cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group.fields = fun
     iteration:set_generated()
   end
 
-  -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Product Guid: uInt64NULL
   index, product_guid = cme_futures_settlements_sbe_v7_0.product_guid.dissect(buffer, index, packet, parent)
 
-  -- Clearing Product Code: 12 Byte Ascii String
+  -- Clearing Product Code: String12
   index, clearing_product_code = cme_futures_settlements_sbe_v7_0.clearing_product_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String
+  -- Security Type: SecurityType
   index, security_type = cme_futures_settlements_sbe_v7_0.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 8 Byte Ascii String
+  -- Security Exchange: Exchange
   index, security_exchange = cme_futures_settlements_sbe_v7_0.security_exchange.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_settlements_sbe_v7_0.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Put Or Call: PutOrCall
   index, put_or_call = cme_futures_settlements_sbe_v7_0.put_or_call.dissect(buffer, index, packet, parent)
 
   -- Strike Price: Struct of 2 fields
   index, strike_price = cme_futures_settlements_sbe_v7_0.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Underlying Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Product Guid: uInt64NULL
   index, underlying_product_guid = cme_futures_settlements_sbe_v7_0.underlying_product_guid.dissect(buffer, index, packet, parent)
 
-  -- Underlying Clearing Product Code: 12 Byte Ascii String
+  -- Underlying Clearing Product Code: String12
   index, underlying_clearing_product_code = cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Type: 6 Byte Ascii String
+  -- Underlying Security Type: SecurityType
   index, underlying_security_type = cme_futures_settlements_sbe_v7_0.underlying_security_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Exchange: 8 Byte Ascii String
+  -- Underlying Security Exchange: Exchange
   index, underlying_security_exchange = cme_futures_settlements_sbe_v7_0.underlying_security_exchange.dissect(buffer, index, packet, parent)
 
   -- Underlying Maturity Month Year: Struct of 4 fields
   index, underlying_maturity_month_year = cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_futures_settlements_sbe_v7_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Instrument Guid: uInt64NULL
   index, instrument_guid = cme_futures_settlements_sbe_v7_0.instrument_guid.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Security Id: uInt32NULL
   index, security_id = cme_futures_settlements_sbe_v7_0.security_id.dissect(buffer, index, packet, parent)
 
   -- Low Px: Struct of 2 fields
   index, low_px = cme_futures_settlements_sbe_v7_0.low_px.dissect(buffer, index, packet, parent)
 
-  -- Low Px Ind: 1 Byte Ascii String Enum with 3 values
+  -- Low Px Ind: PxInd
   index, low_px_ind = cme_futures_settlements_sbe_v7_0.low_px_ind.dissect(buffer, index, packet, parent)
 
   -- High Px: Struct of 2 fields
   index, high_px = cme_futures_settlements_sbe_v7_0.high_px.dissect(buffer, index, packet, parent)
 
-  -- High Px Ind: 1 Byte Ascii String Enum with 3 values
+  -- High Px Ind: PxInd
   index, high_px_ind = cme_futures_settlements_sbe_v7_0.high_px_ind.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_settlements_sbe_v7_0.trading_reference_date.dissect(buffer, index, packet, parent)
 
   return index
@@ -1429,10 +1429,10 @@ end
 cme_futures_settlements_sbe_v7_0.group_size.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_futures_settlements_sbe_v7_0.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = cme_futures_settlements_sbe_v7_0.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -1558,7 +1558,7 @@ end
 cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_settlements_sbe_v7_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh High Low Groups: Struct of 2 fields
@@ -1706,61 +1706,61 @@ cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group.fields = function
     iteration:set_generated()
   end
 
-  -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Product Guid: uInt64NULL
   index, product_guid = cme_futures_settlements_sbe_v7_0.product_guid.dissect(buffer, index, packet, parent)
 
-  -- Clearing Product Code: 12 Byte Ascii String
+  -- Clearing Product Code: String12
   index, clearing_product_code = cme_futures_settlements_sbe_v7_0.clearing_product_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String
+  -- Security Type: SecurityType
   index, security_type = cme_futures_settlements_sbe_v7_0.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 8 Byte Ascii String
+  -- Security Exchange: Exchange
   index, security_exchange = cme_futures_settlements_sbe_v7_0.security_exchange.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_settlements_sbe_v7_0.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Put Or Call: PutOrCall
   index, put_or_call = cme_futures_settlements_sbe_v7_0.put_or_call.dissect(buffer, index, packet, parent)
 
   -- Strike Price: Struct of 2 fields
   index, strike_price = cme_futures_settlements_sbe_v7_0.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Underlying Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Product Guid: uInt64NULL
   index, underlying_product_guid = cme_futures_settlements_sbe_v7_0.underlying_product_guid.dissect(buffer, index, packet, parent)
 
-  -- Underlying Clearing Product Code: 12 Byte Ascii String
+  -- Underlying Clearing Product Code: String12
   index, underlying_clearing_product_code = cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Type: 6 Byte Ascii String
+  -- Underlying Security Type: SecurityType
   index, underlying_security_type = cme_futures_settlements_sbe_v7_0.underlying_security_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Exchange: 8 Byte Ascii String
+  -- Underlying Security Exchange: Exchange
   index, underlying_security_exchange = cme_futures_settlements_sbe_v7_0.underlying_security_exchange.dissect(buffer, index, packet, parent)
 
   -- Underlying Maturity Month Year: Struct of 4 fields
   index, underlying_maturity_month_year = cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_futures_settlements_sbe_v7_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Instrument Guid: uInt64NULL
   index, instrument_guid = cme_futures_settlements_sbe_v7_0.instrument_guid.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Security Id: uInt32NULL
   index, security_id = cme_futures_settlements_sbe_v7_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Cleared Volume: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Cleared Volume: uInt32NULL
   index, cleared_volume = cme_futures_settlements_sbe_v7_0.cleared_volume.dissect(buffer, index, packet, parent)
 
-  -- Open Interest Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Open Interest Qty: uInt32NULL
   index, open_interest_qty = cme_futures_settlements_sbe_v7_0.open_interest_qty.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Open Close Settl Flag: CycleFlag
   index, open_close_settl_flag = cme_futures_settlements_sbe_v7_0.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_settlements_sbe_v7_0.trading_reference_date.dissect(buffer, index, packet, parent)
 
   return index
@@ -1859,7 +1859,7 @@ end
 cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_settlements_sbe_v7_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Voi Groups: Struct of 2 fields
@@ -2073,10 +2073,10 @@ end
 cme_futures_settlements_sbe_v7_0.formatted_last_px.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_settlements_sbe_v7_0.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -2215,70 +2215,70 @@ cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.fields = funct
     iteration:set_generated()
   end
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_settlements_sbe_v7_0.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String
+  -- Md Entry Type: CHAR
   index, md_entry_type = cme_futures_settlements_sbe_v7_0.md_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Product Guid: uInt64NULL
   index, product_guid = cme_futures_settlements_sbe_v7_0.product_guid.dissect(buffer, index, packet, parent)
 
-  -- Clearing Product Code: 12 Byte Ascii String
+  -- Clearing Product Code: String12
   index, clearing_product_code = cme_futures_settlements_sbe_v7_0.clearing_product_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String
+  -- Security Type: SecurityType
   index, security_type = cme_futures_settlements_sbe_v7_0.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 8 Byte Ascii String
+  -- Security Exchange: Exchange
   index, security_exchange = cme_futures_settlements_sbe_v7_0.security_exchange.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_settlements_sbe_v7_0.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Put Or Call: PutOrCall
   index, put_or_call = cme_futures_settlements_sbe_v7_0.put_or_call.dissect(buffer, index, packet, parent)
 
   -- Strike Price: Struct of 2 fields
   index, strike_price = cme_futures_settlements_sbe_v7_0.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Underlying Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Product Guid: uInt64NULL
   index, underlying_product_guid = cme_futures_settlements_sbe_v7_0.underlying_product_guid.dissect(buffer, index, packet, parent)
 
-  -- Underlying Clearing Product Code: 12 Byte Ascii String
+  -- Underlying Clearing Product Code: String12
   index, underlying_clearing_product_code = cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Type: 6 Byte Ascii String
+  -- Underlying Security Type: SecurityType
   index, underlying_security_type = cme_futures_settlements_sbe_v7_0.underlying_security_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Exchange: 8 Byte Ascii String
+  -- Underlying Security Exchange: Exchange
   index, underlying_security_exchange = cme_futures_settlements_sbe_v7_0.underlying_security_exchange.dissect(buffer, index, packet, parent)
 
   -- Underlying Maturity Month Year: Struct of 4 fields
   index, underlying_maturity_month_year = cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_futures_settlements_sbe_v7_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Instrument Guid: uInt64NULL
   index, instrument_guid = cme_futures_settlements_sbe_v7_0.instrument_guid.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Security Id: uInt32NULL
   index, security_id = cme_futures_settlements_sbe_v7_0.security_id.dissect(buffer, index, packet, parent)
 
   -- Formatted Last Px: Struct of 2 fields
   index, formatted_last_px = cme_futures_settlements_sbe_v7_0.formatted_last_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px: PRICENULL9
   index, md_entry_px = cme_futures_settlements_sbe_v7_0.md_entry_px.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_settlements_sbe_v7_0.settl_price_type.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_settlements_sbe_v7_0.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- Md Statistic Desc: 40 Byte Ascii String
+  -- Md Statistic Desc: String40
   index, md_statistic_desc = cme_futures_settlements_sbe_v7_0.md_statistic_desc.dissect(buffer, index, packet, parent)
 
   return index
@@ -2377,7 +2377,7 @@ end
 cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_settlements_sbe_v7_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Settle Groups: Struct of 2 fields
@@ -2579,16 +2579,16 @@ end
 cme_futures_settlements_sbe_v7_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_futures_settlements_sbe_v7_0.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Template Id: uint16
   index, template_id = cme_futures_settlements_sbe_v7_0.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = cme_futures_settlements_sbe_v7_0.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = cme_futures_settlements_sbe_v7_0.version.dissect(buffer, index, packet, parent)
 
   return index

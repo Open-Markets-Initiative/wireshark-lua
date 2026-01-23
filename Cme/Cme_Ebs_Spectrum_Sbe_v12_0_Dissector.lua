@@ -277,10 +277,10 @@ end
 cme_ebs_spectrum_sbe_v12_0.global_day_roll.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_ebs_spectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Security Trading Event: SecurityTradingEvent
   index, security_trading_event = cme_ebs_spectrum_sbe_v12_0.security_trading_event.dissect(buffer, index, packet, parent)
 
   return index
@@ -607,25 +607,25 @@ cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.fields = function(buffe
     iteration:set_generated()
   end
 
-  -- Md Entry Type Ticker Entry Type: 1 Byte Ascii String Enum with 12 values
+  -- Md Entry Type Ticker Entry Type: TickerEntryType
   index, md_entry_type_ticker_entry_type = cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px: PRICENULL9
   index, md_entry_px = cme_ebs_spectrum_sbe_v12_0.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size: uInt64NULL
   index, md_entry_size = cme_ebs_spectrum_sbe_v12_0.md_entry_size.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Time: uInt64
   index, md_entry_time = cme_ebs_spectrum_sbe_v12_0.md_entry_time.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Open Close Settl Flag: PreviousDayFlag
   index, open_close_settl_flag = cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Trading Session Id: MarketHrs
   index, trading_session_id = cme_ebs_spectrum_sbe_v12_0.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = cme_ebs_spectrum_sbe_v12_0.aggressor_side.dissect(buffer, index, packet, parent)
 
   return index
@@ -712,10 +712,10 @@ end
 cme_ebs_spectrum_sbe_v12_0.group_size.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_ebs_spectrum_sbe_v12_0.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = cme_ebs_spectrum_sbe_v12_0.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -948,22 +948,22 @@ end
 cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_ticker.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_ebs_spectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator
   index, match_event_indicator = cme_ebs_spectrum_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Financial Instrument Full Name: 35 Byte Ascii String
+  -- Financial Instrument Full Name: LongName
   index, financial_instrument_full_name = cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_ebs_spectrum_sbe_v12_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer
+  -- Instrument Guid: uInt64
   index, instrument_guid = cme_ebs_spectrum_sbe_v12_0.instrument_guid.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_ebs_spectrum_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
 
   -- Snapshot Refresh Ticker Groups: Struct of 2 fields
@@ -1053,16 +1053,16 @@ cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Md Entry Type Spectrum Entry Type: 1 Byte Ascii String Enum with 2 values
+  -- Md Entry Type Spectrum Entry Type: SpectrumEntryType
   index, md_entry_type_spectrum_entry_type = cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px: PRICENULL9
   index, md_entry_px = cme_ebs_spectrum_sbe_v12_0.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size: uInt64NULL
   index, md_entry_size = cme_ebs_spectrum_sbe_v12_0.md_entry_size.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Time: uInt64
   index, md_entry_time = cme_ebs_spectrum_sbe_v12_0.md_entry_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -1171,22 +1171,22 @@ end
 cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_spectrum.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_ebs_spectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator
   index, match_event_indicator = cme_ebs_spectrum_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Financial Instrument Full Name: 35 Byte Ascii String
+  -- Financial Instrument Full Name: LongName
   index, financial_instrument_full_name = cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_ebs_spectrum_sbe_v12_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer
+  -- Instrument Guid: uInt64
   index, instrument_guid = cme_ebs_spectrum_sbe_v12_0.instrument_guid.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_ebs_spectrum_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
 
   -- Snapshot Refresh Spectrum Groups: Struct of 2 fields
@@ -1240,37 +1240,37 @@ cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Md Entry Type Ticker Entry Type: 1 Byte Ascii String Enum with 12 values
+  -- Md Entry Type Ticker Entry Type: TickerEntryType
   index, md_entry_type_ticker_entry_type = cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_ebs_spectrum_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_ebs_spectrum_sbe_v12_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer
+  -- Instrument Guid: uInt64
   index, instrument_guid = cme_ebs_spectrum_sbe_v12_0.instrument_guid.dissect(buffer, index, packet, parent)
 
-  -- Financial Instrument Full Name: 35 Byte Ascii String
+  -- Financial Instrument Full Name: LongName
   index, financial_instrument_full_name = cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px: PRICENULL9
   index, md_entry_px = cme_ebs_spectrum_sbe_v12_0.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size: uInt64NULL
   index, md_entry_size = cme_ebs_spectrum_sbe_v12_0.md_entry_size.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Time: uInt64
   index, md_entry_time = cme_ebs_spectrum_sbe_v12_0.md_entry_time.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Open Close Settl Flag: PreviousDayFlag
   index, open_close_settl_flag = cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Trading Session Id: MarketHrs
   index, trading_session_id = cme_ebs_spectrum_sbe_v12_0.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = cme_ebs_spectrum_sbe_v12_0.aggressor_side.dissect(buffer, index, packet, parent)
 
   return index
@@ -1371,7 +1371,7 @@ end
 cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_ticker.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_ebs_spectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator
@@ -1425,28 +1425,28 @@ cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.fields = function(
     iteration:set_generated()
   end
 
-  -- Md Entry Type Spectrum Entry Type: 1 Byte Ascii String Enum with 2 values
+  -- Md Entry Type Spectrum Entry Type: SpectrumEntryType
   index, md_entry_type_spectrum_entry_type = cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Financial Instrument Full Name: 35 Byte Ascii String
+  -- Financial Instrument Full Name: LongName
   index, financial_instrument_full_name = cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_ebs_spectrum_sbe_v12_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer
+  -- Instrument Guid: uInt64
   index, instrument_guid = cme_ebs_spectrum_sbe_v12_0.instrument_guid.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_ebs_spectrum_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px: PRICENULL9
   index, md_entry_px = cme_ebs_spectrum_sbe_v12_0.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size: uInt64NULL
   index, md_entry_size = cme_ebs_spectrum_sbe_v12_0.md_entry_size.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Time: uInt64
   index, md_entry_time = cme_ebs_spectrum_sbe_v12_0.md_entry_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -1547,7 +1547,7 @@ end
 cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_spectrum.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_ebs_spectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator
@@ -1774,16 +1774,16 @@ end
 cme_ebs_spectrum_sbe_v12_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_ebs_spectrum_sbe_v12_0.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Template Id: uint16
   index, template_id = cme_ebs_spectrum_sbe_v12_0.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = cme_ebs_spectrum_sbe_v12_0.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = cme_ebs_spectrum_sbe_v12_0.version.dissect(buffer, index, packet, parent)
 
   return index

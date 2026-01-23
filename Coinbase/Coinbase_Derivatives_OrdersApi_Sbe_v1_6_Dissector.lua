@@ -580,13 +580,13 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.event_resend_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Resend Reject Reason: 1 Byte Signed Fixed Width Integer Enum with 5 values
+  -- Resend Reject Reason: ResendRejectReason
   index, resend_reject_reason = coinbase_derivatives_ordersapi_sbe_v1_6.resend_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Details String 55: 55 Byte Ascii String
+  -- Details String 55: String55
   index, details_string_55 = coinbase_derivatives_ordersapi_sbe_v1_6.details_string_55.dissect(buffer, index, packet, parent)
 
   return index
@@ -650,10 +650,10 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.event_resend_complete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Resent Event Count: 4 Byte Signed Fixed Width Integer
+  -- Resent Event Count: int32
   index, resent_event_count = coinbase_derivatives_ordersapi_sbe_v1_6.resent_event_count.dissect(buffer, index, packet, parent)
 
   return index
@@ -741,13 +741,13 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.event_resend_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Begin Exec Id: 8 Byte Signed Fixed Width Integer
+  -- Begin Exec Id: int64
   index, begin_exec_id = coinbase_derivatives_ordersapi_sbe_v1_6.begin_exec_id.dissect(buffer, index, packet, parent)
 
-  -- End Exec Id: 8 Byte Signed Fixed Width Integer
+  -- End Exec Id: int64
   index, end_exec_id = coinbase_derivatives_ordersapi_sbe_v1_6.end_exec_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -839,13 +839,13 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.last_exec_id_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Last Exec Id: 8 Byte Signed Fixed Width Integer
+  -- Last Exec Id: int64
   index, last_exec_id = coinbase_derivatives_ordersapi_sbe_v1_6.last_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -885,7 +885,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.last_exec_id_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1269,49 +1269,49 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.spread_order_filled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Signed Fixed Width Integer
+  -- Exec Id: int64
   index, exec_id = coinbase_derivatives_ordersapi_sbe_v1_6.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Match Id: 8 Byte Signed Fixed Width Integer
+  -- Match Id: int64
   index, match_id = coinbase_derivatives_ordersapi_sbe_v1_6.match_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: OrderId
   index, order_id = coinbase_derivatives_ordersapi_sbe_v1_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Filled Vwap: 8 Byte Signed Fixed Width Integer
+  -- Filled Vwap: Price9
   index, filled_vwap = coinbase_derivatives_ordersapi_sbe_v1_6.filled_vwap.dissect(buffer, index, packet, parent)
 
-  -- Total Filled: 4 Byte Signed Fixed Width Integer
+  -- Total Filled: Quantity0
   index, total_filled = coinbase_derivatives_ordersapi_sbe_v1_6.total_filled.dissect(buffer, index, packet, parent)
 
-  -- Available Qty: 4 Byte Signed Fixed Width Integer
+  -- Available Qty: Quantity0
   index, available_qty = coinbase_derivatives_ordersapi_sbe_v1_6.available_qty.dissect(buffer, index, packet, parent)
 
-  -- Fill Price: 8 Byte Signed Fixed Width Integer
+  -- Fill Price: Price9
   index, fill_price = coinbase_derivatives_ordersapi_sbe_v1_6.fill_price.dissect(buffer, index, packet, parent)
 
-  -- Leg 1 Fill Price: 8 Byte Signed Fixed Width Integer
+  -- Leg 1 Fill Price: Price9
   index, leg_1_fill_price = coinbase_derivatives_ordersapi_sbe_v1_6.leg_1_fill_price.dissect(buffer, index, packet, parent)
 
-  -- Leg 2 Fill Price: 8 Byte Signed Fixed Width Integer
+  -- Leg 2 Fill Price: Price9
   index, leg_2_fill_price = coinbase_derivatives_ordersapi_sbe_v1_6.leg_2_fill_price.dissect(buffer, index, packet, parent)
 
-  -- Fill Qty: 4 Byte Signed Fixed Width Integer
+  -- Fill Qty: Quantity0
   index, fill_qty = coinbase_derivatives_ordersapi_sbe_v1_6.fill_qty.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Is Aggressor: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Is Aggressor: Bool
   index, is_aggressor = coinbase_derivatives_ordersapi_sbe_v1_6.is_aggressor.dissect(buffer, index, packet, parent)
 
   return index
@@ -1363,43 +1363,43 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.order_filled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Signed Fixed Width Integer
+  -- Exec Id: int64
   index, exec_id = coinbase_derivatives_ordersapi_sbe_v1_6.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Match Id: 8 Byte Signed Fixed Width Integer
+  -- Match Id: int64
   index, match_id = coinbase_derivatives_ordersapi_sbe_v1_6.match_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: OrderId
   index, order_id = coinbase_derivatives_ordersapi_sbe_v1_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Filled Vwap: 8 Byte Signed Fixed Width Integer
+  -- Filled Vwap: Price9
   index, filled_vwap = coinbase_derivatives_ordersapi_sbe_v1_6.filled_vwap.dissect(buffer, index, packet, parent)
 
-  -- Total Filled: 4 Byte Signed Fixed Width Integer
+  -- Total Filled: Quantity0
   index, total_filled = coinbase_derivatives_ordersapi_sbe_v1_6.total_filled.dissect(buffer, index, packet, parent)
 
-  -- Available Qty: 4 Byte Signed Fixed Width Integer
+  -- Available Qty: Quantity0
   index, available_qty = coinbase_derivatives_ordersapi_sbe_v1_6.available_qty.dissect(buffer, index, packet, parent)
 
-  -- Fill Price: 8 Byte Signed Fixed Width Integer
+  -- Fill Price: Price9
   index, fill_price = coinbase_derivatives_ordersapi_sbe_v1_6.fill_price.dissect(buffer, index, packet, parent)
 
-  -- Fill Qty: 4 Byte Signed Fixed Width Integer
+  -- Fill Qty: Quantity0
   index, fill_qty = coinbase_derivatives_ordersapi_sbe_v1_6.fill_qty.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Is Aggressor: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Is Aggressor: Bool
   index, is_aggressor = coinbase_derivatives_ordersapi_sbe_v1_6.is_aggressor.dissect(buffer, index, packet, parent)
 
   return index
@@ -1480,13 +1480,13 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.unlock_trading_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Error Message: 32 Byte Ascii String
+  -- Error Message: String32
   index, error_message = coinbase_derivatives_ordersapi_sbe_v1_6.error_message.dissect(buffer, index, packet, parent)
 
   return index
@@ -1551,13 +1551,13 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.unlock_trading_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Num Users Affected: 4 Byte Signed Fixed Width Integer
+  -- Num Users Affected: int32
   index, num_users_affected = coinbase_derivatives_ordersapi_sbe_v1_6.num_users_affected.dissect(buffer, index, packet, parent)
 
   return index
@@ -1628,10 +1628,10 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.unlock_trading_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Current Session Only: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Current Session Only: Bool
   index, current_session_only = coinbase_derivatives_ordersapi_sbe_v1_6.current_session_only.dissect(buffer, index, packet, parent)
 
   return index
@@ -1673,13 +1673,13 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.mass_cancel_order_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Error Message: 32 Byte Ascii String
+  -- Error Message: String32
   index, error_message = coinbase_derivatives_ordersapi_sbe_v1_6.error_message.dissect(buffer, index, packet, parent)
 
   return index
@@ -1807,22 +1807,22 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.mass_cancel_order_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Signed Fixed Width Integer
+  -- Exec Id: int64
   index, exec_id = coinbase_derivatives_ordersapi_sbe_v1_6.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Canceled Count: 4 Byte Signed Fixed Width Integer
+  -- Canceled Count: int32
   index, canceled_count = coinbase_derivatives_ordersapi_sbe_v1_6.canceled_count.dissect(buffer, index, packet, parent)
 
-  -- Only Current Session: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Only Current Session: Bool
   index, only_current_session = coinbase_derivatives_ordersapi_sbe_v1_6.only_current_session.dissect(buffer, index, packet, parent)
 
-  -- Trading Lock Applied: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Trading Lock Applied: Bool
   index, trading_lock_applied = coinbase_derivatives_ordersapi_sbe_v1_6.trading_lock_applied.dissect(buffer, index, packet, parent)
 
   return index
@@ -1956,22 +1956,22 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.mass_cancel_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Limit Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Price: Price9
   index, limit_price = coinbase_derivatives_ordersapi_sbe_v1_6.limit_price.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Side: Side
   index, side = coinbase_derivatives_ordersapi_sbe_v1_6.side.dissect(buffer, index, packet, parent)
 
-  -- Current Session Only: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Current Session Only: Bool
   index, current_session_only = coinbase_derivatives_ordersapi_sbe_v1_6.current_session_only.dissect(buffer, index, packet, parent)
 
-  -- Request Trading Lock: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Request Trading Lock: Bool
   index, request_trading_lock = coinbase_derivatives_ordersapi_sbe_v1_6.request_trading_lock.dissect(buffer, index, packet, parent)
 
   return index
@@ -2116,22 +2116,22 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.cancel_order_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Id Optional: OrderId
   index, order_id_optional = coinbase_derivatives_ordersapi_sbe_v1_6.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Cancel Order Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Cancel Order Reject Reason: CancelOrderRejectReason
   index, cancel_order_reject_reason = coinbase_derivatives_ordersapi_sbe_v1_6.cancel_order_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Cancel Order Reject Details: 31 Byte Ascii String
+  -- Cancel Order Reject Details: String31
   index, cancel_order_reject_details = coinbase_derivatives_ordersapi_sbe_v1_6.cancel_order_reject_details.dissect(buffer, index, packet, parent)
 
   return index
@@ -2257,31 +2257,31 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.order_canceled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Signed Fixed Width Integer
+  -- Exec Id: int64
   index, exec_id = coinbase_derivatives_ordersapi_sbe_v1_6.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: OrderId
   index, order_id = coinbase_derivatives_ordersapi_sbe_v1_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Receive Time: 8 Byte Signed Fixed Width Integer
+  -- Receive Time: int64
   index, receive_time = coinbase_derivatives_ordersapi_sbe_v1_6.receive_time.dissect(buffer, index, packet, parent)
 
-  -- Total Filled: 4 Byte Signed Fixed Width Integer
+  -- Total Filled: Quantity0
   index, total_filled = coinbase_derivatives_ordersapi_sbe_v1_6.total_filled.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Cancel Reason: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Cancel Reason: CancelReason
   index, cancel_reason = coinbase_derivatives_ordersapi_sbe_v1_6.cancel_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -2323,13 +2323,13 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.cancel_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2377,31 +2377,31 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.order_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Signed Fixed Width Integer
+  -- Exec Id: int64
   index, exec_id = coinbase_derivatives_ordersapi_sbe_v1_6.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: OrderId
   index, order_id = coinbase_derivatives_ordersapi_sbe_v1_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Receive Time: 8 Byte Signed Fixed Width Integer
+  -- Receive Time: int64
   index, receive_time = coinbase_derivatives_ordersapi_sbe_v1_6.receive_time.dissect(buffer, index, packet, parent)
 
-  -- Total Filled: 4 Byte Signed Fixed Width Integer
+  -- Total Filled: Quantity0
   index, total_filled = coinbase_derivatives_ordersapi_sbe_v1_6.total_filled.dissect(buffer, index, packet, parent)
 
-  -- Available Qty: 4 Byte Signed Fixed Width Integer
+  -- Available Qty: Quantity0
   index, available_qty = coinbase_derivatives_ordersapi_sbe_v1_6.available_qty.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2524,22 +2524,22 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.order_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Order Id Optional: OrderId
   index, order_id_optional = coinbase_derivatives_ordersapi_sbe_v1_6.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Reject Reason: OrderRejectReason
   index, order_reject_reason = coinbase_derivatives_ordersapi_sbe_v1_6.order_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Order Reject Details: 47 Byte Ascii String
+  -- Order Reject Details: String47
   index, order_reject_details = coinbase_derivatives_ordersapi_sbe_v1_6.order_reject_details.dissect(buffer, index, packet, parent)
 
   return index
@@ -2636,25 +2636,25 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.obsolete_stream_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Last Processed Fill Id: 8 Byte Signed Fixed Width Integer Nullable
+  -- Last Processed Fill Id: FillId
   index, last_processed_fill_id = coinbase_derivatives_ordersapi_sbe_v1_6.last_processed_fill_id.dissect(buffer, index, packet, parent)
 
-  -- Limit Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Price: Price9
   index, limit_price = coinbase_derivatives_ordersapi_sbe_v1_6.limit_price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Quantity0
   index, quantity = coinbase_derivatives_ordersapi_sbe_v1_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Side: Side
   index, side = coinbase_derivatives_ordersapi_sbe_v1_6.side.dissect(buffer, index, packet, parent)
 
   return index
@@ -2828,25 +2828,25 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.replace_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- New Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- New Limit Price: Price9
   index, new_limit_price = coinbase_derivatives_ordersapi_sbe_v1_6.new_limit_price.dissect(buffer, index, packet, parent)
 
-  -- New Quantity: 4 Byte Signed Fixed Width Integer Nullable
+  -- New Quantity: Quantity0
   index, new_quantity = coinbase_derivatives_ordersapi_sbe_v1_6.new_quantity.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Good Til Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Good Til Date: EpochDay
   index, good_til_date = coinbase_derivatives_ordersapi_sbe_v1_6.good_til_date.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Signed Fixed Width Integer Enum with 3 values
+  -- Time In Force: TimeInForce
   index, time_in_force = coinbase_derivatives_ordersapi_sbe_v1_6.time_in_force.dissect(buffer, index, packet, parent)
 
   return index
@@ -2891,22 +2891,22 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.order_entered_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: int64
   index, timestamp = coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Signed Fixed Width Integer
+  -- Exec Id: int64
   index, exec_id = coinbase_derivatives_ordersapi_sbe_v1_6.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: OrderId
   index, order_id = coinbase_derivatives_ordersapi_sbe_v1_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Receive Time: 8 Byte Signed Fixed Width Integer
+  -- Receive Time: int64
   index, receive_time = coinbase_derivatives_ordersapi_sbe_v1_6.receive_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -2980,25 +2980,25 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.new_ioc_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Limit Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Price: Price9
   index, limit_price = coinbase_derivatives_ordersapi_sbe_v1_6.limit_price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Quantity0
   index, quantity = coinbase_derivatives_ordersapi_sbe_v1_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Signed Fixed Width Integer Nullable
+  -- Min Qty: Quantity0
   index, min_qty = coinbase_derivatives_ordersapi_sbe_v1_6.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Side: Side
   index, side = coinbase_derivatives_ordersapi_sbe_v1_6.side.dissect(buffer, index, packet, parent)
 
   return index
@@ -3092,28 +3092,28 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.new_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: ClientOrderId
   index, client_order_id = coinbase_derivatives_ordersapi_sbe_v1_6.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Limit Price: 8 Byte Signed Fixed Width Integer
+  -- Limit Price: Price9
   index, limit_price = coinbase_derivatives_ordersapi_sbe_v1_6.limit_price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Quantity0
   index, quantity = coinbase_derivatives_ordersapi_sbe_v1_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Side: Side
   index, side = coinbase_derivatives_ordersapi_sbe_v1_6.side.dissect(buffer, index, packet, parent)
 
   -- Flags: Struct of 2 fields
   index, flags = coinbase_derivatives_ordersapi_sbe_v1_6.flags.dissect(buffer, index, packet, parent)
 
-  -- Good Til Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Good Til Date: EpochDay
   index, good_til_date = coinbase_derivatives_ordersapi_sbe_v1_6.good_til_date.dissect(buffer, index, packet, parent)
 
   return index
@@ -3153,7 +3153,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.set_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3233,10 +3233,10 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.set_trader_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Trader: 16 Byte Ascii String
+  -- Trader: String16
   index, trader = coinbase_derivatives_ordersapi_sbe_v1_6.trader.dissect(buffer, index, packet, parent)
 
   return index
@@ -3316,10 +3316,10 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.set_account_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: String16
   index, account = coinbase_derivatives_ordersapi_sbe_v1_6.account.dissect(buffer, index, packet, parent)
 
   return index
@@ -3529,25 +3529,25 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.instrument_info_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Signed Fixed Width Integer
+  -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Security Type: SecurityType
   index, security_type = coinbase_derivatives_ordersapi_sbe_v1_6.security_type.dissect(buffer, index, packet, parent)
 
-  -- Instrument Status: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Instrument Status: InstrumentStatus
   index, instrument_status = coinbase_derivatives_ordersapi_sbe_v1_6.instrument_status.dissect(buffer, index, packet, parent)
 
-  -- Is Last Message: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Is Last Message: Bool
   index, is_last_message = coinbase_derivatives_ordersapi_sbe_v1_6.is_last_message.dissect(buffer, index, packet, parent)
 
-  -- Reserved Byte: 1 Byte Signed Fixed Width Integer
+  -- Reserved Byte: int8
   index, reserved_byte = coinbase_derivatives_ordersapi_sbe_v1_6.reserved_byte.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 32 Byte Ascii String
+  -- Symbol: String32
   index, symbol = coinbase_derivatives_ordersapi_sbe_v1_6.symbol.dissect(buffer, index, packet, parent)
 
   return index
@@ -3587,7 +3587,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.instrument_info_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3682,7 +3682,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.data.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Data Length: 1 Byte Unsigned Fixed Width Integer
+  -- Data Length: uint8
   index, data_length = coinbase_derivatives_ordersapi_sbe_v1_6.data_length.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Data Value
@@ -3833,16 +3833,16 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.pong_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Request Time: 8 Byte Signed Fixed Width Integer
+  -- Request Time: int64
   index, request_time = coinbase_derivatives_ordersapi_sbe_v1_6.request_time.dissect(buffer, index, packet, parent)
 
-  -- Server Time: 8 Byte Signed Fixed Width Integer
+  -- Server Time: int64
   index, server_time = coinbase_derivatives_ordersapi_sbe_v1_6.server_time.dissect(buffer, index, packet, parent)
 
-  -- Trading Instrument Status: 1 Byte Signed Fixed Width Integer Enum with 3 values
+  -- Trading Instrument Status: TradingSystemStatus
   index, trading_instrument_status = coinbase_derivatives_ordersapi_sbe_v1_6.trading_instrument_status.dissect(buffer, index, packet, parent)
 
   -- Data: Struct of 2 fields
@@ -3889,10 +3889,10 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.ping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Request Time: 8 Byte Signed Fixed Width Integer
+  -- Request Time: int64
   index, request_time = coinbase_derivatives_ordersapi_sbe_v1_6.request_time.dissect(buffer, index, packet, parent)
 
   -- Data: Struct of 2 fields
@@ -4030,13 +4030,13 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Ref Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Ref Sequence Number: uint32
   index, ref_sequence_number = coinbase_derivatives_ordersapi_sbe_v1_6.ref_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Reject Reason: 4 Byte Signed Fixed Width Integer Enum with 4 values
+  -- Reject Reason: RejectReason
   index, reject_reason = coinbase_derivatives_ordersapi_sbe_v1_6.reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Details: 64 Byte Ascii String
+  -- Details: String64
   index, details = coinbase_derivatives_ordersapi_sbe_v1_6.details.dissect(buffer, index, packet, parent)
 
   return index
@@ -4123,10 +4123,10 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.gap_fill_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- New Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- New Sequence Number: uint32
   index, new_sequence_number = coinbase_derivatives_ordersapi_sbe_v1_6.new_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Gap Fill Padding: 4 Byte Unsigned Fixed Width Integer
+  -- Gap Fill Padding: uint32
   index, gap_fill_padding = coinbase_derivatives_ordersapi_sbe_v1_6.gap_fill_padding.dissect(buffer, index, packet, parent)
 
   return index
@@ -4213,10 +4213,10 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.resend_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- From Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- From Sequence Number: uint32
   index, from_sequence_number = coinbase_derivatives_ordersapi_sbe_v1_6.from_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- To Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- To Sequence Number: uint32
   index, to_sequence_number = coinbase_derivatives_ordersapi_sbe_v1_6.to_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -4256,7 +4256,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.test_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4296,7 +4296,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.heartbeat_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: ClientOrderId
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_6.correlation_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4375,7 +4375,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.logged_out_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason String 64: 64 Byte Ascii String
+  -- Reason String 64: String64
   index, reason_string_64 = coinbase_derivatives_ordersapi_sbe_v1_6.reason_string_64.dissect(buffer, index, packet, parent)
 
   return index
@@ -4415,7 +4415,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.logout_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason String 64: 64 Byte Ascii String
+  -- Reason String 64: String64
   index, reason_string_64 = coinbase_derivatives_ordersapi_sbe_v1_6.reason_string_64.dissect(buffer, index, packet, parent)
 
   return index
@@ -4478,7 +4478,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.logon_conf_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Heartbeat Interval Seconds: 4 Byte Signed Fixed Width Integer
+  -- Heartbeat Interval Seconds: int32
   index, heartbeat_interval_seconds = coinbase_derivatives_ordersapi_sbe_v1_6.heartbeat_interval_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -4628,13 +4628,13 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.logon_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Username: 16 Byte Ascii String
+  -- Username: String16
   index, username = coinbase_derivatives_ordersapi_sbe_v1_6.username.dissect(buffer, index, packet, parent)
 
-  -- Password: 32 Byte Ascii String
+  -- Password: String32
   index, password = coinbase_derivatives_ordersapi_sbe_v1_6.password.dissect(buffer, index, packet, parent)
 
-  -- Reset Seq Num: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Reset Seq Num: Bool
   index, reset_seq_num = coinbase_derivatives_ordersapi_sbe_v1_6.reset_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -5419,37 +5419,37 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_6.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Protocol Id: 1 Byte Unsigned Fixed Width Integer
+  -- Protocol Id: uint8
   index, protocol_id = coinbase_derivatives_ordersapi_sbe_v1_6.protocol_id.dissect(buffer, index, packet, parent)
 
   -- Message Flags: 1 Byte Unsigned Fixed Width Integer
   index, message_flags = coinbase_derivatives_ordersapi_sbe_v1_6.message_flags.dissect(buffer, index, packet, parent)
 
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  -- Message Length: uint16
   index, message_length = coinbase_derivatives_ordersapi_sbe_v1_6.message_length.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Sequence Number: uint32
   index, sequence_number = coinbase_derivatives_ordersapi_sbe_v1_6.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Last Processed Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Last Processed Seq No: uint32
   index, last_processed_seq_no = coinbase_derivatives_ordersapi_sbe_v1_6.last_processed_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 4 Byte Unsigned Fixed Width Integer
+  -- Reserved: uint32
   index, reserved = coinbase_derivatives_ordersapi_sbe_v1_6.reserved.dissect(buffer, index, packet, parent)
 
-  -- Send Time Epoch Nanos: 8 Byte Signed Fixed Width Integer
+  -- Send Time Epoch Nanos: int64
   index, send_time_epoch_nanos = coinbase_derivatives_ordersapi_sbe_v1_6.send_time_epoch_nanos.dissect(buffer, index, packet, parent)
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = coinbase_derivatives_ordersapi_sbe_v1_6.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 39 values
+  -- Template Id: uint16
   index, template_id = coinbase_derivatives_ordersapi_sbe_v1_6.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = coinbase_derivatives_ordersapi_sbe_v1_6.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = coinbase_derivatives_ordersapi_sbe_v1_6.version.dissect(buffer, index, packet, parent)
 
   return index

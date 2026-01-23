@@ -275,10 +275,10 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.clear_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1.security_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -373,16 +373,16 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.best_offer_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1.security_id.dissect(buffer, index, packet, parent)
 
-  -- Offer Size uint 16: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Size uint 16: uint16
   index, offer_size_uint_16 = memx_equities_memoirtopofbook_sbe_v1_1.offer_size_uint_16.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Short: 2 Byte Signed Fixed Width Integer
+  -- Offer Price Short: ShortPrice
   index, offer_price_short = memx_equities_memoirtopofbook_sbe_v1_1.offer_price_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -477,16 +477,16 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.best_bid_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size Short: uint16
   index, bid_size_short = memx_equities_memoirtopofbook_sbe_v1_1.bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Short: 2 Byte Signed Fixed Width Integer
+  -- Bid Price Short: ShortPrice
   index, bid_price_short = memx_equities_memoirtopofbook_sbe_v1_1.bid_price_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -581,16 +581,16 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.best_offer_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1.security_id.dissect(buffer, index, packet, parent)
 
-  -- Offer size: 4 Byte Unsigned Fixed Width Integer
+  -- Offer size: uint32
   index, offer_size = memx_equities_memoirtopofbook_sbe_v1_1.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Price: 8 Byte Signed Fixed Width Integer
+  -- Offer Price: Price
   index, offer_price = memx_equities_memoirtopofbook_sbe_v1_1.offer_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -685,16 +685,16 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.best_bid_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: uint32
   index, bid_size = memx_equities_memoirtopofbook_sbe_v1_1.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 8 Byte Signed Fixed Width Integer
+  -- Bid Price: Price
   index, bid_price = memx_equities_memoirtopofbook_sbe_v1_1.bid_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -739,22 +739,22 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.best_bid_offer_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: uint32
   index, bid_size = memx_equities_memoirtopofbook_sbe_v1_1.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 8 Byte Signed Fixed Width Integer
+  -- Bid Price: Price
   index, bid_price = memx_equities_memoirtopofbook_sbe_v1_1.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Offer size: 4 Byte Unsigned Fixed Width Integer
+  -- Offer size: uint32
   index, offer_size = memx_equities_memoirtopofbook_sbe_v1_1.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Price: 8 Byte Signed Fixed Width Integer
+  -- Offer Price: Price
   index, offer_price = memx_equities_memoirtopofbook_sbe_v1_1.offer_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -844,10 +844,10 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.trading_session_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trading Session: 1 Byte Ascii String Enum with 4 values
+  -- Trading Session: TradingSessionType
   index, trading_session = memx_equities_memoirtopofbook_sbe_v1_1.trading_session.dissect(buffer, index, packet, parent)
 
   return index
@@ -911,10 +911,10 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.snapshot_complete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- As Of Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  -- As Of Sequence Number: uint64
   index, as_of_sequence_number = memx_equities_memoirtopofbook_sbe_v1_1.as_of_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -1052,16 +1052,16 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.security_trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Ascii String Enum with 4 values
+  -- Security Trading Status: SecurityTradingStatusType
   index, security_trading_status = memx_equities_memoirtopofbook_sbe_v1_1.security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status Reason: 1 Byte Ascii String Enum with 3 values
+  -- Security Trading Status Reason: SecurityTradingStatusReasonType
   index, security_trading_status_reason = memx_equities_memoirtopofbook_sbe_v1_1.security_trading_status_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1133,13 +1133,13 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.reg_sho_restriction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1.security_id.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Short Sale Restriction: BooleanType
   index, short_sale_restriction = memx_equities_memoirtopofbook_sbe_v1_1.short_sale_restriction.dissect(buffer, index, packet, parent)
 
   return index
@@ -1345,25 +1345,25 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.instrument_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_equities_memoirtopofbook_sbe_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1.security_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: InstrumentDirectorySymbol
   index, symbol = memx_equities_memoirtopofbook_sbe_v1_1.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: InstrumentDirectorySymbolSfx
   index, symbol_sfx = memx_equities_memoirtopofbook_sbe_v1_1.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Round Lot: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot: uint32
   index, round_lot = memx_equities_memoirtopofbook_sbe_v1_1.round_lot.dissect(buffer, index, packet, parent)
 
-  -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Is Test Symbol: BooleanType
   index, is_test_symbol = memx_equities_memoirtopofbook_sbe_v1_1.is_test_symbol.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 8 Byte Signed Fixed Width Integer
+  -- Mpv: Price
   index, mpv = memx_equities_memoirtopofbook_sbe_v1_1.mpv.dissect(buffer, index, packet, parent)
 
   return index
@@ -1668,16 +1668,16 @@ end
 memx_equities_memoirtopofbook_sbe_v1_1.sbe_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = memx_equities_memoirtopofbook_sbe_v1_1.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Template Id: uint8
   index, template_id = memx_equities_memoirtopofbook_sbe_v1_1.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint8
   index, schema_id = memx_equities_memoirtopofbook_sbe_v1_1.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = memx_equities_memoirtopofbook_sbe_v1_1.version.dissect(buffer, index, packet, parent)
 
   return index

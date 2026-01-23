@@ -295,13 +295,13 @@ end
 coinbase_derivatives_session_tcp_v1_2.reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Ref Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Ref Sequence Number: uint32
   index, ref_sequence_number = coinbase_derivatives_session_tcp_v1_2.ref_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Reason Reject Reason: 4 Byte Signed Fixed Width Integer Enum with 4 values
+  -- Reason Reject Reason: RejectReason
   index, reason_reject_reason = coinbase_derivatives_session_tcp_v1_2.reason_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Details: 64 Byte Ascii String
+  -- Details: String64
   index, details = coinbase_derivatives_session_tcp_v1_2.details.dissect(buffer, index, packet, parent)
 
   return index
@@ -377,7 +377,7 @@ end
 coinbase_derivatives_session_tcp_v1_2.gap_fill_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- New Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- New Sequence Number: uint32
   index, new_sequence_number = coinbase_derivatives_session_tcp_v1_2.new_sequence_number.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Padding
@@ -393,7 +393,7 @@ coinbase_derivatives_session_tcp_v1_2.gap_fill_message.fields = function(buffer,
     -- Runtime Size Of: Padding
     local size_of_padding = message_length - (index - offset)
 
-    -- Padding: 4 Byte Unsigned Fixed Width Integer
+    -- Padding: uint32
     index, padding = coinbase_derivatives_session_tcp_v1_2.padding.dissect(buffer, index, packet, parent, size_of_padding)
   end
 
@@ -476,10 +476,10 @@ end
 coinbase_derivatives_session_tcp_v1_2.resend_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- From Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- From Sequence Number: uint32
   index, from_sequence_number = coinbase_derivatives_session_tcp_v1_2.from_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- To Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- To Sequence Number: uint32
   index, to_sequence_number = coinbase_derivatives_session_tcp_v1_2.to_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -542,7 +542,7 @@ end
 coinbase_derivatives_session_tcp_v1_2.test_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: int64
   index, correlation_id = coinbase_derivatives_session_tcp_v1_2.correlation_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -582,7 +582,7 @@ end
 coinbase_derivatives_session_tcp_v1_2.heartbeat_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  -- Correlation Id: int64
   index, correlation_id = coinbase_derivatives_session_tcp_v1_2.correlation_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -661,7 +661,7 @@ end
 coinbase_derivatives_session_tcp_v1_2.logged_out_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason String 64: 64 Byte Ascii String
+  -- Reason String 64: String64
   index, reason_string_64 = coinbase_derivatives_session_tcp_v1_2.reason_string_64.dissect(buffer, index, packet, parent)
 
   return index
@@ -701,7 +701,7 @@ end
 coinbase_derivatives_session_tcp_v1_2.logout_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason String 64: 64 Byte Ascii String
+  -- Reason String 64: String64
   index, reason_string_64 = coinbase_derivatives_session_tcp_v1_2.reason_string_64.dissect(buffer, index, packet, parent)
 
   return index
@@ -764,7 +764,7 @@ end
 coinbase_derivatives_session_tcp_v1_2.logon_conf_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Heartbeat Interval Seconds: 4 Byte Signed Fixed Width Integer
+  -- Heartbeat Interval Seconds: int32
   index, heartbeat_interval_seconds = coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.dissect(buffer, index, packet, parent)
 
   return index
@@ -914,13 +914,13 @@ end
 coinbase_derivatives_session_tcp_v1_2.logon_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Username: 16 Byte Ascii String
+  -- Username: String16
   index, username = coinbase_derivatives_session_tcp_v1_2.username.dissect(buffer, index, packet, parent)
 
-  -- Password: 32 Byte Ascii String
+  -- Password: String32
   index, password = coinbase_derivatives_session_tcp_v1_2.password.dissect(buffer, index, packet, parent)
 
-  -- Reset Seq Num: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Reset Seq Num: Bool
   index, reset_seq_num = coinbase_derivatives_session_tcp_v1_2.reset_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -1375,37 +1375,37 @@ end
 coinbase_derivatives_session_tcp_v1_2.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Protocol Id: 1 Byte Unsigned Fixed Width Integer
+  -- Protocol Id: uint8
   index, protocol_id = coinbase_derivatives_session_tcp_v1_2.protocol_id.dissect(buffer, index, packet, parent)
 
   -- Flags: 1 Byte Unsigned Fixed Width Integer
   index, flags = coinbase_derivatives_session_tcp_v1_2.flags.dissect(buffer, index, packet, parent)
 
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  -- Message Length: uint16
   index, message_length = coinbase_derivatives_session_tcp_v1_2.message_length.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Sequence Number: uint32
   index, sequence_number = coinbase_derivatives_session_tcp_v1_2.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Last Processed Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Last Processed Seq No: uint32
   index, last_processed_seq_no = coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 4 Byte Unsigned Fixed Width Integer
+  -- Reserved: uint32
   index, reserved = coinbase_derivatives_session_tcp_v1_2.reserved.dissect(buffer, index, packet, parent)
 
   -- Send Time Epoch Nanos: 8 Byte Signed Fixed Width Integer
   index, send_time_epoch_nanos = coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.dissect(buffer, index, packet, parent)
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = coinbase_derivatives_session_tcp_v1_2.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Template Id: uint16
   index, template_id = coinbase_derivatives_session_tcp_v1_2.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = coinbase_derivatives_session_tcp_v1_2.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = coinbase_derivatives_session_tcp_v1_2.version.dissect(buffer, index, packet, parent)
 
   return index
@@ -1463,7 +1463,7 @@ coinbase_derivatives_session_tcp_v1_2.sbe_message.fields = function(buffer, offs
     -- Runtime Size Of: Padding
     local size_of_padding = message_length - (index - offset)
 
-    -- Padding: 4 Byte Unsigned Fixed Width Integer
+    -- Padding: uint32
     index, padding = coinbase_derivatives_session_tcp_v1_2.padding.dissect(buffer, index, packet, parent, size_of_padding)
   end
 

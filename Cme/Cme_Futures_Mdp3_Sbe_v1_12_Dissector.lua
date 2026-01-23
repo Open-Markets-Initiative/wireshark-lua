@@ -1371,22 +1371,22 @@ cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh_long_group.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional Ex: PRICENULL9
   index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size Optional: uInt64NULL
   index, md_entry_size_optional = cme_futures_mdp3_sbe_v1_12.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Number Of Orders Optional: Int32NULL
   index, number_of_orders_optional = cme_futures_mdp3_sbe_v1_12.number_of_orders_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Price Level Unsigned Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Price Level Unsigned Optional: uInt8NULL
   index, md_price_level_unsigned_optional = cme_futures_mdp3_sbe_v1_12.md_price_level_unsigned_optional.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = cme_futures_mdp3_sbe_v1_12.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type : 1 Byte Ascii String Enum with 20 values
+  -- Md Entry Type : MDEntryType
   index, md_entry_type_ = cme_futures_mdp3_sbe_v1_12.md_entry_type_.dissect(buffer, index, packet, parent)
 
   return index
@@ -1473,10 +1473,10 @@ end
 cme_futures_mdp3_sbe_v1_12.group_size.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_futures_mdp3_sbe_v1_12.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = cme_futures_mdp3_sbe_v1_12.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -1952,37 +1952,37 @@ end
 cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh_long_qty.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
+  -- Last Msg Seq Num Processed: uInt32
   index, last_msg_seq_num_processed = cme_futures_mdp3_sbe_v1_12.last_msg_seq_num_processed.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Reports: uInt32
   index, tot_num_reports = cme_futures_mdp3_sbe_v1_12.tot_num_reports.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Time: uInt64
   index, last_update_time = cme_futures_mdp3_sbe_v1_12.last_update_time.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_mdp3_sbe_v1_12.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Md Security Trading Status: SecurityTradingStatus
   index, md_security_trading_status = cme_futures_mdp3_sbe_v1_12.md_security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
+  -- Max Price Variation: PRICENULL9
   index, max_price_variation = cme_futures_mdp3_sbe_v1_12.max_price_variation.dissect(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Long Groups: Struct of 2 fields
@@ -2031,22 +2031,22 @@ cme_futures_mdp3_sbe_v1_12.snapshotfull_refresh_tcp_long_group.fields = function
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional Ex: PRICENULL9
   index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size Optional: uInt64NULL
   index, md_entry_size_optional = cme_futures_mdp3_sbe_v1_12.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Number Of Orders Optional: Int32NULL
   index, number_of_orders_optional = cme_futures_mdp3_sbe_v1_12.number_of_orders_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Price Level Unsigned Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Price Level Unsigned Optional: uInt8NULL
   index, md_price_level_unsigned_optional = cme_futures_mdp3_sbe_v1_12.md_price_level_unsigned_optional.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = cme_futures_mdp3_sbe_v1_12.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type : 1 Byte Ascii String Enum with 20 values
+  -- Md Entry Type : MDEntryType
   index, md_entry_type_ = cme_futures_mdp3_sbe_v1_12.md_entry_type_.dissect(buffer, index, packet, parent)
 
   return index
@@ -2248,22 +2248,22 @@ end
 cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh_tcp_long_qty.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
+  -- Max Price Variation: PRICENULL9
   index, max_price_variation = cme_futures_mdp3_sbe_v1_12.max_price_variation.dissect(buffer, index, packet, parent)
 
   -- Snapshotfull Refresh Tcp Long Groups: Struct of 2 fields
@@ -2463,25 +2463,25 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_session_statistics_long_group.fie
     iteration:set_generated()
   end
 
-  -- Md Entry Px Ex: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px Ex: PRICE9
   index, md_entry_px_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size Optional: uInt64NULL
   index, md_entry_size_optional = cme_futures_mdp3_sbe_v1_12.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = cme_futures_mdp3_sbe_v1_12.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type Statistics: 1 Byte Ascii String Enum with 6 values
+  -- Md Entry Type Statistics: MDEntryTypeStatistics
   index, md_entry_type_statistics = cme_futures_mdp3_sbe_v1_12.md_entry_type_statistics.dissect(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
@@ -2610,7 +2610,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_session_statistics_long_qty.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -2710,16 +2710,16 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_volume_long_group.fields = functi
     iteration:set_generated()
   end
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Size: uInt64
   index, md_entry_size = cme_futures_mdp3_sbe_v1_12.md_entry_size.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
   -- Padding 7: 7 Byte
@@ -2825,7 +2825,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_volume_long_qty.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -2946,10 +2946,10 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_trade_summary_long_order_id_group
     iteration:set_generated()
   end
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_mdp3_sbe_v1_12.order_id.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Signed Fixed Width Integer
+  -- Last Qty: Int32
   index, last_qty = cme_futures_mdp3_sbe_v1_12.last_qty.dissect(buffer, index, packet, parent)
 
   -- Padding 4: 4 Byte
@@ -2994,13 +2994,13 @@ end
 cme_futures_mdp3_sbe_v1_12.group_size_8_byte.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_futures_mdp3_sbe_v1_12.block_length.dissect(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
   index, padding_5 = cme_futures_mdp3_sbe_v1_12.padding_5.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = cme_futures_mdp3_sbe_v1_12.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -3211,28 +3211,28 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_trade_summary_long_group.fields =
     iteration:set_generated()
   end
 
-  -- Md Entry Px Ex: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px Ex: PRICE9
   index, md_entry_px_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Size: uInt64
   index, md_entry_size = cme_futures_mdp3_sbe_v1_12.md_entry_size.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer
+  -- Number Of Orders: Int32
   index, number_of_orders = cme_futures_mdp3_sbe_v1_12.number_of_orders.dissect(buffer, index, packet, parent)
 
-  -- Md Trade Entry: 4 Byte Unsigned Fixed Width Integer
+  -- Md Trade Entry: uInt32
   index, md_trade_entry = cme_futures_mdp3_sbe_v1_12.md_trade_entry.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = cme_futures_mdp3_sbe_v1_12.aggressor_side.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
   -- Padding 6: 6 Byte
@@ -3340,7 +3340,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_trade_summary_long_qty.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -3515,19 +3515,19 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.fields 
     iteration:set_generated()
   end
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_mdp3_sbe_v1_12.order_id.dissect(buffer, index, packet, parent)
 
-  -- Md Order Priority Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Order Priority Optional: uInt64NULL
   index, md_order_priority_optional = cme_futures_mdp3_sbe_v1_12.md_order_priority_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Display Qty Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Display Qty Optional: Int32NULL
   index, md_display_qty_optional = cme_futures_mdp3_sbe_v1_12.md_display_qty_optional.dissect(buffer, index, packet, parent)
 
-  -- Reference Id: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Reference Id: uInt8NULL
   index, reference_id = cme_futures_mdp3_sbe_v1_12.reference_id.dissect(buffer, index, packet, parent)
 
-  -- Order Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Update Action: OrderUpdateAction
   index, order_update_action = cme_futures_mdp3_sbe_v1_12.order_update_action.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
@@ -3688,28 +3688,28 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_book_long_group.fields = function
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional Ex: PRICENULL9
   index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size Optional: uInt64NULL
   index, md_entry_size_optional = cme_futures_mdp3_sbe_v1_12.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Number Of Orders Optional: Int32NULL
   index, number_of_orders_optional = cme_futures_mdp3_sbe_v1_12.number_of_orders_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer
+  -- Md Price Level: uInt8
   index, md_price_level = cme_futures_mdp3_sbe_v1_12.md_price_level.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type Book: 1 Byte Ascii String Enum with 7 values
+  -- Md Entry Type Book: MDEntryTypeBook
   index, md_entry_type_book = cme_futures_mdp3_sbe_v1_12.md_entry_type_book.dissect(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
@@ -3819,7 +3819,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_book_long_qty.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -3975,16 +3975,16 @@ cme_futures_mdp3_sbe_v1_12.trading_sessions_group.fields = function(buffer, offs
     iteration:set_generated()
   end
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_mdp3_sbe_v1_12.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Settl Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Date: LocalMktDate
   index, settl_date = cme_futures_mdp3_sbe_v1_12.settl_date.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_mdp3_sbe_v1_12.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Security Alt Id: 12 Byte Ascii String
+  -- Security Alt Id: String12
   index, security_alt_id = cme_futures_mdp3_sbe_v1_12.security_alt_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4145,10 +4145,10 @@ cme_futures_mdp3_sbe_v1_12.lot_type_rules_group.fields = function(buffer, offset
     iteration:set_generated()
   end
 
-  -- Lot Type: 1 Byte Signed Fixed Width Integer
+  -- Lot Type: Int8
   index, lot_type = cme_futures_mdp3_sbe_v1_12.lot_type.dissect(buffer, index, packet, parent)
 
-  -- Min Lot Size Decimal Qty: 4 Byte Signed Fixed Width Integer Nullable
+  -- Min Lot Size Decimal Qty: DecimalQty
   index, min_lot_size_decimal_qty = cme_futures_mdp3_sbe_v1_12.min_lot_size_decimal_qty.dissect(buffer, index, packet, parent)
 
   return index
@@ -4591,10 +4591,10 @@ cme_futures_mdp3_sbe_v1_12.feed_types_group.fields = function(buffer, offset, pa
     iteration:set_generated()
   end
 
-  -- Md Feed Type: 3 Byte Ascii String
+  -- Md Feed Type: MDFeedType
   index, md_feed_type = cme_futures_mdp3_sbe_v1_12.md_feed_type.dissect(buffer, index, packet, parent)
 
-  -- Market Depth: 1 Byte Signed Fixed Width Integer
+  -- Market Depth: Int8
   index, market_depth = cme_futures_mdp3_sbe_v1_12.market_depth.dissect(buffer, index, packet, parent)
 
   return index
@@ -4750,10 +4750,10 @@ cme_futures_mdp3_sbe_v1_12.events_group.fields = function(buffer, offset, packet
     iteration:set_generated()
   end
 
-  -- Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Event Type: EventType
   index, event_type = cme_futures_mdp3_sbe_v1_12.event_type.dissect(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  -- Event Time: uInt64
   index, event_time = cme_futures_mdp3_sbe_v1_12.event_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -4999,16 +4999,16 @@ end
 cme_futures_mdp3_sbe_v1_12.maturity_month_year.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Year: uint16
   index, year = cme_futures_mdp3_sbe_v1_12.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Month: uint8
   index, month = cme_futures_mdp3_sbe_v1_12.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Day: uint8
   index, day = cme_futures_mdp3_sbe_v1_12.day.dissect(buffer, index, packet, parent)
 
-  -- Week: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Week: uint8
   index, week = cme_futures_mdp3_sbe_v1_12.week.dissect(buffer, index, packet, parent)
 
   return index
@@ -6299,130 +6299,130 @@ cme_futures_mdp3_sbe_v1_12.md_instrument_definition_fx.fields = function(buffer,
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot Num Reports Optional: uInt32NULL
   index, tot_num_reports_optional = cme_futures_mdp3_sbe_v1_12.tot_num_reports_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Security Update Action: SecurityUpdateAction
   index, security_update_action = cme_futures_mdp3_sbe_v1_12.security_update_action.dissect(buffer, index, packet, parent)
 
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Time: uInt64
   index, last_update_time = cme_futures_mdp3_sbe_v1_12.last_update_time.dissect(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Md Security Trading Status: SecurityTradingStatus
   index, md_security_trading_status = cme_futures_mdp3_sbe_v1_12.md_security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Appl Id: 2 Byte Signed Fixed Width Integer
+  -- Appl Id: Int16
   index, appl_id = cme_futures_mdp3_sbe_v1_12.appl_id.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
+  -- Market Segment Id: uInt8
   index, market_segment_id = cme_futures_mdp3_sbe_v1_12.market_segment_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
+  -- Underlying Product: uInt8
   index, underlying_product = cme_futures_mdp3_sbe_v1_12.underlying_product.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_mdp3_sbe_v1_12.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: SecurityGroup
   index, security_group = cme_futures_mdp3_sbe_v1_12.security_group.dissect(buffer, index, packet, parent)
 
-  -- Asset: 6 Byte Ascii String
+  -- Asset: Asset
   index, asset = cme_futures_mdp3_sbe_v1_12.asset.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_futures_mdp3_sbe_v1_12.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String
+  -- Security Type: SecurityType
   index, security_type = cme_futures_mdp3_sbe_v1_12.security_type.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CFICode
   index, cfi_code = cme_futures_mdp3_sbe_v1_12.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = cme_futures_mdp3_sbe_v1_12.currency.dissect(buffer, index, packet, parent)
 
-  -- Settl Currency: 3 Byte Ascii String
+  -- Settl Currency: Currency
   index, settl_currency = cme_futures_mdp3_sbe_v1_12.settl_currency.dissect(buffer, index, packet, parent)
 
-  -- Price Quote Currency: 3 Byte Ascii String
+  -- Price Quote Currency: Currency
   index, price_quote_currency = cme_futures_mdp3_sbe_v1_12.price_quote_currency.dissect(buffer, index, packet, parent)
 
-  -- Match Algorithm: 1 Byte Ascii String
+  -- Match Algorithm: CHAR
   index, match_algorithm = cme_futures_mdp3_sbe_v1_12.match_algorithm.dissect(buffer, index, packet, parent)
 
-  -- Min Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Min Trade Vol: uInt32
   index, min_trade_vol = cme_futures_mdp3_sbe_v1_12.min_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_futures_mdp3_sbe_v1_12.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Min Price Increment: PRICE9
   index, min_price_increment = cme_futures_mdp3_sbe_v1_12.min_price_increment.dissect(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
+  -- Display Factor: Decimal9
   index, display_factor = cme_futures_mdp3_sbe_v1_12.display_factor.dissect(buffer, index, packet, parent)
 
-  -- Price Precision: 1 Byte Unsigned Fixed Width Integer
+  -- Price Precision: uInt8
   index, price_precision = cme_futures_mdp3_sbe_v1_12.price_precision.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 30 Byte Ascii String
+  -- Unit Of Measure: UnitOfMeasure
   index, unit_of_measure = cme_futures_mdp3_sbe_v1_12.unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
+  -- Unit Of Measure Qty: Decimal9NULL
   index, unit_of_measure_qty = cme_futures_mdp3_sbe_v1_12.unit_of_measure_qty.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
+  -- Max Price Variation: PRICENULL9
   index, max_price_variation = cme_futures_mdp3_sbe_v1_12.max_price_variation.dissect(buffer, index, packet, parent)
 
-  -- User Defined Instrument: 1 Byte Ascii String
+  -- User Defined Instrument: UserDefinedInstrument
   index, user_defined_instrument = cme_futures_mdp3_sbe_v1_12.user_defined_instrument.dissect(buffer, index, packet, parent)
 
-  -- Financial Instrument Full Name: 35 Byte Ascii String
+  -- Financial Instrument Full Name: LongName
   index, financial_instrument_full_name = cme_futures_mdp3_sbe_v1_12.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
-  -- Fx Currency Symbol: 7 Byte Ascii String
+  -- Fx Currency Symbol: String7
   index, fx_currency_symbol = cme_futures_mdp3_sbe_v1_12.fx_currency_symbol.dissect(buffer, index, packet, parent)
 
-  -- Settl Type: 3 Byte Ascii String
+  -- Settl Type: String3
   index, settl_type = cme_futures_mdp3_sbe_v1_12.settl_type.dissect(buffer, index, packet, parent)
 
-  -- Intervening Days: 2 Byte Unsigned Fixed Width Integer
+  -- Intervening Days: uInt16
   index, intervening_days = cme_futures_mdp3_sbe_v1_12.intervening_days.dissect(buffer, index, packet, parent)
 
-  -- Fx Benchmark Rate Fix: 20 Byte Ascii String
+  -- Fx Benchmark Rate Fix: String20
   index, fx_benchmark_rate_fix = cme_futures_mdp3_sbe_v1_12.fx_benchmark_rate_fix.dissect(buffer, index, packet, parent)
 
-  -- Rate Source: 12 Byte Ascii String
+  -- Rate Source: String12
   index, rate_source = cme_futures_mdp3_sbe_v1_12.rate_source.dissect(buffer, index, packet, parent)
 
-  -- Fix Rate Local Time: 8 Byte Ascii String
+  -- Fix Rate Local Time: String8
   index, fix_rate_local_time = cme_futures_mdp3_sbe_v1_12.fix_rate_local_time.dissect(buffer, index, packet, parent)
 
-  -- Fix Rate Local Time Zone: 20 Byte Ascii String
+  -- Fix Rate Local Time Zone: String20
   index, fix_rate_local_time_zone = cme_futures_mdp3_sbe_v1_12.fix_rate_local_time_zone.dissect(buffer, index, packet, parent)
 
-  -- Min Quote Life: 4 Byte Unsigned Fixed Width Integer
+  -- Min Quote Life: uInt32
   index, min_quote_life = cme_futures_mdp3_sbe_v1_12.min_quote_life.dissect(buffer, index, packet, parent)
 
-  -- Max Price Discretion Offset: 8 Byte Signed Fixed Width Integer
+  -- Max Price Discretion Offset: PRICE9
   index, max_price_discretion_offset = cme_futures_mdp3_sbe_v1_12.max_price_discretion_offset.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Instrument Guid: uInt64NULL
   index, instrument_guid = cme_futures_mdp3_sbe_v1_12.instrument_guid.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_mdp3_sbe_v1_12.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Settlement Locale: 8 Byte Ascii String
+  -- Settlement Locale: String8
   index, settlement_locale = cme_futures_mdp3_sbe_v1_12.settlement_locale.dissect(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
@@ -6681,22 +6681,22 @@ cme_futures_mdp3_sbe_v1_12.collateral_market_value_group.fields = function(buffe
     iteration:set_generated()
   end
 
-  -- Underlying Security Alt Id: 12 Byte Ascii String
+  -- Underlying Security Alt Id: String12
   index, underlying_security_alt_id = cme_futures_mdp3_sbe_v1_12.underlying_security_alt_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Alt Id Source: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Underlying Security Alt Id Source: SecurityAltIDSource
   index, underlying_security_alt_id_source = cme_futures_mdp3_sbe_v1_12.underlying_security_alt_id_source.dissect(buffer, index, packet, parent)
 
-  -- Collateral Market Price: 8 Byte Signed Fixed Width Integer
+  -- Collateral Market Price: PRICE9
   index, collateral_market_price = cme_futures_mdp3_sbe_v1_12.collateral_market_price.dissect(buffer, index, packet, parent)
 
-  -- Dirty Price: 8 Byte Signed Fixed Width Integer
+  -- Dirty Price: PRICE9
   index, dirty_price = cme_futures_mdp3_sbe_v1_12.dirty_price.dissect(buffer, index, packet, parent)
 
-  -- Underlying Instrument Guid: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Instrument Guid: uInt64
   index, underlying_instrument_guid = cme_futures_mdp3_sbe_v1_12.underlying_instrument_guid.dissect(buffer, index, packet, parent)
 
-  -- Md Stream Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Md Stream Id: PriceSource
   index, md_stream_id = cme_futures_mdp3_sbe_v1_12.md_stream_id.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
@@ -6802,7 +6802,7 @@ end
 cme_futures_mdp3_sbe_v1_12.collateral_market_value.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -7065,28 +7065,28 @@ cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh_tcp_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional Ex: PRICENULL9
   index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Short Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Size Short Optional: Int32NULL
   index, md_entry_size_short_optional = cme_futures_mdp3_sbe_v1_12.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Size: 4 Byte Signed Fixed Width Integer Nullable
+  -- Tradeable Size: Int32NULL
   index, tradeable_size = cme_futures_mdp3_sbe_v1_12.tradeable_size.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Number Of Orders Optional: Int32NULL
   index, number_of_orders_optional = cme_futures_mdp3_sbe_v1_12.number_of_orders_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Price Level Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Md Price Level Optional: Int8NULL
   index, md_price_level_optional = cme_futures_mdp3_sbe_v1_12.md_price_level_optional.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = cme_futures_mdp3_sbe_v1_12.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type : 1 Byte Ascii String Enum with 20 values
+  -- Md Entry Type : MDEntryType
   index, md_entry_type_ = cme_futures_mdp3_sbe_v1_12.md_entry_type_.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_12.trading_reference_date.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 8 fields
@@ -7198,22 +7198,22 @@ end
 cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh_tcp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
+  -- Max Price Variation: PRICENULL9
   index, max_price_variation = cme_futures_mdp3_sbe_v1_12.max_price_variation.dissect(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Tcp Groups: Struct of 2 fields
@@ -7322,13 +7322,13 @@ cme_futures_mdp3_sbe_v1_12.security_status_workup_group.fields = function(buffer
     iteration:set_generated()
   end
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_mdp3_sbe_v1_12.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: Side
   index, side = cme_futures_mdp3_sbe_v1_12.side.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Aggressor Indicator: AggressorFlag
   index, aggressor_indicator = cme_futures_mdp3_sbe_v1_12.aggressor_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -7592,31 +7592,31 @@ end
 cme_futures_mdp3_sbe_v1_12.security_status_workup.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional Ex: PRICENULL9
   index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_mdp3_sbe_v1_12.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Trade Link Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Link Id: uInt32
   index, trade_link_id = cme_futures_mdp3_sbe_v1_12.trade_link_id.dissect(buffer, index, packet, parent)
 
-  -- Workup Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Workup Trading Status: WorkupTradingStatus
   index, workup_trading_status = cme_futures_mdp3_sbe_v1_12.workup_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Reason: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Halt Reason: HaltReason
   index, halt_reason = cme_futures_mdp3_sbe_v1_12.halt_reason.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Security Trading Event: SecurityTradingEvent
   index, security_trading_event = cme_futures_mdp3_sbe_v1_12.security_trading_event.dissect(buffer, index, packet, parent)
 
   -- Security Status Workup Groups: Struct of 2 fields
@@ -7710,19 +7710,19 @@ cme_futures_mdp3_sbe_v1_12.snapshot_refresh_top_orders_group.fields = function(b
     iteration:set_generated()
   end
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_mdp3_sbe_v1_12.order_id.dissect(buffer, index, packet, parent)
 
-  -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Md Order Priority: uInt64
   index, md_order_priority = cme_futures_mdp3_sbe_v1_12.md_order_priority.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px Ex: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px Ex: PRICE9
   index, md_entry_px_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Display Qty: 4 Byte Signed Fixed Width Integer
+  -- Md Display Qty: Int32
   index, md_display_qty = cme_futures_mdp3_sbe_v1_12.md_display_qty.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type Book: 1 Byte Ascii String Enum with 7 values
+  -- Md Entry Type Book: MDEntryTypeBook
   index, md_entry_type_book = cme_futures_mdp3_sbe_v1_12.md_entry_type_book.dissect(buffer, index, packet, parent)
 
   return index
@@ -7825,13 +7825,13 @@ end
 cme_futures_mdp3_sbe_v1_12.snapshot_refresh_top_orders.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
   -- Snapshot Refresh Top Orders Groups: Struct of 2 fields
@@ -7967,13 +7967,13 @@ cme_futures_mdp3_sbe_v1_12.repo_related_instruments_group.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Related Security Id: 4 Byte Signed Fixed Width Integer
+  -- Related Security Id: Int32
   index, related_security_id = cme_futures_mdp3_sbe_v1_12.related_security_id.dissect(buffer, index, packet, parent)
 
-  -- Related Symbol: 20 Byte Ascii String
+  -- Related Symbol: Symbol
   index, related_symbol = cme_futures_mdp3_sbe_v1_12.related_symbol.dissect(buffer, index, packet, parent)
 
-  -- Related Instrument Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Related Instrument Guid: uInt64NULL
   index, related_instrument_guid = cme_futures_mdp3_sbe_v1_12.related_instrument_guid.dissect(buffer, index, packet, parent)
 
   return index
@@ -8417,40 +8417,40 @@ cme_futures_mdp3_sbe_v1_12.repo_underlyings_group.fields = function(buffer, offs
     iteration:set_generated()
   end
 
-  -- Underlying Symbol: 20 Byte Ascii String
+  -- Underlying Symbol: UnderlyingSymbol
   index, underlying_symbol = cme_futures_mdp3_sbe_v1_12.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Underlying Security Id Optional: Int32NULL
   index, underlying_security_id_optional = cme_futures_mdp3_sbe_v1_12.underlying_security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Alt Id: 12 Byte Ascii String
+  -- Underlying Security Alt Id: String12
   index, underlying_security_alt_id = cme_futures_mdp3_sbe_v1_12.underlying_security_alt_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Alt Id Source: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Underlying Security Alt Id Source: SecurityAltIDSource
   index, underlying_security_alt_id_source = cme_futures_mdp3_sbe_v1_12.underlying_security_alt_id_source.dissect(buffer, index, packet, parent)
 
-  -- Underlying Financial Instrument Full Name: 35 Byte Ascii String
+  -- Underlying Financial Instrument Full Name: LongName
   index, underlying_financial_instrument_full_name = cme_futures_mdp3_sbe_v1_12.underlying_financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Type: 6 Byte Ascii String
+  -- Underlying Security Type: SecurityType
   index, underlying_security_type = cme_futures_mdp3_sbe_v1_12.underlying_security_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Country Of Issue: 2 Byte Ascii String
+  -- Underlying Country Of Issue: CountryCode
   index, underlying_country_of_issue = cme_futures_mdp3_sbe_v1_12.underlying_country_of_issue.dissect(buffer, index, packet, parent)
 
-  -- Underlying Issuer: 25 Byte Ascii String
+  -- Underlying Issuer: String25
   index, underlying_issuer = cme_futures_mdp3_sbe_v1_12.underlying_issuer.dissect(buffer, index, packet, parent)
 
-  -- Underlying Max Life Time: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Max Life Time: uInt8NULL
   index, underlying_max_life_time = cme_futures_mdp3_sbe_v1_12.underlying_max_life_time.dissect(buffer, index, packet, parent)
 
-  -- Underlying Min Days To Maturity: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Min Days To Maturity: uInt16NULL
   index, underlying_min_days_to_maturity = cme_futures_mdp3_sbe_v1_12.underlying_min_days_to_maturity.dissect(buffer, index, packet, parent)
 
-  -- Underlying Instrument Guid Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Instrument Guid Optional: uInt64NULL
   index, underlying_instrument_guid_optional = cme_futures_mdp3_sbe_v1_12.underlying_instrument_guid_optional.dissect(buffer, index, packet, parent)
 
-  -- Underlying Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Maturity Date: LocalMktDate
   index, underlying_maturity_date = cme_futures_mdp3_sbe_v1_12.underlying_maturity_date.dissect(buffer, index, packet, parent)
 
   return index
@@ -9066,130 +9066,130 @@ cme_futures_mdp3_sbe_v1_12.md_instrument_definition_repo.fields = function(buffe
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot Num Reports Optional: uInt32NULL
   index, tot_num_reports_optional = cme_futures_mdp3_sbe_v1_12.tot_num_reports_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Security Update Action: SecurityUpdateAction
   index, security_update_action = cme_futures_mdp3_sbe_v1_12.security_update_action.dissect(buffer, index, packet, parent)
 
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Time: uInt64
   index, last_update_time = cme_futures_mdp3_sbe_v1_12.last_update_time.dissect(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Md Security Trading Status: SecurityTradingStatus
   index, md_security_trading_status = cme_futures_mdp3_sbe_v1_12.md_security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Appl Id: 2 Byte Signed Fixed Width Integer
+  -- Appl Id: Int16
   index, appl_id = cme_futures_mdp3_sbe_v1_12.appl_id.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
+  -- Market Segment Id: uInt8
   index, market_segment_id = cme_futures_mdp3_sbe_v1_12.market_segment_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
+  -- Underlying Product: uInt8
   index, underlying_product = cme_futures_mdp3_sbe_v1_12.underlying_product.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_mdp3_sbe_v1_12.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: SecurityGroup
   index, security_group = cme_futures_mdp3_sbe_v1_12.security_group.dissect(buffer, index, packet, parent)
 
-  -- Asset: 6 Byte Ascii String
+  -- Asset: Asset
   index, asset = cme_futures_mdp3_sbe_v1_12.asset.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_futures_mdp3_sbe_v1_12.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String
+  -- Security Type: SecurityType
   index, security_type = cme_futures_mdp3_sbe_v1_12.security_type.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CFICode
   index, cfi_code = cme_futures_mdp3_sbe_v1_12.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = cme_futures_mdp3_sbe_v1_12.currency.dissect(buffer, index, packet, parent)
 
-  -- Settl Currency: 3 Byte Ascii String
+  -- Settl Currency: Currency
   index, settl_currency = cme_futures_mdp3_sbe_v1_12.settl_currency.dissect(buffer, index, packet, parent)
 
-  -- Match Algorithm: 1 Byte Ascii String
+  -- Match Algorithm: CHAR
   index, match_algorithm = cme_futures_mdp3_sbe_v1_12.match_algorithm.dissect(buffer, index, packet, parent)
 
-  -- Min Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Min Trade Vol: uInt32
   index, min_trade_vol = cme_futures_mdp3_sbe_v1_12.min_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_futures_mdp3_sbe_v1_12.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Min Price Increment: PRICE9
   index, min_price_increment = cme_futures_mdp3_sbe_v1_12.min_price_increment.dissect(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
+  -- Display Factor: Decimal9
   index, display_factor = cme_futures_mdp3_sbe_v1_12.display_factor.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 30 Byte Ascii String
+  -- Unit Of Measure: UnitOfMeasure
   index, unit_of_measure = cme_futures_mdp3_sbe_v1_12.unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
+  -- Unit Of Measure Qty: Decimal9NULL
   index, unit_of_measure_qty = cme_futures_mdp3_sbe_v1_12.unit_of_measure_qty.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Trading Reference Price: PRICENULL9
   index, trading_reference_price = cme_futures_mdp3_sbe_v1_12.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_12.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
+  -- Max Price Variation: PRICENULL9
   index, max_price_variation = cme_futures_mdp3_sbe_v1_12.max_price_variation.dissect(buffer, index, packet, parent)
 
-  -- Financial Instrument Full Name: 35 Byte Ascii String
+  -- Financial Instrument Full Name: LongName
   index, financial_instrument_full_name = cme_futures_mdp3_sbe_v1_12.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
-  -- Party Role Clearing Org: 5 Byte Ascii String
+  -- Party Role Clearing Org: String5
   index, party_role_clearing_org = cme_futures_mdp3_sbe_v1_12.party_role_clearing_org.dissect(buffer, index, packet, parent)
 
-  -- Start Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Start Date: LocalMktDate
   index, start_date = cme_futures_mdp3_sbe_v1_12.start_date.dissect(buffer, index, packet, parent)
 
-  -- End Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- End Date: LocalMktDate
   index, end_date = cme_futures_mdp3_sbe_v1_12.end_date.dissect(buffer, index, packet, parent)
 
-  -- Termination Type: 8 Byte Ascii String
+  -- Termination Type: String8
   index, termination_type = cme_futures_mdp3_sbe_v1_12.termination_type.dissect(buffer, index, packet, parent)
 
-  -- Repo Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Repo Sub Type: RepoSubType
   index, repo_sub_type = cme_futures_mdp3_sbe_v1_12.repo_sub_type.dissect(buffer, index, packet, parent)
 
-  -- Money Or Par: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Money Or Par: MoneyOrPar
   index, money_or_par = cme_futures_mdp3_sbe_v1_12.money_or_par.dissect(buffer, index, packet, parent)
 
-  -- Max No Of Substitutions: 1 Byte Unsigned Fixed Width Integer
+  -- Max No Of Substitutions: uInt8
   index, max_no_of_substitutions = cme_futures_mdp3_sbe_v1_12.max_no_of_substitutions.dissect(buffer, index, packet, parent)
 
-  -- Price Quote Method: 5 Byte Ascii String
+  -- Price Quote Method: String5
   index, price_quote_method = cme_futures_mdp3_sbe_v1_12.price_quote_method.dissect(buffer, index, packet, parent)
 
-  -- User Defined Instrument: 1 Byte Ascii String
+  -- User Defined Instrument: UserDefinedInstrument
   index, user_defined_instrument = cme_futures_mdp3_sbe_v1_12.user_defined_instrument.dissect(buffer, index, packet, parent)
 
-  -- Risk Set: 6 Byte Ascii String
+  -- Risk Set: String6
   index, risk_set = cme_futures_mdp3_sbe_v1_12.risk_set.dissect(buffer, index, packet, parent)
 
-  -- Market Set: 6 Byte Ascii String
+  -- Market Set: String6
   index, market_set = cme_futures_mdp3_sbe_v1_12.market_set.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Instrument Guid: uInt64NULL
   index, instrument_guid = cme_futures_mdp3_sbe_v1_12.instrument_guid.dissect(buffer, index, packet, parent)
 
-  -- Term Code: 20 Byte Ascii String
+  -- Term Code: String20
   index, term_code = cme_futures_mdp3_sbe_v1_12.term_code.dissect(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
@@ -9880,157 +9880,157 @@ cme_futures_mdp3_sbe_v1_12.md_instrument_definition_fixed_income.fields = functi
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot Num Reports Optional: uInt32NULL
   index, tot_num_reports_optional = cme_futures_mdp3_sbe_v1_12.tot_num_reports_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Security Update Action: SecurityUpdateAction
   index, security_update_action = cme_futures_mdp3_sbe_v1_12.security_update_action.dissect(buffer, index, packet, parent)
 
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Time: uInt64
   index, last_update_time = cme_futures_mdp3_sbe_v1_12.last_update_time.dissect(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Md Security Trading Status: SecurityTradingStatus
   index, md_security_trading_status = cme_futures_mdp3_sbe_v1_12.md_security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Appl Id: 2 Byte Signed Fixed Width Integer
+  -- Appl Id: Int16
   index, appl_id = cme_futures_mdp3_sbe_v1_12.appl_id.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
+  -- Market Segment Id: uInt8
   index, market_segment_id = cme_futures_mdp3_sbe_v1_12.market_segment_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
+  -- Underlying Product: uInt8
   index, underlying_product = cme_futures_mdp3_sbe_v1_12.underlying_product.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_mdp3_sbe_v1_12.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: SecurityGroup
   index, security_group = cme_futures_mdp3_sbe_v1_12.security_group.dissect(buffer, index, packet, parent)
 
-  -- Asset: 6 Byte Ascii String
+  -- Asset: Asset
   index, asset = cme_futures_mdp3_sbe_v1_12.asset.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_futures_mdp3_sbe_v1_12.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String
+  -- Security Type: SecurityType
   index, security_type = cme_futures_mdp3_sbe_v1_12.security_type.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CFICode
   index, cfi_code = cme_futures_mdp3_sbe_v1_12.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = cme_futures_mdp3_sbe_v1_12.currency.dissect(buffer, index, packet, parent)
 
-  -- Settl Currency: 3 Byte Ascii String
+  -- Settl Currency: Currency
   index, settl_currency = cme_futures_mdp3_sbe_v1_12.settl_currency.dissect(buffer, index, packet, parent)
 
-  -- Match Algorithm: 1 Byte Ascii String
+  -- Match Algorithm: CHAR
   index, match_algorithm = cme_futures_mdp3_sbe_v1_12.match_algorithm.dissect(buffer, index, packet, parent)
 
-  -- Min Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Min Trade Vol: uInt32
   index, min_trade_vol = cme_futures_mdp3_sbe_v1_12.min_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_futures_mdp3_sbe_v1_12.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Min Price Increment Optional: PRICENULL9
   index, min_price_increment_optional = cme_futures_mdp3_sbe_v1_12.min_price_increment_optional.dissect(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
+  -- Display Factor: Decimal9
   index, display_factor = cme_futures_mdp3_sbe_v1_12.display_factor.dissect(buffer, index, packet, parent)
 
-  -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Main Fraction: uInt8NULL
   index, main_fraction = cme_futures_mdp3_sbe_v1_12.main_fraction.dissect(buffer, index, packet, parent)
 
-  -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Sub Fraction: uInt8NULL
   index, sub_fraction = cme_futures_mdp3_sbe_v1_12.sub_fraction.dissect(buffer, index, packet, parent)
 
-  -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Display Format: uInt8NULL
   index, price_display_format = cme_futures_mdp3_sbe_v1_12.price_display_format.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 30 Byte Ascii String
+  -- Unit Of Measure: UnitOfMeasure
   index, unit_of_measure = cme_futures_mdp3_sbe_v1_12.unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
+  -- Unit Of Measure Qty: Decimal9NULL
   index, unit_of_measure_qty = cme_futures_mdp3_sbe_v1_12.unit_of_measure_qty.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Trading Reference Price: PRICENULL9
   index, trading_reference_price = cme_futures_mdp3_sbe_v1_12.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_12.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
+  -- Max Price Variation: PRICENULL9
   index, max_price_variation = cme_futures_mdp3_sbe_v1_12.max_price_variation.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer Nullable
+  -- Min Price Increment Amount: PRICENULL9
   index, min_price_increment_amount = cme_futures_mdp3_sbe_v1_12.min_price_increment_amount.dissect(buffer, index, packet, parent)
 
-  -- Issue Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Issue Date: LocalMktDate
   index, issue_date = cme_futures_mdp3_sbe_v1_12.issue_date.dissect(buffer, index, packet, parent)
 
-  -- Dated Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Dated Date: LocalMktDate
   index, dated_date = cme_futures_mdp3_sbe_v1_12.dated_date.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_mdp3_sbe_v1_12.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 8 Byte Signed Fixed Width Integer Nullable
+  -- Coupon Rate: Decimal9NULL
   index, coupon_rate = cme_futures_mdp3_sbe_v1_12.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Par Value: 8 Byte Signed Fixed Width Integer Nullable
+  -- Par Value: PRICENULL9
   index, par_value = cme_futures_mdp3_sbe_v1_12.par_value.dissect(buffer, index, packet, parent)
 
-  -- Coupon Frequency Unit: 3 Byte Ascii String
+  -- Coupon Frequency Unit: String3
   index, coupon_frequency_unit = cme_futures_mdp3_sbe_v1_12.coupon_frequency_unit.dissect(buffer, index, packet, parent)
 
-  -- Coupon Frequency Period: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Coupon Frequency Period: uInt16NULL
   index, coupon_frequency_period = cme_futures_mdp3_sbe_v1_12.coupon_frequency_period.dissect(buffer, index, packet, parent)
 
-  -- Coupon Day Count: 20 Byte Ascii String
+  -- Coupon Day Count: String20
   index, coupon_day_count = cme_futures_mdp3_sbe_v1_12.coupon_day_count.dissect(buffer, index, packet, parent)
 
-  -- Country Of Issue: 2 Byte Ascii String
+  -- Country Of Issue: CountryCode
   index, country_of_issue = cme_futures_mdp3_sbe_v1_12.country_of_issue.dissect(buffer, index, packet, parent)
 
-  -- Issuer: 25 Byte Ascii String
+  -- Issuer: String25
   index, issuer = cme_futures_mdp3_sbe_v1_12.issuer.dissect(buffer, index, packet, parent)
 
-  -- Financial Instrument Full Name: 35 Byte Ascii String
+  -- Financial Instrument Full Name: LongName
   index, financial_instrument_full_name = cme_futures_mdp3_sbe_v1_12.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
-  -- Security Alt Id: 12 Byte Ascii String
+  -- Security Alt Id: String12
   index, security_alt_id = cme_futures_mdp3_sbe_v1_12.security_alt_id.dissect(buffer, index, packet, parent)
 
-  -- Security Alt Id Source: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Security Alt Id Source: SecurityAltIDSource
   index, security_alt_id_source = cme_futures_mdp3_sbe_v1_12.security_alt_id_source.dissect(buffer, index, packet, parent)
 
-  -- Price Quote Method: 5 Byte Ascii String
+  -- Price Quote Method: String5
   index, price_quote_method = cme_futures_mdp3_sbe_v1_12.price_quote_method.dissect(buffer, index, packet, parent)
 
-  -- Party Role Clearing Org: 5 Byte Ascii String
+  -- Party Role Clearing Org: String5
   index, party_role_clearing_org = cme_futures_mdp3_sbe_v1_12.party_role_clearing_org.dissect(buffer, index, packet, parent)
 
-  -- User Defined Instrument: 1 Byte Ascii String
+  -- User Defined Instrument: UserDefinedInstrument
   index, user_defined_instrument = cme_futures_mdp3_sbe_v1_12.user_defined_instrument.dissect(buffer, index, packet, parent)
 
-  -- Risk Set: 6 Byte Ascii String
+  -- Risk Set: String6
   index, risk_set = cme_futures_mdp3_sbe_v1_12.risk_set.dissect(buffer, index, packet, parent)
 
-  -- Market Set: 6 Byte Ascii String
+  -- Market Set: String6
   index, market_set = cme_futures_mdp3_sbe_v1_12.market_set.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Instrument Guid: uInt64NULL
   index, instrument_guid = cme_futures_mdp3_sbe_v1_12.instrument_guid.dissect(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
@@ -10246,19 +10246,19 @@ cme_futures_mdp3_sbe_v1_12.legs_group.fields = function(buffer, offset, packet, 
     iteration:set_generated()
   end
 
-  -- Leg Security Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Security Id: Int32
   index, leg_security_id = cme_futures_mdp3_sbe_v1_12.leg_security_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Side: LegSide
   index, leg_side = cme_futures_mdp3_sbe_v1_12.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty: 1 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty: Int8
   index, leg_ratio_qty = cme_futures_mdp3_sbe_v1_12.leg_ratio_qty.dissect(buffer, index, packet, parent)
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Price: PRICENULL9
   index, leg_price = cme_futures_mdp3_sbe_v1_12.leg_price.dissect(buffer, index, packet, parent)
 
-  -- Leg Option Delta: 4 Byte Signed Fixed Width Integer Nullable
+  -- Leg Option Delta: DecimalQty
   index, leg_option_delta = cme_futures_mdp3_sbe_v1_12.leg_option_delta.dissect(buffer, index, packet, parent)
 
   return index
@@ -10644,130 +10644,130 @@ cme_futures_mdp3_sbe_v1_12.md_instrument_definition_spread.fields = function(buf
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot Num Reports Optional: uInt32NULL
   index, tot_num_reports_optional = cme_futures_mdp3_sbe_v1_12.tot_num_reports_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Security Update Action: SecurityUpdateAction
   index, security_update_action = cme_futures_mdp3_sbe_v1_12.security_update_action.dissect(buffer, index, packet, parent)
 
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Time: uInt64
   index, last_update_time = cme_futures_mdp3_sbe_v1_12.last_update_time.dissect(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Md Security Trading Status: SecurityTradingStatus
   index, md_security_trading_status = cme_futures_mdp3_sbe_v1_12.md_security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Appl Id: 2 Byte Signed Fixed Width Integer
+  -- Appl Id: Int16
   index, appl_id = cme_futures_mdp3_sbe_v1_12.appl_id.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
+  -- Market Segment Id: uInt8
   index, market_segment_id = cme_futures_mdp3_sbe_v1_12.market_segment_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Product Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Product Optional: uInt8NULL
   index, underlying_product_optional = cme_futures_mdp3_sbe_v1_12.underlying_product_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_mdp3_sbe_v1_12.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: SecurityGroup
   index, security_group = cme_futures_mdp3_sbe_v1_12.security_group.dissect(buffer, index, packet, parent)
 
-  -- Asset: 6 Byte Ascii String
+  -- Asset: Asset
   index, asset = cme_futures_mdp3_sbe_v1_12.asset.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_futures_mdp3_sbe_v1_12.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String
+  -- Security Type: SecurityType
   index, security_type = cme_futures_mdp3_sbe_v1_12.security_type.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CFICode
   index, cfi_code = cme_futures_mdp3_sbe_v1_12.cfi_code.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_mdp3_sbe_v1_12.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = cme_futures_mdp3_sbe_v1_12.currency.dissect(buffer, index, packet, parent)
 
-  -- Security Sub Type: 5 Byte Ascii String
+  -- Security Sub Type: SecuritySubType
   index, security_sub_type = cme_futures_mdp3_sbe_v1_12.security_sub_type.dissect(buffer, index, packet, parent)
 
-  -- User Defined Instrument: 1 Byte Ascii String
+  -- User Defined Instrument: UserDefinedInstrument
   index, user_defined_instrument = cme_futures_mdp3_sbe_v1_12.user_defined_instrument.dissect(buffer, index, packet, parent)
 
-  -- Match Algorithm: 1 Byte Ascii String
+  -- Match Algorithm: CHAR
   index, match_algorithm = cme_futures_mdp3_sbe_v1_12.match_algorithm.dissect(buffer, index, packet, parent)
 
-  -- Min Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Min Trade Vol: uInt32
   index, min_trade_vol = cme_futures_mdp3_sbe_v1_12.min_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_futures_mdp3_sbe_v1_12.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Min Price Increment Optional: PRICENULL9
   index, min_price_increment_optional = cme_futures_mdp3_sbe_v1_12.min_price_increment_optional.dissect(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
+  -- Display Factor: Decimal9
   index, display_factor = cme_futures_mdp3_sbe_v1_12.display_factor.dissect(buffer, index, packet, parent)
 
-  -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Display Format: uInt8NULL
   index, price_display_format = cme_futures_mdp3_sbe_v1_12.price_display_format.dissect(buffer, index, packet, parent)
 
-  -- Price Ratio: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price Ratio: PRICENULL9
   index, price_ratio = cme_futures_mdp3_sbe_v1_12.price_ratio.dissect(buffer, index, packet, parent)
 
-  -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
+  -- Tick Rule: Int8NULL
   index, tick_rule = cme_futures_mdp3_sbe_v1_12.tick_rule.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 30 Byte Ascii String
+  -- Unit Of Measure: UnitOfMeasure
   index, unit_of_measure = cme_futures_mdp3_sbe_v1_12.unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Trading Reference Price: PRICENULL9
   index, trading_reference_price = cme_futures_mdp3_sbe_v1_12.trading_reference_price.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_12.settl_price_type.dissect(buffer, index, packet, parent)
 
-  -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
+  -- Open Interest Qty: Int32NULL
   index, open_interest_qty = cme_futures_mdp3_sbe_v1_12.open_interest_qty.dissect(buffer, index, packet, parent)
 
-  -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
+  -- Cleared Volume: Int32NULL
   index, cleared_volume = cme_futures_mdp3_sbe_v1_12.cleared_volume.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
+  -- Max Price Variation: PRICENULL9
   index, max_price_variation = cme_futures_mdp3_sbe_v1_12.max_price_variation.dissect(buffer, index, packet, parent)
 
-  -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Main Fraction: uInt8NULL
   index, main_fraction = cme_futures_mdp3_sbe_v1_12.main_fraction.dissect(buffer, index, packet, parent)
 
-  -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Sub Fraction: uInt8NULL
   index, sub_fraction = cme_futures_mdp3_sbe_v1_12.sub_fraction.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_12.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- Price Quote Method: 5 Byte Ascii String
+  -- Price Quote Method: String5
   index, price_quote_method = cme_futures_mdp3_sbe_v1_12.price_quote_method.dissect(buffer, index, packet, parent)
 
-  -- Risk Set: 6 Byte Ascii String
+  -- Risk Set: String6
   index, risk_set = cme_futures_mdp3_sbe_v1_12.risk_set.dissect(buffer, index, packet, parent)
 
-  -- Market Set: 6 Byte Ascii String
+  -- Market Set: String6
   index, market_set = cme_futures_mdp3_sbe_v1_12.market_set.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Instrument Guid: uInt64NULL
   index, instrument_guid = cme_futures_mdp3_sbe_v1_12.instrument_guid.dissect(buffer, index, packet, parent)
 
-  -- Financial Instrument Full Name: 35 Byte Ascii String
+  -- Financial Instrument Full Name: LongName
   index, financial_instrument_full_name = cme_futures_mdp3_sbe_v1_12.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
@@ -10829,10 +10829,10 @@ cme_futures_mdp3_sbe_v1_12.option_related_instruments_group.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Related Security Id: 4 Byte Signed Fixed Width Integer
+  -- Related Security Id: Int32
   index, related_security_id = cme_futures_mdp3_sbe_v1_12.related_security_id.dissect(buffer, index, packet, parent)
 
-  -- Related Symbol: 20 Byte Ascii String
+  -- Related Symbol: Symbol
   index, related_symbol = cme_futures_mdp3_sbe_v1_12.related_symbol.dissect(buffer, index, packet, parent)
 
   return index
@@ -10954,10 +10954,10 @@ cme_futures_mdp3_sbe_v1_12.option_underlyings_group.fields = function(buffer, of
     iteration:set_generated()
   end
 
-  -- Underlying Security Id: 4 Byte Signed Fixed Width Integer
+  -- Underlying Security Id: Int32
   index, underlying_security_id = cme_futures_mdp3_sbe_v1_12.underlying_security_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 20 Byte Ascii String
+  -- Underlying Symbol: UnderlyingSymbol
   index, underlying_symbol = cme_futures_mdp3_sbe_v1_12.underlying_symbol.dissect(buffer, index, packet, parent)
 
   return index
@@ -11302,130 +11302,130 @@ cme_futures_mdp3_sbe_v1_12.md_instrument_definition_option.fields = function(buf
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot Num Reports Optional: uInt32NULL
   index, tot_num_reports_optional = cme_futures_mdp3_sbe_v1_12.tot_num_reports_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Security Update Action: SecurityUpdateAction
   index, security_update_action = cme_futures_mdp3_sbe_v1_12.security_update_action.dissect(buffer, index, packet, parent)
 
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Time: uInt64
   index, last_update_time = cme_futures_mdp3_sbe_v1_12.last_update_time.dissect(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Md Security Trading Status: SecurityTradingStatus
   index, md_security_trading_status = cme_futures_mdp3_sbe_v1_12.md_security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Appl Id: 2 Byte Signed Fixed Width Integer
+  -- Appl Id: Int16
   index, appl_id = cme_futures_mdp3_sbe_v1_12.appl_id.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
+  -- Market Segment Id: uInt8
   index, market_segment_id = cme_futures_mdp3_sbe_v1_12.market_segment_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
+  -- Underlying Product: uInt8
   index, underlying_product = cme_futures_mdp3_sbe_v1_12.underlying_product.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_mdp3_sbe_v1_12.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: SecurityGroup
   index, security_group = cme_futures_mdp3_sbe_v1_12.security_group.dissect(buffer, index, packet, parent)
 
-  -- Asset: 6 Byte Ascii String
+  -- Asset: Asset
   index, asset = cme_futures_mdp3_sbe_v1_12.asset.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_futures_mdp3_sbe_v1_12.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String
+  -- Security Type: SecurityType
   index, security_type = cme_futures_mdp3_sbe_v1_12.security_type.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CFICode
   index, cfi_code = cme_futures_mdp3_sbe_v1_12.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Put Or Call: PutOrCall
   index, put_or_call = cme_futures_mdp3_sbe_v1_12.put_or_call.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_mdp3_sbe_v1_12.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = cme_futures_mdp3_sbe_v1_12.currency.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Strike Price: PRICENULL9
   index, strike_price = cme_futures_mdp3_sbe_v1_12.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Strike Currency: 3 Byte Ascii String
+  -- Strike Currency: Currency
   index, strike_currency = cme_futures_mdp3_sbe_v1_12.strike_currency.dissect(buffer, index, packet, parent)
 
-  -- Settl Currency: 3 Byte Ascii String
+  -- Settl Currency: Currency
   index, settl_currency = cme_futures_mdp3_sbe_v1_12.settl_currency.dissect(buffer, index, packet, parent)
 
-  -- Min Cab Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Min Cab Price: PRICENULL9
   index, min_cab_price = cme_futures_mdp3_sbe_v1_12.min_cab_price.dissect(buffer, index, packet, parent)
 
-  -- Match Algorithm: 1 Byte Ascii String
+  -- Match Algorithm: CHAR
   index, match_algorithm = cme_futures_mdp3_sbe_v1_12.match_algorithm.dissect(buffer, index, packet, parent)
 
-  -- Min Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Min Trade Vol: uInt32
   index, min_trade_vol = cme_futures_mdp3_sbe_v1_12.min_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_futures_mdp3_sbe_v1_12.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Min Price Increment Optional: PRICENULL9
   index, min_price_increment_optional = cme_futures_mdp3_sbe_v1_12.min_price_increment_optional.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer Nullable
+  -- Min Price Increment Amount: PRICENULL9
   index, min_price_increment_amount = cme_futures_mdp3_sbe_v1_12.min_price_increment_amount.dissect(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
+  -- Display Factor: Decimal9
   index, display_factor = cme_futures_mdp3_sbe_v1_12.display_factor.dissect(buffer, index, packet, parent)
 
-  -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
+  -- Tick Rule: Int8NULL
   index, tick_rule = cme_futures_mdp3_sbe_v1_12.tick_rule.dissect(buffer, index, packet, parent)
 
-  -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Main Fraction: uInt8NULL
   index, main_fraction = cme_futures_mdp3_sbe_v1_12.main_fraction.dissect(buffer, index, packet, parent)
 
-  -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Sub Fraction: uInt8NULL
   index, sub_fraction = cme_futures_mdp3_sbe_v1_12.sub_fraction.dissect(buffer, index, packet, parent)
 
-  -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Display Format: uInt8NULL
   index, price_display_format = cme_futures_mdp3_sbe_v1_12.price_display_format.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 30 Byte Ascii String
+  -- Unit Of Measure: UnitOfMeasure
   index, unit_of_measure = cme_futures_mdp3_sbe_v1_12.unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
+  -- Unit Of Measure Qty: Decimal9NULL
   index, unit_of_measure_qty = cme_futures_mdp3_sbe_v1_12.unit_of_measure_qty.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Trading Reference Price: PRICENULL9
   index, trading_reference_price = cme_futures_mdp3_sbe_v1_12.trading_reference_price.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_12.settl_price_type.dissect(buffer, index, packet, parent)
 
-  -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
+  -- Cleared Volume: Int32NULL
   index, cleared_volume = cme_futures_mdp3_sbe_v1_12.cleared_volume.dissect(buffer, index, packet, parent)
 
-  -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
+  -- Open Interest Qty: Int32NULL
   index, open_interest_qty = cme_futures_mdp3_sbe_v1_12.open_interest_qty.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- User Defined Instrument: 1 Byte Ascii String
+  -- User Defined Instrument: UserDefinedInstrument
   index, user_defined_instrument = cme_futures_mdp3_sbe_v1_12.user_defined_instrument.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_12.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Instrument Guid: uInt64NULL
   index, instrument_guid = cme_futures_mdp3_sbe_v1_12.instrument_guid.dissect(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
@@ -11757,136 +11757,136 @@ cme_futures_mdp3_sbe_v1_12.md_instrument_definition_future.fields = function(buf
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot Num Reports Optional: uInt32NULL
   index, tot_num_reports_optional = cme_futures_mdp3_sbe_v1_12.tot_num_reports_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Security Update Action: SecurityUpdateAction
   index, security_update_action = cme_futures_mdp3_sbe_v1_12.security_update_action.dissect(buffer, index, packet, parent)
 
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Time: uInt64
   index, last_update_time = cme_futures_mdp3_sbe_v1_12.last_update_time.dissect(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Md Security Trading Status: SecurityTradingStatus
   index, md_security_trading_status = cme_futures_mdp3_sbe_v1_12.md_security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Appl Id: 2 Byte Signed Fixed Width Integer
+  -- Appl Id: Int16
   index, appl_id = cme_futures_mdp3_sbe_v1_12.appl_id.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
+  -- Market Segment Id: uInt8
   index, market_segment_id = cme_futures_mdp3_sbe_v1_12.market_segment_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
+  -- Underlying Product: uInt8
   index, underlying_product = cme_futures_mdp3_sbe_v1_12.underlying_product.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_mdp3_sbe_v1_12.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: SecurityGroup
   index, security_group = cme_futures_mdp3_sbe_v1_12.security_group.dissect(buffer, index, packet, parent)
 
-  -- Asset: 6 Byte Ascii String
+  -- Asset: Asset
   index, asset = cme_futures_mdp3_sbe_v1_12.asset.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_futures_mdp3_sbe_v1_12.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String
+  -- Security Type: SecurityType
   index, security_type = cme_futures_mdp3_sbe_v1_12.security_type.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: CFICode
   index, cfi_code = cme_futures_mdp3_sbe_v1_12.cfi_code.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_mdp3_sbe_v1_12.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = cme_futures_mdp3_sbe_v1_12.currency.dissect(buffer, index, packet, parent)
 
-  -- Settl Currency: 3 Byte Ascii String
+  -- Settl Currency: Currency
   index, settl_currency = cme_futures_mdp3_sbe_v1_12.settl_currency.dissect(buffer, index, packet, parent)
 
-  -- Match Algorithm: 1 Byte Ascii String
+  -- Match Algorithm: CHAR
   index, match_algorithm = cme_futures_mdp3_sbe_v1_12.match_algorithm.dissect(buffer, index, packet, parent)
 
-  -- Min Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Min Trade Vol: uInt32
   index, min_trade_vol = cme_futures_mdp3_sbe_v1_12.min_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_futures_mdp3_sbe_v1_12.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Min Price Increment: PRICE9
   index, min_price_increment = cme_futures_mdp3_sbe_v1_12.min_price_increment.dissect(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
+  -- Display Factor: Decimal9
   index, display_factor = cme_futures_mdp3_sbe_v1_12.display_factor.dissect(buffer, index, packet, parent)
 
-  -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Main Fraction: uInt8NULL
   index, main_fraction = cme_futures_mdp3_sbe_v1_12.main_fraction.dissect(buffer, index, packet, parent)
 
-  -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Sub Fraction: uInt8NULL
   index, sub_fraction = cme_futures_mdp3_sbe_v1_12.sub_fraction.dissect(buffer, index, packet, parent)
 
-  -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Display Format: uInt8NULL
   index, price_display_format = cme_futures_mdp3_sbe_v1_12.price_display_format.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 30 Byte Ascii String
+  -- Unit Of Measure: UnitOfMeasure
   index, unit_of_measure = cme_futures_mdp3_sbe_v1_12.unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
+  -- Unit Of Measure Qty: Decimal9NULL
   index, unit_of_measure_qty = cme_futures_mdp3_sbe_v1_12.unit_of_measure_qty.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Trading Reference Price: PRICENULL9
   index, trading_reference_price = cme_futures_mdp3_sbe_v1_12.trading_reference_price.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_12.settl_price_type.dissect(buffer, index, packet, parent)
 
-  -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
+  -- Open Interest Qty: Int32NULL
   index, open_interest_qty = cme_futures_mdp3_sbe_v1_12.open_interest_qty.dissect(buffer, index, packet, parent)
 
-  -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
+  -- Cleared Volume: Int32NULL
   index, cleared_volume = cme_futures_mdp3_sbe_v1_12.cleared_volume.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
+  -- Max Price Variation: PRICENULL9
   index, max_price_variation = cme_futures_mdp3_sbe_v1_12.max_price_variation.dissect(buffer, index, packet, parent)
 
-  -- Decay Quantity: 4 Byte Signed Fixed Width Integer Nullable
+  -- Decay Quantity: Int32NULL
   index, decay_quantity = cme_futures_mdp3_sbe_v1_12.decay_quantity.dissect(buffer, index, packet, parent)
 
-  -- Decay Start Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Decay Start Date: LocalMktDate
   index, decay_start_date = cme_futures_mdp3_sbe_v1_12.decay_start_date.dissect(buffer, index, packet, parent)
 
-  -- Original Contract Size: 4 Byte Signed Fixed Width Integer Nullable
+  -- Original Contract Size: Int32NULL
   index, original_contract_size = cme_futures_mdp3_sbe_v1_12.original_contract_size.dissect(buffer, index, packet, parent)
 
-  -- Contract Multiplier: 4 Byte Signed Fixed Width Integer Nullable
+  -- Contract Multiplier: Int32NULL
   index, contract_multiplier = cme_futures_mdp3_sbe_v1_12.contract_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Contract Multiplier Unit: 1 Byte Signed Fixed Width Integer Nullable
+  -- Contract Multiplier Unit: Int8NULL
   index, contract_multiplier_unit = cme_futures_mdp3_sbe_v1_12.contract_multiplier_unit.dissect(buffer, index, packet, parent)
 
-  -- Flow Schedule Type: 1 Byte Signed Fixed Width Integer Nullable
+  -- Flow Schedule Type: Int8NULL
   index, flow_schedule_type = cme_futures_mdp3_sbe_v1_12.flow_schedule_type.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer Nullable
+  -- Min Price Increment Amount: PRICENULL9
   index, min_price_increment_amount = cme_futures_mdp3_sbe_v1_12.min_price_increment_amount.dissect(buffer, index, packet, parent)
 
-  -- User Defined Instrument: 1 Byte Ascii String
+  -- User Defined Instrument: UserDefinedInstrument
   index, user_defined_instrument = cme_futures_mdp3_sbe_v1_12.user_defined_instrument.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_12.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Instrument Guid: uInt64NULL
   index, instrument_guid = cme_futures_mdp3_sbe_v1_12.instrument_guid.dissect(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
@@ -11948,19 +11948,19 @@ cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh_order_book_group.fields = funct
     iteration:set_generated()
   end
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_mdp3_sbe_v1_12.order_id.dissect(buffer, index, packet, parent)
 
-  -- Md Order Priority Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Order Priority Optional: uInt64NULL
   index, md_order_priority_optional = cme_futures_mdp3_sbe_v1_12.md_order_priority_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px Ex: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px Ex: PRICE9
   index, md_entry_px_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Display Qty: 4 Byte Signed Fixed Width Integer
+  -- Md Display Qty: Int32
   index, md_display_qty = cme_futures_mdp3_sbe_v1_12.md_display_qty.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type Book: 1 Byte Ascii String Enum with 7 values
+  -- Md Entry Type Book: MDEntryTypeBook
   index, md_entry_type_book = cme_futures_mdp3_sbe_v1_12.md_entry_type_book.dissect(buffer, index, packet, parent)
 
   return index
@@ -12115,22 +12115,22 @@ end
 cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh_order_book.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
+  -- Last Msg Seq Num Processed: uInt32
   index, last_msg_seq_num_processed = cme_futures_mdp3_sbe_v1_12.last_msg_seq_num_processed.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Reports: uInt32
   index, tot_num_reports = cme_futures_mdp3_sbe_v1_12.tot_num_reports.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- No Chunks: 4 Byte Unsigned Fixed Width Integer
+  -- No Chunks: uInt32
   index, no_chunks = cme_futures_mdp3_sbe_v1_12.no_chunks.dissect(buffer, index, packet, parent)
 
-  -- Current Chunk: 4 Byte Unsigned Fixed Width Integer
+  -- Current Chunk: uInt32
   index, current_chunk = cme_futures_mdp3_sbe_v1_12.current_chunk.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Order Book Groups: Struct of 2 fields
@@ -12181,28 +12181,28 @@ cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh_group.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional Ex: PRICENULL9
   index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Short Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Size Short Optional: Int32NULL
   index, md_entry_size_short_optional = cme_futures_mdp3_sbe_v1_12.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Number Of Orders Optional: Int32NULL
   index, number_of_orders_optional = cme_futures_mdp3_sbe_v1_12.number_of_orders_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Price Level Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Md Price Level Optional: Int8NULL
   index, md_price_level_optional = cme_futures_mdp3_sbe_v1_12.md_price_level_optional.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_12.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = cme_futures_mdp3_sbe_v1_12.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_12.settl_price_type.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type : 1 Byte Ascii String Enum with 20 values
+  -- Md Entry Type : MDEntryType
   index, md_entry_type_ = cme_futures_mdp3_sbe_v1_12.md_entry_type_.dissect(buffer, index, packet, parent)
 
   return index
@@ -12321,37 +12321,37 @@ end
 cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
+  -- Last Msg Seq Num Processed: uInt32
   index, last_msg_seq_num_processed = cme_futures_mdp3_sbe_v1_12.last_msg_seq_num_processed.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Reports: uInt32
   index, tot_num_reports = cme_futures_mdp3_sbe_v1_12.tot_num_reports.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Time: uInt64
   index, last_update_time = cme_futures_mdp3_sbe_v1_12.last_update_time.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_mdp3_sbe_v1_12.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Md Security Trading Status: SecurityTradingStatus
   index, md_security_trading_status = cme_futures_mdp3_sbe_v1_12.md_security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
+  -- Max Price Variation: PRICENULL9
   index, max_price_variation = cme_futures_mdp3_sbe_v1_12.max_price_variation.dissect(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Groups: Struct of 2 fields
@@ -12402,25 +12402,25 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_session_statistics_group.fields =
     iteration:set_generated()
   end
 
-  -- Md Entry Px Ex: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px Ex: PRICE9
   index, md_entry_px_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_ex.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = cme_futures_mdp3_sbe_v1_12.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type Statistics: 1 Byte Ascii String Enum with 6 values
+  -- Md Entry Type Statistics: MDEntryTypeStatistics
   index, md_entry_type_statistics = cme_futures_mdp3_sbe_v1_12.md_entry_type_statistics.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Short Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Size Short Optional: Int32NULL
   index, md_entry_size_short_optional = cme_futures_mdp3_sbe_v1_12.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
@@ -12526,7 +12526,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_session_statistics.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -12580,19 +12580,19 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_limits_banding_group.fields = fun
     iteration:set_generated()
   end
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- High Limit Price: PRICENULL9
   index, high_limit_price = cme_futures_mdp3_sbe_v1_12.high_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Low Limit Price: PRICENULL9
   index, low_limit_price = cme_futures_mdp3_sbe_v1_12.low_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
+  -- Max Price Variation: PRICENULL9
   index, max_price_variation = cme_futures_mdp3_sbe_v1_12.max_price_variation.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
   return index
@@ -12695,7 +12695,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_limits_banding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -12802,28 +12802,28 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_daily_statistics_group.fields = f
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional Ex: PRICENULL9
   index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Short Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Size Short Optional: Int32NULL
   index, md_entry_size_short_optional = cme_futures_mdp3_sbe_v1_12.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_12.trading_reference_date.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_12.settl_price_type.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type Daily Statistics: 1 Byte Ascii String Enum with 4 values
+  -- Md Entry Type Daily Statistics: MDEntryTypeDailyStatistics
   index, md_entry_type_daily_statistics = cme_futures_mdp3_sbe_v1_12.md_entry_type_daily_statistics.dissect(buffer, index, packet, parent)
 
   -- Padding 7: 7 Byte
@@ -12929,7 +12929,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_daily_statistics.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -12981,10 +12981,10 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_trade_summary_order_id_group.fiel
     iteration:set_generated()
   end
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_mdp3_sbe_v1_12.order_id.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Signed Fixed Width Integer
+  -- Last Qty: Int32
   index, last_qty = cme_futures_mdp3_sbe_v1_12.last_qty.dissect(buffer, index, packet, parent)
 
   -- Padding 4: 4 Byte
@@ -13144,28 +13144,28 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_trade_summary_group.fields = func
     iteration:set_generated()
   end
 
-  -- Md Entry Px Ex: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px Ex: PRICE9
   index, md_entry_px_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Short: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size Short: Int32
   index, md_entry_size_short = cme_futures_mdp3_sbe_v1_12.md_entry_size_short.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer
+  -- Number Of Orders: Int32
   index, number_of_orders = cme_futures_mdp3_sbe_v1_12.number_of_orders.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = cme_futures_mdp3_sbe_v1_12.aggressor_side.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Trade Entry Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Trade Entry Optional: uInt32NULL
   index, md_trade_entry_optional = cme_futures_mdp3_sbe_v1_12.md_trade_entry_optional.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
@@ -13273,7 +13273,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_trade_summary.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -13361,25 +13361,25 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_order_book_group.fields = functio
     iteration:set_generated()
   end
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uInt64NULL
   index, order_id_optional = cme_futures_mdp3_sbe_v1_12.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Order Priority Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Order Priority Optional: uInt64NULL
   index, md_order_priority_optional = cme_futures_mdp3_sbe_v1_12.md_order_priority_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional Ex: PRICENULL9
   index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Display Qty Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Display Qty Optional: Int32NULL
   index, md_display_qty_optional = cme_futures_mdp3_sbe_v1_12.md_display_qty_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type Book: 1 Byte Ascii String Enum with 7 values
+  -- Md Entry Type Book: MDEntryTypeBook
   index, md_entry_type_book = cme_futures_mdp3_sbe_v1_12.md_entry_type_book.dissect(buffer, index, packet, parent)
 
   -- Padding 6: 6 Byte
@@ -13485,7 +13485,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_order_book.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -13540,19 +13540,19 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_book_order_id_group.fields = func
     iteration:set_generated()
   end
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_mdp3_sbe_v1_12.order_id.dissect(buffer, index, packet, parent)
 
-  -- Md Order Priority Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Order Priority Optional: uInt64NULL
   index, md_order_priority_optional = cme_futures_mdp3_sbe_v1_12.md_order_priority_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Display Qty Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Display Qty Optional: Int32NULL
   index, md_display_qty_optional = cme_futures_mdp3_sbe_v1_12.md_display_qty_optional.dissect(buffer, index, packet, parent)
 
-  -- Reference Id: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Reference Id: uInt8NULL
   index, reference_id = cme_futures_mdp3_sbe_v1_12.reference_id.dissect(buffer, index, packet, parent)
 
-  -- Order Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Update Action: OrderUpdateAction
   index, order_update_action = cme_futures_mdp3_sbe_v1_12.order_update_action.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
@@ -13662,31 +13662,31 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_book_group.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Md Entry Px Optional Ex: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional Ex: PRICENULL9
   index, md_entry_px_optional_ex = cme_futures_mdp3_sbe_v1_12.md_entry_px_optional_ex.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Short Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Size Short Optional: Int32NULL
   index, md_entry_size_short_optional = cme_futures_mdp3_sbe_v1_12.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Number Of Orders Optional: Int32NULL
   index, number_of_orders_optional = cme_futures_mdp3_sbe_v1_12.number_of_orders_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer
+  -- Md Price Level: uInt8
   index, md_price_level = cme_futures_mdp3_sbe_v1_12.md_price_level.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type Book: 1 Byte Ascii String Enum with 7 values
+  -- Md Entry Type Book: MDEntryTypeBook
   index, md_entry_type_book = cme_futures_mdp3_sbe_v1_12.md_entry_type_book.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Size: 4 Byte Signed Fixed Width Integer Nullable
+  -- Tradeable Size: Int32NULL
   index, tradeable_size = cme_futures_mdp3_sbe_v1_12.tradeable_size.dissect(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
@@ -13794,7 +13794,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_book.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -13931,19 +13931,19 @@ cme_futures_mdp3_sbe_v1_12.related_sym_group.fields = function(buffer, offset, p
     iteration:set_generated()
   end
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_futures_mdp3_sbe_v1_12.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Signed Fixed Width Integer Nullable
+  -- Order Qty: Int32NULL
   index, order_qty = cme_futures_mdp3_sbe_v1_12.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Quote Type: 1 Byte Signed Fixed Width Integer
+  -- Quote Type: Int8
   index, quote_type = cme_futures_mdp3_sbe_v1_12.quote_type.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Side Optional: Int8NULL
   index, side_optional = cme_futures_mdp3_sbe_v1_12.side_optional.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
@@ -14113,10 +14113,10 @@ end
 cme_futures_mdp3_sbe_v1_12.quote_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id: 23 Byte Ascii String
+  -- Quote Req Id: QuoteReqId
   index, quote_req_id = cme_futures_mdp3_sbe_v1_12.quote_req_id.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -14170,16 +14170,16 @@ cme_futures_mdp3_sbe_v1_12.incremental_refresh_volume_group.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Md Entry Size Short: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size Short: Int32
   index, md_entry_size_short = cme_futures_mdp3_sbe_v1_12.md_entry_size_short.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_mdp3_sbe_v1_12.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_mdp3_sbe_v1_12.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
   -- Padding 3: 3 Byte
@@ -14285,7 +14285,7 @@ end
 cme_futures_mdp3_sbe_v1_12.md_incremental_refresh_volume.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -14431,31 +14431,31 @@ end
 cme_futures_mdp3_sbe_v1_12.security_status.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: SecurityGroup
   index, security_group = cme_futures_mdp3_sbe_v1_12.security_group.dissect(buffer, index, packet, parent)
 
-  -- Asset: 6 Byte Ascii String
+  -- Asset: Asset
   index, asset = cme_futures_mdp3_sbe_v1_12.asset.dissect(buffer, index, packet, parent)
 
-  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id Optional: Int32NULL
   index, security_id_optional = cme_futures_mdp3_sbe_v1_12.security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_mdp3_sbe_v1_12.trade_date.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Security Trading Status: SecurityTradingStatus
   index, security_trading_status = cme_futures_mdp3_sbe_v1_12.security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Reason: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Halt Reason: HaltReason
   index, halt_reason = cme_futures_mdp3_sbe_v1_12.halt_reason.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Security Trading Event: SecurityTradingEvent
   index, security_trading_event = cme_futures_mdp3_sbe_v1_12.security_trading_event.dissect(buffer, index, packet, parent)
 
   return index
@@ -14534,7 +14534,7 @@ end
 cme_futures_mdp3_sbe_v1_12.admin_logout.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 180 Byte Ascii String
+  -- Text: Text
   index, text = cme_futures_mdp3_sbe_v1_12.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -14597,7 +14597,7 @@ end
 cme_futures_mdp3_sbe_v1_12.admin_login.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Heart Bt Int: 1 Byte Signed Fixed Width Integer
+  -- Heart Bt Int: Int8
   index, heart_bt_int = cme_futures_mdp3_sbe_v1_12.heart_bt_int.dissect(buffer, index, packet, parent)
 
   return index
@@ -14643,7 +14643,7 @@ cme_futures_mdp3_sbe_v1_12.channel_reset_group.fields = function(buffer, offset,
     iteration:set_generated()
   end
 
-  -- Appl Id: 2 Byte Signed Fixed Width Integer
+  -- Appl Id: Int16
   index, appl_id = cme_futures_mdp3_sbe_v1_12.appl_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -14744,7 +14744,7 @@ end
 cme_futures_mdp3_sbe_v1_12.channel_reset.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_mdp3_sbe_v1_12.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -15246,16 +15246,16 @@ end
 cme_futures_mdp3_sbe_v1_12.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_futures_mdp3_sbe_v1_12.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 31 values
+  -- Template Id: uint16
   index, template_id = cme_futures_mdp3_sbe_v1_12.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = cme_futures_mdp3_sbe_v1_12.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = cme_futures_mdp3_sbe_v1_12.version.dissect(buffer, index, packet, parent)
 
   return index

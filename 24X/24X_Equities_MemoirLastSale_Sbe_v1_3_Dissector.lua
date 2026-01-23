@@ -751,49 +751,49 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: uint64
   index, trade_id = n24x_equities_memoirlastsale_sbe_v1_3.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Qty: uint32
   index, original_trade_qty = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_qty.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Original Trade Price: Price
   index, original_trade_price = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Original Sale Condition 1: 1 Byte Ascii String Enum with 1 values
+  -- Original Sale Condition 1: SCSettlementType
   index, original_sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.dissect(buffer, index, packet, parent)
 
-  -- Original Sale Condition 2: 1 Byte Ascii String Enum with 2 values
+  -- Original Sale Condition 2: SCTradeThroughExemptionType
   index, original_sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.dissect(buffer, index, packet, parent)
 
-  -- Original Sale Condition 3: 1 Byte Ascii String Enum with 2 values
+  -- Original Sale Condition 3: SCExtendedHoursOrSoldType
   index, original_sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.dissect(buffer, index, packet, parent)
 
-  -- Original Sale Condition 4: 1 Byte Ascii String Enum with 4 values
+  -- Original Sale Condition 4: SCSROTradeDetailType
   index, original_sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.dissect(buffer, index, packet, parent)
 
-  -- Corrected Trade Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Corrected Trade Qty: uint32
   index, corrected_trade_qty = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.dissect(buffer, index, packet, parent)
 
-  -- Corrected Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Corrected Trade Price: Price
   index, corrected_trade_price = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Corrected Sale Condition 1: 1 Byte Ascii String Enum with 1 values
+  -- Corrected Sale Condition 1: SCSettlementType
   index, corrected_sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.dissect(buffer, index, packet, parent)
 
-  -- Corrected Sale Condition 2: 1 Byte Ascii String Enum with 2 values
+  -- Corrected Sale Condition 2: SCTradeThroughExemptionType
   index, corrected_sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.dissect(buffer, index, packet, parent)
 
-  -- Corrected Sale Condition 3: 1 Byte Ascii String Enum with 2 values
+  -- Corrected Sale Condition 3: SCExtendedHoursOrSoldType
   index, corrected_sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.dissect(buffer, index, packet, parent)
 
-  -- Corrected Sale Condition 4: 1 Byte Ascii String Enum with 4 values
+  -- Corrected Sale Condition 4: SCSROTradeDetailType
   index, corrected_sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.dissect(buffer, index, packet, parent)
 
   return index
@@ -1068,31 +1068,31 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: uint64
   index, trade_id = n24x_equities_memoirlastsale_sbe_v1_3.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Qty: uint32
   index, trade_qty = n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Signed Fixed Width Integer
+  -- Last Price: Price
   index, last_price = n24x_equities_memoirlastsale_sbe_v1_3.last_price.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition 1: 1 Byte Ascii String Enum with 1 values
+  -- Sale Condition 1: SCSettlementType
   index, sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition 2: 1 Byte Ascii String Enum with 2 values
+  -- Sale Condition 2: SCTradeThroughExemptionType
   index, sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition 3: 1 Byte Ascii String Enum with 2 values
+  -- Sale Condition 3: SCExtendedHoursOrSoldType
   index, sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition 4: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition 4: SCSROTradeDetailType
   index, sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.dissect(buffer, index, packet, parent)
 
   return index
@@ -1169,31 +1169,31 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: uint64
   index, trade_id = n24x_equities_memoirlastsale_sbe_v1_3.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Qty: uint32
   index, trade_qty = n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = n24x_equities_memoirlastsale_sbe_v1_3.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition 1: 1 Byte Ascii String Enum with 1 values
+  -- Sale Condition 1: SCSettlementType
   index, sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition 2: 1 Byte Ascii String Enum with 2 values
+  -- Sale Condition 2: SCTradeThroughExemptionType
   index, sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition 3: 1 Byte Ascii String Enum with 2 values
+  -- Sale Condition 3: SCExtendedHoursOrSoldType
   index, sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition 4: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition 4: SCSROTradeDetailType
   index, sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.dissect(buffer, index, packet, parent)
 
   return index
@@ -1283,10 +1283,10 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trading Session: 1 Byte Ascii String Enum with 4 values
+  -- Trading Session: TradingSessionType
   index, trading_session = n24x_equities_memoirlastsale_sbe_v1_3.trading_session.dissect(buffer, index, packet, parent)
 
   return index
@@ -1424,16 +1424,16 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Ascii String Enum with 4 values
+  -- Security Trading Status: SecurityTradingStatusType
   index, security_trading_status = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status Reason: 1 Byte Ascii String Enum with 3 values
+  -- Security Trading Status Reason: SecurityTradingStatusReasonType
   index, security_trading_status_reason = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1505,13 +1505,13 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Restriction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Short Sale Restriction: BooleanType
   index, short_sale_restriction = n24x_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.dissect(buffer, index, packet, parent)
 
   return index
@@ -1717,25 +1717,25 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: uint16
   index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: InstrumentDirectorySymbol
   index, symbol = n24x_equities_memoirlastsale_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: InstrumentDirectorySymbolSfx
   index, symbol_sfx = n24x_equities_memoirlastsale_sbe_v1_3.symbol_sfx.dissect(buffer, index, packet, parent)
 
-  -- Round Lot: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot: uint32
   index, round_lot = n24x_equities_memoirlastsale_sbe_v1_3.round_lot.dissect(buffer, index, packet, parent)
 
-  -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Is Test Symbol: BooleanType
   index, is_test_symbol = n24x_equities_memoirlastsale_sbe_v1_3.is_test_symbol.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 8 Byte Signed Fixed Width Integer
+  -- Mpv: Price
   index, mpv = n24x_equities_memoirlastsale_sbe_v1_3.mpv.dissect(buffer, index, packet, parent)
 
   return index
@@ -1996,16 +1996,16 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3.sbe_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = n24x_equities_memoirlastsale_sbe_v1_3.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Template Id: uint8
   index, template_id = n24x_equities_memoirlastsale_sbe_v1_3.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint8
   index, schema_id = n24x_equities_memoirlastsale_sbe_v1_3.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = n24x_equities_memoirlastsale_sbe_v1_3.version.dissect(buffer, index, packet, parent)
 
   return index

@@ -1065,10 +1065,10 @@ cme_futures_streamlined_sbe_v5_8.eris_security_alt_id_group.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Security Alt Id 50: 26 Byte Ascii String
+  -- Security Alt Id 50: StringLength26
   index, security_alt_id_50 = cme_futures_streamlined_sbe_v5_8.security_alt_id_50.dissect(buffer, index, packet, parent)
 
-  -- Security Alt Id Source Optional: 1 Byte Ascii String Nullable
+  -- Security Alt Id Source Optional: charNULL
   index, security_alt_id_source_optional = cme_futures_streamlined_sbe_v5_8.security_alt_id_source_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -1155,10 +1155,10 @@ end
 cme_futures_streamlined_sbe_v5_8.group_size.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_futures_streamlined_sbe_v5_8.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group 8: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group 8: uint8
   index, num_in_group_8 = cme_futures_streamlined_sbe_v5_8.num_in_group_8.dissect(buffer, index, packet, parent)
 
   return index
@@ -1311,10 +1311,10 @@ end
 cme_futures_streamlined_sbe_v5_8.interpolation_factor.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -1602,10 +1602,10 @@ end
 cme_futures_streamlined_sbe_v5_8.previous_fixing_rate.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -1830,40 +1830,40 @@ cme_futures_streamlined_sbe_v5_8.eris_legs_group.fields = function(buffer, offse
     iteration:set_generated()
   end
 
-  -- Leg Benchmark Curve Name: 5 Byte Ascii String
+  -- Leg Benchmark Curve Name: String5
   index, leg_benchmark_curve_name = cme_futures_streamlined_sbe_v5_8.leg_benchmark_curve_name.dissect(buffer, index, packet, parent)
 
-  -- Rate Descriptor: 8 Byte Ascii String
+  -- Rate Descriptor: String8
   index, rate_descriptor = cme_futures_streamlined_sbe_v5_8.rate_descriptor.dissect(buffer, index, packet, parent)
 
-  -- Previous Fixing Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Previous Fixing Date: LocalMktDate
   index, previous_fixing_date = cme_futures_streamlined_sbe_v5_8.previous_fixing_date.dissect(buffer, index, packet, parent)
 
-  -- Leg Pay Frequencey: 3 Byte Ascii String
+  -- Leg Pay Frequencey: StringLen3
   index, leg_pay_frequencey = cme_futures_streamlined_sbe_v5_8.leg_pay_frequencey.dissect(buffer, index, packet, parent)
 
   -- Previous Fixing Rate: Struct of 2 fields
   index, previous_fixing_rate = cme_futures_streamlined_sbe_v5_8.previous_fixing_rate.dissect(buffer, index, packet, parent)
 
-  -- Leg Symbol: 50 Byte Ascii String
+  -- Leg Symbol: StringLength50
   index, leg_symbol = cme_futures_streamlined_sbe_v5_8.leg_symbol.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Int 32 Null: 4 Byte Signed Fixed Width Integer Nullable
+  -- Leg Ratio Qty Int 32 Null: Int32NULL
   index, leg_ratio_qty_int_32_null = cme_futures_streamlined_sbe_v5_8.leg_ratio_qty_int_32_null.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Side: uInt8NULL
   index, leg_side = cme_futures_streamlined_sbe_v5_8.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Currency: 3 Byte Ascii String
+  -- Leg Currency: Currency
   index, leg_currency = cme_futures_streamlined_sbe_v5_8.leg_currency.dissect(buffer, index, packet, parent)
 
-  -- leg Security Type 4: 8 Byte Ascii String
+  -- leg Security Type 4: String8
   index, leg_security_type_4 = cme_futures_streamlined_sbe_v5_8.leg_security_type_4.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Group: 12 Byte Ascii String
+  -- Leg Security Group: String12
   index, leg_security_group = cme_futures_streamlined_sbe_v5_8.leg_security_group.dissect(buffer, index, packet, parent)
 
-  -- Leg Date Offset: 1 Byte Signed Fixed Width Integer Nullable
+  -- Leg Date Offset: Int8NULL
   index, leg_date_offset = cme_futures_streamlined_sbe_v5_8.leg_date_offset.dissect(buffer, index, packet, parent)
 
   -- Interpolation Factor: Struct of 2 fields
@@ -2020,10 +2020,10 @@ cme_futures_streamlined_sbe_v5_8.events_group.fields = function(buffer, offset, 
     iteration:set_generated()
   end
 
-  -- Event Type Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Event Type Optional: uInt8NULL
   index, event_type_optional = cme_futures_streamlined_sbe_v5_8.event_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Event Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Event Time Optional: uInt64NULL
   index, event_time_optional = cme_futures_streamlined_sbe_v5_8.event_time_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -2189,10 +2189,10 @@ cme_futures_streamlined_sbe_v5_8.eris_feed_types_group.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Md Feed Type 3: 3 Byte Ascii String
+  -- Md Feed Type 3: StringLen3
   index, md_feed_type_3 = cme_futures_streamlined_sbe_v5_8.md_feed_type_3.dissect(buffer, index, packet, parent)
 
-  -- Market Depth: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Market Depth: uInt8NULL
   index, market_depth = cme_futures_streamlined_sbe_v5_8.market_depth.dissect(buffer, index, packet, parent)
 
   return index
@@ -2477,10 +2477,10 @@ end
 cme_futures_streamlined_sbe_v5_8.min_price_increment.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -2811,43 +2811,43 @@ end
 cme_futures_streamlined_sbe_v5_8.md_instrument_definition_eris.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Group 12: 12 Byte Ascii String
+  -- Security Group 12: String12
   index, security_group_12 = cme_futures_streamlined_sbe_v5_8.security_group_12.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Type 4: 4 Byte Ascii String
+  -- Security Type 4: String4
   index, security_type_4 = cme_futures_streamlined_sbe_v5_8.security_type_4.dissect(buffer, index, packet, parent)
 
-  -- Product Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Product Optional: uInt8NULL
   index, product_optional = cme_futures_streamlined_sbe_v5_8.product_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_streamlined_sbe_v5_8.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_streamlined_sbe_v5_8.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = cme_futures_streamlined_sbe_v5_8.currency.dissect(buffer, index, packet, parent)
 
   -- Min Price Increment: Struct of 2 fields
   index, min_price_increment = cme_futures_streamlined_sbe_v5_8.min_price_increment.dissect(buffer, index, packet, parent)
 
-  -- Security Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Security Update Action: SecurityUpdateAction
   index, security_update_action = cme_futures_streamlined_sbe_v5_8.security_update_action.dissect(buffer, index, packet, parent)
 
-  -- Rate Type: 2 Byte Ascii String
+  -- Rate Type: StringLength2
   index, rate_type = cme_futures_streamlined_sbe_v5_8.rate_type.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable
+  -- Coupon Rate: Decimal32
   index, coupon_rate = cme_futures_streamlined_sbe_v5_8.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- User Defined Instrument: 1 Byte Ascii String Nullable
+  -- User Defined Instrument: ErisUDI
   index, user_defined_instrument = cme_futures_streamlined_sbe_v5_8.user_defined_instrument.dissect(buffer, index, packet, parent)
 
-  -- Appl Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Appl Id: uInt16NULL
   index, appl_id = cme_futures_streamlined_sbe_v5_8.appl_id.dissect(buffer, index, packet, parent)
 
   -- Eris Feed Types Groups: Struct of 2 fields
@@ -2976,10 +2976,10 @@ cme_futures_streamlined_sbe_v5_8.otc_security_alt_id_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Security Alt I D String Length 50: 50 Byte Ascii String
+  -- Security Alt I D String Length 50: StringLength50
   index, security_alt_i_d_string_length_50 = cme_futures_streamlined_sbe_v5_8.security_alt_i_d_string_length_50.dissect(buffer, index, packet, parent)
 
-  -- Security Alt Id Source: 1 Byte Ascii String
+  -- Security Alt Id Source: CHAR
   index, security_alt_id_source = cme_futures_streamlined_sbe_v5_8.security_alt_id_source.dissect(buffer, index, packet, parent)
 
   return index
@@ -3264,16 +3264,16 @@ end
 cme_futures_streamlined_sbe_v5_8.underlying_maturity_month_year.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Year: uint16
   index, year = cme_futures_streamlined_sbe_v5_8.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Month: uint8
   index, month = cme_futures_streamlined_sbe_v5_8.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Day: uint8
   index, day = cme_futures_streamlined_sbe_v5_8.day.dissect(buffer, index, packet, parent)
 
-  -- Week: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Week: uint8
   index, week = cme_futures_streamlined_sbe_v5_8.week.dissect(buffer, index, packet, parent)
 
   return index
@@ -3361,16 +3361,16 @@ cme_futures_streamlined_sbe_v5_8.otc_underlyings_group.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Underlying Symbol: 50 Byte Ascii String
+  -- Underlying Symbol: StringLength50
   index, underlying_symbol = cme_futures_streamlined_sbe_v5_8.underlying_symbol.dissect(buffer, index, packet, parent)
 
   -- Underlying Maturity Month Year: Struct of 4 fields
   index, underlying_maturity_month_year = cme_futures_streamlined_sbe_v5_8.underlying_maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Type: 9 Byte Ascii String
+  -- Underlying Security Type: StringLength9
   index, underlying_security_type = cme_futures_streamlined_sbe_v5_8.underlying_security_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Exchange Security Exchange: 4 Byte Ascii String
+  -- Underlying Security Exchange Security Exchange: SecurityExchange
   index, underlying_security_exchange_security_exchange = cme_futures_streamlined_sbe_v5_8.underlying_security_exchange_security_exchange.dissect(buffer, index, packet, parent)
 
   return index
@@ -3877,10 +3877,10 @@ end
 cme_futures_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -4006,10 +4006,10 @@ end
 cme_futures_streamlined_sbe_v5_8.strike_price_decimal.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -4200,16 +4200,16 @@ end
 cme_futures_streamlined_sbe_v5_8.maturity_month_year.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Year: uint16
   index, year = cme_futures_streamlined_sbe_v5_8.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Month: uint8
   index, month = cme_futures_streamlined_sbe_v5_8.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Day: uint8
   index, day = cme_futures_streamlined_sbe_v5_8.day.dissect(buffer, index, packet, parent)
 
-  -- Week: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Week: uint8
   index, week = cme_futures_streamlined_sbe_v5_8.week.dissect(buffer, index, packet, parent)
 
   return index
@@ -4293,10 +4293,10 @@ end
 cme_futures_streamlined_sbe_v5_8.md_entry_size.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -4514,100 +4514,100 @@ cme_futures_streamlined_sbe_v5_8.otc_original_group.fields = function(buffer, of
     iteration:set_generated()
   end
 
-  -- Md Entry Type: 1 Byte Ascii String
+  -- Md Entry Type: CHAR
   index, md_entry_type = cme_futures_streamlined_sbe_v5_8.md_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_streamlined_sbe_v5_8.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional: PRICENULL
   index, md_entry_px_optional = cme_futures_streamlined_sbe_v5_8.md_entry_px_optional.dissect(buffer, index, packet, parent)
 
   -- Md Entry Size: Struct of 2 fields
   index, md_entry_size = cme_futures_streamlined_sbe_v5_8.md_entry_size.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Group 12: 12 Byte Ascii String
+  -- Security Group 12: String12
   index, security_group_12 = cme_futures_streamlined_sbe_v5_8.security_group_12.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 9 Byte Ascii String
+  -- Security Type: StringLength9
   index, security_type = cme_futures_streamlined_sbe_v5_8.security_type.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_streamlined_sbe_v5_8.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_streamlined_sbe_v5_8.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Product Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Product Optional: uInt8NULL
   index, product_optional = cme_futures_streamlined_sbe_v5_8.product_optional.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_streamlined_sbe_v5_8.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable
+  -- Coupon Rate: Decimal32
   index, coupon_rate = cme_futures_streamlined_sbe_v5_8.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Restructuring Type: 2 Byte Ascii String
+  -- Restructuring Type: StringLength2
   index, restructuring_type = cme_futures_streamlined_sbe_v5_8.restructuring_type.dissect(buffer, index, packet, parent)
 
-  -- Seniority: 2 Byte Ascii String
+  -- Seniority: StringLength2
   index, seniority = cme_futures_streamlined_sbe_v5_8.seniority.dissect(buffer, index, packet, parent)
 
-  -- Notional Percentage Outstanding: 4 Byte Signed Fixed Width Integer Nullable
+  -- Notional Percentage Outstanding: Decimal32
   index, notional_percentage_outstanding = cme_futures_streamlined_sbe_v5_8.notional_percentage_outstanding.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Put Or Call: uInt8NULL
   index, put_or_call = cme_futures_streamlined_sbe_v5_8.put_or_call.dissect(buffer, index, packet, parent)
 
   -- Strike Price Decimal: Struct of 2 fields
   index, strike_price_decimal = cme_futures_streamlined_sbe_v5_8.strike_price_decimal.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 5 Byte Ascii String
+  -- Unit Of Measure: String5
   index, unit_of_measure = cme_futures_streamlined_sbe_v5_8.unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure Currency: 3 Byte Ascii String
+  -- Unit Of Measure Currency: Currency
   index, unit_of_measure_currency = cme_futures_streamlined_sbe_v5_8.unit_of_measure_currency.dissect(buffer, index, packet, parent)
 
   -- Unit Of Measure Qty Decimal: Struct of 2 fields
   index, unit_of_measure_qty_decimal = cme_futures_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Date: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Date: Int32NULL
   index, md_entry_date = cme_futures_streamlined_sbe_v5_8.md_entry_date.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Signed Fixed Width Integer Nullable
+  -- Open Close Settl Flag: Int8NULL
   index, open_close_settl_flag = cme_futures_streamlined_sbe_v5_8.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Type: uInt16NULL
   index, price_type = cme_futures_streamlined_sbe_v5_8.price_type.dissect(buffer, index, packet, parent)
 
-  -- Settl Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Date: LocalMktDate
   index, settl_date = cme_futures_streamlined_sbe_v5_8.settl_date.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String
+  -- Quote Condition: CHAR
   index, quote_condition = cme_futures_streamlined_sbe_v5_8.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Market Sector: 26 Byte Ascii String
+  -- Market Sector: StringLength26
   index, market_sector = cme_futures_streamlined_sbe_v5_8.market_sector.dissect(buffer, index, packet, parent)
 
-  -- Sector Group: 2 Byte Ascii String
+  -- Sector Group: StringLength2
   index, sector_group = cme_futures_streamlined_sbe_v5_8.sector_group.dissect(buffer, index, packet, parent)
 
-  -- Sector Sub Group: 26 Byte Ascii String
+  -- Sector Sub Group: StringLength26
   index, sector_sub_group = cme_futures_streamlined_sbe_v5_8.sector_sub_group.dissect(buffer, index, packet, parent)
 
-  -- Product Complex: 26 Byte Ascii String
+  -- Product Complex: StringLength26
   index, product_complex = cme_futures_streamlined_sbe_v5_8.product_complex.dissect(buffer, index, packet, parent)
 
-  -- Security Sub Type: 2 Byte Ascii String
+  -- Security Sub Type: StringLength2
   index, security_sub_type = cme_futures_streamlined_sbe_v5_8.security_sub_type.dissect(buffer, index, packet, parent)
 
-  -- Vol Type: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Vol Type: uInt16NULL
   index, vol_type = cme_futures_streamlined_sbe_v5_8.vol_type.dissect(buffer, index, packet, parent)
 
-  -- Reference Id 100: 100 Byte Ascii String
+  -- Reference Id 100: String100
   index, reference_id_100 = cme_futures_streamlined_sbe_v5_8.reference_id_100.dissect(buffer, index, packet, parent)
 
   -- Otc Underlyings Groups: Struct of 2 fields
@@ -4890,16 +4890,16 @@ end
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_otc.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_streamlined_sbe_v5_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_streamlined_sbe_v5_8.trade_date.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_streamlined_sbe_v5_8.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Batch Total Messages Optional: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Batch Total Messages Optional: uInt16NULL
   index, batch_total_messages_optional = cme_futures_streamlined_sbe_v5_8.batch_total_messages_optional.dissect(buffer, index, packet, parent)
 
   -- Otc Original Groups: Struct of 2 fields
@@ -5163,10 +5163,10 @@ end
 cme_futures_streamlined_sbe_v5_8.cal_fut_px.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -5242,10 +5242,10 @@ end
 cme_futures_streamlined_sbe_v5_8.md_entry_px_decimal.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -5373,58 +5373,58 @@ cme_futures_streamlined_sbe_v5_8.eris_group.fields = function(buffer, offset, pa
     iteration:set_generated()
   end
 
-  -- Md Update Action Char: 1 Byte Ascii String
+  -- Md Update Action Char: CHAR
   index, md_update_action_char = cme_futures_streamlined_sbe_v5_8.md_update_action_char.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String
+  -- Md Entry Type: CHAR
   index, md_entry_type = cme_futures_streamlined_sbe_v5_8.md_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_streamlined_sbe_v5_8.rpt_seq.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px Decimal: Struct of 2 fields
   index, md_entry_px_decimal = cme_futures_streamlined_sbe_v5_8.md_entry_px_decimal.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size Optional: uInt64NULL
   index, md_entry_size_optional = cme_futures_streamlined_sbe_v5_8.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
   -- Cal Fut Px: Struct of 2 fields
   index, cal_fut_px = cme_futures_streamlined_sbe_v5_8.cal_fut_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Position No: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Position No: Int32NULL
   index, md_entry_position_no = cme_futures_streamlined_sbe_v5_8.md_entry_position_no.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
+  -- Number Of Orders: Int32NULL
   index, number_of_orders = cme_futures_streamlined_sbe_v5_8.number_of_orders.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Signed Fixed Width Integer
+  -- Trade Id: Int32
   index, trade_id = cme_futures_streamlined_sbe_v5_8.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = cme_futures_streamlined_sbe_v5_8.aggressor_side.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Group 26: 26 Byte Ascii String
+  -- Security Group 26: StringLength26
   index, security_group_26 = cme_futures_streamlined_sbe_v5_8.security_group_26.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 9 Byte Ascii String
+  -- Security Type: StringLength9
   index, security_type = cme_futures_streamlined_sbe_v5_8.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_streamlined_sbe_v5_8.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Product Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Product Optional: uInt8NULL
   index, product_optional = cme_futures_streamlined_sbe_v5_8.product_optional.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_streamlined_sbe_v5_8.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Reference Id 50: 50 Byte Ascii String
+  -- Reference Id 50: StringLength50
   index, reference_id_50 = cme_futures_streamlined_sbe_v5_8.reference_id_50.dissect(buffer, index, packet, parent)
 
-  -- Md Quote Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Quote Type: uInt8NULL
   index, md_quote_type = cme_futures_streamlined_sbe_v5_8.md_quote_type.dissect(buffer, index, packet, parent)
 
   -- Eris Security Alt Id Groups: Struct of 2 fields
@@ -5529,13 +5529,13 @@ end
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_eris_353.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_streamlined_sbe_v5_8.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_streamlined_sbe_v5_8.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Batch Total Messages Optional: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Batch Total Messages Optional: uInt16NULL
   index, batch_total_messages_optional = cme_futures_streamlined_sbe_v5_8.batch_total_messages_optional.dissect(buffer, index, packet, parent)
 
   -- Eris Groups: Struct of 2 fields
@@ -5620,55 +5620,55 @@ cme_futures_streamlined_sbe_v5_8.eris_original_group.fields = function(buffer, o
     iteration:set_generated()
   end
 
-  -- Md Update Action Char: 1 Byte Ascii String
+  -- Md Update Action Char: CHAR
   index, md_update_action_char = cme_futures_streamlined_sbe_v5_8.md_update_action_char.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String
+  -- Md Entry Type: CHAR
   index, md_entry_type = cme_futures_streamlined_sbe_v5_8.md_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_streamlined_sbe_v5_8.rpt_seq.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px Decimal: Struct of 2 fields
   index, md_entry_px_decimal = cme_futures_streamlined_sbe_v5_8.md_entry_px_decimal.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size Optional: uInt64NULL
   index, md_entry_size_optional = cme_futures_streamlined_sbe_v5_8.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
   -- Cal Fut Px: Struct of 2 fields
   index, cal_fut_px = cme_futures_streamlined_sbe_v5_8.cal_fut_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Position No: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Position No: Int32NULL
   index, md_entry_position_no = cme_futures_streamlined_sbe_v5_8.md_entry_position_no.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
+  -- Number Of Orders: Int32NULL
   index, number_of_orders = cme_futures_streamlined_sbe_v5_8.number_of_orders.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Signed Fixed Width Integer
+  -- Trade Id: Int32
   index, trade_id = cme_futures_streamlined_sbe_v5_8.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = cme_futures_streamlined_sbe_v5_8.aggressor_side.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Group 26: 26 Byte Ascii String
+  -- Security Group 26: StringLength26
   index, security_group_26 = cme_futures_streamlined_sbe_v5_8.security_group_26.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 9 Byte Ascii String
+  -- Security Type: StringLength9
   index, security_type = cme_futures_streamlined_sbe_v5_8.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_streamlined_sbe_v5_8.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Product Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Product Optional: uInt8NULL
   index, product_optional = cme_futures_streamlined_sbe_v5_8.product_optional.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_streamlined_sbe_v5_8.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Reference Id 50: 50 Byte Ascii String
+  -- Reference Id 50: StringLength50
   index, reference_id_50 = cme_futures_streamlined_sbe_v5_8.reference_id_50.dissect(buffer, index, packet, parent)
 
   -- Eris Security Alt Id Groups: Struct of 2 fields
@@ -5773,13 +5773,13 @@ end
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_eris_351.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_streamlined_sbe_v5_8.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_streamlined_sbe_v5_8.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Batch Total Messages Optional: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Batch Total Messages Optional: uInt16NULL
   index, batch_total_messages_optional = cme_futures_streamlined_sbe_v5_8.batch_total_messages_optional.dissect(buffer, index, packet, parent)
 
   -- Eris Original Groups: Struct of 2 fields
@@ -6099,16 +6099,16 @@ end
 cme_futures_streamlined_sbe_v5_8.leg_maturity_month_year.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Year: uint16
   index, year = cme_futures_streamlined_sbe_v5_8.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Month: uint8
   index, month = cme_futures_streamlined_sbe_v5_8.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Day: uint8
   index, day = cme_futures_streamlined_sbe_v5_8.day.dissect(buffer, index, packet, parent)
 
-  -- Week: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Week: uint8
   index, week = cme_futures_streamlined_sbe_v5_8.week.dissect(buffer, index, packet, parent)
 
   return index
@@ -6274,49 +6274,49 @@ cme_futures_streamlined_sbe_v5_8.trade_blocks_original_legs_group.fields = funct
     iteration:set_generated()
   end
 
-  -- Leg Symbol: 50 Byte Ascii String
+  -- Leg Symbol: StringLength50
   index, leg_symbol = cme_futures_streamlined_sbe_v5_8.leg_symbol.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Security Id: uInt64NULL
   index, leg_security_id = cme_futures_streamlined_sbe_v5_8.leg_security_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Group: 12 Byte Ascii String
+  -- Leg Security Group: String12
   index, leg_security_group = cme_futures_streamlined_sbe_v5_8.leg_security_group.dissect(buffer, index, packet, parent)
 
-  -- Leg Id: 17 Byte Ascii String
+  -- Leg Id: StringLength17
   index, leg_id = cme_futures_streamlined_sbe_v5_8.leg_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Type: 9 Byte Ascii String
+  -- Leg Security Type: StringLength9
   index, leg_security_type = cme_futures_streamlined_sbe_v5_8.leg_security_type.dissect(buffer, index, packet, parent)
 
   -- Leg Maturity Month Year: Struct of 4 fields
   index, leg_maturity_month_year = cme_futures_streamlined_sbe_v5_8.leg_maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Leg Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Maturity Date: LocalMktDate
   index, leg_maturity_date = cme_futures_streamlined_sbe_v5_8.leg_maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Leg Strike Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Strike Price: PRICENULL
   index, leg_strike_price = cme_futures_streamlined_sbe_v5_8.leg_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Leg Unit Of Measure: 5 Byte Ascii String
+  -- Leg Unit Of Measure: String5
   index, leg_unit_of_measure = cme_futures_streamlined_sbe_v5_8.leg_unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Leg Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Unit Of Measure Qty: PRICENULL
   index, leg_unit_of_measure_qty = cme_futures_streamlined_sbe_v5_8.leg_unit_of_measure_qty.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Exchange: 4 Byte Ascii String
+  -- Leg Security Exchange: String4
   index, leg_security_exchange = cme_futures_streamlined_sbe_v5_8.leg_security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty u Int 16 Null: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Ratio Qty u Int 16 Null: uInt16NULL
   index, leg_ratio_qty_u_int_16_null = cme_futures_streamlined_sbe_v5_8.leg_ratio_qty_u_int_16_null.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Side: uInt8NULL
   index, leg_side = cme_futures_streamlined_sbe_v5_8.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Put Or Call: uInt8NULL
   index, leg_put_or_call = cme_futures_streamlined_sbe_v5_8.leg_put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Leg Unit Of Measure Currency: 3 Byte Ascii String
+  -- Leg Unit Of Measure Currency: StringLen3
   index, leg_unit_of_measure_currency = cme_futures_streamlined_sbe_v5_8.leg_unit_of_measure_currency.dissect(buffer, index, packet, parent)
 
   return index
@@ -6493,10 +6493,10 @@ cme_futures_streamlined_sbe_v5_8.trade_blocks_party_ids_group.fields = function(
     iteration:set_generated()
   end
 
-  -- Party Id: 50 Byte Ascii String
+  -- Party Id: StringLength50
   index, party_id = cme_futures_streamlined_sbe_v5_8.party_id.dissect(buffer, index, packet, parent)
 
-  -- Party Role: 2 Byte Ascii String
+  -- Party Role: StringLength2
   index, party_role = cme_futures_streamlined_sbe_v5_8.party_role.dissect(buffer, index, packet, parent)
 
   return index
@@ -6636,16 +6636,16 @@ cme_futures_streamlined_sbe_v5_8.trade_blocks_underlyings_group.fields = functio
     iteration:set_generated()
   end
 
-  -- Underlying Symbol: 50 Byte Ascii String
+  -- Underlying Symbol: StringLength50
   index, underlying_symbol = cme_futures_streamlined_sbe_v5_8.underlying_symbol.dissect(buffer, index, packet, parent)
 
   -- Underlying Maturity Month Year: Struct of 4 fields
   index, underlying_maturity_month_year = cme_futures_streamlined_sbe_v5_8.underlying_maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Type: 9 Byte Ascii String
+  -- Underlying Security Type: StringLength9
   index, underlying_security_type = cme_futures_streamlined_sbe_v5_8.underlying_security_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Exchange String 4: 4 Byte Ascii String
+  -- Underlying Security Exchange String 4: String4
   index, underlying_security_exchange_string_4 = cme_futures_streamlined_sbe_v5_8.underlying_security_exchange_string_4.dissect(buffer, index, packet, parent)
 
   return index
@@ -7181,91 +7181,91 @@ cme_futures_streamlined_sbe_v5_8.trade_blocks_legacy_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_streamlined_sbe_v5_8.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Security Id: uInt64NULL
   index, security_id = cme_futures_streamlined_sbe_v5_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_streamlined_sbe_v5_8.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional: PRICENULL
   index, md_entry_px_optional = cme_futures_streamlined_sbe_v5_8.md_entry_px_optional.dissect(buffer, index, packet, parent)
 
   -- Md Entry Size: Struct of 2 fields
   index, md_entry_size = cme_futures_streamlined_sbe_v5_8.md_entry_size.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
+  -- Number Of Orders: Int32NULL
   index, number_of_orders = cme_futures_streamlined_sbe_v5_8.number_of_orders.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Signed Fixed Width Integer
+  -- Trade Id: Int32
   index, trade_id = cme_futures_streamlined_sbe_v5_8.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = cme_futures_streamlined_sbe_v5_8.aggressor_side.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Group 12: 12 Byte Ascii String
+  -- Security Group 12: String12
   index, security_group_12 = cme_futures_streamlined_sbe_v5_8.security_group_12.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 9 Byte Ascii String
+  -- Security Type: StringLength9
   index, security_type = cme_futures_streamlined_sbe_v5_8.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Sub Type: 2 Byte Ascii String
+  -- Security Sub Type: StringLength2
   index, security_sub_type = cme_futures_streamlined_sbe_v5_8.security_sub_type.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_streamlined_sbe_v5_8.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange 4: 4 Byte Ascii String
+  -- Security Exchange 4: String4
   index, security_exchange_4 = cme_futures_streamlined_sbe_v5_8.security_exchange_4.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_streamlined_sbe_v5_8.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 5 Byte Ascii String
+  -- Unit Of Measure: String5
   index, unit_of_measure = cme_futures_streamlined_sbe_v5_8.unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure Currency 3: 3 Byte Ascii String
+  -- Unit Of Measure Currency 3: StringLen3
   index, unit_of_measure_currency_3 = cme_futures_streamlined_sbe_v5_8.unit_of_measure_currency_3.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Unit Of Measure Qty Optional: PRICENULL
   index, unit_of_measure_qty_optional = cme_futures_streamlined_sbe_v5_8.unit_of_measure_qty_optional.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable
+  -- Coupon Rate: Decimal32
   index, coupon_rate = cme_futures_streamlined_sbe_v5_8.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Type: uInt16NULL
   index, price_type = cme_futures_streamlined_sbe_v5_8.price_type.dissect(buffer, index, packet, parent)
 
-  -- Trd Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Trd Type: uInt8NULL
   index, trd_type = cme_futures_streamlined_sbe_v5_8.trd_type.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Id: 26 Byte Ascii String
+  -- Md Entry Id: StringLength26
   index, md_entry_id = cme_futures_streamlined_sbe_v5_8.md_entry_id.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Put Or Call: uInt8NULL
   index, put_or_call = cme_futures_streamlined_sbe_v5_8.put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Strike Price: PRICENULL
   index, strike_price = cme_futures_streamlined_sbe_v5_8.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Restructuring Type: 2 Byte Ascii String
+  -- Restructuring Type: StringLength2
   index, restructuring_type = cme_futures_streamlined_sbe_v5_8.restructuring_type.dissect(buffer, index, packet, parent)
 
-  -- Seniority: 2 Byte Ascii String
+  -- Seniority: StringLength2
   index, seniority = cme_futures_streamlined_sbe_v5_8.seniority.dissect(buffer, index, packet, parent)
 
-  -- Reference Id 100: 100 Byte Ascii String
+  -- Reference Id 100: String100
   index, reference_id_100 = cme_futures_streamlined_sbe_v5_8.reference_id_100.dissect(buffer, index, packet, parent)
 
-  -- Strategy Link Id: 26 Byte Ascii String
+  -- Strategy Link Id: StringLength26
   index, strategy_link_id = cme_futures_streamlined_sbe_v5_8.strategy_link_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Ref Id: 17 Byte Ascii String
+  -- Leg Ref Id: StringLength17
   index, leg_ref_id = cme_futures_streamlined_sbe_v5_8.leg_ref_id.dissect(buffer, index, packet, parent)
 
   -- Trade Blocks Underlyings Groups: Struct of 2 fields
@@ -7425,16 +7425,16 @@ end
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_trade_blocks_349.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time Optional: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time Optional: uInt64NULL
   index, transact_time_optional = cme_futures_streamlined_sbe_v5_8.transact_time_optional.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_streamlined_sbe_v5_8.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Batch Total Messages: 2 Byte Unsigned Fixed Width Integer
+  -- Batch Total Messages: uInt16
   index, batch_total_messages = cme_futures_streamlined_sbe_v5_8.batch_total_messages.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_streamlined_sbe_v5_8.trade_date.dissect(buffer, index, packet, parent)
 
   -- Trade Blocks Legacy Groups: Struct of 2 fields
@@ -7547,10 +7547,10 @@ end
 cme_futures_streamlined_sbe_v5_8.percent_trading.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -7598,10 +7598,10 @@ end
 cme_futures_streamlined_sbe_v5_8.net_pct_chg.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -7649,10 +7649,10 @@ end
 cme_futures_streamlined_sbe_v5_8.net_chg_prev_day.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -7700,10 +7700,10 @@ end
 cme_futures_streamlined_sbe_v5_8.yield.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -7872,25 +7872,25 @@ cme_futures_streamlined_sbe_v5_8.incremental_refresh_indices_group.fields = func
     iteration:set_generated()
   end
 
-  -- Md Entry Type Indices: 1 Byte Ascii String Enum with 10 values
+  -- Md Entry Type Indices: MDEntryTypeIndices
   index, md_entry_type_indices = cme_futures_streamlined_sbe_v5_8.md_entry_type_indices.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_streamlined_sbe_v5_8.rpt_seq.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px Decimal: Struct of 2 fields
   index, md_entry_px_decimal = cme_futures_streamlined_sbe_v5_8.md_entry_px_decimal.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size Optional: uInt64NULL
   index, md_entry_size_optional = cme_futures_streamlined_sbe_v5_8.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Signed Fixed Width Integer Nullable
+  -- Open Close Settl Flag: Int8NULL
   index, open_close_settl_flag = cme_futures_streamlined_sbe_v5_8.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Yield Type: 8 Byte Ascii String
+  -- Yield Type: String8
   index, yield_type = cme_futures_streamlined_sbe_v5_8.yield_type.dissect(buffer, index, packet, parent)
 
   -- Yield: Struct of 2 fields
@@ -7905,16 +7905,16 @@ cme_futures_streamlined_sbe_v5_8.incremental_refresh_indices_group.fields = func
   -- Percent Trading: Struct of 2 fields
   index, percent_trading = cme_futures_streamlined_sbe_v5_8.percent_trading.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Code: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Entry Code: MDEntryCode
   index, md_entry_code = cme_futures_streamlined_sbe_v5_8.md_entry_code.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Date: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Date: Int32NULL
   index, md_entry_date = cme_futures_streamlined_sbe_v5_8.md_entry_date.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Time: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Time: Int32NULL
   index, md_entry_time = cme_futures_streamlined_sbe_v5_8.md_entry_time.dissect(buffer, index, packet, parent)
 
-  -- Reference Id 50: 50 Byte Ascii String
+  -- Reference Id 50: StringLength50
   index, reference_id_50 = cme_futures_streamlined_sbe_v5_8.reference_id_50.dissect(buffer, index, packet, parent)
 
   return index
@@ -8058,16 +8058,16 @@ end
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_indices.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_streamlined_sbe_v5_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Md Feed Type: 2 Byte Ascii String
+  -- Md Feed Type: StringLength2
   index, md_feed_type = cme_futures_streamlined_sbe_v5_8.md_feed_type.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_streamlined_sbe_v5_8.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Batch Total Messages Optional: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Batch Total Messages Optional: uInt16NULL
   index, batch_total_messages_optional = cme_futures_streamlined_sbe_v5_8.batch_total_messages_optional.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Indices Groups: Struct of 2 fields
@@ -8174,10 +8174,10 @@ cme_futures_streamlined_sbe_v5_8.inst_attrib_group.fields = function(buffer, off
     iteration:set_generated()
   end
 
-  -- Inst Attrib Type: 1 Byte Unsigned Fixed Width Integer
+  -- Inst Attrib Type: uInt8
   index, inst_attrib_type = cme_futures_streamlined_sbe_v5_8.inst_attrib_type.dissect(buffer, index, packet, parent)
 
-  -- Inst Attrib Value: 100 Byte Ascii String
+  -- Inst Attrib Value: String100
   index, inst_attrib_value = cme_futures_streamlined_sbe_v5_8.inst_attrib_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -8241,10 +8241,10 @@ end
 cme_futures_streamlined_sbe_v5_8.group_size_encoding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_futures_streamlined_sbe_v5_8.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 2 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint16
   index, num_in_group = cme_futures_streamlined_sbe_v5_8.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -8380,25 +8380,25 @@ end
 cme_futures_streamlined_sbe_v5_8.md_instrument_definition_indices.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Product: 1 Byte Signed Fixed Width Integer
+  -- Product: Int8
   index, product = cme_futures_streamlined_sbe_v5_8.product.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_streamlined_sbe_v5_8.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Currency
   index, currency = cme_futures_streamlined_sbe_v5_8.currency.dissect(buffer, index, packet, parent)
 
-  -- Security Update Action: 1 Byte Ascii String Enum with 3 values
+  -- Security Update Action: SecurityUpdateAction
   index, security_update_action = cme_futures_streamlined_sbe_v5_8.security_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Feed Type: 2 Byte Ascii String
+  -- Md Feed Type: StringLength2
   index, md_feed_type = cme_futures_streamlined_sbe_v5_8.md_feed_type.dissect(buffer, index, packet, parent)
 
-  -- Appl Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Appl Id: uInt16NULL
   index, appl_id = cme_futures_streamlined_sbe_v5_8.appl_id.dissect(buffer, index, packet, parent)
 
   -- Inst Attrib Groups: Struct of 2 fields
@@ -8524,31 +8524,31 @@ cme_futures_streamlined_sbe_v5_8.quote_request_related_sym_group.fields = functi
     iteration:set_generated()
   end
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable
+  -- Coupon Rate: Decimal32
   index, coupon_rate = cme_futures_streamlined_sbe_v5_8.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: uInt64NULL
   index, order_qty = cme_futures_streamlined_sbe_v5_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_streamlined_sbe_v5_8.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Product Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Product Optional: uInt8NULL
   index, product_optional = cme_futures_streamlined_sbe_v5_8.product_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Group 26: 26 Byte Ascii String
+  -- Security Group 26: StringLength26
   index, security_group_26 = cme_futures_streamlined_sbe_v5_8.security_group_26.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_streamlined_sbe_v5_8.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Security Type 4: 4 Byte Ascii String
+  -- Security Type 4: String4
   index, security_type_4 = cme_futures_streamlined_sbe_v5_8.security_type_4.dissect(buffer, index, packet, parent)
 
-  -- Quote Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Type: uInt8NULL
   index, quote_type = cme_futures_streamlined_sbe_v5_8.quote_type.dissect(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
@@ -8689,13 +8689,13 @@ end
 cme_futures_streamlined_sbe_v5_8.quote_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_streamlined_sbe_v5_8.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_streamlined_sbe_v5_8.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id: 26 Byte Ascii String
+  -- Quote Req Id: StringLength26
   index, quote_req_id = cme_futures_streamlined_sbe_v5_8.quote_req_id.dissect(buffer, index, packet, parent)
 
   -- Quote Request Related Sym Groups: Struct of 2 fields
@@ -8806,91 +8806,91 @@ cme_futures_streamlined_sbe_v5_8.trade_blocks_original_group.fields = function(b
     iteration:set_generated()
   end
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Md Update Action: MDUpdateAction
   index, md_update_action = cme_futures_streamlined_sbe_v5_8.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Security Id: uInt64NULL
   index, security_id = cme_futures_streamlined_sbe_v5_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_streamlined_sbe_v5_8.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px Optional: PRICENULL
   index, md_entry_px_optional = cme_futures_streamlined_sbe_v5_8.md_entry_px_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size Optional: uInt64NULL
   index, md_entry_size_optional = cme_futures_streamlined_sbe_v5_8.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
+  -- Number Of Orders: Int32NULL
   index, number_of_orders = cme_futures_streamlined_sbe_v5_8.number_of_orders.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Signed Fixed Width Integer
+  -- Trade Id: Int32
   index, trade_id = cme_futures_streamlined_sbe_v5_8.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Aggressor Side: AggressorSide
   index, aggressor_side = cme_futures_streamlined_sbe_v5_8.aggressor_side.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Group 12: 12 Byte Ascii String
+  -- Security Group 12: String12
   index, security_group_12 = cme_futures_streamlined_sbe_v5_8.security_group_12.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 9 Byte Ascii String
+  -- Security Type: StringLength9
   index, security_type = cme_futures_streamlined_sbe_v5_8.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Sub Type: 2 Byte Ascii String
+  -- Security Sub Type: StringLength2
   index, security_sub_type = cme_futures_streamlined_sbe_v5_8.security_sub_type.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_streamlined_sbe_v5_8.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange 4: 4 Byte Ascii String
+  -- Security Exchange 4: String4
   index, security_exchange_4 = cme_futures_streamlined_sbe_v5_8.security_exchange_4.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_streamlined_sbe_v5_8.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 5 Byte Ascii String
+  -- Unit Of Measure: String5
   index, unit_of_measure = cme_futures_streamlined_sbe_v5_8.unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure Currency 3: 3 Byte Ascii String
+  -- Unit Of Measure Currency 3: StringLen3
   index, unit_of_measure_currency_3 = cme_futures_streamlined_sbe_v5_8.unit_of_measure_currency_3.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Unit Of Measure Qty Optional: PRICENULL
   index, unit_of_measure_qty_optional = cme_futures_streamlined_sbe_v5_8.unit_of_measure_qty_optional.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable
+  -- Coupon Rate: Decimal32
   index, coupon_rate = cme_futures_streamlined_sbe_v5_8.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Type: uInt16NULL
   index, price_type = cme_futures_streamlined_sbe_v5_8.price_type.dissect(buffer, index, packet, parent)
 
-  -- Trd Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Trd Type: uInt8NULL
   index, trd_type = cme_futures_streamlined_sbe_v5_8.trd_type.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Id: 26 Byte Ascii String
+  -- Md Entry Id: StringLength26
   index, md_entry_id = cme_futures_streamlined_sbe_v5_8.md_entry_id.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Put Or Call: uInt8NULL
   index, put_or_call = cme_futures_streamlined_sbe_v5_8.put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Strike Price: PRICENULL
   index, strike_price = cme_futures_streamlined_sbe_v5_8.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Restructuring Type: 2 Byte Ascii String
+  -- Restructuring Type: StringLength2
   index, restructuring_type = cme_futures_streamlined_sbe_v5_8.restructuring_type.dissect(buffer, index, packet, parent)
 
-  -- Seniority: 2 Byte Ascii String
+  -- Seniority: StringLength2
   index, seniority = cme_futures_streamlined_sbe_v5_8.seniority.dissect(buffer, index, packet, parent)
 
-  -- Reference Id 100: 100 Byte Ascii String
+  -- Reference Id 100: String100
   index, reference_id_100 = cme_futures_streamlined_sbe_v5_8.reference_id_100.dissect(buffer, index, packet, parent)
 
-  -- Strategy Link Id: 26 Byte Ascii String
+  -- Strategy Link Id: StringLength26
   index, strategy_link_id = cme_futures_streamlined_sbe_v5_8.strategy_link_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Ref Id: 17 Byte Ascii String
+  -- Leg Ref Id: StringLength17
   index, leg_ref_id = cme_futures_streamlined_sbe_v5_8.leg_ref_id.dissect(buffer, index, packet, parent)
 
   -- Trade Blocks Underlyings Groups: Struct of 2 fields
@@ -8998,13 +8998,13 @@ end
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_trade_blocks_340.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_streamlined_sbe_v5_8.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_streamlined_sbe_v5_8.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Batch Total Messages: 2 Byte Unsigned Fixed Width Integer
+  -- Batch Total Messages: uInt16
   index, batch_total_messages = cme_futures_streamlined_sbe_v5_8.batch_total_messages.dissect(buffer, index, packet, parent)
 
   -- Trade Blocks Original Groups: Struct of 2 fields
@@ -9087,7 +9087,7 @@ cme_futures_streamlined_sbe_v5_8.lines_of_text_group.fields = function(buffer, o
     iteration:set_generated()
   end
 
-  -- Text 500: 500 Byte Ascii String
+  -- Text 500: StringLength500
   index, text_500 = cme_futures_streamlined_sbe_v5_8.text_500.dissect(buffer, index, packet, parent)
 
   return index
@@ -9185,7 +9185,7 @@ cme_futures_streamlined_sbe_v5_8.news_indices_related_sym_group.fields = functio
     iteration:set_generated()
   end
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
   return index
@@ -9356,13 +9356,13 @@ end
 cme_futures_streamlined_sbe_v5_8.md_news_indices.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Headline: 50 Byte Ascii String
+  -- Headline: StringLength50
   index, headline = cme_futures_streamlined_sbe_v5_8.headline.dissect(buffer, index, packet, parent)
 
-  -- Orig Time: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Time: uInt64NULL
   index, orig_time = cme_futures_streamlined_sbe_v5_8.orig_time.dissect(buffer, index, packet, parent)
 
-  -- Md Feed Type: 2 Byte Ascii String
+  -- Md Feed Type: StringLength2
   index, md_feed_type = cme_futures_streamlined_sbe_v5_8.md_feed_type.dissect(buffer, index, packet, parent)
 
   -- News Indices Related Sym Groups: Struct of 2 fields
@@ -9517,13 +9517,13 @@ cme_futures_streamlined_sbe_v5_8.incremental_refresh_eris_related_instruments_gr
     iteration:set_generated()
   end
 
-  -- Related Instrument Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Related Instrument Type: uInt8NULL
   index, related_instrument_type = cme_futures_streamlined_sbe_v5_8.related_instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Related Symbol: 50 Byte Ascii String
+  -- Related Symbol: StringLength50
   index, related_symbol = cme_futures_streamlined_sbe_v5_8.related_symbol.dissect(buffer, index, packet, parent)
 
-  -- Related Security Group: 26 Byte Ascii String
+  -- Related Security Group: StringLength26
   index, related_security_group = cme_futures_streamlined_sbe_v5_8.related_security_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -9659,10 +9659,10 @@ end
 cme_futures_streamlined_sbe_v5_8.final_settlement_futures_price.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -9710,10 +9710,10 @@ end
 cme_futures_streamlined_sbe_v5_8.settlement_npv.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -9761,10 +9761,10 @@ end
 cme_futures_streamlined_sbe_v5_8.d_v_01.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -9812,10 +9812,10 @@ end
 cme_futures_streamlined_sbe_v5_8.p_v_01.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -9891,10 +9891,10 @@ end
 cme_futures_streamlined_sbe_v5_8.leg_contract_multiplier.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10065,10 +10065,10 @@ end
 cme_futures_streamlined_sbe_v5_8.previous_eris_pai.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10144,10 +10144,10 @@ end
 cme_futures_streamlined_sbe_v5_8.next_floating_payment_amount.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10195,10 +10195,10 @@ end
 cme_futures_streamlined_sbe_v5_8.next_fixed_payment_amount.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10274,10 +10274,10 @@ end
 cme_futures_streamlined_sbe_v5_8.floating_payment.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10325,10 +10325,10 @@ end
 cme_futures_streamlined_sbe_v5_8.fixed_payment.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10376,10 +10376,10 @@ end
 cme_futures_streamlined_sbe_v5_8.min_price_increment_optional.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10427,10 +10427,10 @@ end
 cme_futures_streamlined_sbe_v5_8.fed_funds_rate.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10478,10 +10478,10 @@ end
 cme_futures_streamlined_sbe_v5_8.eris_pai.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10529,10 +10529,10 @@ end
 cme_futures_streamlined_sbe_v5_8.daily_incremental_eris_pai.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10580,10 +10580,10 @@ end
 cme_futures_streamlined_sbe_v5_8.accrued_coupons.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10631,10 +10631,10 @@ end
 cme_futures_streamlined_sbe_v5_8.npv.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10682,10 +10682,10 @@ end
 cme_futures_streamlined_sbe_v5_8.float_npv.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10733,10 +10733,10 @@ end
 cme_futures_streamlined_sbe_v5_8.fixed_npv.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10784,10 +10784,10 @@ end
 cme_futures_streamlined_sbe_v5_8.leg_purchase_rate.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10835,10 +10835,10 @@ end
 cme_futures_streamlined_sbe_v5_8.fair_coupon_pct.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10914,10 +10914,10 @@ end
 cme_futures_streamlined_sbe_v5_8.coupon_rate_optional.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa 32: int32
   index, mantissa_32 = cme_futures_streamlined_sbe_v5_8.mantissa_32.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -10965,10 +10965,10 @@ end
 cme_futures_streamlined_sbe_v5_8.cal_fut_px_optional.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -11109,10 +11109,10 @@ end
 cme_futures_streamlined_sbe_v5_8.md_entry_px_decimal_optional.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_streamlined_sbe_v5_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -11260,19 +11260,19 @@ cme_futures_streamlined_sbe_v5_8.eris_reference_data_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Md Update Action Char: 1 Byte Ascii String
+  -- Md Update Action Char: CHAR
   index, md_update_action_char = cme_futures_streamlined_sbe_v5_8.md_update_action_char.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String
+  -- Md Entry Type: CHAR
   index, md_entry_type = cme_futures_streamlined_sbe_v5_8.md_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cme_futures_streamlined_sbe_v5_8.rpt_seq.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px Decimal Optional: Struct of 2 fields
   index, md_entry_px_decimal_optional = cme_futures_streamlined_sbe_v5_8.md_entry_px_decimal_optional.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Signed Fixed Width Integer Nullable
+  -- Open Close Settl Flag: Int8NULL
   index, open_close_settl_flag = cme_futures_streamlined_sbe_v5_8.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 8 fields
@@ -11281,34 +11281,34 @@ cme_futures_streamlined_sbe_v5_8.eris_reference_data_group.fields = function(buf
   -- Cal Fut Px Optional: Struct of 2 fields
   index, cal_fut_px_optional = cme_futures_streamlined_sbe_v5_8.cal_fut_px_optional.dissect(buffer, index, packet, parent)
 
-  -- Reference Id 50: 50 Byte Ascii String
+  -- Reference Id 50: StringLength50
   index, reference_id_50 = cme_futures_streamlined_sbe_v5_8.reference_id_50.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size Optional: uInt64NULL
   index, md_entry_size_optional = cme_futures_streamlined_sbe_v5_8.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: StringLength50
   index, symbol = cme_futures_streamlined_sbe_v5_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Group 26: 26 Byte Ascii String
+  -- Security Group 26: StringLength26
   index, security_group_26 = cme_futures_streamlined_sbe_v5_8.security_group_26.dissect(buffer, index, packet, parent)
 
-  -- Product Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Product Optional: uInt8NULL
   index, product_optional = cme_futures_streamlined_sbe_v5_8.product_optional.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 9 Byte Ascii String
+  -- Security Type: StringLength9
   index, security_type = cme_futures_streamlined_sbe_v5_8.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: SecurityExchange
   index, security_exchange = cme_futures_streamlined_sbe_v5_8.security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_streamlined_sbe_v5_8.maturity_date.dissect(buffer, index, packet, parent)
 
   -- Coupon Rate Optional: Struct of 2 fields
   index, coupon_rate_optional = cme_futures_streamlined_sbe_v5_8.coupon_rate_optional.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_streamlined_sbe_v5_8.trade_date.dissect(buffer, index, packet, parent)
 
   -- Fair Coupon Pct: Struct of 2 fields
@@ -11347,7 +11347,7 @@ cme_futures_streamlined_sbe_v5_8.eris_reference_data_group.fields = function(buf
   -- Floating Payment: Struct of 2 fields
   index, floating_payment = cme_futures_streamlined_sbe_v5_8.floating_payment.dissect(buffer, index, packet, parent)
 
-  -- Next Fixed Payment Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Next Fixed Payment Date: LocalMktDate
   index, next_fixed_payment_date = cme_futures_streamlined_sbe_v5_8.next_fixed_payment_date.dissect(buffer, index, packet, parent)
 
   -- Next Fixed Payment Amount: Struct of 2 fields
@@ -11356,28 +11356,28 @@ cme_futures_streamlined_sbe_v5_8.eris_reference_data_group.fields = function(buf
   -- Next Floating Payment Amount: Struct of 2 fields
   index, next_floating_payment_amount = cme_futures_streamlined_sbe_v5_8.next_floating_payment_amount.dissect(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_streamlined_sbe_v5_8.trading_reference_date.dissect(buffer, index, packet, parent)
 
   -- Previous Eris Pai: Struct of 2 fields
   index, previous_eris_pai = cme_futures_streamlined_sbe_v5_8.previous_eris_pai.dissect(buffer, index, packet, parent)
 
-  -- Fed Funds Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Fed Funds Date: LocalMktDate
   index, fed_funds_date = cme_futures_streamlined_sbe_v5_8.fed_funds_date.dissect(buffer, index, packet, parent)
 
-  -- Accrual Days: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Accrual Days: uInt32NULL
   index, accrual_days = cme_futures_streamlined_sbe_v5_8.accrual_days.dissect(buffer, index, packet, parent)
 
-  -- Nominal: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Nominal: uInt64NULL
   index, nominal = cme_futures_streamlined_sbe_v5_8.nominal.dissect(buffer, index, packet, parent)
 
-  -- Leg Credit Rating: 6 Byte Ascii String
+  -- Leg Credit Rating: StringLength6
   index, leg_credit_rating = cme_futures_streamlined_sbe_v5_8.leg_credit_rating.dissect(buffer, index, packet, parent)
 
   -- Leg Contract Multiplier: Struct of 2 fields
   index, leg_contract_multiplier = cme_futures_streamlined_sbe_v5_8.leg_contract_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Next Floating Payment Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Next Floating Payment Date: LocalMktDate
   index, next_floating_payment_date = cme_futures_streamlined_sbe_v5_8.next_floating_payment_date.dissect(buffer, index, packet, parent)
 
   -- P V 01: Struct of 2 fields
@@ -11392,7 +11392,7 @@ cme_futures_streamlined_sbe_v5_8.eris_reference_data_group.fields = function(buf
   -- Final Settlement Futures Price: Struct of 2 fields
   index, final_settlement_futures_price = cme_futures_streamlined_sbe_v5_8.final_settlement_futures_price.dissect(buffer, index, packet, parent)
 
-  -- Security Description: 30 Byte Ascii String
+  -- Security Description: String30
   index, security_description = cme_futures_streamlined_sbe_v5_8.security_description.dissect(buffer, index, packet, parent)
 
   -- Eris Security Alt Id Groups: Struct of 2 fields
@@ -11500,13 +11500,13 @@ end
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_eris_reference_data_and_daily_statistics.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_streamlined_sbe_v5_8.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_futures_streamlined_sbe_v5_8.match_event_indicator.dissect(buffer, index, packet, parent)
 
-  -- Batch Total Messages Optional: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Batch Total Messages Optional: uInt16NULL
   index, batch_total_messages_optional = cme_futures_streamlined_sbe_v5_8.batch_total_messages_optional.dissect(buffer, index, packet, parent)
 
   -- Eris Reference Data Groups: Struct of 2 fields
@@ -11583,7 +11583,7 @@ end
 cme_futures_streamlined_sbe_v5_8.admin_logout.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 180 Byte Ascii String
+  -- Text: Text
   index, text = cme_futures_streamlined_sbe_v5_8.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -11646,7 +11646,7 @@ end
 cme_futures_streamlined_sbe_v5_8.admin_login.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Heart Bt Int: 1 Byte Signed Fixed Width Integer
+  -- Heart Bt Int: Int8
   index, heart_bt_int = cme_futures_streamlined_sbe_v5_8.heart_bt_int.dissect(buffer, index, packet, parent)
 
   return index
@@ -11960,16 +11960,16 @@ end
 cme_futures_streamlined_sbe_v5_8.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_futures_streamlined_sbe_v5_8.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Template Id: uint16
   index, template_id = cme_futures_streamlined_sbe_v5_8.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = cme_futures_streamlined_sbe_v5_8.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = cme_futures_streamlined_sbe_v5_8.version.dissect(buffer, index, packet, parent)
 
   return index

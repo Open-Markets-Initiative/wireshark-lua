@@ -2135,94 +2135,94 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_pending_replace.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: PRICE9
   index, price = cme_futures_ilink3_sbe_v8_8.price.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uInt32
   index, cum_qty = cme_futures_ilink3_sbe_v8_8.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Leaves: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves: uInt32
   index, leaves = cme_futures_ilink3_sbe_v8_8.leaves.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uInt32NULL
   index, min_qty = cme_futures_ilink3_sbe_v8_8.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uInt32NULL
   index, display_qty = cme_futures_ilink3_sbe_v8_8.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Priority Indicator: uInt8NULL
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8.priority_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2438,100 +2438,100 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_pending_cancel.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: PRICE9
   index, price = cme_futures_ilink3_sbe_v8_8.price.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uInt32
   index, cum_qty = cme_futures_ilink3_sbe_v8_8.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty Optional: uInt32NULL
   index, leaves_qty_optional = cme_futures_ilink3_sbe_v8_8.leaves_qty_optional.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uInt32NULL
   index, min_qty = cme_futures_ilink3_sbe_v8_8.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uInt32NULL
   index, display_qty = cme_futures_ilink3_sbe_v8_8.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Reservation Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Reservation Price: PRICENULL9
   index, reservation_price = cme_futures_ilink3_sbe_v8_8.reservation_price.dissect(buffer, index, packet, parent)
 
-  -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Priority Indicator: uInt8NULL
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8.priority_indicator.dissect(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String
+  -- Orig Order User: String8
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8.orig_order_user.dissect(buffer, index, packet, parent)
 
-  -- Cancel Text: 8 Byte Ascii String
+  -- Cancel Text: String8
   index, cancel_text = cme_futures_ilink3_sbe_v8_8.cancel_text.dissect(buffer, index, packet, parent)
 
   return index
@@ -2624,10 +2624,10 @@ cme_futures_ilink3_sbe_v8_8.quote_cancel_ack_sets_group.fields = function(buffer
     iteration:set_generated()
   end
 
-  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
+  -- Quote Set Id: uInt16
   index, quote_set_id = cme_futures_ilink3_sbe_v8_8.quote_set_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Error Code: 2 Byte Unsigned Fixed Width Integer
+  -- Quote Error Code: uInt16
   index, quote_error_code = cme_futures_ilink3_sbe_v8_8.quote_error_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -2714,10 +2714,10 @@ end
 cme_futures_ilink3_sbe_v8_8.group_size.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_futures_ilink3_sbe_v8_8.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = cme_futures_ilink3_sbe_v8_8.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -2863,13 +2863,13 @@ cme_futures_ilink3_sbe_v8_8.quote_cancel_ack_entries_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Entry Id: uInt32
   index, quote_entry_id = cme_futures_ilink3_sbe_v8_8.quote_entry_id.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Entry Reject Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Quote Entry Reject Reason: uInt8
   index, quote_entry_reject_reason = cme_futures_ilink3_sbe_v8_8.quote_entry_reject_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -3387,79 +3387,79 @@ end
 cme_futures_ilink3_sbe_v8_8.quote_cancel_ack.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String
+  -- Text: String256
   index, text = cme_futures_ilink3_sbe_v8_8.text.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: uInt64
   index, request_time = cme_futures_ilink3_sbe_v8_8.request_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Cancelled Symbol: 6 Byte Ascii String
+  -- Cancelled Symbol: StringLength6
   index, cancelled_symbol = cme_futures_ilink3_sbe_v8_8.cancelled_symbol.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Quote Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Id: uInt32
   index, quote_id = cme_futures_ilink3_sbe_v8_8.quote_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Reject Reason: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Reject Reason: uInt16NULL
   index, quote_reject_reason = cme_futures_ilink3_sbe_v8_8.quote_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quote Cxl Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Quote Cxl Status: QuoteCxlStatus
   index, quote_cxl_status = cme_futures_ilink3_sbe_v8_8.quote_cxl_status.dissect(buffer, index, packet, parent)
 
-  -- No Processed Entries 32: 4 Byte Unsigned Fixed Width Integer
+  -- No Processed Entries 32: uInt32
   index, no_processed_entries_32 = cme_futures_ilink3_sbe_v8_8.no_processed_entries_32.dissect(buffer, index, packet, parent)
 
-  -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Mm Protection Reset: BooleanFlag
   index, mm_protection_reset = cme_futures_ilink3_sbe_v8_8.mm_protection_reset.dissect(buffer, index, packet, parent)
 
-  -- Unsolicited Cancel Type: 1 Byte Ascii String Nullable
+  -- Unsolicited Cancel Type: charNULL
   index, unsolicited_cancel_type = cme_futures_ilink3_sbe_v8_8.unsolicited_cancel_type.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Tot No Quote Entries Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot No Quote Entries Optional: uInt8NULL
   index, tot_no_quote_entries_optional = cme_futures_ilink3_sbe_v8_8.tot_no_quote_entries_optional.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String
+  -- Orig Order User: String8
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8.orig_order_user.dissect(buffer, index, packet, parent)
 
-  -- Cancel Text: 8 Byte Ascii String
+  -- Cancel Text: String8
   index, cancel_text = cme_futures_ilink3_sbe_v8_8.cancel_text.dissect(buffer, index, packet, parent)
 
-  -- Quote Entry Open: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Entry Open: BooleanNULL
   index, quote_entry_open = cme_futures_ilink3_sbe_v8_8.quote_entry_open.dissect(buffer, index, packet, parent)
 
   -- Quote Cancel Ack Entries Groups: Struct of 2 fields
@@ -3593,13 +3593,13 @@ cme_futures_ilink3_sbe_v8_8.affected_orders_group.fields = function(buffer, offs
     iteration:set_generated()
   end
 
-  -- OrigClOrdId: 20 Byte Ascii String
+  -- OrigClOrdId: String20Req
   index, origclordid = cme_futures_ilink3_sbe_v8_8.origclordid.dissect(buffer, index, packet, parent)
 
-  -- Affected Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Affected Order Id: uInt64
   index, affected_order_id = cme_futures_ilink3_sbe_v8_8.affected_order_id.dissect(buffer, index, packet, parent)
 
-  -- Cxl Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Cxl Quantity: uInt32
   index, cxl_quantity = cme_futures_ilink3_sbe_v8_8.cxl_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -4167,91 +4167,91 @@ end
 cme_futures_ilink3_sbe_v8_8.order_mass_action_report.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Mass Action Report Id: uInt64
   index, mass_action_report_id = cme_futures_ilink3_sbe_v8_8.mass_action_report_id.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: StringLength6
   index, security_group = cme_futures_ilink3_sbe_v8_8.security_group.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id Optional: Int32NULL
   index, security_id_optional = cme_futures_ilink3_sbe_v8_8.security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Mass Action Response: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Mass Action Response: MassActionResponse
   index, mass_action_response = cme_futures_ilink3_sbe_v8_8.mass_action_response.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Mass Action Scope: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Mass Action Scope: MassActionScope
   index, mass_action_scope = cme_futures_ilink3_sbe_v8_8.mass_action_scope.dissect(buffer, index, packet, parent)
 
-  -- Total Affected Orders: 4 Byte Unsigned Fixed Width Integer
+  -- Total Affected Orders: uInt32
   index, total_affected_orders = cme_futures_ilink3_sbe_v8_8.total_affected_orders.dissect(buffer, index, packet, parent)
 
-  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Last Fragment: BooleanFlag
   index, last_fragment = cme_futures_ilink3_sbe_v8_8.last_fragment.dissect(buffer, index, packet, parent)
 
-  -- Mass Action Reject Reason: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Mass Action Reject Reason: uInt8NULL
   index, mass_action_reject_reason = cme_futures_ilink3_sbe_v8_8.mass_action_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Market Segment Id: uInt8NULL
   index, market_segment_id = cme_futures_ilink3_sbe_v8_8.market_segment_id.dissect(buffer, index, packet, parent)
 
-  -- Mass Cancel Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Mass Cancel Request Type: MassCxlReqTyp
   index, mass_cancel_request_type = cme_futures_ilink3_sbe_v8_8.mass_cancel_request_type.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side Optional: SideNULL
   index, side_optional = cme_futures_ilink3_sbe_v8_8.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Mass Action Ord Typ: 1 Byte Ascii String Enum with 2 values
+  -- Mass Action Ord Typ: MassActionOrdTyp
   index, mass_action_ord_typ = cme_futures_ilink3_sbe_v8_8.mass_action_ord_typ.dissect(buffer, index, packet, parent)
 
-  -- Mass Cancel Tif: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Mass Cancel Tif: MassCancelTIF
   index, mass_cancel_tif = cme_futures_ilink3_sbe_v8_8.mass_cancel_tif.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String
+  -- Orig Order User: String8
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8.orig_order_user.dissect(buffer, index, packet, parent)
 
-  -- Cancel Text: 8 Byte Ascii String
+  -- Cancel Text: String8
   index, cancel_text = cme_futures_ilink3_sbe_v8_8.cancel_text.dissect(buffer, index, packet, parent)
 
   -- Affected Orders Groups: Struct of 2 fields
@@ -4410,16 +4410,16 @@ cme_futures_ilink3_sbe_v8_8.broken_dates_response_group.fields = function(buffer
     iteration:set_generated()
   end
 
-  -- Broken Date Guid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Broken Date Guid: uInt64NULL
   index, broken_date_guid = cme_futures_ilink3_sbe_v8_8.broken_date_guid.dissect(buffer, index, packet, parent)
 
-  -- Broken Date Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Broken Date Security Id: Int32NULL
   index, broken_date_security_id = cme_futures_ilink3_sbe_v8_8.broken_date_security_id.dissect(buffer, index, packet, parent)
 
-  -- Broken Date Start: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Broken Date Start: LocalMktDate
   index, broken_date_start = cme_futures_ilink3_sbe_v8_8.broken_date_start.dissect(buffer, index, packet, parent)
 
-  -- Broken Date End: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Broken Date End: LocalMktDate
   index, broken_date_end = cme_futures_ilink3_sbe_v8_8.broken_date_end.dissect(buffer, index, packet, parent)
 
   return index
@@ -4656,10 +4656,10 @@ end
 cme_futures_ilink3_sbe_v8_8.leg_option_delta.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa 32: int32
   index, mantissa_32 = cme_futures_ilink3_sbe_v8_8.mantissa_32.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_ilink3_sbe_v8_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -4751,19 +4751,19 @@ cme_futures_ilink3_sbe_v8_8.response_legs_group.fields = function(buffer, offset
     iteration:set_generated()
   end
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Price: PRICENULL9
   index, leg_price = cme_futures_ilink3_sbe_v8_8.leg_price.dissect(buffer, index, packet, parent)
 
   -- Leg Option Delta: Struct of 2 fields
   index, leg_option_delta = cme_futures_ilink3_sbe_v8_8.leg_option_delta.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Security Id: Int32
   index, leg_security_id = cme_futures_ilink3_sbe_v8_8.leg_security_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Side: SideReq
   index, leg_side = cme_futures_ilink3_sbe_v8_8.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Ratio Qty: uInt8NULL
   index, leg_ratio_qty = cme_futures_ilink3_sbe_v8_8.leg_ratio_qty.dissect(buffer, index, packet, parent)
 
   return index
@@ -5245,16 +5245,16 @@ end
 cme_futures_ilink3_sbe_v8_8.maturity_month_year.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Year: uint16
   index, year = cme_futures_ilink3_sbe_v8_8.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Month: uint8
   index, month = cme_futures_ilink3_sbe_v8_8.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Day: uint8
   index, day = cme_futures_ilink3_sbe_v8_8.day.dissect(buffer, index, packet, parent)
 
-  -- Week: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Week: uint8
   index, week = cme_futures_ilink3_sbe_v8_8.week.dissect(buffer, index, packet, parent)
 
   return index
@@ -5561,91 +5561,91 @@ end
 cme_futures_ilink3_sbe_v8_8.security_definition_response.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String
+  -- Text: String256
   index, text = cme_futures_ilink3_sbe_v8_8.text.dissect(buffer, index, packet, parent)
 
-  -- Financial Instrument Full Name: 35 Byte Ascii String
+  -- Financial Instrument Full Name: StringLength35
   index, financial_instrument_full_name = cme_futures_ilink3_sbe_v8_8.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: String20
   index, symbol = cme_futures_ilink3_sbe_v8_8.symbol.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Security Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Req Id: uInt64
   index, security_req_id = cme_futures_ilink3_sbe_v8_8.security_req_id.dissect(buffer, index, packet, parent)
 
-  -- Security Response Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Response Id: uInt64
   index, security_response_id = cme_futures_ilink3_sbe_v8_8.security_response_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: StringLength6
   index, security_group = cme_futures_ilink3_sbe_v8_8.security_group.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String
+  -- Security Type: StringLength6
   index, security_type = cme_futures_ilink3_sbe_v8_8.security_type.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id Optional: Int32NULL
   index, security_id_optional = cme_futures_ilink3_sbe_v8_8.security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: String3
   index, currency = cme_futures_ilink3_sbe_v8_8.currency.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = cme_futures_ilink3_sbe_v8_8.maturity_month_year.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Start Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Start Date: LocalMktDate
   index, start_date = cme_futures_ilink3_sbe_v8_8.start_date.dissect(buffer, index, packet, parent)
 
-  -- End Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- End Date: LocalMktDate
   index, end_date = cme_futures_ilink3_sbe_v8_8.end_date.dissect(buffer, index, packet, parent)
 
-  -- Max No Of Substitutions: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Max No Of Substitutions: uInt8NULL
   index, max_no_of_substitutions = cme_futures_ilink3_sbe_v8_8.max_no_of_substitutions.dissect(buffer, index, packet, parent)
 
-  -- Source Repo Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Source Repo Id: Int32NULL
   index, source_repo_id = cme_futures_ilink3_sbe_v8_8.source_repo_id.dissect(buffer, index, packet, parent)
 
-  -- Termination Type: 8 Byte Ascii String
+  -- Termination Type: String8
   index, termination_type = cme_futures_ilink3_sbe_v8_8.termination_type.dissect(buffer, index, packet, parent)
 
-  -- Security Response Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Security Response Type: SecRspTyp
   index, security_response_type = cme_futures_ilink3_sbe_v8_8.security_response_type.dissect(buffer, index, packet, parent)
 
-  -- Expiration Cycle: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Expiration Cycle: ExpCycle
   index, expiration_cycle = cme_futures_ilink3_sbe_v8_8.expiration_cycle.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Auto Quote Request: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Auto Quote Request: BooleanFlag
   index, auto_quote_request = cme_futures_ilink3_sbe_v8_8.auto_quote_request.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Broken Date Term Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Broken Date Term Type: uInt8NULL
   index, broken_date_term_type = cme_futures_ilink3_sbe_v8_8.broken_date_term_type.dissect(buffer, index, packet, parent)
 
   -- Response Legs Groups: Struct of 2 fields
@@ -5693,10 +5693,10 @@ cme_futures_ilink3_sbe_v8_8.broken_dates_request_group.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Broken Date Start: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Broken Date Start: LocalMktDate
   index, broken_date_start = cme_futures_ilink3_sbe_v8_8.broken_date_start.dissect(buffer, index, packet, parent)
 
-  -- Broken Date End: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Broken Date End: LocalMktDate
   index, broken_date_end = cme_futures_ilink3_sbe_v8_8.broken_date_end.dissect(buffer, index, packet, parent)
 
   return index
@@ -5798,19 +5798,19 @@ cme_futures_ilink3_sbe_v8_8.request_legs_group.fields = function(buffer, offset,
     iteration:set_generated()
   end
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Leg Price: PRICENULL9
   index, leg_price = cme_futures_ilink3_sbe_v8_8.leg_price.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Security Id: Int32
   index, leg_security_id = cme_futures_ilink3_sbe_v8_8.leg_security_id.dissect(buffer, index, packet, parent)
 
   -- Leg Option Delta: Struct of 2 fields
   index, leg_option_delta = cme_futures_ilink3_sbe_v8_8.leg_option_delta.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Side: SideReq
   index, leg_side = cme_futures_ilink3_sbe_v8_8.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Ratio Qty: uInt8NULL
   index, leg_ratio_qty = cme_futures_ilink3_sbe_v8_8.leg_ratio_qty.dissect(buffer, index, packet, parent)
 
   return index
@@ -6013,43 +6013,43 @@ end
 cme_futures_ilink3_sbe_v8_8.security_definition_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Security Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Req Id: uInt64
   index, security_req_id = cme_futures_ilink3_sbe_v8_8.security_req_id.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id Optional: 20 Byte Ascii String
+  -- Sender Id Optional: String20
   index, sender_id_optional = cme_futures_ilink3_sbe_v8_8.sender_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Security Sub Type: 8 Byte Ascii String
+  -- Security Sub Type: String8Req
   index, security_sub_type = cme_futures_ilink3_sbe_v8_8.security_sub_type.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Start Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Start Date: LocalMktDate
   index, start_date = cme_futures_ilink3_sbe_v8_8.start_date.dissect(buffer, index, packet, parent)
 
-  -- End Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- End Date: LocalMktDate
   index, end_date = cme_futures_ilink3_sbe_v8_8.end_date.dissect(buffer, index, packet, parent)
 
-  -- Max No Of Substitutions: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Max No Of Substitutions: uInt8NULL
   index, max_no_of_substitutions = cme_futures_ilink3_sbe_v8_8.max_no_of_substitutions.dissect(buffer, index, packet, parent)
 
-  -- Source Repo Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Source Repo Id: Int32NULL
   index, source_repo_id = cme_futures_ilink3_sbe_v8_8.source_repo_id.dissect(buffer, index, packet, parent)
 
-  -- Broken Date Term Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Broken Date Term Type: uInt8NULL
   index, broken_date_term_type = cme_futures_ilink3_sbe_v8_8.broken_date_term_type.dissect(buffer, index, packet, parent)
 
   -- Request Legs Groups: Struct of 2 fields
@@ -6303,25 +6303,25 @@ cme_futures_ilink3_sbe_v8_8.spread_trade_events_group.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Order Event Px: 8 Byte Signed Fixed Width Integer
+  -- Order Event Px: PRICE9
   index, order_event_px = cme_futures_ilink3_sbe_v8_8.order_event_px.dissect(buffer, index, packet, parent)
 
-  -- Order Event Text: 5 Byte Ascii String
+  -- Order Event Text: String5
   index, order_event_text = cme_futures_ilink3_sbe_v8_8.order_event_text.dissect(buffer, index, packet, parent)
 
-  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Event Exec Id: uInt32
   index, order_event_exec_id = cme_futures_ilink3_sbe_v8_8.order_event_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Event Qty: uInt32
   index, order_event_qty = cme_futures_ilink3_sbe_v8_8.order_event_qty.dissect(buffer, index, packet, parent)
 
-  -- Trade Addendum: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trade Addendum: TradeAddendum
   index, trade_addendum = cme_futures_ilink3_sbe_v8_8.trade_addendum.dissect(buffer, index, packet, parent)
 
-  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Order Event Reason: uInt8
   index, order_event_reason = cme_futures_ilink3_sbe_v8_8.order_event_reason.dissect(buffer, index, packet, parent)
 
-  -- Original Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Original Order Event Exec Id: uInt32NULL
   index, original_order_event_exec_id = cme_futures_ilink3_sbe_v8_8.original_order_event_exec_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -6536,16 +6536,16 @@ cme_futures_ilink3_sbe_v8_8.fills_group.fields = function(buffer, offset, packet
     iteration:set_generated()
   end
 
-  -- Fill Px: 8 Byte Signed Fixed Width Integer
+  -- Fill Px: PRICE9
   index, fill_px = cme_futures_ilink3_sbe_v8_8.fill_px.dissect(buffer, index, packet, parent)
 
-  -- Fill Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Fill Qty: uInt32
   index, fill_qty = cme_futures_ilink3_sbe_v8_8.fill_qty.dissect(buffer, index, packet, parent)
 
-  -- Fill Exec Id: 2 Byte Ascii String
+  -- Fill Exec Id: String2
   index, fill_exec_id = cme_futures_ilink3_sbe_v8_8.fill_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Fill Yield Type: 1 Byte Unsigned Fixed Width Integer
+  -- Fill Yield Type: uInt8
   index, fill_yield_type = cme_futures_ilink3_sbe_v8_8.fill_yield_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -6670,10 +6670,10 @@ end
 cme_futures_ilink3_sbe_v8_8.gross_trade_amt.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_ilink3_sbe_v8_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_ilink3_sbe_v8_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -6721,10 +6721,10 @@ end
 cme_futures_ilink3_sbe_v8_8.calculated_ccy_last_qty.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_ilink3_sbe_v8_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_ilink3_sbe_v8_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -7122,76 +7122,76 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_trade_addendum_spread_leg.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: PRICE9
   index, last_px = cme_futures_ilink3_sbe_v8_8.last_px.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Sec Exec Id: uInt64
   index, sec_exec_id = cme_futures_ilink3_sbe_v8_8.sec_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Orig Secondary Execution Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Orig Secondary Execution Id: uInt64NULL
   index, orig_secondary_execution_id = cme_futures_ilink3_sbe_v8_8.orig_secondary_execution_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uInt32
   index, last_qty = cme_futures_ilink3_sbe_v8_8.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Side Trade Id: uInt32
   index, side_trade_id = cme_futures_ilink3_sbe_v8_8.side_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Orig Side Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Orig Side Trade Id: uInt32NULL
   index, orig_side_trade_id = cme_futures_ilink3_sbe_v8_8.orig_side_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_ilink3_sbe_v8_8.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Status Trd Cxl: 1 Byte Ascii String Enum with 2 values
+  -- Ord Status Trd Cxl: OrdStatusTrdCxl
   index, ord_status_trd_cxl = cme_futures_ilink3_sbe_v8_8.ord_status_trd_cxl.dissect(buffer, index, packet, parent)
 
-  -- Exec Type: 1 Byte Ascii String Enum with 2 values
+  -- Exec Type: ExecTypTrdCxl
   index, exec_type = cme_futures_ilink3_sbe_v8_8.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Settl Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Date: LocalMktDate
   index, settl_date = cme_futures_ilink3_sbe_v8_8.settl_date.dissect(buffer, index, packet, parent)
 
   -- Calculated Ccy Last Qty: Struct of 2 fields
@@ -7405,28 +7405,28 @@ cme_futures_ilink3_sbe_v8_8.trade_addendum_legs_group.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Leg Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Exec Id: uInt64
   index, leg_exec_id = cme_futures_ilink3_sbe_v8_8.leg_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Px: 8 Byte Signed Fixed Width Integer
+  -- Leg Last Px: PRICE9
   index, leg_last_px = cme_futures_ilink3_sbe_v8_8.leg_last_px.dissect(buffer, index, packet, parent)
 
-  -- Leg Exec Ref Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Exec Ref Id: uInt64NULL
   index, leg_exec_ref_id = cme_futures_ilink3_sbe_v8_8.leg_exec_ref_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Trade Id: uInt32
   index, leg_trade_id = cme_futures_ilink3_sbe_v8_8.leg_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Trade Ref Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Trade Ref Id: uInt32NULL
   index, leg_trade_ref_id = cme_futures_ilink3_sbe_v8_8.leg_trade_ref_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Security Id: Int32
   index, leg_security_id = cme_futures_ilink3_sbe_v8_8.leg_security_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Last Qty: uInt32
   index, leg_last_qty = cme_futures_ilink3_sbe_v8_8.leg_last_qty.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Side: SideReq
   index, leg_side = cme_futures_ilink3_sbe_v8_8.leg_side.dissect(buffer, index, packet, parent)
 
   return index
@@ -7804,97 +7804,97 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_trade_addendum_spread.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: PRICE9
   index, last_px = cme_futures_ilink3_sbe_v8_8.last_px.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Sec Exec Id: uInt64
   index, sec_exec_id = cme_futures_ilink3_sbe_v8_8.sec_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Orig Secondary Execution Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Orig Secondary Execution Id: uInt64NULL
   index, orig_secondary_execution_id = cme_futures_ilink3_sbe_v8_8.orig_secondary_execution_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Md Trade Entry Id: 4 Byte Unsigned Fixed Width Integer
+  -- Md Trade Entry Id: uInt32
   index, md_trade_entry_id = cme_futures_ilink3_sbe_v8_8.md_trade_entry_id.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uInt32
   index, last_qty = cme_futures_ilink3_sbe_v8_8.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Side Trade Id: uInt32
   index, side_trade_id = cme_futures_ilink3_sbe_v8_8.side_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Orig Side Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Orig Side Trade Id: uInt32NULL
   index, orig_side_trade_id = cme_futures_ilink3_sbe_v8_8.orig_side_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_ilink3_sbe_v8_8.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Status Trd Cxl: 1 Byte Ascii String Enum with 2 values
+  -- Ord Status Trd Cxl: OrdStatusTrdCxl
   index, ord_status_trd_cxl = cme_futures_ilink3_sbe_v8_8.ord_status_trd_cxl.dissect(buffer, index, packet, parent)
 
-  -- Exec Type: 1 Byte Ascii String Enum with 2 values
+  -- Exec Type: ExecTypTrdCxl
   index, exec_type = cme_futures_ilink3_sbe_v8_8.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Total Num Securities: 1 Byte Unsigned Fixed Width Integer
+  -- Total Num Securities: uInt8
   index, total_num_securities = cme_futures_ilink3_sbe_v8_8.total_num_securities.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
   -- Fills Groups: Struct of 2 fields
@@ -7943,10 +7943,10 @@ end
 cme_futures_ilink3_sbe_v8_8.contra_calculated_ccy_last_qty.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_ilink3_sbe_v8_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_ilink3_sbe_v8_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -7994,10 +7994,10 @@ end
 cme_futures_ilink3_sbe_v8_8.contra_gross_trade_amt.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_ilink3_sbe_v8_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_ilink3_sbe_v8_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -8054,25 +8054,25 @@ cme_futures_ilink3_sbe_v8_8.outright_trade_events_group.fields = function(buffer
     iteration:set_generated()
   end
 
-  -- Order Event Px: 8 Byte Signed Fixed Width Integer
+  -- Order Event Px: PRICE9
   index, order_event_px = cme_futures_ilink3_sbe_v8_8.order_event_px.dissect(buffer, index, packet, parent)
 
-  -- Order Event Text: 5 Byte Ascii String
+  -- Order Event Text: String5
   index, order_event_text = cme_futures_ilink3_sbe_v8_8.order_event_text.dissect(buffer, index, packet, parent)
 
-  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Event Exec Id: uInt32
   index, order_event_exec_id = cme_futures_ilink3_sbe_v8_8.order_event_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Event Qty: uInt32
   index, order_event_qty = cme_futures_ilink3_sbe_v8_8.order_event_qty.dissect(buffer, index, packet, parent)
 
-  -- Trade Addendum: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trade Addendum: TradeAddendum
   index, trade_addendum = cme_futures_ilink3_sbe_v8_8.trade_addendum.dissect(buffer, index, packet, parent)
 
-  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Order Event Reason: uInt8
   index, order_event_reason = cme_futures_ilink3_sbe_v8_8.order_event_reason.dissect(buffer, index, packet, parent)
 
-  -- Original Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Original Order Event Exec Id: uInt32NULL
   index, original_order_event_exec_id = cme_futures_ilink3_sbe_v8_8.original_order_event_exec_id.dissect(buffer, index, packet, parent)
 
   -- Contra Gross Trade Amt: Struct of 2 fields
@@ -8407,103 +8407,103 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_trade_addendum_outright.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: PRICE9
   index, last_px = cme_futures_ilink3_sbe_v8_8.last_px.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Sec Exec Id: uInt64
   index, sec_exec_id = cme_futures_ilink3_sbe_v8_8.sec_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Orig Secondary Execution Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Orig Secondary Execution Id: uInt64NULL
   index, orig_secondary_execution_id = cme_futures_ilink3_sbe_v8_8.orig_secondary_execution_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uInt32
   index, last_qty = cme_futures_ilink3_sbe_v8_8.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Side Trade Id: uInt32
   index, side_trade_id = cme_futures_ilink3_sbe_v8_8.side_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Orig Side Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Orig Side Trade Id: uInt32NULL
   index, orig_side_trade_id = cme_futures_ilink3_sbe_v8_8.orig_side_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_ilink3_sbe_v8_8.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Status Trd Cxl: 1 Byte Ascii String Enum with 2 values
+  -- Ord Status Trd Cxl: OrdStatusTrdCxl
   index, ord_status_trd_cxl = cme_futures_ilink3_sbe_v8_8.ord_status_trd_cxl.dissect(buffer, index, packet, parent)
 
-  -- Exec Type: 1 Byte Ascii String Enum with 2 values
+  -- Exec Type: ExecTypTrdCxl
   index, exec_type = cme_futures_ilink3_sbe_v8_8.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trd Type: uInt16NULL
   index, trd_type = cme_futures_ilink3_sbe_v8_8.trd_type.dissect(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Exec Restatement Reason: ExecReason
   index, exec_restatement_reason = cme_futures_ilink3_sbe_v8_8.exec_restatement_reason.dissect(buffer, index, packet, parent)
 
-  -- Settl Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Date: LocalMktDate
   index, settl_date = cme_futures_ilink3_sbe_v8_8.settl_date.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_ilink3_sbe_v8_8.maturity_date.dissect(buffer, index, packet, parent)
 
   -- Calculated Ccy Last Qty: Struct of 2 fields
@@ -8512,7 +8512,7 @@ cme_futures_ilink3_sbe_v8_8.execution_report_trade_addendum_outright.fields = fu
   -- Gross Trade Amt: Struct of 2 fields
   index, gross_trade_amt = cme_futures_ilink3_sbe_v8_8.gross_trade_amt.dissect(buffer, index, packet, parent)
 
-  -- Benchmark Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Benchmark Price: PRICENULL9
   index, benchmark_price = cme_futures_ilink3_sbe_v8_8.benchmark_price.dissect(buffer, index, packet, parent)
 
   -- Fills Groups: Struct of 2 fields
@@ -8661,55 +8661,55 @@ end
 cme_futures_ilink3_sbe_v8_8.request_for_quote_ack.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String
+  -- Text: String256
   index, text = cme_futures_ilink3_sbe_v8_8.text.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Quote Req Id: 17 Byte Ascii String
+  -- Exchange Quote Req Id: String17
   index, exchange_quote_req_id = cme_futures_ilink3_sbe_v8_8.exchange_quote_req_id.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: uInt64
   index, request_time = cme_futures_ilink3_sbe_v8_8.request_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Req Id: uInt64
   index, quote_req_id = cme_futures_ilink3_sbe_v8_8.quote_req_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Quote Reject Reason: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Reject Reason: uInt16NULL
   index, quote_reject_reason = cme_futures_ilink3_sbe_v8_8.quote_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Quote Ack Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Quote Ack Status: QuoteAckStatus
   index, quote_ack_status = cme_futures_ilink3_sbe_v8_8.quote_ack_status.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -8758,16 +8758,16 @@ cme_futures_ilink3_sbe_v8_8.quote_ack_entries_group.fields = function(buffer, of
     iteration:set_generated()
   end
 
-  -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Entry Id: uInt32
   index, quote_entry_id = cme_futures_ilink3_sbe_v8_8.quote_entry_id.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
+  -- Quote Set Id: uInt16
   index, quote_set_id = cme_futures_ilink3_sbe_v8_8.quote_set_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Entry Reject Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Quote Entry Reject Reason: uInt8
   index, quote_entry_reject_reason = cme_futures_ilink3_sbe_v8_8.quote_entry_reject_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -8961,73 +8961,73 @@ end
 cme_futures_ilink3_sbe_v8_8.mass_quote_ack.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String
+  -- Text: String256
   index, text = cme_futures_ilink3_sbe_v8_8.text.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: uInt64
   index, request_time = cme_futures_ilink3_sbe_v8_8.request_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Req Id Optional: uInt64NULL
   index, quote_req_id_optional = cme_futures_ilink3_sbe_v8_8.quote_req_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Quote Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Id: uInt32
   index, quote_id = cme_futures_ilink3_sbe_v8_8.quote_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Reject Reason: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Reject Reason: uInt16NULL
   index, quote_reject_reason = cme_futures_ilink3_sbe_v8_8.quote_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Quote Ack Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Quote Ack Status: QuoteAckStatus
   index, quote_ack_status = cme_futures_ilink3_sbe_v8_8.quote_ack_status.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- No Processed Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Processed Entries: uInt8
   index, no_processed_entries = cme_futures_ilink3_sbe_v8_8.no_processed_entries.dissect(buffer, index, packet, parent)
 
-  -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Mm Protection Reset: BooleanFlag
   index, mm_protection_reset = cme_futures_ilink3_sbe_v8_8.mm_protection_reset.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Tot No Quote Entries Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot No Quote Entries Optional: uInt8NULL
   index, tot_no_quote_entries_optional = cme_futures_ilink3_sbe_v8_8.tot_no_quote_entries_optional.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Quote Entry Open: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Entry Open: BooleanNULL
   index, quote_entry_open = cme_futures_ilink3_sbe_v8_8.quote_entry_open.dissect(buffer, index, packet, parent)
 
   -- Quote Ack Entries Groups: Struct of 2 fields
@@ -9105,19 +9105,19 @@ cme_futures_ilink3_sbe_v8_8.sides_group.fields = function(buffer, offset, packet
     iteration:set_generated()
   end
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Side Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side Time In Force: SideTimeInForce
   index, side_time_in_force = cme_futures_ilink3_sbe_v8_8.side_time_in_force.dissect(buffer, index, packet, parent)
 
   return index
@@ -9280,34 +9280,34 @@ end
 cme_futures_ilink3_sbe_v8_8.new_order_cross.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cross Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cross Id: uInt64
   index, cross_id = cme_futures_ilink3_sbe_v8_8.cross_id.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: PRICE9
   index, price = cme_futures_ilink3_sbe_v8_8.price.dissect(buffer, index, packet, parent)
 
-  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trans Bkd Time: uInt64
   index, trans_bkd_time = cme_futures_ilink3_sbe_v8_8.trans_bkd_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
   -- Sides Groups: Struct of 2 fields
@@ -9417,13 +9417,13 @@ cme_futures_ilink3_sbe_v8_8.related_sym_group.fields = function(buffer, offset, 
     iteration:set_generated()
   end
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty Optional: uInt32NULL
   index, order_qty_optional = cme_futures_ilink3_sbe_v8_8.order_qty_optional.dissect(buffer, index, packet, parent)
 
-  -- Rfq Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Rfq Side: RFQSide
   index, rfq_side = cme_futures_ilink3_sbe_v8_8.rfq_side.dissect(buffer, index, packet, parent)
 
   return index
@@ -9566,28 +9566,28 @@ end
 cme_futures_ilink3_sbe_v8_8.request_for_quote.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Req Id: uInt64
   index, quote_req_id = cme_futures_ilink3_sbe_v8_8.quote_req_id.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Quote Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Quote Type: QuoteTyp
   index, quote_type = cme_futures_ilink3_sbe_v8_8.quote_type.dissect(buffer, index, packet, parent)
 
   -- Related Sym Groups: Struct of 2 fields
@@ -9730,49 +9730,49 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_ack.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Exec Ack Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Exec Ack Status: ExecAckStatus
   index, exec_ack_status = cme_futures_ilink3_sbe_v8_8.exec_ack_status.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Sec Exec Id: uInt64
   index, sec_exec_id = cme_futures_ilink3_sbe_v8_8.sec_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: PRICE9
   index, last_px = cme_futures_ilink3_sbe_v8_8.last_px.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uInt32
   index, last_qty = cme_futures_ilink3_sbe_v8_8.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Dk Reason: 1 Byte Ascii String Enum with 8 values
+  -- Dk Reason: DKReason
   index, dk_reason = cme_futures_ilink3_sbe_v8_8.dk_reason.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -9865,10 +9865,10 @@ cme_futures_ilink3_sbe_v8_8.trd_reg_publications_group.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Trd Reg Publication Type: 1 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Publication Type: uInt8
   index, trd_reg_publication_type = cme_futures_ilink3_sbe_v8_8.trd_reg_publication_type.dissect(buffer, index, packet, parent)
 
-  -- Trd Reg Publication Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Publication Reason: uInt8
   index, trd_reg_publication_reason = cme_futures_ilink3_sbe_v8_8.trd_reg_publication_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -10045,10 +10045,10 @@ cme_futures_ilink3_sbe_v8_8.party_details_group.fields = function(buffer, offset
     iteration:set_generated()
   end
 
-  -- Party Detail Id: 20 Byte Ascii String
+  -- Party Detail Id: String20Req
   index, party_detail_id = cme_futures_ilink3_sbe_v8_8.party_detail_id.dissect(buffer, index, packet, parent)
 
-  -- Party Detail Role: 2 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Party Detail Role: PartyDetailRole
   index, party_detail_role = cme_futures_ilink3_sbe_v8_8.party_detail_role.dissect(buffer, index, packet, parent)
 
   return index
@@ -10676,67 +10676,67 @@ end
 cme_futures_ilink3_sbe_v8_8.party_details_list_report.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Avg Px Group Id: 20 Byte Ascii String
+  -- Avg Px Group Id: String20
   index, avg_px_group_id = cme_futures_ilink3_sbe_v8_8.avg_px_group_id.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Report Id: uInt64
   index, party_details_list_report_id = cme_futures_ilink3_sbe_v8_8.party_details_list_report_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Self Match Prevention Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Self Match Prevention Id: uInt64NULL
   index, self_match_prevention_id = cme_futures_ilink3_sbe_v8_8.self_match_prevention_id.dissect(buffer, index, packet, parent)
 
-  -- Tot Num Parties: 2 Byte Unsigned Fixed Width Integer
+  -- Tot Num Parties: uInt16
   index, tot_num_parties = cme_futures_ilink3_sbe_v8_8.tot_num_parties.dissect(buffer, index, packet, parent)
 
-  -- Request Result: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Request Result: ReqResult
   index, request_result = cme_futures_ilink3_sbe_v8_8.request_result.dissect(buffer, index, packet, parent)
 
-  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Last Fragment: BooleanFlag
   index, last_fragment = cme_futures_ilink3_sbe_v8_8.last_fragment.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Cust Order Capacity: CustOrderCapacity
   index, cust_order_capacity = cme_futures_ilink3_sbe_v8_8.cust_order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Clearing Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Clearing Account Type: ClearingAcctType
   index, clearing_account_type = cme_futures_ilink3_sbe_v8_8.clearing_account_type.dissect(buffer, index, packet, parent)
 
-  -- Self Match Prevention Instruction: 1 Byte Ascii String Enum with 2 values
+  -- Self Match Prevention Instruction: SMPI
   index, self_match_prevention_instruction = cme_futures_ilink3_sbe_v8_8.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
 
-  -- Avg Px Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Avg Px Indicator: AvgPxInd
   index, avg_px_indicator = cme_futures_ilink3_sbe_v8_8.avg_px_indicator.dissect(buffer, index, packet, parent)
 
-  -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Clearing Trade Price Type: SLEDS
   index, clearing_trade_price_type = cme_futures_ilink3_sbe_v8_8.clearing_trade_price_type.dissect(buffer, index, packet, parent)
 
-  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 2 values
+  -- Cmta Giveup Cd: CmtaGiveUpCD
   index, cmta_giveup_cd = cme_futures_ilink3_sbe_v8_8.cmta_giveup_cd.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
+  -- Cust Order Handling Inst: CustOrdHandlInst
   index, cust_order_handling_inst = cme_futures_ilink3_sbe_v8_8.cust_order_handling_inst.dissect(buffer, index, packet, parent)
 
-  -- Executor: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Executor: uInt64NULL
   index, executor = cme_futures_ilink3_sbe_v8_8.executor.dissect(buffer, index, packet, parent)
 
-  -- Idm Short Code: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Idm Short Code: uInt64NULL
   index, idm_short_code = cme_futures_ilink3_sbe_v8_8.idm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
   -- Party Details Groups: Struct of 2 fields
@@ -10867,13 +10867,13 @@ cme_futures_ilink3_sbe_v8_8.party_ids_group.fields = function(buffer, offset, pa
     iteration:set_generated()
   end
 
-  -- Party Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id: uInt64
   index, party_id = cme_futures_ilink3_sbe_v8_8.party_id.dissect(buffer, index, packet, parent)
 
-  -- Party Id Source: 1 Byte Ascii String
+  -- Party Id Source: CHAR
   index, party_id_source = cme_futures_ilink3_sbe_v8_8.party_id_source.dissect(buffer, index, packet, parent)
 
-  -- Party Role: 2 Byte Unsigned Fixed Width Integer
+  -- Party Role: uInt16
   index, party_role = cme_futures_ilink3_sbe_v8_8.party_role.dissect(buffer, index, packet, parent)
 
   return index
@@ -11084,13 +11084,13 @@ cme_futures_ilink3_sbe_v8_8.requesting_party_ids_group.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Requesting Party Id: 5 Byte Ascii String
+  -- Requesting Party Id: String5
   index, requesting_party_id = cme_futures_ilink3_sbe_v8_8.requesting_party_id.dissect(buffer, index, packet, parent)
 
-  -- Requesting Party Id Source: 1 Byte Ascii String
+  -- Requesting Party Id Source: CHAR
   index, requesting_party_id_source = cme_futures_ilink3_sbe_v8_8.requesting_party_id_source.dissect(buffer, index, packet, parent)
 
-  -- Requesting Party Role: 1 Byte Ascii String
+  -- Requesting Party Role: CHAR
   index, requesting_party_role = cme_futures_ilink3_sbe_v8_8.requesting_party_role.dissect(buffer, index, packet, parent)
 
   return index
@@ -11195,13 +11195,13 @@ end
 cme_futures_ilink3_sbe_v8_8.party_details_list_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
   -- Requesting Party Ids Groups: Struct of 2 fields
@@ -11283,61 +11283,61 @@ end
 cme_futures_ilink3_sbe_v8_8.order_cancel_replace_reject.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String
+  -- Text: String256
   index, text = cme_futures_ilink3_sbe_v8_8.text.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Cxl Rej Reason: 2 Byte Unsigned Fixed Width Integer
+  -- Cxl Rej Reason: uInt16
   index, cxl_rej_reason = cme_futures_ilink3_sbe_v8_8.cxl_rej_reason.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -11395,61 +11395,61 @@ end
 cme_futures_ilink3_sbe_v8_8.order_cancel_reject.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String
+  -- Text: String256
   index, text = cme_futures_ilink3_sbe_v8_8.text.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Cxl Rej Reason: 2 Byte Unsigned Fixed Width Integer
+  -- Cxl Rej Reason: uInt16
   index, cxl_rej_reason = cme_futures_ilink3_sbe_v8_8.cxl_rej_reason.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -11652,127 +11652,127 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_cancel.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: PRICE9
   index, price = cme_futures_ilink3_sbe_v8_8.price.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: PRICENULL9
   index, stop_px = cme_futures_ilink3_sbe_v8_8.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Id Optional: uInt64NULL
   index, cross_id_optional = cme_futures_ilink3_sbe_v8_8.cross_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Host Cross Id: uInt64NULL
   index, host_cross_id = cme_futures_ilink3_sbe_v8_8.host_cross_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uInt32
   index, cum_qty = cme_futures_ilink3_sbe_v8_8.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uInt32NULL
   index, min_qty = cme_futures_ilink3_sbe_v8_8.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uInt32NULL
   index, display_qty = cme_futures_ilink3_sbe_v8_8.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Exec Restatement Reason: ExecReason
   index, exec_restatement_reason = cme_futures_ilink3_sbe_v8_8.exec_restatement_reason.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Type: uInt8NULL
   index, cross_type = cme_futures_ilink3_sbe_v8_8.cross_type.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Reservation Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Reservation Price: PRICENULL9
   index, reservation_price = cme_futures_ilink3_sbe_v8_8.reservation_price.dissect(buffer, index, packet, parent)
 
-  -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Priority Indicator: uInt8NULL
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8.priority_indicator.dissect(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String
+  -- Orig Order User: String8
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8.orig_order_user.dissect(buffer, index, packet, parent)
 
-  -- Cancel Text: 8 Byte Ascii String
+  -- Cancel Text: String8
   index, cancel_text = cme_futures_ilink3_sbe_v8_8.cancel_text.dissect(buffer, index, packet, parent)
 
   return index
@@ -11842,28 +11842,28 @@ end
 cme_futures_ilink3_sbe_v8_8.order_status_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Ord Status Req Id: uInt64
   index, ord_status_req_id = cme_futures_ilink3_sbe_v8_8.ord_status_req_id.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
   return index
@@ -12140,133 +12140,133 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_status.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String
+  -- Text: String256
   index, text = cme_futures_ilink3_sbe_v8_8.text.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: PRICENULL9
   index, price_optional = cme_futures_ilink3_sbe_v8_8.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: PRICENULL9
   index, stop_px = cme_futures_ilink3_sbe_v8_8.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Status Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Ord Status Req Id Optional: uInt64NULL
   index, ord_status_req_id_optional = cme_futures_ilink3_sbe_v8_8.ord_status_req_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Mass Status Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Mass Status Req Id Optional: uInt64NULL
   index, mass_status_req_id_optional = cme_futures_ilink3_sbe_v8_8.mass_status_req_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Id Optional: uInt64NULL
   index, cross_id_optional = cme_futures_ilink3_sbe_v8_8.cross_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Host Cross Id: uInt64NULL
   index, host_cross_id = cme_futures_ilink3_sbe_v8_8.host_cross_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uInt32
   index, cum_qty = cme_futures_ilink3_sbe_v8_8.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Leaves: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves: uInt32
   index, leaves = cme_futures_ilink3_sbe_v8_8.leaves.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uInt32NULL
   index, min_qty = cme_futures_ilink3_sbe_v8_8.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uInt32NULL
   index, display_qty = cme_futures_ilink3_sbe_v8_8.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 10 values
+  -- Ord Status: OrderStatus
   index, ord_status = cme_futures_ilink3_sbe_v8_8.ord_status.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Last Rpt Requested: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Last Rpt Requested: BooleanNULL
   index, last_rpt_requested = cme_futures_ilink3_sbe_v8_8.last_rpt_requested.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Type: uInt8NULL
   index, cross_type = cme_futures_ilink3_sbe_v8_8.cross_type.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Reservation Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Reservation Price: PRICENULL9
   index, reservation_price = cme_futures_ilink3_sbe_v8_8.reservation_price.dissect(buffer, index, packet, parent)
 
-  -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Priority Indicator: uInt8NULL
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8.priority_indicator.dissect(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String
+  -- Orig Order User: String8
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8.orig_order_user.dissect(buffer, index, packet, parent)
 
-  -- Cancel Text: 8 Byte Ascii String
+  -- Cancel Text: String8
   index, cancel_text = cme_futures_ilink3_sbe_v8_8.cancel_text.dissect(buffer, index, packet, parent)
 
   return index
@@ -12343,118 +12343,118 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_modify.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: PRICE9
   index, price = cme_futures_ilink3_sbe_v8_8.price.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: PRICENULL9
   index, stop_px = cme_futures_ilink3_sbe_v8_8.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Id Optional: uInt64NULL
   index, cross_id_optional = cme_futures_ilink3_sbe_v8_8.cross_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Host Cross Id: uInt64NULL
   index, host_cross_id = cme_futures_ilink3_sbe_v8_8.host_cross_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uInt32
   index, cum_qty = cme_futures_ilink3_sbe_v8_8.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Leaves: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves: uInt32
   index, leaves = cme_futures_ilink3_sbe_v8_8.leaves.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uInt32NULL
   index, min_qty = cme_futures_ilink3_sbe_v8_8.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uInt32NULL
   index, display_qty = cme_futures_ilink3_sbe_v8_8.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Type: uInt8NULL
   index, cross_type = cme_futures_ilink3_sbe_v8_8.cross_type.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Priority Indicator: uInt8NULL
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8.priority_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -12637,43 +12637,43 @@ end
 cme_futures_ilink3_sbe_v8_8.order_mass_status_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Mass Status Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Mass Status Req Id: uInt64
   index, mass_status_req_id = cme_futures_ilink3_sbe_v8_8.mass_status_req_id.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: StringLength6
   index, security_group = cme_futures_ilink3_sbe_v8_8.security_group.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id Optional: Int32NULL
   index, security_id_optional = cme_futures_ilink3_sbe_v8_8.security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Mass Status Req Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Mass Status Req Type: MassStatusReqTyp
   index, mass_status_req_type = cme_futures_ilink3_sbe_v8_8.mass_status_req_type.dissect(buffer, index, packet, parent)
 
-  -- Ord Status Req Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Ord Status Req Type: MassStatusOrdTyp
   index, ord_status_req_type = cme_futures_ilink3_sbe_v8_8.ord_status_req_type.dissect(buffer, index, packet, parent)
 
-  -- Mass Status Tif: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Mass Status Tif: MassStatusTIF
   index, mass_status_tif = cme_futures_ilink3_sbe_v8_8.mass_status_tif.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Market Segment Id: uInt8NULL
   index, market_segment_id = cme_futures_ilink3_sbe_v8_8.market_segment_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -12729,55 +12729,55 @@ end
 cme_futures_ilink3_sbe_v8_8.order_mass_action_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: StringLength6
   index, security_group = cme_futures_ilink3_sbe_v8_8.security_group.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id Optional: Int32NULL
   index, security_id_optional = cme_futures_ilink3_sbe_v8_8.security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Mass Action Scope: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Mass Action Scope: MassActionScope
   index, mass_action_scope = cme_futures_ilink3_sbe_v8_8.mass_action_scope.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Market Segment Id: uInt8NULL
   index, market_segment_id = cme_futures_ilink3_sbe_v8_8.market_segment_id.dissect(buffer, index, packet, parent)
 
-  -- Mass Cancel Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Mass Cancel Request Type: MassCxlReqTyp
   index, mass_cancel_request_type = cme_futures_ilink3_sbe_v8_8.mass_cancel_request_type.dissect(buffer, index, packet, parent)
 
-  -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side Optional: SideNULL
   index, side_optional = cme_futures_ilink3_sbe_v8_8.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Mass Action Ord Typ: 1 Byte Ascii String Enum with 2 values
+  -- Mass Action Ord Typ: MassActionOrdTyp
   index, mass_action_ord_typ = cme_futures_ilink3_sbe_v8_8.mass_action_ord_typ.dissect(buffer, index, packet, parent)
 
-  -- Mass Cancel Tif: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Mass Cancel Tif: MassCancelTIF
   index, mass_cancel_tif = cme_futures_ilink3_sbe_v8_8.mass_cancel_tif.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String
+  -- Orig Order User: String8
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8.orig_order_user.dissect(buffer, index, packet, parent)
 
   return index
@@ -12881,13 +12881,13 @@ cme_futures_ilink3_sbe_v8_8.quote_cancel_sets_group.fields = function(buffer, of
     iteration:set_generated()
   end
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: uInt32NULL
   index, bid_size = cme_futures_ilink3_sbe_v8_8.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: uInt32NULL
   index, offer_size = cme_futures_ilink3_sbe_v8_8.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
+  -- Quote Set Id: uInt16
   index, quote_set_id = cme_futures_ilink3_sbe_v8_8.quote_set_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -12986,10 +12986,10 @@ cme_futures_ilink3_sbe_v8_8.quote_cancel_entries_group.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Security Group: 6 Byte Ascii String
+  -- Security Group: StringLength6
   index, security_group = cme_futures_ilink3_sbe_v8_8.security_group.dissect(buffer, index, packet, parent)
 
-  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id Optional: Int32NULL
   index, security_id_optional = cme_futures_ilink3_sbe_v8_8.security_id_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -13146,37 +13146,37 @@ end
 cme_futures_ilink3_sbe_v8_8.quote_cancel.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Quote Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Id: uInt32
   index, quote_id = cme_futures_ilink3_sbe_v8_8.quote_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Cancel Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Quote Cancel Type: QuoteCxlTyp
   index, quote_cancel_type = cme_futures_ilink3_sbe_v8_8.quote_cancel_type.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String
+  -- Orig Order User: String8
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8.orig_order_user.dissect(buffer, index, packet, parent)
 
-  -- Quote Entry Open: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Entry Open: BooleanNULL
   index, quote_entry_open = cme_futures_ilink3_sbe_v8_8.quote_entry_open.dissect(buffer, index, packet, parent)
 
   -- Quote Cancel Entries Groups: Struct of 2 fields
@@ -13261,22 +13261,22 @@ cme_futures_ilink3_sbe_v8_8.spread_order_events_group.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Order Event Px: 8 Byte Signed Fixed Width Integer
+  -- Order Event Px: PRICE9
   index, order_event_px = cme_futures_ilink3_sbe_v8_8.order_event_px.dissect(buffer, index, packet, parent)
 
-  -- Order Event Text: 5 Byte Ascii String
+  -- Order Event Text: String5
   index, order_event_text = cme_futures_ilink3_sbe_v8_8.order_event_text.dissect(buffer, index, packet, parent)
 
-  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Event Exec Id: uInt32
   index, order_event_exec_id = cme_futures_ilink3_sbe_v8_8.order_event_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Event Qty: uInt32
   index, order_event_qty = cme_futures_ilink3_sbe_v8_8.order_event_qty.dissect(buffer, index, packet, parent)
 
-  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Event Type: OrderEventType
   index, order_event_type = cme_futures_ilink3_sbe_v8_8.order_event_type.dissect(buffer, index, packet, parent)
 
-  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Order Event Reason: uInt8
   index, order_event_reason = cme_futures_ilink3_sbe_v8_8.order_event_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -13403,10 +13403,10 @@ end
 cme_futures_ilink3_sbe_v8_8.risk_free_rate.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa 32: int32
   index, mantissa_32 = cme_futures_ilink3_sbe_v8_8.mantissa_32.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_ilink3_sbe_v8_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -13454,10 +13454,10 @@ end
 cme_futures_ilink3_sbe_v8_8.time_to_expiration.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa 32: int32
   index, mantissa_32 = cme_futures_ilink3_sbe_v8_8.mantissa_32.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_ilink3_sbe_v8_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -13505,10 +13505,10 @@ end
 cme_futures_ilink3_sbe_v8_8.option_delta.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa 32: int32
   index, mantissa_32 = cme_futures_ilink3_sbe_v8_8.mantissa_32.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_ilink3_sbe_v8_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -13595,10 +13595,10 @@ end
 cme_futures_ilink3_sbe_v8_8.volatility.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_futures_ilink3_sbe_v8_8.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_futures_ilink3_sbe_v8_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -13706,46 +13706,46 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_trade_spread_leg.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
   -- Volatility: Struct of 2 fields
   index, volatility = cme_futures_ilink3_sbe_v8_8.volatility.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: PRICE9
   index, last_px = cme_futures_ilink3_sbe_v8_8.last_px.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Underlying Px: PRICENULL9
   index, underlying_px = cme_futures_ilink3_sbe_v8_8.underlying_px.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Sec Exec Id: uInt64
   index, sec_exec_id = cme_futures_ilink3_sbe_v8_8.sec_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
   -- Option Delta: Struct of 2 fields
@@ -13757,34 +13757,34 @@ cme_futures_ilink3_sbe_v8_8.execution_report_trade_spread_leg.fields = function(
   -- Risk Free Rate: Struct of 2 fields
   index, risk_free_rate = cme_futures_ilink3_sbe_v8_8.risk_free_rate.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uInt32
   index, last_qty = cme_futures_ilink3_sbe_v8_8.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uInt32
   index, cum_qty = cme_futures_ilink3_sbe_v8_8.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Side Trade Id: uInt32
   index, side_trade_id = cme_futures_ilink3_sbe_v8_8.side_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_ilink3_sbe_v8_8.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Status Trd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Ord Status Trd: OrdStatusTrd
   index, ord_status_trd = cme_futures_ilink3_sbe_v8_8.ord_status_trd.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Settl Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Date: LocalMktDate
   index, settl_date = cme_futures_ilink3_sbe_v8_8.settl_date.dissect(buffer, index, packet, parent)
 
   -- Calculated Ccy Last Qty: Struct of 2 fields
@@ -13842,22 +13842,22 @@ cme_futures_ilink3_sbe_v8_8.trade_legs_group.fields = function(buffer, offset, p
     iteration:set_generated()
   end
 
-  -- Leg Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Exec Id: uInt64
   index, leg_exec_id = cme_futures_ilink3_sbe_v8_8.leg_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Px: 8 Byte Signed Fixed Width Integer
+  -- Leg Last Px: PRICE9
   index, leg_last_px = cme_futures_ilink3_sbe_v8_8.leg_last_px.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Security Id: Int32
   index, leg_security_id = cme_futures_ilink3_sbe_v8_8.leg_security_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Trade Id: uInt32
   index, leg_trade_id = cme_futures_ilink3_sbe_v8_8.leg_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Last Qty: uInt32
   index, leg_last_qty = cme_futures_ilink3_sbe_v8_8.leg_last_qty.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Leg Side: SideReq
   index, leg_side = cme_futures_ilink3_sbe_v8_8.leg_side.dissect(buffer, index, packet, parent)
 
   return index
@@ -14066,121 +14066,121 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_trade_spread.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: PRICE9
   index, last_px = cme_futures_ilink3_sbe_v8_8.last_px.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: PRICE9
   index, price = cme_futures_ilink3_sbe_v8_8.price.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: PRICENULL9
   index, stop_px = cme_futures_ilink3_sbe_v8_8.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Sec Exec Id: uInt64
   index, sec_exec_id = cme_futures_ilink3_sbe_v8_8.sec_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Id Optional: uInt64NULL
   index, cross_id_optional = cme_futures_ilink3_sbe_v8_8.cross_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Host Cross Id: uInt64NULL
   index, host_cross_id = cme_futures_ilink3_sbe_v8_8.host_cross_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uInt32
   index, last_qty = cme_futures_ilink3_sbe_v8_8.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uInt32
   index, cum_qty = cme_futures_ilink3_sbe_v8_8.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Md Trade Entry Id: 4 Byte Unsigned Fixed Width Integer
+  -- Md Trade Entry Id: uInt32
   index, md_trade_entry_id = cme_futures_ilink3_sbe_v8_8.md_trade_entry_id.dissect(buffer, index, packet, parent)
 
-  -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Side Trade Id: uInt32
   index, side_trade_id = cme_futures_ilink3_sbe_v8_8.side_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Leaves: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves: uInt32
   index, leaves = cme_futures_ilink3_sbe_v8_8.leaves.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_ilink3_sbe_v8_8.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Status Trd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Ord Status Trd: OrdStatusTrd
   index, ord_status_trd = cme_futures_ilink3_sbe_v8_8.ord_status_trd.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Aggressor Indicator: BooleanFlag
   index, aggressor_indicator = cme_futures_ilink3_sbe_v8_8.aggressor_indicator.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Type: uInt8NULL
   index, cross_type = cme_futures_ilink3_sbe_v8_8.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Total Num Securities: 1 Byte Unsigned Fixed Width Integer
+  -- Total Num Securities: uInt8
   index, total_num_securities = cme_futures_ilink3_sbe_v8_8.total_num_securities.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
   -- Fills Groups: Struct of 2 fields
@@ -14237,22 +14237,22 @@ cme_futures_ilink3_sbe_v8_8.outright_order_events_group.fields = function(buffer
     iteration:set_generated()
   end
 
-  -- Order Event Px: 8 Byte Signed Fixed Width Integer
+  -- Order Event Px: PRICE9
   index, order_event_px = cme_futures_ilink3_sbe_v8_8.order_event_px.dissect(buffer, index, packet, parent)
 
-  -- Order Event Text: 5 Byte Ascii String
+  -- Order Event Text: String5
   index, order_event_text = cme_futures_ilink3_sbe_v8_8.order_event_text.dissect(buffer, index, packet, parent)
 
-  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Event Exec Id: uInt32
   index, order_event_exec_id = cme_futures_ilink3_sbe_v8_8.order_event_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Event Qty: uInt32
   index, order_event_qty = cme_futures_ilink3_sbe_v8_8.order_event_qty.dissect(buffer, index, packet, parent)
 
-  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Event Type: OrderEventType
   index, order_event_type = cme_futures_ilink3_sbe_v8_8.order_event_type.dissect(buffer, index, packet, parent)
 
-  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Order Event Reason: uInt8
   index, order_event_reason = cme_futures_ilink3_sbe_v8_8.order_event_reason.dissect(buffer, index, packet, parent)
 
   -- Contra Gross Trade Amt: Struct of 2 fields
@@ -14551,142 +14551,142 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_trade_outright.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: PRICE9
   index, last_px = cme_futures_ilink3_sbe_v8_8.last_px.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: PRICE9
   index, price = cme_futures_ilink3_sbe_v8_8.price.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: PRICENULL9
   index, stop_px = cme_futures_ilink3_sbe_v8_8.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Sec Exec Id: uInt64
   index, sec_exec_id = cme_futures_ilink3_sbe_v8_8.sec_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Id Optional: uInt64NULL
   index, cross_id_optional = cme_futures_ilink3_sbe_v8_8.cross_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Host Cross Id: uInt64NULL
   index, host_cross_id = cme_futures_ilink3_sbe_v8_8.host_cross_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Last Qty: uInt32
   index, last_qty = cme_futures_ilink3_sbe_v8_8.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uInt32
   index, cum_qty = cme_futures_ilink3_sbe_v8_8.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Md Trade Entry Id: 4 Byte Unsigned Fixed Width Integer
+  -- Md Trade Entry Id: uInt32
   index, md_trade_entry_id = cme_futures_ilink3_sbe_v8_8.md_trade_entry_id.dissect(buffer, index, packet, parent)
 
-  -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Side Trade Id: uInt32
   index, side_trade_id = cme_futures_ilink3_sbe_v8_8.side_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Link Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Link Id: uInt32NULL
   index, trade_link_id = cme_futures_ilink3_sbe_v8_8.trade_link_id.dissect(buffer, index, packet, parent)
 
-  -- Leaves: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves: uInt32
   index, leaves = cme_futures_ilink3_sbe_v8_8.leaves.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_futures_ilink3_sbe_v8_8.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Status Trd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Ord Status Trd: OrdStatusTrd
   index, ord_status_trd = cme_futures_ilink3_sbe_v8_8.ord_status_trd.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Aggressor Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Aggressor Indicator: BooleanFlag
   index, aggressor_indicator = cme_futures_ilink3_sbe_v8_8.aggressor_indicator.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Type: uInt8NULL
   index, cross_type = cme_futures_ilink3_sbe_v8_8.cross_type.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Ownership: 1 Byte Unsigned Fixed Width Integer
+  -- Ownership: uInt8
   index, ownership = cme_futures_ilink3_sbe_v8_8.ownership.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trd Type: uInt16NULL
   index, trd_type = cme_futures_ilink3_sbe_v8_8.trd_type.dissect(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Exec Restatement Reason: ExecReason
   index, exec_restatement_reason = cme_futures_ilink3_sbe_v8_8.exec_restatement_reason.dissect(buffer, index, packet, parent)
 
-  -- Settl Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Date: LocalMktDate
   index, settl_date = cme_futures_ilink3_sbe_v8_8.settl_date.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_futures_ilink3_sbe_v8_8.maturity_date.dissect(buffer, index, packet, parent)
 
   -- Calculated Ccy Last Qty: Struct of 2 fields
@@ -14695,16 +14695,16 @@ cme_futures_ilink3_sbe_v8_8.execution_report_trade_outright.fields = function(bu
   -- Gross Trade Amt: Struct of 2 fields
   index, gross_trade_amt = cme_futures_ilink3_sbe_v8_8.gross_trade_amt.dissect(buffer, index, packet, parent)
 
-  -- Benchmark Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Benchmark Price: PRICENULL9
   index, benchmark_price = cme_futures_ilink3_sbe_v8_8.benchmark_price.dissect(buffer, index, packet, parent)
 
-  -- Reservation Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Reservation Price: PRICENULL9
   index, reservation_price = cme_futures_ilink3_sbe_v8_8.reservation_price.dissect(buffer, index, packet, parent)
 
-  -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Priority Indicator: uInt8NULL
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8.priority_indicator.dissect(buffer, index, packet, parent)
 
-  -- Display Limit Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Display Limit Price: PRICENULL9
   index, display_limit_price = cme_futures_ilink3_sbe_v8_8.display_limit_price.dissect(buffer, index, packet, parent)
 
   -- Fills Groups: Struct of 2 fields
@@ -14779,109 +14779,109 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_elimination.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: PRICE9
   index, price = cme_futures_ilink3_sbe_v8_8.price.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: PRICENULL9
   index, stop_px = cme_futures_ilink3_sbe_v8_8.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Id Optional: uInt64NULL
   index, cross_id_optional = cme_futures_ilink3_sbe_v8_8.cross_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Host Cross Id: uInt64NULL
   index, host_cross_id = cme_futures_ilink3_sbe_v8_8.host_cross_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: uInt32
   index, cum_qty = cme_futures_ilink3_sbe_v8_8.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uInt32NULL
   index, min_qty = cme_futures_ilink3_sbe_v8_8.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uInt32NULL
   index, display_qty = cme_futures_ilink3_sbe_v8_8.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Type: uInt8NULL
   index, cross_type = cme_futures_ilink3_sbe_v8_8.cross_type.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Reservation Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Reservation Price: PRICENULL9
   index, reservation_price = cme_futures_ilink3_sbe_v8_8.reservation_price.dissect(buffer, index, packet, parent)
 
-  -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Priority Indicator: uInt8NULL
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8.priority_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -14981,118 +14981,118 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_reject.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String
+  -- Text: String256
   index, text = cme_futures_ilink3_sbe_v8_8.text.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: PRICENULL9
   index, price_optional = cme_futures_ilink3_sbe_v8_8.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: PRICENULL9
   index, stop_px = cme_futures_ilink3_sbe_v8_8.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Id Optional: uInt64NULL
   index, cross_id_optional = cme_futures_ilink3_sbe_v8_8.cross_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Host Cross Id: uInt64NULL
   index, host_cross_id = cme_futures_ilink3_sbe_v8_8.host_cross_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uInt32NULL
   index, min_qty = cme_futures_ilink3_sbe_v8_8.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uInt32NULL
   index, display_qty = cme_futures_ilink3_sbe_v8_8.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Ord Rej Reason: 2 Byte Unsigned Fixed Width Integer
+  -- Ord Rej Reason: uInt16
   index, ord_rej_reason = cme_futures_ilink3_sbe_v8_8.ord_rej_reason.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Type: uInt8NULL
   index, cross_type = cme_futures_ilink3_sbe_v8_8.cross_type.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Reservation Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Reservation Price: PRICENULL9
   index, reservation_price = cme_futures_ilink3_sbe_v8_8.reservation_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -15168,115 +15168,115 @@ end
 cme_futures_ilink3_sbe_v8_8.execution_report_new.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Exec Id: 40 Byte Ascii String
+  -- Exec Id: String40
   index, exec_id = cme_futures_ilink3_sbe_v8_8.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uInt64
   index, order_id = cme_futures_ilink3_sbe_v8_8.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: PRICE9
   index, price = cme_futures_ilink3_sbe_v8_8.price.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: PRICENULL9
   index, stop_px = cme_futures_ilink3_sbe_v8_8.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_futures_ilink3_sbe_v8_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Id Optional: uInt64NULL
   index, cross_id_optional = cme_futures_ilink3_sbe_v8_8.cross_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Host Cross Id: uInt64NULL
   index, host_cross_id = cme_futures_ilink3_sbe_v8_8.host_cross_id.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uInt32NULL
   index, min_qty = cme_futures_ilink3_sbe_v8_8.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uInt32NULL
   index, display_qty = cme_futures_ilink3_sbe_v8_8.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay Duration: uInt16NULL
   index, delay_duration = cme_futures_ilink3_sbe_v8_8.delay_duration.dissect(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type Optional: OrderType
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Type: uInt8NULL
   index, cross_type = cme_futures_ilink3_sbe_v8_8.cross_type.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Reservation Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Reservation Price: PRICENULL9
   index, reservation_price = cme_futures_ilink3_sbe_v8_8.reservation_price.dissect(buffer, index, packet, parent)
 
-  -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Priority Indicator: uInt8NULL
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8.priority_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -15576,49 +15576,49 @@ end
 cme_futures_ilink3_sbe_v8_8.business_reject.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String
+  -- Text: String256
   index, text = cme_futures_ilink3_sbe_v8_8.text.dissect(buffer, index, packet, parent)
 
-  -- Sender Id Optional: 20 Byte Ascii String
+  -- Sender Id Optional: String20
   index, sender_id_optional = cme_futures_ilink3_sbe_v8_8.sender_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id Optional: uInt64NULL
   index, party_details_list_req_id_optional = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Business Reject Ref Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Business Reject Ref Id: uInt64NULL
   index, business_reject_ref_id = cme_futures_ilink3_sbe_v8_8.business_reject_ref_id.dissect(buffer, index, packet, parent)
 
-  -- Location Optional: 5 Byte Ascii String
+  -- Location Optional: String5
   index, location_optional = cme_futures_ilink3_sbe_v8_8.location_optional.dissect(buffer, index, packet, parent)
 
-  -- Ref Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Ref Seq Num: uInt32NULL
   index, ref_seq_num = cme_futures_ilink3_sbe_v8_8.ref_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Ref Tag Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Ref Tag Id: uInt16NULL
   index, ref_tag_id = cme_futures_ilink3_sbe_v8_8.ref_tag_id.dissect(buffer, index, packet, parent)
 
-  -- Business Reject Reason: 2 Byte Unsigned Fixed Width Integer
+  -- Business Reject Reason: uInt16
   index, business_reject_reason = cme_futures_ilink3_sbe_v8_8.business_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Ref Msg Type: 2 Byte Ascii String
+  -- Ref Msg Type: String2
   index, ref_msg_type = cme_futures_ilink3_sbe_v8_8.ref_msg_type.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator Optional: ManualOrdInd
   index, manual_order_indicator_optional = cme_futures_ilink3_sbe_v8_8.manual_order_indicator_optional.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
   return index
@@ -15835,67 +15835,67 @@ end
 cme_futures_ilink3_sbe_v8_8.party_details_definition_request_ack.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Memo: 75 Byte Ascii String
+  -- Memo: String75
   index, memo = cme_futures_ilink3_sbe_v8_8.memo.dissect(buffer, index, packet, parent)
 
-  -- Avg Px Group Id: 20 Byte Ascii String
+  -- Avg Px Group Id: String20
   index, avg_px_group_id = cme_futures_ilink3_sbe_v8_8.avg_px_group_id.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Self Match Prevention Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Self Match Prevention Id: uInt64NULL
   index, self_match_prevention_id = cme_futures_ilink3_sbe_v8_8.self_match_prevention_id.dissect(buffer, index, packet, parent)
 
-  -- Party Detail Request Status: 1 Byte Unsigned Fixed Width Integer
+  -- Party Detail Request Status: uInt8
   index, party_detail_request_status = cme_futures_ilink3_sbe_v8_8.party_detail_request_status.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Cust Order Capacity: CustOrderCapacity
   index, cust_order_capacity = cme_futures_ilink3_sbe_v8_8.cust_order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Clearing Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Clearing Account Type: ClearingAcctType
   index, clearing_account_type = cme_futures_ilink3_sbe_v8_8.clearing_account_type.dissect(buffer, index, packet, parent)
 
-  -- Self Match Prevention Instruction: 1 Byte Ascii String Enum with 2 values
+  -- Self Match Prevention Instruction: SMPI
   index, self_match_prevention_instruction = cme_futures_ilink3_sbe_v8_8.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
 
-  -- Avg Px Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Avg Px Indicator: AvgPxInd
   index, avg_px_indicator = cme_futures_ilink3_sbe_v8_8.avg_px_indicator.dissect(buffer, index, packet, parent)
 
-  -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Clearing Trade Price Type: SLEDS
   index, clearing_trade_price_type = cme_futures_ilink3_sbe_v8_8.clearing_trade_price_type.dissect(buffer, index, packet, parent)
 
-  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 2 values
+  -- Cmta Giveup Cd: CmtaGiveUpCD
   index, cmta_giveup_cd = cme_futures_ilink3_sbe_v8_8.cmta_giveup_cd.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
+  -- Cust Order Handling Inst: CustOrdHandlInst
   index, cust_order_handling_inst = cme_futures_ilink3_sbe_v8_8.cust_order_handling_inst.dissect(buffer, index, packet, parent)
 
-  -- List Update Action: 1 Byte Ascii String Enum with 2 values
+  -- List Update Action: ListUpdAct
   index, list_update_action = cme_futures_ilink3_sbe_v8_8.list_update_action.dissect(buffer, index, packet, parent)
 
-  -- Party Detail Definition Status: 1 Byte Unsigned Fixed Width Integer
+  -- Party Detail Definition Status: uInt8
   index, party_detail_definition_status = cme_futures_ilink3_sbe_v8_8.party_detail_definition_status.dissect(buffer, index, packet, parent)
 
-  -- Executor: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Executor: uInt64NULL
   index, executor = cme_futures_ilink3_sbe_v8_8.executor.dissect(buffer, index, packet, parent)
 
-  -- Idm Short Code: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Idm Short Code: uInt64NULL
   index, idm_short_code = cme_futures_ilink3_sbe_v8_8.idm_short_code.dissect(buffer, index, packet, parent)
 
-  -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_futures_ilink3_sbe_v8_8.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
   -- Party Details Groups: Struct of 2 fields
@@ -15975,52 +15975,52 @@ end
 cme_futures_ilink3_sbe_v8_8.party_details_definition_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- List Update Action: 1 Byte Ascii String Enum with 2 values
+  -- List Update Action: ListUpdAct
   index, list_update_action = cme_futures_ilink3_sbe_v8_8.list_update_action.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Memo: 75 Byte Ascii String
+  -- Memo: String75
   index, memo = cme_futures_ilink3_sbe_v8_8.memo.dissect(buffer, index, packet, parent)
 
-  -- Avg Px Group Id: 20 Byte Ascii String
+  -- Avg Px Group Id: String20
   index, avg_px_group_id = cme_futures_ilink3_sbe_v8_8.avg_px_group_id.dissect(buffer, index, packet, parent)
 
-  -- Self Match Prevention Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Self Match Prevention Id: uInt64NULL
   index, self_match_prevention_id = cme_futures_ilink3_sbe_v8_8.self_match_prevention_id.dissect(buffer, index, packet, parent)
 
-  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 2 values
+  -- Cmta Giveup Cd: CmtaGiveUpCD
   index, cmta_giveup_cd = cme_futures_ilink3_sbe_v8_8.cmta_giveup_cd.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Cust Order Capacity: CustOrderCapacity
   index, cust_order_capacity = cme_futures_ilink3_sbe_v8_8.cust_order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Clearing Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Clearing Account Type: ClearingAcctType
   index, clearing_account_type = cme_futures_ilink3_sbe_v8_8.clearing_account_type.dissect(buffer, index, packet, parent)
 
-  -- Self Match Prevention Instruction: 1 Byte Ascii String Enum with 2 values
+  -- Self Match Prevention Instruction: SMPI
   index, self_match_prevention_instruction = cme_futures_ilink3_sbe_v8_8.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
 
-  -- Avg Px Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Avg Px Indicator: AvgPxInd
   index, avg_px_indicator = cme_futures_ilink3_sbe_v8_8.avg_px_indicator.dissect(buffer, index, packet, parent)
 
-  -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Clearing Trade Price Type: SLEDS
   index, clearing_trade_price_type = cme_futures_ilink3_sbe_v8_8.clearing_trade_price_type.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
+  -- Cust Order Handling Inst: CustOrdHandlInst
   index, cust_order_handling_inst = cme_futures_ilink3_sbe_v8_8.cust_order_handling_inst.dissect(buffer, index, packet, parent)
 
-  -- Executor: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Executor: uInt64NULL
   index, executor = cme_futures_ilink3_sbe_v8_8.executor.dissect(buffer, index, packet, parent)
 
-  -- Idm Short Code: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Idm Short Code: uInt64NULL
   index, idm_short_code = cme_futures_ilink3_sbe_v8_8.idm_short_code.dissect(buffer, index, packet, parent)
 
   -- Party Details Groups: Struct of 2 fields
@@ -16180,28 +16180,28 @@ cme_futures_ilink3_sbe_v8_8.quote_entries_group.fields = function(buffer, offset
     iteration:set_generated()
   end
 
-  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Bid Px: PRICENULL9
   index, bid_px = cme_futures_ilink3_sbe_v8_8.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Offer Px: PRICENULL9
   index, offer_px = cme_futures_ilink3_sbe_v8_8.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Entry Id: uInt32
   index, quote_entry_id = cme_futures_ilink3_sbe_v8_8.quote_entry_id.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: uInt32NULL
   index, bid_size = cme_futures_ilink3_sbe_v8_8.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: uInt32NULL
   index, offer_size = cme_futures_ilink3_sbe_v8_8.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Underlying Security Id: Int32NULL
   index, underlying_security_id = cme_futures_ilink3_sbe_v8_8.underlying_security_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
+  -- Quote Set Id: uInt16
   index, quote_set_id = cme_futures_ilink3_sbe_v8_8.quote_set_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -16429,49 +16429,49 @@ end
 cme_futures_ilink3_sbe_v8_8.mass_quote.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Req Id Optional: uInt64NULL
   index, quote_req_id_optional = cme_futures_ilink3_sbe_v8_8.quote_req_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Quote Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Id: uInt32
   index, quote_id = cme_futures_ilink3_sbe_v8_8.quote_id.dissect(buffer, index, packet, parent)
 
-  -- Tot No Quote Entries: 1 Byte Unsigned Fixed Width Integer
+  -- Tot No Quote Entries: uInt8
   index, tot_no_quote_entries = cme_futures_ilink3_sbe_v8_8.tot_no_quote_entries.dissect(buffer, index, packet, parent)
 
-  -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Mm Protection Reset: BooleanFlag
   index, mm_protection_reset = cme_futures_ilink3_sbe_v8_8.mm_protection_reset.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 30 Byte Ascii String
+  -- Reserved: String30
   index, reserved = cme_futures_ilink3_sbe_v8_8.reserved.dissect(buffer, index, packet, parent)
 
-  -- Future 30: 30 Byte Ascii String
+  -- Future 30: String30
   index, future_30 = cme_futures_ilink3_sbe_v8_8.future_30.dissect(buffer, index, packet, parent)
 
-  -- Quote Entry Open: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Entry Open: BooleanNULL
   index, quote_entry_open = cme_futures_ilink3_sbe_v8_8.quote_entry_open.dissect(buffer, index, packet, parent)
 
   -- Quote Entries Groups: Struct of 2 fields
@@ -16549,43 +16549,43 @@ end
 cme_futures_ilink3_sbe_v8_8.order_cancel_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uInt64NULL
   index, order_id_optional = cme_futures_ilink3_sbe_v8_8.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String
+  -- Orig Order User: String8
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8.orig_order_user.dissect(buffer, index, packet, parent)
 
   return index
@@ -16732,82 +16732,82 @@ end
 cme_futures_ilink3_sbe_v8_8.order_cancel_replace_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: PRICENULL9
   index, price_optional = cme_futures_ilink3_sbe_v8_8.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id Optional: uInt64NULL
   index, order_id_optional = cme_futures_ilink3_sbe_v8_8.order_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: PRICENULL9
   index, stop_px = cme_futures_ilink3_sbe_v8_8.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uInt32NULL
   index, min_qty = cme_futures_ilink3_sbe_v8_8.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uInt32NULL
   index, display_qty = cme_futures_ilink3_sbe_v8_8.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type: OrderTypeReq
   index, ord_type = cme_futures_ilink3_sbe_v8_8.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ofm Override: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Ofm Override: OFMOverrideReq
   index, ofm_override = cme_futures_ilink3_sbe_v8_8.ofm_override.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -16871,79 +16871,79 @@ end
 cme_futures_ilink3_sbe_v8_8.new_order_single.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: PRICENULL9
   index, price_optional = cme_futures_ilink3_sbe_v8_8.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: uInt32
   index, order_qty = cme_futures_ilink3_sbe_v8_8.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: Int32
   index, security_id = cme_futures_ilink3_sbe_v8_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: SideReq
   index, side = cme_futures_ilink3_sbe_v8_8.side.dissect(buffer, index, packet, parent)
 
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Seq Num: uInt32
   index, seq_num = cme_futures_ilink3_sbe_v8_8.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String
+  -- Sender Id: String20Req
   index, sender_id = cme_futures_ilink3_sbe_v8_8.sender_id.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 20 Byte Ascii String
+  -- ClOrdId: String20Req
   index, clordid = cme_futures_ilink3_sbe_v8_8.clordid.dissect(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Details List Req Id: uInt64
   index, party_details_list_req_id = cme_futures_ilink3_sbe_v8_8.party_details_list_req_id.dissect(buffer, index, packet, parent)
 
-  -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Request Id: uInt64
   index, order_request_id = cme_futures_ilink3_sbe_v8_8.order_request_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time Epoch: uInt64
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8.sending_time_epoch.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Stop Px: PRICENULL9
   index, stop_px = cme_futures_ilink3_sbe_v8_8.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String
+  -- Location: String5Req
   index, location = cme_futures_ilink3_sbe_v8_8.location.dissect(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Min Qty: uInt32NULL
   index, min_qty = cme_futures_ilink3_sbe_v8_8.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: uInt32NULL
   index, display_qty = cme_futures_ilink3_sbe_v8_8.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Date: LocalMktDate
   index, expire_date = cme_futures_ilink3_sbe_v8_8.expire_date.dissect(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type: OrderTypeReq
   index, ord_type = cme_futures_ilink3_sbe_v8_8.ord_type.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Time In Force: TimeInForce
   index, time_in_force = cme_futures_ilink3_sbe_v8_8.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_futures_ilink3_sbe_v8_8.manual_order_indicator.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8.exec_inst.dissect(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
+  -- Execution Mode: ExecMode
   index, execution_mode = cme_futures_ilink3_sbe_v8_8.execution_mode.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Liquidity Flag: BooleanNULL
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Managed Order: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Managed Order: BooleanNULL
   index, managed_order = cme_futures_ilink3_sbe_v8_8.managed_order.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Short Sale Type: ShortSaleType
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8.short_sale_type.dissect(buffer, index, packet, parent)
 
-  -- Discretion Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Discretion Price: PRICENULL9
   index, discretion_price = cme_futures_ilink3_sbe_v8_8.discretion_price.dissect(buffer, index, packet, parent)
 
-  -- Reservation Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Reservation Price: PRICENULL9
   index, reservation_price = cme_futures_ilink3_sbe_v8_8.reservation_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -17032,16 +17032,16 @@ end
 cme_futures_ilink3_sbe_v8_8.not_applied.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- From Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- From Seq No: uInt32
   index, from_seq_no = cme_futures_ilink3_sbe_v8_8.from_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Msg Count: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Count: uInt32
   index, msg_count = cme_futures_ilink3_sbe_v8_8.msg_count.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
   return index
@@ -17203,22 +17203,22 @@ end
 cme_futures_ilink3_sbe_v8_8.retransmit_reject.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason: 48 Byte Ascii String
+  -- Reason: String48
   index, reason = cme_futures_ilink3_sbe_v8_8.reason.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Last Uuid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Uuid: uInt64NULL
   index, last_uuid = cme_futures_ilink3_sbe_v8_8.last_uuid.dissect(buffer, index, packet, parent)
 
-  -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Request Timestamp: uInt64
   index, request_timestamp = cme_futures_ilink3_sbe_v8_8.request_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Error Codes: 2 Byte Unsigned Fixed Width Integer
+  -- Error Codes: uInt16
   index, error_codes = cme_futures_ilink3_sbe_v8_8.error_codes.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
   return index
@@ -17286,22 +17286,22 @@ end
 cme_futures_ilink3_sbe_v8_8.retransmission.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Last Uuid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Uuid: uInt64NULL
   index, last_uuid = cme_futures_ilink3_sbe_v8_8.last_uuid.dissect(buffer, index, packet, parent)
 
-  -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Request Timestamp: uInt64
   index, request_timestamp = cme_futures_ilink3_sbe_v8_8.request_timestamp.dissect(buffer, index, packet, parent)
 
-  -- From Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- From Seq No: uInt32
   index, from_seq_no = cme_futures_ilink3_sbe_v8_8.from_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Msg Count 16: 2 Byte Unsigned Fixed Width Integer
+  -- Msg Count 16: uInt16
   index, msg_count_16 = cme_futures_ilink3_sbe_v8_8.msg_count_16.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
   return index
@@ -17345,19 +17345,19 @@ end
 cme_futures_ilink3_sbe_v8_8.retransmit_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Last Uuid: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Uuid: uInt64NULL
   index, last_uuid = cme_futures_ilink3_sbe_v8_8.last_uuid.dissect(buffer, index, packet, parent)
 
-  -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Request Timestamp: uInt64
   index, request_timestamp = cme_futures_ilink3_sbe_v8_8.request_timestamp.dissect(buffer, index, packet, parent)
 
-  -- From Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- From Seq No: uInt32
   index, from_seq_no = cme_futures_ilink3_sbe_v8_8.from_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Msg Count 16: 2 Byte Unsigned Fixed Width Integer
+  -- Msg Count 16: uInt16
   index, msg_count_16 = cme_futures_ilink3_sbe_v8_8.msg_count_16.dissect(buffer, index, packet, parent)
 
   return index
@@ -17401,19 +17401,19 @@ end
 cme_futures_ilink3_sbe_v8_8.terminate.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason: 48 Byte Ascii String
+  -- Reason: String48
   index, reason = cme_futures_ilink3_sbe_v8_8.reason.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Request Timestamp: uInt64
   index, request_timestamp = cme_futures_ilink3_sbe_v8_8.request_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Error Codes: 2 Byte Unsigned Fixed Width Integer
+  -- Error Codes: uInt16
   index, error_codes = cme_futures_ilink3_sbe_v8_8.error_codes.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
   return index
@@ -17542,16 +17542,16 @@ end
 cme_futures_ilink3_sbe_v8_8.sequence.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Next Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Next Seq No: uInt32
   index, next_seq_no = cme_futures_ilink3_sbe_v8_8.next_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Fault Tolerance Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Fault Tolerance Indicator: FTI
   index, fault_tolerance_indicator = cme_futures_ilink3_sbe_v8_8.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
 
-  -- Keep Alive Interval Lapsed: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Keep Alive Interval Lapsed: KeepAliveLapsed
   index, keep_alive_interval_lapsed = cme_futures_ilink3_sbe_v8_8.keep_alive_interval_lapsed.dissect(buffer, index, packet, parent)
 
   return index
@@ -17597,25 +17597,25 @@ end
 cme_futures_ilink3_sbe_v8_8.establishment_reject.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason: 48 Byte Ascii String
+  -- Reason: String48
   index, reason = cme_futures_ilink3_sbe_v8_8.reason.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Request Timestamp: uInt64
   index, request_timestamp = cme_futures_ilink3_sbe_v8_8.request_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Next Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Next Seq No: uInt32
   index, next_seq_no = cme_futures_ilink3_sbe_v8_8.next_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Error Codes: 2 Byte Unsigned Fixed Width Integer
+  -- Error Codes: uInt16
   index, error_codes = cme_futures_ilink3_sbe_v8_8.error_codes.dissect(buffer, index, packet, parent)
 
-  -- Fault Tolerance Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Fault Tolerance Indicator: FTI
   index, fault_tolerance_indicator = cme_futures_ilink3_sbe_v8_8.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
   return index
@@ -17760,31 +17760,31 @@ end
 cme_futures_ilink3_sbe_v8_8.establishment_ack.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Request Timestamp: uInt64
   index, request_timestamp = cme_futures_ilink3_sbe_v8_8.request_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Next Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Next Seq No: uInt32
   index, next_seq_no = cme_futures_ilink3_sbe_v8_8.next_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Previous Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Previous Seq No: uInt32
   index, previous_seq_no = cme_futures_ilink3_sbe_v8_8.previous_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Previous Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Previous Uuid: uInt64
   index, previous_uuid = cme_futures_ilink3_sbe_v8_8.previous_uuid.dissect(buffer, index, packet, parent)
 
-  -- Keep Alive Interval: 2 Byte Unsigned Fixed Width Integer
+  -- Keep Alive Interval: uInt16
   index, keep_alive_interval = cme_futures_ilink3_sbe_v8_8.keep_alive_interval.dissect(buffer, index, packet, parent)
 
-  -- Secret Key Secure Id Expiration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Secret Key Secure Id Expiration: uInt16NULL
   index, secret_key_secure_id_expiration = cme_futures_ilink3_sbe_v8_8.secret_key_secure_id_expiration.dissect(buffer, index, packet, parent)
 
-  -- Fault Tolerance Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Fault Tolerance Indicator: FTI
   index, fault_tolerance_indicator = cme_futures_ilink3_sbe_v8_8.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
   return index
@@ -17883,7 +17883,7 @@ end
 cme_futures_ilink3_sbe_v8_8.credentials.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Credentials Length: 2 Byte Unsigned Fixed Width Integer
+  -- Credentials Length: uint16
   index, credentials_length = cme_futures_ilink3_sbe_v8_8.credentials_length.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Credentials Data
@@ -18224,34 +18224,34 @@ cme_futures_ilink3_sbe_v8_8.establish.fields = function(buffer, offset, packet, 
   -- Hmac Signature: 32 Byte
   index, hmac_signature = cme_futures_ilink3_sbe_v8_8.hmac_signature.dissect(buffer, index, packet, parent)
 
-  -- Access Key Id: 20 Byte Ascii String
+  -- Access Key Id: String20Req
   index, access_key_id = cme_futures_ilink3_sbe_v8_8.access_key_id.dissect(buffer, index, packet, parent)
 
-  -- Trading System Name: 30 Byte Ascii String
+  -- Trading System Name: String30Req
   index, trading_system_name = cme_futures_ilink3_sbe_v8_8.trading_system_name.dissect(buffer, index, packet, parent)
 
-  -- Trading System Version: 10 Byte Ascii String
+  -- Trading System Version: String10Req
   index, trading_system_version = cme_futures_ilink3_sbe_v8_8.trading_system_version.dissect(buffer, index, packet, parent)
 
-  -- Trading System Vendor: 10 Byte Ascii String
+  -- Trading System Vendor: String10Req
   index, trading_system_vendor = cme_futures_ilink3_sbe_v8_8.trading_system_vendor.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Request Timestamp: uInt64
   index, request_timestamp = cme_futures_ilink3_sbe_v8_8.request_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Next Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Next Seq No: uInt32
   index, next_seq_no = cme_futures_ilink3_sbe_v8_8.next_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Session: 3 Byte Ascii String
+  -- Session: String3Req
   index, session = cme_futures_ilink3_sbe_v8_8.session.dissect(buffer, index, packet, parent)
 
-  -- Firm: 5 Byte Ascii String
+  -- Firm: String5Req
   index, firm = cme_futures_ilink3_sbe_v8_8.firm.dissect(buffer, index, packet, parent)
 
-  -- Keep Alive Interval: 2 Byte Unsigned Fixed Width Integer
+  -- Keep Alive Interval: uInt16
   index, keep_alive_interval = cme_futures_ilink3_sbe_v8_8.keep_alive_interval.dissect(buffer, index, packet, parent)
 
   -- Credentials: Struct of 2 fields
@@ -18294,22 +18294,22 @@ end
 cme_futures_ilink3_sbe_v8_8.negotiation_reject.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason: 48 Byte Ascii String
+  -- Reason: String48
   index, reason = cme_futures_ilink3_sbe_v8_8.reason.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Request Timestamp: uInt64
   index, request_timestamp = cme_futures_ilink3_sbe_v8_8.request_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Error Codes: 2 Byte Unsigned Fixed Width Integer
+  -- Error Codes: uInt16
   index, error_codes = cme_futures_ilink3_sbe_v8_8.error_codes.dissect(buffer, index, packet, parent)
 
-  -- Fault Tolerance Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Fault Tolerance Indicator: FTI
   index, fault_tolerance_indicator = cme_futures_ilink3_sbe_v8_8.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
   return index
@@ -18368,25 +18368,25 @@ end
 cme_futures_ilink3_sbe_v8_8.negotiation_response.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Request Timestamp: uInt64
   index, request_timestamp = cme_futures_ilink3_sbe_v8_8.request_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Secret Key Secure Id Expiration: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Secret Key Secure Id Expiration: uInt16NULL
   index, secret_key_secure_id_expiration = cme_futures_ilink3_sbe_v8_8.secret_key_secure_id_expiration.dissect(buffer, index, packet, parent)
 
-  -- Fault Tolerance Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Fault Tolerance Indicator: FTI
   index, fault_tolerance_indicator = cme_futures_ilink3_sbe_v8_8.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
 
-  -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Split Msg: SplitMsg
   index, split_msg = cme_futures_ilink3_sbe_v8_8.split_msg.dissect(buffer, index, packet, parent)
 
-  -- Previous Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Previous Seq No: uInt32
   index, previous_seq_no = cme_futures_ilink3_sbe_v8_8.previous_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Previous Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Previous Uuid: uInt64
   index, previous_uuid = cme_futures_ilink3_sbe_v8_8.previous_uuid.dissect(buffer, index, packet, parent)
 
   -- Credentials: Struct of 2 fields
@@ -18444,19 +18444,19 @@ cme_futures_ilink3_sbe_v8_8.negotiate.fields = function(buffer, offset, packet, 
   -- Hmac Signature: 32 Byte
   index, hmac_signature = cme_futures_ilink3_sbe_v8_8.hmac_signature.dissect(buffer, index, packet, parent)
 
-  -- Access Key Id: 20 Byte Ascii String
+  -- Access Key Id: String20Req
   index, access_key_id = cme_futures_ilink3_sbe_v8_8.access_key_id.dissect(buffer, index, packet, parent)
 
-  -- Uuid: 8 Byte Unsigned Fixed Width Integer
+  -- Uuid: uInt64
   index, uuid = cme_futures_ilink3_sbe_v8_8.uuid.dissect(buffer, index, packet, parent)
 
-  -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Request Timestamp: uInt64
   index, request_timestamp = cme_futures_ilink3_sbe_v8_8.request_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Session: 3 Byte Ascii String
+  -- Session: String3Req
   index, session = cme_futures_ilink3_sbe_v8_8.session.dissect(buffer, index, packet, parent)
 
-  -- Firm: 5 Byte Ascii String
+  -- Firm: String5Req
   index, firm = cme_futures_ilink3_sbe_v8_8.firm.dissect(buffer, index, packet, parent)
 
   -- Credentials: Struct of 2 fields
@@ -19165,16 +19165,16 @@ end
 cme_futures_ilink3_sbe_v8_8.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_futures_ilink3_sbe_v8_8.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 50 values
+  -- Template Id: uint16
   index, template_id = cme_futures_ilink3_sbe_v8_8.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = cme_futures_ilink3_sbe_v8_8.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = cme_futures_ilink3_sbe_v8_8.version.dissect(buffer, index, packet, parent)
 
   return index

@@ -322,10 +322,10 @@ end
 memx_options_memoirdepth_sbe_v1_3.clear_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
   return index
@@ -560,28 +560,28 @@ end
 memx_options_memoirdepth_sbe_v1_3.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Ascii String Enum with 2 values
+  -- Order Capacity: OrderCapacityType
   index, order_capacity = memx_options_memoirdepth_sbe_v1_3.order_capacity.dissect(buffer, index, packet, parent)
 
   -- Trade Conditions: Struct of 2 fields
   index, trade_conditions = memx_options_memoirdepth_sbe_v1_3.trade_conditions.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memoirdepth_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: uint64
   index, trade_id = memx_options_memoirdepth_sbe_v1_3.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: uint32
   index, quantity = memx_options_memoirdepth_sbe_v1_3.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: PriceType
   index, price = memx_options_memoirdepth_sbe_v1_3.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -694,28 +694,28 @@ end
 memx_options_memoirdepth_sbe_v1_3.order_reduced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Ascii String Enum with 2 values
+  -- Order Capacity: OrderCapacityType
   index, order_capacity = memx_options_memoirdepth_sbe_v1_3.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memoirdepth_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: SideType
   index, side = memx_options_memoirdepth_sbe_v1_3.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: uint32
   index, quantity = memx_options_memoirdepth_sbe_v1_3.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: PriceType
   index, price = memx_options_memoirdepth_sbe_v1_3.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity Reduced: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity Reduced: uint32
   index, quantity_reduced = memx_options_memoirdepth_sbe_v1_3.quantity_reduced.dissect(buffer, index, packet, parent)
 
   return index
@@ -758,16 +758,16 @@ end
 memx_options_memoirdepth_sbe_v1_3.order_deleted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Ascii String Enum with 2 values
+  -- Order Capacity: OrderCapacityType
   index, order_capacity = memx_options_memoirdepth_sbe_v1_3.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memoirdepth_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -813,25 +813,25 @@ end
 memx_options_memoirdepth_sbe_v1_3.order_added_extended_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Ascii String Enum with 2 values
+  -- Order Capacity: OrderCapacityType
   index, order_capacity = memx_options_memoirdepth_sbe_v1_3.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memoirdepth_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: SideType
   index, side = memx_options_memoirdepth_sbe_v1_3.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: uint32
   index, quantity = memx_options_memoirdepth_sbe_v1_3.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: PriceType
   index, price = memx_options_memoirdepth_sbe_v1_3.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -876,22 +876,22 @@ end
 memx_options_memoirdepth_sbe_v1_3.order_added_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memoirdepth_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: SideType
   index, side = memx_options_memoirdepth_sbe_v1_3.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: uint32
   index, quantity = memx_options_memoirdepth_sbe_v1_3.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: PriceType
   index, price = memx_options_memoirdepth_sbe_v1_3.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -988,22 +988,22 @@ end
 memx_options_memoirdepth_sbe_v1_3.order_added_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: uint64
   index, order_id = memx_options_memoirdepth_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: SideType
   index, side = memx_options_memoirdepth_sbe_v1_3.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity Short: uint16
   index, quantity_short = memx_options_memoirdepth_sbe_v1_3.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Price Short: ShortPriceType
   index, price_short = memx_options_memoirdepth_sbe_v1_3.price_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -1067,10 +1067,10 @@ end
 memx_options_memoirdepth_sbe_v1_3.snapshot_complete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- As Of Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  -- As Of Sequence Number: uint64
   index, as_of_sequence_number = memx_options_memoirdepth_sbe_v1_3.as_of_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -1220,25 +1220,25 @@ end
 memx_options_memoirdepth_sbe_v1_3.corrected_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: uint64
   index, trade_id = memx_options_memoirdepth_sbe_v1_3.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Original Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Original Quantity: uint32
   index, original_quantity = memx_options_memoirdepth_sbe_v1_3.original_quantity.dissect(buffer, index, packet, parent)
 
-  -- Original Price: 8 Byte Unsigned Fixed Width Integer
+  -- Original Price: PriceType
   index, original_price = memx_options_memoirdepth_sbe_v1_3.original_price.dissect(buffer, index, packet, parent)
 
-  -- Corrected Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Corrected Quantity: uint32
   index, corrected_quantity = memx_options_memoirdepth_sbe_v1_3.corrected_quantity.dissect(buffer, index, packet, parent)
 
-  -- Corrected Price: 8 Byte Unsigned Fixed Width Integer
+  -- Corrected Price: PriceType
   index, corrected_price = memx_options_memoirdepth_sbe_v1_3.corrected_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1282,19 +1282,19 @@ end
 memx_options_memoirdepth_sbe_v1_3.broken_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: uint64
   index, trade_id = memx_options_memoirdepth_sbe_v1_3.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Original Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Original Quantity: uint32
   index, original_quantity = memx_options_memoirdepth_sbe_v1_3.original_quantity.dissect(buffer, index, packet, parent)
 
-  -- Original Price: 8 Byte Unsigned Fixed Width Integer
+  -- Original Price: PriceType
   index, original_price = memx_options_memoirdepth_sbe_v1_3.original_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1378,10 +1378,10 @@ end
 memx_options_memoirdepth_sbe_v1_3.trading_session_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trading Session: 1 Byte Ascii String Enum with 2 values
+  -- Trading Session: TradingSessionType
   index, trading_session = memx_options_memoirdepth_sbe_v1_3.trading_session.dissect(buffer, index, packet, parent)
 
   return index
@@ -1510,16 +1510,16 @@ end
 memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status: 1 Byte Ascii String Enum with 2 values
+  -- Instrument Trading Status: InstrumentTradingStatusType
   index, instrument_trading_status = memx_options_memoirdepth_sbe_v1_3.instrument_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Instrument Trading Status Reason: 1 Byte Ascii String Enum with 2 values
+  -- Instrument Trading Status Reason: InstrumentTradingStatusReasonType
   index, instrument_trading_status_reason = memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1858,37 +1858,37 @@ end
 memx_options_memoirdepth_sbe_v1_3.instrument_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = memx_options_memoirdepth_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: BrokenTradeSymbol
   index, symbol = memx_options_memoirdepth_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Options Product Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Options Product Type: OptionsProductType
   index, options_product_type = memx_options_memoirdepth_sbe_v1_3.options_product_type.dissect(buffer, index, packet, parent)
 
-  -- Underlier: 6 Byte Ascii String
+  -- Underlier: InstrumentDirectoryUnderlier
   index, underlier = memx_options_memoirdepth_sbe_v1_3.underlier.dissect(buffer, index, packet, parent)
 
-  -- Osi Root: 6 Byte Ascii String
+  -- Osi Root: InstrumentDirectoryOSIRoot
   index, osi_root = memx_options_memoirdepth_sbe_v1_3.osi_root.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 8 Byte Ascii String
+  -- Maturity Date: InstrumentDirectoryMaturityDate
   index, maturity_date = memx_options_memoirdepth_sbe_v1_3.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Strike Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Strike Put Or Call: PutOrCallType
   index, strike_put_or_call = memx_options_memoirdepth_sbe_v1_3.strike_put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Unsigned Fixed Width Integer
+  -- Strike Price: PriceType
   index, strike_price = memx_options_memoirdepth_sbe_v1_3.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Closing Only: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Closing Only: BooleanType
   index, closing_only = memx_options_memoirdepth_sbe_v1_3.closing_only.dissect(buffer, index, packet, parent)
 
-  -- Closing Time: 8 Byte Unsigned Fixed Width Integer
+  -- Closing Time: UTCTimestampNanos
   index, closing_time = memx_options_memoirdepth_sbe_v1_3.closing_time.dissect(buffer, index, packet, parent)
 
-  -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Is Test Symbol: BooleanType
   index, is_test_symbol = memx_options_memoirdepth_sbe_v1_3.is_test_symbol.dissect(buffer, index, packet, parent)
 
   return index
@@ -2215,16 +2215,16 @@ end
 memx_options_memoirdepth_sbe_v1_3.sbe_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = memx_options_memoirdepth_sbe_v1_3.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Template Id: uint8
   index, template_id = memx_options_memoirdepth_sbe_v1_3.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint8
   index, schema_id = memx_options_memoirdepth_sbe_v1_3.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = memx_options_memoirdepth_sbe_v1_3.version.dissect(buffer, index, packet, parent)
 
   return index

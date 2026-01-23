@@ -322,10 +322,10 @@ end
 cme_brokertec_ust_sbe_v10_1.coupon_rate.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa 32: int32
   index, mantissa_32 = cme_brokertec_ust_sbe_v10_1.mantissa_32.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_brokertec_ust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -627,10 +627,10 @@ end
 cme_brokertec_ust_sbe_v10_1.md_entry_px.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  -- Mantissa: int64
   index, mantissa = cme_brokertec_ust_sbe_v10_1.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  -- Exponent: int8
   index, exponent = cme_brokertec_ust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -794,43 +794,43 @@ cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Md Update Action: UpdateAction
   index, md_update_action = cme_brokertec_ust_sbe_v10_1.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 11 values
+  -- Md Entry Type: MDEntryType
   index, md_entry_type = cme_brokertec_ust_sbe_v10_1.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
   index, md_entry_px = cme_brokertec_ust_sbe_v10_1.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size: uInt32NULL
   index, md_entry_size = cme_brokertec_ust_sbe_v10_1.md_entry_size.dissect(buffer, index, packet, parent)
 
-  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Price Level: uInt8NULL
   index, md_price_level = cme_brokertec_ust_sbe_v10_1.md_price_level.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Volume: uInt32NULL
   index, trade_volume = cme_brokertec_ust_sbe_v10_1.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String
+  -- Symbol: Symbol
   index, symbol = cme_brokertec_ust_sbe_v10_1.symbol.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Maturity Date: LocalMktDate
   index, maturity_date = cme_brokertec_ust_sbe_v10_1.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Security Alt Id: 12 Byte Ascii String
+  -- Security Alt Id: String12
   index, security_alt_id = cme_brokertec_ust_sbe_v10_1.security_alt_id.dissect(buffer, index, packet, parent)
 
-  -- Security Alt Id Source: 1 Byte Ascii String
+  -- Security Alt Id Source: CHAR
   index, security_alt_id_source = cme_brokertec_ust_sbe_v10_1.security_alt_id_source.dissect(buffer, index, packet, parent)
 
   -- Coupon Rate: Struct of 2 fields
   index, coupon_rate = cme_brokertec_ust_sbe_v10_1.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String
+  -- Trade Condition: CHAR
   index, trade_condition = cme_brokertec_ust_sbe_v10_1.trade_condition.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Type: uInt8NULL
   index, price_type = cme_brokertec_ust_sbe_v10_1.price_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -917,10 +917,10 @@ end
 cme_brokertec_ust_sbe_v10_1.group_size.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_brokertec_ust_sbe_v10_1.block_length.dissect(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
+  -- Num In Group: uint8
   index, num_in_group = cme_brokertec_ust_sbe_v10_1.num_in_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -1076,10 +1076,10 @@ end
 cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
+  -- Trade Date: LocalMktDate
   index, trade_date = cme_brokertec_ust_sbe_v10_1.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: uInt64
   index, transact_time = cme_brokertec_ust_sbe_v10_1.transact_time.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Btec Groups: Struct of 2 fields
@@ -1259,16 +1259,16 @@ end
 cme_brokertec_ust_sbe_v10_1.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = cme_brokertec_ust_sbe_v10_1.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Template Id: uint16
   index, template_id = cme_brokertec_ust_sbe_v10_1.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = cme_brokertec_ust_sbe_v10_1.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = cme_brokertec_ust_sbe_v10_1.version.dissect(buffer, index, packet, parent)
 
   return index
