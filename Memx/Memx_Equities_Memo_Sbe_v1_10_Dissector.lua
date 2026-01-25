@@ -6527,70 +6527,10 @@ memx_equities_memo_sbe_v1_10.packet.requiredsize = function(buffer)
   return true
 end
 
--- Verify Schema Id Field
-memx_equities_memo_sbe_v1_10.schema_id.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(52, 1):uint()
-
-  if value == 1 then
-    return true
-  end
-
-  return false
-end
-
--- Verify Version Field
-memx_equities_memo_sbe_v1_10.version.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(53, 2):uint()
-
-  if value == 266 then
-    return true
-  end
-
-  return false
-end
-
--- Verify Schema Id Field
-memx_equities_memo_sbe_v1_10.schema_id.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(1540, 1):uint()
-
-  if value == 1 then
-    return true
-  end
-
-  return false
-end
-
--- Verify Version Field
-memx_equities_memo_sbe_v1_10.version.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(1541, 2):uint()
-
-  if value == 266 then
-    return true
-  end
-
-  return false
-end
-
 -- Dissector Heuristic for Memx Equities Memo Sbe 1.10
 local function omi_memx_equities_memo_sbe_v1_10_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not memx_equities_memo_sbe_v1_10.packet.requiredsize(buffer) then return false end
-
-  -- Verify Schema Id
-  if not memx_equities_memo_sbe_v1_10.schema_id.verify(buffer) then return false end
-
-  -- Verify Version
-  if not memx_equities_memo_sbe_v1_10.version.verify(buffer) then return false end
-
-  -- Verify Schema Id
-  if not memx_equities_memo_sbe_v1_10.schema_id.verify(buffer) then return false end
-
-  -- Verify Version
-  if not memx_equities_memo_sbe_v1_10.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_memx_equities_memo_sbe_v1_10

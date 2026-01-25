@@ -7155,70 +7155,10 @@ boats_equities_memo_sbe_v1_13.packet.requiredsize = function(buffer)
   return true
 end
 
--- Verify Schema Id Field
-boats_equities_memo_sbe_v1_13.schema_id.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(52, 1):uint()
-
-  if value == 1 then
-    return true
-  end
-
-  return false
-end
-
--- Verify Version Field
-boats_equities_memo_sbe_v1_13.version.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(53, 2):uint()
-
-  if value == 269 then
-    return true
-  end
-
-  return false
-end
-
--- Verify Schema Id Field
-boats_equities_memo_sbe_v1_13.schema_id.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(1798, 1):uint()
-
-  if value == 1 then
-    return true
-  end
-
-  return false
-end
-
--- Verify Version Field
-boats_equities_memo_sbe_v1_13.version.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(1799, 2):uint()
-
-  if value == 269 then
-    return true
-  end
-
-  return false
-end
-
 -- Dissector Heuristic for Boats Equities Memo Sbe 1.13
 local function omi_boats_equities_memo_sbe_v1_13_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not boats_equities_memo_sbe_v1_13.packet.requiredsize(buffer) then return false end
-
-  -- Verify Schema Id
-  if not boats_equities_memo_sbe_v1_13.schema_id.verify(buffer) then return false end
-
-  -- Verify Version
-  if not boats_equities_memo_sbe_v1_13.version.verify(buffer) then return false end
-
-  -- Verify Schema Id
-  if not boats_equities_memo_sbe_v1_13.schema_id.verify(buffer) then return false end
-
-  -- Verify Version
-  if not boats_equities_memo_sbe_v1_13.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_boats_equities_memo_sbe_v1_13
