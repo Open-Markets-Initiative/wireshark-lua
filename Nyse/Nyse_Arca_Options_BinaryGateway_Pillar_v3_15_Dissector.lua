@@ -180,6 +180,8 @@ omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_id = ProtoField.n
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id = ProtoField.new("Sub Id", "nyse.arca.options.binarygateway.pillar.v3.15.subid", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id_indicator = ProtoField.new("Sub Id Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.subidindicator", ftypes.UINT8)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.arca.options.binarygateway.pillar.v3.15.submsgheader", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_msg_length = ProtoField.new("Sub Msg Length", "nyse.arca.options.binarygateway.pillar.v3.15.submsglength", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_msg_type = ProtoField.new("Sub Msg Type", "nyse.arca.options.binarygateway.pillar.v3.15.submsgtype", ftypes.UINT16)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.symbol_eligibility = ProtoField.new("Symbol Eligibility", "nyse.arca.options.binarygateway.pillar.v3.15.symboleligibility", ftypes.UINT8)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.symbol_id = ProtoField.new("Symbol Id", "nyse.arca.options.binarygateway.pillar.v3.15.symbolid", ftypes.UINT32)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.target_cancel_mpid = ProtoField.new("Target Cancel Mpid", "nyse.arca.options.binarygateway.pillar.v3.15.targetcancelmpid", ftypes.STRING)
@@ -806,161 +808,161 @@ nyse_arca_options_binarygateway_pillar_v3_15.reason_code.display = function(valu
   if value == 0 then
     return "Reason Code: Ok (0)"
   end
-  if value == 27 then
-    return "Reason Code: Invalid Stop Px (27)"
-  end
   if value == 1 then
     return "Reason Code: Invalid Sender Comp Id (1)"
-  end
-  if value == 28 then
-    return "Reason Code: Invalid Client Id (28)"
   end
   if value == 2 then
     return "Reason Code: Invalid Sender Sub Id (2)"
   end
-  if value == 29 then
-    return "Reason Code: Invalid Min Qty (29)"
-  end
   if value == 3 then
     return "Reason Code: Invalid Sending Time (3)"
-  end
-  if value == 30 then
-    return "Reason Code: Invalid Max Floor (30)"
   end
   if value == 4 then
     return "Reason Code: Invalid Target Comp Id (4)"
   end
-  if value == 31 then
-    return "Reason Code: Invalid Locate Reqd (31)"
-  end
   if value == 5 then
     return "Reason Code: Invalid Target Sub Id (5)"
-  end
-  if value == 32 then
-    return "Reason Code: Invalid Expire Time (32)"
   end
   if value == 6 then
     return "Reason Code: Invalid On Behalf Of Comp Id (6)"
   end
-  if value == 33 then
-    return "Reason Code: Invalid Security Type (33)"
-  end
   if value == 7 then
     return "Reason Code: Invalid On Behalf Of Sub Id (7)"
-  end
-  if value == 34 then
-    return "Reason Code: Invalid Maturity Month Year (34)"
   end
   if value == 8 then
     return "Reason Code: Invalid Deliver To Comp Id (8)"
   end
-  if value == 35 then
-    return "Reason Code: Invalid Put Or Call (35)"
-  end
   if value == 9 then
     return "Reason Code: Invalid Deliver To Sub Id (9)"
-  end
-  if value == 36 then
-    return "Reason Code: Invalid Strike Price (36)"
   end
   if value == 10 then
     return "Reason Code: Invalid Account (10)"
   end
-  if value == 37 then
-    return "Reason Code: Invalid Covered Or Uncovered (37)"
-  end
   if value == 11 then
     return "Reason Code: Invalid Cl Ord Id (11)"
-  end
-  if value == 38 then
-    return "Reason Code: Invalid Customer Or Firm (38)"
   end
   if value == 12 then
     return "Reason Code: Invalid Exec Inst (12)"
   end
-  if value == 39 then
-    return "Reason Code: Invalid Maturity Day (39)"
-  end
   if value == 13 then
     return "Reason Code: Invalid Id Source (13)"
-  end
-  if value == 40 then
-    return "Reason Code: Invalid Peg Difference (40)"
   end
   if value == 14 then
     return "Reason Code: Invalid Order Qty (14)"
   end
-  if value == 41 then
-    return "Reason Code: Invalid Sellers Days (41)"
-  end
   if value == 15 then
     return "Reason Code: Invalid Ord Type (15)"
-  end
-  if value == 42 then
-    return "Reason Code: Invalid Trading Session Id (42)"
   end
   if value == 16 then
     return "Reason Code: Invalid Price (16)"
   end
-  if value == 43 then
-    return "Reason Code: Invalid No Trading Sessions (43)"
-  end
   if value == 17 then
     return "Reason Code: Invalid Order Capacity (17)"
-  end
-  if value == 44 then
-    return "Reason Code: Invalid Discretion Inst (44)"
   end
   if value == 18 then
     return "Reason Code: Invalid Security Id (18)"
   end
-  if value == 45 then
-    return "Reason Code: Invalid Discretion Offset (45)"
-  end
   if value == 19 then
     return "Reason Code: Invalid Side (19)"
-  end
-  if value == 46 then
-    return "Reason Code: Invalid Price Type (46)"
   end
   if value == 20 then
     return "Reason Code: Invalid Symbol Series (20)"
   end
-  if value == 47 then
-    return "Reason Code: Invalid Clearing Firm (47)"
-  end
   if value == 21 then
     return "Reason Code: Invalid Text (21)"
-  end
-  if value == 48 then
-    return "Reason Code: Invalid Clearing Account (48)"
   end
   if value == 22 then
     return "Reason Code: Invalid Time In Force (22)"
   end
-  if value == 49 then
-    return "Reason Code: Invalid Party Id (49)"
-  end
   if value == 23 then
     return "Reason Code: Invalid Settlement Type (23)"
-  end
-  if value == 50 then
-    return "Reason Code: Invalid Optional Data (50)"
   end
   if value == 24 then
     return "Reason Code: Invalid Fut Sett Date (24)"
   end
-  if value == 51 then
-    return "Reason Code: Invalid Cross Id (51)"
-  end
   if value == 25 then
     return "Reason Code: Invalid Symbol Sfx (25)"
   end
-  if value == 52 then
-    return "Reason Code: Invalid Strategy Indicator (52)"
-  end
   if value == 26 then
     return "Reason Code: Invalid Open Close (26)"
+  end
+  if value == 27 then
+    return "Reason Code: Invalid Stop Px (27)"
+  end
+  if value == 28 then
+    return "Reason Code: Invalid Client Id (28)"
+  end
+  if value == 29 then
+    return "Reason Code: Invalid Min Qty (29)"
+  end
+  if value == 30 then
+    return "Reason Code: Invalid Max Floor (30)"
+  end
+  if value == 31 then
+    return "Reason Code: Invalid Locate Reqd (31)"
+  end
+  if value == 32 then
+    return "Reason Code: Invalid Expire Time (32)"
+  end
+  if value == 33 then
+    return "Reason Code: Invalid Security Type (33)"
+  end
+  if value == 34 then
+    return "Reason Code: Invalid Maturity Month Year (34)"
+  end
+  if value == 35 then
+    return "Reason Code: Invalid Put Or Call (35)"
+  end
+  if value == 36 then
+    return "Reason Code: Invalid Strike Price (36)"
+  end
+  if value == 37 then
+    return "Reason Code: Invalid Covered Or Uncovered (37)"
+  end
+  if value == 38 then
+    return "Reason Code: Invalid Customer Or Firm (38)"
+  end
+  if value == 39 then
+    return "Reason Code: Invalid Maturity Day (39)"
+  end
+  if value == 40 then
+    return "Reason Code: Invalid Peg Difference (40)"
+  end
+  if value == 41 then
+    return "Reason Code: Invalid Sellers Days (41)"
+  end
+  if value == 42 then
+    return "Reason Code: Invalid Trading Session Id (42)"
+  end
+  if value == 43 then
+    return "Reason Code: Invalid No Trading Sessions (43)"
+  end
+  if value == 44 then
+    return "Reason Code: Invalid Discretion Inst (44)"
+  end
+  if value == 45 then
+    return "Reason Code: Invalid Discretion Offset (45)"
+  end
+  if value == 46 then
+    return "Reason Code: Invalid Price Type (46)"
+  end
+  if value == 47 then
+    return "Reason Code: Invalid Clearing Firm (47)"
+  end
+  if value == 48 then
+    return "Reason Code: Invalid Clearing Account (48)"
+  end
+  if value == 49 then
+    return "Reason Code: Invalid Party Id (49)"
+  end
+  if value == 50 then
+    return "Reason Code: Invalid Optional Data (50)"
+  end
+  if value == 51 then
+    return "Reason Code: Invalid Cross Id (51)"
+  end
+  if value == 52 then
+    return "Reason Code: Invalid Strategy Indicator (52)"
   end
   if value == 53 then
     return "Reason Code: Invalid Trade Id (53)"
@@ -968,197 +970,197 @@ nyse_arca_options_binarygateway_pillar_v3_15.reason_code.display = function(valu
   if value == 54 then
     return "Reason Code: Invalid No Self Trade (54)"
   end
-  if value == 87 then
-    return "Reason Code: Invalid Stock Leg Give Up (87)"
-  end
   if value == 55 then
     return "Reason Code: Invalid Cap Strategy (55)"
-  end
-  if value == 88 then
-    return "Reason Code: Invalid No Legs (88)"
   end
   if value == 56 then
     return "Reason Code: Invalid Special Ord Type (56)"
   end
-  if value == 89 then
-    return "Reason Code: Invalid Leg Position Effect (89)"
-  end
   if value == 57 then
     return "Reason Code: Invalid Routing Inst (57)"
-  end
-  if value == 90 then
-    return "Reason Code: Invalid Leg Symbol (90)"
   end
   if value == 58 then
     return "Reason Code: Invalid Offset Price (58)"
   end
-  if value == 91 then
-    return "Reason Code: Invalid Leg Cfi Code (91)"
-  end
   if value == 59 then
     return "Reason Code: Invalid Extended Exec Inst (59)"
-  end
-  if value == 92 then
-    return "Reason Code: Invalid Leg Maturity Date (92)"
   end
   if value == 60 then
     return "Reason Code: Invalid Introducing Badge Id (60)"
   end
-  if value == 93 then
-    return "Reason Code: Invalid Leg Strike Price (93)"
-  end
   if value == 61 then
     return "Reason Code: Invalid Bill To (61)"
-  end
-  if value == 94 then
-    return "Reason Code: Invalid Leg Contract Multiplier (94)"
   end
   if value == 62 then
     return "Reason Code: Invalid Parent Firm Cl Ord Id (62)"
   end
-  if value == 95 then
-    return "Reason Code: Invalid Leg Ratio Qty (95)"
-  end
   if value == 63 then
     return "Reason Code: Invalid Parent Firm Exchange Ord Id (63)"
-  end
-  if value == 96 then
-    return "Reason Code: Invalid Leg Side (96)"
   end
   if value == 64 then
     return "Reason Code: Invalid Parent Firm (64)"
   end
-  if value == 97 then
-    return "Reason Code: Invalid Leg Ref Id (97)"
-  end
   if value == 65 then
     return "Reason Code: Invalid Interest Type (65)"
-  end
-  if value == 98 then
-    return "Reason Code: Unsupported Order Type (98)"
   end
   if value == 66 then
     return "Reason Code: Invalid Display Ind (66)"
   end
-  if value == 99 then
-    return "Reason Code: Urout (99)"
-  end
   if value == 67 then
     return "Reason Code: Invalid Peg Ind (67)"
-  end
-  if value == 100 then
-    return "Reason Code: Primary Market Not Available (100)"
   end
   if value == 68 then
     return "Reason Code: Invalid Ceiling Floor Price (68)"
   end
-  if value == 101 then
-    return "Reason Code: No Nbbopbbo For Peg (101)"
-  end
   if value == 69 then
     return "Reason Code: Invalid Min Peg Qty (69)"
-  end
-  if value == 102 then
-    return "Reason Code: No Market For Market Order (102)"
   end
   if value == 70 then
     return "Reason Code: Invalid D Order Auction Price (70)"
   end
-  if value == 103 then
-    return "Reason Code: Marketable Price (103)"
-  end
   if value == 71 then
     return "Reason Code: Invalid Disc Max Vol (71)"
-  end
-  if value == 104 then
-    return "Reason Code: Done For Day (104)"
   end
   if value == 72 then
     return "Reason Code: Invalid Dics Route Ind (72)"
   end
-  if value == 105 then
-    return "Reason Code: Credit Limit Violation (105)"
-  end
   if value == 73 then
     return "Reason Code: Invalid Minimum Trigger Vol Mtv (73)"
-  end
-  if value == 106 then
-    return "Reason Code: Cancel Remaining Ioc (106)"
   end
   if value == 74 then
     return "Reason Code: Invalid Attributed Quote (74)"
   end
-  if value == 107 then
-    return "Reason Code: Too Late To Cancel (107)"
-  end
   if value == 75 then
     return "Reason Code: Invalid Proactive If Locked (75)"
-  end
-  if value == 108 then
-    return "Reason Code: Invalid Poss Resend (108)"
   end
   if value == 76 then
     return "Reason Code: System Not Available (76)"
   end
-  if value == 109 then
-    return "Reason Code: Cancel Pending (109)"
-  end
   if value == 77 then
     return "Reason Code: System Full Mengrateexceeded (77)"
-  end
-  if value == 110 then
-    return "Reason Code: Symbol Series Already Opened (110)"
   end
   if value == 78 then
     return "Reason Code: Throttle Reject (78)"
   end
-  if value == 111 then
-    return "Reason Code: Firm Bulk Cancel (111)"
-  end
   if value == 79 then
     return "Reason Code: Symbol Series Halted (79)"
-  end
-  if value == 112 then
-    return "Reason Code: On Behalf Of Comp Id Blocked (112)"
   end
   if value == 80 then
     return "Reason Code: No Symbolseries Permission (80)"
   end
-  if value == 113 then
-    return "Reason Code: Clearing Firm Blocked (113)"
-  end
   if value == 81 then
     return "Reason Code: Price Too Far Outside (81)"
-  end
-  if value == 114 then
-    return "Reason Code: Cancel Replace Pending (114)"
   end
   if value == 82 then
     return "Reason Code: Mwcb Halt (82)"
   end
-  if value == 115 then
-    return "Reason Code: Modify Pending (115)"
-  end
   if value == 83 then
     return "Reason Code: Market Closed (83)"
   end
-  if value == 116 then
-    return "Reason Code: Cannot Flip Imbalance (116)"
-  end
   if value == 84 then
-    return "Reason Code: Symbol Series Closed (84)"
-  end
-  if value == 117 then
-    return "Reason Code: Cannot Increase Imbalance (117)"
+    return "Reason Code: Symbolseries Closed (84)"
   end
   if value == 85 then
     return "Reason Code: Luld Cancel Instruction (85)"
   end
-  if value == 118 then
-    return "Reason Code: Pending Cancel Imbalance Freeze (118)"
-  end
   if value == 86 then
     return "Reason Code: No Price Slide Inst During Ssr (86)"
+  end
+  if value == 87 then
+    return "Reason Code: Invalid Stock Leg Give Up (87)"
+  end
+  if value == 88 then
+    return "Reason Code: Invalid No Legs (88)"
+  end
+  if value == 89 then
+    return "Reason Code: Invalid Leg Position Effect (89)"
+  end
+  if value == 90 then
+    return "Reason Code: Invalid Leg Symbol (90)"
+  end
+  if value == 91 then
+    return "Reason Code: Invalid Leg Cfi Code (91)"
+  end
+  if value == 92 then
+    return "Reason Code: Invalid Leg Maturity Date (92)"
+  end
+  if value == 93 then
+    return "Reason Code: Invalid Leg Strike Price (93)"
+  end
+  if value == 94 then
+    return "Reason Code: Invalid Leg Contract Multiplier (94)"
+  end
+  if value == 95 then
+    return "Reason Code: Invalid Leg Ratio Qty (95)"
+  end
+  if value == 96 then
+    return "Reason Code: Invalid Leg Side (96)"
+  end
+  if value == 97 then
+    return "Reason Code: Invalid Leg Ref Id (97)"
+  end
+  if value == 98 then
+    return "Reason Code: Unsupported Order Type (98)"
+  end
+  if value == 99 then
+    return "Reason Code: Urout (99)"
+  end
+  if value == 100 then
+    return "Reason Code: Primary Market Not Available (100)"
+  end
+  if value == 101 then
+    return "Reason Code: No Nbbopbbo For Peg (101)"
+  end
+  if value == 102 then
+    return "Reason Code: No Market For Market Order (102)"
+  end
+  if value == 103 then
+    return "Reason Code: Marketable Price (103)"
+  end
+  if value == 104 then
+    return "Reason Code: Done For Day (104)"
+  end
+  if value == 105 then
+    return "Reason Code: Credit Limit Violation (105)"
+  end
+  if value == 106 then
+    return "Reason Code: Cancel Remaining Ioc (106)"
+  end
+  if value == 107 then
+    return "Reason Code: Too Late To Cancel (107)"
+  end
+  if value == 108 then
+    return "Reason Code: Invalid Poss Resend (108)"
+  end
+  if value == 109 then
+    return "Reason Code: Cancel Pending (109)"
+  end
+  if value == 110 then
+    return "Reason Code: Symbol Series Already Opened (110)"
+  end
+  if value == 111 then
+    return "Reason Code: Firm Bulk Cancel (111)"
+  end
+  if value == 112 then
+    return "Reason Code: On Behalf Of Comp Id Blocked (112)"
+  end
+  if value == 113 then
+    return "Reason Code: Clearing Firm Blocked (113)"
+  end
+  if value == 114 then
+    return "Reason Code: Cancel Replace Pending (114)"
+  end
+  if value == 115 then
+    return "Reason Code: Modify Pending (115)"
+  end
+  if value == 116 then
+    return "Reason Code: Cannot Flip Imbalance (116)"
+  end
+  if value == 117 then
+    return "Reason Code: Cannot Increase Imbalance (117)"
+  end
+  if value == 118 then
+    return "Reason Code: Pending Cancel Imbalance Freeze (118)"
   end
   if value == 119 then
     return "Reason Code: Pending Replace Imbalance Freeze (119)"
@@ -1166,191 +1168,191 @@ nyse_arca_options_binarygateway_pillar_v3_15.reason_code.display = function(valu
   if value == 120 then
     return "Reason Code: Pending Modify Imbalance Freeze (120)"
   end
-  if value == 152 then
-    return "Reason Code: Ssh Price Below Nbb On Iso (152)"
-  end
   if value == 121 then
     return "Reason Code: Pending Cancel Routed Interest (121)"
-  end
-  if value == 153 then
-    return "Reason Code: Ioc Received While Auction Running (153)"
   end
   if value == 122 then
     return "Reason Code: Pending Replace Routed Interest (122)"
   end
-  if value == 154 then
-    return "Reason Code: Pending Session Transition (154)"
-  end
   if value == 123 then
     return "Reason Code: Pending Modify Routed Interest (123)"
-  end
-  if value == 155 then
-    return "Reason Code: Pend Cancel Session Transition (155)"
   end
   if value == 124 then
     return "Reason Code: Pending Auction Running (124)"
   end
-  if value == 156 then
-    return "Reason Code: Pend Modify Session Transition (156)"
-  end
   if value == 125 then
     return "Reason Code: Duplicative Order Check (125)"
-  end
-  if value == 157 then
-    return "Reason Code: Pend Replace Session Transition (157)"
   end
   if value == 126 then
     return "Reason Code: Cancelled By Exchange (126)"
   end
-  if value == 158 then
-    return "Reason Code: Invalid For Tick Pilot (158)"
-  end
   if value == 127 then
     return "Reason Code: New Order (127)"
-  end
-  if value == 159 then
-    return "Reason Code: Invalid Mmid (159)"
   end
   if value == 128 then
     return "Reason Code: Fill (128)"
   end
-  if value == 160 then
-    return "Reason Code: Invalid Mpid (160)"
-  end
   if value == 129 then
     return "Reason Code: Partial Fill (129)"
-  end
-  if value == 161 then
-    return "Reason Code: Invalid Cancel Instead Of Reprice (161)"
   end
   if value == 130 then
     return "Reason Code: Reduced (130)"
   end
-  if value == 162 then
-    return "Reason Code: Invalid Retail Indicator (162)"
-  end
   if value == 131 then
     return "Reason Code: Replaced (131)"
-  end
-  if value == 163 then
-    return "Reason Code: Sender Comp Id Not Active (163)"
   end
   if value == 132 then
     return "Reason Code: No Market For Cross (132)"
   end
-  if value == 164 then
-    return "Reason Code: Mpid Blocked (164)"
-  end
   if value == 133 then
     return "Reason Code: Stp Cancel (133)"
-  end
-  if value == 165 then
-    return "Reason Code: Invalid Timestamp (165)"
   end
   if value == 134 then
     return "Reason Code: Invalid Poss Dupe (134)"
   end
-  if value == 166 then
-    return "Reason Code: Invalid Permission For Sender Comp Id (166)"
-  end
   if value == 135 then
     return "Reason Code: Tpid Blocked (135)"
-  end
-  if value == 167 then
-    return "Reason Code: Invalid User Data (167)"
   end
   if value == 136 then
     return "Reason Code: Invalid Bulk Cancel (136)"
   end
-  if value == 168 then
-    return "Reason Code: Pillar Risk Mitigation (168)"
-  end
   if value == 137 then
     return "Reason Code: Pending Bulk Cancel (137)"
-  end
-  if value == 169 then
-    return "Reason Code: No Last Sale For Peg (169)"
   end
   if value == 138 then
     return "Reason Code: Symbol Series Not Open (138)"
   end
-  if value == 170 then
-    return "Reason Code: Symbol Pending Closing Auction (170)"
-  end
   if value == 139 then
     return "Reason Code: Symbol Series Suspended (139)"
-  end
-  if value == 171 then
-    return "Reason Code: Extreme Closing Order Imbalance (171)"
   end
   if value == 140 then
     return "Reason Code: Symbol Ipo Halt (140)"
   end
-  if value == 172 then
-    return "Reason Code: Invalid Multi Message (172)"
-  end
   if value == 141 then
     return "Reason Code: Invld Inst During Imbalance Freeze (141)"
-  end
-  if value == 173 then
-    return "Reason Code: Invalid Request Targeting Manual Sender Comp Id (173)"
   end
   if value == 142 then
     return "Reason Code: Invld Inst After Cutoff Time (142)"
   end
-  if value == 174 then
-    return "Reason Code: Invalid Dmm Reject Reason (174)"
-  end
   if value == 143 then
     return "Reason Code: Cancelled By Primary Market (143)"
-  end
-  if value == 175 then
-    return "Reason Code: Pending Pending Auction State (175)"
   end
   if value == 144 then
     return "Reason Code: Pending Imbalance Freeze (144)"
   end
-  if value == 176 then
-    return "Reason Code: Pending Cancel Pending Auction State (176)"
-  end
   if value == 145 then
     return "Reason Code: No Rlp Permission (145)"
-  end
-  if value == 177 then
-    return "Reason Code: Pending Modify Pending Auction State (177)"
   end
   if value == 146 then
     return "Reason Code: Invalid Instruction For Io Cs (146)"
   end
-  if value == 178 then
-    return "Reason Code: Pending Replace Pending Auction State (178)"
-  end
   if value == 147 then
     return "Reason Code: System Full Cgrateexceeded (147)"
-  end
-  if value == 179 then
-    return "Reason Code: Cancelled Dmm Manual Order Reprice (179)"
   end
   if value == 148 then
     return "Reason Code: Pending Cancel Auction Running (148)"
   end
-  if value == 180 then
-    return "Reason Code: Too Early To Open (180)"
-  end
   if value == 149 then
     return "Reason Code: Pending Modify Auction Running (149)"
-  end
-  if value == 181 then
-    return "Reason Code: Too Early To Close (181)"
   end
   if value == 150 then
     return "Reason Code: Pending Replace Auction Running (150)"
   end
-  if value == 182 then
-    return "Reason Code: Symbol Not Frozen By Auction Request (182)"
-  end
   if value == 151 then
     return "Reason Code: Invld Inst For Pending Order (151)"
+  end
+  if value == 152 then
+    return "Reason Code: Ssh Price Below Nbb On Iso (152)"
+  end
+  if value == 153 then
+    return "Reason Code: Ioc Received While Auction Running (153)"
+  end
+  if value == 154 then
+    return "Reason Code: Pending Session Transition (154)"
+  end
+  if value == 155 then
+    return "Reason Code: Pending Cancel Session Transition (155)"
+  end
+  if value == 156 then
+    return "Reason Code: Pending Modify Session Transition (156)"
+  end
+  if value == 157 then
+    return "Reason Code: Pending Replace Session Transition (157)"
+  end
+  if value == 158 then
+    return "Reason Code: Invalid For Tick Pilot (158)"
+  end
+  if value == 159 then
+    return "Reason Code: Invalid Mmid (159)"
+  end
+  if value == 160 then
+    return "Reason Code: Invalid Mpid (160)"
+  end
+  if value == 161 then
+    return "Reason Code: Invalid Cancel Instead Of Reprice (161)"
+  end
+  if value == 162 then
+    return "Reason Code: Invalid Retail Indicator (162)"
+  end
+  if value == 163 then
+    return "Reason Code: Sender Comp Id Not Active (163)"
+  end
+  if value == 164 then
+    return "Reason Code: Mpid Blocked (164)"
+  end
+  if value == 165 then
+    return "Reason Code: Invalid Timestamp (165)"
+  end
+  if value == 166 then
+    return "Reason Code: Invalid Permission For Sender Comp Id (166)"
+  end
+  if value == 167 then
+    return "Reason Code: Invalid User Data (167)"
+  end
+  if value == 168 then
+    return "Reason Code: Pillar Risk Mitigation (168)"
+  end
+  if value == 169 then
+    return "Reason Code: No Last Sale For Peg (169)"
+  end
+  if value == 170 then
+    return "Reason Code: Symbol Pending Closing Auction (170)"
+  end
+  if value == 171 then
+    return "Reason Code: Extreme Closing Order Imbalance (171)"
+  end
+  if value == 172 then
+    return "Reason Code: Invalid Multi Message (172)"
+  end
+  if value == 173 then
+    return "Reason Code: Invalid Request Targeting Manual Sender Comp Id (173)"
+  end
+  if value == 174 then
+    return "Reason Code: Invalid Dmm Reject Reason (174)"
+  end
+  if value == 175 then
+    return "Reason Code: Pending Pending Auction State (175)"
+  end
+  if value == 176 then
+    return "Reason Code: Pending Cancel Pending Auction State (176)"
+  end
+  if value == 177 then
+    return "Reason Code: Pending Modify Pending Auction State (177)"
+  end
+  if value == 178 then
+    return "Reason Code: Pending Replace Pending Auction State (178)"
+  end
+  if value == 179 then
+    return "Reason Code: Cancelled Dmm Manual Order Reprice (179)"
+  end
+  if value == 180 then
+    return "Reason Code: Too Early To Open (180)"
+  end
+  if value == 181 then
+    return "Reason Code: Too Early To Close (181)"
+  end
+  if value == 182 then
+    return "Reason Code: Symbol Not Frozen By Auction Request (182)"
   end
   if value == 183 then
     return "Reason Code: Symbol Is Frozen By Dbk Gui (183)"
@@ -1358,203 +1360,203 @@ nyse_arca_options_binarygateway_pillar_v3_15.reason_code.display = function(valu
   if value == 184 then
     return "Reason Code: Too Late Auction Running (184)"
   end
-  if value == 218 then
-    return "Reason Code: Dmm Gui Reduction In Manual Order Qty (218)"
-  end
   if value == 185 then
     return "Reason Code: Too Late Symbol Transition (185)"
-  end
-  if value == 219 then
-    return "Reason Code: Cross Eligible (219)"
   end
   if value == 186 then
     return "Reason Code: No Eligible Crossing Interest (186)"
   end
-  if value == 220 then
-    return "Reason Code: Dry Run (220)"
-  end
   if value == 187 then
     return "Reason Code: Book Is Lockedcrossed (187)"
-  end
-  if value == 221 then
-    return "Reason Code: Unsupported By Broker Plex (221)"
   end
   if value == 188 then
     return "Reason Code: No Interest Exists (188)"
   end
-  if value == 222 then
-    return "Reason Code: Cross Blocked By Bbopbbo (222)"
-  end
   if value == 189 then
     return "Reason Code: Imbalance Too Large (189)"
-  end
-  if value == 223 then
-    return "Reason Code: Risk Single Ord Max Qty (223)"
   end
   if value == 190 then
     return "Reason Code: Ssh Price Below Ssr Filing Price (190)"
   end
-  if value == 224 then
-    return "Reason Code: Risk Single Ord Max Notional (224)"
-  end
   if value == 191 then
     return "Reason Code: Symbol Already Closed (191)"
-  end
-  if value == 225 then
-    return "Reason Code: Risk Gross Credit Breach (225)"
   end
   if value == 192 then
     return "Reason Code: Opening Template Opened (192)"
   end
-  if value == 226 then
-    return "Reason Code: Risk Kill Switch (226)"
-  end
   if value == 193 then
     return "Reason Code: Closing Template Opened (193)"
-  end
-  if value == 227 then
-    return "Reason Code: Invalid Route To Broker (227)"
   end
   if value == 194 then
     return "Reason Code: Prin Entered On Auction Template (194)"
   end
-  if value == 228 then
-    return "Reason Code: Spread Too Wide (228)"
-  end
   if value == 195 then
     return "Reason Code: Mandatory Indication Submitted (195)"
-  end
-  if value == 229 then
-    return "Reason Code: Expire Fok (229)"
   end
   if value == 196 then
     return "Reason Code: Pending Crowd Exists (196)"
   end
-  if value == 230 then
-    return "Reason Code: Locks Displayed Interest (230)"
-  end
   if value == 197 then
     return "Reason Code: No Consolidated Last Sale (197)"
-  end
-  if value == 231 then
-    return "Reason Code: Mm Quote Price Lockcross Contra Side Nbbo (231)"
   end
   if value == 198 then
     return "Reason Code: Paired Qty Exceeds Max Trade Parameter (198)"
   end
-  if value == 232 then
-    return "Reason Code: Invalid Leg Symbol (232)"
-  end
   if value == 199 then
     return "Reason Code: Luld Or Mwcb Timer Running (199)"
-  end
-  if value == 233 then
-    return "Reason Code: Duplicate Leg Symbol (233)"
   end
   if value == 200 then
     return "Reason Code: Locking Crossing Away Quote (200)"
   end
-  if value == 234 then
-    return "Reason Code: Symbol Not In Underlying (234)"
-  end
   if value == 201 then
     return "Reason Code: Cross Not Eligible (201)"
-  end
-  if value == 235 then
-    return "Reason Code: Leg Ratios Not In The Most Reduced Form (235)"
   end
   if value == 202 then
     return "Reason Code: Reserved For Future Use (202)"
   end
-  if value == 236 then
-    return "Reason Code: Option Leg Ratio Too High (236)"
-  end
   if value == 203 then
     return "Reason Code: Pending Acceptance For Ack On Order Arrival (203)"
-  end
-  if value == 237 then
-    return "Reason Code: Stock Leg Ratio Too Low (237)"
   end
   if value == 204 then
     return "Reason Code: Rejected Cancel By Dmm (204)"
   end
-  if value == 238 then
-    return "Reason Code: Complex Series Already Exists (238)"
-  end
   if value == 205 then
     return "Reason Code: Cancelled By Dmm (205)"
-  end
-  if value == 239 then
-    return "Reason Code: Number Of Legs Incorrect (239)"
   end
   if value == 206 then
     return "Reason Code: Price Is Outside Allowable Range (206)"
   end
-  if value == 240 then
-    return "Reason Code: Cancel Does Not Set Nbbo Inst (240)"
-  end
   if value == 207 then
     return "Reason Code: Auction Validation In Progress (207)"
-  end
-  if value == 241 then
-    return "Reason Code: Cancel Avoid Reprice Inst (241)"
   end
   if value == 208 then
     return "Reason Code: Invalid Manual Action Id (208)"
   end
-  if value == 242 then
-    return "Reason Code: Allow Reprice Once Then Cancel Inst (242)"
-  end
   if value == 209 then
     return "Reason Code: Invalid Auction Sell Indicator (209)"
-  end
-  if value == 243 then
-    return "Reason Code: Invalid Allocation Pct (243)"
   end
   if value == 210 then
     return "Reason Code: Invalid Intraday Sell Short Qty (210)"
   end
-  if value == 244 then
-    return "Reason Code: Invalid Mm Quote Type (244)"
-  end
   if value == 211 then
     return "Reason Code: Indication Template Is Open (211)"
-  end
-  if value == 245 then
-    return "Reason Code: Invalid Mm Sent Time (245)"
   end
   if value == 212 then
     return "Reason Code: No Prev Closing Price (212)"
   end
-  if value == 246 then
-    return "Reason Code: Series Expired (246)"
-  end
   if value == 213 then
     return "Reason Code: Cancelled Due To Trading Collars (213)"
-  end
-  if value == 247 then
-    return "Reason Code: Invalid Give Up Mmid (247)"
   end
   if value == 214 then
     return "Reason Code: Underlying Is In Luld State (214)"
   end
-  if value == 248 then
-    return "Reason Code: Invalid No Sides (248)"
-  end
   if value == 215 then
     return "Reason Code: Invalid Manual Response Type (215)"
-  end
-  if value == 249 then
-    return "Reason Code: Pending To Acceptance (249)"
   end
   if value == 216 then
     return "Reason Code: No Nyse Last Sale (216)"
   end
-  if value == 250 then
-    return "Reason Code: Dmm Api Request Rejected (250)"
-  end
   if value == 217 then
     return "Reason Code: Symbol Direct Listing State (217)"
+  end
+  if value == 218 then
+    return "Reason Code: Dmm Gui Reduction In Manual Order Qty (218)"
+  end
+  if value == 219 then
+    return "Reason Code: Cross Eligible (219)"
+  end
+  if value == 220 then
+    return "Reason Code: Dry Run (220)"
+  end
+  if value == 221 then
+    return "Reason Code: Unsupported By Broker Plex (221)"
+  end
+  if value == 222 then
+    return "Reason Code: Cross Blocked By Bbopbbo (222)"
+  end
+  if value == 223 then
+    return "Reason Code: Risk Single Ord Max Qty (223)"
+  end
+  if value == 224 then
+    return "Reason Code: Risk Single Ord Max Notional (224)"
+  end
+  if value == 225 then
+    return "Reason Code: Risk Gross Credit Breach (225)"
+  end
+  if value == 226 then
+    return "Reason Code: Risk Kill Switch (226)"
+  end
+  if value == 227 then
+    return "Reason Code: Invalid Route To Broker (227)"
+  end
+  if value == 228 then
+    return "Reason Code: Spread Too Wide (228)"
+  end
+  if value == 229 then
+    return "Reason Code: Expire Fok (229)"
+  end
+  if value == 230 then
+    return "Reason Code: Locks Displayed Interest (230)"
+  end
+  if value == 231 then
+    return "Reason Code: Mm Quote Price Lockcross Contra Side Nbbo (231)"
+  end
+  if value == 232 then
+    return "Reason Code: Invalid Leg Symbol (232)"
+  end
+  if value == 233 then
+    return "Reason Code: Duplicate Leg Symbol (233)"
+  end
+  if value == 234 then
+    return "Reason Code: Symbol Not In Underlying (234)"
+  end
+  if value == 235 then
+    return "Reason Code: Leg Ratios Not In The Most Reduced Form (235)"
+  end
+  if value == 236 then
+    return "Reason Code: Option Leg Ratio Too High (236)"
+  end
+  if value == 237 then
+    return "Reason Code: Stock Leg Ratio Too Low (237)"
+  end
+  if value == 238 then
+    return "Reason Code: Complex Series Already Exists (238)"
+  end
+  if value == 239 then
+    return "Reason Code: Number Of Legs Incorrect (239)"
+  end
+  if value == 240 then
+    return "Reason Code: Cancel Does Not Set Nbbo Inst (240)"
+  end
+  if value == 241 then
+    return "Reason Code: Cancel Avoid Reprice Inst (241)"
+  end
+  if value == 242 then
+    return "Reason Code: Allow Reprice Once Then Cancel Inst (242)"
+  end
+  if value == 243 then
+    return "Reason Code: Invalid Allocation Pct (243)"
+  end
+  if value == 244 then
+    return "Reason Code: Invalid Mm Quote Type (244)"
+  end
+  if value == 245 then
+    return "Reason Code: Invalid Mm Sent Time (245)"
+  end
+  if value == 246 then
+    return "Reason Code: Series Expired (246)"
+  end
+  if value == 247 then
+    return "Reason Code: Invalid Give Up Mmid (247)"
+  end
+  if value == 248 then
+    return "Reason Code: Invalid No Sides (248)"
+  end
+  if value == 249 then
+    return "Reason Code: Pending To Acceptance (249)"
+  end
+  if value == 250 then
+    return "Reason Code: Reserved For Future Use (250)"
   end
   if value == 251 then
     return "Reason Code: Invalid Bulk Action (251)"
@@ -1562,242 +1564,164 @@ nyse_arca_options_binarygateway_pillar_v3_15.reason_code.display = function(valu
   if value == 252 then
     return "Reason Code: Invalid Cancel Scope (252)"
   end
-  if value == 284 then
-    return "Reason Code: Risk Roll Transact Breach (284)"
-  end
   if value == 253 then
     return "Reason Code: No Legal Width Spread (253)"
-  end
-  if value == 285 then
-    return "Reason Code: Risk Roll Vol Breach (285)"
   end
   if value == 254 then
     return "Reason Code: Invalid Target Cancel Mpid (254)"
   end
-  if value == 286 then
-    return "Reason Code: Risk Roll Pct Breach (286)"
-  end
   if value == 255 then
     return "Reason Code: Invalid Target Cancel Sender Comp Id (255)"
-  end
-  if value == 287 then
-    return "Reason Code: Risk Roll Grmp Breach (287)"
   end
   if value == 256 then
     return "Reason Code: Clear The Book Prev Entered (256)"
   end
-  if value == 288 then
-    return "Reason Code: Risk Mm Arbitrage Breach (288)"
-  end
   if value == 257 then
     return "Reason Code: Timer Expired Api Allocation (257)"
-  end
-  if value == 289 then
-    return "Reason Code: Risk Mm Intrinsic Breach (289)"
   end
   if value == 258 then
     return "Reason Code: Invalid Number Of Quotes (258)"
   end
-  if value == 290 then
-    return "Reason Code: Ido Must Exist (290)"
-  end
   if value == 259 then
     return "Reason Code: Invalid Order Id (259)"
-  end
-  if value == 291 then
-    return "Reason Code: Invalid Allocation Tag Insert Invalid Tag Number (291)"
   end
   if value == 260 then
     return "Reason Code: Risk Control Event (260)"
   end
-  if value == 292 then
-    return "Reason Code: Invalid Trade Tag Insert Invalid Tag Number (292)"
-  end
   if value == 261 then
     return "Reason Code: To Rejected (261)"
-  end
-  if value == 293 then
-    return "Reason Code: Arbitrage Check (293)"
   end
   if value == 262 then
     return "Reason Code: Cancelled Corporate Action (262)"
   end
-  if value == 294 then
-    return "Reason Code: Intrinsic Value Check (294)"
-  end
   if value == 263 then
     return "Reason Code: Too Late To Replace (263)"
-  end
-  if value == 295 then
-    return "Reason Code: Credit Debit Check (295)"
   end
   if value == 264 then
     return "Reason Code: Invalid Ref Delta (264)"
   end
-  if value == 296 then
-    return "Reason Code: Invalid Risk User (296)"
-  end
   if value == 265 then
     return "Reason Code: Invalid Stock Price (265)"
-  end
-  if value == 297 then
-    return "Reason Code: Invalid Risk Entity (297)"
   end
   if value == 266 then
     return "Reason Code: Reserved For Future Use (266)"
   end
-  if value == 298 then
-    return "Reason Code: Invalid Flex Series Already Exists (298)"
-  end
   if value == 267 then
     return "Reason Code: Invalid Tied To Stock (267)"
-  end
-  if value == 299 then
-    return "Reason Code: Invalid Flex Series Key (299)"
   end
   if value == 268 then
     return "Reason Code: Too Late To Allocate (268)"
   end
-  if value == 300 then
-    return "Reason Code: Invalid Clear The Book (300)"
-  end
   if value == 269 then
     return "Reason Code: Customer Interest On Bbo (269)"
-  end
-  if value == 301 then
-    return "Reason Code: Invalid Stock Qty (301)"
   end
   if value == 270 then
     return "Reason Code: Ido Cannot Be Modified (270)"
   end
-  if value == 302 then
-    return "Reason Code: Invalid Package Link Id (302)"
-  end
   if value == 271 then
     return "Reason Code: Cross Outside Bbo (271)"
-  end
-  if value == 303 then
-    return "Reason Code: Complex Max Series Breach (303)"
   end
   if value == 272 then
     return "Reason Code: Pending To Approval (272)"
   end
-  if value == 304 then
-    return "Reason Code: Invalid Flex Eod Tag Insert Invalid Tag Number (304)"
-  end
   if value == 273 then
     return "Reason Code: Invalid Leg Open Close (273)"
-  end
-  if value == 305 then
-    return "Reason Code: Invalid Percentage Price (305)"
   end
   if value == 274 then
     return "Reason Code: Invalid Risk Control Type (274)"
   end
-  if value == 306 then
-    return "Reason Code: Invalid Percentage Strike (306)"
-  end
   if value == 275 then
     return "Reason Code: Invalid Risk Control Activation (275)"
-  end
-  if value == 307 then
-    return "Reason Code: Cancel Remaining Gtx (307)"
   end
   if value == 276 then
     return "Reason Code: Invalid Breach Action Request (276)"
   end
-  if value == 308 then
-    return "Reason Code: Auction Not Running (308)"
-  end
   if value == 277 then
     return "Reason Code: Invalid Ioc Attribution (277)"
-  end
-  if value == 309 then
-    return "Reason Code: Invalid Ord Status (309)"
   end
   if value == 278 then
     return "Reason Code: Invalid Risk Action Type (278)"
   end
-  if value == 310 then
-    return "Reason Code: Mmid Blocked (310)"
-  end
   if value == 279 then
     return "Reason Code: Invalid Usd Limit (279)"
-  end
-  if value == 311 then
-    return "Reason Code: Invalid Catimid (311)"
   end
   if value == 280 then
     return "Reason Code: Ido Already Exists (280)"
   end
-  if value == 312 then
-    return "Reason Code: Risk Rej Iso (312)"
-  end
   if value == 281 then
     return "Reason Code: Invalid Time Limit (281)"
-  end
-  if value == 313 then
-    return "Reason Code: Risk Rej Mkt Orders (313)"
   end
   if value == 282 then
     return "Reason Code: Invalid Percentage Limit (282)"
   end
-  if value == 314 then
-    return "Reason Code: Risk Rej Early Trading (314)"
-  end
   if value == 283 then
     return "Reason Code: Invalid Count Limit (283)"
   end
-  if value == 315 then
-    return "Reason Code: Risk Rej Early Trading (315)"
+  if value == 284 then
+    return "Reason Code: Risk Roll Transact Breach (284)"
   end
-  if value == 316 then
-    return "Reason Code: Risk Rej Late Trading (316)"
+  if value == 285 then
+    return "Reason Code: Risk Roll Vol Breach (285)"
   end
-  if value == 317 then
-    return "Reason Code: Risk Rej Restricted Symbol (317)"
+  if value == 286 then
+    return "Reason Code: Risk Roll Pct Breach (286)"
   end
-  if value == 318 then
-    return "Reason Code: Risk Rej Sell Short For Symbol (318)"
+  if value == 287 then
+    return "Reason Code: Risk Roll Grmp Breach (287)"
   end
-  if value == 319 then
-    return "Reason Code: Risk Rej Sell Short Exempt For Symbol (319)"
+  if value == 288 then
+    return "Reason Code: Risk Mm Arbitrage Breach (288)"
   end
-  if value == 320 then
-    return "Reason Code: Risk Rej Ord Max Qty Symbol Adv (320)"
+  if value == 289 then
+    return "Reason Code: Risk Mm Intrinsic Breach (289)"
   end
-  if value == 321 then
-    return "Reason Code: Risk Max Duplicative Ord (321)"
+  if value == 290 then
+    return "Reason Code: Ido Must Exist (290)"
   end
-  if value == 322 then
-    return "Reason Code: Risk Require Locate Broker (322)"
+  if value == 291 then
+    return "Reason Code: Invalid Allocation Tag (291)"
   end
-  if value == 323 then
-    return "Reason Code: Invalid Risk Range Id (323)"
+  if value == 292 then
+    return "Reason Code: Invalid Trade Tag (292)"
   end
-  if value == 324 then
-    return "Reason Code: Invalid Risk Minimum Value (324)"
+  if value == 293 then
+    return "Reason Code: Arbitrage Check (293)"
   end
-  if value == 325 then
-    return "Reason Code: Invalid Price Scale (325)"
+  if value == 294 then
+    return "Reason Code: Intrinsic Value Check (294)"
   end
-  if value == 326 then
-    return "Reason Code: Invalid Max Risk Symbols Exceeded (326)"
+  if value == 295 then
+    return "Reason Code: Credit Debit Check (295)"
   end
-  if value == 327 then
-    return "Reason Code: Invalid Risk Settings Incomplete (327)"
+  if value == 296 then
+    return "Reason Code: Invalid Risk User (296)"
   end
-  if value == 328 then
-    return "Reason Code: Invalid Auction Id (328)"
+  if value == 297 then
+    return "Reason Code: Invalid Risk Entity (297)"
   end
-  if value == 400 then
-    return "Reason Code: Repriced (400)"
+  if value == 298 then
+    return "Reason Code: Invalid Flex Series Already Exists (298)"
   end
-  if value == 800 then
-    return "Reason Code: Broker Reject (800)"
+  if value == 299 then
+    return "Reason Code: Invalid Flex Series Key (299)"
   end
-  if value == 906 then
-    return "Reason Code: System Full Cgarateexceeded (906)"
+  if value == 300 then
+    return "Reason Code: Invalid Clear The Book (300)"
+  end
+  if value == 301 then
+    return "Reason Code: Invalid Stock Qty (301)"
+  end
+  if value == 302 then
+    return "Reason Code: Invalid Package Link Id (302)"
+  end
+  if value == 303 then
+    return "Reason Code: Complex Max Series Breach (303)"
+  end
+  if value == 304 then
+    return "Reason Code: Invalid Flex Eod Tag (304)"
+  end
+  if value == 305 then
+    return "Reason Code: Invalid Percentage Price (305)"
   end
   if value == 999 then
     return "Reason Code: Unknown Issue Encountered (999)"
@@ -2067,7 +1991,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgem
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
   index, cl_ord_id = nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 307 values
   index, reason_code = nyse_arca_options_binarygateway_pillar_v3_15.reason_code.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
@@ -3426,7 +3350,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.application_layer_reject.fields = f
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
   index, cl_ord_id = nyse_arca_options_binarygateway_pillar_v3_15.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 307 values
   index, reason_code = nyse_arca_options_binarygateway_pillar_v3_15.reason_code.dissect(buffer, index, packet, parent)
 
   -- Reject Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
@@ -3802,7 +3726,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.trade_bust_or_correct.fields = func
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = nyse_arca_options_binarygateway_pillar_v3_15.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 307 values
   index, reason_code = nyse_arca_options_binarygateway_pillar_v3_15.reason_code.dissect(buffer, index, packet, parent)
 
   -- User Data: 10 Byte Ascii String
@@ -4040,13 +3964,59 @@ nyse_arca_options_binarygateway_pillar_v3_15.stop_px.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Sub Msg Length
+nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_length = {}
+
+-- Size: Sub Msg Length
+nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_length.size = 2
+
+-- Display: Sub Msg Length
+nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_length.display = function(value)
+  return "Sub Msg Length: "..value
+end
+
+-- Dissect: Sub Msg Length
+nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sub Msg Type
+nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_type = {}
+
+-- Size: Sub Msg Type
+nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_type.size = 2
+
+-- Display: Sub Msg Type
+nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_type.display = function(value)
+  return "Sub Msg Type: "..value
+end
+
+-- Dissect: Sub Msg Type
+nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_msg_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sub Msg Header
 nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header = {}
 
 -- Size: Sub Msg Header
 nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.size =
-  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_type.size + 
-  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_length.size
+  nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_type.size + 
+  nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_length.size
 
 -- Display: Sub Msg Header
 nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.display = function(packet, parent, length)
@@ -4057,11 +4027,11 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seq Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 28 values
-  index, seq_msg_type = nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_type.dissect(buffer, index, packet, parent)
+  -- Sub Msg Type: 2 Byte Unsigned Fixed Width Integer
+  index, sub_msg_type = nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_type.dissect(buffer, index, packet, parent)
 
-  -- Seq Msg Length: 2 Byte Unsigned Fixed Width Integer
-  index, seq_msg_length = nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_length.dissect(buffer, index, packet, parent)
+  -- Sub Msg Length: 2 Byte Unsigned Fixed Width Integer
+  index, sub_msg_length = nyse_arca_options_binarygateway_pillar_v3_15.sub_msg_length.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4917,7 +4887,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.execution_report.fields = function(
   -- Participant Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, participant_type = nyse_arca_options_binarygateway_pillar_v3_15.participant_type.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 307 values
   index, reason_code = nyse_arca_options_binarygateway_pillar_v3_15.reason_code.dissect(buffer, index, packet, parent)
 
   -- User Data: 10 Byte Ascii String
@@ -5612,7 +5582,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.order_request_acknowledgment.fields
   -- Locate Reqd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, locate_reqd = nyse_arca_options_binarygateway_pillar_v3_15.locate_reqd.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 307 values
   index, reason_code = nyse_arca_options_binarygateway_pillar_v3_15.reason_code.dissect(buffer, index, packet, parent)
 
   -- Ack Type: 1 Byte Unsigned Fixed Width Integer Enum with 18 values
@@ -5746,7 +5716,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.fields = function(buffer,
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = nyse_arca_options_binarygateway_pillar_v3_15.quantity.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 307 values
   index, reason_code = nyse_arca_options_binarygateway_pillar_v3_15.reason_code.dissect(buffer, index, packet, parent)
 
   -- Working Away From Display: 1 Byte Unsigned Fixed Width Integer
@@ -5757,16 +5727,20 @@ end
 
 -- Dissect: Quote Ack
 nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.quote_ack then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:le_uint()
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.quote_ack, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.quote_ack, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.fields(buffer, offset, packet, parent)
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Self Trade Type
@@ -6027,92 +6001,97 @@ nyse_arca_options_binarygateway_pillar_v3_15.order_instructions = {}
 nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.size = 17
 
 -- Display: Order Instructions
-nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.display = function(buffer, packet, parent)
+nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.display = function(range, value, packet, parent)
   local display = ""
 
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Order Instructions
-nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.bits = function(buffer, offset, packet, parent)
+nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.bits = function(range, value, packet, parent)
 
   -- Reserved Bits 34: 34 Bit
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_bits_34, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_bits_34, range, value)
 
   -- Security Type: 5 Bit Enum with 3 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.security_type, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.security_type, range, value)
 
   -- Capacity: 5 Bit
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.capacity, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.capacity, range, value)
 
   -- Open Close: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_close, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_close, range, value)
 
   -- Sub Id Indicator: 5 Bit
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id_indicator, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id_indicator, range, value)
 
   -- Special Ord Type: 5 Bit Enum with 10 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.special_ord_type, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.special_ord_type, range, value)
 
   -- Locate Reqd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.locate_reqd, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.locate_reqd, range, value)
 
   -- Retail Indicator: 5 Bit Enum with 2 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.retail_indicator, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.retail_indicator, range, value)
 
   -- Attributed Quote: 5 Bit Enum with 9 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.attributed_quote, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.attributed_quote, range, value)
 
   -- Order Capacity: 5 Bit Enum with 5 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_capacity, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_capacity, range, value)
 
   -- Interest Type: 5 Bit Enum with 5 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.interest_type, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.interest_type, range, value)
 
   -- Trading Session Id: 5 Bit Enum with 6 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.trading_session_id, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.trading_session_id, range, value)
 
   -- Time In Force: 5 Bit Enum with 7 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.time_in_force, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.time_in_force, range, value)
 
   -- Proactive If Locked: 5 Bit Enum with 3 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.proactive_if_locked, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.proactive_if_locked, range, value)
 
   -- Self Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_type, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_type, range, value)
 
   -- Cancel Instead Of Reprice: 5 Bit Enum with 7 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_instead_of_reprice, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_instead_of_reprice, range, value)
 
   -- Routing Inst: 5 Bit Enum with 3 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.routing_inst, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.routing_inst, range, value)
 
   -- Extended Exec Inst: 5 Bit Enum with 16 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.extended_exec_inst, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.extended_exec_inst, range, value)
 
   -- Exec Inst: 5 Bit Enum with 10 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.exec_inst, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.exec_inst, range, value)
 
   -- Ord Type: 5 Bit Enum with 7 values
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ord_type, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ord_type, range, value)
 
   -- Side Bit 5: 5 Bit
-  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.side_bit_5, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.side_bit_5, range, value)
 end
 
 -- Dissect: Order Instructions
 nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.dissect = function(buffer, offset, packet, parent)
-  local size = 17
+  local size = nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.size
   local range = buffer(offset, size)
-  local display = nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_instructions, range, display)
 
   if show.order_instructions then
-    nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.bits(buffer, offset, packet, element)
+    nyse_arca_options_binarygateway_pillar_v3_15.order_instructions.bits(range, value, packet, element)
   end
 
-  return offset + 17, range
+  return offset + size, value
 end
 
 -- Order Acknowledgement
@@ -6241,7 +6220,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.fields = func
   -- Pre Liquidity Indicator: 4 Byte Ascii String Enum with 4 values
   index, pre_liquidity_indicator = nyse_arca_options_binarygateway_pillar_v3_15.pre_liquidity_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 307 values
   index, reason_code = nyse_arca_options_binarygateway_pillar_v3_15.reason_code.dissect(buffer, index, packet, parent)
 
   -- Ack Type: 1 Byte Unsigned Fixed Width Integer Enum with 18 values
@@ -8319,7 +8298,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.covered.size = function(buffer, off
 
   index = index + nyse_arca_options_binarygateway_pillar_v3_15.auction_id.size
 
-  local seq_msg_length = buffer(offset + index - 102, 2):le_uint()
+  local seq_msg_length = buffer(offset + index - 255, 2):le_uint()
 
   if seq_msg_length ~= 100 then
     index = index + nyse_arca_options_binarygateway_pillar_v3_15.optional_order_add_on.size
@@ -8381,7 +8360,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.covered.fields = function(buffer, o
   index, auction_id = nyse_arca_options_binarygateway_pillar_v3_15.auction_id.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(index - 102, 2):le_uint()
+  local seq_msg_length = buffer(offset - 151, 2):le_uint()
 
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
@@ -9730,6 +9709,9 @@ nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.fields = function(buffer, o
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = nyse_arca_options_binarygateway_pillar_v3_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Seq Msg Header: Struct of 2 fields
+  index, seq_msg_header = nyse_arca_options_binarygateway_pillar_v3_15.seq_msg_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Seq Msg Type
   local seq_msg_type = buffer(index, 2):le_uint()
