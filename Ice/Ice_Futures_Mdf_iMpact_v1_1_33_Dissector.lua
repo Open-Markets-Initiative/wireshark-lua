@@ -188,7 +188,7 @@ omi_ice_futures_mdf_impact_v1_1_33.fields.reserved_4 = ProtoField.new("Reserved 
 omi_ice_futures_mdf_impact_v1_1_33.fields.rfq_system_id = ProtoField.new("Rfq System Id", "ice.futures.mdf.impact.v1.1.33.rfqsystemid", ftypes.INT64)
 omi_ice_futures_mdf_impact_v1_1_33.fields.round = ProtoField.new("Round", "ice.futures.mdf.impact.v1.1.33.round", ftypes.INT16)
 omi_ice_futures_mdf_impact_v1_1_33.fields.security_sub_type = ProtoField.new("Security Sub Type", "ice.futures.mdf.impact.v1.1.33.securitysubtype", ftypes.INT16)
-omi_ice_futures_mdf_impact_v1_1_33.fields.send_datetime = ProtoField.new("Send Datetime", "ice.futures.mdf.impact.v1.1.33.senddatetime", ftypes.UINT64)
+omi_ice_futures_mdf_impact_v1_1_33.fields.sent_date_time = ProtoField.new("Sent Date Time", "ice.futures.mdf.impact.v1.1.33.sentdatetime", ftypes.UINT64)
 omi_ice_futures_mdf_impact_v1_1_33.fields.sequence = ProtoField.new("Sequence", "ice.futures.mdf.impact.v1.1.33.sequence", ftypes.UINT32)
 omi_ice_futures_mdf_impact_v1_1_33.fields.sequence_within_millis = ProtoField.new("Sequence Within Millis", "ice.futures.mdf.impact.v1.1.33.sequencewithinmillis", ftypes.INT32)
 omi_ice_futures_mdf_impact_v1_1_33.fields.session = ProtoField.new("Session", "ice.futures.mdf.impact.v1.1.33.session", ftypes.UINT16)
@@ -6061,10 +6061,10 @@ ice_futures_mdf_impact_v1_1_33.modification_timestamp.size = 8
 -- Display: Modification Timestamp
 ice_futures_mdf_impact_v1_1_33.modification_timestamp.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000)
-  local milliseconds = value:tonumber()%1000
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
 
-  return "Modification Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Modification Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Modification Timestamp
@@ -11562,29 +11562,29 @@ ice_futures_mdf_impact_v1_1_33.message.dissect = function(buffer, offset, packet
   return ice_futures_mdf_impact_v1_1_33.message.fields(buffer, offset, packet, parent)
 end
 
--- Send Datetime
-ice_futures_mdf_impact_v1_1_33.send_datetime = {}
+-- Sent Date Time
+ice_futures_mdf_impact_v1_1_33.sent_date_time = {}
 
--- Size: Send Datetime
-ice_futures_mdf_impact_v1_1_33.send_datetime.size = 8
+-- Size: Sent Date Time
+ice_futures_mdf_impact_v1_1_33.sent_date_time.size = 8
 
--- Display: Send Datetime
-ice_futures_mdf_impact_v1_1_33.send_datetime.display = function(value)
+-- Display: Sent Date Time
+ice_futures_mdf_impact_v1_1_33.sent_date_time.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Send Datetime: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Sent Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
--- Dissect: Send Datetime
-ice_futures_mdf_impact_v1_1_33.send_datetime.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.send_datetime.size
+-- Dissect: Sent Date Time
+ice_futures_mdf_impact_v1_1_33.sent_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.sent_date_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = ice_futures_mdf_impact_v1_1_33.send_datetime.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.sent_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.send_datetime, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.sent_date_time, range, value, display)
 
   return offset + length, value
 end
@@ -11666,7 +11666,7 @@ ice_futures_mdf_impact_v1_1_33.packet_header.size =
   ice_futures_mdf_impact_v1_1_33.session.size + 
   ice_futures_mdf_impact_v1_1_33.sequence.size + 
   ice_futures_mdf_impact_v1_1_33.number_of_msgs.size + 
-  ice_futures_mdf_impact_v1_1_33.send_datetime.size
+  ice_futures_mdf_impact_v1_1_33.sent_date_time.size
 
 -- Display: Packet Header
 ice_futures_mdf_impact_v1_1_33.packet_header.display = function(packet, parent, length)
@@ -11686,8 +11686,8 @@ ice_futures_mdf_impact_v1_1_33.packet_header.fields = function(buffer, offset, p
   -- Number Of Msgs: 2 Byte Unsigned Fixed Width Integer
   index, number_of_msgs = ice_futures_mdf_impact_v1_1_33.number_of_msgs.dissect(buffer, index, packet, parent)
 
-  -- Send Datetime: 8 Byte Unsigned Fixed Width Integer
-  index, send_datetime = ice_futures_mdf_impact_v1_1_33.send_datetime.dissect(buffer, index, packet, parent)
+  -- Sent Date Time: 8 Byte Unsigned Fixed Width Integer
+  index, sent_date_time = ice_futures_mdf_impact_v1_1_33.sent_date_time.dissect(buffer, index, packet, parent)
 
   return index
 end

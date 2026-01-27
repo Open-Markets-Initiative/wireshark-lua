@@ -220,7 +220,7 @@ omi_ice_futures_mdf_impact_v1_1_51.fields.screen_last_trade_month = ProtoField.n
 omi_ice_futures_mdf_impact_v1_1_51.fields.screen_last_trade_year = ProtoField.new("Screen Last Trade Year", "ice.futures.mdf.impact.v1.1.51.screenlasttradeyear", ftypes.INT16)
 omi_ice_futures_mdf_impact_v1_1_51.fields.seconds_to_end_tpl_hold = ProtoField.new("Seconds To End Tpl Hold", "ice.futures.mdf.impact.v1.1.51.secondstoendtplhold", ftypes.INT32)
 omi_ice_futures_mdf_impact_v1_1_51.fields.security_sub_type = ProtoField.new("Security Sub Type", "ice.futures.mdf.impact.v1.1.51.securitysubtype", ftypes.INT16)
-omi_ice_futures_mdf_impact_v1_1_51.fields.send_datetime = ProtoField.new("Send Datetime", "ice.futures.mdf.impact.v1.1.51.senddatetime", ftypes.UINT64)
+omi_ice_futures_mdf_impact_v1_1_51.fields.sent_date_time = ProtoField.new("Sent Date Time", "ice.futures.mdf.impact.v1.1.51.sentdatetime", ftypes.UINT64)
 omi_ice_futures_mdf_impact_v1_1_51.fields.sequence = ProtoField.new("Sequence", "ice.futures.mdf.impact.v1.1.51.sequence", ftypes.UINT32)
 omi_ice_futures_mdf_impact_v1_1_51.fields.sequence_within_millis = ProtoField.new("Sequence Within Millis", "ice.futures.mdf.impact.v1.1.51.sequencewithinmillis", ftypes.INT32)
 omi_ice_futures_mdf_impact_v1_1_51.fields.session = ProtoField.new("Session", "ice.futures.mdf.impact.v1.1.51.session", ftypes.UINT16)
@@ -12696,29 +12696,29 @@ ice_futures_mdf_impact_v1_1_51.message.dissect = function(buffer, offset, packet
   return ice_futures_mdf_impact_v1_1_51.message.fields(buffer, offset, packet, parent)
 end
 
--- Send Datetime
-ice_futures_mdf_impact_v1_1_51.send_datetime = {}
+-- Sent Date Time
+ice_futures_mdf_impact_v1_1_51.sent_date_time = {}
 
--- Size: Send Datetime
-ice_futures_mdf_impact_v1_1_51.send_datetime.size = 8
+-- Size: Sent Date Time
+ice_futures_mdf_impact_v1_1_51.sent_date_time.size = 8
 
--- Display: Send Datetime
-ice_futures_mdf_impact_v1_1_51.send_datetime.display = function(value)
+-- Display: Sent Date Time
+ice_futures_mdf_impact_v1_1_51.sent_date_time.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
-  return "Send Datetime: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Sent Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
--- Dissect: Send Datetime
-ice_futures_mdf_impact_v1_1_51.send_datetime.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_51.send_datetime.size
+-- Dissect: Sent Date Time
+ice_futures_mdf_impact_v1_1_51.sent_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_51.sent_date_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = ice_futures_mdf_impact_v1_1_51.send_datetime.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_51.sent_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.send_datetime, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.sent_date_time, range, value, display)
 
   return offset + length, value
 end
@@ -12800,7 +12800,7 @@ ice_futures_mdf_impact_v1_1_51.packet_header.size =
   ice_futures_mdf_impact_v1_1_51.session.size + 
   ice_futures_mdf_impact_v1_1_51.sequence.size + 
   ice_futures_mdf_impact_v1_1_51.number_of_msgs.size + 
-  ice_futures_mdf_impact_v1_1_51.send_datetime.size
+  ice_futures_mdf_impact_v1_1_51.sent_date_time.size
 
 -- Display: Packet Header
 ice_futures_mdf_impact_v1_1_51.packet_header.display = function(packet, parent, length)
@@ -12820,8 +12820,8 @@ ice_futures_mdf_impact_v1_1_51.packet_header.fields = function(buffer, offset, p
   -- Number Of Msgs: 2 Byte Unsigned Fixed Width Integer
   index, number_of_msgs = ice_futures_mdf_impact_v1_1_51.number_of_msgs.dissect(buffer, index, packet, parent)
 
-  -- Send Datetime: 8 Byte Unsigned Fixed Width Integer
-  index, send_datetime = ice_futures_mdf_impact_v1_1_51.send_datetime.dissect(buffer, index, packet, parent)
+  -- Sent Date Time: 8 Byte Unsigned Fixed Width Integer
+  index, sent_date_time = ice_futures_mdf_impact_v1_1_51.sent_date_time.dissect(buffer, index, packet, parent)
 
   return index
 end
