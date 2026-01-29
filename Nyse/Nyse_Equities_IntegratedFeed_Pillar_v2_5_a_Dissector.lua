@@ -45,7 +45,6 @@ omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.market_id = ProtoField.new
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.equities.integratedfeed.pillar.v2.5.a.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.market_state = ProtoField.new("Market State", "nyse.equities.integratedfeed.pillar.v2.5.a.marketstate", ftypes.STRING)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.message = ProtoField.new("Message", "nyse.equities.integratedfeed.pillar.v2.5.a.message", ftypes.STRING)
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_count = ProtoField.new("Message Count", "nyse.equities.integratedfeed.pillar.v2.5.a.messagecount", ftypes.UINT8)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_header = ProtoField.new("Message Header", "nyse.equities.integratedfeed.pillar.v2.5.a.messageheader", ftypes.STRING)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_size = ProtoField.new("Message Size", "nyse.equities.integratedfeed.pillar.v2.5.a.messagesize", ftypes.UINT16)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_type = ProtoField.new("Message Type", "nyse.equities.integratedfeed.pillar.v2.5.a.messagetype", ftypes.UINT16)
@@ -55,13 +54,14 @@ omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.new_order_id = ProtoField.
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.new_price_parity_splits = ProtoField.new("New Price Parity Splits", "nyse.equities.integratedfeed.pillar.v2.5.a.newpriceparitysplits", ftypes.UINT8)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.integratedfeed.pillar.v2.5.a.nextsourceseqnum", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.num_extensions = ProtoField.new("Num Extensions", "nyse.equities.integratedfeed.pillar.v2.5.a.numextensions", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.equities.integratedfeed.pillar.v2.5.a.numbermsgs", ftypes.UINT8)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.open = ProtoField.new("Open", "nyse.equities.integratedfeed.pillar.v2.5.a.open", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.order_id = ProtoField.new("Order Id", "nyse.equities.integratedfeed.pillar.v2.5.a.orderid", ftypes.UINT64)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.packet = ProtoField.new("Packet", "nyse.equities.integratedfeed.pillar.v2.5.a.packet", ftypes.STRING)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.integratedfeed.pillar.v2.5.a.packetheader", ftypes.STRING)
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.integratedfeed.pillar.v2.5.a.packetsize", ftypes.UINT16)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.equities.integratedfeed.pillar.v2.5.a.pairedqty", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.payload = ProtoField.new("Payload", "nyse.equities.integratedfeed.pillar.v2.5.a.payload", ftypes.STRING)
+omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.equities.integratedfeed.pillar.v2.5.a.pktsize", ftypes.UINT16)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.position_change = ProtoField.new("Position Change", "nyse.equities.integratedfeed.pillar.v2.5.a.positionchange", ftypes.UINT8)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.integratedfeed.pillar.v2.5.a.prevcloseprice", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.integratedfeed.pillar.v2.5.a.prevclosevolume", ftypes.UINT32)
@@ -82,9 +82,11 @@ omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.reserved_4 = ProtoField.ne
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.equities.integratedfeed.pillar.v2.5.a.retransmitmethod", ftypes.UINT8)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.equities.integratedfeed.pillar.v2.5.a.roundlot", ftypes.STRING)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.equities.integratedfeed.pillar.v2.5.a.rpiindicator", ftypes.STRING)
+omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.seconds = ProtoField.new("Seconds", "nyse.equities.integratedfeed.pillar.v2.5.a.seconds", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.security_status = ProtoField.new("Security Status", "nyse.equities.integratedfeed.pillar.v2.5.a.securitystatus", ftypes.STRING)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.security_type = ProtoField.new("Security Type", "nyse.equities.integratedfeed.pillar.v2.5.a.securitytype", ftypes.STRING)
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.equities.integratedfeed.pillar.v2.5.a.sequencenumber", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.send_time = ProtoField.new("Send Time", "nyse.equities.integratedfeed.pillar.v2.5.a.sendtime", ftypes.STRING)
+omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.seq_num = ProtoField.new("Seq Num", "nyse.equities.integratedfeed.pillar.v2.5.a.seqnum", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.session_state = ProtoField.new("Session State", "nyse.equities.integratedfeed.pillar.v2.5.a.sessionstate", ftypes.STRING)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.side = ProtoField.new("Side", "nyse.equities.integratedfeed.pillar.v2.5.a.side", ftypes.STRING)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.significant_imbalance = ProtoField.new("Significant Imbalance", "nyse.equities.integratedfeed.pillar.v2.5.a.significantimbalance", ftypes.STRING)
@@ -101,7 +103,6 @@ omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_index = ProtoField.
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.equities.integratedfeed.pillar.v2.5.a.symbolseqnum", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.system_id = ProtoField.new("System Id", "nyse.equities.integratedfeed.pillar.v2.5.a.systemid", ftypes.UINT8)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.time = ProtoField.new("Time", "nyse.equities.integratedfeed.pillar.v2.5.a.time", ftypes.UINT32)
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.integratedfeed.pillar.v2.5.a.timestamp", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.equities.integratedfeed.pillar.v2.5.a.totalimbalanceqty", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.equities.integratedfeed.pillar.v2.5.a.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.equities.integratedfeed.pillar.v2.5.a.totalvolume", ftypes.UINT32)
@@ -175,6 +176,7 @@ show.request_response_message = true
 show.retail_price_improvement_message = true
 show.retransmission_request_message = true
 show.security_status_message = true
+show.send_time = true
 show.sequence_number_reset_message = true
 show.source_time_reference_message = true
 show.stock_summary_message = true
@@ -207,6 +209,7 @@ omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_request_response_messa
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_retail_price_improvement_message = Pref.bool("Show Retail Price Improvement Message", show.retail_price_improvement_message, "Parse and add Retail Price Improvement Message to protocol tree")
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
+omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_source_time_reference_message = Pref.bool("Show Source Time Reference Message", show.source_time_reference_message, "Parse and add Source Time Reference Message to protocol tree")
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_stock_summary_message = Pref.bool("Show Stock Summary Message", show.stock_summary_message, "Parse and add Stock Summary Message to protocol tree")
@@ -307,6 +310,10 @@ function omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs_changed()
   end
   if show.security_status_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_security_status_message then
     show.security_status_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_security_status_message
+    changed = true
+  end
+  if show.send_time ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_send_time then
+    show.send_time = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_send_time
     changed = true
   end
   if show.sequence_number_reset_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_sequence_number_reset_message then
@@ -4971,71 +4978,116 @@ nyse_equities_integratedfeed_pillar_v2_5_a.nanoseconds.dissect = function(buffer
   return offset + length, value
 end
 
--- Timestamp
-nyse_equities_integratedfeed_pillar_v2_5_a.timestamp = {}
+-- Seconds
+nyse_equities_integratedfeed_pillar_v2_5_a.seconds = {}
 
--- Size: Timestamp
-nyse_equities_integratedfeed_pillar_v2_5_a.timestamp.size = 4
+-- Size: Seconds
+nyse_equities_integratedfeed_pillar_v2_5_a.seconds.size = 4
 
--- Display: Timestamp
-nyse_equities_integratedfeed_pillar_v2_5_a.timestamp.display = function(value)
-  return "Timestamp: "..value
+-- Display: Seconds
+nyse_equities_integratedfeed_pillar_v2_5_a.seconds.display = function(value)
+  -- Parse unix timestamp
+  return "Seconds: "..os.date("%x %H:%M:%S", value)
 end
 
--- Dissect: Timestamp
-nyse_equities_integratedfeed_pillar_v2_5_a.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_integratedfeed_pillar_v2_5_a.timestamp.size
+-- Dissect: Seconds
+nyse_equities_integratedfeed_pillar_v2_5_a.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_integratedfeed_pillar_v2_5_a.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_integratedfeed_pillar_v2_5_a.timestamp.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_integratedfeed_pillar_v2_5_a.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.timestamp, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.seconds, range, value, display)
 
   return offset + length, value
 end
 
--- Sequence Number
-nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number = {}
+-- Send Time
+nyse_equities_integratedfeed_pillar_v2_5_a.send_time = {}
 
--- Size: Sequence Number
-nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number.size = 4
+-- Size: Send Time
+nyse_equities_integratedfeed_pillar_v2_5_a.send_time.size =
+  nyse_equities_integratedfeed_pillar_v2_5_a.seconds.size + 
+  nyse_equities_integratedfeed_pillar_v2_5_a.nanoseconds.size
 
--- Display: Sequence Number
-nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number.display = function(value)
-  return "Sequence Number: "..value
+-- Display: Send Time
+nyse_equities_integratedfeed_pillar_v2_5_a.send_time.display = function(packet, parent, length)
+  return ""
 end
 
--- Dissect: Sequence Number
-nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number.size
+-- Dissect Fields: Send Time
+nyse_equities_integratedfeed_pillar_v2_5_a.send_time.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = nyse_equities_integratedfeed_pillar_v2_5_a.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = nyse_equities_integratedfeed_pillar_v2_5_a.nanoseconds.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Send Time
+nyse_equities_integratedfeed_pillar_v2_5_a.send_time.dissect = function(buffer, offset, packet, parent)
+  if show.send_time then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.send_time, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a.send_time.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a.send_time.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a.send_time.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Seq Num
+nyse_equities_integratedfeed_pillar_v2_5_a.seq_num = {}
+
+-- Size: Seq Num
+nyse_equities_integratedfeed_pillar_v2_5_a.seq_num.size = 4
+
+-- Display: Seq Num
+nyse_equities_integratedfeed_pillar_v2_5_a.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+nyse_equities_integratedfeed_pillar_v2_5_a.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_integratedfeed_pillar_v2_5_a.seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_integratedfeed_pillar_v2_5_a.seq_num.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.sequence_number, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.seq_num, range, value, display)
 
   return offset + length, value
 end
 
--- Message Count
-nyse_equities_integratedfeed_pillar_v2_5_a.message_count = {}
+-- Number Msgs
+nyse_equities_integratedfeed_pillar_v2_5_a.number_msgs = {}
 
--- Size: Message Count
-nyse_equities_integratedfeed_pillar_v2_5_a.message_count.size = 1
+-- Size: Number Msgs
+nyse_equities_integratedfeed_pillar_v2_5_a.number_msgs.size = 1
 
--- Display: Message Count
-nyse_equities_integratedfeed_pillar_v2_5_a.message_count.display = function(value)
-  return "Message Count: "..value
+-- Display: Number Msgs
+nyse_equities_integratedfeed_pillar_v2_5_a.number_msgs.display = function(value)
+  return "Number Msgs: "..value
 end
 
--- Dissect: Message Count
-nyse_equities_integratedfeed_pillar_v2_5_a.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_integratedfeed_pillar_v2_5_a.message_count.size
+-- Dissect: Number Msgs
+nyse_equities_integratedfeed_pillar_v2_5_a.number_msgs.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_integratedfeed_pillar_v2_5_a.number_msgs.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_integratedfeed_pillar_v2_5_a.message_count.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_integratedfeed_pillar_v2_5_a.number_msgs.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_count, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.number_msgs, range, value, display)
 
   return offset + length, value
 end
@@ -5052,7 +5104,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a.delivery_flag.display = function(valu
     return "Delivery Flag: Heartbeat (1)"
   end
   if value == 10 then
-    return "Delivery Flag: Failover (10)"
+    return "Delivery Flag: Pillar Failover (10)"
   end
   if value == 11 then
     return "Delivery Flag: Original Message (11)"
@@ -5097,25 +5149,25 @@ nyse_equities_integratedfeed_pillar_v2_5_a.delivery_flag.dissect = function(buff
   return offset + length, value
 end
 
--- Packet Size
-nyse_equities_integratedfeed_pillar_v2_5_a.packet_size = {}
+-- Pkt Size
+nyse_equities_integratedfeed_pillar_v2_5_a.pkt_size = {}
 
--- Size: Packet Size
-nyse_equities_integratedfeed_pillar_v2_5_a.packet_size.size = 2
+-- Size: Pkt Size
+nyse_equities_integratedfeed_pillar_v2_5_a.pkt_size.size = 2
 
--- Display: Packet Size
-nyse_equities_integratedfeed_pillar_v2_5_a.packet_size.display = function(value)
-  return "Packet Size: "..value
+-- Display: Pkt Size
+nyse_equities_integratedfeed_pillar_v2_5_a.pkt_size.display = function(value)
+  return "Pkt Size: "..value
 end
 
--- Dissect: Packet Size
-nyse_equities_integratedfeed_pillar_v2_5_a.packet_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_integratedfeed_pillar_v2_5_a.packet_size.size
+-- Dissect: Pkt Size
+nyse_equities_integratedfeed_pillar_v2_5_a.pkt_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_integratedfeed_pillar_v2_5_a.pkt_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_integratedfeed_pillar_v2_5_a.packet_size.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_integratedfeed_pillar_v2_5_a.pkt_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.packet_size, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.pkt_size, range, value, display)
 
   return offset + length, value
 end
@@ -5125,12 +5177,11 @@ nyse_equities_integratedfeed_pillar_v2_5_a.packet_header = {}
 
 -- Size: Packet Header
 nyse_equities_integratedfeed_pillar_v2_5_a.packet_header.size =
-  nyse_equities_integratedfeed_pillar_v2_5_a.packet_size.size + 
+  nyse_equities_integratedfeed_pillar_v2_5_a.pkt_size.size + 
   nyse_equities_integratedfeed_pillar_v2_5_a.delivery_flag.size + 
-  nyse_equities_integratedfeed_pillar_v2_5_a.message_count.size + 
-  nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number.size + 
-  nyse_equities_integratedfeed_pillar_v2_5_a.timestamp.size + 
-  nyse_equities_integratedfeed_pillar_v2_5_a.nanoseconds.size
+  nyse_equities_integratedfeed_pillar_v2_5_a.number_msgs.size + 
+  nyse_equities_integratedfeed_pillar_v2_5_a.seq_num.size + 
+  nyse_equities_integratedfeed_pillar_v2_5_a.send_time.size
 
 -- Display: Packet Header
 nyse_equities_integratedfeed_pillar_v2_5_a.packet_header.display = function(packet, parent, length)
@@ -5141,23 +5192,20 @@ end
 nyse_equities_integratedfeed_pillar_v2_5_a.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index, packet_size = nyse_equities_integratedfeed_pillar_v2_5_a.packet_size.dissect(buffer, index, packet, parent)
+  -- Pkt Size: 2 Byte Unsigned Fixed Width Integer
+  index, pkt_size = nyse_equities_integratedfeed_pillar_v2_5_a.pkt_size.dissect(buffer, index, packet, parent)
 
   -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, delivery_flag = nyse_equities_integratedfeed_pillar_v2_5_a.delivery_flag.dissect(buffer, index, packet, parent)
 
-  -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = nyse_equities_integratedfeed_pillar_v2_5_a.message_count.dissect(buffer, index, packet, parent)
+  -- Number Msgs: 1 Byte Unsigned Fixed Width Integer
+  index, number_msgs = nyse_equities_integratedfeed_pillar_v2_5_a.number_msgs.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number.dissect(buffer, index, packet, parent)
+  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, seq_num = nyse_equities_integratedfeed_pillar_v2_5_a.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nyse_equities_integratedfeed_pillar_v2_5_a.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nyse_equities_integratedfeed_pillar_v2_5_a.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Send Time: Struct of 2 fields
+  index, send_time = nyse_equities_integratedfeed_pillar_v2_5_a.send_time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5187,7 +5235,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a.packet = {}
 nyse_equities_integratedfeed_pillar_v2_5_a.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 6 fields
+  -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_equities_integratedfeed_pillar_v2_5_a.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message

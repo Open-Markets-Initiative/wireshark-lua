@@ -651,7 +651,14 @@ nyse_amex_options_binarygateway_pillar_v3_25.leg_side.size = 1
 
 -- Display: Leg Side
 nyse_amex_options_binarygateway_pillar_v3_25.leg_side.display = function(value)
-  return "Leg Side: "..value
+  if value == 1 then
+    return "Leg Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Leg Side: Sell (2)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -1942,7 +1949,14 @@ nyse_amex_options_binarygateway_pillar_v3_25.reinstatement_required_by_other.siz
 
 -- Display: Reinstatement Required By Other
 nyse_amex_options_binarygateway_pillar_v3_25.reinstatement_required_by_other.display = function(value)
-  return "Reinstatement Required By Other: "..value
+  if value == 0 then
+    return "Reinstatement Required By Other: Not Required (0)"
+  end
+  if value == 1 then
+    return "Reinstatement Required By Other: Required (1)"
+  end
+
+  return "Reinstatement Required By Other: Unknown("..value..")"
 end
 
 -- Dissect: Reinstatement Required By Other
@@ -1965,7 +1979,14 @@ nyse_amex_options_binarygateway_pillar_v3_25.reinstatement_required_by_self.size
 
 -- Display: Reinstatement Required By Self
 nyse_amex_options_binarygateway_pillar_v3_25.reinstatement_required_by_self.display = function(value)
-  return "Reinstatement Required By Self: "..value
+  if value == 0 then
+    return "Reinstatement Required By Self: Not Required (0)"
+  end
+  if value == 1 then
+    return "Reinstatement Required By Self: Required (1)"
+  end
+
+  return "Reinstatement Required By Self: Unknown("..value..")"
 end
 
 -- Dissect: Reinstatement Required By Self
@@ -1988,7 +2009,14 @@ nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.si
 
 -- Display: Blocked By Kill Switch Indicator
 nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.display = function(value)
-  return "Blocked By Kill Switch Indicator: "..value
+  if value == 0 then
+    return "Blocked By Kill Switch Indicator: Not Blocked By Kill Switch (0)"
+  end
+  if value == 1 then
+    return "Blocked By Kill Switch Indicator: Blocked By Kill Switch (1)"
+  end
+
+  return "Blocked By Kill Switch Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Blocked By Kill Switch Indicator
@@ -2011,7 +2039,20 @@ nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.size = 
 
 -- Display: Blocked By Breach Indicator
 nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.display = function(value)
-  return "Blocked By Breach Indicator: "..value
+  if value == 0 then
+    return "Blocked By Breach Indicator: Not Blocked By Breach (0)"
+  end
+  if value == 1 then
+    return "Blocked By Breach Indicator: Blocked By Breach (1)"
+  end
+  if value == 2 then
+    return "Blocked By Breach Indicator: Blocked By Arbitrage Check (2)"
+  end
+  if value == 3 then
+    return "Blocked By Breach Indicator: Blocked By Intrinsic Value Check (3)"
+  end
+
+  return "Blocked By Breach Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Blocked By Breach Indicator
@@ -2036,15 +2077,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.size = 1
 nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.display = function(value)
   if value == 0 then
     return "Threshold Breach Level: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Threshold Breach Level: Greater Than 50 Percent (1)"
-  end
-  if value == 2 then
-    return "Threshold Breach Level: Greater Than 75 Percent (2)"
-  end
-  if value == 3 then
-    return "Threshold Breach Level: Greater Than 90 Percent (3)"
   end
   if value == 4 then
     return "Threshold Breach Level: Greater Than 100 Percent (4)"
@@ -2099,12 +2131,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_action_type.display = function
   end
   if value == 8 then
     return "Risk Action Type: Risk Entity Reinstated (8)"
-  end
-  if value == 9 then
-    return "Risk Action Type: Add Symbol Level Risk Entity (9)"
-  end
-  if value == 10 then
-    return "Risk Action Type: Remove Symbol Level Risk Entity (10)"
   end
 
   return "Risk Action Type: Unknown("..value..")"
@@ -2278,7 +2304,20 @@ nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.size = 1
 
 -- Display: Breach Action Response
 nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.display = function(value)
-  return "Breach Action Response: "..value
+  if value == 0 then
+    return "Breach Action Response: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Breach Action Response: Notifications Only (1)"
+  end
+  if value == 2 then
+    return "Breach Action Response: Cancel Non Auction Orders And Block (2)"
+  end
+  if value == 3 then
+    return "Breach Action Response: Block (3)"
+  end
+
+  return "Breach Action Response: Unknown("..value..")"
 end
 
 -- Dissect: Breach Action Response
@@ -2435,32 +2474,11 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_type.display = functio
   if value == 19 then
     return "Risk Control Type: Reject Restricted Symbol (19)"
   end
-  if value == 20 then
-    return "Risk Control Type: Reject Sell Short For Symbol (20)"
-  end
-  if value == 21 then
-    return "Risk Control Type: Reject Sell Short Exempt For Symbol (21)"
-  end
-  if value == 22 then
-    return "Risk Control Type: Single Order Max Qty Pct Adv (22)"
-  end
-  if value == 23 then
-    return "Risk Control Type: Limit Order Price Protection Equities Custom (23)"
-  end
-  if value == 24 then
-    return "Risk Control Type: Limit Order Price Protection Equities Early Late (24)"
-  end
-  if value == 25 then
-    return "Risk Control Type: Limit Order Price Protection Equities Closing (25)"
-  end
   if value == 26 then
     return "Risk Control Type: Limit Order Price Protection Options Single Leg (26)"
   end
   if value == 27 then
     return "Risk Control Type: Limit Order Price Protection Options Complex (27)"
-  end
-  if value == 28 then
-    return "Risk Control Type: Require Locate Broker (28)"
   end
   if value == 29 then
     return "Risk Control Type: Order Rate Threshold (29)"
@@ -3227,14 +3245,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.reject_type.display = function(valu
   if value == 3 then
     return "Reject Type: Cancel Request Reject (3)"
   end
-  if value == 4 then
-    return "Reject Type: Bulk Cancel Request Reject (4)"
-  end
   if value == 5 then
     return "Reject Type: New Bulk Quote Reject (5)"
-  end
-  if value == 6 then
-    return "Reject Type: Manual Action Response Reject (6)"
   end
   if value == 7 then
     return "Reject Type: Risk Limit Update Request Reject (7)"
@@ -3341,7 +3353,14 @@ nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.size = 1
 
 -- Display: Bust Correct Indicator
 nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.display = function(value)
-  return "Bust Correct Indicator: "..value
+  if value == 0 then
+    return "Bust Correct Indicator: Trade Bust (0)"
+  end
+  if value == 1 then
+    return "Bust Correct Indicator: Trade Correction (1)"
+  end
+
+  return "Bust Correct Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bust Correct Indicator
@@ -4105,7 +4124,17 @@ nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.size = 1
 
 -- Display: Covered Or Uncovered
 nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.display = function(value)
-  return "Covered Or Uncovered: "..value
+  if value == 0 then
+    return "Covered Or Uncovered: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Covered Or Uncovered: Exposed (1)"
+  end
+  if value == 2 then
+    return "Covered Or Uncovered: Covered (2)"
+  end
+
+  return "Covered Or Uncovered: Unknown("..value..")"
 end
 
 -- Dissect: Covered Or Uncovered
@@ -4128,7 +4157,17 @@ nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.size = 
 
 -- Display: Contra Covered Or Uncovered
 nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.display = function(value)
-  return "Contra Covered Or Uncovered: "..value
+  if value == 0 then
+    return "Contra Covered Or Uncovered: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Contra Covered Or Uncovered: Exposed (1)"
+  end
+  if value == 2 then
+    return "Contra Covered Or Uncovered: Covered (2)"
+  end
+
+  return "Contra Covered Or Uncovered: Unknown("..value..")"
 end
 
 -- Dissect: Contra Covered Or Uncovered
@@ -4151,7 +4190,23 @@ nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.size = 2
 
 -- Display: Contra Cross Type
 nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.display = function(value)
-  return "Contra Cross Type: "..value
+  if value == 0 then
+    return "Contra Cross Type: Not Applicable (0)"
+  end
+  if value == 5 then
+    return "Contra Cross Type: Price Improvement Cube (5)"
+  end
+  if value == 7 then
+    return "Contra Cross Type: Aoncube Solicitation (7)"
+  end
+  if value == 10 then
+    return "Contra Cross Type: Qcc (10)"
+  end
+  if value == 11 then
+    return "Contra Cross Type: Customer To Customer Cross (11)"
+  end
+
+  return "Contra Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Contra Cross Type
@@ -4213,7 +4268,29 @@ nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.size = 1
 
 -- Display: Contra Customer Or Firm
 nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.display = function(value)
-  return "Contra Customer Or Firm: "..value
+  if value == 0 then
+    return "Contra Customer Or Firm: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Contra Customer Or Firm: Customer (1)"
+  end
+  if value == 2 then
+    return "Contra Customer Or Firm: Firm (2)"
+  end
+  if value == 3 then
+    return "Contra Customer Or Firm: Broker (3)"
+  end
+  if value == 4 then
+    return "Contra Customer Or Firm: Market Maker (4)"
+  end
+  if value == 5 then
+    return "Contra Customer Or Firm: Away Market Maker (5)"
+  end
+  if value == 6 then
+    return "Contra Customer Or Firm: Prof Customer (6)"
+  end
+
+  return "Contra Customer Or Firm: Unknown("..value..")"
 end
 
 -- Dissect: Contra Customer Or Firm
@@ -4236,7 +4313,17 @@ nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.size = 1
 
 -- Display: Contra Open Close
 nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.display = function(value)
-  return "Contra Open Close: "..value
+  if value == 0 then
+    return "Contra Open Close: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Contra Open Close: Open (1)"
+  end
+  if value == 2 then
+    return "Contra Open Close: Close (2)"
+  end
+
+  return "Contra Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Contra Open Close
@@ -4376,7 +4463,11 @@ nyse_amex_options_binarygateway_pillar_v3_25.participant_type.size = 1
 
 -- Display: Participant Type
 nyse_amex_options_binarygateway_pillar_v3_25.participant_type.display = function(value)
-  return "Participant Type: "..value
+  if value == 0 then
+    return "Participant Type: Not Applicable (0)"
+  end
+
+  return "Participant Type: Unknown("..value..")"
 end
 
 -- Dissect: Participant Type
@@ -4468,7 +4559,17 @@ nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.size = 1
 
 -- Display: Multileg Reporting Type
 nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.display = function(value)
-  return "Multileg Reporting Type: "..value
+  if value == 1 then
+    return "Multileg Reporting Type: Single Leg Security (1)"
+  end
+  if value == 2 then
+    return "Multileg Reporting Type: Individual Leg Of Multi Leg Security (2)"
+  end
+  if value == 3 then
+    return "Multileg Reporting Type: Multi Leg Security (3)"
+  end
+
+  return "Multileg Reporting Type: Unknown("..value..")"
 end
 
 -- Dissect: Multileg Reporting Type
@@ -4773,29 +4874,17 @@ nyse_amex_options_binarygateway_pillar_v3_25.ack_type.display = function(value)
   if value == 9 then
     return "Ack Type: Modified (9)"
   end
-  if value == 10 then
-    return "Ack Type: Eligible For Cross (10)"
-  end
   if value == 11 then
     return "Ack Type: Canceled (11)"
   end
   if value == 12 then
     return "Ack Type: Done For Day (12)"
   end
-  if value == 13 then
-    return "Ack Type: Billable Cancel Adding Liquidity (13)"
-  end
-  if value == 14 then
-    return "Ack Type: Billable Cancel Removing Liquidity (14)"
-  end
-  if value == 15 then
-    return "Ack Type: Billable Cancel Subdollar Adding Liquidity (15)"
-  end
-  if value == 16 then
-    return "Ack Type: Billable Cancel Subdollar Removing Liquidity (16)"
-  end
   if value == 17 then
     return "Ack Type: Gtc Renewal Or Restatement (17)"
+  end
+  if value == 18 then
+    return "Ack Type: Individual Market Maker Quote Reject (18)"
   end
 
   return "Ack Type: Unknown("..value..")"
@@ -5819,7 +5908,14 @@ nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.size = 8
 
 -- Display: Leg Open Close
 nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.display = function(value)
-  return "Leg Open Close: "..value
+  if value == 0 then
+    return "Leg Open Close: Open (0)"
+  end
+  if value == 1 then
+    return "Leg Open Close: Close (1)"
+  end
+
+  return "Leg Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Leg Open Close
@@ -6047,7 +6143,26 @@ nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.size = 1
 
 -- Display: Bold Designation
 nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.display = function(value)
-  return "Bold Designation: "..value
+  if value == 0 then
+    return "Bold Designation: Not Applicable (0)"
+  end
+  if value == 4 then
+    return "Bold Designation: Expose Order Info Only (4)"
+  end
+  if value == 5 then
+    return "Bold Designation: Expose Order Info And Capacity (5)"
+  end
+  if value == 6 then
+    return "Bold Designation: Expose Order Info And Participant Id (6)"
+  end
+  if value == 7 then
+    return "Bold Designation: Expose Order Info Capacity And Participant Id (7)"
+  end
+  if value == 8 then
+    return "Bold Designation: No Bold Defaulting (8)"
+  end
+
+  return "Bold Designation: Unknown("..value..")"
 end
 
 -- Dissect: Bold Designation
@@ -6136,7 +6251,20 @@ nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.size = 1
 
 -- Display: Self Trade Prevention
 nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.display = function(value)
-  return "Self Trade Prevention: "..value
+  if value == 1 then
+    return "Self Trade Prevention: No Self Trade Prevention (1)"
+  end
+  if value == 2 then
+    return "Self Trade Prevention: Cancel Newest (2)"
+  end
+  if value == 3 then
+    return "Self Trade Prevention: Cancel Oldest (3)"
+  end
+  if value == 4 then
+    return "Self Trade Prevention: Cancel Both (4)"
+  end
+
+  return "Self Trade Prevention: Unknown("..value..")"
 end
 
 -- Dissect: Self Trade Prevention
@@ -6318,7 +6446,11 @@ nyse_amex_options_binarygateway_pillar_v3_25.mic.size = 4
 
 -- Display: Mic
 nyse_amex_options_binarygateway_pillar_v3_25.mic.display = function(value)
-  return "Mic: "..value
+  if value == "AMXO" then
+    return "Mic: Nyse American Options (AMXO)"
+  end
+
+  return "Mic: Unknown("..value..")"
 end
 
 -- Dissect: Mic
@@ -6402,9 +6534,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.display = functio
   end
   if value == 2 then
     return "User Session Type: Service Bureau (2)"
-  end
-  if value == 3 then
-    return "User Session Type: Dmm (3)"
   end
   if value == 4 then
     return "User Session Type: Options Market Maker (4)"

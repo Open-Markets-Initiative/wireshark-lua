@@ -39,7 +39,6 @@ omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.market_id = ProtoField.new
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.equities.imbalancesfeed.pillar.v2.2.h.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.market_state = ProtoField.new("Market State", "nyse.equities.imbalancesfeed.pillar.v2.2.h.marketstate", ftypes.STRING)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message = ProtoField.new("Message", "nyse.equities.imbalancesfeed.pillar.v2.2.h.message", ftypes.STRING)
-omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_count = ProtoField.new("Message Count", "nyse.equities.imbalancesfeed.pillar.v2.2.h.messagecount", ftypes.UINT8)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_header = ProtoField.new("Message Header", "nyse.equities.imbalancesfeed.pillar.v2.2.h.messageheader", ftypes.STRING)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_size = ProtoField.new("Message Size", "nyse.equities.imbalancesfeed.pillar.v2.2.h.messagesize", ftypes.UINT16)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_type = ProtoField.new("Message Type", "nyse.equities.imbalancesfeed.pillar.v2.2.h.messagetype", ftypes.UINT16)
@@ -47,11 +46,12 @@ omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.mpv = ProtoField.new("Mpv"
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.equities.imbalancesfeed.pillar.v2.2.h.nanoseconds", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.imbalancesfeed.pillar.v2.2.h.nextsourceseqnum", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.num_extensions = ProtoField.new("Num Extensions", "nyse.equities.imbalancesfeed.pillar.v2.2.h.numextensions", ftypes.UINT8)
+omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.equities.imbalancesfeed.pillar.v2.2.h.numbermsgs", ftypes.UINT8)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.packet = ProtoField.new("Packet", "nyse.equities.imbalancesfeed.pillar.v2.2.h.packet", ftypes.STRING)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.imbalancesfeed.pillar.v2.2.h.packetheader", ftypes.STRING)
-omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.imbalancesfeed.pillar.v2.2.h.packetsize", ftypes.UINT16)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.equities.imbalancesfeed.pillar.v2.2.h.pairedqty", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.payload = ProtoField.new("Payload", "nyse.equities.imbalancesfeed.pillar.v2.2.h.payload", ftypes.STRING)
+omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.equities.imbalancesfeed.pillar.v2.2.h.pktsize", ftypes.UINT16)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.imbalancesfeed.pillar.v2.2.h.prevcloseprice", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.imbalancesfeed.pillar.v2.2.h.prevclosevolume", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.price_1 = ProtoField.new("Price 1", "nyse.equities.imbalancesfeed.pillar.v2.2.h.price1", ftypes.UINT32)
@@ -66,9 +66,11 @@ omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.reserved_2 = ProtoField.ne
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.equities.imbalancesfeed.pillar.v2.2.h.reserved4", ftypes.BYTES)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.equities.imbalancesfeed.pillar.v2.2.h.retransmitmethod", ftypes.UINT8)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.round_lot = ProtoField.new("Round Lot", "nyse.equities.imbalancesfeed.pillar.v2.2.h.roundlot", ftypes.STRING)
+omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.seconds = ProtoField.new("Seconds", "nyse.equities.imbalancesfeed.pillar.v2.2.h.seconds", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.security_status = ProtoField.new("Security Status", "nyse.equities.imbalancesfeed.pillar.v2.2.h.securitystatus", ftypes.STRING)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.security_type = ProtoField.new("Security Type", "nyse.equities.imbalancesfeed.pillar.v2.2.h.securitytype", ftypes.STRING)
-omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.equities.imbalancesfeed.pillar.v2.2.h.sequencenumber", ftypes.UINT32)
+omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.send_time = ProtoField.new("Send Time", "nyse.equities.imbalancesfeed.pillar.v2.2.h.sendtime", ftypes.STRING)
+omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.seq_num = ProtoField.new("Seq Num", "nyse.equities.imbalancesfeed.pillar.v2.2.h.seqnum", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.session_state = ProtoField.new("Session State", "nyse.equities.imbalancesfeed.pillar.v2.2.h.sessionstate", ftypes.STRING)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.significant_imbalance = ProtoField.new("Significant Imbalance", "nyse.equities.imbalancesfeed.pillar.v2.2.h.significantimbalance", ftypes.STRING)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.source_id = ProtoField.new("Source Id", "nyse.equities.imbalancesfeed.pillar.v2.2.h.sourceid", ftypes.STRING)
@@ -84,7 +86,6 @@ omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.symbol_index = ProtoField.
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.equities.imbalancesfeed.pillar.v2.2.h.symbolseqnum", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.system_id = ProtoField.new("System Id", "nyse.equities.imbalancesfeed.pillar.v2.2.h.systemid", ftypes.UINT8)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.time = ProtoField.new("Time", "nyse.equities.imbalancesfeed.pillar.v2.2.h.time", ftypes.UINT32)
-omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.imbalancesfeed.pillar.v2.2.h.timestamp", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.equities.imbalancesfeed.pillar.v2.2.h.totalimbalanceqty", ftypes.UINT32)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.equities.imbalancesfeed.pillar.v2.2.h.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.imbalancesfeed.pillar.v2.2.h.unitoftrade", ftypes.UINT16)
@@ -129,6 +130,7 @@ show.refresh_request_message = true
 show.request_response_message = true
 show.retransmission_request_message = true
 show.security_status_message = true
+show.send_time = true
 show.sequence_number_reset_message = true
 show.source_time_reference_message = true
 show.symbol_clear_message = true
@@ -149,6 +151,7 @@ omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_refresh_request_messag
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
+omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_source_time_reference_message = Pref.bool("Show Source Time Reference Message", show.source_time_reference_message, "Parse and add Source Time Reference Message to protocol tree")
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
@@ -207,6 +210,10 @@ function omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs_changed()
   end
   if show.security_status_message ~= omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_security_status_message then
     show.security_status_message = omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_security_status_message
+    changed = true
+  end
+  if show.send_time ~= omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_send_time then
+    show.send_time = omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_send_time
     changed = true
   end
   if show.sequence_number_reset_message ~= omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_sequence_number_reset_message then
@@ -3264,71 +3271,116 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.dissect = function(buffer
   return offset + length, value
 end
 
--- Timestamp
-nyse_equities_imbalancesfeed_pillar_v2_2_h.timestamp = {}
+-- Seconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds = {}
 
--- Size: Timestamp
-nyse_equities_imbalancesfeed_pillar_v2_2_h.timestamp.size = 4
+-- Size: Seconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.size = 4
 
--- Display: Timestamp
-nyse_equities_imbalancesfeed_pillar_v2_2_h.timestamp.display = function(value)
-  return "Timestamp: "..value
+-- Display: Seconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.display = function(value)
+  -- Parse unix timestamp
+  return "Seconds: "..os.date("%x %H:%M:%S", value)
 end
 
--- Dissect: Timestamp
-nyse_equities_imbalancesfeed_pillar_v2_2_h.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.timestamp.size
+-- Dissect: Seconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.timestamp.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.timestamp, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.seconds, range, value, display)
 
   return offset + length, value
 end
 
--- Sequence Number
-nyse_equities_imbalancesfeed_pillar_v2_2_h.sequence_number = {}
+-- Send Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time = {}
 
--- Size: Sequence Number
-nyse_equities_imbalancesfeed_pillar_v2_2_h.sequence_number.size = 4
+-- Size: Send Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.size =
+  nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.size + 
+  nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.size
 
--- Display: Sequence Number
-nyse_equities_imbalancesfeed_pillar_v2_2_h.sequence_number.display = function(value)
-  return "Sequence Number: "..value
+-- Display: Send Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.display = function(packet, parent, length)
+  return ""
 end
 
--- Dissect: Sequence Number
-nyse_equities_imbalancesfeed_pillar_v2_2_h.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.sequence_number.size
+-- Dissect Fields: Send Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Send Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.dissect = function(buffer, offset, packet, parent)
+  if show.send_time then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.send_time, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num = {}
+
+-- Size: Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.size = 4
+
+-- Display: Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.sequence_number.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.sequence_number, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.seq_num, range, value, display)
 
   return offset + length, value
 end
 
--- Message Count
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_count = {}
+-- Number Msgs
+nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs = {}
 
--- Size: Message Count
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_count.size = 1
+-- Size: Number Msgs
+nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.size = 1
 
--- Display: Message Count
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_count.display = function(value)
-  return "Message Count: "..value
+-- Display: Number Msgs
+nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.display = function(value)
+  return "Number Msgs: "..value
 end
 
--- Dissect: Message Count
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_count.size
+-- Dissect: Number Msgs
+nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_count.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_count, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.number_msgs, range, value, display)
 
   return offset + length, value
 end
@@ -3345,7 +3397,7 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.display = function(valu
     return "Delivery Flag: Heartbeat (1)"
   end
   if value == 10 then
-    return "Delivery Flag: Failover (10)"
+    return "Delivery Flag: Pillar Failover (10)"
   end
   if value == 11 then
     return "Delivery Flag: Original Message (11)"
@@ -3390,25 +3442,25 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.dissect = function(buff
   return offset + length, value
 end
 
--- Packet Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_size = {}
+-- Pkt Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size = {}
 
--- Size: Packet Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_size.size = 2
+-- Size: Pkt Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.size = 2
 
--- Display: Packet Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_size.display = function(value)
-  return "Packet Size: "..value
+-- Display: Pkt Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.display = function(value)
+  return "Pkt Size: "..value
 end
 
--- Dissect: Packet Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_size.size
+-- Dissect: Pkt Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_size.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.packet_size, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.pkt_size, range, value, display)
 
   return offset + length, value
 end
@@ -3418,12 +3470,11 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_header = {}
 
 -- Size: Packet Header
 nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_header.size =
-  nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_size.size + 
+  nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.size + 
   nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.size + 
-  nyse_equities_imbalancesfeed_pillar_v2_2_h.message_count.size + 
-  nyse_equities_imbalancesfeed_pillar_v2_2_h.sequence_number.size + 
-  nyse_equities_imbalancesfeed_pillar_v2_2_h.timestamp.size + 
-  nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.size
+  nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.size + 
+  nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.size + 
+  nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.size
 
 -- Display: Packet Header
 nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_header.display = function(packet, parent, length)
@@ -3434,23 +3485,20 @@ end
 nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index, packet_size = nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_size.dissect(buffer, index, packet, parent)
+  -- Pkt Size: 2 Byte Unsigned Fixed Width Integer
+  index, pkt_size = nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.dissect(buffer, index, packet, parent)
 
   -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, delivery_flag = nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.dissect(buffer, index, packet, parent)
 
-  -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_count.dissect(buffer, index, packet, parent)
+  -- Number Msgs: 1 Byte Unsigned Fixed Width Integer
+  index, number_msgs = nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = nyse_equities_imbalancesfeed_pillar_v2_2_h.sequence_number.dissect(buffer, index, packet, parent)
+  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, seq_num = nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nyse_equities_imbalancesfeed_pillar_v2_2_h.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Send Time: Struct of 2 fields
+  index, send_time = nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3480,7 +3528,7 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.packet = {}
 nyse_equities_imbalancesfeed_pillar_v2_2_h.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 6 fields
+  -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_equities_imbalancesfeed_pillar_v2_2_h.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
