@@ -4986,8 +4986,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a.seconds.size = 4
 
 -- Display: Seconds
 nyse_equities_integratedfeed_pillar_v2_5_a.seconds.display = function(value)
-  -- Parse unix timestamp
-  return "Seconds: "..os.date("%x %H:%M:%S", value)
+  return "Seconds: "..value
 end
 
 -- Dissect: Seconds
@@ -5011,8 +5010,15 @@ nyse_equities_integratedfeed_pillar_v2_5_a.send_time.size =
   nyse_equities_integratedfeed_pillar_v2_5_a.nanoseconds.size
 
 -- Display: Send Time
-nyse_equities_integratedfeed_pillar_v2_5_a.send_time.display = function(packet, parent, length)
-  return ""
+nyse_equities_integratedfeed_pillar_v2_5_a.send_time.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Send Time
@@ -5025,7 +5031,10 @@ nyse_equities_integratedfeed_pillar_v2_5_a.send_time.fields = function(buffer, o
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
   index, nanoseconds = nyse_equities_integratedfeed_pillar_v2_5_a.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, send_time
 end
 
 -- Dissect: Send Time
@@ -5033,10 +5042,10 @@ nyse_equities_integratedfeed_pillar_v2_5_a.send_time.dissect = function(buffer, 
   if show.send_time then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.send_time, buffer(offset, 0))
-    local index = nyse_equities_integratedfeed_pillar_v2_5_a.send_time.fields(buffer, offset, packet, parent)
+    local index, value = nyse_equities_integratedfeed_pillar_v2_5_a.send_time.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a.send_time.display(packet, parent, length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a.send_time.display(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
