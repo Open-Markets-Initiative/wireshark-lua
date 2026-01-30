@@ -22,26 +22,14 @@ omi_nyse_equities_bqt_xdp_v2_1_a.fields.begin_seq_num = ProtoField.new("Begin Se
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.equities.bqt.xdp.v2.1.a.bidprice", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.bid_quote_condition = ProtoField.new("Bid Quote Condition", "nyse.equities.bqt.xdp.v2.1.a.bidquotecondition", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.equities.bqt.xdp.v2.1.a.bidvolume", ftypes.UINT32)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.bqt_message = ProtoField.new("Bqt Message", "nyse.equities.bqt.xdp.v2.1.a.bqtmessage", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.equities.bqt.xdp.v2.1.a.channelid", ftypes.UINT8)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.close_price = ProtoField.new("Close Price", "nyse.equities.bqt.xdp.v2.1.a.closeprice", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.closing_price = ProtoField.new("Closing Price", "nyse.equities.bqt.xdp.v2.1.a.closingprice", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.complete = ProtoField.new("Complete", "nyse.equities.bqt.xdp.v2.1.a.complete", ftypes.UINT8)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_security_status_message = ProtoField.new("Consolidated Security Status Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedsecuritystatusmessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_single_sided_quote_message = ProtoField.new("Consolidated Single Sided Quote Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedsinglesidedquotemessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_stock_summary_message = ProtoField.new("Consolidated Stock Summary Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedstocksummarymessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_symbol_clear_message = ProtoField.new("Consolidated Symbol Clear Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedsymbolclearmessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_trade_cancel_message = ProtoField.new("Consolidated Trade Cancel Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedtradecancelmessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_trade_correction_message = ProtoField.new("Consolidated Trade Correction Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedtradecorrectionmessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_trade_message = ProtoField.new("Consolidated Trade Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedtrademessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_trading_session_change_message = ProtoField.new("Consolidated Trading Session Change Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedtradingsessionchangemessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_volume_message = ProtoField.new("Consolidated Volume Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedvolumemessage", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.equities.bqt.xdp.v2.1.a.currentrefreshpkt", ftypes.UINT16)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.equities.bqt.xdp.v2.1.a.deliveryflag", ftypes.UINT8)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.equities.bqt.xdp.v2.1.a.endseqnum", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.equities.bqt.xdp.v2.1.a.exchangecode", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.equities.bqt.xdp.v2.1.a.haltcondition", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.equities.bqt.xdp.v2.1.a.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.high_price = ProtoField.new("High Price", "nyse.equities.bqt.xdp.v2.1.a.highprice", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.equities.bqt.xdp.v2.1.a.lastseqnum", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.equities.bqt.xdp.v2.1.a.lastsymbolseqnum", ftypes.UINT32)
@@ -53,21 +41,19 @@ omi_nyse_equities_bqt_xdp_v2_1_a.fields.market_id_of_best_bid = ProtoField.new("
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.market_id_of_high_price = ProtoField.new("Market Id Of High Price", "nyse.equities.bqt.xdp.v2.1.a.marketidofhighprice", ftypes.UINT16)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.market_id_of_low_price = ProtoField.new("Market Id Of Low Price", "nyse.equities.bqt.xdp.v2.1.a.marketidoflowprice", ftypes.UINT16)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.equities.bqt.xdp.v2.1.a.marketidofopenprice", ftypes.UINT16)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.market_id_of_the_close = ProtoField.new("Market ID of the Close", "nyse.equities.bqt.xdp.v2.1.a.marketidoftheclose", ftypes.UINT16)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.market_state = ProtoField.new("Market State", "nyse.equities.bqt.xdp.v2.1.a.marketstate", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.message = ProtoField.new("Message", "nyse.equities.bqt.xdp.v2.1.a.message", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.message_count = ProtoField.new("Message Count", "nyse.equities.bqt.xdp.v2.1.a.messagecount", ftypes.UINT8)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.message_header = ProtoField.new("Message Header", "nyse.equities.bqt.xdp.v2.1.a.messageheader", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.message_size = ProtoField.new("Message Size", "nyse.equities.bqt.xdp.v2.1.a.messagesize", ftypes.UINT16)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.message_type = ProtoField.new("Message Type", "nyse.equities.bqt.xdp.v2.1.a.messagetype", ftypes.UINT16)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.equities.bqt.xdp.v2.1.a.messageunavailablemessage", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.mpv = ProtoField.new("Mpv", "nyse.equities.bqt.xdp.v2.1.a.mpv", ftypes.UINT16)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.equities.bqt.xdp.v2.1.a.nanoseconds", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.bqt.xdp.v2.1.a.nextsourceseqnum", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.number_of_close_prices = ProtoField.new("Number Of Close Prices", "nyse.equities.bqt.xdp.v2.1.a.numberofcloseprices", ftypes.UINT8)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_late_hours = ProtoField.new("Ok For Late Hours", "nyse.equities.bqt.xdp.v2.1.a.okforlatehours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_morning_hours = ProtoField.new("Ok For Morning Hours", "nyse.equities.bqt.xdp.v2.1.a.okformorninghours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_national_hours = ProtoField.new("Ok For National Hours", "nyse.equities.bqt.xdp.v2.1.a.okfornationalhours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_national_hours_core = ProtoField.new("Ok For National Hours Core", "nyse.equities.bqt.xdp.v2.1.a.okfornationalhourscore", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.open = ProtoField.new("Open", "nyse.equities.bqt.xdp.v2.1.a.open", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.equities.bqt.xdp.v2.1.a.originaltradeid", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.packet = ProtoField.new("Packet", "nyse.equities.bqt.xdp.v2.1.a.packet", ftypes.STRING)
@@ -84,22 +70,16 @@ omi_nyse_equities_bqt_xdp_v2_1_a.fields.price_scale_code = ProtoField.new("Price
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.product_id = ProtoField.new("Product Id", "nyse.equities.bqt.xdp.v2.1.a.productid", ftypes.UINT8)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.equities.bqt.xdp.v2.1.a.quotecondition", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.reason = ProtoField.new("Reason", "nyse.equities.bqt.xdp.v2.1.a.reason", ftypes.UINT8)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.equities.bqt.xdp.v2.1.a.refreshheadermessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.equities.bqt.xdp.v2.1.a.refreshrequestmessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.equities.bqt.xdp.v2.1.a.requestresponsemessage", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.equities.bqt.xdp.v2.1.a.requestseqnum", ftypes.UINT32)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved = ProtoField.new("Reserved", "nyse.equities.bqt.xdp.v2.1.a.reserved", ftypes.UINT8, nil, base.DEC, 0xF8)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.equities.bqt.xdp.v2.1.a.reserved1", ftypes.BYTES)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.equities.bqt.xdp.v2.1.a.reserved2", ftypes.BYTES)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.retail_pricing_indicator = ProtoField.new("Retail Pricing Indicator", "nyse.equities.bqt.xdp.v2.1.a.retailpricingindicator", ftypes.UINT8)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.equities.bqt.xdp.v2.1.a.retransmissionrequestmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved_5 = ProtoField.new("Reserved 5", "nyse.equities.bqt.xdp.v2.1.a.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved_binary_1 = ProtoField.new("Reserved Binary 1", "nyse.equities.bqt.xdp.v2.1.a.reservedbinary1", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved_binary_2 = ProtoField.new("Reserved Binary 2", "nyse.equities.bqt.xdp.v2.1.a.reservedbinary2", ftypes.UINT16)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.equities.bqt.xdp.v2.1.a.retransmitmethod", ftypes.UINT8)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.equities.bqt.xdp.v2.1.a.roundlot", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.equities.bqt.xdp.v2.1.a.rpiindicator", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.security_status = ProtoField.new("Security Status", "nyse.equities.bqt.xdp.v2.1.a.securitystatus", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.security_type = ProtoField.new("Security Type", "nyse.equities.bqt.xdp.v2.1.a.securitytype", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.equities.bqt.xdp.v2.1.a.sequencenumber", ftypes.UINT32)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.equities.bqt.xdp.v2.1.a.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.session_state = ProtoField.new("Session State", "nyse.equities.bqt.xdp.v2.1.a.sessionstate", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.side = ProtoField.new("Side", "nyse.equities.bqt.xdp.v2.1.a.side", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.source_id = ProtoField.new("Source Id", "nyse.equities.bqt.xdp.v2.1.a.sourceid", ftypes.STRING)
@@ -111,8 +91,6 @@ omi_nyse_equities_bqt_xdp_v2_1_a.fields.ssr_triggering_volume = ProtoField.new("
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.status = ProtoField.new("Status", "nyse.equities.bqt.xdp.v2.1.a.status", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.symbol = ProtoField.new("Symbol", "nyse.equities.bqt.xdp.v2.1.a.symbol", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.equities.bqt.xdp.v2.1.a.symbolindex", ftypes.UINT32)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.equities.bqt.xdp.v2.1.a.symbolindexmappingmessage", ftypes.STRING)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.equities.bqt.xdp.v2.1.a.symbolindexmappingrequestmessage", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.equities.bqt.xdp.v2.1.a.symbolseqnum", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.symbol_seq_number = ProtoField.new("Symbol Seq Number", "nyse.equities.bqt.xdp.v2.1.a.symbolseqnumber", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.system_id = ProtoField.new("System Id", "nyse.equities.bqt.xdp.v2.1.a.systemid", ftypes.UINT8)
@@ -125,12 +103,32 @@ omi_nyse_equities_bqt_xdp_v2_1_a.fields.trade_condition_2 = ProtoField.new("Trad
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.trade_condition_3 = ProtoField.new("Trade Condition 3", "nyse.equities.bqt.xdp.v2.1.a.tradecondition3", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.trade_condition_4 = ProtoField.new("Trade Condition 4", "nyse.equities.bqt.xdp.v2.1.a.tradecondition4", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.equities.bqt.xdp.v2.1.a.tradeid", ftypes.UINT32)
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.trade_session = ProtoField.new("Trade Session", "nyse.equities.bqt.xdp.v2.1.a.tradesession", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.trade_session = ProtoField.new("Trade Session", "nyse.equities.bqt.xdp.v2.1.a.tradesession", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.bqt.xdp.v2.1.a.unitoftrade", ftypes.UINT16)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.volume = ProtoField.new("Volume", "nyse.equities.bqt.xdp.v2.1.a.volume", ftypes.UINT32)
 
+-- Nyse Equities Bqt Xdp 2.1.a messages
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.bqt_message = ProtoField.new("Bqt Message", "nyse.equities.bqt.xdp.v2.1.a.bqtmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_security_status_message = ProtoField.new("Consolidated Security Status Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedsecuritystatusmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_single_sided_quote_message = ProtoField.new("Consolidated Single Sided Quote Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedsinglesidedquotemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_stock_summary_message = ProtoField.new("Consolidated Stock Summary Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedstocksummarymessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_symbol_clear_message = ProtoField.new("Consolidated Symbol Clear Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedsymbolclearmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_trade_cancel_message = ProtoField.new("Consolidated Trade Cancel Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedtradecancelmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_trade_correction_message = ProtoField.new("Consolidated Trade Correction Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedtradecorrectionmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_trade_message = ProtoField.new("Consolidated Trade Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedtrademessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_trading_session_change_message = ProtoField.new("Consolidated Trading Session Change Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedtradingsessionchangemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_volume_message = ProtoField.new("Consolidated Volume Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedvolumemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.equities.bqt.xdp.v2.1.a.heartbeatresponsemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.equities.bqt.xdp.v2.1.a.messageunavailablemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.equities.bqt.xdp.v2.1.a.refreshheadermessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.equities.bqt.xdp.v2.1.a.refreshrequestmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.equities.bqt.xdp.v2.1.a.requestresponsemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.equities.bqt.xdp.v2.1.a.retransmissionrequestmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.equities.bqt.xdp.v2.1.a.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.equities.bqt.xdp.v2.1.a.symbolindexmappingmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v2_1_a.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.equities.bqt.xdp.v2.1.a.symbolindexmappingrequestmessage", ftypes.STRING)
+
 -- Nyse Equities Bqt Xdp 2.1.a generated fields
-omi_nyse_equities_bqt_xdp_v2_1_a.fields.close_price_index = ProtoField.new("Close Price Index", "nyse.equities.bqt.xdp.v2.1.a.closepriceindex", ftypes.UINT16)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.message_index = ProtoField.new("Message Index", "nyse.equities.bqt.xdp.v2.1.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -474,19 +472,19 @@ end
 nyse_equities_bqt_xdp_v2_1_a.consolidated_volume_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Number: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_equities_bqt_xdp_v2_1_a.symbol_seq_number.dissect(buffer, index, packet, parent)
 
-  -- Total Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Total Volume: Binary
   index, total_volume = nyse_equities_bqt_xdp_v2_1_a.total_volume.dissect(buffer, index, packet, parent)
 
-  -- Reason: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Reason: Binary
   index, reason = nyse_equities_bqt_xdp_v2_1_a.reason.dissect(buffer, index, packet, parent)
 
-  -- Complete: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Complete: Binary
   index, complete = nyse_equities_bqt_xdp_v2_1_a.complete.dissect(buffer, index, packet, parent)
 
   return index
@@ -510,72 +508,13 @@ nyse_equities_bqt_xdp_v2_1_a.consolidated_volume_message.dissect = function(buff
   end
 end
 
--- Closing Price
-nyse_equities_bqt_xdp_v2_1_a.closing_price = {}
-
--- Size: Closing Price
-nyse_equities_bqt_xdp_v2_1_a.closing_price.size = 4
-
--- Display: Closing Price
-nyse_equities_bqt_xdp_v2_1_a.closing_price.display = function(value)
-  return "Closing Price: "..value
-end
-
--- Dissect: Closing Price
-nyse_equities_bqt_xdp_v2_1_a.closing_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bqt_xdp_v2_1_a.closing_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bqt_xdp_v2_1_a.closing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.closing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Market ID of the Close
-nyse_equities_bqt_xdp_v2_1_a.market_id_of_the_close = {}
-
--- Size: Market ID of the Close
-nyse_equities_bqt_xdp_v2_1_a.market_id_of_the_close.size = 2
-
--- Display: Market ID of the Close
-nyse_equities_bqt_xdp_v2_1_a.market_id_of_the_close.display = function(value)
-  if value == 0 then
-    return "Market ID of the Close: Nyse Group Bqt (0)"
-  end
-  if value == 1 then
-    return "Market ID of the Close: Nyse (1)"
-  end
-  if value == 3 then
-    return "Market ID of the Close: Nyse Arca (3)"
-  end
-  if value == 9 then
-    return "Market ID of the Close: Nyse American (9)"
-  end
-
-  return "Market ID of the Close: Unknown("..value..")"
-end
-
--- Dissect: Market ID of the Close
-nyse_equities_bqt_xdp_v2_1_a.market_id_of_the_close.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bqt_xdp_v2_1_a.market_id_of_the_close.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bqt_xdp_v2_1_a.market_id_of_the_close.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.market_id_of_the_close, range, value, display)
-
-  return offset + length, value
-end
-
 -- Close Price
 nyse_equities_bqt_xdp_v2_1_a.close_price = {}
 
 -- Size: Close Price
 nyse_equities_bqt_xdp_v2_1_a.close_price.size =
   nyse_equities_bqt_xdp_v2_1_a.market_id_of_the_close.size + 
-  nyse_equities_bqt_xdp_v2_1_a.closing_price.size
+  nyse_equities_bqt_xdp_v2_1_a.close.size
 
 -- Display: Close Price
 nyse_equities_bqt_xdp_v2_1_a.close_price.display = function(packet, parent, length)
@@ -583,30 +522,24 @@ nyse_equities_bqt_xdp_v2_1_a.close_price.display = function(packet, parent, leng
 end
 
 -- Dissect Fields: Close Price
-nyse_equities_bqt_xdp_v2_1_a.close_price.fields = function(buffer, offset, packet, parent, close_price_index)
+nyse_equities_bqt_xdp_v2_1_a.close_price.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Implicit Close Price Index
-  if close_price_index ~= nil then
-    local iteration = parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.close_price_index, close_price_index)
-    iteration:set_generated()
-  end
-
-  -- Market ID of the Close: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of The Close
   index, market_id_of_the_close = nyse_equities_bqt_xdp_v2_1_a.market_id_of_the_close.dissect(buffer, index, packet, parent)
 
-  -- Closing Price: 4 Byte Unsigned Fixed Width Integer
-  index, closing_price = nyse_equities_bqt_xdp_v2_1_a.closing_price.dissect(buffer, index, packet, parent)
+  -- Close
+  index, close = nyse_equities_bqt_xdp_v2_1_a.close.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Close Price
-nyse_equities_bqt_xdp_v2_1_a.close_price.dissect = function(buffer, offset, packet, parent, close_price_index)
+nyse_equities_bqt_xdp_v2_1_a.close_price.dissect = function(buffer, offset, packet, parent)
   if show.close_price then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.close_price, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v2_1_a.close_price.fields(buffer, offset, packet, parent, close_price_index)
+    local index = nyse_equities_bqt_xdp_v2_1_a.close_price.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v2_1_a.close_price.display(packet, parent, length)
@@ -615,7 +548,7 @@ nyse_equities_bqt_xdp_v2_1_a.close_price.dissect = function(buffer, offset, pack
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v2_1_a.close_price.fields(buffer, offset, packet, parent, close_price_index)
+    return nyse_equities_bqt_xdp_v2_1_a.close_price.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -868,38 +801,20 @@ end
 -- Consolidated Stock Summary Message
 nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message = {}
 
--- Calculate size of: Consolidated Stock Summary Message
-nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.source_time.size
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.source_time_ns.size
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.symbol_index.size
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.high_price.size
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.low_price.size
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.open.size
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.total_volume.size
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.market_id_of_high_price.size
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.market_id_of_low_price.size
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.market_id_of_open_price.size
-
-  index = index + nyse_equities_bqt_xdp_v2_1_a.number_of_close_prices.size
-
-  -- Calculate field size from count
-  local close_price_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + close_price_count * 6
-
-  return index
-end
+-- Size: Consolidated Stock Summary Message
+nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.size =
+  nyse_equities_bqt_xdp_v2_1_a.source_time.size + 
+  nyse_equities_bqt_xdp_v2_1_a.source_time_ns.size + 
+  nyse_equities_bqt_xdp_v2_1_a.symbol_index.size + 
+  nyse_equities_bqt_xdp_v2_1_a.high_price.size + 
+  nyse_equities_bqt_xdp_v2_1_a.low_price.size + 
+  nyse_equities_bqt_xdp_v2_1_a.open.size + 
+  nyse_equities_bqt_xdp_v2_1_a.total_volume.size + 
+  nyse_equities_bqt_xdp_v2_1_a.market_id_of_high_price.size + 
+  nyse_equities_bqt_xdp_v2_1_a.market_id_of_low_price.size + 
+  nyse_equities_bqt_xdp_v2_1_a.market_id_of_open_price.size + 
+  nyse_equities_bqt_xdp_v2_1_a.number_of_close_prices.size + 
+  nyse_equities_bqt_xdp_v2_1_a.close_price.size
 
 -- Display: Consolidated Stock Summary Message
 nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.display = function(packet, parent, length)
@@ -910,58 +825,61 @@ end
 nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_equities_bqt_xdp_v2_1_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_equities_bqt_xdp_v2_1_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- High Price: 4 Byte Unsigned Fixed Width Integer
+  -- High Price: Binary
   index, high_price = nyse_equities_bqt_xdp_v2_1_a.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 4 Byte Unsigned Fixed Width Integer
+  -- Low Price: Binary
   index, low_price = nyse_equities_bqt_xdp_v2_1_a.low_price.dissect(buffer, index, packet, parent)
 
-  -- Open: 4 Byte Unsigned Fixed Width Integer
+  -- Open: Binary
   index, open = nyse_equities_bqt_xdp_v2_1_a.open.dissect(buffer, index, packet, parent)
 
-  -- Total Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Total Volume: Binary
   index, total_volume = nyse_equities_bqt_xdp_v2_1_a.total_volume.dissect(buffer, index, packet, parent)
 
-  -- Market Id Of High Price: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of High Price: Binary
   index, market_id_of_high_price = nyse_equities_bqt_xdp_v2_1_a.market_id_of_high_price.dissect(buffer, index, packet, parent)
 
-  -- Market Id Of Low Price: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of Low Price: Binary
   index, market_id_of_low_price = nyse_equities_bqt_xdp_v2_1_a.market_id_of_low_price.dissect(buffer, index, packet, parent)
 
-  -- Market Id Of Open Price: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of Open Price: Binary
   index, market_id_of_open_price = nyse_equities_bqt_xdp_v2_1_a.market_id_of_open_price.dissect(buffer, index, packet, parent)
 
-  -- Number Of Close Prices: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Close Prices: Binary
   index, number_of_close_prices = nyse_equities_bqt_xdp_v2_1_a.number_of_close_prices.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Close Price
-  for close_price_index = 1, number_of_close_prices do
-    index, close_price = nyse_equities_bqt_xdp_v2_1_a.close_price.dissect(buffer, index, packet, parent, close_price_index)
-  end
+  -- Close Price: Struct of 2 fields
+  index, close_price = nyse_equities_bqt_xdp_v2_1_a.close_price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Consolidated Stock Summary Message
 nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.consolidated_stock_summary_message then
-    local length = nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_stock_summary_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_stock_summary_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Market Id
@@ -1315,43 +1233,43 @@ end
 nyse_equities_bqt_xdp_v2_1_a.consolidated_trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_equities_bqt_xdp_v2_1_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_equities_bqt_xdp_v2_1_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Number: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_equities_bqt_xdp_v2_1_a.symbol_seq_number.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Id: Binary
   index, original_trade_id = nyse_equities_bqt_xdp_v2_1_a.original_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_equities_bqt_xdp_v2_1_a.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Binary
   index, price = nyse_equities_bqt_xdp_v2_1_a.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_equities_bqt_xdp_v2_1_a.volume.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition 1: 1 Byte Ascii String Enum with 4 values
+  -- Trade Condition 1: ASCII
   index, trade_condition_1 = nyse_equities_bqt_xdp_v2_1_a.trade_condition_1.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition 2: 1 Byte Ascii String Enum with 7 values
+  -- Trade Condition 2: ASCII
   index, trade_condition_2 = nyse_equities_bqt_xdp_v2_1_a.trade_condition_2.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition 3: 1 Byte Ascii String Enum with 5 values
+  -- Trade Condition 3: ASCII
   index, trade_condition_3 = nyse_equities_bqt_xdp_v2_1_a.trade_condition_3.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition 4: 1 Byte Ascii String Enum with 12 values
+  -- Trade Condition 4: ASCII
   index, trade_condition_4 = nyse_equities_bqt_xdp_v2_1_a.trade_condition_4.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_equities_bqt_xdp_v2_1_a.market_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1396,22 +1314,22 @@ end
 nyse_equities_bqt_xdp_v2_1_a.consolidated_trade_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_equities_bqt_xdp_v2_1_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_equities_bqt_xdp_v2_1_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Number: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_equities_bqt_xdp_v2_1_a.symbol_seq_number.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_equities_bqt_xdp_v2_1_a.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_equities_bqt_xdp_v2_1_a.market_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1485,40 +1403,40 @@ end
 nyse_equities_bqt_xdp_v2_1_a.consolidated_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_equities_bqt_xdp_v2_1_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_equities_bqt_xdp_v2_1_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_equities_bqt_xdp_v2_1_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_equities_bqt_xdp_v2_1_a.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Binary
   index, price = nyse_equities_bqt_xdp_v2_1_a.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_equities_bqt_xdp_v2_1_a.volume.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition 1: 1 Byte Ascii String Enum with 4 values
+  -- Trade Condition 1: ASCII
   index, trade_condition_1 = nyse_equities_bqt_xdp_v2_1_a.trade_condition_1.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition 2: 1 Byte Ascii String Enum with 7 values
+  -- Trade Condition 2: ASCII
   index, trade_condition_2 = nyse_equities_bqt_xdp_v2_1_a.trade_condition_2.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition 3: 1 Byte Ascii String Enum with 5 values
+  -- Trade Condition 3: ASCII
   index, trade_condition_3 = nyse_equities_bqt_xdp_v2_1_a.trade_condition_3.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition 4: 1 Byte Ascii String Enum with 12 values
+  -- Trade Condition 4: ASCII
   index, trade_condition_4 = nyse_equities_bqt_xdp_v2_1_a.trade_condition_4.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_equities_bqt_xdp_v2_1_a.market_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1670,28 +1588,28 @@ end
 nyse_equities_bqt_xdp_v2_1_a.consolidated_single_sided_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Number: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_equities_bqt_xdp_v2_1_a.symbol_seq_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: ASCII
   index, side = nyse_equities_bqt_xdp_v2_1_a.side.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Binary
   index, price = nyse_equities_bqt_xdp_v2_1_a.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_equities_bqt_xdp_v2_1_a.volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_equities_bqt_xdp_v2_1_a.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Rpi Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Rpi Indicator: ASCII
   index, rpi_indicator = nyse_equities_bqt_xdp_v2_1_a.rpi_indicator.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_equities_bqt_xdp_v2_1_a.market_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1783,42 +1701,6 @@ nyse_equities_bqt_xdp_v2_1_a.market_id_of_best_ask.dissect = function(buffer, of
   local display = nyse_equities_bqt_xdp_v2_1_a.market_id_of_best_ask.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.market_id_of_best_ask, range, value, display)
-
-  return offset + length, value
-end
-
--- Retail Pricing Indicator
-nyse_equities_bqt_xdp_v2_1_a.retail_pricing_indicator = {}
-
--- Size: Retail Pricing Indicator
-nyse_equities_bqt_xdp_v2_1_a.retail_pricing_indicator.size = 1
-
--- Display: Retail Pricing Indicator
-nyse_equities_bqt_xdp_v2_1_a.retail_pricing_indicator.display = function(value)
-  if value == 0x00 then
-    return "Retail Pricing Indicator: No Retail Interest (0x00)"
-  end
-  if value == 0x01 then
-    return "Retail Pricing Indicator: Retail Interest On The Bid Side (0x01)"
-  end
-  if value == 0x02 then
-    return "Retail Pricing Indicator: Retail Interest On The Ask Side (0x02)"
-  end
-  if value == 0x04 then
-    return "Retail Pricing Indicator: Combination Of Retail Interest On Bid And Ask Side (0x04)"
-  end
-
-  return "Retail Pricing Indicator: Unknown("..value..")"
-end
-
--- Dissect: Retail Pricing Indicator
-nyse_equities_bqt_xdp_v2_1_a.retail_pricing_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bqt_xdp_v2_1_a.retail_pricing_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bqt_xdp_v2_1_a.retail_pricing_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.retail_pricing_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2013,37 +1895,37 @@ end
 nyse_equities_bqt_xdp_v2_1_a.bqt_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Number: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_equities_bqt_xdp_v2_1_a.symbol_seq_number.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Price: Binary
   index, ask_price = nyse_equities_bqt_xdp_v2_1_a.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Volume: Binary
   index, ask_volume = nyse_equities_bqt_xdp_v2_1_a.ask_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Price: Binary
   index, bid_price = nyse_equities_bqt_xdp_v2_1_a.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Volume: Binary
   index, bid_volume = nyse_equities_bqt_xdp_v2_1_a.bid_volume.dissect(buffer, index, packet, parent)
 
-  -- Ask Quote Condition: 1 Byte Ascii String Enum with 4 values
+  -- Ask Quote Condition: ASCII
   index, ask_quote_condition = nyse_equities_bqt_xdp_v2_1_a.ask_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Bid Quote Condition: 1 Byte Ascii String Enum with 4 values
+  -- Bid Quote Condition: ASCII
   index, bid_quote_condition = nyse_equities_bqt_xdp_v2_1_a.bid_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Retail Pricing Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Retail Pricing Indicator
   index, retail_pricing_indicator = nyse_equities_bqt_xdp_v2_1_a.retail_pricing_indicator.dissect(buffer, index, packet, parent)
 
-  -- Market Id Of Best Ask: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of Best Ask: Binary
   index, market_id_of_best_ask = nyse_equities_bqt_xdp_v2_1_a.market_id_of_best_ask.dissect(buffer, index, packet, parent)
 
-  -- Market Id Of Best Bid: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of Best Bid: Binary
   index, market_id_of_best_bid = nyse_equities_bqt_xdp_v2_1_a.market_id_of_best_bid.dissect(buffer, index, packet, parent)
 
   return index
@@ -2178,16 +2060,16 @@ end
 nyse_equities_bqt_xdp_v2_1_a.refresh_header_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Current Refresh Pkt: 2 Byte Unsigned Fixed Width Integer
+  -- Current Refresh Pkt: Binary
   index, current_refresh_pkt = nyse_equities_bqt_xdp_v2_1_a.current_refresh_pkt.dissect(buffer, index, packet, parent)
 
-  -- Total Refresh Pkts: 2 Byte Unsigned Fixed Width Integer
+  -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_equities_bqt_xdp_v2_1_a.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Seq Num: Binary
   index, last_seq_num = nyse_equities_bqt_xdp_v2_1_a.last_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Last Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Symbol Seq Num: Binary
   index, last_symbol_seq_num = nyse_equities_bqt_xdp_v2_1_a.last_symbol_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -2483,25 +2365,25 @@ nyse_equities_bqt_xdp_v2_1_a.price_1.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Reserved 2
-nyse_equities_bqt_xdp_v2_1_a.reserved_2 = {}
+-- Reserved Binary 2
+nyse_equities_bqt_xdp_v2_1_a.reserved_binary_2 = {}
 
--- Size: Reserved 2
-nyse_equities_bqt_xdp_v2_1_a.reserved_2.size = 2
+-- Size: Reserved Binary 2
+nyse_equities_bqt_xdp_v2_1_a.reserved_binary_2.size = 2
 
--- Display: Reserved 2
-nyse_equities_bqt_xdp_v2_1_a.reserved_2.display = function(value)
-  return "Reserved 2: "..value
+-- Display: Reserved Binary 2
+nyse_equities_bqt_xdp_v2_1_a.reserved_binary_2.display = function(value)
+  return "Reserved Binary 2: "..value
 end
 
--- Dissect: Reserved 2
-nyse_equities_bqt_xdp_v2_1_a.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bqt_xdp_v2_1_a.reserved_2.size
+-- Dissect: Reserved Binary 2
+nyse_equities_bqt_xdp_v2_1_a.reserved_binary_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bqt_xdp_v2_1_a.reserved_binary_2.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_equities_bqt_xdp_v2_1_a.reserved_2.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = nyse_equities_bqt_xdp_v2_1_a.reserved_binary_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved_binary_2, range, value, display)
 
   return offset + length, value
 end
@@ -2647,7 +2529,7 @@ nyse_equities_bqt_xdp_v2_1_a.consolidated_security_status_message.size =
   nyse_equities_bqt_xdp_v2_1_a.security_status.size + 
   nyse_equities_bqt_xdp_v2_1_a.halt_condition.size + 
   nyse_equities_bqt_xdp_v2_1_a.market_id.size + 
-  nyse_equities_bqt_xdp_v2_1_a.reserved_2.size + 
+  nyse_equities_bqt_xdp_v2_1_a.reserved_binary_2.size + 
   nyse_equities_bqt_xdp_v2_1_a.price_1.size + 
   nyse_equities_bqt_xdp_v2_1_a.price_2.size + 
   nyse_equities_bqt_xdp_v2_1_a.ssr_triggering_exchange_id.size + 
@@ -2666,52 +2548,52 @@ end
 nyse_equities_bqt_xdp_v2_1_a.consolidated_security_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_equities_bqt_xdp_v2_1_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_equities_bqt_xdp_v2_1_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_equities_bqt_xdp_v2_1_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 16 values
+  -- Security Status: ASCII
   index, security_status = nyse_equities_bqt_xdp_v2_1_a.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String Enum with 11 values
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_equities_bqt_xdp_v2_1_a.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_equities_bqt_xdp_v2_1_a.market_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
-  index, reserved_2 = nyse_equities_bqt_xdp_v2_1_a.reserved_2.dissect(buffer, index, packet, parent)
+  -- Reserved Binary 2: Binary
+  index, reserved_binary_2 = nyse_equities_bqt_xdp_v2_1_a.reserved_binary_2.dissect(buffer, index, packet, parent)
 
-  -- Price 1: 4 Byte Unsigned Fixed Width Integer
+  -- Price 1: Binary
   index, price_1 = nyse_equities_bqt_xdp_v2_1_a.price_1.dissect(buffer, index, packet, parent)
 
-  -- Price 2: 4 Byte Unsigned Fixed Width Integer
+  -- Price 2: Binary
   index, price_2 = nyse_equities_bqt_xdp_v2_1_a.price_2.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Exchange Id: 1 Byte Ascii String Enum with 18 values
+  -- Ssr Triggering Exchange Id: ASCII
   index, ssr_triggering_exchange_id = nyse_equities_bqt_xdp_v2_1_a.ssr_triggering_exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ssr Triggering Volume: Binary
   index, ssr_triggering_volume = nyse_equities_bqt_xdp_v2_1_a.ssr_triggering_volume.dissect(buffer, index, packet, parent)
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer
+  -- Time: Binary
   index, time = nyse_equities_bqt_xdp_v2_1_a.time.dissect(buffer, index, packet, parent)
 
-  -- Ssr State: 1 Byte Ascii String Enum with 2 values
+  -- Ssr State: ASCII
   index, ssr_state = nyse_equities_bqt_xdp_v2_1_a.ssr_state.dissect(buffer, index, packet, parent)
 
-  -- Market State: 1 Byte Ascii String Enum with 5 values
+  -- Market State: ASCII
   index, market_state = nyse_equities_bqt_xdp_v2_1_a.market_state.dissect(buffer, index, packet, parent)
 
-  -- Session State: 1 Byte Ascii String Enum with 3 values
+  -- Session State: ASCII
   index, session_state = nyse_equities_bqt_xdp_v2_1_a.session_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2742,53 +2624,58 @@ nyse_equities_bqt_xdp_v2_1_a.trade_session = {}
 nyse_equities_bqt_xdp_v2_1_a.trade_session.size = 1
 
 -- Display: Trade Session
-nyse_equities_bqt_xdp_v2_1_a.trade_session.display = function(buffer, packet, parent)
+nyse_equities_bqt_xdp_v2_1_a.trade_session.display = function(range, value, packet, parent)
   local display = ""
 
-  -- Is Ok For Late Hours flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Ok For Late Hours|"
-  end
-  -- Is Ok For National Hours flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Ok For National Hours|"
-  end
   -- Is Ok For Morning Hours flag set?
-  if buffer:bitfield(7) > 0 then
+  if bit.band(value, 0x01) ~= 0 then
     display = display.."Ok For Morning Hours|"
   end
+  -- Is Ok For National Hours Core flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    display = display.."Ok For National Hours Core|"
+  end
+  -- Is Ok For Late Hours flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    display = display.."Ok For Late Hours|"
+  end
 
-  return display:sub(1, -2)
+  if display:sub(-1) == "|" then
+    display = display:sub(1, -2)
+  end
+
+  return display
 end
 
 -- Dissect Bit Fields: Trade Session
-nyse_equities_bqt_xdp_v2_1_a.trade_session.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved: 5 Bit
-  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved, buffer(offset, 1))
-
-  -- Ok For Late Hours: 1 Bit
-  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_late_hours, buffer(offset, 1))
-
-  -- Ok For National Hours: 1 Bit
-  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_national_hours, buffer(offset, 1))
+nyse_equities_bqt_xdp_v2_1_a.trade_session.bits = function(range, value, packet, parent)
 
   -- Ok For Morning Hours: 1 Bit
-  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_morning_hours, buffer(offset, 1))
+  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_morning_hours, range, value)
+
+  -- Ok For National Hours Core: 1 Bit
+  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_national_hours_core, range, value)
+
+  -- Ok For Late Hours: 1 Bit
+  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_late_hours, range, value)
+
+  -- Reserved 5: 5 Bit
+  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved_5, range, value)
 end
 
 -- Dissect: Trade Session
 nyse_equities_bqt_xdp_v2_1_a.trade_session.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = nyse_equities_bqt_xdp_v2_1_a.trade_session.size
   local range = buffer(offset, size)
-  local display = nyse_equities_bqt_xdp_v2_1_a.trade_session.display(range, packet, parent)
-  local element = parent:add_le(omi_nyse_equities_bqt_xdp_v2_1_a.fields.trade_session, range, display)
+  local value = range:le_uint()
+  local display = nyse_equities_bqt_xdp_v2_1_a.trade_session.display(range, value, packet, parent)
+  local element = parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.trade_session, range, display)
 
   if show.trade_session then
-    nyse_equities_bqt_xdp_v2_1_a.trade_session.bits(buffer, offset, packet, element)
+    nyse_equities_bqt_xdp_v2_1_a.trade_session.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Consolidated Trading Session Change Message
@@ -2812,22 +2699,22 @@ end
 nyse_equities_bqt_xdp_v2_1_a.consolidated_trading_session_change_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_equities_bqt_xdp_v2_1_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_equities_bqt_xdp_v2_1_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_equities_bqt_xdp_v2_1_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
   -- Trade Session: Struct of 4 fields
   index, trade_session = nyse_equities_bqt_xdp_v2_1_a.trade_session.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_equities_bqt_xdp_v2_1_a.market_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2894,19 +2781,19 @@ end
 nyse_equities_bqt_xdp_v2_1_a.consolidated_symbol_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_equities_bqt_xdp_v2_1_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_equities_bqt_xdp_v2_1_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Next Source Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_equities_bqt_xdp_v2_1_a.next_source_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_equities_bqt_xdp_v2_1_a.market_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3041,16 +2928,16 @@ end
 nyse_equities_bqt_xdp_v2_1_a.message_unavailable_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_equities_bqt_xdp_v2_1_a.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_equities_bqt_xdp_v2_1_a.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_equities_bqt_xdp_v2_1_a.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_equities_bqt_xdp_v2_1_a.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3116,16 +3003,16 @@ end
 nyse_equities_bqt_xdp_v2_1_a.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_equities_bqt_xdp_v2_1_a.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_equities_bqt_xdp_v2_1_a.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_equities_bqt_xdp_v2_1_a.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3196,19 +3083,19 @@ end
 nyse_equities_bqt_xdp_v2_1_a.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_equities_bqt_xdp_v2_1_a.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_equities_bqt_xdp_v2_1_a.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_equities_bqt_xdp_v2_1_a.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Retransmit Method: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Retransmit Method: Binary
   index, retransmit_method = nyse_equities_bqt_xdp_v2_1_a.retransmit_method.dissect(buffer, index, packet, parent)
 
   return index
@@ -3248,7 +3135,7 @@ end
 nyse_equities_bqt_xdp_v2_1_a.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_equities_bqt_xdp_v2_1_a.source_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3371,25 +3258,25 @@ end
 nyse_equities_bqt_xdp_v2_1_a.request_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Request Seq Num: Binary
   index, request_seq_num = nyse_equities_bqt_xdp_v2_1_a.request_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_equities_bqt_xdp_v2_1_a.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_equities_bqt_xdp_v2_1_a.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_equities_bqt_xdp_v2_1_a.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_equities_bqt_xdp_v2_1_a.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_equities_bqt_xdp_v2_1_a.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String Enum with 10 values
+  -- Status: ASCII
   index, status = nyse_equities_bqt_xdp_v2_1_a.status.dissect(buffer, index, packet, parent)
 
   return index
@@ -3433,19 +3320,19 @@ end
 nyse_equities_bqt_xdp_v2_1_a.retransmission_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_equities_bqt_xdp_v2_1_a.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_equities_bqt_xdp_v2_1_a.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_equities_bqt_xdp_v2_1_a.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_equities_bqt_xdp_v2_1_a.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_equities_bqt_xdp_v2_1_a.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3813,25 +3700,25 @@ nyse_equities_bqt_xdp_v2_1_a.system_id.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Reserved 1
-nyse_equities_bqt_xdp_v2_1_a.reserved_1 = {}
+-- Reserved Binary 1
+nyse_equities_bqt_xdp_v2_1_a.reserved_binary_1 = {}
 
--- Size: Reserved 1
-nyse_equities_bqt_xdp_v2_1_a.reserved_1.size = 1
+-- Size: Reserved Binary 1
+nyse_equities_bqt_xdp_v2_1_a.reserved_binary_1.size = 1
 
--- Display: Reserved 1
-nyse_equities_bqt_xdp_v2_1_a.reserved_1.display = function(value)
-  return "Reserved 1: "..value
+-- Display: Reserved Binary 1
+nyse_equities_bqt_xdp_v2_1_a.reserved_binary_1.display = function(value)
+  return "Reserved Binary 1: "..value
 end
 
--- Dissect: Reserved 1
-nyse_equities_bqt_xdp_v2_1_a.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bqt_xdp_v2_1_a.reserved_1.size
+-- Dissect: Reserved Binary 1
+nyse_equities_bqt_xdp_v2_1_a.reserved_binary_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bqt_xdp_v2_1_a.reserved_binary_1.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_equities_bqt_xdp_v2_1_a.reserved_1.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = nyse_equities_bqt_xdp_v2_1_a.reserved_binary_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.reserved_binary_1, range, value, display)
 
   return offset + length, value
 end
@@ -3866,7 +3753,7 @@ nyse_equities_bqt_xdp_v2_1_a.symbol_index_mapping_message = {}
 nyse_equities_bqt_xdp_v2_1_a.symbol_index_mapping_message.size =
   nyse_equities_bqt_xdp_v2_1_a.symbol_index.size + 
   nyse_equities_bqt_xdp_v2_1_a.symbol.size + 
-  nyse_equities_bqt_xdp_v2_1_a.reserved_1.size + 
+  nyse_equities_bqt_xdp_v2_1_a.reserved_binary_1.size + 
   nyse_equities_bqt_xdp_v2_1_a.market_id.size + 
   nyse_equities_bqt_xdp_v2_1_a.system_id.size + 
   nyse_equities_bqt_xdp_v2_1_a.exchange_code.size + 
@@ -3879,7 +3766,7 @@ nyse_equities_bqt_xdp_v2_1_a.symbol_index_mapping_message.size =
   nyse_equities_bqt_xdp_v2_1_a.round_lot.size + 
   nyse_equities_bqt_xdp_v2_1_a.mpv.size + 
   nyse_equities_bqt_xdp_v2_1_a.unit_of_trade.size + 
-  nyse_equities_bqt_xdp_v2_1_a.reserved_2.size
+  nyse_equities_bqt_xdp_v2_1_a.reserved_binary_2.size
 
 -- Display: Symbol Index Mapping Message
 nyse_equities_bqt_xdp_v2_1_a.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -3890,53 +3777,53 @@ end
 nyse_equities_bqt_xdp_v2_1_a.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_equities_bqt_xdp_v2_1_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
+  -- Symbol: ASCII
   index, symbol = nyse_equities_bqt_xdp_v2_1_a.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = nyse_equities_bqt_xdp_v2_1_a.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved Binary 1: Binary
+  index, reserved_binary_1 = nyse_equities_bqt_xdp_v2_1_a.reserved_binary_1.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_equities_bqt_xdp_v2_1_a.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_equities_bqt_xdp_v2_1_a.system_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 8 values
+  -- Exchange Code: ASCII
   index, exchange_code = nyse_equities_bqt_xdp_v2_1_a.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_equities_bqt_xdp_v2_1_a.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Ascii String Enum with 16 values
+  -- Security Type: ASCII
   index, security_type = nyse_equities_bqt_xdp_v2_1_a.security_type.dissect(buffer, index, packet, parent)
 
-  -- Lot Size: 2 Byte Unsigned Fixed Width Integer
+  -- Lot Size: Binary
   index, lot_size = nyse_equities_bqt_xdp_v2_1_a.lot_size.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Price: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Price: Binary
   index, prev_close_price = nyse_equities_bqt_xdp_v2_1_a.prev_close_price.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Volume: Binary
   index, prev_close_volume = nyse_equities_bqt_xdp_v2_1_a.prev_close_volume.dissect(buffer, index, packet, parent)
 
-  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Price Resolution: Binary
   index, price_resolution = nyse_equities_bqt_xdp_v2_1_a.price_resolution.dissect(buffer, index, packet, parent)
 
-  -- Round Lot: 1 Byte Ascii String Enum with 2 values
+  -- Round Lot: ASCII
   index, round_lot = nyse_equities_bqt_xdp_v2_1_a.round_lot.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 2 Byte Unsigned Fixed Width Integer
+  -- Mpv: Binary
   index, mpv = nyse_equities_bqt_xdp_v2_1_a.mpv.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Trade: 2 Byte Unsigned Fixed Width Integer
+  -- Unit Of Trade: Binary
   index, unit_of_trade = nyse_equities_bqt_xdp_v2_1_a.unit_of_trade.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
-  index, reserved_2 = nyse_equities_bqt_xdp_v2_1_a.reserved_2.dissect(buffer, index, packet, parent)
+  -- Reserved Binary 2: Binary
+  index, reserved_binary_2 = nyse_equities_bqt_xdp_v2_1_a.reserved_binary_2.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3978,16 +3865,16 @@ end
 nyse_equities_bqt_xdp_v2_1_a.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_equities_bqt_xdp_v2_1_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_equities_bqt_xdp_v2_1_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_equities_bqt_xdp_v2_1_a.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_equities_bqt_xdp_v2_1_a.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4086,7 +3973,7 @@ nyse_equities_bqt_xdp_v2_1_a.payload.size = function(buffer, offset, message_typ
   end
   -- Size of Consolidated Stock Summary Message
   if message_type == 229 then
-    return nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.size(buffer, offset)
+    return nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.size
   end
   -- Size of Consolidated Volume Message
   if message_type == 240 then
