@@ -38,7 +38,6 @@ omi_boats_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_4 = Pr
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.original_trade_price = ProtoField.new("Original Trade Price", "boats.equities.memoirlastsale.sbe.v1.3.originaltradeprice", ftypes.DOUBLE)
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.original_trade_qty = ProtoField.new("Original Trade Qty", "boats.equities.memoirlastsale.sbe.v1.3.originaltradeqty", ftypes.UINT32)
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Packet", "boats.equities.memoirlastsale.sbe.v1.3.packet", ftypes.STRING)
-omi_boats_equities_memoirlastsale_sbe_v1_3.fields.padding_1 = ProtoField.new("Padding 1", "boats.equities.memoirlastsale.sbe.v1.3.padding1", ftypes.BYTES)
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.payload = ProtoField.new("Payload", "boats.equities.memoirlastsale.sbe.v1.3.payload", ftypes.STRING)
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "boats.equities.memoirlastsale.sbe.v1.3.roundlot", ftypes.UINT32)
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_1 = ProtoField.new("Sale Condition 1", "boats.equities.memoirlastsale.sbe.v1.3.salecondition1", ftypes.STRING)
@@ -194,29 +193,6 @@ end
 -----------------------------------------------------------------------
 -- Dissect Boats Equities MemoirLastSale Sbe 1.3
 -----------------------------------------------------------------------
-
--- Padding 1
-boats_equities_memoirlastsale_sbe_v1_3.padding_1 = {}
-
--- Size: Padding 1
-boats_equities_memoirlastsale_sbe_v1_3.padding_1.size = 1
-
--- Display: Padding 1
-boats_equities_memoirlastsale_sbe_v1_3.padding_1.display = function(value)
-  return "Padding 1: "..value
-end
-
--- Dissect: Padding 1
-boats_equities_memoirlastsale_sbe_v1_3.padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.padding_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = boats_equities_memoirlastsale_sbe_v1_3.padding_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.padding_1, range, value, display)
-
-  return offset + length, value
-end
 
 -- Corrected Sale Condition 4
 boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4 = {}
@@ -413,7 +389,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = boats_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.translate(raw)
   local display = boats_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.display(value, buffer, offset, packet, parent)
 
@@ -640,7 +616,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3.original_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirlastsale_sbe_v1_3.original_trade_price.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = boats_equities_memoirlastsale_sbe_v1_3.original_trade_price.translate(raw)
   local display = boats_equities_memoirlastsale_sbe_v1_3.original_trade_price.display(value, buffer, offset, packet, parent)
 
@@ -760,8 +736,7 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_correct_message.size =
   boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.size + 
   boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.size + 
   boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.padding_1.size
+  boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size
 
 -- Display: Trade Correct Message
 boats_equities_memoirlastsale_sbe_v1_3.trade_correct_message.display = function(packet, parent, length)
@@ -784,7 +759,7 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_correct_message.fields = function(b
   -- Original Trade Qty: uint32
   index, original_trade_qty = boats_equities_memoirlastsale_sbe_v1_3.original_trade_qty.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Price: PriceType
+  -- Original Trade Price: Price
   index, original_trade_price = boats_equities_memoirlastsale_sbe_v1_3.original_trade_price.dissect(buffer, index, packet, parent)
 
   -- Original Sale Condition 1: SCSettlementType
@@ -802,7 +777,7 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_correct_message.fields = function(b
   -- Corrected Trade Qty: uint32
   index, corrected_trade_qty = boats_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.dissect(buffer, index, packet, parent)
 
-  -- Corrected Trade Price: PriceType
+  -- Corrected Trade Price: Price
   index, corrected_trade_price = boats_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.dissect(buffer, index, packet, parent)
 
   -- Corrected Sale Condition 1: SCSettlementType
@@ -816,9 +791,6 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_correct_message.fields = function(b
 
   -- Corrected Sale Condition 4: SCSROTradeDetailType
   index, corrected_sale_condition_4 = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.dissect(buffer, index, packet, parent)
-
-  -- Padding 1: 1 Byte
-  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3.padding_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1036,7 +1008,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3.last_price.dissect = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirlastsale_sbe_v1_3.last_price.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = boats_equities_memoirlastsale_sbe_v1_3.last_price.translate(raw)
   local display = boats_equities_memoirlastsale_sbe_v1_3.last_price.display(value, buffer, offset, packet, parent)
 
@@ -1081,8 +1053,7 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.size =
   boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size + 
   boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size + 
   boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.padding_1.size
+  boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
 
 -- Display: Trade Cancel Message
 boats_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.display = function(packet, parent, length)
@@ -1105,7 +1076,7 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.fields = function(bu
   -- Trade Qty: uint32
   index, trade_qty = boats_equities_memoirlastsale_sbe_v1_3.trade_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Price: PriceType
+  -- Last Price: Price
   index, last_price = boats_equities_memoirlastsale_sbe_v1_3.last_price.dissect(buffer, index, packet, parent)
 
   -- Sale Condition 1: SCSettlementType
@@ -1119,9 +1090,6 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.fields = function(bu
 
   -- Sale Condition 4: SCSROTradeDetailType
   index, sale_condition_4 = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.dissect(buffer, index, packet, parent)
-
-  -- Padding 1: 1 Byte
-  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3.padding_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1164,7 +1132,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirlastsale_sbe_v1_3.trade_price.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = boats_equities_memoirlastsale_sbe_v1_3.trade_price.translate(raw)
   local display = boats_equities_memoirlastsale_sbe_v1_3.trade_price.display(value, buffer, offset, packet, parent)
 
@@ -1186,8 +1154,7 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_report_message.size =
   boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size + 
   boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size + 
   boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.padding_1.size
+  boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
 
 -- Display: Trade Report Message
 boats_equities_memoirlastsale_sbe_v1_3.trade_report_message.display = function(packet, parent, length)
@@ -1210,7 +1177,7 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_report_message.fields = function(bu
   -- Trade Qty: uint32
   index, trade_qty = boats_equities_memoirlastsale_sbe_v1_3.trade_qty.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: PriceType
+  -- Trade Price: Price
   index, trade_price = boats_equities_memoirlastsale_sbe_v1_3.trade_price.dissect(buffer, index, packet, parent)
 
   -- Sale Condition 1: SCSettlementType
@@ -1224,9 +1191,6 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_report_message.fields = function(bu
 
   -- Sale Condition 4: SCSROTradeDetailType
   index, sale_condition_4 = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.dissect(buffer, index, packet, parent)
-
-  -- Padding 1: 1 Byte
-  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3.padding_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1304,8 +1268,7 @@ boats_equities_memoirlastsale_sbe_v1_3.trading_session_status_message = {}
 -- Size: Trading Session Status Message
 boats_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.size =
   boats_equities_memoirlastsale_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.trading_session.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.padding_1.size
+  boats_equities_memoirlastsale_sbe_v1_3.trading_session.size
 
 -- Display: Trading Session Status Message
 boats_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.display = function(packet, parent, length)
@@ -1321,9 +1284,6 @@ boats_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.fields = f
 
   -- Trading Session: TradingSessionType
   index, trading_session = boats_equities_memoirlastsale_sbe_v1_3.trading_session.dissect(buffer, index, packet, parent)
-
-  -- Padding 1: 1 Byte
-  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3.padding_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1449,8 +1409,7 @@ boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.size =
   boats_equities_memoirlastsale_sbe_v1_3.timestamp.size + 
   boats_equities_memoirlastsale_sbe_v1_3.security_id.size + 
   boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.padding_1.size
+  boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size
 
 -- Display: Security Trading Status Message
 boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.display = function(packet, parent, length)
@@ -1472,9 +1431,6 @@ boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.fields = 
 
   -- Security Trading Status Reason: SecurityTradingStatusReasonType
   index, security_trading_status_reason = boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.dissect(buffer, index, packet, parent)
-
-  -- Padding 1: 1 Byte
-  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3.padding_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1534,8 +1490,7 @@ boats_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message = {}
 boats_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.size =
   boats_equities_memoirlastsale_sbe_v1_3.timestamp.size + 
   boats_equities_memoirlastsale_sbe_v1_3.security_id.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.padding_1.size
+  boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size
 
 -- Display: Reg Sho Restriction Message
 boats_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.display = function(packet, parent, length)
@@ -1554,9 +1509,6 @@ boats_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.fields = func
 
   -- Short Sale Restriction: BooleanType
   index, short_sale_restriction = boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.dissect(buffer, index, packet, parent)
-
-  -- Padding 1: 1 Byte
-  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3.padding_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1599,7 +1551,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirlastsale_sbe_v1_3.mpv.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = boats_equities_memoirlastsale_sbe_v1_3.mpv.translate(raw)
   local display = boats_equities_memoirlastsale_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
 
@@ -1750,8 +1702,7 @@ boats_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.size =
   boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.size + 
   boats_equities_memoirlastsale_sbe_v1_3.round_lot.size + 
   boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.mpv.size + 
-  boats_equities_memoirlastsale_sbe_v1_3.padding_1.size
+  boats_equities_memoirlastsale_sbe_v1_3.mpv.size
 
 -- Display: Instrument Directory Message
 boats_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.display = function(packet, parent, length)
@@ -1780,11 +1731,8 @@ boats_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.fields = fun
   -- Is Test Symbol: BooleanType
   index, is_test_symbol = boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.dissect(buffer, index, packet, parent)
 
-  -- Mpv: PriceType
+  -- Mpv: Price
   index, mpv = boats_equities_memoirlastsale_sbe_v1_3.mpv.dissect(buffer, index, packet, parent)
-
-  -- Padding 1: 1 Byte
-  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3.padding_1.dissect(buffer, index, packet, parent)
 
   return index
 end

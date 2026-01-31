@@ -16,28 +16,25 @@ local boats_equities_memoirtopofbook_sbe_v1_3 = {}
 
 -- Boats Equities MemoirTopOfBook Sbe 1.3 Fields
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "boats.equities.memoirtopofbook.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_price_type = ProtoField.new("Bid Price Price Type", "boats.equities.memoirtopofbook.sbe.v1.3.bidpricepricetype", ftypes.DOUBLE)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short_price_type = ProtoField.new("Bid Price Short Price Type", "boats.equities.memoirtopofbook.sbe.v1.3.bidpriceshortpricetype", ftypes.STRING)
+omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_price = ProtoField.new("Bid Price", "boats.equities.memoirtopofbook.sbe.v1.3.bidprice", ftypes.DOUBLE)
+omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short = ProtoField.new("Bid Price Short", "boats.equities.memoirtopofbook.sbe.v1.3.bidpriceshort", ftypes.DOUBLE)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_size = ProtoField.new("Bid Size", "boats.equities.memoirtopofbook.sbe.v1.3.bidsize", ftypes.UINT32)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_size_short = ProtoField.new("Bid Size Short", "boats.equities.memoirtopofbook.sbe.v1.3.bidsizeshort", ftypes.UINT16)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "boats.equities.memoirtopofbook.sbe.v1.3.blocklength", ftypes.UINT16)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "boats.equities.memoirtopofbook.sbe.v1.3.commonheader", ftypes.STRING)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.exponent = ProtoField.new("Exponent", "boats.equities.memoirtopofbook.sbe.v1.3.exponent", ftypes.INT8)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "boats.equities.memoirtopofbook.sbe.v1.3.headerlength", ftypes.UINT8)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "boats.equities.memoirtopofbook.sbe.v1.3.istestsymbol", ftypes.UINT8)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.mantissa = ProtoField.new("Mantissa", "boats.equities.memoirtopofbook.sbe.v1.3.mantissa", ftypes.INT16)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.message = ProtoField.new("Message", "boats.equities.memoirtopofbook.sbe.v1.3.message", ftypes.STRING)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "boats.equities.memoirtopofbook.sbe.v1.3.messagecount", ftypes.UINT16)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "boats.equities.memoirtopofbook.sbe.v1.3.messagelength", ftypes.UINT16)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.message_type = ProtoField.new("Message Type", "boats.equities.memoirtopofbook.sbe.v1.3.messagetype", ftypes.UINT8)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "boats.equities.memoirtopofbook.sbe.v1.3.mpv", ftypes.DOUBLE)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_price_type = ProtoField.new("Offer Price Price Type", "boats.equities.memoirtopofbook.sbe.v1.3.offerpricepricetype", ftypes.DOUBLE)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short_price_type = ProtoField.new("Offer Price Short Price Type", "boats.equities.memoirtopofbook.sbe.v1.3.offerpriceshortpricetype", ftypes.STRING)
+omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_price = ProtoField.new("Offer Price", "boats.equities.memoirtopofbook.sbe.v1.3.offerprice", ftypes.DOUBLE)
+omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short = ProtoField.new("Offer Price Short", "boats.equities.memoirtopofbook.sbe.v1.3.offerpriceshort", ftypes.DOUBLE)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_size = ProtoField.new("Offer size", "boats.equities.memoirtopofbook.sbe.v1.3.offersize", ftypes.UINT32)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16 = ProtoField.new("Offer Size uint 16", "boats.equities.memoirtopofbook.sbe.v1.3.offersizeuint16", ftypes.UINT16)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "boats.equities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.payload = ProtoField.new("Payload", "boats.equities.memoirtopofbook.sbe.v1.3.payload", ftypes.STRING)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "boats.equities.memoirtopofbook.sbe.v1.3.reserved", ftypes.UINT8)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "boats.equities.memoirtopofbook.sbe.v1.3.roundlot", ftypes.UINT32)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "boats.equities.memoirtopofbook.sbe.v1.3.sbeheader", ftypes.STRING)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "boats.equities.memoirtopofbook.sbe.v1.3.sbemessage", ftypes.STRING)
@@ -53,10 +50,8 @@ omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.short_sale_restriction = Prot
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "boats.equities.memoirtopofbook.sbe.v1.3.symbol", ftypes.STRING)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "boats.equities.memoirtopofbook.sbe.v1.3.symbolsfx", ftypes.STRING)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "boats.equities.memoirtopofbook.sbe.v1.3.templateid", ftypes.UINT8)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.time = ProtoField.new("Time", "boats.equities.memoirtopofbook.sbe.v1.3.time", ftypes.UINT64)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "boats.equities.memoirtopofbook.sbe.v1.3.timestamp", ftypes.STRING)
+omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "boats.equities.memoirtopofbook.sbe.v1.3.timestamp", ftypes.UINT64)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "boats.equities.memoirtopofbook.sbe.v1.3.tradingsession", ftypes.STRING)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.unit = ProtoField.new("Unit", "boats.equities.memoirtopofbook.sbe.v1.3.unit", ftypes.UINT8)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.version = ProtoField.new("Version", "boats.equities.memoirtopofbook.sbe.v1.3.version", ftypes.UINT16)
 
 -- Boats Equities MemoirTopOfBook Sbe 1.3 messages
@@ -87,12 +82,10 @@ show.best_bid_offer_message = true
 show.best_bid_short_message = true
 show.best_offer_message = true
 show.best_offer_short_message = true
-show.bid_price_short_price_type = true
 show.clear_book_message = true
 show.common_header = true
 show.instrument_directory_message = true
 show.message = true
-show.offer_price_short_price_type = true
 show.packet = true
 show.reg_sho_restriction_message = true
 show.sbe_header = true
@@ -100,7 +93,6 @@ show.sbe_message = true
 show.security_trading_status_message = true
 show.sequenced_message = true
 show.snapshot_complete_message = true
-show.timestamp = true
 show.trading_session_status_message = true
 show.payload = false
 show.sequenced_messages = false
@@ -111,12 +103,10 @@ omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_offer_message = 
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_short_message = Pref.bool("Show Best Bid Short Message", show.best_bid_short_message, "Parse and add Best Bid Short Message to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_message = Pref.bool("Show Best Offer Message", show.best_offer_message, "Parse and add Best Offer Message to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message = Pref.bool("Show Best Offer Short Message", show.best_offer_short_message, "Parse and add Best Offer Short Message to protocol tree")
-omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_bid_price_short_price_type = Pref.bool("Show Bid Price Short Price Type", show.bid_price_short_price_type, "Parse and add Bid Price Short Price Type to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_offer_price_short_price_type = Pref.bool("Show Offer Price Short Price Type", show.offer_price_short_price_type, "Parse and add Offer Price Short Price Type to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_reg_sho_restriction_message = Pref.bool("Show Reg Sho Restriction Message", show.reg_sho_restriction_message, "Parse and add Reg Sho Restriction Message to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
@@ -124,7 +114,6 @@ omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_message = Pref.bool("
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_message = Pref.bool("Show Security Trading Status Message", show.security_trading_status_message, "Parse and add Security Trading Status Message to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
-omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_timestamp = Pref.bool("Show Timestamp", show.timestamp, "Parse and add Timestamp to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_messages = Pref.bool("Show Sequenced Messages", show.sequenced_messages, "Parse and add Sequenced Messages to protocol tree")
@@ -154,10 +143,6 @@ function omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs_changed()
     show.best_offer_short_message = omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message
     changed = true
   end
-  if show.bid_price_short_price_type ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_bid_price_short_price_type then
-    show.bid_price_short_price_type = omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_bid_price_short_price_type
-    changed = true
-  end
   if show.clear_book_message ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message then
     show.clear_book_message = omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message
     changed = true
@@ -172,10 +157,6 @@ function omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs_changed()
   end
   if show.message ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_message then
     show.message = omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_message
-    changed = true
-  end
-  if show.offer_price_short_price_type ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_offer_price_short_price_type then
-    show.offer_price_short_price_type = omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_offer_price_short_price_type
     changed = true
   end
   if show.packet ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_packet then
@@ -204,10 +185,6 @@ function omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs_changed()
   end
   if show.snapshot_complete_message ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message then
     show.snapshot_complete_message = omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message
-    changed = true
-  end
-  if show.timestamp ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_timestamp then
-    show.timestamp = omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_timestamp
     changed = true
   end
   if show.trading_session_status_message ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message then
@@ -257,94 +234,27 @@ boats_equities_memoirtopofbook_sbe_v1_3.security_id.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Unit
-boats_equities_memoirtopofbook_sbe_v1_3.unit = {}
-
--- Size: Unit
-boats_equities_memoirtopofbook_sbe_v1_3.unit.size = 1
-
--- Display: Unit
-boats_equities_memoirtopofbook_sbe_v1_3.unit.display = function(value)
-  return "Unit: "..value
-end
-
--- Dissect: Unit
-boats_equities_memoirtopofbook_sbe_v1_3.unit.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirtopofbook_sbe_v1_3.unit.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirtopofbook_sbe_v1_3.unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Time
-boats_equities_memoirtopofbook_sbe_v1_3.time = {}
-
--- Size: Time
-boats_equities_memoirtopofbook_sbe_v1_3.time.size = 8
-
--- Display: Time
-boats_equities_memoirtopofbook_sbe_v1_3.time.display = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-boats_equities_memoirtopofbook_sbe_v1_3.time.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirtopofbook_sbe_v1_3.time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memoirtopofbook_sbe_v1_3.time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Timestamp
 boats_equities_memoirtopofbook_sbe_v1_3.timestamp = {}
 
 -- Size: Timestamp
-boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.time.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.unit.size
+boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size = 8
 
 -- Display: Timestamp
-boats_equities_memoirtopofbook_sbe_v1_3.timestamp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Timestamp
-boats_equities_memoirtopofbook_sbe_v1_3.timestamp.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time: uint64
-  index, time = boats_equities_memoirtopofbook_sbe_v1_3.time.dissect(buffer, index, packet, parent)
-
-  -- Unit: uint8
-  index, unit = boats_equities_memoirtopofbook_sbe_v1_3.unit.dissect(buffer, index, packet, parent)
-
-  return index
+boats_equities_memoirtopofbook_sbe_v1_3.timestamp.display = function(value)
+  return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
 boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.timestamp, buffer(offset, 0))
-    local index = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.display(packet, parent, length)
-    parent:append_text(display)
+  local length = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.display(value, buffer, offset, packet, parent)
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return boats_equities_memoirtopofbook_sbe_v1_3.timestamp.fields(buffer, offset, packet, parent)
-  end
+  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.timestamp, range, value, display)
+
+  return offset + length, value
 end
 
 -- Clear Book Message
@@ -364,7 +274,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.clear_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -391,94 +301,33 @@ boats_equities_memoirtopofbook_sbe_v1_3.clear_book_message.dissect = function(bu
   end
 end
 
--- Mantissa
-boats_equities_memoirtopofbook_sbe_v1_3.mantissa = {}
+-- Offer Price Short
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short = {}
 
--- Size: Mantissa
-boats_equities_memoirtopofbook_sbe_v1_3.mantissa.size = 2
+-- Size: Offer Price Short
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size = 2
 
--- Display: Mantissa
-boats_equities_memoirtopofbook_sbe_v1_3.mantissa.display = function(value)
-  return "Mantissa: "..value
+-- Display: Offer Price Short
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short.display = function(value)
+  return "Offer Price Short: "..value
 end
 
--- Dissect: Mantissa
-boats_equities_memoirtopofbook_sbe_v1_3.mantissa.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirtopofbook_sbe_v1_3.mantissa.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = boats_equities_memoirtopofbook_sbe_v1_3.mantissa.display(value, buffer, offset, packet, parent)
+-- Translate: Offer Price Short
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short.translate = function(raw)
+  return raw/100
+end
 
-  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.mantissa, range, value, display)
+-- Dissect: Offer Price Short
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short.translate(raw)
+  local display = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short, range, value, display)
 
   return offset + length, value
-end
-
--- Exponent
-boats_equities_memoirtopofbook_sbe_v1_3.exponent = {}
-
--- Size: Exponent
-boats_equities_memoirtopofbook_sbe_v1_3.exponent.size = 1
-
--- Display: Exponent
-boats_equities_memoirtopofbook_sbe_v1_3.exponent.display = function(value)
-  return "Exponent: "..value
-end
-
--- Dissect: Exponent
-boats_equities_memoirtopofbook_sbe_v1_3.exponent.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirtopofbook_sbe_v1_3.exponent.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = boats_equities_memoirtopofbook_sbe_v1_3.exponent.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.exponent, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type = {}
-
--- Size: Offer Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.exponent.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.mantissa.size
-
--- Display: Offer Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Offer Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Exponent: int8
-  index, exponent = boats_equities_memoirtopofbook_sbe_v1_3.exponent.dissect(buffer, index, packet, parent)
-
-  -- Mantissa: int16
-  index, mantissa = boats_equities_memoirtopofbook_sbe_v1_3.mantissa.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Offer Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.dissect = function(buffer, offset, packet, parent)
-  if show.offer_price_short_price_type then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short_price_type, buffer(offset, 0))
-    local index = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Offer Size uint 16
@@ -512,7 +361,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.size =
   boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.size
+  boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size
 
 -- Display: Best Offer Short Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.display = function(packet, parent, length)
@@ -523,7 +372,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -532,8 +381,8 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.fields = functi
   -- Offer Size uint 16: uint16
   index, offer_size_uint_16 = boats_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Short Price Type: Struct of 2 fields
-  index, offer_price_short_price_type = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short_price_type.dissect(buffer, index, packet, parent)
+  -- Offer Price Short: ShortPrice
+  index, offer_price_short = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -556,48 +405,33 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.dissect = funct
   end
 end
 
--- Bid Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type = {}
+-- Bid Price Short
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short = {}
 
--- Size: Bid Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.exponent.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.mantissa.size
+-- Size: Bid Price Short
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size = 2
 
--- Display: Bid Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.display = function(packet, parent, length)
-  return ""
+-- Display: Bid Price Short
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short.display = function(value)
+  return "Bid Price Short: "..value
 end
 
--- Dissect Fields: Bid Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Exponent: int8
-  index, exponent = boats_equities_memoirtopofbook_sbe_v1_3.exponent.dissect(buffer, index, packet, parent)
-
-  -- Mantissa: int16
-  index, mantissa = boats_equities_memoirtopofbook_sbe_v1_3.mantissa.dissect(buffer, index, packet, parent)
-
-  return index
+-- Translate: Bid Price Short
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short.translate = function(raw)
+  return raw/100
 end
 
--- Dissect: Bid Price Short Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.dissect = function(buffer, offset, packet, parent)
-  if show.bid_price_short_price_type then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short_price_type, buffer(offset, 0))
-    local index = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.display(packet, parent, length)
-    parent:append_text(display)
+-- Dissect: Bid Price Short
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short.translate(raw)
+  local display = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short.display(value, buffer, offset, packet, parent)
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.fields(buffer, offset, packet, parent)
-  end
+  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short, range, value, display)
+
+  return offset + length, value
 end
 
 -- Bid Size Short
@@ -631,7 +465,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.size =
   boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.bid_size_short.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.size
+  boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size
 
 -- Display: Best Bid Short Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.display = function(packet, parent, length)
@@ -642,7 +476,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -651,8 +485,8 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.fields = function
   -- Bid Size Short: uint16
   index, bid_size_short = boats_equities_memoirtopofbook_sbe_v1_3.bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Short Price Type: Struct of 2 fields
-  index, bid_price_short_price_type = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short_price_type.dissect(buffer, index, packet, parent)
+  -- Bid Price Short: ShortPrice
+  index, bid_price_short = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -675,31 +509,31 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.dissect = functio
   end
 end
 
--- Offer Price Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type = {}
+-- Offer Price
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price = {}
 
--- Size: Offer Price Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.size = 8
+-- Size: Offer Price
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price.size = 8
 
--- Display: Offer Price Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.display = function(value)
-  return "Offer Price Price Type: "..value
+-- Display: Offer Price
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price.display = function(value)
+  return "Offer Price: "..value
 end
 
--- Translate: Offer Price Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.translate = function(raw)
+-- Translate: Offer Price
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Offer Price Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.size
+-- Dissect: Offer Price
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirtopofbook_sbe_v1_3.offer_price.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.translate(raw)
-  local display = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.display(value, buffer, offset, packet, parent)
+  local raw = range:int64()
+  local value = boats_equities_memoirtopofbook_sbe_v1_3.offer_price.translate(raw)
+  local display = boats_equities_memoirtopofbook_sbe_v1_3.offer_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_price_type, range, value, display)
+  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -735,7 +569,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_offer_message.size =
   boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.offer_size.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.size
+  boats_equities_memoirtopofbook_sbe_v1_3.offer_price.size
 
 -- Display: Best Offer Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_offer_message.display = function(packet, parent, length)
@@ -746,7 +580,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.best_offer_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -755,8 +589,8 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_offer_message.fields = function(buf
   -- Offer size: uint32
   index, offer_size = boats_equities_memoirtopofbook_sbe_v1_3.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Price Type: PriceType
-  index, offer_price_price_type = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.dissect(buffer, index, packet, parent)
+  -- Offer Price: Price
+  index, offer_price = boats_equities_memoirtopofbook_sbe_v1_3.offer_price.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -779,31 +613,31 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_offer_message.dissect = function(bu
   end
 end
 
--- Bid Price Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type = {}
+-- Bid Price
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price = {}
 
--- Size: Bid Price Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.size = 8
+-- Size: Bid Price
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price.size = 8
 
--- Display: Bid Price Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.display = function(value)
-  return "Bid Price Price Type: "..value
+-- Display: Bid Price
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price.display = function(value)
+  return "Bid Price: "..value
 end
 
--- Translate: Bid Price Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.translate = function(raw)
+-- Translate: Bid Price
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Bid Price Price Type
-boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.size
+-- Dissect: Bid Price
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirtopofbook_sbe_v1_3.bid_price.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.translate(raw)
-  local display = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.display(value, buffer, offset, packet, parent)
+  local raw = range:int64()
+  local value = boats_equities_memoirtopofbook_sbe_v1_3.bid_price.translate(raw)
+  local display = boats_equities_memoirtopofbook_sbe_v1_3.bid_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_price_type, range, value, display)
+  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -839,7 +673,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_message.size =
   boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.bid_size.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.size
+  boats_equities_memoirtopofbook_sbe_v1_3.bid_price.size
 
 -- Display: Best Bid Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_message.display = function(packet, parent, length)
@@ -850,7 +684,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -859,8 +693,8 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_message.fields = function(buffe
   -- Bid Size: uint32
   index, bid_size = boats_equities_memoirtopofbook_sbe_v1_3.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price Type: PriceType
-  index, bid_price_price_type = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.dissect(buffer, index, packet, parent)
+  -- Bid Price: Price
+  index, bid_price = boats_equities_memoirtopofbook_sbe_v1_3.bid_price.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -891,9 +725,9 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.size =
   boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.bid_size.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.size + 
+  boats_equities_memoirtopofbook_sbe_v1_3.bid_price.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.offer_size.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.size
+  boats_equities_memoirtopofbook_sbe_v1_3.offer_price.size
 
 -- Display: Best Bid Offer Message
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.display = function(packet, parent, length)
@@ -904,7 +738,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -913,14 +747,14 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.fields = function
   -- Bid Size: uint32
   index, bid_size = boats_equities_memoirtopofbook_sbe_v1_3.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price Type: PriceType
-  index, bid_price_price_type = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.dissect(buffer, index, packet, parent)
+  -- Bid Price: Price
+  index, bid_price = boats_equities_memoirtopofbook_sbe_v1_3.bid_price.dissect(buffer, index, packet, parent)
 
   -- Offer size: uint32
   index, offer_size = boats_equities_memoirtopofbook_sbe_v1_3.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Price Type: PriceType
-  index, offer_price_price_type = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.dissect(buffer, index, packet, parent)
+  -- Offer Price: Price
+  index, offer_price = boats_equities_memoirtopofbook_sbe_v1_3.offer_price.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -940,73 +774,6 @@ boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.dissect = functio
   else
     -- Skip element, add fields directly
     return boats_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- As Of Sequence Number
-boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number = {}
-
--- Size: As Of Sequence Number
-boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size = 8
-
--- Display: As Of Sequence Number
-boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.display = function(value)
-  return "As Of Sequence Number: "..value
-end
-
--- Dissect: As Of Sequence Number
-boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Snapshot Complete Message
-boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message = {}
-
--- Size: Snapshot Complete Message
-boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.size =
-  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size
-
--- Display: Snapshot Complete Message
-boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Snapshot Complete Message
-boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Timestamp: Struct of 2 fields
-  index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
-
-  -- As Of Sequence Number: uint64
-  index, as_of_sequence_number = boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Snapshot Complete Message
-boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_complete_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
-    local index = boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1076,7 +843,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trading Session: TradingSessionType
@@ -1100,6 +867,73 @@ boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.dissect =
   else
     -- Skip element, add fields directly
     return boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- As Of Sequence Number
+boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number = {}
+
+-- Size: As Of Sequence Number
+boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size = 8
+
+-- Display: As Of Sequence Number
+boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.display = function(value)
+  return "As Of Sequence Number: "..value
+end
+
+-- Dissect: As Of Sequence Number
+boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Snapshot Complete Message
+boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message = {}
+
+-- Size: Snapshot Complete Message
+boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.size =
+  boats_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size
+
+-- Display: Snapshot Complete Message
+boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Snapshot Complete Message
+boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UTCTimestampNanos
+  index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- As Of Sequence Number: uint64
+  index, as_of_sequence_number = boats_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Snapshot Complete Message
+boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.snapshot_complete_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
+    local index = boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1217,7 +1051,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -1298,7 +1132,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -1348,7 +1182,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirtopofbook_sbe_v1_3.mpv.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = boats_equities_memoirtopofbook_sbe_v1_3.mpv.translate(raw)
   local display = boats_equities_memoirtopofbook_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
 
@@ -1383,29 +1217,6 @@ boats_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.dissect = function(buffer
   local display = boats_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.is_test_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved
-boats_equities_memoirtopofbook_sbe_v1_3.reserved = {}
-
--- Size: Reserved
-boats_equities_memoirtopofbook_sbe_v1_3.reserved.size = 1
-
--- Display: Reserved
-boats_equities_memoirtopofbook_sbe_v1_3.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-boats_equities_memoirtopofbook_sbe_v1_3.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirtopofbook_sbe_v1_3.reserved.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirtopofbook_sbe_v1_3.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -1521,7 +1332,6 @@ boats_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.size =
   boats_equities_memoirtopofbook_sbe_v1_3.symbol.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.round_lot.size + 
-  boats_equities_memoirtopofbook_sbe_v1_3.reserved.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.size + 
   boats_equities_memoirtopofbook_sbe_v1_3.mpv.size
 
@@ -1534,7 +1344,7 @@ end
 boats_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -1549,13 +1359,10 @@ boats_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.fields = fu
   -- Round Lot: uint32
   index, round_lot = boats_equities_memoirtopofbook_sbe_v1_3.round_lot.dissect(buffer, index, packet, parent)
 
-  -- Reserved: uint8
-  index, reserved = boats_equities_memoirtopofbook_sbe_v1_3.reserved.dissect(buffer, index, packet, parent)
-
   -- Is Test Symbol: BooleanType
   index, is_test_symbol = boats_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.dissect(buffer, index, packet, parent)
 
-  -- Mpv: PriceType
+  -- Mpv: Price
   index, mpv = boats_equities_memoirtopofbook_sbe_v1_3.mpv.dissect(buffer, index, packet, parent)
 
   return index
@@ -1596,13 +1403,13 @@ boats_equities_memoirtopofbook_sbe_v1_3.payload.size = function(buffer, offset, 
   if template_id == 3 then
     return boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.size
   end
-  -- Size of Trading Session Status Message
-  if template_id == 5 then
-    return boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.size
-  end
   -- Size of Snapshot Complete Message
   if template_id == 4 then
     return boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.size
+  end
+  -- Size of Trading Session Status Message
+  if template_id == 5 then
+    return boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.size
   end
   -- Size of Best Bid Offer Message
   if template_id == 10 then
@@ -1651,13 +1458,13 @@ boats_equities_memoirtopofbook_sbe_v1_3.payload.branches = function(buffer, offs
   if template_id == 3 then
     return boats_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Trading Session Status Message
-  if template_id == 5 then
-    return boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Snapshot Complete Message
   if template_id == 4 then
     return boats_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Session Status Message
+  if template_id == 5 then
+    return boats_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Best Bid Offer Message
   if template_id == 10 then
@@ -1778,11 +1585,11 @@ boats_equities_memoirtopofbook_sbe_v1_3.template_id.display = function(value)
   if value == 3 then
     return "Template Id: Security Trading Status Message (3)"
   end
-  if value == 5 then
-    return "Template Id: Trading Session Status Message (5)"
-  end
   if value == 4 then
     return "Template Id: Snapshot Complete Message (4)"
+  end
+  if value == 5 then
+    return "Template Id: Trading Session Status Message (5)"
   end
   if value == 10 then
     return "Template Id: Best Bid Offer Message (10)"

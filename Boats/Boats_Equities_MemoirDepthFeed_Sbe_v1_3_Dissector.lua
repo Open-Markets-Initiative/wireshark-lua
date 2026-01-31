@@ -51,11 +51,9 @@ omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.side = ProtoField.new("Side",
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "boats.equities.memoirdepthfeed.sbe.v1.3.symbol", ftypes.STRING)
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "boats.equities.memoirdepthfeed.sbe.v1.3.symbolsfx", ftypes.STRING)
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "boats.equities.memoirdepthfeed.sbe.v1.3.templateid", ftypes.UINT8)
-omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.time = ProtoField.new("Time", "boats.equities.memoirdepthfeed.sbe.v1.3.time", ftypes.UINT64)
-omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "boats.equities.memoirdepthfeed.sbe.v1.3.timestamp", ftypes.STRING)
+omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "boats.equities.memoirdepthfeed.sbe.v1.3.timestamp", ftypes.UINT64)
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoField.new("Trade Id", "boats.equities.memoirdepthfeed.sbe.v1.3.tradeid", ftypes.UINT64)
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "boats.equities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
-omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.unit = ProtoField.new("Unit", "boats.equities.memoirdepthfeed.sbe.v1.3.unit", ftypes.UINT8)
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.version = ProtoField.new("Version", "boats.equities.memoirdepthfeed.sbe.v1.3.version", ftypes.UINT16)
 
 -- Boats Equities MemoirDepthFeed Sbe 1.3 messages
@@ -100,7 +98,6 @@ show.sbe_message = true
 show.security_trading_status_message = true
 show.sequenced_message = true
 show.snapshot_complete_message = true
-show.timestamp = true
 show.trade_message = true
 show.trading_session_status_message = true
 show.payload = false
@@ -124,7 +121,6 @@ omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_message = Pref.bool("
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_security_trading_status_message = Pref.bool("Show Security Trading Status Message", show.security_trading_status_message, "Parse and add Security Trading Status Message to protocol tree")
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
-omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_timestamp = Pref.bool("Show Timestamp", show.timestamp, "Parse and add Timestamp to protocol tree")
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
@@ -203,10 +199,6 @@ function omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs_changed()
     show.snapshot_complete_message = omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_snapshot_complete_message
     changed = true
   end
-  if show.timestamp ~= omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_timestamp then
-    show.timestamp = omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_timestamp
-    changed = true
-  end
   if show.trade_message ~= omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trade_message then
     show.trade_message = omi_boats_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trade_message
     changed = true
@@ -258,94 +250,27 @@ boats_equities_memoirdepthfeed_sbe_v1_3.as_of_sequence_number.dissect = function
   return offset + length, value
 end
 
--- Unit
-boats_equities_memoirdepthfeed_sbe_v1_3.unit = {}
-
--- Size: Unit
-boats_equities_memoirdepthfeed_sbe_v1_3.unit.size = 1
-
--- Display: Unit
-boats_equities_memoirdepthfeed_sbe_v1_3.unit.display = function(value)
-  return "Unit: "..value
-end
-
--- Dissect: Unit
-boats_equities_memoirdepthfeed_sbe_v1_3.unit.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirdepthfeed_sbe_v1_3.unit.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirdepthfeed_sbe_v1_3.unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Time
-boats_equities_memoirdepthfeed_sbe_v1_3.time = {}
-
--- Size: Time
-boats_equities_memoirdepthfeed_sbe_v1_3.time.size = 8
-
--- Display: Time
-boats_equities_memoirdepthfeed_sbe_v1_3.time.display = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-boats_equities_memoirdepthfeed_sbe_v1_3.time.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirdepthfeed_sbe_v1_3.time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memoirdepthfeed_sbe_v1_3.time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Timestamp
 boats_equities_memoirdepthfeed_sbe_v1_3.timestamp = {}
 
 -- Size: Timestamp
-boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size =
-  boats_equities_memoirdepthfeed_sbe_v1_3.time.size + 
-  boats_equities_memoirdepthfeed_sbe_v1_3.unit.size
+boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size = 8
 
 -- Display: Timestamp
-boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Timestamp
-boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time: uint64
-  index, time = boats_equities_memoirdepthfeed_sbe_v1_3.time.dissect(buffer, index, packet, parent)
-
-  -- Unit: uint8
-  index, unit = boats_equities_memoirdepthfeed_sbe_v1_3.unit.dissect(buffer, index, packet, parent)
-
-  return index
+boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.display = function(value)
+  return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
 boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp, buffer(offset, 0))
-    local index = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.display(packet, parent, length)
-    parent:append_text(display)
+  local length = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.display(value, buffer, offset, packet, parent)
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.fields(buffer, offset, packet, parent)
-  end
+  parent:add(omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp, range, value, display)
+
+  return offset + length, value
 end
 
 -- Snapshot Complete Message
@@ -365,7 +290,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- As Of Sequence Number: uint64
@@ -432,7 +357,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -479,7 +404,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.corrected_price.dissect = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirdepthfeed_sbe_v1_3.corrected_price.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = boats_equities_memoirdepthfeed_sbe_v1_3.corrected_price.translate(raw)
   local display = boats_equities_memoirdepthfeed_sbe_v1_3.corrected_price.display(value, buffer, offset, packet, parent)
 
@@ -531,7 +456,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.original_price.dissect = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirdepthfeed_sbe_v1_3.original_price.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = boats_equities_memoirdepthfeed_sbe_v1_3.original_price.translate(raw)
   local display = boats_equities_memoirdepthfeed_sbe_v1_3.original_price.display(value, buffer, offset, packet, parent)
 
@@ -608,7 +533,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.corrected_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -620,13 +545,13 @@ boats_equities_memoirdepthfeed_sbe_v1_3.corrected_trade_message.fields = functio
   -- Original Quantity: uint32
   index, original_quantity = boats_equities_memoirdepthfeed_sbe_v1_3.original_quantity.dissect(buffer, index, packet, parent)
 
-  -- Original Price: PriceType
+  -- Original Price: Price
   index, original_price = boats_equities_memoirdepthfeed_sbe_v1_3.original_price.dissect(buffer, index, packet, parent)
 
   -- Corrected Quantity: uint32
   index, corrected_quantity = boats_equities_memoirdepthfeed_sbe_v1_3.corrected_quantity.dissect(buffer, index, packet, parent)
 
-  -- Corrected Price: PriceType
+  -- Corrected Price: Price
   index, corrected_price = boats_equities_memoirdepthfeed_sbe_v1_3.corrected_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -670,7 +595,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.broken_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -682,7 +607,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3.broken_trade_message.fields = function(b
   -- Original Quantity: uint32
   index, original_quantity = boats_equities_memoirdepthfeed_sbe_v1_3.original_quantity.dissect(buffer, index, packet, parent)
 
-  -- Original Price: PriceType
+  -- Original Price: Price
   index, original_price = boats_equities_memoirdepthfeed_sbe_v1_3.original_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -726,7 +651,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.price.dissect = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirdepthfeed_sbe_v1_3.price.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = boats_equities_memoirdepthfeed_sbe_v1_3.price.translate(raw)
   local display = boats_equities_memoirdepthfeed_sbe_v1_3.price.display(value, buffer, offset, packet, parent)
 
@@ -778,7 +703,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -790,7 +715,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3.trade_message.fields = function(buffer, 
   -- Quantity: uint32
   index, quantity = boats_equities_memoirdepthfeed_sbe_v1_3.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: PriceType
+  -- Price: Price
   index, price = boats_equities_memoirdepthfeed_sbe_v1_3.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -858,7 +783,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -873,7 +798,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3.order_executed_message.fields = function
   -- Quantity: uint32
   index, quantity = boats_equities_memoirdepthfeed_sbe_v1_3.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: PriceType
+  -- Price: Price
   index, price = boats_equities_memoirdepthfeed_sbe_v1_3.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -916,7 +841,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.order_reduced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -967,7 +892,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.order_deleted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -1061,7 +986,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.order_added_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -1076,7 +1001,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3.order_added_message.fields = function(bu
   -- Quantity: uint32
   index, quantity = boats_equities_memoirdepthfeed_sbe_v1_3.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: PriceType
+  -- Price: Price
   index, price = boats_equities_memoirdepthfeed_sbe_v1_3.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1166,7 +1091,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.trading_session_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trading Session: TradingSessionType
@@ -1307,7 +1232,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -1388,7 +1313,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -1438,7 +1363,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirdepthfeed_sbe_v1_3.mpv.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = boats_equities_memoirdepthfeed_sbe_v1_3.mpv.translate(raw)
   local display = boats_equities_memoirdepthfeed_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
 
@@ -1624,7 +1549,7 @@ end
 boats_equities_memoirdepthfeed_sbe_v1_3.instrument_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: UTCTimestampNanos
   index, timestamp = boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: uint16
@@ -1645,7 +1570,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3.instrument_directory_message.fields = fu
   -- Is Test Symbol: BooleanType
   index, is_test_symbol = boats_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.dissect(buffer, index, packet, parent)
 
-  -- Mpv: PriceType
+  -- Mpv: Price
   index, mpv = boats_equities_memoirdepthfeed_sbe_v1_3.mpv.dissect(buffer, index, packet, parent)
 
   return index
