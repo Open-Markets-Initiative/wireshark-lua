@@ -2643,7 +2643,7 @@ otc_markets_multicast_ats_v4_3.market_open.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Market Open: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Market Open: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Market Open

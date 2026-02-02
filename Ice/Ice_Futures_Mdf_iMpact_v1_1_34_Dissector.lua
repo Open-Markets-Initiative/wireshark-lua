@@ -894,7 +894,7 @@ ice_futures_mdf_impact_v1_1_34.transact_date_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Transact Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Transact Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Transact Date Time
@@ -1246,7 +1246,7 @@ ice_futures_mdf_impact_v1_1_34.valuation_date_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Valuation Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Valuation Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Valuation Date Time
@@ -1316,7 +1316,7 @@ ice_futures_mdf_impact_v1_1_34.message_date_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Message Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Message Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Message Date Time
@@ -2084,7 +2084,7 @@ ice_futures_mdf_impact_v1_1_34.message_timestamp.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Message Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Message Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Message Timestamp
@@ -5966,7 +5966,7 @@ ice_futures_mdf_impact_v1_1_34.auction_end_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Auction End Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Auction End Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Auction End Time
@@ -6377,7 +6377,7 @@ ice_futures_mdf_impact_v1_1_34.order_entry_date_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Order Entry Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Order Entry Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Order Entry Date Time
@@ -8604,7 +8604,7 @@ ice_futures_mdf_impact_v1_1_34.notification_date_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Notification Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Notification Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Notification Date Time
@@ -9448,7 +9448,7 @@ ice_futures_mdf_impact_v1_1_34.published_date_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Published Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Published Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Published Date Time
@@ -10388,7 +10388,7 @@ ice_futures_mdf_impact_v1_1_34.delivery_end_date_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Delivery End Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Delivery End Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Delivery End Date Time
@@ -10415,7 +10415,7 @@ ice_futures_mdf_impact_v1_1_34.delivery_begin_date_time.display = function(value
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Delivery Begin Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Delivery Begin Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Delivery Begin Date Time
@@ -10922,7 +10922,7 @@ ice_futures_mdf_impact_v1_1_34.settle_price_date_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Settle Price Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Settle Price Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Settle Price Date Time
@@ -10949,7 +10949,7 @@ ice_futures_mdf_impact_v1_1_34.last_trade_date_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Last Trade Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Last Trade Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Last Trade Date Time
@@ -11821,7 +11821,7 @@ ice_futures_mdf_impact_v1_1_34.sent_date_time.display = function(value)
   local seconds = math.floor(value:tonumber()/1000)
   local milliseconds = value:tonumber()%1000
 
-  return "Sent Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
+  return "Sent Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Sent Date Time
