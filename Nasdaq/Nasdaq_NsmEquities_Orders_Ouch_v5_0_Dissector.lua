@@ -1080,28 +1080,28 @@ nasdaq_nsmequities_orders_ouch_v5_0.display.display = function(value)
     return "Display: Imbalance Only (I)"
   end
   if value == "M" then
-    return "Display: Mid Point (M)"
+    return "Display: Mid Point Peg (M)"
   end
   if value == "W" then
-    return "Display: Mid Point (W)"
+    return "Display: Mid Point Peg Post Only (W)"
   end
   if value == "L" then
     return "Display: Post Only And Attributable (L)"
   end
   if value == "O" then
-    return "Display: Retail Order (O)"
+    return "Display: Retail Order Type 1 (O)"
   end
   if value == "T" then
-    return "Display: Retail Order (T)"
+    return "Display: Retail Order Type 2 (T)"
   end
   if value == "Q" then
-    return "Display: Retail Price (Q)"
+    return "Display: Retail Price Improvement Order (Q)"
   end
   if value == "Z" then
     return "Display: Conformant (Z)"
   end
   if value == "m" then
-    return "Display: Mid Point (m)"
+    return "Display: Mid Point Peg And Mid Point Trade Now (m)"
   end
   if value == "n" then
     return "Display: Non Display And Mid Point (n)"
@@ -2889,9 +2889,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.display = function(value)
   if value == "A" then
     return "Liquidity Flag: Added (A)"
   end
-  if value == "C" then
-    return "Liquidity Flag: Closing Cross (C)"
-  end
   if value == "e" then
     return "Liquidity Flag: Retail Designated (e)"
   end
@@ -2920,7 +2917,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.display = function(value)
     return "Liquidity Flag: Opening Cross (M)"
   end
   if value == "m" then
-    return "Liquidity Flag: Removed (m)"
+    return "Liquidity Flag: Removed Liquidity At A Midpoint (m)"
   end
   if value == "N" then
     return "Liquidity Flag: Passive Midpoint Execution (N)"
@@ -2945,9 +2942,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.display = function(value)
   end
   if value == "t" then
     return "Liquidity Flag: Retail Order Removes Price Improving Nondisplayed Liquidity Other Than Rpi Liquidity (t)"
-  end
-  if value == "k" then
-    return "Liquidity Flag: Added (k)"
   end
   if value == "0" then
     return "Liquidity Flag: Supplemental (0)"
@@ -3009,7 +3003,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.fields = function(b
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Ascii String Enum with 24 values
+  -- Liquidity Flag: 1 Byte Ascii String Enum with 22 values
   index, liquidity_flag = nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.dissect(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
@@ -3348,7 +3342,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields = function(buf
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Ascii String Enum with 24 values
+  -- Liquidity Flag: 1 Byte Ascii String Enum with 22 values
   index, liquidity_flag = nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.dissect(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
@@ -3527,7 +3521,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.fields = function(buffe
   -- Execution Price: 8 Byte Unsigned Fixed Width Integer
   index, execution_price = nasdaq_nsmequities_orders_ouch_v5_0.execution_price.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Ascii String Enum with 24 values
+  -- Liquidity Flag: 1 Byte Ascii String Enum with 22 values
   index, liquidity_flag = nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.dissect(buffer, index, packet, parent)
 
   return index
@@ -3572,7 +3566,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.display = function(value
     return "Cancel Order Reason: Supervisory (S)"
   end
   if value == "D" then
-    return "Cancel Order Reason: This Order Cannot Be Executed Because Of A Regulatory Restriction (D)"
+    return "Cancel Order Reason: Regulatory Restriction (D)"
   end
   if value == "Q" then
     return "Cancel Order Reason: Self Match Prevention (Q)"
@@ -3599,7 +3593,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.display = function(value
     return "Cancel Order Reason: Post Only Cancel (F)"
   end
   if value == "G" then
-    return "Cancel Order Reason: Post Only Cancel (G)"
+    return "Cancel Order Reason: Post Only Cancel Contra Side Displayed (G)"
   end
 
   return "Cancel Order Reason: Unknown("..value..")"
