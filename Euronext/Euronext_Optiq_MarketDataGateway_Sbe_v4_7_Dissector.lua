@@ -1122,7 +1122,11 @@ euronext_optiq_marketdatagateway_sbe_v4_7.event_time.size = 8
 
 -- Display: Event Time
 euronext_optiq_marketdatagateway_sbe_v4_7.event_time.display = function(value)
-  return "Event Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Event Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Event Time
@@ -3967,12 +3971,15 @@ euronext_optiq_marketdatagateway_sbe_v4_7.original_report_timestamp.size = 8
 
 -- Display: Original Report Timestamp
 euronext_optiq_marketdatagateway_sbe_v4_7.original_report_timestamp.display = function(value)
-  -- Check if field has value
+  -- Check null sentinel value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Original Report Timestamp: No Value"
   end
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
 
-  return "Original Report Timestamp: "..value
+  return "Original Report Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Original Report Timestamp
@@ -10981,7 +10988,11 @@ euronext_optiq_marketdatagateway_sbe_v4_7.low_time.size = 8
 
 -- Display: Low Time
 euronext_optiq_marketdatagateway_sbe_v4_7.low_time.display = function(value)
-  return "Low Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Low Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Low Time
@@ -11027,7 +11038,11 @@ euronext_optiq_marketdatagateway_sbe_v4_7.high_time.size = 8
 
 -- Display: High Time
 euronext_optiq_marketdatagateway_sbe_v4_7.high_time.display = function(value)
-  return "High Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "High Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: High Time
@@ -11142,12 +11157,15 @@ euronext_optiq_marketdatagateway_sbe_v4_7.confirmed_reference_time.size = 8
 
 -- Display: Confirmed Reference Time
 euronext_optiq_marketdatagateway_sbe_v4_7.confirmed_reference_time.display = function(value)
-  -- Check if field has value
+  -- Check null sentinel value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Confirmed Reference Time: No Value"
   end
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
 
-  return "Confirmed Reference Time: "..value
+  return "Confirmed Reference Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Confirmed Reference Time
@@ -11198,7 +11216,11 @@ euronext_optiq_marketdatagateway_sbe_v4_7.opening_time.size = 8
 
 -- Display: Opening Time
 euronext_optiq_marketdatagateway_sbe_v4_7.opening_time.display = function(value)
-  return "Opening Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Opening Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Opening Time
@@ -14095,7 +14117,11 @@ euronext_optiq_marketdatagateway_sbe_v4_7.phase_time.size = 8
 
 -- Display: Phase Time
 euronext_optiq_marketdatagateway_sbe_v4_7.phase_time.display = function(value)
-  return "Phase Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Phase Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Phase Time
@@ -14417,12 +14443,15 @@ euronext_optiq_marketdatagateway_sbe_v4_7.scheduled_event_time.size = 8
 
 -- Display: Scheduled Event Time
 euronext_optiq_marketdatagateway_sbe_v4_7.scheduled_event_time.display = function(value)
-  -- Check if field has value
+  -- Check null sentinel value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Scheduled Event Time: No Value"
   end
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
 
-  return "Scheduled Event Time: "..value
+  return "Scheduled Event Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Scheduled Event Time
@@ -17204,12 +17233,15 @@ euronext_optiq_marketdatagateway_sbe_v4_7.retransmission_end_time.size = 8
 
 -- Display: Retransmission End Time
 euronext_optiq_marketdatagateway_sbe_v4_7.retransmission_end_time.display = function(value)
-  -- Check if field has value
+  -- Check null sentinel value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Retransmission End Time: No Value"
   end
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
 
-  return "Retransmission End Time: "..value
+  return "Retransmission End Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Retransmission End Time
@@ -17232,12 +17264,15 @@ euronext_optiq_marketdatagateway_sbe_v4_7.retransmission_start_time.size = 8
 
 -- Display: Retransmission Start Time
 euronext_optiq_marketdatagateway_sbe_v4_7.retransmission_start_time.display = function(value)
-  -- Check if field has value
+  -- Check null sentinel value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Retransmission Start Time: No Value"
   end
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
 
-  return "Retransmission Start Time: "..value
+  return "Retransmission Start Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Retransmission Start Time
@@ -18208,7 +18243,11 @@ euronext_optiq_marketdatagateway_sbe_v4_7.packet_time.size = 8
 
 -- Display: Packet Time
 euronext_optiq_marketdatagateway_sbe_v4_7.packet_time.display = function(value)
-  return "Packet Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Packet Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Packet Time
