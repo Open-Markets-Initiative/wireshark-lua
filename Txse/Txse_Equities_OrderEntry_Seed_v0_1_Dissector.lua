@@ -229,7 +229,7 @@ omi_txse_equities_orderentry_seed_v0_1.fields.unsequenced_message = ProtoField.n
 omi_txse_equities_orderentry_seed_v0_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "txse.equities.orderentry.seed.v0.1.unsequencedmessagetype", ftypes.UINT8)
 omi_txse_equities_orderentry_seed_v0_1.fields.user_data = ProtoField.new("User Data", "txse.equities.orderentry.seed.v0.1.userdata", ftypes.INT64)
 
--- Txse Equities OrderEntry Seed 0.1 messages
+-- Txse Equities Seed OrderEntry 0.1 Application Messages
 omi_txse_equities_orderentry_seed_v0_1.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "txse.equities.orderentry.seed.v0.1.cancelordermessage", ftypes.STRING)
 omi_txse_equities_orderentry_seed_v0_1.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "txse.equities.orderentry.seed.v0.1.cancelrejectedmessage", ftypes.STRING)
 omi_txse_equities_orderentry_seed_v0_1.fields.define_symbol_message = ProtoField.new("Define Symbol Message", "txse.equities.orderentry.seed.v0.1.definesymbolmessage", ftypes.STRING)

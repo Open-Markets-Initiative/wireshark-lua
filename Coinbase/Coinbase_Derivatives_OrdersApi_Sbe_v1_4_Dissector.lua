@@ -95,7 +95,7 @@ omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_lock_applied = ProtoF
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.username = ProtoField.new("Username", "coinbase.derivatives.ordersapi.sbe.v1.4.username", ftypes.STRING)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.version = ProtoField.new("Version", "coinbase.derivatives.ordersapi.sbe.v1.4.version", ftypes.UINT16)
 
--- Coinbase Derivatives OrdersApi Sbe 1.4 messages
+-- Coinbase Derivatives Sbe OrdersApi 1.4 Application Messages
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelordermessage", ftypes.STRING)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_message = ProtoField.new("Cancel Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelorderrejectmessage", ftypes.STRING)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_complete_message = ProtoField.new("Event Resend Complete Message", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendcompletemessage", ftypes.STRING)

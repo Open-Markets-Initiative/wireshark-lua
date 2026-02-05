@@ -263,7 +263,7 @@ omi_eurex_cash_eti_t7_v5_0.fields.username = ProtoField.new("Username", "eurex.c
 omi_eurex_cash_eti_t7_v5_0.fields.var_text = ProtoField.new("Var Text", "eurex.cash.eti.t7.v5.0.vartext", ftypes.STRING)
 omi_eurex_cash_eti_t7_v5_0.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.cash.eti.t7.v5.0.vartextlen", ftypes.UINT16)
 
--- Eurex Cash Eti T7 5.0 messages
+-- Eurex Cash T7 Eti 5.0 Application Messages
 omi_eurex_cash_eti_t7_v5_0.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.cash.eti.t7.v5.0.broadcasterrornotification", ftypes.STRING)
 omi_eurex_cash_eti_t7_v5_0.fields.cross_request = ProtoField.new("Cross Request", "eurex.cash.eti.t7.v5.0.crossrequest", ftypes.STRING)
 omi_eurex_cash_eti_t7_v5_0.fields.cross_request_response = ProtoField.new("Cross Request Response", "eurex.cash.eti.t7.v5.0.crossrequestresponse", ftypes.STRING)

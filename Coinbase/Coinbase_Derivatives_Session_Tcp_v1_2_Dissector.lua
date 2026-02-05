@@ -44,7 +44,7 @@ omi_coinbase_derivatives_session_tcp_v1_2.fields.to_sequence_number = ProtoField
 omi_coinbase_derivatives_session_tcp_v1_2.fields.username = ProtoField.new("Username", "coinbase.derivatives.session.tcp.v1.2.username", ftypes.STRING)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.version = ProtoField.new("Version", "coinbase.derivatives.session.tcp.v1.2.version", ftypes.UINT16)
 
--- Coinbase Derivatives Session Tcp 1.2 messages
+-- Coinbase Derivatives Tcp Session 1.2 Application Messages
 omi_coinbase_derivatives_session_tcp_v1_2.fields.gap_fill_message = ProtoField.new("Gap Fill Message", "coinbase.derivatives.session.tcp.v1.2.gapfillmessage", ftypes.STRING)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "coinbase.derivatives.session.tcp.v1.2.heartbeatmessage", ftypes.STRING)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.logged_out_message = ProtoField.new("Logged Out Message", "coinbase.derivatives.session.tcp.v1.2.loggedoutmessage", ftypes.STRING)

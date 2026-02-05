@@ -127,7 +127,7 @@ omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.upper_collar = ProtoField.new
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.volume = ProtoField.new("Volume", "nyse.arca.options.topfeed.pillar.v1.2.c.volume", ftypes.UINT32)
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.working_price = ProtoField.new("Working Price", "nyse.arca.options.topfeed.pillar.v1.2.c.workingprice", ftypes.INT32)
 
--- Nyse Arca Options TopFeed Pillar 1.2.c messages
+-- Nyse Arca Options Pillar TopFeed 1.2.c Application Messages
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arca.options.topfeed.pillar.v1.2.c.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arca.options.topfeed.pillar.v1.2.c.messageunavailablemessage", ftypes.STRING)
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_imbalance_message = ProtoField.new("Options Imbalance Message", "nyse.arca.options.topfeed.pillar.v1.2.c.optionsimbalancemessage", ftypes.STRING)

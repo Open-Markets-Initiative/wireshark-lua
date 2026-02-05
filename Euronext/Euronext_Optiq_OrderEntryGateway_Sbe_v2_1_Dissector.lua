@@ -362,7 +362,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.wholesale_legs_groups = Pro
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.wholesale_side = ProtoField.new("Wholesale Side", "euronext.optiq.orderentrygateway.sbe.v2.1.wholesaleside", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.wholesale_trade_type = ProtoField.new("Wholesale Trade Type", "euronext.optiq.orderentrygateway.sbe.v2.1.wholesaletradetype", ftypes.UINT8)
 
--- Euronext Optiq OrderEntryGateway Sbe 2.1 messages
+-- Euronext Optiq Sbe OrderEntryGateway 2.1 Application Messages
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.ack_message = ProtoField.new("Ack Message", "euronext.optiq.orderentrygateway.sbe.v2.1.ackmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.ask_for_quote_message = ProtoField.new("Ask For Quote Message", "euronext.optiq.orderentrygateway.sbe.v2.1.askforquotemessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.cancel_replace_message = ProtoField.new("Cancel Replace Message", "euronext.optiq.orderentrygateway.sbe.v2.1.cancelreplacemessage", ftypes.STRING)

@@ -109,7 +109,7 @@ omi_siac_cqs_output_cta_v1_91.fields.sip_generated_message_identifier = ProtoFie
 omi_siac_cqs_output_cta_v1_91.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cqs.output.cta.v1.91.transactionid", ftypes.UINT32)
 omi_siac_cqs_output_cta_v1_91.fields.version = ProtoField.new("Version", "siac.cqs.output.cta.v1.91.version", ftypes.UINT8)
 
--- Siac Cqs Output Cta 1.91 messages
+-- Siac Cqs Cta Output 1.91 Application Messages
 omi_siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message = ProtoField.new("Administrative Unformatted Message", "siac.cqs.output.cta.v1.91.administrativeunformattedmessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cqs.output.cta.v1.91.auctionstatusmessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.disaster_recovery_data_center_activation_message = ProtoField.new("Disaster Recovery Data Center Activation Message", "siac.cqs.output.cta.v1.91.disasterrecoverydatacenteractivationmessage", ftypes.STRING)

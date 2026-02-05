@@ -56,7 +56,7 @@ omi_n24x_equities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoField.new("Tra
 omi_n24x_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "24x.equities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_n24x_equities_memoirdepthfeed_sbe_v1_3.fields.version = ProtoField.new("Version", "24x.equities.memoirdepthfeed.sbe.v1.3.version", ftypes.UINT16)
 
--- 24X Equities MemoirDepthFeed Sbe 1.3 messages
+-- 24X Equities Sbe MemoirDepthFeed 1.3 Application Messages
 omi_n24x_equities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "24x.equities.memoirdepthfeed.sbe.v1.3.brokentrademessage", ftypes.STRING)
 omi_n24x_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "24x.equities.memoirdepthfeed.sbe.v1.3.clearbookmessage", ftypes.STRING)
 omi_n24x_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "24x.equities.memoirdepthfeed.sbe.v1.3.correctedtrademessage", ftypes.STRING)

@@ -63,7 +63,7 @@ omi_nasdaq_nsmequities_level2_itch_v2_0.fields.timestamp = ProtoField.new("Times
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.level2.itch.v2.0.trackingnumber", ftypes.UINT16)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.trading_action_reason = ProtoField.new("Trading Action Reason", "nasdaq.nsmequities.level2.itch.v2.0.tradingactionreason", ftypes.STRING)
 
--- Nasdaq NsmEquities Level2 Itch 2.0 messages
+-- Nasdaq NsmEquities Itch Level2 2.0 Application Messages
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.level2.itch.v2.0.ipoquotingperiodupdatemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.market_participant_bidask_update_message = ProtoField.new("Market Participant Bidask Update Message", "nasdaq.nsmequities.level2.itch.v2.0.marketparticipantbidaskupdatemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.nsmequities.level2.itch.v2.0.mwcbdeclinelevelmessage", ftypes.STRING)

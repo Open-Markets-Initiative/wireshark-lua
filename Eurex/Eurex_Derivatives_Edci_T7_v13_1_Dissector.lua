@@ -111,7 +111,7 @@ omi_eurex_derivatives_edci_t7_v13_1.fields.triggered = ProtoField.new("Triggered
 omi_eurex_derivatives_edci_t7_v13_1.fields.var_text = ProtoField.new("Var Text", "eurex.derivatives.edci.t7.v13.1.vartext", ftypes.STRING)
 omi_eurex_derivatives_edci_t7_v13_1.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.derivatives.edci.t7.v13.1.vartextlen", ftypes.UINT16)
 
--- Eurex Derivatives Edci T7 13.1 messages
+-- Eurex Derivatives T7 Edci 13.1 Application Messages
 omi_eurex_derivatives_edci_t7_v13_1.fields.delete_order_broadcast = ProtoField.new("Delete Order Broadcast", "eurex.derivatives.edci.t7.v13.1.deleteorderbroadcast", ftypes.STRING)
 omi_eurex_derivatives_edci_t7_v13_1.fields.forced_logout_notification = ProtoField.new("Forced Logout Notification", "eurex.derivatives.edci.t7.v13.1.forcedlogoutnotification", ftypes.STRING)
 omi_eurex_derivatives_edci_t7_v13_1.fields.heartbeat = ProtoField.new("Heartbeat", "eurex.derivatives.edci.t7.v13.1.heartbeat", ftypes.STRING)

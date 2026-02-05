@@ -92,7 +92,7 @@ omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_time_stamp = ProtoField.
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradingsystemtimestamp", ftypes.UINT64)
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.volume", ftypes.UINT32)
 
--- Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6 messages
+-- Tmx QuantumFeed Xmt TsxTsxvLevel2 3.6 Application Messages
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_no_orders_message = ProtoField.new("Assign Cop No Orders Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.assigncopnoordersmessage", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_orders_message = ProtoField.new("Assign Cop Orders Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.assigncopordersmessage", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_limit_message = ProtoField.new("Assign Limit Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.assignlimitmessage", ftypes.STRING)

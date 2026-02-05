@@ -45,7 +45,7 @@ omi_imperative_intelligentcross_mdf_v1_11.fields.symbol = ProtoField.new("Symbol
 omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_id = ProtoField.new("Symbol Id", "imperative.intelligentcross.mdf.v1.11.symbolid", ftypes.UINT16)
 omi_imperative_intelligentcross_mdf_v1_11.fields.timestamp = ProtoField.new("Timestamp", "imperative.intelligentcross.mdf.v1.11.timestamp", ftypes.UINT64)
 
--- Imperative IntelligentCross Mdf 1.11 messages
+-- Imperative Mdf IntelligentCross 1.11 Application Messages
 omi_imperative_intelligentcross_mdf_v1_11.fields.market_event_message = ProtoField.new("Market Event Message", "imperative.intelligentcross.mdf.v1.11.marketeventmessage", ftypes.STRING)
 omi_imperative_intelligentcross_mdf_v1_11.fields.new_order_add_message = ProtoField.new("New Order Add Message", "imperative.intelligentcross.mdf.v1.11.neworderaddmessage", ftypes.STRING)
 omi_imperative_intelligentcross_mdf_v1_11.fields.order_cancel_all_message = ProtoField.new("Order Cancel All Message", "imperative.intelligentcross.mdf.v1.11.ordercancelallmessage", ftypes.STRING)

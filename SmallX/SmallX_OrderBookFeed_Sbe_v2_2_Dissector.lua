@@ -141,7 +141,7 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_6 
 omi_smallx_orderbookfeed_sbe_v2_2.fields.value = ProtoField.new("Value", "smallx.orderbookfeed.sbe.v2.2.value", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.version = ProtoField.new("Version", "smallx.orderbookfeed.sbe.v2.2.version", ftypes.UINT16)
 
--- SmallX OrderBookFeed Sbe 2.2 messages
+-- SmallX Sbe OrderBookFeed 2.2 Application Messages
 omi_smallx_orderbookfeed_sbe_v2_2.fields.index_value_snapshot_message = ProtoField.new("Index Value Snapshot Message", "smallx.orderbookfeed.sbe.v2.2.indexvaluesnapshotmessage", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_trading_status_incremental_message = ProtoField.new("Instrument Trading Status Incremental Message", "smallx.orderbookfeed.sbe.v2.2.instrumenttradingstatusincrementalmessage", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.market_summary_incremental_message = ProtoField.new("Market Summary Incremental Message", "smallx.orderbookfeed.sbe.v2.2.marketsummaryincrementalmessage", ftypes.STRING)

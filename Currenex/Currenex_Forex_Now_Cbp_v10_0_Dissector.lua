@@ -55,7 +55,7 @@ omi_currenex_forex_now_cbp_v10_0.fields.transact_time = ProtoField.new("Transact
 omi_currenex_forex_now_cbp_v10_0.fields.type = ProtoField.new("Type", "currenex.forex.now.cbp.v10.0.type", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.user_id = ProtoField.new("User Id", "currenex.forex.now.cbp.v10.0.userid", ftypes.STRING)
 
--- Currenex Forex Now Cbp 10.0 messages
+-- Currenex Forex Cbp Now 10.0 Application Messages
 omi_currenex_forex_now_cbp_v10_0.fields.depth_of_book_message = ProtoField.new("Depth Of Book Message", "currenex.forex.now.cbp.v10.0.depthofbookmessage", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.heart_beat_message = ProtoField.new("Heart Beat Message", "currenex.forex.now.cbp.v10.0.heartbeatmessage", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.instrument_info = ProtoField.new("Instrument Info", "currenex.forex.now.cbp.v10.0.instrumentinfo", ftypes.STRING)

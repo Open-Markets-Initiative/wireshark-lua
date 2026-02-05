@@ -64,7 +64,7 @@ omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.underlying_symbol = ProtoField.new(
 omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.version = ProtoField.new("Version", "nasdaq.phlxoptions.topo.itch.v3.3.version", ftypes.UINT8)
 omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.topo.itch.v3.3.volume", ftypes.UINT32)
 
--- Nasdaq PhlxOptions Topo Itch 3.3 messages
+-- Nasdaq PhlxOptions Itch Topo 3.3 Application Messages
 omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.phlxoptions.topo.itch.v3.3.brokentradereportmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_ask_update_message = ProtoField.new("Long Best Ask Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.longbestaskupdatemessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_and_ask_update_message = ProtoField.new("Long Best Bid And Ask Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.longbestbidandaskupdatemessage", ftypes.STRING)

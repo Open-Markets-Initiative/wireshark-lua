@@ -50,7 +50,7 @@ omi_cme_brokertec_ust_sbe_v10_1.fields.trade_volume = ProtoField.new("Trade Volu
 omi_cme_brokertec_ust_sbe_v10_1.fields.transact_time = ProtoField.new("Transact Time", "cme.brokertec.ust.sbe.v10.1.transacttime", ftypes.UINT64)
 omi_cme_brokertec_ust_sbe_v10_1.fields.version = ProtoField.new("Version", "cme.brokertec.ust.sbe.v10.1.version", ftypes.UINT16)
 
--- Cme BrokerTec Ust Sbe 10.1 messages
+-- Cme BrokerTec Sbe Ust 10.1 Application Messages
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_incremental_refresh_btec = ProtoField.new("Md Incremental Refresh Btec", "cme.brokertec.ust.sbe.v10.1.mdincrementalrefreshbtec", ftypes.STRING)
 
 -- Cme BrokerTec Ust Sbe 10.1 generated fields

@@ -85,7 +85,7 @@ omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.trading_system_time_stamp = Pr
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.volume", ftypes.UINT32)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.vwap = ProtoField.new("Vwap", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.vwap", ftypes.DOUBLE)
 
--- Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.6 messages
+-- Tmx QuantumFeed Xmt TsxTsxvLevel1 2.6 Application Messages
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.moc_imbalance_message = ProtoField.new("Moc Imbalance Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.mocimbalancemessage", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.quote_message = ProtoField.new("Quote Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.quotemessage", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.stock_status_message = ProtoField.new("Stock Status Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.stockstatusmessage", ftypes.STRING)

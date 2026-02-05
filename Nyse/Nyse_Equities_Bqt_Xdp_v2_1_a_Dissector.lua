@@ -107,7 +107,7 @@ omi_nyse_equities_bqt_xdp_v2_1_a.fields.trade_session = ProtoField.new("Trade Se
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.bqt.xdp.v2.1.a.unitoftrade", ftypes.UINT16)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.volume = ProtoField.new("Volume", "nyse.equities.bqt.xdp.v2.1.a.volume", ftypes.UINT32)
 
--- Nyse Equities Bqt Xdp 2.1.a messages
+-- Nyse Equities Xdp Bqt 2.1.a Application Messages
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.bqt_message = ProtoField.new("Bqt Message", "nyse.equities.bqt.xdp.v2.1.a.bqtmessage", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_security_status_message = ProtoField.new("Consolidated Security Status Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedsecuritystatusmessage", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v2_1_a.fields.consolidated_single_sided_quote_message = ProtoField.new("Consolidated Single Sided Quote Message", "nyse.equities.bqt.xdp.v2.1.a.consolidatedsinglesidedquotemessage", ftypes.STRING)

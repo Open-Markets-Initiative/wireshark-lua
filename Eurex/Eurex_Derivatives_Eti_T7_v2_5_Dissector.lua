@@ -293,7 +293,7 @@ omi_eurex_derivatives_eti_t7_v2_5.fields.var_text = ProtoField.new("Var Text", "
 omi_eurex_derivatives_eti_t7_v2_5.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.derivatives.eti.t7.v2.5.vartextlen", ftypes.UINT16)
 omi_eurex_derivatives_eti_t7_v2_5.fields.vega = ProtoField.new("Vega", "eurex.derivatives.eti.t7.v2.5.vega", ftypes.INT32)
 
--- Eurex Derivatives Eti T7 2.5 messages
+-- Eurex Derivatives T7 Eti 2.5 Application Messages
 omi_eurex_derivatives_eti_t7_v2_5.fields.add_complex_instrument_request = ProtoField.new("Add Complex Instrument Request", "eurex.derivatives.eti.t7.v2.5.addcomplexinstrumentrequest", ftypes.STRING)
 omi_eurex_derivatives_eti_t7_v2_5.fields.add_complex_instrument_response = ProtoField.new("Add Complex Instrument Response", "eurex.derivatives.eti.t7.v2.5.addcomplexinstrumentresponse", ftypes.STRING)
 omi_eurex_derivatives_eti_t7_v2_5.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.derivatives.eti.t7.v2.5.broadcasterrornotification", ftypes.STRING)

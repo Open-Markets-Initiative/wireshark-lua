@@ -149,7 +149,7 @@ omi_eurex_derivatives_eobi_t7_v13_1.fields.trd_reg_ts_prev_time_priority = Proto
 omi_eurex_derivatives_eobi_t7_v13_1.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.derivatives.eobi.t7.v13.1.trdregtstimepriority", ftypes.UINT64)
 omi_eurex_derivatives_eobi_t7_v13_1.fields.trd_type = ProtoField.new("Trd Type", "eurex.derivatives.eobi.t7.v13.1.trdtype", ftypes.UINT16)
 
--- Eurex Derivatives Eobi T7 13.1 messages
+-- Eurex Derivatives T7 Eobi 13.1 Application Messages
 omi_eurex_derivatives_eobi_t7_v13_1.fields.add_complex_instrument = ProtoField.new("Add Complex Instrument", "eurex.derivatives.eobi.t7.v13.1.addcomplexinstrument", ftypes.STRING)
 omi_eurex_derivatives_eobi_t7_v13_1.fields.add_flexible_instrument = ProtoField.new("Add Flexible Instrument", "eurex.derivatives.eobi.t7.v13.1.addflexibleinstrument", ftypes.STRING)
 omi_eurex_derivatives_eobi_t7_v13_1.fields.add_scaled_simple_instrument = ProtoField.new("Add Scaled Simple Instrument", "eurex.derivatives.eobi.t7.v13.1.addscaledsimpleinstrument", ftypes.STRING)

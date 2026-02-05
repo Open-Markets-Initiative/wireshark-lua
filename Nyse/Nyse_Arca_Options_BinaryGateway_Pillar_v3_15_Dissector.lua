@@ -203,25 +203,18 @@ omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.version = ProtoField.new
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.arca.options.binarygateway.pillar.v3.15.workingawayfromdisplay", ftypes.UINT8)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.working_price = ProtoField.new("Working Price", "nyse.arca.options.binarygateway.pillar.v3.15.workingprice", ftypes.DOUBLE)
 
--- Nyse Arca Options BinaryGateway Pillar 3.15 messages
+-- Nyse Arca Options Pillar BinaryGateway 3.15 Application Messages
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.application_layer_reject = ProtoField.new("Application Layer Reject", "nyse.arca.options.binarygateway.pillar.v3.15.applicationlayerreject", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_cancel_request = ProtoField.new("Bulk Cancel Request", "nyse.arca.options.binarygateway.pillar.v3.15.bulkcancelrequest", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote_acknowledgment = ProtoField.new("Bulk Quote Acknowledgment", "nyse.arca.options.binarygateway.pillar.v3.15.bulkquoteacknowledgment", ftypes.STRING)
-omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close = ProtoField.new("Close", "nyse.arca.options.binarygateway.pillar.v3.15.close", ftypes.STRING)
-omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close_response = ProtoField.new("Close Response", "nyse.arca.options.binarygateway.pillar.v3.15.closeresponse", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_series_request_acknowledgement = ProtoField.new("Complex Series Request Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.complexseriesrequestacknowledgement", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.execution_report = ProtoField.new("Execution Report", "nyse.arca.options.binarygateway.pillar.v3.15.executionreport", ftypes.STRING)
-omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arca.options.binarygateway.pillar.v3.15.heartbeat", ftypes.STRING)
-omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_message = ProtoField.new("Login Message", "nyse.arca.options.binarygateway.pillar.v3.15.loginmessage", ftypes.STRING)
-omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_response = ProtoField.new("Login Response", "nyse.arca.options.binarygateway.pillar.v3.15.loginresponse", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_class_reference_data = ProtoField.new("Minimum Price Variant Class Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.minimumpricevariantclassreferencedata", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_level_reference_data = ProtoField.new("Minimum Price Variant Level Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.minimumpricevariantlevelreferencedata", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid_configuration = ProtoField.new("Mpid Configuration", "nyse.arca.options.binarygateway.pillar.v3.15.mpidconfiguration", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_bulk_quote = ProtoField.new("New Bulk Quote", "nyse.arca.options.binarygateway.pillar.v3.15.newbulkquote", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_complex_series_request = ProtoField.new("New Complex Series Request", "nyse.arca.options.binarygateway.pillar.v3.15.newcomplexseriesrequest", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_order_cross = ProtoField.new("New Order Cross", "nyse.arca.options.binarygateway.pillar.v3.15.newordercross", ftypes.STRING)
-omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open = ProtoField.new("Open", "nyse.arca.options.binarygateway.pillar.v3.15.open", ftypes.STRING)
-omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_response = ProtoField.new("Open Response", "nyse.arca.options.binarygateway.pillar.v3.15.openresponse", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.options_market_maker_symbol_appointment_reference_data = ProtoField.new("Options Market Maker Symbol Appointment Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.optionsmarketmakersymbolappointmentreferencedata", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_acknowledgement = ProtoField.new("Order Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.orderacknowledgement", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_cancel_request = ProtoField.new("Order Cancel Request", "nyse.arca.options.binarygateway.pillar.v3.15.ordercancelrequest", ftypes.STRING)
@@ -233,13 +226,22 @@ omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_action_request = Pr
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_acknowledgement = ProtoField.new("Risk Control Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.riskcontrolacknowledgement", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_alert = ProtoField.new("Risk Control Alert", "nyse.arca.options.binarygateway.pillar.v3.15.riskcontrolalert", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_limit_update_request = ProtoField.new("Risk Limit Update Request", "nyse.arca.options.binarygateway.pillar.v3.15.risklimitupdaterequest", ftypes.STRING)
-omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsg", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sequenced_filler = ProtoField.new("Sequenced Filler", "nyse.arca.options.binarygateway.pillar.v3.15.sequencedfiller", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_acknowledgement = ProtoField.new("Session Configuration Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.sessionconfigurationacknowledgement", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_request_message = ProtoField.new("Session Configuration Request Message", "nyse.arca.options.binarygateway.pillar.v3.15.sessionconfigurationrequestmessage", ftypes.STRING)
-omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.arca.options.binarygateway.pillar.v3.15.streamavail", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.trade_bust_or_correct = ProtoField.new("Trade Bust Or Correct", "nyse.arca.options.binarygateway.pillar.v3.15.tradebustorcorrect", ftypes.STRING)
 omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.underlying_symbol_reference_data = ProtoField.new("Underlying Symbol Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.underlyingsymbolreferencedata", ftypes.STRING)
+
+-- Nyse Arca Options Pillar BinaryGateway 3.15 Session Messages
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close = ProtoField.new("Close", "nyse.arca.options.binarygateway.pillar.v3.15.close", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close_response = ProtoField.new("Close Response", "nyse.arca.options.binarygateway.pillar.v3.15.closeresponse", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arca.options.binarygateway.pillar.v3.15.heartbeat", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_message = ProtoField.new("Login Message", "nyse.arca.options.binarygateway.pillar.v3.15.loginmessage", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_response = ProtoField.new("Login Response", "nyse.arca.options.binarygateway.pillar.v3.15.loginresponse", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open = ProtoField.new("Open", "nyse.arca.options.binarygateway.pillar.v3.15.open", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_response = ProtoField.new("Open Response", "nyse.arca.options.binarygateway.pillar.v3.15.openresponse", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsg", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.arca.options.binarygateway.pillar.v3.15.streamavail", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

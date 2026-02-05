@@ -207,21 +207,16 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.version = ProtoField.new("Ve
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.equities.binarygateway.pillar.v5.17.workingawayfromdisplay", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.working_price = ProtoField.new("Working Price", "nyse.equities.binarygateway.pillar.v5.17.workingprice", ftypes.DOUBLE)
 
--- Nyse Equities BinaryGateway Pillar 5.17 messages
+-- Nyse Equities Pillar BinaryGateway 5.17 Application Messages
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "nyse.equities.binarygateway.pillar.v5.17.applicationlayerrejectmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.auction_price_data_message = ProtoField.new("Auction Price Data Message", "nyse.equities.binarygateway.pillar.v5.17.auctionpricedatamessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.auction_request_message = ProtoField.new("Auction Request Message", "nyse.equities.binarygateway.pillar.v5.17.auctionrequestmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.bulk_cancel_request_message = ProtoField.new("Bulk Cancel Request Message", "nyse.equities.binarygateway.pillar.v5.17.bulkcancelrequestmessage", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.close = ProtoField.new("Close", "nyse.equities.binarygateway.pillar.v5.17.close", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.close_response = ProtoField.new("Close Response", "nyse.equities.binarygateway.pillar.v5.17.closeresponse", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.dmm_symbol_reference_data_message = ProtoField.new("Dmm Symbol Reference Data Message", "nyse.equities.binarygateway.pillar.v5.17.dmmsymbolreferencedatamessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.equities_symbol_reference_data_message = ProtoField.new("Equities Symbol Reference Data Message", "nyse.equities.binarygateway.pillar.v5.17.equitiessymbolreferencedatamessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.execution_report_message = ProtoField.new("Execution Report Message", "nyse.equities.binarygateway.pillar.v5.17.executionreportmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.gt_begin_message = ProtoField.new("Gt Begin Message", "nyse.equities.binarygateway.pillar.v5.17.gtbeginmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.gt_end_message = ProtoField.new("Gt End Message", "nyse.equities.binarygateway.pillar.v5.17.gtendmessage", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.equities.binarygateway.pillar.v5.17.heartbeat", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.login_message = ProtoField.new("Login Message", "nyse.equities.binarygateway.pillar.v5.17.loginmessage", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.login_response = ProtoField.new("Login Response", "nyse.equities.binarygateway.pillar.v5.17.loginresponse", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.manual_action_request_message = ProtoField.new("Manual Action Request Message", "nyse.equities.binarygateway.pillar.v5.17.manualactionrequestmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.manual_action_response_message = ProtoField.new("Manual Action Response Message", "nyse.equities.binarygateway.pillar.v5.17.manualactionresponsemessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.minimum_price_variant_class_reference_data_message = ProtoField.new("Minimum Price Variant Class Reference Data Message", "nyse.equities.binarygateway.pillar.v5.17.minimumpricevariantclassreferencedatamessage", ftypes.STRING)
@@ -229,8 +224,6 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.minimum_price_variant_level_
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.mmid_configuration_message = ProtoField.new("Mmid Configuration Message", "nyse.equities.binarygateway.pillar.v5.17.mmidconfigurationmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.mpid_configuration_message = ProtoField.new("Mpid Configuration Message", "nyse.equities.binarygateway.pillar.v5.17.mpidconfigurationmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.new_order_single_and_cancel_replace_request_message = ProtoField.new("New Order Single And Cancel Replace Request Message", "nyse.equities.binarygateway.pillar.v5.17.newordersingleandcancelreplacerequestmessage", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.open = ProtoField.new("Open", "nyse.equities.binarygateway.pillar.v5.17.open", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.open_response = ProtoField.new("Open Response", "nyse.equities.binarygateway.pillar.v5.17.openresponse", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_and_cancel_replace_acknowledgement_message = ProtoField.new("Order And Cancel Replace Acknowledgement Message", "nyse.equities.binarygateway.pillar.v5.17.orderandcancelreplaceacknowledgementmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "nyse.equities.binarygateway.pillar.v5.17.ordercancelrequestmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_modify_cancel_request_acknowledgment_and_urout_message = ProtoField.new("Order Modify Cancel Request Acknowledgment And Urout Message", "nyse.equities.binarygateway.pillar.v5.17.ordermodifycancelrequestacknowledgmentanduroutmessage", ftypes.STRING)
@@ -240,13 +233,22 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_action_request_message 
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_control_acknowledgement_message = ProtoField.new("Risk Control Acknowledgement Message", "nyse.equities.binarygateway.pillar.v5.17.riskcontrolacknowledgementmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_control_alert_message = ProtoField.new("Risk Control Alert Message", "nyse.equities.binarygateway.pillar.v5.17.riskcontrolalertmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_limit_update_request_message = ProtoField.new("Risk Limit Update Request Message", "nyse.equities.binarygateway.pillar.v5.17.risklimitupdaterequestmessage", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.equities.binarygateway.pillar.v5.17.seqmsg", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.session_configuration_acknowledgement_message = ProtoField.new("Session Configuration Acknowledgement Message", "nyse.equities.binarygateway.pillar.v5.17.sessionconfigurationacknowledgementmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.session_configuration_request_message = ProtoField.new("Session Configuration Request Message", "nyse.equities.binarygateway.pillar.v5.17.sessionconfigurationrequestmessage", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.equities.binarygateway.pillar.v5.17.streamavail", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.symbol_subscription_acknowledgement_message = ProtoField.new("Symbol Subscription Acknowledgement Message", "nyse.equities.binarygateway.pillar.v5.17.symbolsubscriptionacknowledgementmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.symbol_subscription_request_message = ProtoField.new("Symbol Subscription Request Message", "nyse.equities.binarygateway.pillar.v5.17.symbolsubscriptionrequestmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.trade_bust_correct_message = ProtoField.new("Trade Bust Correct Message", "nyse.equities.binarygateway.pillar.v5.17.tradebustcorrectmessage", ftypes.STRING)
+
+-- Nyse Equities Pillar BinaryGateway 5.17 Session Messages
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.close = ProtoField.new("Close", "nyse.equities.binarygateway.pillar.v5.17.close", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.close_response = ProtoField.new("Close Response", "nyse.equities.binarygateway.pillar.v5.17.closeresponse", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.equities.binarygateway.pillar.v5.17.heartbeat", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.login_message = ProtoField.new("Login Message", "nyse.equities.binarygateway.pillar.v5.17.loginmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.login_response = ProtoField.new("Login Response", "nyse.equities.binarygateway.pillar.v5.17.loginresponse", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.open = ProtoField.new("Open", "nyse.equities.binarygateway.pillar.v5.17.open", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.open_response = ProtoField.new("Open Response", "nyse.equities.binarygateway.pillar.v5.17.openresponse", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.equities.binarygateway.pillar.v5.17.seqmsg", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.equities.binarygateway.pillar.v5.17.streamavail", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

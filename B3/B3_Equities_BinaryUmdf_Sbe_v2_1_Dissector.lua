@@ -236,7 +236,7 @@ omi_b3_equities_binaryumdf_sbe_v2_1.fields.vwap_px = ProtoField.new("Vwap Px", "
 omi_b3_equities_binaryumdf_sbe_v2_1.fields.week = ProtoField.new("Week", "b3.equities.binaryumdf.sbe.v2.1.week", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v2_1.fields.year = ProtoField.new("Year", "b3.equities.binaryumdf.sbe.v2.1.year", ftypes.UINT16)
 
--- B3 Equities BinaryUmdf Sbe 2.1 messages
+-- B3 Equities Sbe BinaryUmdf 2.1 Application Messages
 omi_b3_equities_binaryumdf_sbe_v2_1.fields.auction_imbalance_19_message = ProtoField.new("Auction Imbalance 19 Message", "b3.equities.binaryumdf.sbe.v2.1.auctionimbalance19message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v2_1.fields.channel_reset_11_message = ProtoField.new("Channel Reset 11 Message", "b3.equities.binaryumdf.sbe.v2.1.channelreset11message", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v2_1.fields.closing_price_17_message = ProtoField.new("Closing Price 17 Message", "b3.equities.binaryumdf.sbe.v2.1.closingprice17message", ftypes.STRING)

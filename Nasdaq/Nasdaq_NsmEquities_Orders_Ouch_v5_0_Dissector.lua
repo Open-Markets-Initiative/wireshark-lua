@@ -112,7 +112,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_message_type = ProtoF
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.user_ref_num = ProtoField.new("User Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.userrefnum", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.orders.ouch.v5.0.username", ftypes.STRING)
 
--- Nasdaq NsmEquities Orders Ouch 5.0 messages
+-- Nasdaq NsmEquities Ouch Orders 5.0 Application Messages
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_message = ProtoField.new("Account Query Response Message", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryresponsemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_message = ProtoField.new("Aiq Canceled Message", "nasdaq.nsmequities.orders.ouch.v5.0.aiqcanceledmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.nsmequities.orders.ouch.v5.0.brokentrademessage", ftypes.STRING)

@@ -158,7 +158,7 @@ omi_box_options_sola_unicast_hsvf_v4_5_1.fields.underlying_symbol = ProtoField.n
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.underlying_symbol_root = ProtoField.new("Underlying Symbol Root", "box.options.sola.unicast.hsvf.v4.5.1.underlyingsymbolroot", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.volume = ProtoField.new("Volume", "box.options.sola.unicast.hsvf.v4.5.1.volume", ftypes.STRING)
 
--- Box Options Sola Unicast Hsvf 4.5.1 messages
+-- Box Options Sola Hsvf Unicast 4.5.1 Application Messages
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.beginning_of_complex_order_summary_message = ProtoField.new("Beginning Of Complex Order Summary Message", "box.options.sola.unicast.hsvf.v4.5.1.beginningofcomplexordersummarymessage", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.beginning_of_options_summary_message = ProtoField.new("Beginning Of Options Summary Message", "box.options.sola.unicast.hsvf.v4.5.1.beginningofoptionssummarymessage", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.bulletins_message = ProtoField.new("Bulletins Message", "box.options.sola.unicast.hsvf.v4.5.1.bulletinsmessage", ftypes.STRING)

@@ -68,7 +68,7 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.timestamp = ProtoField.new
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.version", ftypes.UINT8)
 
--- Nasdaq IseOptions OrderComboFeed Itch 1.1 messages
+-- Nasdaq IseOptions Itch OrderComboFeed 1.1 Application Messages
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_auction_message = ProtoField.new("Complex Strategy Auction Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.complexstrategyauctionmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_directory_message = ProtoField.new("Complex Strategy Directory Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.complexstrategydirectorymessage", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_order_on_book_message = ProtoField.new("Complex Strategy Order On Book Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.complexstrategyorderonbookmessage", ftypes.STRING)

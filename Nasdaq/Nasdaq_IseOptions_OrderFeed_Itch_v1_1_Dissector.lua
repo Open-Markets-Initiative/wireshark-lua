@@ -69,7 +69,7 @@ omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_type = ProtoField.new("
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.orderfeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.orderfeed.itch.v1.1.version", ftypes.UINT8)
 
--- Nasdaq IseOptions OrderFeed Itch 1.1 messages
+-- Nasdaq IseOptions Itch OrderFeed 1.1 Application Messages
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_message = ProtoField.new("Auction Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.opening_imbalance_message = ProtoField.new("Opening Imbalance Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.openingimbalancemessage", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_directory_message = ProtoField.new("Option Directory Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.optiondirectorymessage", ftypes.STRING)

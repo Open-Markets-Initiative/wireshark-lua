@@ -65,7 +65,7 @@ omi_memx_options_memoirdepth_sbe_v1_6_a.fields.trading_session = ProtoField.new(
 omi_memx_options_memoirdepth_sbe_v1_6_a.fields.underlier = ProtoField.new("Underlier", "memx.options.memoirdepth.sbe.v1.6.a.underlier", ftypes.STRING)
 omi_memx_options_memoirdepth_sbe_v1_6_a.fields.version = ProtoField.new("Version", "memx.options.memoirdepth.sbe.v1.6.a.version", ftypes.UINT16)
 
--- Memx Options MemoirDepth Sbe 1.6.a messages
+-- Memx Options Sbe MemoirDepth 1.6.a Application Messages
 omi_memx_options_memoirdepth_sbe_v1_6_a.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "memx.options.memoirdepth.sbe.v1.6.a.brokentrademessage", ftypes.STRING)
 omi_memx_options_memoirdepth_sbe_v1_6_a.fields.clear_book_message = ProtoField.new("Clear Book Message", "memx.options.memoirdepth.sbe.v1.6.a.clearbookmessage", ftypes.STRING)
 omi_memx_options_memoirdepth_sbe_v1_6_a.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "memx.options.memoirdepth.sbe.v1.6.a.correctedtrademessage", ftypes.STRING)

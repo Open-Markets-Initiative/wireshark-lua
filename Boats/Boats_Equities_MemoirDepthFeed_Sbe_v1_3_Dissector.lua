@@ -56,7 +56,7 @@ omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoField.new("Tr
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "boats.equities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.version = ProtoField.new("Version", "boats.equities.memoirdepthfeed.sbe.v1.3.version", ftypes.UINT16)
 
--- Boats Equities MemoirDepthFeed Sbe 1.3 messages
+-- Boats Equities Sbe MemoirDepthFeed 1.3 Application Messages
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "boats.equities.memoirdepthfeed.sbe.v1.3.brokentrademessage", ftypes.STRING)
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "boats.equities.memoirdepthfeed.sbe.v1.3.clearbookmessage", ftypes.STRING)
 omi_boats_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "boats.equities.memoirdepthfeed.sbe.v1.3.correctedtrademessage", ftypes.STRING)

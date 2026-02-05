@@ -321,7 +321,7 @@ omi_cme_futures_ilink3_sbe_v8_7.fields.volatility = ProtoField.new("Volatility",
 omi_cme_futures_ilink3_sbe_v8_7.fields.week = ProtoField.new("Week", "cme.futures.ilink3.sbe.v8.7.week", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_7.fields.year = ProtoField.new("Year", "cme.futures.ilink3.sbe.v8.7.year", ftypes.UINT16)
 
--- Cme Futures iLink3 Sbe 8.7 messages
+-- Cme Futures Sbe iLink3 8.7 Application Messages
 omi_cme_futures_ilink3_sbe_v8_7.fields.business_reject = ProtoField.new("Business Reject", "cme.futures.ilink3.sbe.v8.7.businessreject", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_7.fields.establish = ProtoField.new("Establish", "cme.futures.ilink3.sbe.v8.7.establish", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_7.fields.establishment_ack = ProtoField.new("Establishment Ack", "cme.futures.ilink3.sbe.v8.7.establishmentack", ftypes.STRING)

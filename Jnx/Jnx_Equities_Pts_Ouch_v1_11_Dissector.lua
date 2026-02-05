@@ -69,7 +69,7 @@ omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_message = ProtoField.new("Uns
 omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.equities.pts.ouch.v1.11.unsequencedmessagetype", ftypes.STRING)
 omi_jnx_equities_pts_ouch_v1_11.fields.username = ProtoField.new("Username", "jnx.equities.pts.ouch.v1.11.username", ftypes.STRING)
 
--- Jnx Equities Pts Ouch 1.11 messages
+-- Jnx Equities Ouch Pts 1.11 Application Messages
 omi_jnx_equities_pts_ouch_v1_11.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.equities.pts.ouch.v1.11.cancelordermessage", ftypes.STRING)
 omi_jnx_equities_pts_ouch_v1_11.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.equities.pts.ouch.v1.11.enterordermessage", ftypes.STRING)
 omi_jnx_equities_pts_ouch_v1_11.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jnx.equities.pts.ouch.v1.11.orderacceptedmessage", ftypes.STRING)

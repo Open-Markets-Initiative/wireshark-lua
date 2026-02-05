@@ -193,7 +193,7 @@ omi_memx_options_riskcontrol_sbe_v1_7.fields.use_order_price_in_dup_check_option
 omi_memx_options_riskcontrol_sbe_v1_7.fields.version = ProtoField.new("Version", "memx.options.riskcontrol.sbe.v1.7.version", ftypes.UINT16)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.volume = ProtoField.new("Volume", "memx.options.riskcontrol.sbe.v1.7.volume", ftypes.UINT64)
 
--- Memx Options RiskControl Sbe 1.7 messages
+-- Memx Options Sbe RiskControl 1.7 Application Messages
 omi_memx_options_riskcontrol_sbe_v1_7.fields.active_risk_acknowledge_all_request_message = ProtoField.new("Active Risk Acknowledge All Request Message", "memx.options.riskcontrol.sbe.v1.7.activeriskacknowledgeallrequestmessage", ftypes.STRING)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.active_risk_acknowledge_rejected_message = ProtoField.new("Active Risk Acknowledge Rejected Message", "memx.options.riskcontrol.sbe.v1.7.activeriskacknowledgerejectedmessage", ftypes.STRING)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.active_risk_acknowledged_message = ProtoField.new("Active Risk Acknowledged Message", "memx.options.riskcontrol.sbe.v1.7.activeriskacknowledgedmessage", ftypes.STRING)

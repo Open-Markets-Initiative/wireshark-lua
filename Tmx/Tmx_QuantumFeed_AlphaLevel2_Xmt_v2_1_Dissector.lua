@@ -73,7 +73,7 @@ omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.trade_time_stamp = ProtoField.ne
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.quantumfeed.alphalevel2.xmt.v2.1.tradingsystemtimestamp", ftypes.UINT64)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.alphalevel2.xmt.v2.1.volume", ftypes.UINT32)
 
--- Tmx QuantumFeed AlphaLevel2 Xmt 2.1 messages
+-- Tmx QuantumFeed Xmt AlphaLevel2 2.1 Application Messages
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.market_state_update_message = ProtoField.new("Market State Update Message", "tmx.quantumfeed.alphalevel2.xmt.v2.1.marketstateupdatemessage", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.order_book_message = ProtoField.new("Order Book Message", "tmx.quantumfeed.alphalevel2.xmt.v2.1.orderbookmessage", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.order_booked_message = ProtoField.new("Order Booked Message", "tmx.quantumfeed.alphalevel2.xmt.v2.1.orderbookedmessage", ftypes.STRING)

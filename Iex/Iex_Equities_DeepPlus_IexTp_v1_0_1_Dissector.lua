@@ -68,7 +68,7 @@ omi_iex_equities_deepplus_iextp_v1_0_1.fields.unused_7 = ProtoField.new("Unused 
 omi_iex_equities_deepplus_iextp_v1_0_1.fields.version = ProtoField.new("Version", "iex.equities.deepplus.iextp.v1.0.1.version", ftypes.UINT8)
 omi_iex_equities_deepplus_iextp_v1_0_1.fields.when_issued = ProtoField.new("When Issued", "iex.equities.deepplus.iextp.v1.0.1.whenissued", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 
--- Iex Equities DeepPlus IexTp 1.0.1 messages
+-- Iex Equities IexTp DeepPlus 1.0.1 Application Messages
 omi_iex_equities_deepplus_iextp_v1_0_1.fields.add_order_message = ProtoField.new("Add Order Message", "iex.equities.deepplus.iextp.v1.0.1.addordermessage", ftypes.STRING)
 omi_iex_equities_deepplus_iextp_v1_0_1.fields.clear_book_message = ProtoField.new("Clear Book Message", "iex.equities.deepplus.iextp.v1.0.1.clearbookmessage", ftypes.STRING)
 omi_iex_equities_deepplus_iextp_v1_0_1.fields.operational_halt_status_message = ProtoField.new("Operational Halt Status Message", "iex.equities.deepplus.iextp.v1.0.1.operationalhaltstatusmessage", ftypes.STRING)

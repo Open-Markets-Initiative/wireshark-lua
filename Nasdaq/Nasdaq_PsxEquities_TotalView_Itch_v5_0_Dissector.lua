@@ -85,7 +85,7 @@ omi_nasdaq_psxequities_totalview_itch_v5_0.fields.tracking_number = ProtoField.n
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.psxequities.totalview.itch.v5.0.tradingstate", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.psxequities.totalview.itch.v5.0.upperauctioncollarprice", ftypes.DOUBLE)
 
--- Nasdaq PsxEquities TotalView Itch 5.0 messages
+-- Nasdaq PsxEquities Itch TotalView 5.0 Application Messages
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message = ProtoField.new("Add Order No Mpid Attribution Message", "nasdaq.psxequities.totalview.itch.v5.0.addordernompidattributionmessage", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.add_order_with_mpid_attribution_message = ProtoField.new("Add Order With Mpid Attribution Message", "nasdaq.psxequities.totalview.itch.v5.0.addorderwithmpidattributionmessage", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.psxequities.totalview.itch.v5.0.brokentrademessage", ftypes.STRING)

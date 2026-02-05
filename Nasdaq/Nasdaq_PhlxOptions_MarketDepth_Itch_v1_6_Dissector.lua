@@ -83,7 +83,7 @@ omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.trade_indicator = ProtoField
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.marketdepth.itch.v1.6.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.marketdepth.itch.v1.6.volume", ftypes.UINT32)
 
--- Nasdaq PhlxOptions MarketDepth Itch 1.6 messages
+-- Nasdaq PhlxOptions Itch MarketDepth 1.6 Application Messages
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "nasdaq.phlxoptions.marketdepth.itch.v1.6.addorderlongmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "nasdaq.phlxoptions.marketdepth.itch.v1.6.addordershortmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.add_quote_long_message = ProtoField.new("Add Quote Long Message", "nasdaq.phlxoptions.marketdepth.itch.v1.6.addquotelongmessage", ftypes.STRING)

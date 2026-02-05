@@ -235,7 +235,7 @@ omi_ice_futures_mdf_impact_v1_1_33.fields.volatility = ProtoField.new("Volatilit
 omi_ice_futures_mdf_impact_v1_1_33.fields.volume = ProtoField.new("Volume", "ice.futures.mdf.impact.v1.1.33.volume", ftypes.INT32)
 omi_ice_futures_mdf_impact_v1_1_33.fields.vwap = ProtoField.new("Vwap", "ice.futures.mdf.impact.v1.1.33.vwap", ftypes.INT64)
 
--- Ice Futures Mdf iMpact 1.1.33 messages
+-- Ice Futures iMpact Mdf 1.1.33 Application Messages
 omi_ice_futures_mdf_impact_v1_1_33.fields.add_or_modify_order_message = ProtoField.new("Add Or Modify Order Message", "ice.futures.mdf.impact.v1.1.33.addormodifyordermessage", ftypes.STRING)
 omi_ice_futures_mdf_impact_v1_1_33.fields.add_price_level_message = ProtoField.new("Add Price Level Message", "ice.futures.mdf.impact.v1.1.33.addpricelevelmessage", ftypes.STRING)
 omi_ice_futures_mdf_impact_v1_1_33.fields.cancelled_trade_message = ProtoField.new("Cancelled Trade Message", "ice.futures.mdf.impact.v1.1.33.cancelledtrademessage", ftypes.STRING)

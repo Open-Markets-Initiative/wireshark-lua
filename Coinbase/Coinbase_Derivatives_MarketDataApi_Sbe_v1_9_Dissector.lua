@@ -145,7 +145,7 @@ omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.vwap_price_optional = Pro
 omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.week_of_month = ProtoField.new("Week Of Month", "coinbase.derivatives.marketdataapi.sbe.v1.9.weekofmonth", ftypes.INT16)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.year = ProtoField.new("Year", "coinbase.derivatives.marketdataapi.sbe.v1.9.year", ftypes.INT16)
 
--- Coinbase Derivatives MarketDataApi Sbe 1.9 messages
+-- Coinbase Derivatives Sbe MarketDataApi 1.9 Application Messages
 omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.end_of_cycle_message = ProtoField.new("End Of Cycle Message", "coinbase.derivatives.marketdataapi.sbe.v1.9.endofcyclemessage", ftypes.STRING)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.9.endofsnapshotmessage", ftypes.STRING)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.funding_rate_message = ProtoField.new("Funding Rate Message", "coinbase.derivatives.marketdataapi.sbe.v1.9.fundingratemessage", ftypes.STRING)

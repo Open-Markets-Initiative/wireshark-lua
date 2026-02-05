@@ -85,7 +85,7 @@ omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.underlying_orderbook_id = Pro
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.undisclosed = ProtoField.new("Undisclosed", "jpx.osederivatives.geniuminet.itch.v1.1.undisclosed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0020)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.unused = ProtoField.new("Unused", "jpx.osederivatives.geniuminet.itch.v1.1.unused", ftypes.UINT16, nil, base.DEC, 0xFFC0)
 
--- Jpx OseDerivatives GeniumInet Itch 1.1 messages
+-- Jpx OseDerivatives Itch GeniumInet 1.1 Application Messages
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.add_order_no_mpid = ProtoField.new("Add Order No Mpid", "jpx.osederivatives.geniuminet.itch.v1.1.addordernompid", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.add_order_with_mpid = ProtoField.new("Add Order With Mpid", "jpx.osederivatives.geniuminet.itch.v1.1.addorderwithmpid", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.combination_orderbook_leg = ProtoField.new("Combination Orderbook Leg", "jpx.osederivatives.geniuminet.itch.v1.1.combinationorderbookleg", ftypes.STRING)

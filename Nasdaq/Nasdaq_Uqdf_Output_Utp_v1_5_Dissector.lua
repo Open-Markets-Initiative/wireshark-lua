@@ -118,7 +118,7 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.trading_action_reason = ProtoField.new("T
 omi_nasdaq_uqdf_output_utp_v1_5.fields.trading_action_sequence_number = ProtoField.new("Trading Action Sequence Number", "nasdaq.uqdf.output.utp.v1.5.tradingactionsequencenumber", ftypes.UINT32)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.version = ProtoField.new("Version", "nasdaq.uqdf.output.utp.v1.5.version", ftypes.UINT8)
 
--- Nasdaq Uqdf Output Utp 1.5 messages
+-- Nasdaq Uqdf Utp Output 1.5 Application Messages
 omi_nasdaq_uqdf_output_utp_v1_5.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.uqdf.output.utp.v1.5.auctioncollarmessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.cross_sro_trading_action_message = ProtoField.new("Cross Sro Trading Action Message", "nasdaq.uqdf.output.utp.v1.5.crosssrotradingactionmessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.end_of_day_message = ProtoField.new("End Of Day Message", "nasdaq.uqdf.output.utp.v1.5.endofdaymessage", ftypes.STRING)

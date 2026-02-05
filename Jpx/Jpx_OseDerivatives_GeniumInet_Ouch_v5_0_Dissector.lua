@@ -66,7 +66,7 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_message = ProtoFi
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequencedmessagetype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.username = ProtoField.new("Username", "jpx.osederivatives.geniuminet.ouch.v5.0.username", ftypes.STRING)
 
--- Jpx OseDerivatives GeniumInet Ouch 5.0 messages
+-- Jpx OseDerivatives Ouch GeniumInet 5.0 Application Messages
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_by_order_id = ProtoField.new("Cancel By Order Id", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelbyorderid", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_order = ProtoField.new("Cancel Order", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelorder", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_mm_order = ProtoField.new("Enter Mm Order", "jpx.osederivatives.geniuminet.ouch.v5.0.entermmorder", ftypes.STRING)

@@ -71,7 +71,7 @@ omi_nasdaq_bxequities_orders_ouch_v4_2.fields.unsequenced_message = ProtoField.n
 omi_nasdaq_bxequities_orders_ouch_v4_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.bxequities.orders.ouch.v4.2.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_bxequities_orders_ouch_v4_2.fields.username = ProtoField.new("Username", "nasdaq.bxequities.orders.ouch.v4.2.username", ftypes.STRING)
 
--- Nasdaq BxEquities Orders Ouch 4.2 messages
+-- Nasdaq BxEquities Ouch Orders 4.2 Application Messages
 omi_nasdaq_bxequities_orders_ouch_v4_2.fields.accepted_message = ProtoField.new("Accepted Message", "nasdaq.bxequities.orders.ouch.v4.2.acceptedmessage", ftypes.STRING)
 omi_nasdaq_bxequities_orders_ouch_v4_2.fields.aiq_canceled_message = ProtoField.new("Aiq Canceled Message", "nasdaq.bxequities.orders.ouch.v4.2.aiqcanceledmessage", ftypes.STRING)
 omi_nasdaq_bxequities_orders_ouch_v4_2.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.bxequities.orders.ouch.v4.2.brokentrademessage", ftypes.STRING)

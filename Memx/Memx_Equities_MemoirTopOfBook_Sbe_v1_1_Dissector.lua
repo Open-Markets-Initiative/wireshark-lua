@@ -54,7 +54,7 @@ omi_memx_equities_memoirtopofbook_sbe_v1_1.fields.timestamp = ProtoField.new("Ti
 omi_memx_equities_memoirtopofbook_sbe_v1_1.fields.trading_session = ProtoField.new("Trading Session", "memx.equities.memoirtopofbook.sbe.v1.1.tradingsession", ftypes.STRING)
 omi_memx_equities_memoirtopofbook_sbe_v1_1.fields.version = ProtoField.new("Version", "memx.equities.memoirtopofbook.sbe.v1.1.version", ftypes.UINT16)
 
--- Memx Equities MemoirTopOfBook Sbe 1.1 messages
+-- Memx Equities Sbe MemoirTopOfBook 1.1 Application Messages
 omi_memx_equities_memoirtopofbook_sbe_v1_1.fields.best_bid_message = ProtoField.new("Best Bid Message", "memx.equities.memoirtopofbook.sbe.v1.1.bestbidmessage", ftypes.STRING)
 omi_memx_equities_memoirtopofbook_sbe_v1_1.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "memx.equities.memoirtopofbook.sbe.v1.1.bestbidoffermessage", ftypes.STRING)
 omi_memx_equities_memoirtopofbook_sbe_v1_1.fields.best_bid_short_message = ProtoField.new("Best Bid Short Message", "memx.equities.memoirtopofbook.sbe.v1.1.bestbidshortmessage", ftypes.STRING)

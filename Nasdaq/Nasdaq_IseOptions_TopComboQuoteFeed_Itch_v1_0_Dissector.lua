@@ -79,7 +79,7 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.underlying_symbol = Pro
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.version", ftypes.UINT8)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.volume = ProtoField.new("Volume", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.volume", ftypes.UINT32)
 
--- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 messages
+-- Nasdaq IseOptions Itch TopComboQuoteFeed 1.0 Application Messages
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.complex_strategy_directory_message = ProtoField.new("Complex Strategy Directory Message", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.complexstrategydirectorymessage", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.complex_strategy_ticker_message = ProtoField.new("Complex Strategy Ticker Message", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.complexstrategytickermessage", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_best_ask_update = ProtoField.new("Strategy Best Ask Update", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.strategybestaskupdate", ftypes.STRING)

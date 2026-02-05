@@ -262,7 +262,7 @@ omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.transact_time = ProtoField.new(
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.version = ProtoField.new("Version", "b3.equities.binaryentrypoint.sbe.v8.3.version", ftypes.UINT16)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.working_indicator = ProtoField.new("Working Indicator", "b3.equities.binaryentrypoint.sbe.v8.3.workingindicator", ftypes.UINT8)
 
--- B3 Equities BinaryEntryPoint Sbe 8.3 messages
+-- B3 Equities Sbe BinaryEntryPoint 8.3 Application Messages
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.allocation_instruction_message = ProtoField.new("Allocation Instruction Message", "b3.equities.binaryentrypoint.sbe.v8.3.allocationinstructionmessage", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.allocation_report_message = ProtoField.new("Allocation Report Message", "b3.equities.binaryentrypoint.sbe.v8.3.allocationreportmessage", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v8_3.fields.business_message_reject_message = ProtoField.new("Business Message Reject Message", "b3.equities.binaryentrypoint.sbe.v8.3.businessmessagerejectmessage", ftypes.STRING)

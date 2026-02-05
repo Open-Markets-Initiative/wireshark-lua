@@ -110,7 +110,7 @@ omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.version = ProtoField.new(
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.derivatives.marketdataapi.sbe.v1.2.vwapprice", ftypes.INT64)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.derivatives.marketdataapi.sbe.v1.2.vwappriceoptional", ftypes.INT64)
 
--- Coinbase Derivatives MarketDataApi Sbe 1.2 messages
+-- Coinbase Derivatives Sbe MarketDataApi 1.2 Application Messages
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.2.endofsnapshotmessage", ftypes.STRING)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.implied_order_update_message = ProtoField.new("Implied Order Update Message", "coinbase.derivatives.marketdataapi.sbe.v1.2.impliedorderupdatemessage", ftypes.STRING)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.market_stat_message = ProtoField.new("Market Stat Message", "coinbase.derivatives.marketdataapi.sbe.v1.2.marketstatmessage", ftypes.STRING)

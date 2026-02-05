@@ -82,7 +82,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.underlying_symbol = ProtoField.new("
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume = ProtoField.new("Volume", "nasdaq.nomoptions.itto.itch.v4.0.volume", ftypes.UINT16)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.nomoptions.itto.itch.v4.0.volumelong", ftypes.UINT32)
 
--- Nasdaq NomOptions Itto Itch 4.0 messages
+-- Nasdaq NomOptions Itch Itto 4.0 Application Messages
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_long_form_message = ProtoField.new("Add Order Message Long Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addordermessagelongformmessage", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_short_message_form = ProtoField.new("Add Order Message Short Message Form", "nasdaq.nomoptions.itto.itch.v4.0.addordermessageshortmessageform", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_long_form_message = ProtoField.new("Add Quote Message Long Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addquotemessagelongformmessage", ftypes.STRING)

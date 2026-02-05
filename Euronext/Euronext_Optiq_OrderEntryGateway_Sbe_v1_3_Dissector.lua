@@ -273,7 +273,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.user_status = ProtoField.ne
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.version = ProtoField.new("Version", "euronext.optiq.orderentrygateway.sbe.v1.3.version", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.waiver_indicator = ProtoField.new("Waiver Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.waiverindicator", ftypes.STRING)
 
--- Euronext Optiq OrderEntryGateway Sbe 1.3 messages
+-- Euronext Optiq Sbe OrderEntryGateway 1.3 Application Messages
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.ack_message = ProtoField.new("Ack Message", "euronext.optiq.orderentrygateway.sbe.v1.3.ackmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.ask_for_quote_message = ProtoField.new("Ask For Quote Message", "euronext.optiq.orderentrygateway.sbe.v1.3.askforquotemessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_message = ProtoField.new("Cancel Replace Message", "euronext.optiq.orderentrygateway.sbe.v1.3.cancelreplacemessage", ftypes.STRING)

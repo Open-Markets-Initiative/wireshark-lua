@@ -425,7 +425,7 @@ omi_eurex_cash_eti_t7_v13_0.fields.var_text = ProtoField.new("Var Text", "eurex.
 omi_eurex_cash_eti_t7_v13_0.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.cash.eti.t7.v13.0.vartextlen", ftypes.UINT16)
 omi_eurex_cash_eti_t7_v13_0.fields.xetra_en_light_target_parties_comp = ProtoField.new("Xetra En Light Target Parties Comp", "eurex.cash.eti.t7.v13.0.xetraenlighttargetpartiescomp", ftypes.STRING)
 
--- Eurex Cash Eti T7 13.0 messages
+-- Eurex Cash T7 Eti 13.0 Application Messages
 omi_eurex_cash_eti_t7_v13_0.fields.approve_tes_trade_request = ProtoField.new("Approve Tes Trade Request", "eurex.cash.eti.t7.v13.0.approvetestraderequest", ftypes.STRING)
 omi_eurex_cash_eti_t7_v13_0.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.cash.eti.t7.v13.0.broadcasterrornotification", ftypes.STRING)
 omi_eurex_cash_eti_t7_v13_0.fields.cross_request = ProtoField.new("Cross Request", "eurex.cash.eti.t7.v13.0.crossrequest", ftypes.STRING)

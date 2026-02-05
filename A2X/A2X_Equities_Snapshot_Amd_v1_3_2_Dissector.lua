@@ -41,7 +41,7 @@ omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading = ProtoField.new("Trading", 
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.equities.snapshot.amd.v1.3.2.tradingstatus", ftypes.UINT8)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.equities.snapshot.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 
--- A2X Equities Snapshot Amd 1.3.2 messages
+-- A2X Equities Amd Snapshot 1.3.2 Application Messages
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.book_entry_message = ProtoField.new("Book Entry Message", "a2x.equities.snapshot.amd.v1.3.2.bookentrymessage", ftypes.STRING)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.book_status_message = ProtoField.new("Book Status Message", "a2x.equities.snapshot.amd.v1.3.2.bookstatusmessage", ftypes.STRING)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message = ProtoField.new("Market At Close Book Entry Message", "a2x.equities.snapshot.amd.v1.3.2.marketatclosebookentrymessage", ftypes.STRING)

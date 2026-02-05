@@ -46,7 +46,7 @@ omi_currenex_forex_esp_cbp_v9_0.fields.ticker_type = ProtoField.new("Ticker Type
 omi_currenex_forex_esp_cbp_v9_0.fields.transact_time = ProtoField.new("Transact Time", "currenex.forex.esp.cbp.v9.0.transacttime", ftypes.INT64)
 omi_currenex_forex_esp_cbp_v9_0.fields.user_id = ProtoField.new("User Id", "currenex.forex.esp.cbp.v9.0.userid", ftypes.STRING)
 
--- Currenex Forex Esp Cbp 9.0 messages
+-- Currenex Forex Cbp Esp 9.0 Application Messages
 omi_currenex_forex_esp_cbp_v9_0.fields.heartbeat = ProtoField.new("Heartbeat", "currenex.forex.esp.cbp.v9.0.heartbeat", ftypes.STRING)
 omi_currenex_forex_esp_cbp_v9_0.fields.instrument_info = ProtoField.new("Instrument Info", "currenex.forex.esp.cbp.v9.0.instrumentinfo", ftypes.STRING)
 omi_currenex_forex_esp_cbp_v9_0.fields.logon = ProtoField.new("Logon", "currenex.forex.esp.cbp.v9.0.logon", ftypes.STRING)

@@ -52,7 +52,7 @@ omi_cme_futures_derived_sbe_v12_0.fields.trading_session_id = ProtoField.new("Tr
 omi_cme_futures_derived_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.derived.sbe.v12.0.transacttime", ftypes.UINT64)
 omi_cme_futures_derived_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.futures.derived.sbe.v12.0.version", ftypes.UINT16)
 
--- Cme Futures Derived Sbe 12.0 messages
+-- Cme Futures Sbe Derived 12.0 Application Messages
 omi_cme_futures_derived_sbe_v12_0.fields.global_day_roll = ProtoField.new("Global Day Roll", "cme.futures.derived.sbe.v12.0.globaldayroll", ftypes.STRING)
 omi_cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum = ProtoField.new("Md Incremental Refresh Spectrum", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrum", ftypes.STRING)
 omi_cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_ticker = ProtoField.new("Md Incremental Refresh Ticker", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshticker", ftypes.STRING)

@@ -60,7 +60,7 @@ omi_nasdaq_nsmequities_noi_itch_v3_0.fields.stock = ProtoField.new("Stock", "nas
 omi_nasdaq_nsmequities_noi_itch_v3_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noi.itch.v3.0.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_noi_itch_v3_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.noi.itch.v3.0.trackingnumber", ftypes.UINT16)
 
--- Nasdaq NsmEquities Noi Itch 3.0 messages
+-- Nasdaq NsmEquities Itch Noi 3.0 Application Messages
 omi_nasdaq_nsmequities_noi_itch_v3_0.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.nsmequities.noi.itch.v3.0.crosstrademessage", ftypes.STRING)
 omi_nasdaq_nsmequities_noi_itch_v3_0.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.noi.itch.v3.0.ipoquotingperiodupdatemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_noi_itch_v3_0.fields.noii_message = ProtoField.new("Noii Message", "nasdaq.nsmequities.noi.itch.v3.0.noiimessage", ftypes.STRING)

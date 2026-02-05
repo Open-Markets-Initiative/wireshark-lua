@@ -117,7 +117,7 @@ omi_eurex_derivatives_eobi_t7_v9_1.fields.trd_reg_ts_prev_time_priority = ProtoF
 omi_eurex_derivatives_eobi_t7_v9_1.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg Ts Time In", "eurex.derivatives.eobi.t7.v9.1.trdregtstimein", ftypes.UINT64)
 omi_eurex_derivatives_eobi_t7_v9_1.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.derivatives.eobi.t7.v9.1.trdregtstimepriority", ftypes.UINT64)
 
--- Eurex Derivatives Eobi T7 9.1 messages
+-- Eurex Derivatives T7 Eobi 9.1 Application Messages
 omi_eurex_derivatives_eobi_t7_v9_1.fields.add_complex_instrument = ProtoField.new("Add Complex Instrument", "eurex.derivatives.eobi.t7.v9.1.addcomplexinstrument", ftypes.STRING)
 omi_eurex_derivatives_eobi_t7_v9_1.fields.auction_bbo = ProtoField.new("Auction Bbo", "eurex.derivatives.eobi.t7.v9.1.auctionbbo", ftypes.STRING)
 omi_eurex_derivatives_eobi_t7_v9_1.fields.auction_clearing_price = ProtoField.new("Auction Clearing Price", "eurex.derivatives.eobi.t7.v9.1.auctionclearingprice", ftypes.STRING)

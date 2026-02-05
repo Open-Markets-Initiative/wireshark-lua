@@ -75,7 +75,7 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_price = ProtoField.new("T
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.psxequities.lastsale.itch.v2.1.tradesize", ftypes.UINT32)
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.trading_action_reason = ProtoField.new("Trading Action Reason", "nasdaq.psxequities.lastsale.itch.v2.1.tradingactionreason", ftypes.STRING)
 
--- Nasdaq PsxEquities LastSale Itch 2.1 messages
+-- Nasdaq PsxEquities Itch LastSale 2.1 Application Messages
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.mwcb_breach_message = ProtoField.new("Mwcb Breach Message", "nasdaq.psxequities.lastsale.itch.v2.1.mwcbbreachmessage", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psxequities.lastsale.itch.v2.1.mwcbdeclinelevelmessage", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.next_shares_trade_report_message = ProtoField.new("Next Shares Trade Report Message", "nasdaq.psxequities.lastsale.itch.v2.1.nextsharestradereportmessage", ftypes.STRING)

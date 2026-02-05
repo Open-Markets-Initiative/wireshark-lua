@@ -70,7 +70,7 @@ omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message = ProtoField.new("Unseque
 omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.bonds.pts.ouch.v1.4.unsequencedmessagetype", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.username = ProtoField.new("Username", "jnx.bonds.pts.ouch.v1.4.username", ftypes.STRING)
 
--- Jnx Bonds Pts Ouch 1.4 messages
+-- Jnx Bonds Ouch Pts 1.4 Application Messages
 omi_jnx_bonds_pts_ouch_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.bonds.pts.ouch.v1.4.cancelordermessage", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.bonds.pts.ouch.v1.4.enterordermessage", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jnx.bonds.pts.ouch.v1.4.orderacceptedmessage", ftypes.STRING)

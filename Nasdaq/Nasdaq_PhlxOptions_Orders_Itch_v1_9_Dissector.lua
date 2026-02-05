@@ -72,7 +72,7 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.version = ProtoField.new("Version
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.orders.itch.v1.9.volume", ftypes.UINT32)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.year = ProtoField.new("Year", "nasdaq.phlxoptions.orders.itch.v1.9.year", ftypes.UINT16, nil, base.DEC, 0xFE00)
 
--- Nasdaq PhlxOptions Orders Itch 1.9 messages
+-- Nasdaq PhlxOptions Itch Orders 1.9 Application Messages
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "nasdaq.phlxoptions.orders.itch.v1.9.auctionnotificationmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_auction_notification_message = ProtoField.new("Complex Auction Notification Message", "nasdaq.phlxoptions.orders.itch.v1.9.complexauctionnotificationmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_message = ProtoField.new("Complex Order Message", "nasdaq.phlxoptions.orders.itch.v1.9.complexordermessage", ftypes.STRING)

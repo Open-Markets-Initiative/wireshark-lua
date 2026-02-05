@@ -64,7 +64,7 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.fields.underlying_symbol = ProtoField.new("
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.version = ProtoField.new("Version", "nasdaq.nomoptions.bono.itch.v3.2.version", ftypes.UINT8)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.volume = ProtoField.new("Volume", "nasdaq.nomoptions.bono.itch.v3.2.volume", ftypes.UINT32)
 
--- Nasdaq NomOptions Bono Itch 3.2 messages
+-- Nasdaq NomOptions Itch Bono 3.2 Application Messages
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.nomoptions.bono.itch.v3.2.brokentradereportmessage", ftypes.STRING)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.long_best_ask_update_message = ProtoField.new("Long Best Ask Update Message", "nasdaq.nomoptions.bono.itch.v3.2.longbestaskupdatemessage", ftypes.STRING)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.long_best_bid_and_ask_update_message = ProtoField.new("Long Best Bid And Ask Update Message", "nasdaq.nomoptions.bono.itch.v3.2.longbestbidandaskupdatemessage", ftypes.STRING)

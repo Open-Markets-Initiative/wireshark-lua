@@ -67,7 +67,7 @@ omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.trade_time_stamp = ProtoField.ne
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.quantumfeed.alphalevel1.xmt.v2.1.tradingsystemtimestamp", ftypes.UINT64)
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.alphalevel1.xmt.v2.1.volume", ftypes.UINT32)
 
--- Tmx QuantumFeed AlphaLevel1 Xmt 2.1 messages
+-- Tmx QuantumFeed Xmt AlphaLevel1 2.1 Application Messages
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.equity_quote_message = ProtoField.new("Equity Quote Message", "tmx.quantumfeed.alphalevel1.xmt.v2.1.equityquotemessage", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.stock_status_message = ProtoField.new("Stock Status Message", "tmx.quantumfeed.alphalevel1.xmt.v2.1.stockstatusmessage", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "tmx.quantumfeed.alphalevel1.xmt.v2.1.symbolstatusmessage", ftypes.STRING)

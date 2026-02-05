@@ -42,7 +42,7 @@ omi_nyse_options_streamprotocol_pillar_v1_6.fields.user = ProtoField.new("User",
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.username = ProtoField.new("Username", "nyse.options.streamprotocol.pillar.v1.6.username", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.version = ProtoField.new("Version", "nyse.options.streamprotocol.pillar.v1.6.version", ftypes.STRING)
 
--- Nyse Options StreamProtocol Pillar 1.6 messages
+-- Nyse Options Pillar StreamProtocol 1.6 Session Messages
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.close = ProtoField.new("Close", "nyse.options.streamprotocol.pillar.v1.6.close", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.close_response = ProtoField.new("Close Response", "nyse.options.streamprotocol.pillar.v1.6.closeresponse", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.options.streamprotocol.pillar.v1.6.heartbeat", ftypes.STRING)

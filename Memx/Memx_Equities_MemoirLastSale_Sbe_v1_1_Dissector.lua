@@ -65,7 +65,7 @@ omi_memx_equities_memoirlastsale_sbe_v1_1.fields.trade_qty = ProtoField.new("Tra
 omi_memx_equities_memoirlastsale_sbe_v1_1.fields.trading_session = ProtoField.new("Trading Session", "memx.equities.memoirlastsale.sbe.v1.1.tradingsession", ftypes.STRING)
 omi_memx_equities_memoirlastsale_sbe_v1_1.fields.version = ProtoField.new("Version", "memx.equities.memoirlastsale.sbe.v1.1.version", ftypes.UINT16)
 
--- Memx Equities MemoirLastSale Sbe 1.1 messages
+-- Memx Equities Sbe MemoirLastSale 1.1 Application Messages
 omi_memx_equities_memoirlastsale_sbe_v1_1.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "memx.equities.memoirlastsale.sbe.v1.1.instrumentdirectorymessage", ftypes.STRING)
 omi_memx_equities_memoirlastsale_sbe_v1_1.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "memx.equities.memoirlastsale.sbe.v1.1.regshorestrictionmessage", ftypes.STRING)
 omi_memx_equities_memoirlastsale_sbe_v1_1.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "memx.equities.memoirlastsale.sbe.v1.1.securitytradingstatusmessage", ftypes.STRING)

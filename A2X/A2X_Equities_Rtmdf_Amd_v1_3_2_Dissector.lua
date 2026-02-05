@@ -57,7 +57,7 @@ omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_1 = ProtoField.new("Unused 1", "
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_10 = ProtoField.new("Unused 10", "a2x.equities.rtmdf.amd.v1.3.2.unused10", ftypes.UINT16, nil, base.DEC, 0x03FF)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.equities.rtmdf.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 
--- A2X Equities Rtmdf Amd 1.3.2 messages
+-- A2X Equities Amd Rtmdf 1.3.2 Application Messages
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message = ProtoField.new("Auction On Demand Message", "a2x.equities.rtmdf.amd.v1.3.2.auctionondemandmessage", ftypes.STRING)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.market_at_close = ProtoField.new("Market At Close", "a2x.equities.rtmdf.amd.v1.3.2.marketatclose", ftypes.STRING)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_add_message = ProtoField.new("Order Add Message", "a2x.equities.rtmdf.amd.v1.3.2.orderaddmessage", ftypes.STRING)

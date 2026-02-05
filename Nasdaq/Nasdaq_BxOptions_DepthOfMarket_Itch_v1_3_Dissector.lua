@@ -86,7 +86,7 @@ omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.underlying_symbol = ProtoFie
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume = ProtoField.new("Volume", "nasdaq.bxoptions.depthofmarket.itch.v1.3.volume", ftypes.UINT16)
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.volumelong", ftypes.UINT32)
 
--- Nasdaq BxOptions DepthOfMarket Itch 1.3 messages
+-- Nasdaq BxOptions Itch DepthOfMarket 1.3 Application Messages
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_long_form = ProtoField.new("Add Order Message Long Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addordermessagelongform", ftypes.STRING)
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_short_form = ProtoField.new("Add Order Message Short Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addordermessageshortform", ftypes.STRING)
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_long_form = ProtoField.new("Add Quote Message Long Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addquotemessagelongform", ftypes.STRING)

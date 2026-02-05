@@ -286,7 +286,7 @@ omi_eurex_cash_eti_t7_v6_1.fields.var_text = ProtoField.new("Var Text", "eurex.c
 omi_eurex_cash_eti_t7_v6_1.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.cash.eti.t7.v6.1.vartextlen", ftypes.UINT16)
 omi_eurex_cash_eti_t7_v6_1.fields.volume_discovery_price = ProtoField.new("Volume Discovery Price", "eurex.cash.eti.t7.v6.1.volumediscoveryprice", ftypes.DOUBLE)
 
--- Eurex Cash Eti T7 6.1 messages
+-- Eurex Cash T7 Eti 6.1 Application Messages
 omi_eurex_cash_eti_t7_v6_1.fields.best_quote_execution_report = ProtoField.new("Best Quote Execution Report", "eurex.cash.eti.t7.v6.1.bestquoteexecutionreport", ftypes.STRING)
 omi_eurex_cash_eti_t7_v6_1.fields.best_quote_response = ProtoField.new("Best Quote Response", "eurex.cash.eti.t7.v6.1.bestquoteresponse", ftypes.STRING)
 omi_eurex_cash_eti_t7_v6_1.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.cash.eti.t7.v6.1.broadcasterrornotification", ftypes.STRING)

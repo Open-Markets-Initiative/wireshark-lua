@@ -188,7 +188,7 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_symbol_year = ProtoField.
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.variable_legs_strategy_code = ProtoField.new("Variable Legs Strategy Code", "tmx.mx.sola.multicast.hsvf.v1.14.variablelegsstrategycode", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.volume = ProtoField.new("Volume", "tmx.mx.sola.multicast.hsvf.v1.14.volume", ftypes.STRING)
 
--- Tmx Mx Sola Multicast Hsvf 1.14 messages
+-- Tmx Mx Sola Hsvf Multicast 1.14 Application Messages
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.beginning_of_future_options_summary_message = ProtoField.new("Beginning Of Future Options Summary Message", "tmx.mx.sola.multicast.hsvf.v1.14.beginningoffutureoptionssummarymessage", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.beginning_of_futures_summary_message = ProtoField.new("Beginning Of Futures Summary Message", "tmx.mx.sola.multicast.hsvf.v1.14.beginningoffuturessummarymessage", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.beginning_of_options_summary_message = ProtoField.new("Beginning Of Options Summary Message", "tmx.mx.sola.multicast.hsvf.v1.14.beginningofoptionssummarymessage", ftypes.STRING)

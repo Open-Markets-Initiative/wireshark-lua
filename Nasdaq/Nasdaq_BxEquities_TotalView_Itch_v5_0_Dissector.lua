@@ -86,7 +86,7 @@ omi_nasdaq_bxequities_totalview_itch_v5_0.fields.trading_action_reason = ProtoFi
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.bxequities.totalview.itch.v5.0.tradingstate", ftypes.STRING)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.bxequities.totalview.itch.v5.0.upperauctioncollarprice", ftypes.DOUBLE)
 
--- Nasdaq BxEquities TotalView Itch 5.0 messages
+-- Nasdaq BxEquities Itch TotalView 5.0 Application Messages
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.add_order_mpid_attribution = ProtoField.new("Add Order Mpid Attribution", "nasdaq.bxequities.totalview.itch.v5.0.addordermpidattribution", ftypes.STRING)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution = ProtoField.new("Add Order No Mpid Attribution", "nasdaq.bxequities.totalview.itch.v5.0.addordernompidattribution", ftypes.STRING)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.broken_trade = ProtoField.new("Broken Trade", "nasdaq.bxequities.totalview.itch.v5.0.brokentrade", ftypes.STRING)

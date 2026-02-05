@@ -65,7 +65,7 @@ omi_boats_equities_memoirlastsale_sbe_v1_3.fields.trade_qty = ProtoField.new("Tr
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "boats.equities.memoirlastsale.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.version = ProtoField.new("Version", "boats.equities.memoirlastsale.sbe.v1.3.version", ftypes.UINT16)
 
--- Boats Equities MemoirLastSale Sbe 1.3 messages
+-- Boats Equities Sbe MemoirLastSale 1.3 Application Messages
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "boats.equities.memoirlastsale.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "boats.equities.memoirlastsale.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
 omi_boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "boats.equities.memoirlastsale.sbe.v1.3.securitytradingstatusmessage", ftypes.STRING)
