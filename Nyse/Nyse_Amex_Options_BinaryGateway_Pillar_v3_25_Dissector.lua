@@ -3256,9 +3256,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.reject_type.display = function(valu
   if value == 8 then
     return "Reject Type: Bulk Cancel Request Reject Options (8)"
   end
-  if value == 9 then
-    return "Reject Type: Cross Order Reject (9)"
-  end
   if value == 10 then
     return "Reject Type: New Complex Series Request Reject (10)"
   end
@@ -4194,12 +4191,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.size = 2
 nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.display = function(value)
   if value == 0 then
     return "Contra Cross Type: Not Applicable (0)"
-  end
-  if value == 5 then
-    return "Contra Cross Type: Price Improvement Cube (5)"
-  end
-  if value == 7 then
-    return "Contra Cross Type: Aoncube Solicitation (7)"
   end
   if value == 10 then
     return "Contra Cross Type: Qcc (10)"
@@ -6148,21 +6139,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.display = function
   if value == 0 then
     return "Bold Designation: Not Applicable (0)"
   end
-  if value == 4 then
-    return "Bold Designation: Expose Order Info Only (4)"
-  end
-  if value == 5 then
-    return "Bold Designation: Expose Order Info And Capacity (5)"
-  end
-  if value == 6 then
-    return "Bold Designation: Expose Order Info And Participant Id (6)"
-  end
-  if value == 7 then
-    return "Bold Designation: Expose Order Info Capacity And Participant Id (7)"
-  end
-  if value == 8 then
-    return "Bold Designation: No Bold Defaulting (8)"
-  end
 
   return "Bold Designation: Unknown("..value..")"
 end
@@ -6448,8 +6424,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.mic.size = 4
 
 -- Display: Mic
 nyse_amex_options_binarygateway_pillar_v3_25.mic.display = function(value)
-  if value == "AMXO" then
-    return "Mic: Nyse American Options (AMXO)"
+  if value == "ARCO" then
+    return "Mic: Nyse Arca Options (ARCO)"
   end
 
   return "Mic: Unknown("..value..")"
@@ -6715,24 +6691,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.mm_type.display = function(value)
   end
   if value == 2 then
     return "Mm Type: Nyse Arca Options Market Maker (2)"
-  end
-  if value == 1 then
-    return "Mm Type: Nyse American Options Market Maker (1)"
-  end
-  if value == 2 then
-    return "Mm Type: Nyse American Options Specialist (2)"
-  end
-  if value == 3 then
-    return "Mm Type: Nyse American Optionse Specialist (3)"
-  end
-  if value == 4 then
-    return "Mm Type: Nyse American Options Domm (4)"
-  end
-  if value == 5 then
-    return "Mm Type: Nyse American Options Specialist And Domm (5)"
-  end
-  if value == 6 then
-    return "Mm Type: Nyse American Optionse Specialist And Domm (6)"
   end
 
   return "Mm Type: Unknown("..value..")"
