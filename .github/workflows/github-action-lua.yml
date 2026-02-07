@@ -32,11 +32,11 @@ jobs:
       - name: Run B3 Equities BinaryUmdf Sbe 1.8 Dissector Tests
         run: bash -x .github/tests/B3-Equities-BinaryUmdf-Sbe-v1-8-Test.sh
 
-      - name: Run Coinbase Derivatives MarketDataApi Sbe 1.2 Dissector Tests
-        run: bash -x .github/tests/Coinbase-Derivatives-MarketDataApi-Sbe-v1-2-Test.sh
-
       - name: Run Cme Futures Mdp3 Sbe 1.9 Dissector Tests
         run: bash -x .github/tests/Cme-Futures-Mdp3-Sbe-v1-9-Test.sh
+
+      - name: Run Coinbase Derivatives MarketDataApi Sbe 1.2 Dissector Tests
+        run: bash -x .github/tests/Coinbase-Derivatives-MarketDataApi-Sbe-v1-2-Test.sh
 
       - name: Run Eurex Derivatives Eti T7 10.0 Dissector Tests
         run: bash -x .github/tests/Eurex-Derivatives-Eti-T7-v10-0-Test.sh
