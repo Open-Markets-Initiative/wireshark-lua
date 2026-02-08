@@ -121,7 +121,7 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.quoting_mpv = ProtoField.new
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.rd_seq = ProtoField.new("Rd Seq", "nyse.equities.binarygateway.pillar.v5.17.rdseq", ftypes.UINT64)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reason_code = ProtoField.new("Reason Code", "nyse.equities.binarygateway.pillar.v5.17.reasoncode", ftypes.UINT16)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.ref_cl_ord_id = ProtoField.new("Ref Cl Ord Id", "nyse.equities.binarygateway.pillar.v5.17.refclordid", ftypes.UINT64)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.refseqmsgid = ProtoField.new("Refseqmsgid", "nyse.equities.binarygateway.pillar.v5.17.refseqmsgid", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.ref_seq_msg_id = ProtoField.new("Ref Seq Msg Id", "nyse.equities.binarygateway.pillar.v5.17.refseqmsgid", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reinstatement_required_by_other = ProtoField.new("Reinstatement Required By Other", "nyse.equities.binarygateway.pillar.v5.17.reinstatementrequiredbyother", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reinstatement_required_by_self = ProtoField.new("Reinstatement Required By Self", "nyse.equities.binarygateway.pillar.v5.17.reinstatementrequiredbyself", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reject_type = ProtoField.new("Reject Type", "nyse.equities.binarygateway.pillar.v5.17.rejecttype", ftypes.UINT8)
@@ -158,9 +158,9 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.sell_dmm_available_qty = Pro
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.sell_indicator = ProtoField.new("Sell Indicator", "nyse.equities.binarygateway.pillar.v5.17.sellindicator", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.seq = ProtoField.new("Seq", "nyse.equities.binarygateway.pillar.v5.17.seq", ftypes.UINT64)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.equities.binarygateway.pillar.v5.17.seqmsgheader", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.seq_msg_id = ProtoField.new("Seq Msg Id", "nyse.equities.binarygateway.pillar.v5.17.seqmsgid", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.equities.binarygateway.pillar.v5.17.seqmsglength", ftypes.UINT16)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.equities.binarygateway.pillar.v5.17.seqmsgtype", ftypes.UINT16)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.seqmsgid = ProtoField.new("Seqmsgid", "nyse.equities.binarygateway.pillar.v5.17.seqmsgid", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.sequenced_message = ProtoField.new("Sequenced Message", "nyse.equities.binarygateway.pillar.v5.17.sequencedmessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.sess = ProtoField.new("Sess", "nyse.equities.binarygateway.pillar.v5.17.sess", ftypes.UINT32)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.settlement_type = ProtoField.new("Settlement Type", "nyse.equities.binarygateway.pillar.v5.17.settlementtype", ftypes.STRING)
@@ -292,14 +292,14 @@ show.order_cancel_request_message = true
 show.order_modify_cancel_request_acknowledgment_and_urout_message = true
 show.order_modify_request_message = true
 show.order_priority_update_acknowledgment_message = true
-show.refseqmsgid = true
+show.ref_seq_msg_id = true
 show.risk_action_request_message = true
 show.risk_control_acknowledgement_message = true
 show.risk_control_alert_message = true
 show.risk_limit_update_request_message = true
 show.seq_msg = true
 show.seq_msg_header = true
-show.seqmsgid = true
+show.seq_msg_id = true
 show.session_configuration_acknowledgement_message = true
 show.session_configuration_request_message = true
 show.stream_avail = true
@@ -347,14 +347,14 @@ omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_cancel_request_mes
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_modify_cancel_request_acknowledgment_and_urout_message = Pref.bool("Show Order Modify Cancel Request Acknowledgment And Urout Message", show.order_modify_cancel_request_acknowledgment_and_urout_message, "Parse and add Order Modify Cancel Request Acknowledgment And Urout Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_modify_request_message = Pref.bool("Show Order Modify Request Message", show.order_modify_request_message, "Parse and add Order Modify Request Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_priority_update_acknowledgment_message = Pref.bool("Show Order Priority Update Acknowledgment Message", show.order_priority_update_acknowledgment_message, "Parse and add Order Priority Update Acknowledgment Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_refseqmsgid = Pref.bool("Show Refseqmsgid", show.refseqmsgid, "Parse and add Refseqmsgid to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_action_request_message = Pref.bool("Show Risk Action Request Message", show.risk_action_request_message, "Parse and add Risk Action Request Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_control_acknowledgement_message = Pref.bool("Show Risk Control Acknowledgement Message", show.risk_control_acknowledgement_message, "Parse and add Risk Control Acknowledgement Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_control_alert_message = Pref.bool("Show Risk Control Alert Message", show.risk_control_alert_message, "Parse and add Risk Control Alert Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_limit_update_request_message = Pref.bool("Show Risk Limit Update Request Message", show.risk_limit_update_request_message, "Parse and add Risk Limit Update Request Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seqmsgid = Pref.bool("Show Seqmsgid", show.seqmsgid, "Parse and add Seqmsgid to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_configuration_acknowledgement_message = Pref.bool("Show Session Configuration Acknowledgement Message", show.session_configuration_acknowledgement_message, "Parse and add Session Configuration Acknowledgement Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_configuration_request_message = Pref.bool("Show Session Configuration Request Message", show.session_configuration_request_message, "Parse and add Session Configuration Request Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_stream_avail = Pref.bool("Show Stream Avail", show.stream_avail, "Parse and add Stream Avail to protocol tree")
@@ -511,8 +511,8 @@ function omi_nyse_equities_binarygateway_pillar_v5_17.prefs_changed()
     show.order_priority_update_acknowledgment_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_priority_update_acknowledgment_message
     changed = true
   end
-  if show.refseqmsgid ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_refseqmsgid then
-    show.refseqmsgid = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_refseqmsgid
+  if show.ref_seq_msg_id ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id then
+    show.ref_seq_msg_id = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id
     changed = true
   end
   if show.risk_action_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_action_request_message then
@@ -539,8 +539,8 @@ function omi_nyse_equities_binarygateway_pillar_v5_17.prefs_changed()
     show.seq_msg_header = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_header
     changed = true
   end
-  if show.seqmsgid ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seqmsgid then
-    show.seqmsgid = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seqmsgid
+  if show.seq_msg_id ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_id then
+    show.seq_msg_id = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_id
     changed = true
   end
   if show.session_configuration_acknowledgement_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_configuration_acknowledgement_message then
@@ -4307,21 +4307,21 @@ nyse_equities_binarygateway_pillar_v5_17.deal_id.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Refseqmsgid
-nyse_equities_binarygateway_pillar_v5_17.refseqmsgid = {}
+-- Ref Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_17.ref_seq_msg_id = {}
 
--- Size: Refseqmsgid
-nyse_equities_binarygateway_pillar_v5_17.refseqmsgid.size =
+-- Size: Ref Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_17.ref_seq_msg_id.size =
   nyse_equities_binarygateway_pillar_v5_17.stream_id.size + 
   nyse_equities_binarygateway_pillar_v5_17.seq.size
 
--- Display: Refseqmsgid
-nyse_equities_binarygateway_pillar_v5_17.refseqmsgid.display = function(packet, parent, length)
+-- Display: Ref Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_17.ref_seq_msg_id.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Refseqmsgid
-nyse_equities_binarygateway_pillar_v5_17.refseqmsgid.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Ref Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_17.ref_seq_msg_id.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stream Id: Struct of 2 fields
@@ -4333,21 +4333,21 @@ nyse_equities_binarygateway_pillar_v5_17.refseqmsgid.fields = function(buffer, o
   return index
 end
 
--- Dissect: Refseqmsgid
-nyse_equities_binarygateway_pillar_v5_17.refseqmsgid.dissect = function(buffer, offset, packet, parent)
-  if show.refseqmsgid then
+-- Dissect: Ref Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_17.ref_seq_msg_id.dissect = function(buffer, offset, packet, parent)
+  if show.ref_seq_msg_id then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.refseqmsgid, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_17.refseqmsgid.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.ref_seq_msg_id, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_17.ref_seq_msg_id.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_equities_binarygateway_pillar_v5_17.refseqmsgid.display(packet, parent, length)
+    local display = nyse_equities_binarygateway_pillar_v5_17.ref_seq_msg_id.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_17.refseqmsgid.fields(buffer, offset, packet, parent)
+    return nyse_equities_binarygateway_pillar_v5_17.ref_seq_msg_id.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4411,8 +4411,8 @@ nyse_equities_binarygateway_pillar_v5_17.trade_bust_correct_message.fields = fun
   -- Cl Ord Id: u64
   index, cl_ord_id = nyse_equities_binarygateway_pillar_v5_17.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Refseqmsgid: Struct of 2 fields
-  index, refseqmsgid = nyse_equities_binarygateway_pillar_v5_17.refseqmsgid.dissect(buffer, index, packet, parent)
+  -- Ref Seq Msg Id: Struct of 2 fields
+  index, ref_seq_msg_id = nyse_equities_binarygateway_pillar_v5_17.ref_seq_msg_id.dissect(buffer, index, packet, parent)
 
   -- Deal Id: u64
   index, deal_id = nyse_equities_binarygateway_pillar_v5_17.deal_id.dissect(buffer, index, packet, parent)
@@ -9035,21 +9035,21 @@ nyse_equities_binarygateway_pillar_v5_17.reserved_4.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Seqmsgid
-nyse_equities_binarygateway_pillar_v5_17.seqmsgid = {}
+-- Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_17.seq_msg_id = {}
 
--- Size: Seqmsgid
-nyse_equities_binarygateway_pillar_v5_17.seqmsgid.size =
+-- Size: Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_17.seq_msg_id.size =
   nyse_equities_binarygateway_pillar_v5_17.stream_id.size + 
   nyse_equities_binarygateway_pillar_v5_17.seq.size
 
--- Display: Seqmsgid
-nyse_equities_binarygateway_pillar_v5_17.seqmsgid.display = function(packet, parent, length)
+-- Display: Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_17.seq_msg_id.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Seqmsgid
-nyse_equities_binarygateway_pillar_v5_17.seqmsgid.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_17.seq_msg_id.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stream Id: Struct of 2 fields
@@ -9061,21 +9061,21 @@ nyse_equities_binarygateway_pillar_v5_17.seqmsgid.fields = function(buffer, offs
   return index
 end
 
--- Dissect: Seqmsgid
-nyse_equities_binarygateway_pillar_v5_17.seqmsgid.dissect = function(buffer, offset, packet, parent)
-  if show.seqmsgid then
+-- Dissect: Seq Msg Id
+nyse_equities_binarygateway_pillar_v5_17.seq_msg_id.dissect = function(buffer, offset, packet, parent)
+  if show.seq_msg_id then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.seqmsgid, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_17.seqmsgid.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.seq_msg_id, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_17.seq_msg_id.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_equities_binarygateway_pillar_v5_17.seqmsgid.display(packet, parent, length)
+    local display = nyse_equities_binarygateway_pillar_v5_17.seq_msg_id.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_17.seqmsgid.fields(buffer, offset, packet, parent)
+    return nyse_equities_binarygateway_pillar_v5_17.seq_msg_id.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -9222,8 +9222,8 @@ nyse_equities_binarygateway_pillar_v5_17.seq_msg.fields = function(buffer, offse
   -- Msg Header: Struct of 2 fields
   index, msg_header = nyse_equities_binarygateway_pillar_v5_17.msg_header.dissect(buffer, index, packet, parent)
 
-  -- Seqmsgid: Struct of 2 fields
-  index, seqmsgid = nyse_equities_binarygateway_pillar_v5_17.seqmsgid.dissect(buffer, index, packet, parent)
+  -- Seq Msg Id: Struct of 2 fields
+  index, seq_msg_id = nyse_equities_binarygateway_pillar_v5_17.seq_msg_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
   index, reserved_4 = nyse_equities_binarygateway_pillar_v5_17.reserved_4.dissect(buffer, index, packet, parent)

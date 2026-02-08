@@ -127,7 +127,7 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quote_ack_group_308 = Pr
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.amex.options.binarygateway.pillar.v3.25.quotingmpv", ftypes.DOUBLE)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reason_code = ProtoField.new("Reason Code", "nyse.amex.options.binarygateway.pillar.v3.25.reasoncode", ftypes.UINT16)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ref_cl_ord_id = ProtoField.new("Ref Cl Ord Id", "nyse.amex.options.binarygateway.pillar.v3.25.refclordid", ftypes.UINT64)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.refseqmsgid = ProtoField.new("Refseqmsgid", "nyse.amex.options.binarygateway.pillar.v3.25.refseqmsgid", ftypes.STRING)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ref_seq_msg_id = ProtoField.new("Ref Seq Msg Id", "nyse.amex.options.binarygateway.pillar.v3.25.refseqmsgid", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reinstatement_required_by_other = ProtoField.new("Reinstatement Required By Other", "nyse.amex.options.binarygateway.pillar.v3.25.reinstatementrequiredbyother", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reinstatement_required_by_self = ProtoField.new("Reinstatement Required By Self", "nyse.amex.options.binarygateway.pillar.v3.25.reinstatementrequiredbyself", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reject_type = ProtoField.new("Reject Type", "nyse.amex.options.binarygateway.pillar.v3.25.rejecttype", ftypes.UINT8)
@@ -158,9 +158,9 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.self_trade_prevention = 
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.self_trade_type_u_81 = ProtoField.new("Self Trade Type U 81", "nyse.amex.options.binarygateway.pillar.v3.25.selftradetypeu81", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq = ProtoField.new("Seq", "nyse.amex.options.binarygateway.pillar.v3.25.seq", ftypes.UINT64)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.amex.options.binarygateway.pillar.v3.25.seqmsgheader", ftypes.STRING)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_id = ProtoField.new("Seq Msg Id", "nyse.amex.options.binarygateway.pillar.v3.25.seqmsgid", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.amex.options.binarygateway.pillar.v3.25.seqmsglength", ftypes.UINT16)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.amex.options.binarygateway.pillar.v3.25.seqmsgtype", ftypes.UINT16)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seqmsgid = ProtoField.new("Seqmsgid", "nyse.amex.options.binarygateway.pillar.v3.25.seqmsgid", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sequenced_message = ProtoField.new("Sequenced Message", "nyse.amex.options.binarygateway.pillar.v3.25.sequencedmessage", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_index = ProtoField.new("Series Index", "nyse.amex.options.binarygateway.pillar.v3.25.seriesindex", ftypes.UINT32)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_type = ProtoField.new("Series Type", "nyse.amex.options.binarygateway.pillar.v3.25.seriestype", ftypes.UINT8)
@@ -299,14 +299,14 @@ show.order_priority_update_acknowledgment_message = true
 show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = true
 show.quote_ack_group_294 = true
 show.quote_ack_group_308 = true
-show.refseqmsgid = true
+show.ref_seq_msg_id = true
 show.risk_action_request_message = true
 show.risk_control_acknowledgement_message = true
 show.risk_control_alert_message = true
 show.risk_limit_update_request_message = true
 show.seq_msg = true
 show.seq_msg_header = true
-show.seqmsgid = true
+show.seq_msg_id = true
 show.series_reference_data_message = true
 show.session_configuration_acknowledgement_message = true
 show.session_configuration_request_message = true
@@ -359,14 +359,14 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_priority_updat
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = Pref.bool("Show Order Single Complex Modify Cancel Request Acknowledgment And Urout Message", show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message, "Parse and add Order Single Complex Modify Cancel Request Acknowledgment And Urout Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_quote_ack_group_294 = Pref.bool("Show Quote Ack Group 294", show.quote_ack_group_294, "Parse and add Quote Ack Group 294 to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_quote_ack_group_308 = Pref.bool("Show Quote Ack Group 308", show.quote_ack_group_308, "Parse and add Quote Ack Group 308 to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_refseqmsgid = Pref.bool("Show Refseqmsgid", show.refseqmsgid, "Parse and add Refseqmsgid to protocol tree")
+omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_action_request_message = Pref.bool("Show Risk Action Request Message", show.risk_action_request_message, "Parse and add Risk Action Request Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_control_acknowledgement_message = Pref.bool("Show Risk Control Acknowledgement Message", show.risk_control_acknowledgement_message, "Parse and add Risk Control Acknowledgement Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_control_alert_message = Pref.bool("Show Risk Control Alert Message", show.risk_control_alert_message, "Parse and add Risk Control Alert Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_limit_update_request_message = Pref.bool("Show Risk Limit Update Request Message", show.risk_limit_update_request_message, "Parse and add Risk Limit Update Request Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seqmsgid = Pref.bool("Show Seqmsgid", show.seqmsgid, "Parse and add Seqmsgid to protocol tree")
+omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_series_reference_data_message = Pref.bool("Show Series Reference Data Message", show.series_reference_data_message, "Parse and add Series Reference Data Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_configuration_acknowledgement_message = Pref.bool("Show Session Configuration Acknowledgement Message", show.session_configuration_acknowledgement_message, "Parse and add Session Configuration Acknowledgement Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_configuration_request_message = Pref.bool("Show Session Configuration Request Message", show.session_configuration_request_message, "Parse and add Session Configuration Request Message to protocol tree")
@@ -543,8 +543,8 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
     show.quote_ack_group_308 = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_quote_ack_group_308
     changed = true
   end
-  if show.refseqmsgid ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_refseqmsgid then
-    show.refseqmsgid = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_refseqmsgid
+  if show.ref_seq_msg_id ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id then
+    show.ref_seq_msg_id = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id
     changed = true
   end
   if show.risk_action_request_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_action_request_message then
@@ -571,8 +571,8 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
     show.seq_msg_header = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_header
     changed = true
   end
-  if show.seqmsgid ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seqmsgid then
-    show.seqmsgid = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seqmsgid
+  if show.seq_msg_id ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_id then
+    show.seq_msg_id = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_id
     changed = true
   end
   if show.series_reference_data_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_series_reference_data_message then
@@ -1459,7 +1459,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.reason_code.display = function(valu
     return "Reason Code: Cross Not Eligible (201)"
   end
   if value == 202 then
-    return "Reason Code: Reserved For Future Use (202)"
+    return "Reason Code: Reserved For Future Use 202 (202)"
   end
   if value == 203 then
     return "Reason Code: Pending Acceptance For Ack On Order Arrival (203)"
@@ -1549,7 +1549,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.reason_code.display = function(valu
     return "Reason Code: Mm Quote Price Lockcross Contra Side Nbbo (231)"
   end
   if value == 232 then
-    return "Reason Code: Invalid Leg Symbol (232)"
+    return "Reason Code: Invalid Leg Symbols (232)"
   end
   if value == 233 then
     return "Reason Code: Duplicate Leg Symbol (233)"
@@ -1603,7 +1603,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.reason_code.display = function(valu
     return "Reason Code: Pending To Acceptance (249)"
   end
   if value == 250 then
-    return "Reason Code: Reserved For Future Use (250)"
+    return "Reason Code: Reserved For Future Use 250 (250)"
   end
   if value == 251 then
     return "Reason Code: Invalid Bulk Action (251)"
@@ -1651,7 +1651,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.reason_code.display = function(valu
     return "Reason Code: Invalid Stock Price (265)"
   end
   if value == 266 then
-    return "Reason Code: Reserved For Future Use (266)"
+    return "Reason Code: Reserved For Future Use 266 (266)"
   end
   if value == 267 then
     return "Reason Code: Invalid Tied To Stock (267)"
@@ -3256,6 +3256,9 @@ nyse_amex_options_binarygateway_pillar_v3_25.reject_type.display = function(valu
   if value == 8 then
     return "Reject Type: Bulk Cancel Request Reject Options (8)"
   end
+  if value == 9 then
+    return "Reject Type: Cross Order Reject (9)"
+  end
   if value == 10 then
     return "Reject Type: New Complex Series Request Reject (10)"
   end
@@ -3562,21 +3565,21 @@ nyse_amex_options_binarygateway_pillar_v3_25.stream_id.dissect = function(buffer
   end
 end
 
--- Refseqmsgid
-nyse_amex_options_binarygateway_pillar_v3_25.refseqmsgid = {}
+-- Ref Seq Msg Id
+nyse_amex_options_binarygateway_pillar_v3_25.ref_seq_msg_id = {}
 
--- Size: Refseqmsgid
-nyse_amex_options_binarygateway_pillar_v3_25.refseqmsgid.size =
+-- Size: Ref Seq Msg Id
+nyse_amex_options_binarygateway_pillar_v3_25.ref_seq_msg_id.size =
   nyse_amex_options_binarygateway_pillar_v3_25.stream_id.size + 
   nyse_amex_options_binarygateway_pillar_v3_25.seq.size
 
--- Display: Refseqmsgid
-nyse_amex_options_binarygateway_pillar_v3_25.refseqmsgid.display = function(packet, parent, length)
+-- Display: Ref Seq Msg Id
+nyse_amex_options_binarygateway_pillar_v3_25.ref_seq_msg_id.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Refseqmsgid
-nyse_amex_options_binarygateway_pillar_v3_25.refseqmsgid.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Ref Seq Msg Id
+nyse_amex_options_binarygateway_pillar_v3_25.ref_seq_msg_id.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stream Id: Struct of 2 fields
@@ -3588,21 +3591,21 @@ nyse_amex_options_binarygateway_pillar_v3_25.refseqmsgid.fields = function(buffe
   return index
 end
 
--- Dissect: Refseqmsgid
-nyse_amex_options_binarygateway_pillar_v3_25.refseqmsgid.dissect = function(buffer, offset, packet, parent)
-  if show.refseqmsgid then
+-- Dissect: Ref Seq Msg Id
+nyse_amex_options_binarygateway_pillar_v3_25.ref_seq_msg_id.dissect = function(buffer, offset, packet, parent)
+  if show.ref_seq_msg_id then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.refseqmsgid, buffer(offset, 0))
-    local index = nyse_amex_options_binarygateway_pillar_v3_25.refseqmsgid.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ref_seq_msg_id, buffer(offset, 0))
+    local index = nyse_amex_options_binarygateway_pillar_v3_25.ref_seq_msg_id.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_amex_options_binarygateway_pillar_v3_25.refseqmsgid.display(packet, parent, length)
+    local display = nyse_amex_options_binarygateway_pillar_v3_25.ref_seq_msg_id.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amex_options_binarygateway_pillar_v3_25.refseqmsgid.fields(buffer, offset, packet, parent)
+    return nyse_amex_options_binarygateway_pillar_v3_25.ref_seq_msg_id.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3666,8 +3669,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.fields =
   -- Cl Ord Id: u64
   index, cl_ord_id = nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Refseqmsgid: Struct of 2 fields
-  index, refseqmsgid = nyse_amex_options_binarygateway_pillar_v3_25.refseqmsgid.dissect(buffer, index, packet, parent)
+  -- Ref Seq Msg Id: Struct of 2 fields
+  index, ref_seq_msg_id = nyse_amex_options_binarygateway_pillar_v3_25.ref_seq_msg_id.dissect(buffer, index, packet, parent)
 
   -- Deal Id: u64
   index, deal_id = nyse_amex_options_binarygateway_pillar_v3_25.deal_id.dissect(buffer, index, packet, parent)
@@ -4191,6 +4194,12 @@ nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.size = 2
 nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.display = function(value)
   if value == 0 then
     return "Contra Cross Type: Not Applicable (0)"
+  end
+  if value == 5 then
+    return "Contra Cross Type: Price Improvement Cube (5)"
+  end
+  if value == 7 then
+    return "Contra Cross Type: Aoncube Solicitation (7)"
   end
   if value == 10 then
     return "Contra Cross Type: Qcc (10)"
@@ -6139,6 +6148,21 @@ nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.display = function
   if value == 0 then
     return "Bold Designation: Not Applicable (0)"
   end
+  if value == 4 then
+    return "Bold Designation: Expose Order Info Only (4)"
+  end
+  if value == 5 then
+    return "Bold Designation: Expose Order Info And Capacity (5)"
+  end
+  if value == 6 then
+    return "Bold Designation: Expose Order Info And Participant Id (6)"
+  end
+  if value == 7 then
+    return "Bold Designation: Expose Order Info Capacity And Participant Id (7)"
+  end
+  if value == 8 then
+    return "Bold Designation: No Bold Defaulting (8)"
+  end
 
   return "Bold Designation: Unknown("..value..")"
 end
@@ -6424,8 +6448,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.mic.size = 4
 
 -- Display: Mic
 nyse_amex_options_binarygateway_pillar_v3_25.mic.display = function(value)
-  if value == "ARCO" then
-    return "Mic: Nyse Arca Options (ARCO)"
+  if value == "AMXO" then
+    return "Mic: Nyse American Options (AMXO)"
   end
 
   return "Mic: Unknown("..value..")"
@@ -6691,6 +6715,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.mm_type.display = function(value)
   end
   if value == 2 then
     return "Mm Type: Nyse Arca Options Market Maker (2)"
+  end
+  if value == 1 then
+    return "Mm Type: Nyse American Options Market Maker (1)"
+  end
+  if value == 2 then
+    return "Mm Type: Nyse American Options Specialist (2)"
+  end
+  if value == 3 then
+    return "Mm Type: Nyse American Optionse Specialist (3)"
+  end
+  if value == 4 then
+    return "Mm Type: Nyse American Options Domm (4)"
+  end
+  if value == 5 then
+    return "Mm Type: Nyse American Options Specialist And Domm (5)"
+  end
+  if value == 6 then
+    return "Mm Type: Nyse American Optionse Specialist And Domm (6)"
   end
 
   return "Mm Type: Unknown("..value..")"
@@ -9961,21 +10003,21 @@ nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect = function(buffe
   return offset + length, value
 end
 
--- Seqmsgid
-nyse_amex_options_binarygateway_pillar_v3_25.seqmsgid = {}
+-- Seq Msg Id
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id = {}
 
--- Size: Seqmsgid
-nyse_amex_options_binarygateway_pillar_v3_25.seqmsgid.size =
+-- Size: Seq Msg Id
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.size =
   nyse_amex_options_binarygateway_pillar_v3_25.stream_id.size + 
   nyse_amex_options_binarygateway_pillar_v3_25.seq.size
 
--- Display: Seqmsgid
-nyse_amex_options_binarygateway_pillar_v3_25.seqmsgid.display = function(packet, parent, length)
+-- Display: Seq Msg Id
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Seqmsgid
-nyse_amex_options_binarygateway_pillar_v3_25.seqmsgid.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Seq Msg Id
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stream Id: Struct of 2 fields
@@ -9987,21 +10029,21 @@ nyse_amex_options_binarygateway_pillar_v3_25.seqmsgid.fields = function(buffer, 
   return index
 end
 
--- Dissect: Seqmsgid
-nyse_amex_options_binarygateway_pillar_v3_25.seqmsgid.dissect = function(buffer, offset, packet, parent)
-  if show.seqmsgid then
+-- Dissect: Seq Msg Id
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.dissect = function(buffer, offset, packet, parent)
+  if show.seq_msg_id then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seqmsgid, buffer(offset, 0))
-    local index = nyse_amex_options_binarygateway_pillar_v3_25.seqmsgid.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_id, buffer(offset, 0))
+    local index = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_amex_options_binarygateway_pillar_v3_25.seqmsgid.display(packet, parent, length)
+    local display = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amex_options_binarygateway_pillar_v3_25.seqmsgid.fields(buffer, offset, packet, parent)
+    return nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -10148,8 +10190,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.fields = function(buffer, o
   -- Msg Header: Struct of 2 fields
   index, msg_header = nyse_amex_options_binarygateway_pillar_v3_25.msg_header.dissect(buffer, index, packet, parent)
 
-  -- Seqmsgid: Struct of 2 fields
-  index, seqmsgid = nyse_amex_options_binarygateway_pillar_v3_25.seqmsgid.dissect(buffer, index, packet, parent)
+  -- Seq Msg Id: Struct of 2 fields
+  index, seq_msg_id = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
   index, reserved_4 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect(buffer, index, packet, parent)

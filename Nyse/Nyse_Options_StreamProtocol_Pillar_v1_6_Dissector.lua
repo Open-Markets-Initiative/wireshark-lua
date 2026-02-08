@@ -29,9 +29,9 @@ omi_nyse_options_streamprotocol_pillar_v1_6.fields.pillar_stream_message = Proto
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.options.streamprotocol.pillar.v1.6.reserved4", ftypes.BYTES)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq = ProtoField.new("Seq", "nyse.options.streamprotocol.pillar.v1.6.seq", ftypes.UINT64)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.options.streamprotocol.pillar.v1.6.seqmsgheader", ftypes.STRING)
+omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_id = ProtoField.new("Seq Msg Id", "nyse.options.streamprotocol.pillar.v1.6.seqmsgid", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.options.streamprotocol.pillar.v1.6.seqmsglength", ftypes.UINT16)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.options.streamprotocol.pillar.v1.6.seqmsgtype", ftypes.UINT16)
-omi_nyse_options_streamprotocol_pillar_v1_6.fields.seqmsgid = ProtoField.new("Seqmsgid", "nyse.options.streamprotocol.pillar.v1.6.seqmsgid", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.sequenced_message = ProtoField.new("Sequenced Message", "nyse.options.streamprotocol.pillar.v1.6.sequencedmessage", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.sess = ProtoField.new("Sess", "nyse.options.streamprotocol.pillar.v1.6.sess", ftypes.UINT32)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.start_seq = ProtoField.new("Start Seq", "nyse.options.streamprotocol.pillar.v1.6.startseq", ftypes.UINT64)
@@ -70,7 +70,7 @@ show.open = true
 show.open_response = true
 show.seq_msg = true
 show.seq_msg_header = true
-show.seqmsgid = true
+show.seq_msg_id = true
 show.sequenced_message = true
 show.stream_avail = true
 show.stream_id = true
@@ -87,7 +87,7 @@ omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_open = Pref.bool("Show Op
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_open_response = Pref.bool("Show Open Response", show.open_response, "Parse and add Open Response to protocol tree")
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
-omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seqmsgid = Pref.bool("Show Seqmsgid", show.seqmsgid, "Parse and add Seqmsgid to protocol tree")
+omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_stream_avail = Pref.bool("Show Stream Avail", show.stream_avail, "Parse and add Stream Avail to protocol tree")
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
@@ -138,8 +138,8 @@ function omi_nyse_options_streamprotocol_pillar_v1_6.prefs_changed()
     show.seq_msg_header = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_header
     changed = true
   end
-  if show.seqmsgid ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seqmsgid then
-    show.seqmsgid = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seqmsgid
+  if show.seq_msg_id ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_id then
+    show.seq_msg_id = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_id
     changed = true
   end
   if show.sequenced_message ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_sequenced_message then
@@ -486,21 +486,21 @@ nyse_options_streamprotocol_pillar_v1_6.stream_id.dissect = function(buffer, off
   end
 end
 
--- Seqmsgid
-nyse_options_streamprotocol_pillar_v1_6.seqmsgid = {}
+-- Seq Msg Id
+nyse_options_streamprotocol_pillar_v1_6.seq_msg_id = {}
 
--- Size: Seqmsgid
-nyse_options_streamprotocol_pillar_v1_6.seqmsgid.size =
+-- Size: Seq Msg Id
+nyse_options_streamprotocol_pillar_v1_6.seq_msg_id.size =
   nyse_options_streamprotocol_pillar_v1_6.stream_id.size + 
   nyse_options_streamprotocol_pillar_v1_6.seq.size
 
--- Display: Seqmsgid
-nyse_options_streamprotocol_pillar_v1_6.seqmsgid.display = function(packet, parent, length)
+-- Display: Seq Msg Id
+nyse_options_streamprotocol_pillar_v1_6.seq_msg_id.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Seqmsgid
-nyse_options_streamprotocol_pillar_v1_6.seqmsgid.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Seq Msg Id
+nyse_options_streamprotocol_pillar_v1_6.seq_msg_id.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stream Id: Struct of 2 fields
@@ -512,21 +512,21 @@ nyse_options_streamprotocol_pillar_v1_6.seqmsgid.fields = function(buffer, offse
   return index
 end
 
--- Dissect: Seqmsgid
-nyse_options_streamprotocol_pillar_v1_6.seqmsgid.dissect = function(buffer, offset, packet, parent)
-  if show.seqmsgid then
+-- Dissect: Seq Msg Id
+nyse_options_streamprotocol_pillar_v1_6.seq_msg_id.dissect = function(buffer, offset, packet, parent)
+  if show.seq_msg_id then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.seqmsgid, buffer(offset, 0))
-    local index = nyse_options_streamprotocol_pillar_v1_6.seqmsgid.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_id, buffer(offset, 0))
+    local index = nyse_options_streamprotocol_pillar_v1_6.seq_msg_id.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_options_streamprotocol_pillar_v1_6.seqmsgid.display(packet, parent, length)
+    local display = nyse_options_streamprotocol_pillar_v1_6.seq_msg_id.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_streamprotocol_pillar_v1_6.seqmsgid.fields(buffer, offset, packet, parent)
+    return nyse_options_streamprotocol_pillar_v1_6.seq_msg_id.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -673,8 +673,8 @@ nyse_options_streamprotocol_pillar_v1_6.seq_msg.fields = function(buffer, offset
   -- Msg Header: Struct of 2 fields
   index, msg_header = nyse_options_streamprotocol_pillar_v1_6.msg_header.dissect(buffer, index, packet, parent)
 
-  -- Seqmsgid: Struct of 2 fields
-  index, seqmsgid = nyse_options_streamprotocol_pillar_v1_6.seqmsgid.dissect(buffer, index, packet, parent)
+  -- Seq Msg Id: Struct of 2 fields
+  index, seq_msg_id = nyse_options_streamprotocol_pillar_v1_6.seq_msg_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
   index, reserved_4 = nyse_options_streamprotocol_pillar_v1_6.reserved_4.dissect(buffer, index, packet, parent)
