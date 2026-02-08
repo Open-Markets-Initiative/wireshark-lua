@@ -20,12 +20,8 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_account = ProtoField.n
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.combo_group_id = ProtoField.new("Combo Group Id", "jpx.osederivatives.geniuminet.ouch.v5.0.combogroupid", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info = ProtoField.new("Customer Info", "jpx.osederivatives.geniuminet.ouch.v5.0.customerinfo", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.deal_source = ProtoField.new("Deal Source", "jpx.osederivatives.geniuminet.ouch.v5.0.dealsource", ftypes.UINT8)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.debug_packet = ProtoField.new("Debug Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.debugpacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.exchange_info = ProtoField.new("Exchange Info", "jpx.osederivatives.geniuminet.ouch.v5.0.exchangeinfo", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.existing_order_token = ProtoField.new("Existing Order Token", "jpx.osederivatives.geniuminet.ouch.v5.0.existingordertoken", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginacceptedpacket", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginrejectedpacket", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginrequestpacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.match_id = ProtoField.new("Match Id", "jpx.osederivatives.geniuminet.ouch.v5.0.matchid", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.open_close = ProtoField.new("Open Close", "jpx.osederivatives.geniuminet.ouch.v5.0.openclose", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_book_id = ProtoField.new("Order Book Id", "jpx.osederivatives.geniuminet.ouch.v5.0.orderbookid", ftypes.INT32)
@@ -48,7 +44,6 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_sequence_number = P
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_session = ProtoField.new("Requested Session", "jpx.osederivatives.geniuminet.ouch.v5.0.requestedsession", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.scope = ProtoField.new("Scope", "jpx.osederivatives.geniuminet.ouch.v5.0.scope", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequence_number = ProtoField.new("Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencenumber", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.sequenceddatapacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencedmessage", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencedmessagetype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.session = ProtoField.new("Session", "jpx.osederivatives.geniuminet.ouch.v5.0.session", ftypes.STRING)
@@ -61,7 +56,6 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds = Proto
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.trade_price = ProtoField.new("Trade Price", "jpx.osederivatives.geniuminet.ouch.v5.0.tradeprice", ftypes.DOUBLE)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.traded_quantity = ProtoField.new("Traded Quantity", "jpx.osederivatives.geniuminet.ouch.v5.0.tradedquantity", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.underlying_id = ProtoField.new("Underlying Id", "jpx.osederivatives.geniuminet.ouch.v5.0.underlyingid", ftypes.UINT32)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequenceddatapacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequencedmessage", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequencedmessagetype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.username = ProtoField.new("Username", "jpx.osederivatives.geniuminet.ouch.v5.0.username", ftypes.STRING)
@@ -79,6 +73,14 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_executed = ProtoField.n
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_rejected = ProtoField.new("Order Rejected", "jpx.osederivatives.geniuminet.ouch.v5.0.orderrejected", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_replaced = ProtoField.new("Order Replaced", "jpx.osederivatives.geniuminet.ouch.v5.0.orderreplaced", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order = ProtoField.new("Replace Order", "jpx.osederivatives.geniuminet.ouch.v5.0.replaceorder", ftypes.STRING)
+
+-- Jpx OseDerivatives Ouch GeniumInet 5.0 Session Messages
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.debug_packet = ProtoField.new("Debug Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.debugpacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginacceptedpacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginrejectedpacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginrequestpacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.sequenceddatapacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

@@ -20,7 +20,6 @@ omi_jnx_bonds_pts_ouch_v1_4.fields.capacity = ProtoField.new("Capacity", "jnx.bo
 omi_jnx_bonds_pts_ouch_v1_4.fields.cash_margin_type = ProtoField.new("Cash Margin Type", "jnx.bonds.pts.ouch.v1.4.cashmargintype", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.client_reference = ProtoField.new("Client Reference", "jnx.bonds.pts.ouch.v1.4.clientreference", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.counter_party = ProtoField.new("Counter Party", "jnx.bonds.pts.ouch.v1.4.counterparty", ftypes.STRING)
-omi_jnx_bonds_pts_ouch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.bonds.pts.ouch.v1.4.debugpacket", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.decrement_quantity = ProtoField.new("Decrement Quantity", "jnx.bonds.pts.ouch.v1.4.decrementquantity", ftypes.UINT32)
 omi_jnx_bonds_pts_ouch_v1_4.fields.display = ProtoField.new("Display", "jnx.bonds.pts.ouch.v1.4.display", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.bonds.pts.ouch.v1.4.executedquantity", ftypes.UINT32)
@@ -29,9 +28,6 @@ omi_jnx_bonds_pts_ouch_v1_4.fields.existing_order_token = ProtoField.new("Existi
 omi_jnx_bonds_pts_ouch_v1_4.fields.firm_id = ProtoField.new("Firm Id", "jnx.bonds.pts.ouch.v1.4.firmid", ftypes.UINT32)
 omi_jnx_bonds_pts_ouch_v1_4.fields.group = ProtoField.new("Group", "jnx.bonds.pts.ouch.v1.4.group", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "jnx.bonds.pts.ouch.v1.4.liquidityindicator", ftypes.STRING)
-omi_jnx_bonds_pts_ouch_v1_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.bonds.pts.ouch.v1.4.loginacceptedpacket", ftypes.STRING)
-omi_jnx_bonds_pts_ouch_v1_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.bonds.pts.ouch.v1.4.loginrejectedpacket", ftypes.STRING)
-omi_jnx_bonds_pts_ouch_v1_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.bonds.pts.ouch.v1.4.loginrequestpacket", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.match_number = ProtoField.new("Match Number", "jnx.bonds.pts.ouch.v1.4.matchnumber", ftypes.UINT64)
 omi_jnx_bonds_pts_ouch_v1_4.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "jnx.bonds.pts.ouch.v1.4.minimumquantity", ftypes.UINT32)
 omi_jnx_bonds_pts_ouch_v1_4.fields.order_canceled_reason = ProtoField.new("Order Canceled Reason", "jnx.bonds.pts.ouch.v1.4.ordercanceledreason", ftypes.STRING)
@@ -56,7 +52,6 @@ omi_jnx_bonds_pts_ouch_v1_4.fields.replacement_order_token = ProtoField.new("Rep
 omi_jnx_bonds_pts_ouch_v1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.bonds.pts.ouch.v1.4.requestedsequencenumber", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.requested_session = ProtoField.new("Requested Session", "jnx.bonds.pts.ouch.v1.4.requestedsession", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "jnx.bonds.pts.ouch.v1.4.sequencenumber", ftypes.STRING)
-omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.bonds.pts.ouch.v1.4.sequenceddatapacket", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_message = ProtoField.new("Sequenced Message", "jnx.bonds.pts.ouch.v1.4.sequencedmessage", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.bonds.pts.ouch.v1.4.sequencedmessagetype", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.session = ProtoField.new("Session", "jnx.bonds.pts.ouch.v1.4.session", ftypes.STRING)
@@ -65,7 +60,6 @@ omi_jnx_bonds_pts_ouch_v1_4.fields.system_event = ProtoField.new("System Event",
 omi_jnx_bonds_pts_ouch_v1_4.fields.text = ProtoField.new("Text", "jnx.bonds.pts.ouch.v1.4.text", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.time_in_force = ProtoField.new("Time In Force", "jnx.bonds.pts.ouch.v1.4.timeinforce", ftypes.UINT32)
 omi_jnx_bonds_pts_ouch_v1_4.fields.timestamp = ProtoField.new("Timestamp", "jnx.bonds.pts.ouch.v1.4.timestamp", ftypes.UINT64)
-omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.bonds.pts.ouch.v1.4.unsequenceddatapacket", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jnx.bonds.pts.ouch.v1.4.unsequencedmessage", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.bonds.pts.ouch.v1.4.unsequencedmessagetype", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.username = ProtoField.new("Username", "jnx.bonds.pts.ouch.v1.4.username", ftypes.STRING)
@@ -81,6 +75,14 @@ omi_jnx_bonds_pts_ouch_v1_4.fields.order_rejected_message = ProtoField.new("Orde
 omi_jnx_bonds_pts_ouch_v1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.bonds.pts.ouch.v1.4.orderreplacedmessage", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "jnx.bonds.pts.ouch.v1.4.replaceordermessage", ftypes.STRING)
 omi_jnx_bonds_pts_ouch_v1_4.fields.system_event_message = ProtoField.new("System Event Message", "jnx.bonds.pts.ouch.v1.4.systemeventmessage", ftypes.STRING)
+
+-- Jnx Bonds Ouch Pts 1.4 Session Messages
+omi_jnx_bonds_pts_ouch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.bonds.pts.ouch.v1.4.debugpacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.bonds.pts.ouch.v1.4.loginacceptedpacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.bonds.pts.ouch.v1.4.loginrejectedpacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.bonds.pts.ouch.v1.4.loginrequestpacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.bonds.pts.ouch.v1.4.sequenceddatapacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.bonds.pts.ouch.v1.4.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
