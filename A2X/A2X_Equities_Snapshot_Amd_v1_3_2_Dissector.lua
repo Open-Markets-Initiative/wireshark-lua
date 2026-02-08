@@ -427,26 +427,22 @@ a2x_equities_snapshot_amd_v1_3_2.market_flags.size = 1
 
 -- Display: Market Flags
 a2x_equities_snapshot_amd_v1_3_2.market_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Mac Run flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Mac Run|"
+    flags[#flags + 1] = "Mac Run"
   end
   -- Is Mac Open flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Mac Open|"
+    flags[#flags + 1] = "Mac Open"
   end
   -- Is Trading flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Trading|"
+    flags[#flags + 1] = "Trading"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Market Flags

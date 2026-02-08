@@ -1135,30 +1135,26 @@ hkex_derivatives_fulltick_omd_v1_47.trade_condition.size = 2
 
 -- Display: Trade Condition
 hkex_derivatives_fulltick_omd_v1_47.trade_condition.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Late Trade flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Late Trade|"
+    flags[#flags + 1] = "Late Trade"
   end
   -- Is Internal Trade Or Cross flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Internal Trade Or Cross|"
+    flags[#flags + 1] = "Internal Trade Or Cross"
   end
   -- Is Buy Write flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Buy Write|"
+    flags[#flags + 1] = "Buy Write"
   end
   -- Is Off Market flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Off Market|"
+    flags[#flags + 1] = "Off Market"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Condition
@@ -1203,26 +1199,22 @@ hkex_derivatives_fulltick_omd_v1_47.deal_type.size = 1
 
 -- Display: Deal Type
 hkex_derivatives_fulltick_omd_v1_47.deal_type.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Printable flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Printable|"
+    flags[#flags + 1] = "Printable"
   end
   -- Is Occurred At Cross flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Occurred At Cross|"
+    flags[#flags + 1] = "Occurred At Cross"
   end
   -- Is Reported Trade flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Reported Trade|"
+    flags[#flags + 1] = "Reported Trade"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Deal Type
@@ -1660,78 +1652,74 @@ hkex_derivatives_fulltick_omd_v1_47.order_type.size = 2
 
 -- Display: Order Type
 hkex_derivatives_fulltick_omd_v1_47.order_type.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Force flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Force|"
+    flags[#flags + 1] = "Force"
   end
   -- Is Short Sell flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Short Sell|"
+    flags[#flags + 1] = "Short Sell"
   end
   -- Is Market Bid flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Market Bid|"
+    flags[#flags + 1] = "Market Bid"
   end
   -- Is Price Stabilization flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Price Stabilization|"
+    flags[#flags + 1] = "Price Stabilization"
   end
   -- Is Override Crossing flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Override Crossing|"
+    flags[#flags + 1] = "Override Crossing"
   end
   -- Is Undisclosed flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Undisclosed|"
+    flags[#flags + 1] = "Undisclosed"
   end
   -- Is Unused Order Type Bit 7 flag set?
   if bit.band(value, 0x0040) ~= 0 then
-    display = display.."Unused Order Type Bit 7|"
+    flags[#flags + 1] = "Unused Order Type Bit 7"
   end
   -- Is Unused Order Type Bit 8 flag set?
   if bit.band(value, 0x0080) ~= 0 then
-    display = display.."Unused Order Type Bit 8|"
+    flags[#flags + 1] = "Unused Order Type Bit 8"
   end
   -- Is Unused Order Type Bit 9 flag set?
   if bit.band(value, 0x0100) ~= 0 then
-    display = display.."Unused Order Type Bit 9|"
+    flags[#flags + 1] = "Unused Order Type Bit 9"
   end
   -- Is Unused Order Type Bit 10 flag set?
   if bit.band(value, 0x0200) ~= 0 then
-    display = display.."Unused Order Type Bit 10|"
+    flags[#flags + 1] = "Unused Order Type Bit 10"
   end
   -- Is Fill And Kill Immediately flag set?
   if bit.band(value, 0x0400) ~= 0 then
-    display = display.."Fill And Kill Immediately|"
+    flags[#flags + 1] = "Fill And Kill Immediately"
   end
   -- Is Firm Color Disabled flag set?
   if bit.band(value, 0x0800) ~= 0 then
-    display = display.."Firm Color Disabled|"
+    flags[#flags + 1] = "Firm Color Disabled"
   end
   -- Is Convert To Aggressive flag set?
   if bit.band(value, 0x1000) ~= 0 then
-    display = display.."Convert To Aggressive|"
+    flags[#flags + 1] = "Convert To Aggressive"
   end
   -- Is Bait Or Implied Order flag set?
   if bit.band(value, 0x2000) ~= 0 then
-    display = display.."Bait Or Implied Order|"
+    flags[#flags + 1] = "Bait Or Implied Order"
   end
   -- Is Unused Order Type Bit 15 flag set?
   if bit.band(value, 0x4000) ~= 0 then
-    display = display.."Unused Order Type Bit 15|"
+    flags[#flags + 1] = "Unused Order Type Bit 15"
   end
   -- Is Unused Order Type Bit 16 flag set?
   if bit.band(value, 0x8000) ~= 0 then
-    display = display.."Unused Order Type Bit 16|"
+    flags[#flags + 1] = "Unused Order Type Bit 16"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Order Type

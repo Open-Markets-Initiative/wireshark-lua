@@ -4721,46 +4721,42 @@ cme_futures_streamlined_sbe_v5_8.match_event_indicator.size = 1
 
 -- Display: Match Event Indicator
 cme_futures_streamlined_sbe_v5_8.match_event_indicator.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Last Trade Msg flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Last Trade Msg|"
+    flags[#flags + 1] = "Last Trade Msg"
   end
   -- Is Last Volume Msg flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Last Volume Msg|"
+    flags[#flags + 1] = "Last Volume Msg"
   end
   -- Is Last Quote Msg flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Last Quote Msg|"
+    flags[#flags + 1] = "Last Quote Msg"
   end
   -- Is Last Stats Msg flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Last Stats Msg|"
+    flags[#flags + 1] = "Last Stats Msg"
   end
   -- Is Last Implied Msg flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Last Implied Msg|"
+    flags[#flags + 1] = "Last Implied Msg"
   end
   -- Is Recovery Msg flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Recovery Msg|"
+    flags[#flags + 1] = "Recovery Msg"
   end
   -- Is Reserved flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Reserved|"
+    flags[#flags + 1] = "Reserved"
   end
   -- Is End Of Event flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."End Of Event|"
+    flags[#flags + 1] = "End Of Event"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Match Event Indicator
@@ -11003,46 +10999,42 @@ cme_futures_streamlined_sbe_v5_8.settl_price_type.size = 1
 
 -- Display: Settl Price Type
 cme_futures_streamlined_sbe_v5_8.settl_price_type.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Final flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Final|"
+    flags[#flags + 1] = "Final"
   end
   -- Is Actual flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Actual|"
+    flags[#flags + 1] = "Actual"
   end
   -- Is Rounded flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Rounded|"
+    flags[#flags + 1] = "Rounded"
   end
   -- Is Reserved Bits flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Reserved Bits|"
+    flags[#flags + 1] = "Reserved Bits"
   end
   -- Is Unused Settl Price Type 4 flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Unused Settl Price Type 4|"
+    flags[#flags + 1] = "Unused Settl Price Type 4"
   end
   -- Is Unused Settl Price Type 5 flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Unused Settl Price Type 5|"
+    flags[#flags + 1] = "Unused Settl Price Type 5"
   end
   -- Is Unused Settl Price Type 6 flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Unused Settl Price Type 6|"
+    flags[#flags + 1] = "Unused Settl Price Type 6"
   end
   -- Is Null Value flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Null Value|"
+    flags[#flags + 1] = "Null Value"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Settl Price Type

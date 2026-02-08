@@ -449,26 +449,22 @@ a2x_equities_rtmdf_amd_v1_3_2.market_flags.size = 1
 
 -- Display: Market Flags
 a2x_equities_rtmdf_amd_v1_3_2.market_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Mac Run flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Mac Run|"
+    flags[#flags + 1] = "Mac Run"
   end
   -- Is Mac Open flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Mac Open|"
+    flags[#flags + 1] = "Mac Open"
   end
   -- Is Trading flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Trading|"
+    flags[#flags + 1] = "Trading"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Market Flags
@@ -601,30 +597,26 @@ a2x_equities_rtmdf_amd_v1_3_2.security_flags.size = 2
 
 -- Display: Security Flags
 a2x_equities_rtmdf_amd_v1_3_2.security_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Aod Enabled flag set?
   if bit.band(value, 0x0400) ~= 0 then
-    display = display.."Aod Enabled|"
+    flags[#flags + 1] = "Aod Enabled"
   end
   -- Is Unused 1 flag set?
   if bit.band(value, 0x0800) ~= 0 then
-    display = display.."Unused 1|"
+    flags[#flags + 1] = "Unused 1"
   end
   -- Is Illiquid flag set?
   if bit.band(value, 0x1000) ~= 0 then
-    display = display.."Illiquid|"
+    flags[#flags + 1] = "Illiquid"
   end
   -- Is Mac Enabled flag set?
   if bit.band(value, 0x8000) ~= 0 then
-    display = display.."Mac Enabled|"
+    flags[#flags + 1] = "Mac Enabled"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Security Flags

@@ -5317,46 +5317,42 @@ cme_futures_ilink3_sbe_v8_4.exec_inst.size = 1
 
 -- Display: Exec Inst
 cme_futures_ilink3_sbe_v8_4.exec_inst.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Aon flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Aon|"
+    flags[#flags + 1] = "Aon"
   end
   -- Is Ob flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Ob|"
+    flags[#flags + 1] = "Ob"
   end
   -- Is Nh flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Nh|"
+    flags[#flags + 1] = "Nh"
   end
   -- Is Reserved 1 flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Reserved 1|"
+    flags[#flags + 1] = "Reserved 1"
   end
   -- Is Reserved 2 flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Reserved 2|"
+    flags[#flags + 1] = "Reserved 2"
   end
   -- Is Reserved 3 flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Reserved 3|"
+    flags[#flags + 1] = "Reserved 3"
   end
   -- Is Reserved 4 flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Reserved 4|"
+    flags[#flags + 1] = "Reserved 4"
   end
   -- Is Reserved 5 flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Reserved 5|"
+    flags[#flags + 1] = "Reserved 5"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Exec Inst

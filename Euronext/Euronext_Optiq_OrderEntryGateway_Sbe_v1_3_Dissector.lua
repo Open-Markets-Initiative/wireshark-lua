@@ -2635,46 +2635,42 @@ euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.size = 1
 
 -- Display: Waiver Indicator
 euronext_optiq_orderentrygateway_sbe_v1_3.waiver_indicator.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Lrgs flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Lrgs|"
+    flags[#flags + 1] = "Lrgs"
   end
   -- Is Rfpt flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Rfpt|"
+    flags[#flags + 1] = "Rfpt"
   end
   -- Is Nliq flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Nliq|"
+    flags[#flags + 1] = "Nliq"
   end
   -- Is Oilq flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Oilq|"
+    flags[#flags + 1] = "Oilq"
   end
   -- Is Pric flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Pric|"
+    flags[#flags + 1] = "Pric"
   end
   -- Is Size flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Size|"
+    flags[#flags + 1] = "Size"
   end
   -- Is Ilqd flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Ilqd|"
+    flags[#flags + 1] = "Ilqd"
   end
   -- Is Omf flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Omf|"
+    flags[#flags + 1] = "Omf"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Waiver Indicator
@@ -4050,34 +4046,30 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.size = 1
 
 -- Display: Mi Fid Indicators
 euronext_optiq_orderentrygateway_sbe_v1_3.mi_fid_indicators.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Dea Indicator flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Dea Indicator|"
+    flags[#flags + 1] = "Dea Indicator"
   end
   -- Is Investment Algo Indicator flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Investment Algo Indicator|"
+    flags[#flags + 1] = "Investment Algo Indicator"
   end
   -- Is Execution Algo Indicator flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Execution Algo Indicator|"
+    flags[#flags + 1] = "Execution Algo Indicator"
   end
   -- Is Commodity Derivative Indicator flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Commodity Derivative Indicator|"
+    flags[#flags + 1] = "Commodity Derivative Indicator"
   end
   -- Is Deferral Indicator flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Deferral Indicator|"
+    flags[#flags + 1] = "Deferral Indicator"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Mi Fid Indicators
@@ -7715,54 +7707,50 @@ euronext_optiq_orderentrygateway_sbe_v1_3.open_close.size = 2
 
 -- Display: Open Close
 euronext_optiq_orderentrygateway_sbe_v1_3.open_close.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Field Actively Used flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Field Actively Used|"
+    flags[#flags + 1] = "Field Actively Used"
   end
   -- Is Leg 1 flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Leg 1|"
+    flags[#flags + 1] = "Leg 1"
   end
   -- Is Leg 2 flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Leg 2|"
+    flags[#flags + 1] = "Leg 2"
   end
   -- Is Leg 3 flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Leg 3|"
+    flags[#flags + 1] = "Leg 3"
   end
   -- Is Leg 4 flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Leg 4|"
+    flags[#flags + 1] = "Leg 4"
   end
   -- Is Leg 5 flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Leg 5|"
+    flags[#flags + 1] = "Leg 5"
   end
   -- Is Leg 6 flag set?
   if bit.band(value, 0x0040) ~= 0 then
-    display = display.."Leg 6|"
+    flags[#flags + 1] = "Leg 6"
   end
   -- Is Leg 7 flag set?
   if bit.band(value, 0x0080) ~= 0 then
-    display = display.."Leg 7|"
+    flags[#flags + 1] = "Leg 7"
   end
   -- Is Leg 8 flag set?
   if bit.band(value, 0x0100) ~= 0 then
-    display = display.."Leg 8|"
+    flags[#flags + 1] = "Leg 8"
   end
   -- Is Leg 9 flag set?
   if bit.band(value, 0x0200) ~= 0 then
-    display = display.."Leg 9|"
+    flags[#flags + 1] = "Leg 9"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Open Close
@@ -8828,30 +8816,26 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.size = 1
 
 -- Display: Trading Session
 euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Unused Trading Session Validityset 0 flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Unused Trading Session Validityset 0|"
+    flags[#flags + 1] = "Unused Trading Session Validityset 0"
   end
   -- Is Session 1 flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Session 1|"
+    flags[#flags + 1] = "Session 1"
   end
   -- Is Session 2 flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Session 2|"
+    flags[#flags + 1] = "Session 2"
   end
   -- Is Session 3 flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Session 3|"
+    flags[#flags + 1] = "Session 3"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trading Session
@@ -9320,34 +9304,30 @@ euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.size = 1
 
 -- Display: Dark Execution Instruction
 euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Dark Indicator flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Dark Indicator|"
+    flags[#flags + 1] = "Dark Indicator"
   end
   -- Is Deferred Trade Indicator flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Deferred Trade Indicator|"
+    flags[#flags + 1] = "Deferred Trade Indicator"
   end
   -- Is Displayed Order Interaction flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Displayed Order Interaction|"
+    flags[#flags + 1] = "Displayed Order Interaction"
   end
   -- Is Sweep Order Indicator flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Sweep Order Indicator|"
+    flags[#flags + 1] = "Sweep Order Indicator"
   end
   -- Is Minimum Quantity Type flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Minimum Quantity Type|"
+    flags[#flags + 1] = "Minimum Quantity Type"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Dark Execution Instruction
@@ -9395,38 +9375,34 @@ euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.size = 1
 
 -- Display: Execution Instruction
 euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Stp Resting Order flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Stp Resting Order|"
+    flags[#flags + 1] = "Stp Resting Order"
   end
   -- Is Stp Incoming Order flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Stp Incoming Order|"
+    flags[#flags + 1] = "Stp Incoming Order"
   end
   -- Is Disclosed Quantity Randomization flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Disclosed Quantity Randomization|"
+    flags[#flags + 1] = "Disclosed Quantity Randomization"
   end
   -- Is Disabled Cancel On Disconnect Indicator flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Disabled Cancel On Disconnect Indicator|"
+    flags[#flags + 1] = "Disabled Cancel On Disconnect Indicator"
   end
   -- Is Rfq Answer flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Rfq Answer|"
+    flags[#flags + 1] = "Rfq Answer"
   end
   -- Is Rfq Confirmation flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Rfq Confirmation|"
+    flags[#flags + 1] = "Rfq Confirmation"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Execution Instruction
@@ -10396,46 +10372,42 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.size = 1
 
 -- Display: Trade Qualifier
 euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Uncrossing Trade flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Uncrossing Trade|"
+    flags[#flags + 1] = "Uncrossing Trade"
   end
   -- Is First Trade Price flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."First Trade Price|"
+    flags[#flags + 1] = "First Trade Price"
   end
   -- Is Passive Order flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Passive Order|"
+    flags[#flags + 1] = "Passive Order"
   end
   -- Is Aggressive Order flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Aggressive Order|"
+    flags[#flags + 1] = "Aggressive Order"
   end
   -- Is Trade Creation By Market Operations flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Trade Creation By Market Operations|"
+    flags[#flags + 1] = "Trade Creation By Market Operations"
   end
   -- Is Nav Trade Expressed In Bps flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Nav Trade Expressed In Bps|"
+    flags[#flags + 1] = "Nav Trade Expressed In Bps"
   end
   -- Is Nav Trade Expressed In Price Currency flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Nav Trade Expressed In Price Currency|"
+    flags[#flags + 1] = "Nav Trade Expressed In Price Currency"
   end
   -- Is Unused Trade Qualifierset 7 flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Unused Trade Qualifierset 7|"
+    flags[#flags + 1] = "Unused Trade Qualifierset 7"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Qualifier
@@ -10779,22 +10751,18 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.size = 1
 
 -- Display: Ack Qualifiers
 euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Dark Indicator flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Dark Indicator|"
+    flags[#flags + 1] = "Dark Indicator"
   end
   -- Is Queue Indicator flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Queue Indicator|"
+    flags[#flags + 1] = "Queue Indicator"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Ack Qualifiers

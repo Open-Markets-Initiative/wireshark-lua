@@ -837,30 +837,26 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_result_presence_bits.size = 1
 
 -- Display: Mass Cancel Result Presence Bits
 txse_equities_orderentry_seed_v0_1.mass_cancel_result_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Mass Cancel Result Mpid flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Mass Cancel Result Mpid|"
+    flags[#flags + 1] = "Is Mass Cancel Result Mpid"
   end
   -- Is Is Mass Cancel Result Sender Comp flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Is Mass Cancel Result Sender Comp|"
+    flags[#flags + 1] = "Is Mass Cancel Result Sender Comp"
   end
   -- Is Is Mass Cancel Result Member Group flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Is Mass Cancel Result Member Group|"
+    flags[#flags + 1] = "Is Mass Cancel Result Member Group"
   end
   -- Is Is Mass Cancel Result Cl Ord Id flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Is Mass Cancel Result Cl Ord Id|"
+    flags[#flags + 1] = "Is Mass Cancel Result Cl Ord Id"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Mass Cancel Result Presence Bits
@@ -1112,30 +1108,26 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_presence_bits.size = 1
 
 -- Display: Mass Cancel Rejected Presence Bits
 txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Mass Cancel Rejected Mpid flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Mass Cancel Rejected Mpid|"
+    flags[#flags + 1] = "Is Mass Cancel Rejected Mpid"
   end
   -- Is Is Mass Cancel Rejected Sender Comp flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Is Mass Cancel Rejected Sender Comp|"
+    flags[#flags + 1] = "Is Mass Cancel Rejected Sender Comp"
   end
   -- Is Is Mass Cancel Rejected Member Group flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Is Mass Cancel Rejected Member Group|"
+    flags[#flags + 1] = "Is Mass Cancel Rejected Member Group"
   end
   -- Is Is Mass Cancel Rejected Cl Ord Id flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Is Mass Cancel Rejected Cl Ord Id|"
+    flags[#flags + 1] = "Is Mass Cancel Rejected Cl Ord Id"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Mass Cancel Rejected Presence Bits
@@ -1273,30 +1265,26 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_presence_bits.size = 1
 
 -- Display: Mass Cancel Accepted Presence Bits
 txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Mass Cancel Accepted Mpid flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Mass Cancel Accepted Mpid|"
+    flags[#flags + 1] = "Is Mass Cancel Accepted Mpid"
   end
   -- Is Is Mass Cancel Accepted Sender Comp flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Is Mass Cancel Accepted Sender Comp|"
+    flags[#flags + 1] = "Is Mass Cancel Accepted Sender Comp"
   end
   -- Is Is Mass Cancel Accepted Member Group flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Is Mass Cancel Accepted Member Group|"
+    flags[#flags + 1] = "Is Mass Cancel Accepted Member Group"
   end
   -- Is Is Mass Cancel Accepted Cl Ord Id flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Is Mass Cancel Accepted Cl Ord Id|"
+    flags[#flags + 1] = "Is Mass Cancel Accepted Cl Ord Id"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Mass Cancel Accepted Presence Bits
@@ -1556,26 +1544,22 @@ txse_equities_orderentry_seed_v0_1.order_restated_presence_bits.size = 1
 
 -- Display: Order Restated Presence Bits
 txse_equities_orderentry_seed_v0_1.order_restated_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Order Restated Rank Price flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Order Restated Rank Price|"
+    flags[#flags + 1] = "Is Order Restated Rank Price"
   end
   -- Is Is Order Restated Display Price flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Is Order Restated Display Price|"
+    flags[#flags + 1] = "Is Order Restated Display Price"
   end
   -- Is Is Order Restated Order Qty flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Is Order Restated Order Qty|"
+    flags[#flags + 1] = "Is Order Restated Order Qty"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Order Restated Presence Bits
@@ -1902,26 +1886,22 @@ txse_equities_orderentry_seed_v0_1.replace_bitfields.size = 1
 
 -- Display: Replace Bitfields
 txse_equities_orderentry_seed_v0_1.replace_bitfields.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Locate Required flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Is Locate Required|"
+    flags[#flags + 1] = "Is Locate Required"
   end
   -- Is Is Iso flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Is Iso|"
+    flags[#flags + 1] = "Is Iso"
   end
   -- Is Cancel At Entry If Crossed flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Cancel At Entry If Crossed|"
+    flags[#flags + 1] = "Cancel At Entry If Crossed"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Replace Bitfields
@@ -1989,30 +1969,26 @@ txse_equities_orderentry_seed_v0_1.replace_rejected_presence_bits.size = 2
 
 -- Display: Replace Rejected Presence Bits
 txse_equities_orderentry_seed_v0_1.replace_rejected_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Replace Rejected Price flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Is Replace Rejected Price|"
+    flags[#flags + 1] = "Is Replace Rejected Price"
   end
   -- Is Is Replace Rejected Order Qty flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Is Replace Rejected Order Qty|"
+    flags[#flags + 1] = "Is Replace Rejected Order Qty"
   end
   -- Is Is Replace Rejected Max Floor Qty flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Is Replace Rejected Max Floor Qty|"
+    flags[#flags + 1] = "Is Replace Rejected Max Floor Qty"
   end
   -- Is Is Replace Rejected Locate Broker flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Is Replace Rejected Locate Broker|"
+    flags[#flags + 1] = "Is Replace Rejected Locate Broker"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Replace Rejected Presence Bits
@@ -2153,38 +2129,34 @@ txse_equities_orderentry_seed_v0_1.order_replaced_presence_bits.size = 2
 
 -- Display: Order Replaced Presence Bits
 txse_equities_orderentry_seed_v0_1.order_replaced_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Order Replaced Price flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Is Order Replaced Price|"
+    flags[#flags + 1] = "Is Order Replaced Price"
   end
   -- Is Is Order Replaced Order Qty flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Is Order Replaced Order Qty|"
+    flags[#flags + 1] = "Is Order Replaced Order Qty"
   end
   -- Is Is Order Replaced Max Floor Qty flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Is Order Replaced Max Floor Qty|"
+    flags[#flags + 1] = "Is Order Replaced Max Floor Qty"
   end
   -- Is Is Order Replaced Locate Broker flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Is Order Replaced Locate Broker|"
+    flags[#flags + 1] = "Is Order Replaced Locate Broker"
   end
   -- Is Is Order Replaced Rank Price flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Is Order Replaced Rank Price|"
+    flags[#flags + 1] = "Is Order Replaced Rank Price"
   end
   -- Is Is Order Replaced Display Price flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Is Order Replaced Display Price|"
+    flags[#flags + 1] = "Is Order Replaced Display Price"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Order Replaced Presence Bits
@@ -2352,18 +2324,14 @@ txse_equities_orderentry_seed_v0_1.modify_bitfields.size = 1
 
 -- Display: Modify Bitfields
 txse_equities_orderentry_seed_v0_1.modify_bitfields.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Locate Required flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Is Locate Required|"
+    flags[#flags + 1] = "Is Locate Required"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Modify Bitfields
@@ -2402,26 +2370,22 @@ txse_equities_orderentry_seed_v0_1.modify_rejected_presence_bits.size = 1
 
 -- Display: Modify Rejected Presence Bits
 txse_equities_orderentry_seed_v0_1.modify_rejected_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Modify Rejected Order Qty flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Modify Rejected Order Qty|"
+    flags[#flags + 1] = "Is Modify Rejected Order Qty"
   end
   -- Is Is Modify Rejected Modify Bitfields flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Is Modify Rejected Modify Bitfields|"
+    flags[#flags + 1] = "Is Modify Rejected Modify Bitfields"
   end
   -- Is Is Modify Rejected Locate Broker flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Is Modify Rejected Locate Broker|"
+    flags[#flags + 1] = "Is Modify Rejected Locate Broker"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Modify Rejected Presence Bits
@@ -2549,26 +2513,22 @@ txse_equities_orderentry_seed_v0_1.order_modified_presence_bits.size = 1
 
 -- Display: Order Modified Presence Bits
 txse_equities_orderentry_seed_v0_1.order_modified_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Order Modified Order Qty flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Order Modified Order Qty|"
+    flags[#flags + 1] = "Is Order Modified Order Qty"
   end
   -- Is Is Order Modified Modify Bitfields flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Is Order Modified Modify Bitfields|"
+    flags[#flags + 1] = "Is Order Modified Modify Bitfields"
   end
   -- Is Is Order Modified Locate Broker flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Is Order Modified Locate Broker|"
+    flags[#flags + 1] = "Is Order Modified Locate Broker"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Order Modified Presence Bits
@@ -2982,18 +2942,14 @@ txse_equities_orderentry_seed_v0_1.market_order_bit_fields.size = 2
 
 -- Display: Market Order Bit Fields
 txse_equities_orderentry_seed_v0_1.market_order_bit_fields.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Locate Required flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Is Locate Required|"
+    flags[#flags + 1] = "Is Locate Required"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Market Order Bit Fields
@@ -3038,38 +2994,34 @@ txse_equities_orderentry_seed_v0_1.market_order_rejected_presence_bits.size = 4
 
 -- Display: Market Order Rejected Presence Bits
 txse_equities_orderentry_seed_v0_1.market_order_rejected_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Market Order Rejected Self Match Scope flag set?
   if bit.band(value, 0x00000001) ~= 0 then
-    display = display.."Is Market Order Rejected Self Match Scope|"
+    flags[#flags + 1] = "Is Market Order Rejected Self Match Scope"
   end
   -- Is Is Market Order Rejected Self Match Instruction flag set?
   if bit.band(value, 0x00000002) ~= 0 then
-    display = display.."Is Market Order Rejected Self Match Instruction|"
+    flags[#flags + 1] = "Is Market Order Rejected Self Match Instruction"
   end
   -- Is Is Market Order Rejected User Data flag set?
   if bit.band(value, 0x00000004) ~= 0 then
-    display = display.."Is Market Order Rejected User Data|"
+    flags[#flags + 1] = "Is Market Order Rejected User Data"
   end
   -- Is Is Market Order Rejected Mpid flag set?
   if bit.band(value, 0x00000008) ~= 0 then
-    display = display.."Is Market Order Rejected Mpid|"
+    flags[#flags + 1] = "Is Market Order Rejected Mpid"
   end
   -- Is Is Market Order Rejected Member Group flag set?
   if bit.band(value, 0x00000010) ~= 0 then
-    display = display.."Is Market Order Rejected Member Group|"
+    flags[#flags + 1] = "Is Market Order Rejected Member Group"
   end
   -- Is Is Market Order Rejected Locate Broker flag set?
   if bit.band(value, 0x00000020) ~= 0 then
-    display = display.."Is Market Order Rejected Locate Broker|"
+    flags[#flags + 1] = "Is Market Order Rejected Locate Broker"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Market Order Rejected Presence Bits
@@ -3237,38 +3189,34 @@ txse_equities_orderentry_seed_v0_1.market_order_accepted_presence_bits.size = 4
 
 -- Display: Market Order Accepted Presence Bits
 txse_equities_orderentry_seed_v0_1.market_order_accepted_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Market Order Accepted Self Match Scope flag set?
   if bit.band(value, 0x00000001) ~= 0 then
-    display = display.."Is Market Order Accepted Self Match Scope|"
+    flags[#flags + 1] = "Is Market Order Accepted Self Match Scope"
   end
   -- Is Is Market Order Accepted Self Match Instruction flag set?
   if bit.band(value, 0x00000002) ~= 0 then
-    display = display.."Is Market Order Accepted Self Match Instruction|"
+    flags[#flags + 1] = "Is Market Order Accepted Self Match Instruction"
   end
   -- Is Is Market Order Accepted User Data flag set?
   if bit.band(value, 0x00000004) ~= 0 then
-    display = display.."Is Market Order Accepted User Data|"
+    flags[#flags + 1] = "Is Market Order Accepted User Data"
   end
   -- Is Is Market Order Accepted Mpid flag set?
   if bit.band(value, 0x00000008) ~= 0 then
-    display = display.."Is Market Order Accepted Mpid|"
+    flags[#flags + 1] = "Is Market Order Accepted Mpid"
   end
   -- Is Is Market Order Accepted Member Group flag set?
   if bit.band(value, 0x00000010) ~= 0 then
-    display = display.."Is Market Order Accepted Member Group|"
+    flags[#flags + 1] = "Is Market Order Accepted Member Group"
   end
   -- Is Is Market Order Accepted Locate Broker flag set?
   if bit.band(value, 0x00000020) ~= 0 then
-    display = display.."Is Market Order Accepted Locate Broker|"
+    flags[#flags + 1] = "Is Market Order Accepted Locate Broker"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Market Order Accepted Presence Bits
@@ -3591,34 +3539,30 @@ txse_equities_orderentry_seed_v0_1.limit_order_bit_fields.size = 4
 
 -- Display: Limit Order Bit Fields
 txse_equities_orderentry_seed_v0_1.limit_order_bit_fields.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Locate Required flag set?
   if bit.band(value, 0x00000008) ~= 0 then
-    display = display.."Is Locate Required|"
+    flags[#flags + 1] = "Is Locate Required"
   end
   -- Is Is Iso flag set?
   if bit.band(value, 0x00000800) ~= 0 then
-    display = display.."Is Iso|"
+    flags[#flags + 1] = "Is Iso"
   end
   -- Is Is Hidden flag set?
   if bit.band(value, 0x00001000) ~= 0 then
-    display = display.."Is Hidden|"
+    flags[#flags + 1] = "Is Hidden"
   end
   -- Is Is Post Only flag set?
   if bit.band(value, 0x00002000) ~= 0 then
-    display = display.."Is Post Only|"
+    flags[#flags + 1] = "Is Post Only"
   end
   -- Is Cancel At Entry If Crossed flag set?
   if bit.band(value, 0x00004000) ~= 0 then
-    display = display.."Cancel At Entry If Crossed|"
+    flags[#flags + 1] = "Cancel At Entry If Crossed"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Limit Order Bit Fields
@@ -3675,74 +3619,70 @@ txse_equities_orderentry_seed_v0_1.limit_order_rejected_presence_bits.size = 4
 
 -- Display: Limit Order Rejected Presence Bits
 txse_equities_orderentry_seed_v0_1.limit_order_rejected_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Limit Order Rejected Self Match Scope flag set?
   if bit.band(value, 0x00000001) ~= 0 then
-    display = display.."Is Limit Order Rejected Self Match Scope|"
+    flags[#flags + 1] = "Is Limit Order Rejected Self Match Scope"
   end
   -- Is Is Limit Order Rejected Self Match Instruction flag set?
   if bit.band(value, 0x00000002) ~= 0 then
-    display = display.."Is Limit Order Rejected Self Match Instruction|"
+    flags[#flags + 1] = "Is Limit Order Rejected Self Match Instruction"
   end
   -- Is Is Limit Order Rejected Price Slide Instruction flag set?
   if bit.band(value, 0x00000004) ~= 0 then
-    display = display.."Is Limit Order Rejected Price Slide Instruction|"
+    flags[#flags + 1] = "Is Limit Order Rejected Price Slide Instruction"
   end
   -- Is Is Limit Order Rejected Min Qty flag set?
   if bit.band(value, 0x00000008) ~= 0 then
-    display = display.."Is Limit Order Rejected Min Qty|"
+    flags[#flags + 1] = "Is Limit Order Rejected Min Qty"
   end
   -- Is Is Limit Order Rejected Max Floor Qty flag set?
   if bit.band(value, 0x00000010) ~= 0 then
-    display = display.."Is Limit Order Rejected Max Floor Qty|"
+    flags[#flags + 1] = "Is Limit Order Rejected Max Floor Qty"
   end
   -- Is Is Limit Order Rejected Max Replenish Qty Range flag set?
   if bit.band(value, 0x00000020) ~= 0 then
-    display = display.."Is Limit Order Rejected Max Replenish Qty Range|"
+    flags[#flags + 1] = "Is Limit Order Rejected Max Replenish Qty Range"
   end
   -- Is Is Limit Order Rejected Max Replenish Time Range flag set?
   if bit.band(value, 0x00000040) ~= 0 then
-    display = display.."Is Limit Order Rejected Max Replenish Time Range|"
+    flags[#flags + 1] = "Is Limit Order Rejected Max Replenish Time Range"
   end
   -- Is Is Limit Order Rejected Reference Price Target flag set?
   if bit.band(value, 0x00000080) ~= 0 then
-    display = display.."Is Limit Order Rejected Reference Price Target|"
+    flags[#flags + 1] = "Is Limit Order Rejected Reference Price Target"
   end
   -- Is Is Limit Order Rejected Expire Time flag set?
   if bit.band(value, 0x00000100) ~= 0 then
-    display = display.."Is Limit Order Rejected Expire Time|"
+    flags[#flags + 1] = "Is Limit Order Rejected Expire Time"
   end
   -- Is Is Limit Order Rejected User Data flag set?
   if bit.band(value, 0x00000200) ~= 0 then
-    display = display.."Is Limit Order Rejected User Data|"
+    flags[#flags + 1] = "Is Limit Order Rejected User Data"
   end
   -- Is Is Limit Order Rejected Mpid flag set?
   if bit.band(value, 0x00000400) ~= 0 then
-    display = display.."Is Limit Order Rejected Mpid|"
+    flags[#flags + 1] = "Is Limit Order Rejected Mpid"
   end
   -- Is Is Limit Order Rejected Member Group flag set?
   if bit.band(value, 0x00000800) ~= 0 then
-    display = display.."Is Limit Order Rejected Member Group|"
+    flags[#flags + 1] = "Is Limit Order Rejected Member Group"
   end
   -- Is Is Limit Order Rejected Locate Broker flag set?
   if bit.band(value, 0x00001000) ~= 0 then
-    display = display.."Is Limit Order Rejected Locate Broker|"
+    flags[#flags + 1] = "Is Limit Order Rejected Locate Broker"
   end
   -- Is Is Limit Order Rejected Rank Price flag set?
   if bit.band(value, 0x00002000) ~= 0 then
-    display = display.."Is Limit Order Rejected Rank Price|"
+    flags[#flags + 1] = "Is Limit Order Rejected Rank Price"
   end
   -- Is Is Limit Order Rejected Display Price flag set?
   if bit.band(value, 0x00004000) ~= 0 then
-    display = display.."Is Limit Order Rejected Display Price|"
+    flags[#flags + 1] = "Is Limit Order Rejected Display Price"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Limit Order Rejected Presence Bits
@@ -4021,74 +3961,70 @@ txse_equities_orderentry_seed_v0_1.limit_order_accepted_presence_bits.size = 4
 
 -- Display: Limit Order Accepted Presence Bits
 txse_equities_orderentry_seed_v0_1.limit_order_accepted_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Limit Order Accepted Self Match Scope flag set?
   if bit.band(value, 0x00000001) ~= 0 then
-    display = display.."Is Limit Order Accepted Self Match Scope|"
+    flags[#flags + 1] = "Is Limit Order Accepted Self Match Scope"
   end
   -- Is Is Limit Order Accepted Self Match Instruction flag set?
   if bit.band(value, 0x00000002) ~= 0 then
-    display = display.."Is Limit Order Accepted Self Match Instruction|"
+    flags[#flags + 1] = "Is Limit Order Accepted Self Match Instruction"
   end
   -- Is Is Limit Order Accepted Price Slide Instruction flag set?
   if bit.band(value, 0x00000004) ~= 0 then
-    display = display.."Is Limit Order Accepted Price Slide Instruction|"
+    flags[#flags + 1] = "Is Limit Order Accepted Price Slide Instruction"
   end
   -- Is Is Limit Order Accepted Min Qty flag set?
   if bit.band(value, 0x00000008) ~= 0 then
-    display = display.."Is Limit Order Accepted Min Qty|"
+    flags[#flags + 1] = "Is Limit Order Accepted Min Qty"
   end
   -- Is Is Limit Order Accepted Max Floor Qty flag set?
   if bit.band(value, 0x00000010) ~= 0 then
-    display = display.."Is Limit Order Accepted Max Floor Qty|"
+    flags[#flags + 1] = "Is Limit Order Accepted Max Floor Qty"
   end
   -- Is Is Limit Order Accepted Max Replenish Qty Range flag set?
   if bit.band(value, 0x00000020) ~= 0 then
-    display = display.."Is Limit Order Accepted Max Replenish Qty Range|"
+    flags[#flags + 1] = "Is Limit Order Accepted Max Replenish Qty Range"
   end
   -- Is Is Limit Order Accepted Max Replenish Time Range flag set?
   if bit.band(value, 0x00000040) ~= 0 then
-    display = display.."Is Limit Order Accepted Max Replenish Time Range|"
+    flags[#flags + 1] = "Is Limit Order Accepted Max Replenish Time Range"
   end
   -- Is Is Limit Order Accepted Reference Price Target flag set?
   if bit.band(value, 0x00000080) ~= 0 then
-    display = display.."Is Limit Order Accepted Reference Price Target|"
+    flags[#flags + 1] = "Is Limit Order Accepted Reference Price Target"
   end
   -- Is Is Limit Order Accepted Expire Time flag set?
   if bit.band(value, 0x00000100) ~= 0 then
-    display = display.."Is Limit Order Accepted Expire Time|"
+    flags[#flags + 1] = "Is Limit Order Accepted Expire Time"
   end
   -- Is Is Limit Order Accepted User Data flag set?
   if bit.band(value, 0x00000200) ~= 0 then
-    display = display.."Is Limit Order Accepted User Data|"
+    flags[#flags + 1] = "Is Limit Order Accepted User Data"
   end
   -- Is Is Limit Order Accepted Mpid flag set?
   if bit.band(value, 0x00000400) ~= 0 then
-    display = display.."Is Limit Order Accepted Mpid|"
+    flags[#flags + 1] = "Is Limit Order Accepted Mpid"
   end
   -- Is Is Limit Order Accepted Member Group flag set?
   if bit.band(value, 0x00000800) ~= 0 then
-    display = display.."Is Limit Order Accepted Member Group|"
+    flags[#flags + 1] = "Is Limit Order Accepted Member Group"
   end
   -- Is Is Limit Order Accepted Locate Broker flag set?
   if bit.band(value, 0x00001000) ~= 0 then
-    display = display.."Is Limit Order Accepted Locate Broker|"
+    flags[#flags + 1] = "Is Limit Order Accepted Locate Broker"
   end
   -- Is Is Limit Order Accepted Rank Price flag set?
   if bit.band(value, 0x00002000) ~= 0 then
-    display = display.."Is Limit Order Accepted Rank Price|"
+    flags[#flags + 1] = "Is Limit Order Accepted Rank Price"
   end
   -- Is Is Limit Order Accepted Display Price flag set?
   if bit.band(value, 0x00004000) ~= 0 then
-    display = display.."Is Limit Order Accepted Display Price|"
+    flags[#flags + 1] = "Is Limit Order Accepted Display Price"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Limit Order Accepted Presence Bits
@@ -4528,22 +4464,18 @@ txse_equities_orderentry_seed_v0_1.symbol_status_presence_bits.size = 1
 
 -- Display: Symbol Status Presence Bits
 txse_equities_orderentry_seed_v0_1.symbol_status_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Symbol Status Operational Halt Reason flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Symbol Status Operational Halt Reason|"
+    flags[#flags + 1] = "Is Symbol Status Operational Halt Reason"
   end
   -- Is Is Symbol Status Regulatory Halt Reason flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Is Symbol Status Regulatory Halt Reason|"
+    flags[#flags + 1] = "Is Symbol Status Regulatory Halt Reason"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Symbol Status Presence Bits
@@ -4680,18 +4612,14 @@ txse_equities_orderentry_seed_v0_1.define_symbol_bitfields.size = 1
 
 -- Display: Define Symbol Bitfields
 txse_equities_orderentry_seed_v0_1.define_symbol_bitfields.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Test flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Test|"
+    flags[#flags + 1] = "Is Test"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Define Symbol Bitfields
@@ -4898,22 +4826,18 @@ txse_equities_orderentry_seed_v0_1.trading_session_status_presence_bits.size = 1
 
 -- Display: Trading Session Status Presence Bits
 txse_equities_orderentry_seed_v0_1.trading_session_status_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Trading Session Status Operational Halt Reason flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Trading Session Status Operational Halt Reason|"
+    flags[#flags + 1] = "Is Trading Session Status Operational Halt Reason"
   end
   -- Is Is Trading Session Status Regulatory Halt Reason flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Is Trading Session Status Regulatory Halt Reason|"
+    flags[#flags + 1] = "Is Trading Session Status Regulatory Halt Reason"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trading Session Status Presence Bits
@@ -5643,30 +5567,26 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_presence_bits.size = 1
 
 -- Display: Mass Cancel Presence Bits
 txse_equities_orderentry_seed_v0_1.mass_cancel_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Mass Cancel Mpid flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Mass Cancel Mpid|"
+    flags[#flags + 1] = "Is Mass Cancel Mpid"
   end
   -- Is Is Mass Cancel Sender Comp flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Is Mass Cancel Sender Comp|"
+    flags[#flags + 1] = "Is Mass Cancel Sender Comp"
   end
   -- Is Is Mass Cancel Member Group flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Is Mass Cancel Member Group|"
+    flags[#flags + 1] = "Is Mass Cancel Member Group"
   end
   -- Is Is Mass Cancel Cl Ord Id flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Is Mass Cancel Cl Ord Id|"
+    flags[#flags + 1] = "Is Mass Cancel Cl Ord Id"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Mass Cancel Presence Bits
@@ -5798,30 +5718,26 @@ txse_equities_orderentry_seed_v0_1.replace_order_presence_bits.size = 2
 
 -- Display: Replace Order Presence Bits
 txse_equities_orderentry_seed_v0_1.replace_order_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Replace Order Price flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Is Replace Order Price|"
+    flags[#flags + 1] = "Is Replace Order Price"
   end
   -- Is Is Replace Order Order Qty flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Is Replace Order Order Qty|"
+    flags[#flags + 1] = "Is Replace Order Order Qty"
   end
   -- Is Is Replace Order Max Floor Qty flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Is Replace Order Max Floor Qty|"
+    flags[#flags + 1] = "Is Replace Order Max Floor Qty"
   end
   -- Is Is Replace Order Locate Broker flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Is Replace Order Locate Broker|"
+    flags[#flags + 1] = "Is Replace Order Locate Broker"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Replace Order Presence Bits
@@ -6001,38 +5917,34 @@ txse_equities_orderentry_seed_v0_1.market_order_presence_bits.size = 2
 
 -- Display: Market Order Presence Bits
 txse_equities_orderentry_seed_v0_1.market_order_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Market Order Self Match Scope flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Is Market Order Self Match Scope|"
+    flags[#flags + 1] = "Is Market Order Self Match Scope"
   end
   -- Is Is Market Order Self Match Instruction flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Is Market Order Self Match Instruction|"
+    flags[#flags + 1] = "Is Market Order Self Match Instruction"
   end
   -- Is Is Market Order User Data flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Is Market Order User Data|"
+    flags[#flags + 1] = "Is Market Order User Data"
   end
   -- Is Is Market Order Mpid flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Is Market Order Mpid|"
+    flags[#flags + 1] = "Is Market Order Mpid"
   end
   -- Is Is Market Order Member Group flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Is Market Order Member Group|"
+    flags[#flags + 1] = "Is Market Order Member Group"
   end
   -- Is Is Market Order Locate Broker flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Is Market Order Locate Broker|"
+    flags[#flags + 1] = "Is Market Order Locate Broker"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Market Order Presence Bits
@@ -6194,66 +6106,62 @@ txse_equities_orderentry_seed_v0_1.limit_order_presence_bits.size = 4
 
 -- Display: Limit Order Presence Bits
 txse_equities_orderentry_seed_v0_1.limit_order_presence_bits.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Limit Order Self Match Scope flag set?
   if bit.band(value, 0x00000001) ~= 0 then
-    display = display.."Is Limit Order Self Match Scope|"
+    flags[#flags + 1] = "Is Limit Order Self Match Scope"
   end
   -- Is Is Limit Order Self Match Instruction flag set?
   if bit.band(value, 0x00000002) ~= 0 then
-    display = display.."Is Limit Order Self Match Instruction|"
+    flags[#flags + 1] = "Is Limit Order Self Match Instruction"
   end
   -- Is Is Limit Order Price Slide Instruction flag set?
   if bit.band(value, 0x00000004) ~= 0 then
-    display = display.."Is Limit Order Price Slide Instruction|"
+    flags[#flags + 1] = "Is Limit Order Price Slide Instruction"
   end
   -- Is Is Limit Order Min Qty flag set?
   if bit.band(value, 0x00000008) ~= 0 then
-    display = display.."Is Limit Order Min Qty|"
+    flags[#flags + 1] = "Is Limit Order Min Qty"
   end
   -- Is Is Limit Order Max Floor Qty flag set?
   if bit.band(value, 0x00000010) ~= 0 then
-    display = display.."Is Limit Order Max Floor Qty|"
+    flags[#flags + 1] = "Is Limit Order Max Floor Qty"
   end
   -- Is Is Limit Order Max Replenish Qty Range flag set?
   if bit.band(value, 0x00000020) ~= 0 then
-    display = display.."Is Limit Order Max Replenish Qty Range|"
+    flags[#flags + 1] = "Is Limit Order Max Replenish Qty Range"
   end
   -- Is Is Limit Order Max Replenish Time Range flag set?
   if bit.band(value, 0x00000040) ~= 0 then
-    display = display.."Is Limit Order Max Replenish Time Range|"
+    flags[#flags + 1] = "Is Limit Order Max Replenish Time Range"
   end
   -- Is Is Limit Order Reference Price Target flag set?
   if bit.band(value, 0x00000080) ~= 0 then
-    display = display.."Is Limit Order Reference Price Target|"
+    flags[#flags + 1] = "Is Limit Order Reference Price Target"
   end
   -- Is Is Limit Order Expire Time flag set?
   if bit.band(value, 0x00000100) ~= 0 then
-    display = display.."Is Limit Order Expire Time|"
+    flags[#flags + 1] = "Is Limit Order Expire Time"
   end
   -- Is Is Limit Order User Data flag set?
   if bit.band(value, 0x00000200) ~= 0 then
-    display = display.."Is Limit Order User Data|"
+    flags[#flags + 1] = "Is Limit Order User Data"
   end
   -- Is Is Limit Order Mpid flag set?
   if bit.band(value, 0x00000400) ~= 0 then
-    display = display.."Is Limit Order Mpid|"
+    flags[#flags + 1] = "Is Limit Order Mpid"
   end
   -- Is Is Limit Order Member Group flag set?
   if bit.band(value, 0x00000800) ~= 0 then
-    display = display.."Is Limit Order Member Group|"
+    flags[#flags + 1] = "Is Limit Order Member Group"
   end
   -- Is Is Limit Order Locate Broker flag set?
   if bit.band(value, 0x00001000) ~= 0 then
-    display = display.."Is Limit Order Locate Broker|"
+    flags[#flags + 1] = "Is Limit Order Locate Broker"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Limit Order Presence Bits

@@ -3063,26 +3063,22 @@ memx_options_memo_sbe_v1_10.mass_cancel_inst.size = 1
 
 -- Display: Mass Cancel Inst
 memx_options_memo_sbe_v1_10.mass_cancel_inst.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Lockout flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Lockout|"
+    flags[#flags + 1] = "Lockout"
   end
   -- Is Send Cancels flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Send Cancels|"
+    flags[#flags + 1] = "Send Cancels"
   end
   -- Is Cancel Orders From This Port Only flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Cancel Orders From This Port Only|"
+    flags[#flags + 1] = "Cancel Orders From This Port Only"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Mass Cancel Inst
@@ -6047,26 +6043,22 @@ memx_options_memo_sbe_v1_10.exec_inst.size = 2
 
 -- Display: Exec Inst
 memx_options_memo_sbe_v1_10.exec_inst.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Participate Do Not Initiate flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Participate Do Not Initiate|"
+    flags[#flags + 1] = "Participate Do Not Initiate"
   end
   -- Is Intermarket Sweep flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Intermarket Sweep|"
+    flags[#flags + 1] = "Intermarket Sweep"
   end
   -- Is External Routing Not Allowed flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."External Routing Not Allowed|"
+    flags[#flags + 1] = "External Routing Not Allowed"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Exec Inst

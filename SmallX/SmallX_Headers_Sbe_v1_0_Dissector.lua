@@ -381,26 +381,22 @@ smallx_headers_sbe_v1_0.packet_flags.size = 1
 
 -- Display: Packet Flags
 smallx_headers_sbe_v1_0.packet_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Incarnation End flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Incarnation End|"
+    flags[#flags + 1] = "Incarnation End"
   end
   -- Is Retransmission flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Retransmission|"
+    flags[#flags + 1] = "Retransmission"
   end
   -- Is Administrative flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Administrative|"
+    flags[#flags + 1] = "Administrative"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Packet Flags

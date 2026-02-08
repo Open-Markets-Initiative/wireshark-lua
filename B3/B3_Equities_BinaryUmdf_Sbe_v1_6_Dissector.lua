@@ -1341,46 +1341,42 @@ b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.size = 1
 
 -- Display: Match Event Indicator
 b3_equities_binaryumdf_sbe_v1_6.match_event_indicator.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Last Trade Msg flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Last Trade Msg|"
+    flags[#flags + 1] = "Last Trade Msg"
   end
   -- Is Last Volume Msg flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Last Volume Msg|"
+    flags[#flags + 1] = "Last Volume Msg"
   end
   -- Is Last Quote Msg flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Last Quote Msg|"
+    flags[#flags + 1] = "Last Quote Msg"
   end
   -- Is Last Stats Msg flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Last Stats Msg|"
+    flags[#flags + 1] = "Last Stats Msg"
   end
   -- Is Last Implied Msg flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Last Implied Msg|"
+    flags[#flags + 1] = "Last Implied Msg"
   end
   -- Is Recovery Msg flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Recovery Msg|"
+    flags[#flags + 1] = "Recovery Msg"
   end
   -- Is Unused flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Unused|"
+    flags[#flags + 1] = "Unused"
   end
   -- Is End Of Event flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."End Of Event|"
+    flags[#flags + 1] = "End Of Event"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Match Event Indicator
@@ -2180,78 +2176,74 @@ b3_equities_binaryumdf_sbe_v1_6.trade_condition.size = 2
 
 -- Display: Trade Condition
 b3_equities_binaryumdf_sbe_v1_6.trade_condition.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Opening Price flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Opening Price|"
+    flags[#flags + 1] = "Opening Price"
   end
   -- Is Crossed flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Crossed|"
+    flags[#flags + 1] = "Crossed"
   end
   -- Is Last Trade At The Same Price flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Last Trade At The Same Price|"
+    flags[#flags + 1] = "Last Trade At The Same Price"
   end
   -- Is Out Of Sequence flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Out Of Sequence|"
+    flags[#flags + 1] = "Out Of Sequence"
   end
   -- Is Unused Trade Condition 4 flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Unused Trade Condition 4|"
+    flags[#flags + 1] = "Unused Trade Condition 4"
   end
   -- Is Unused Trade Condition 5 flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Unused Trade Condition 5|"
+    flags[#flags + 1] = "Unused Trade Condition 5"
   end
   -- Is Trade On Behalf flag set?
   if bit.band(value, 0x0040) ~= 0 then
-    display = display.."Trade On Behalf|"
+    flags[#flags + 1] = "Trade On Behalf"
   end
   -- Is Unused Trade Condition 7 flag set?
   if bit.band(value, 0x0080) ~= 0 then
-    display = display.."Unused Trade Condition 7|"
+    flags[#flags + 1] = "Unused Trade Condition 7"
   end
   -- Is Unused Trade Condition 8 flag set?
   if bit.band(value, 0x0100) ~= 0 then
-    display = display.."Unused Trade Condition 8|"
+    flags[#flags + 1] = "Unused Trade Condition 8"
   end
   -- Is Unused Trade Condition 9 flag set?
   if bit.band(value, 0x0200) ~= 0 then
-    display = display.."Unused Trade Condition 9|"
+    flags[#flags + 1] = "Unused Trade Condition 9"
   end
   -- Is Unused Trade Condition 10 flag set?
   if bit.band(value, 0x0400) ~= 0 then
-    display = display.."Unused Trade Condition 10|"
+    flags[#flags + 1] = "Unused Trade Condition 10"
   end
   -- Is Unused Trade Condition 11 flag set?
   if bit.band(value, 0x0800) ~= 0 then
-    display = display.."Unused Trade Condition 11|"
+    flags[#flags + 1] = "Unused Trade Condition 11"
   end
   -- Is Unused Trade Condition 12 flag set?
   if bit.band(value, 0x1000) ~= 0 then
-    display = display.."Unused Trade Condition 12|"
+    flags[#flags + 1] = "Unused Trade Condition 12"
   end
   -- Is Regular Trade flag set?
   if bit.band(value, 0x2000) ~= 0 then
-    display = display.."Regular Trade|"
+    flags[#flags + 1] = "Regular Trade"
   end
   -- Is Block Trade flag set?
   if bit.band(value, 0x4000) ~= 0 then
-    display = display.."Block Trade|"
+    flags[#flags + 1] = "Block Trade"
   end
   -- Is Unused Trade Condition 15 flag set?
   if bit.band(value, 0x8000) ~= 0 then
-    display = display.."Unused Trade Condition 15|"
+    flags[#flags + 1] = "Unused Trade Condition 15"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Condition
@@ -3758,54 +3750,50 @@ b3_equities_binaryumdf_sbe_v1_6.imbalance_condition.size = 2
 
 -- Display: Imbalance Condition
 b3_equities_binaryumdf_sbe_v1_6.imbalance_condition.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Unused Imbalance Condition 0 flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Unused Imbalance Condition 0|"
+    flags[#flags + 1] = "Unused Imbalance Condition 0"
   end
   -- Is Unused Imbalance Condition 1 flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Unused Imbalance Condition 1|"
+    flags[#flags + 1] = "Unused Imbalance Condition 1"
   end
   -- Is Unused Imbalance Condition 2 flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Unused Imbalance Condition 2|"
+    flags[#flags + 1] = "Unused Imbalance Condition 2"
   end
   -- Is Unused Imbalance Condition 3 flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Unused Imbalance Condition 3|"
+    flags[#flags + 1] = "Unused Imbalance Condition 3"
   end
   -- Is Unused Imbalance Condition 4 flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Unused Imbalance Condition 4|"
+    flags[#flags + 1] = "Unused Imbalance Condition 4"
   end
   -- Is Unused Imbalance Condition 5 flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Unused Imbalance Condition 5|"
+    flags[#flags + 1] = "Unused Imbalance Condition 5"
   end
   -- Is Unused Imbalance Condition 6 flag set?
   if bit.band(value, 0x0040) ~= 0 then
-    display = display.."Unused Imbalance Condition 6|"
+    flags[#flags + 1] = "Unused Imbalance Condition 6"
   end
   -- Is Unused Imbalance Condition 7 flag set?
   if bit.band(value, 0x0080) ~= 0 then
-    display = display.."Unused Imbalance Condition 7|"
+    flags[#flags + 1] = "Unused Imbalance Condition 7"
   end
   -- Is Imbalance More Buyers flag set?
   if bit.band(value, 0x0100) ~= 0 then
-    display = display.."Imbalance More Buyers|"
+    flags[#flags + 1] = "Imbalance More Buyers"
   end
   -- Is Imbalance More Sellers flag set?
   if bit.band(value, 0x0200) ~= 0 then
-    display = display.."Imbalance More Sellers|"
+    flags[#flags + 1] = "Imbalance More Sellers"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Imbalance Condition

@@ -1250,50 +1250,46 @@ smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size = 2
 
 -- Display: Snapshot Message Instructions
 smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Unused Snapshot Message Instructions 0 flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Unused Snapshot Message Instructions 0|"
+    flags[#flags + 1] = "Unused Snapshot Message Instructions 0"
   end
   -- Is Unused Snapshot Message Instructions 1 flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Unused Snapshot Message Instructions 1|"
+    flags[#flags + 1] = "Unused Snapshot Message Instructions 1"
   end
   -- Is Instrument Begin flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Instrument Begin|"
+    flags[#flags + 1] = "Instrument Begin"
   end
   -- Is Instrument End flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Instrument End|"
+    flags[#flags + 1] = "Instrument End"
   end
   -- Is Book Begin flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Book Begin|"
+    flags[#flags + 1] = "Book Begin"
   end
   -- Is Book End flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Book End|"
+    flags[#flags + 1] = "Book End"
   end
   -- Is Unused Snapshot Message Instructions 6 flag set?
   if bit.band(value, 0x0040) ~= 0 then
-    display = display.."Unused Snapshot Message Instructions 6|"
+    flags[#flags + 1] = "Unused Snapshot Message Instructions 6"
   end
   -- Is Snapshot Begin flag set?
   if bit.band(value, 0x0080) ~= 0 then
-    display = display.."Snapshot Begin|"
+    flags[#flags + 1] = "Snapshot Begin"
   end
   -- Is Snapshot End flag set?
   if bit.band(value, 0x0100) ~= 0 then
-    display = display.."Snapshot End|"
+    flags[#flags + 1] = "Snapshot End"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Snapshot Message Instructions
@@ -2216,42 +2212,38 @@ smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.size = 2
 
 -- Display: Incremental Message Instructions
 smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Transaction Begin flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Transaction Begin|"
+    flags[#flags + 1] = "Transaction Begin"
   end
   -- Is Transaction End flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Transaction End|"
+    flags[#flags + 1] = "Transaction End"
   end
   -- Is Instrument Begin flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Instrument Begin|"
+    flags[#flags + 1] = "Instrument Begin"
   end
   -- Is Instrument End flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Instrument End|"
+    flags[#flags + 1] = "Instrument End"
   end
   -- Is Book Begin flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Book Begin|"
+    flags[#flags + 1] = "Book Begin"
   end
   -- Is Book End flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Book End|"
+    flags[#flags + 1] = "Book End"
   end
   -- Is Book Reset flag set?
   if bit.band(value, 0x0040) ~= 0 then
-    display = display.."Book Reset|"
+    flags[#flags + 1] = "Book Reset"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Incremental Message Instructions
@@ -3293,18 +3285,14 @@ smallx_orderbookfeed_sbe_v2_2.order_attributes.size = 2
 
 -- Display: Order Attributes
 smallx_orderbookfeed_sbe_v2_2.order_attributes.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Implied flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Implied|"
+    flags[#flags + 1] = "Implied"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Order Attributes
@@ -4108,22 +4096,18 @@ smallx_orderbookfeed_sbe_v2_2.trade_conditions.size = 2
 
 -- Display: Trade Conditions
 smallx_orderbookfeed_sbe_v2_2.trade_conditions.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Synthetic flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Synthetic|"
+    flags[#flags + 1] = "Synthetic"
   end
   -- Is Auction flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Auction|"
+    flags[#flags + 1] = "Auction"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Conditions
@@ -5510,26 +5494,22 @@ smallx_orderbookfeed_sbe_v2_2.packet_flags.size = 1
 
 -- Display: Packet Flags
 smallx_orderbookfeed_sbe_v2_2.packet_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Incarnation End flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Incarnation End|"
+    flags[#flags + 1] = "Incarnation End"
   end
   -- Is Retransmission flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Retransmission|"
+    flags[#flags + 1] = "Retransmission"
   end
   -- Is Administrative flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Administrative|"
+    flags[#flags + 1] = "Administrative"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Packet Flags

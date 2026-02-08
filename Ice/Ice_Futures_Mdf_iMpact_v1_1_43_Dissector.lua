@@ -11244,30 +11244,26 @@ ice_futures_mdf_impact_v1_1_43.trade_flags.size = 1
 
 -- Display: Trade Flags
 ice_futures_mdf_impact_v1_1_43.trade_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Rfc Crossing flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Rfc Crossing|"
+    flags[#flags + 1] = "Is Rfc Crossing"
   end
   -- Is Is Leg Deal Outside Ipl flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Is Leg Deal Outside Ipl|"
+    flags[#flags + 1] = "Is Leg Deal Outside Ipl"
   end
   -- Is Is Implied Order flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Is Implied Order|"
+    flags[#flags + 1] = "Is Implied Order"
   end
   -- Is Is Vertical Split flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Is Vertical Split|"
+    flags[#flags + 1] = "Is Vertical Split"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Flags

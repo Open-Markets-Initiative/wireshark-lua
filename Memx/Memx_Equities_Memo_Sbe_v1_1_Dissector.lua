@@ -3370,26 +3370,22 @@ memx_equities_memo_sbe_v1_1.exec_inst.size = 2
 
 -- Display: Exec Inst
 memx_equities_memo_sbe_v1_1.exec_inst.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Participate Do Not Initiate flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Participate Do Not Initiate|"
+    flags[#flags + 1] = "Participate Do Not Initiate"
   end
   -- Is Intermarket Sweep flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Intermarket Sweep|"
+    flags[#flags + 1] = "Intermarket Sweep"
   end
   -- Is External Routing Not Allowed flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."External Routing Not Allowed|"
+    flags[#flags + 1] = "External Routing Not Allowed"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Exec Inst

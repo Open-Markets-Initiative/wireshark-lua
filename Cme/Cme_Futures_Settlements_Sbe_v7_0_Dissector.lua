@@ -1928,46 +1928,42 @@ cme_futures_settlements_sbe_v7_0.settl_price_type.size = 1
 
 -- Display: Settl Price Type
 cme_futures_settlements_sbe_v7_0.settl_price_type.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Final Daily flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Final Daily|"
+    flags[#flags + 1] = "Final Daily"
   end
   -- Is Actual flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Actual|"
+    flags[#flags + 1] = "Actual"
   end
   -- Is Rounded flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Rounded|"
+    flags[#flags + 1] = "Rounded"
   end
   -- Is Intraday flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Intraday|"
+    flags[#flags + 1] = "Intraday"
   end
   -- Is Cabinet flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Cabinet|"
+    flags[#flags + 1] = "Cabinet"
   end
   -- Is Reserved Bits flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Reserved Bits|"
+    flags[#flags + 1] = "Reserved Bits"
   end
   -- Is Unused Settl Price Type 6 flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Unused Settl Price Type 6|"
+    flags[#flags + 1] = "Unused Settl Price Type 6"
   end
   -- Is Null Value flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Null Value|"
+    flags[#flags + 1] = "Null Value"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Settl Price Type

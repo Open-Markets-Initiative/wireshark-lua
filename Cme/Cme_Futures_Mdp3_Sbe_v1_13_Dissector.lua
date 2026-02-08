@@ -2154,46 +2154,42 @@ cme_futures_mdp3_sbe_v1_13.match_event_indicator.size = 1
 
 -- Display: Match Event Indicator
 cme_futures_mdp3_sbe_v1_13.match_event_indicator.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Last Trade Msg flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Last Trade Msg|"
+    flags[#flags + 1] = "Last Trade Msg"
   end
   -- Is Last Volume Msg flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Last Volume Msg|"
+    flags[#flags + 1] = "Last Volume Msg"
   end
   -- Is Last Quote Msg flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Last Quote Msg|"
+    flags[#flags + 1] = "Last Quote Msg"
   end
   -- Is Last Stats Msg flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Last Stats Msg|"
+    flags[#flags + 1] = "Last Stats Msg"
   end
   -- Is Last Implied Msg flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Last Implied Msg|"
+    flags[#flags + 1] = "Last Implied Msg"
   end
   -- Is Recovery Msg flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Recovery Msg|"
+    flags[#flags + 1] = "Recovery Msg"
   end
   -- Is Reserved flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Reserved|"
+    flags[#flags + 1] = "Reserved"
   end
   -- Is End Of Event flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."End Of Event|"
+    flags[#flags + 1] = "End Of Event"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Match Event Indicator
@@ -4204,126 +4200,122 @@ cme_futures_mdp3_sbe_v1_13.inst_attrib_value.size = 4
 
 -- Display: Inst Attrib Value
 cme_futures_mdp3_sbe_v1_13.inst_attrib_value.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Electronic Match Eligible flag set?
   if bit.band(value, 0x00000001) ~= 0 then
-    display = display.."Electronic Match Eligible|"
+    flags[#flags + 1] = "Electronic Match Eligible"
   end
   -- Is Order Cross Eligible flag set?
   if bit.band(value, 0x00000002) ~= 0 then
-    display = display.."Order Cross Eligible|"
+    flags[#flags + 1] = "Order Cross Eligible"
   end
   -- Is Block Trade Eligible flag set?
   if bit.band(value, 0x00000004) ~= 0 then
-    display = display.."Block Trade Eligible|"
+    flags[#flags + 1] = "Block Trade Eligible"
   end
   -- Is Efp Eligible flag set?
   if bit.band(value, 0x00000008) ~= 0 then
-    display = display.."Efp Eligible|"
+    flags[#flags + 1] = "Efp Eligible"
   end
   -- Is Ebf Eligible flag set?
   if bit.band(value, 0x00000010) ~= 0 then
-    display = display.."Ebf Eligible|"
+    flags[#flags + 1] = "Ebf Eligible"
   end
   -- Is Efs Eligible flag set?
   if bit.band(value, 0x00000020) ~= 0 then
-    display = display.."Efs Eligible|"
+    flags[#flags + 1] = "Efs Eligible"
   end
   -- Is Efr Eligible flag set?
   if bit.band(value, 0x00000040) ~= 0 then
-    display = display.."Efr Eligible|"
+    flags[#flags + 1] = "Efr Eligible"
   end
   -- Is Otc Eligible flag set?
   if bit.band(value, 0x00000080) ~= 0 then
-    display = display.."Otc Eligible|"
+    flags[#flags + 1] = "Otc Eligible"
   end
   -- Is ILink Indicative Mass Quoting Eligible flag set?
   if bit.band(value, 0x00000100) ~= 0 then
-    display = display.."ILink Indicative Mass Quoting Eligible|"
+    flags[#flags + 1] = "ILink Indicative Mass Quoting Eligible"
   end
   -- Is Negative Strike Eligible flag set?
   if bit.band(value, 0x00000200) ~= 0 then
-    display = display.."Negative Strike Eligible|"
+    flags[#flags + 1] = "Negative Strike Eligible"
   end
   -- Is Negative Price Outright Eligible flag set?
   if bit.band(value, 0x00000400) ~= 0 then
-    display = display.."Negative Price Outright Eligible|"
+    flags[#flags + 1] = "Negative Price Outright Eligible"
   end
   -- Is Is Fractional flag set?
   if bit.band(value, 0x00000800) ~= 0 then
-    display = display.."Is Fractional|"
+    flags[#flags + 1] = "Is Fractional"
   end
   -- Is Volatility Quoted Option flag set?
   if bit.band(value, 0x00001000) ~= 0 then
-    display = display.."Volatility Quoted Option|"
+    flags[#flags + 1] = "Volatility Quoted Option"
   end
   -- Is Rfq Cross Eligible flag set?
   if bit.band(value, 0x00002000) ~= 0 then
-    display = display.."Rfq Cross Eligible|"
+    flags[#flags + 1] = "Rfq Cross Eligible"
   end
   -- Is Zero Price Outright Eligible flag set?
   if bit.band(value, 0x00004000) ~= 0 then
-    display = display.."Zero Price Outright Eligible|"
+    flags[#flags + 1] = "Zero Price Outright Eligible"
   end
   -- Is Decaying Product Eligibility flag set?
   if bit.band(value, 0x00008000) ~= 0 then
-    display = display.."Decaying Product Eligibility|"
+    flags[#flags + 1] = "Decaying Product Eligibility"
   end
   -- Is Variable Product Eligibility flag set?
   if bit.band(value, 0x00010000) ~= 0 then
-    display = display.."Variable Product Eligibility|"
+    flags[#flags + 1] = "Variable Product Eligibility"
   end
   -- Is Daily Product Eligibility flag set?
   if bit.band(value, 0x00020000) ~= 0 then
-    display = display.."Daily Product Eligibility|"
+    flags[#flags + 1] = "Daily Product Eligibility"
   end
   -- Is Gt Orders Eligibility flag set?
   if bit.band(value, 0x00040000) ~= 0 then
-    display = display.."Gt Orders Eligibility|"
+    flags[#flags + 1] = "Gt Orders Eligibility"
   end
   -- Is Implied Matching Eligibility flag set?
   if bit.band(value, 0x00080000) ~= 0 then
-    display = display.."Implied Matching Eligibility|"
+    flags[#flags + 1] = "Implied Matching Eligibility"
   end
   -- Is Triangulation Eligible flag set?
   if bit.band(value, 0x00100000) ~= 0 then
-    display = display.."Triangulation Eligible|"
+    flags[#flags + 1] = "Triangulation Eligible"
   end
   -- Is Variable Cab Eligible flag set?
   if bit.band(value, 0x00200000) ~= 0 then
-    display = display.."Variable Cab Eligible|"
+    flags[#flags + 1] = "Variable Cab Eligible"
   end
   -- Is Inverted Book flag set?
   if bit.band(value, 0x00400000) ~= 0 then
-    display = display.."Inverted Book|"
+    flags[#flags + 1] = "Inverted Book"
   end
   -- Is Is Aon Instrument flag set?
   if bit.band(value, 0x00800000) ~= 0 then
-    display = display.."Is Aon Instrument|"
+    flags[#flags + 1] = "Is Aon Instrument"
   end
   -- Is Sef Regulated flag set?
   if bit.band(value, 0x01000000) ~= 0 then
-    display = display.."Sef Regulated|"
+    flags[#flags + 1] = "Sef Regulated"
   end
   -- Is Mtf Regulated flag set?
   if bit.band(value, 0x02000000) ~= 0 then
-    display = display.."Mtf Regulated|"
+    flags[#flags + 1] = "Mtf Regulated"
   end
   -- Is Efix Instrument flag set?
   if bit.band(value, 0x04000000) ~= 0 then
-    display = display.."Efix Instrument|"
+    flags[#flags + 1] = "Efix Instrument"
   end
   -- Is Hedge Instrument flag set?
   if bit.band(value, 0x08000000) ~= 0 then
-    display = display.."Hedge Instrument|"
+    flags[#flags + 1] = "Hedge Instrument"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Inst Attrib Value
@@ -7027,46 +7019,42 @@ cme_futures_mdp3_sbe_v1_13.settl_price_type.size = 1
 
 -- Display: Settl Price Type
 cme_futures_mdp3_sbe_v1_13.settl_price_type.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Final Daily flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Final Daily|"
+    flags[#flags + 1] = "Final Daily"
   end
   -- Is Actual flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Actual|"
+    flags[#flags + 1] = "Actual"
   end
   -- Is Rounded flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Rounded|"
+    flags[#flags + 1] = "Rounded"
   end
   -- Is Intraday flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Intraday|"
+    flags[#flags + 1] = "Intraday"
   end
   -- Is Reserved Bits flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Reserved Bits|"
+    flags[#flags + 1] = "Reserved Bits"
   end
   -- Is Unused Settl Price Type 5 flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Unused Settl Price Type 5|"
+    flags[#flags + 1] = "Unused Settl Price Type 5"
   end
   -- Is Unused Settl Price Type 6 flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Unused Settl Price Type 6|"
+    flags[#flags + 1] = "Unused Settl Price Type 6"
   end
   -- Is Null Value flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Null Value|"
+    flags[#flags + 1] = "Null Value"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Settl Price Type

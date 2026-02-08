@@ -865,38 +865,34 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_attributes.size = 2
 
 -- Display: Order Attributes
 jpx_osederivatives_geniuminet_itch_v1_1.order_attributes.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Force flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Force|"
+    flags[#flags + 1] = "Force"
   end
   -- Is Short Sell flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Short Sell|"
+    flags[#flags + 1] = "Short Sell"
   end
   -- Is Market Bid flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Market Bid|"
+    flags[#flags + 1] = "Market Bid"
   end
   -- Is Price Stabilization flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Price Stabilization|"
+    flags[#flags + 1] = "Price Stabilization"
   end
   -- Is Override Crossing flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Override Crossing|"
+    flags[#flags + 1] = "Override Crossing"
   end
   -- Is Undisclosed flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Undisclosed|"
+    flags[#flags + 1] = "Undisclosed"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Order Attributes

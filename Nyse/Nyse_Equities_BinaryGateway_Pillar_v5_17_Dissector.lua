@@ -5183,18 +5183,14 @@ nyse_equities_binarygateway_pillar_v5_17.bitfield_flow_indicator.size = 1
 
 -- Display: Bitfield Flow Indicator
 nyse_equities_binarygateway_pillar_v5_17.bitfield_flow_indicator.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Throttled flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Throttled|"
+    flags[#flags + 1] = "Throttled"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Bitfield Flow Indicator
@@ -5663,26 +5659,22 @@ nyse_equities_binarygateway_pillar_v5_17.bitfield_order_instructions.size = 8
 
 -- Display: Bitfield Order Instructions
 nyse_equities_binarygateway_pillar_v5_17.bitfield_order_instructions.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Sub Id Indicator flag set?
   if bit.band(value, 0x0000000000001000) ~= 0 then
-    display = display.."Sub Id Indicator|"
+    flags[#flags + 1] = "Sub Id Indicator"
   end
   -- Is Locate Reqd flag set?
   if bit.band(value, 0x0000000000020000) ~= 0 then
-    display = display.."Locate Reqd|"
+    flags[#flags + 1] = "Locate Reqd"
   end
   -- Is Retail Indicator flag set?
   if bit.band(value, 0x0000000000040000) ~= 0 then
-    display = display.."Retail Indicator|"
+    flags[#flags + 1] = "Retail Indicator"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Bitfield Order Instructions

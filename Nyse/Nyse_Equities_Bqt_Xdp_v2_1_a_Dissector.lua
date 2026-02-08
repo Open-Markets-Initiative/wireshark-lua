@@ -2625,26 +2625,22 @@ nyse_equities_bqt_xdp_v2_1_a.trade_session.size = 1
 
 -- Display: Trade Session
 nyse_equities_bqt_xdp_v2_1_a.trade_session.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Ok For Morning Hours flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Ok For Morning Hours|"
+    flags[#flags + 1] = "Ok For Morning Hours"
   end
   -- Is Ok For National Hours Core flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Ok For National Hours Core|"
+    flags[#flags + 1] = "Ok For National Hours Core"
   end
   -- Is Ok For Late Hours flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Ok For Late Hours|"
+    flags[#flags + 1] = "Ok For Late Hours"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Session

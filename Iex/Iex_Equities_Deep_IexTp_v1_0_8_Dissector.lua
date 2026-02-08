@@ -823,34 +823,30 @@ iex_equities_deep_iextp_v1_0_8.sale_condition_flags.size = 1
 
 -- Display: Sale Condition Flags
 iex_equities_deep_iextp_v1_0_8.sale_condition_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Singleprice Cross Trade flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Singleprice Cross Trade|"
+    flags[#flags + 1] = "Singleprice Cross Trade"
   end
   -- Is Trade Through Exempt flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Trade Through Exempt|"
+    flags[#flags + 1] = "Trade Through Exempt"
   end
   -- Is Odd Lot flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Odd Lot|"
+    flags[#flags + 1] = "Odd Lot"
   end
   -- Is Extended Hours flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Extended Hours|"
+    flags[#flags + 1] = "Extended Hours"
   end
   -- Is Intermarket Sweep flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Intermarket Sweep|"
+    flags[#flags + 1] = "Intermarket Sweep"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Sale Condition Flags
@@ -1828,26 +1824,22 @@ iex_equities_deep_iextp_v1_0_8.security_directory_flags.size = 1
 
 -- Display: Security Directory Flags
 iex_equities_deep_iextp_v1_0_8.security_directory_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Etp flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Etp|"
+    flags[#flags + 1] = "Etp"
   end
   -- Is When Issued flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."When Issued|"
+    flags[#flags + 1] = "When Issued"
   end
   -- Is Test Security flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Test Security|"
+    flags[#flags + 1] = "Test Security"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Security Directory Flags

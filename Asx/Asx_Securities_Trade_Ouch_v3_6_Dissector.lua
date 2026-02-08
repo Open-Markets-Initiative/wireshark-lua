@@ -15,24 +15,18 @@ local asx_securities_trade_ouch_v3_6 = {}
 -----------------------------------------------------------------------
 
 -- Asx Securities Trade Ouch 3.6 Fields
-omi_asx_securities_trade_ouch_v3_6.fields.agency = ProtoField.new("Agency", "asx.securities.trade.ouch.v3.6.agency", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_asx_securities_trade_ouch_v3_6.fields.capacity_of_participant = ProtoField.new("Capacity Of Participant", "asx.securities.trade.ouch.v3.6.capacityofparticipant", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.securities.trade.ouch.v3.6.clearingparticipant", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.client_account = ProtoField.new("Client Account", "asx.securities.trade.ouch.v3.6.clientaccount", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.crossing_key = ProtoField.new("Crossing Key", "asx.securities.trade.ouch.v3.6.crossingkey", ftypes.UINT32)
 omi_asx_securities_trade_ouch_v3_6.fields.customer_info = ProtoField.new("Customer Info", "asx.securities.trade.ouch.v3.6.customerinfo", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.deal_source = ProtoField.new("Deal Source", "asx.securities.trade.ouch.v3.6.dealsource", ftypes.UINT16)
-omi_asx_securities_trade_ouch_v3_6.fields.debug_packet = ProtoField.new("Debug Packet", "asx.securities.trade.ouch.v3.6.debugpacket", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.directed_wholesale = ProtoField.new("Directed Wholesale", "asx.securities.trade.ouch.v3.6.directedwholesale", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.exchange_info = ProtoField.new("Exchange Info", "asx.securities.trade.ouch.v3.6.exchangeinfo", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.execution_venue = ProtoField.new("Execution Venue", "asx.securities.trade.ouch.v3.6.executionvenue", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.existing_order_token = ProtoField.new("Existing Order Token", "asx.securities.trade.ouch.v3.6.existingordertoken", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.filler = ProtoField.new("Filler", "asx.securities.trade.ouch.v3.6.filler", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.intermediary_id = ProtoField.new("Intermediary Id", "asx.securities.trade.ouch.v3.6.intermediaryid", ftypes.STRING)
-omi_asx_securities_trade_ouch_v3_6.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "asx.securities.trade.ouch.v3.6.loginacceptedpacket", ftypes.STRING)
-omi_asx_securities_trade_ouch_v3_6.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "asx.securities.trade.ouch.v3.6.loginrejectedpacket", ftypes.STRING)
-omi_asx_securities_trade_ouch_v3_6.fields.login_request_packet = ProtoField.new("Login Request Packet", "asx.securities.trade.ouch.v3.6.loginrequestpacket", ftypes.STRING)
-omi_asx_securities_trade_ouch_v3_6.fields.match_attributes = ProtoField.new("Match Attributes", "asx.securities.trade.ouch.v3.6.matchattributes", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.match_id = ProtoField.new("Match Id", "asx.securities.trade.ouch.v3.6.matchid", ftypes.BYTES)
 omi_asx_securities_trade_ouch_v3_6.fields.minimum_acceptable_quantity = ProtoField.new("Minimum Acceptable Quantity", "asx.securities.trade.ouch.v3.6.minimumacceptablequantity", ftypes.UINT64)
 omi_asx_securities_trade_ouch_v3_6.fields.open_close = ProtoField.new("Open Close", "asx.securities.trade.ouch.v3.6.openclose", ftypes.UINT8)
@@ -46,12 +40,10 @@ omi_asx_securities_trade_ouch_v3_6.fields.packet = ProtoField.new("Packet", "asx
 omi_asx_securities_trade_ouch_v3_6.fields.packet_header = ProtoField.new("Packet Header", "asx.securities.trade.ouch.v3.6.packetheader", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.packet_length = ProtoField.new("Packet Length", "asx.securities.trade.ouch.v3.6.packetlength", ftypes.UINT16)
 omi_asx_securities_trade_ouch_v3_6.fields.packet_type = ProtoField.new("Packet Type", "asx.securities.trade.ouch.v3.6.packettype", ftypes.STRING)
-omi_asx_securities_trade_ouch_v3_6.fields.passive_aggressive_indicator = ProtoField.new("Passive Aggressive Indicator", "asx.securities.trade.ouch.v3.6.passiveaggressiveindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_asx_securities_trade_ouch_v3_6.fields.password = ProtoField.new("Password", "asx.securities.trade.ouch.v3.6.password", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.payload = ProtoField.new("Payload", "asx.securities.trade.ouch.v3.6.payload", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.previous_order_token = ProtoField.new("Previous Order Token", "asx.securities.trade.ouch.v3.6.previousordertoken", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.price = ProtoField.new("Price", "asx.securities.trade.ouch.v3.6.price", ftypes.DOUBLE)
-omi_asx_securities_trade_ouch_v3_6.fields.principal = ProtoField.new("Principal", "asx.securities.trade.ouch.v3.6.principal", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_asx_securities_trade_ouch_v3_6.fields.quantity = ProtoField.new("Quantity", "asx.securities.trade.ouch.v3.6.quantity", ftypes.UINT64)
 omi_asx_securities_trade_ouch_v3_6.fields.reason = ProtoField.new("Reason", "asx.securities.trade.ouch.v3.6.reason", ftypes.UINT8)
 omi_asx_securities_trade_ouch_v3_6.fields.regulatory_data = ProtoField.new("Regulatory Data", "asx.securities.trade.ouch.v3.6.regulatorydata", ftypes.STRING)
@@ -60,9 +52,7 @@ omi_asx_securities_trade_ouch_v3_6.fields.reject_reason_code = ProtoField.new("R
 omi_asx_securities_trade_ouch_v3_6.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "asx.securities.trade.ouch.v3.6.replacementordertoken", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "asx.securities.trade.ouch.v3.6.requestedsequencenumber", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.requested_session = ProtoField.new("Requested Session", "asx.securities.trade.ouch.v3.6.requestedsession", ftypes.STRING)
-omi_asx_securities_trade_ouch_v3_6.fields.reserved = ProtoField.new("Reserved", "asx.securities.trade.ouch.v3.6.reserved", ftypes.UINT8, nil, base.DEC, 0x1F)
 omi_asx_securities_trade_ouch_v3_6.fields.sequence_number = ProtoField.new("Sequence Number", "asx.securities.trade.ouch.v3.6.sequencenumber", ftypes.STRING)
-omi_asx_securities_trade_ouch_v3_6.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "asx.securities.trade.ouch.v3.6.sequenceddatapacket", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.sequenced_message = ProtoField.new("Sequenced Message", "asx.securities.trade.ouch.v3.6.sequencedmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "asx.securities.trade.ouch.v3.6.sequencedmessagetype", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.session = ProtoField.new("Session", "asx.securities.trade.ouch.v3.6.session", ftypes.STRING)
@@ -74,12 +64,11 @@ omi_asx_securities_trade_ouch_v3_6.fields.time_in_force = ProtoField.new("Time I
 omi_asx_securities_trade_ouch_v3_6.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.securities.trade.ouch.v3.6.timestampnanoseconds", ftypes.UINT64)
 omi_asx_securities_trade_ouch_v3_6.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.trade.ouch.v3.6.tradeprice", ftypes.DOUBLE)
 omi_asx_securities_trade_ouch_v3_6.fields.traded_quantity = ProtoField.new("Traded Quantity", "asx.securities.trade.ouch.v3.6.tradedquantity", ftypes.UINT64)
-omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.securities.trade.ouch.v3.6.unsequenceddatapacket", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "asx.securities.trade.ouch.v3.6.unsequencedmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "asx.securities.trade.ouch.v3.6.unsequencedmessagetype", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.username = ProtoField.new("Username", "asx.securities.trade.ouch.v3.6.username", ftypes.STRING)
 
--- Asx Securities Trade Ouch 3.6 messages
+-- Asx Securities Ouch Trade 3.6 Application Messages
 omi_asx_securities_trade_ouch_v3_6.fields.cancel_by_order_id_message = ProtoField.new("Cancel By Order Id Message", "asx.securities.trade.ouch.v3.6.cancelbyorderidmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "asx.securities.trade.ouch.v3.6.cancelordermessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.enter_order_message = ProtoField.new("Enter Order Message", "asx.securities.trade.ouch.v3.6.enterordermessage", ftypes.STRING)
@@ -89,6 +78,14 @@ omi_asx_securities_trade_ouch_v3_6.fields.order_executed_message = ProtoField.ne
 omi_asx_securities_trade_ouch_v3_6.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "asx.securities.trade.ouch.v3.6.orderrejectedmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "asx.securities.trade.ouch.v3.6.orderreplacedmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.replace_order_message = ProtoField.new("Replace Order Message", "asx.securities.trade.ouch.v3.6.replaceordermessage", ftypes.STRING)
+
+-- Asx Securities Ouch Trade 3.6 Session Messages
+omi_asx_securities_trade_ouch_v3_6.fields.debug_packet = ProtoField.new("Debug Packet", "asx.securities.trade.ouch.v3.6.debugpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "asx.securities.trade.ouch.v3.6.loginacceptedpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "asx.securities.trade.ouch.v3.6.loginrejectedpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.login_request_packet = ProtoField.new("Login Request Packet", "asx.securities.trade.ouch.v3.6.loginrequestpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "asx.securities.trade.ouch.v3.6.sequenceddatapacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.securities.trade.ouch.v3.6.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -104,7 +101,6 @@ show.enter_order_message = true
 show.login_accepted_packet = true
 show.login_rejected_packet = true
 show.login_request_packet = true
-show.match_attributes = true
 show.order_accepted_message = true
 show.order_cancelled_message = true
 show.order_executed_message = true
@@ -129,7 +125,6 @@ omi_asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message = Pref.bool("S
 omi_asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_match_attributes = Pref.bool("Show Match Attributes", show.match_attributes, "Parse and add Match Attributes to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message = Pref.bool("Show Order Cancelled Message", show.order_cancelled_message, "Parse and add Order Cancelled Message to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
@@ -177,10 +172,6 @@ function omi_asx_securities_trade_ouch_v3_6.prefs_changed()
   end
   if show.login_request_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet then
     show.login_request_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet
-    changed = true
-  end
-  if show.match_attributes ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_match_attributes then
-    show.match_attributes = omi_asx_securities_trade_ouch_v3_6.prefs.show_match_attributes
     changed = true
   end
   if show.order_accepted_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message then
@@ -373,13 +364,13 @@ end
 asx_securities_trade_ouch_v3_6.cancel_by_order_id_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_ouch_v3_6.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: Alpha
   index, side = asx_securities_trade_ouch_v3_6.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_trade_ouch_v3_6.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -442,7 +433,7 @@ end
 asx_securities_trade_ouch_v3_6.cancel_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Token: 14 Byte Ascii String
+  -- Order Token: Alpha
   index, order_token = asx_securities_trade_ouch_v3_6.order_token.dissect(buffer, index, packet, parent)
 
   return index
@@ -688,22 +679,22 @@ end
 asx_securities_trade_ouch_v3_6.regulatory_data.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Capacity Of Participant: 1 Byte Ascii String Enum with 3 values
+  -- Capacity Of Participant: Alpha
   index, capacity_of_participant = asx_securities_trade_ouch_v3_6.capacity_of_participant.dissect(buffer, index, packet, parent)
 
-  -- Directed Wholesale: 1 Byte Ascii String Enum with 2 values
+  -- Directed Wholesale: Alpha
   index, directed_wholesale = asx_securities_trade_ouch_v3_6.directed_wholesale.dissect(buffer, index, packet, parent)
 
-  -- Execution Venue: 4 Byte Ascii String
+  -- Execution Venue: Alpha
   index, execution_venue = asx_securities_trade_ouch_v3_6.execution_venue.dissect(buffer, index, packet, parent)
 
-  -- Intermediary Id: 10 Byte Ascii String
+  -- Intermediary Id: Alpha
   index, intermediary_id = asx_securities_trade_ouch_v3_6.intermediary_id.dissect(buffer, index, packet, parent)
 
-  -- Order Origin: 20 Byte Ascii String
+  -- Order Origin: Alpha
   index, order_origin = asx_securities_trade_ouch_v3_6.order_origin.dissect(buffer, index, packet, parent)
 
-  -- Filler: 8 Byte Ascii String
+  -- Filler: Alpha
   index, filler = asx_securities_trade_ouch_v3_6.filler.dissect(buffer, index, packet, parent)
 
   return index
@@ -943,37 +934,37 @@ end
 asx_securities_trade_ouch_v3_6.replace_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Existing Order Token: 14 Byte Ascii String
+  -- Existing Order Token: Alpha
   index, existing_order_token = asx_securities_trade_ouch_v3_6.existing_order_token.dissect(buffer, index, packet, parent)
 
-  -- Replacement Order Token: 14 Byte Ascii String
+  -- Replacement Order Token: Alpha
   index, replacement_order_token = asx_securities_trade_ouch_v3_6.replacement_order_token.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_trade_ouch_v3_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_trade_ouch_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Open Close: 1 Byte Unsigned Fixed Width Integer
+  -- Open Close: Numeric
   index, open_close = asx_securities_trade_ouch_v3_6.open_close.dissect(buffer, index, packet, parent)
 
-  -- Client Account: 10 Byte Ascii String
+  -- Client Account: Alpha
   index, client_account = asx_securities_trade_ouch_v3_6.client_account.dissect(buffer, index, packet, parent)
 
-  -- Customer Info: 15 Byte Ascii String
+  -- Customer Info: Alpha
   index, customer_info = asx_securities_trade_ouch_v3_6.customer_info.dissect(buffer, index, packet, parent)
 
-  -- Exchange Info: 32 Byte Ascii String
+  -- Exchange Info: Alpha
   index, exchange_info = asx_securities_trade_ouch_v3_6.exchange_info.dissect(buffer, index, packet, parent)
 
   -- Regulatory Data: Struct of 6 fields
   index, regulatory_data = asx_securities_trade_ouch_v3_6.regulatory_data.dissect(buffer, index, packet, parent)
 
-  -- Short Sell Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Short Sell Quantity: Numeric
   index, short_sell_quantity = asx_securities_trade_ouch_v3_6.short_sell_quantity.dissect(buffer, index, packet, parent)
 
-  -- Minimum Acceptable Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Minimum Acceptable Quantity: Numeric
   index, minimum_acceptable_quantity = asx_securities_trade_ouch_v3_6.minimum_acceptable_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -1026,8 +1017,8 @@ asx_securities_trade_ouch_v3_6.ouch_order_type.display = function(value)
   if value == "F" then
     return "Ouch Order Type: Centre Point Order With Single Fill Maq (F)"
   end
-  if value == "T = Limit Sweep order (can be dual-posted if entered price is at half-tick) with single fill MAQ" then
-    return "Ouch Order Type: Limit Sweep Order With Single Fill Maq (T = Limit Sweep order (can be dual-posted if entered price is at half-tick) with single fill MAQ)"
+  if value == "T" then
+    return "Ouch Order Type: Limit Sweep Order With Single Fill Maq (T)"
   end
   if value == "C" then
     return "Ouch Order Type: Any Price Block Order (C)"
@@ -1161,52 +1152,52 @@ end
 asx_securities_trade_ouch_v3_6.enter_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Token: 14 Byte Ascii String
+  -- Order Token: Alpha
   index, order_token = asx_securities_trade_ouch_v3_6.order_token.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_ouch_v3_6.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: Alpha
   index, side = asx_securities_trade_ouch_v3_6.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_trade_ouch_v3_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_trade_ouch_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Time In Force: Numeric
   index, time_in_force = asx_securities_trade_ouch_v3_6.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Open Close: 1 Byte Unsigned Fixed Width Integer
+  -- Open Close: Numeric
   index, open_close = asx_securities_trade_ouch_v3_6.open_close.dissect(buffer, index, packet, parent)
 
-  -- Client Account: 10 Byte Ascii String
+  -- Client Account: Alpha
   index, client_account = asx_securities_trade_ouch_v3_6.client_account.dissect(buffer, index, packet, parent)
 
-  -- Customer Info: 15 Byte Ascii String
+  -- Customer Info: Alpha
   index, customer_info = asx_securities_trade_ouch_v3_6.customer_info.dissect(buffer, index, packet, parent)
 
-  -- Exchange Info: 32 Byte Ascii String
+  -- Exchange Info: Alpha
   index, exchange_info = asx_securities_trade_ouch_v3_6.exchange_info.dissect(buffer, index, packet, parent)
 
-  -- Clearing Participant: 1 Byte Ascii String
+  -- Clearing Participant: Alpha
   index, clearing_participant = asx_securities_trade_ouch_v3_6.clearing_participant.dissect(buffer, index, packet, parent)
 
-  -- Crossing Key: 4 Byte Unsigned Fixed Width Integer
+  -- Crossing Key: Numeric
   index, crossing_key = asx_securities_trade_ouch_v3_6.crossing_key.dissect(buffer, index, packet, parent)
 
   -- Regulatory Data: Struct of 6 fields
   index, regulatory_data = asx_securities_trade_ouch_v3_6.regulatory_data.dissect(buffer, index, packet, parent)
 
-  -- Ouch Order Type: 1 Byte Ascii String Enum with 10 values
+  -- Ouch Order Type: Alpha
   index, ouch_order_type = asx_securities_trade_ouch_v3_6.ouch_order_type.dissect(buffer, index, packet, parent)
 
-  -- Short Sell Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Short Sell Quantity: Numeric
   index, short_sell_quantity = asx_securities_trade_ouch_v3_6.short_sell_quantity.dissect(buffer, index, packet, parent)
 
-  -- Minimum Acceptable Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Minimum Acceptable Quantity: Numeric
   index, minimum_acceptable_quantity = asx_securities_trade_ouch_v3_6.minimum_acceptable_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -1530,62 +1521,6 @@ asx_securities_trade_ouch_v3_6.login_request_packet.dissect = function(buffer, o
   end
 end
 
--- Match Attributes
-asx_securities_trade_ouch_v3_6.match_attributes = {}
-
--- Size: Match Attributes
-asx_securities_trade_ouch_v3_6.match_attributes.size = 1
-
--- Display: Match Attributes
-asx_securities_trade_ouch_v3_6.match_attributes.display = function(buffer, packet, parent)
-  local display = ""
-
-  -- Is Passive Aggressive Indicator flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Passive Aggressive Indicator|"
-  end
-  -- Is Principal flag set?
-  if buffer:bitfield(1) > 0 then
-    display = display.."Principal|"
-  end
-  -- Is Agency flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Agency|"
-  end
-
-  return display:sub(1, -2)
-end
-
--- Dissect Bit Fields: Match Attributes
-asx_securities_trade_ouch_v3_6.match_attributes.bits = function(buffer, offset, packet, parent)
-
-  -- Passive Aggressive Indicator: 1 Bit
-  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.passive_aggressive_indicator, buffer(offset, 1))
-
-  -- Principal: 1 Bit
-  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.principal, buffer(offset, 1))
-
-  -- Agency: 1 Bit
-  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.agency, buffer(offset, 1))
-
-  -- Reserved: 5 Bit
-  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.reserved, buffer(offset, 1))
-end
-
--- Dissect: Match Attributes
-asx_securities_trade_ouch_v3_6.match_attributes.dissect = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
-  local display = asx_securities_trade_ouch_v3_6.match_attributes.display(range, packet, parent)
-  local element = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.match_attributes, range, display)
-
-  if show.match_attributes then
-    asx_securities_trade_ouch_v3_6.match_attributes.bits(buffer, offset, packet, element)
-  end
-
-  return offset + 1, range
-end
-
 -- Deal Source
 asx_securities_trade_ouch_v3_6.deal_source = {}
 
@@ -1595,22 +1530,22 @@ asx_securities_trade_ouch_v3_6.deal_source.size = 2
 -- Display: Deal Source
 asx_securities_trade_ouch_v3_6.deal_source.display = function(value)
   if value == 1 then
-    return "Deal Source: Single Series To Single Series Automatched During Continuous Trading (1)"
+    return "Deal Source: Continuous Automatch (1)"
   end
   if value == 20 then
-    return "Deal Source: Single Series To Single Series Automatched During An Auction (20)"
+    return "Deal Source: Auction Automatch (20)"
   end
   if value == 36 then
     return "Deal Source: Tailor Made Combination Match (36)"
   end
   if value == 10 then
-    return "Deal Source: Order Deleted By Asx On Behalf Of The Customer (10)"
+    return "Deal Source: Deleted By Asx (10)"
   end
   if value == 44 then
-    return "Deal Source: Booked Transaction Resulting From Unintentional Crossing Prevention (44)"
+    return "Deal Source: Booked Ucp Transaction (44)"
   end
   if value == 45 then
-    return "Deal Source: Booked Transaction Resulting From Unintentional Crossing Prevention During An Auction (45)"
+    return "Deal Source: Booked Ucp Auction Transaction (45)"
   end
   if value == 46 then
     return "Deal Source: Centre Point Preference Matched Trade (46)"
@@ -1619,10 +1554,10 @@ asx_securities_trade_ouch_v3_6.deal_source.display = function(value)
     return "Deal Source: Centre Point Trade (47)"
   end
   if value == 48 then
-    return "Deal Source: Centre Point Booked Transaction Resulting From Unintentional Crossing Prevention (48)"
+    return "Deal Source: Centre Point Booked Ucp (48)"
   end
   if value == 49 then
-    return "Deal Source: Reserved For Future Use (49)"
+    return "Deal Source: Reserved (49)"
   end
   if value == 50 then
     return "Deal Source: Block Trade (50)"
@@ -1631,7 +1566,7 @@ asx_securities_trade_ouch_v3_6.deal_source.display = function(value)
     return "Deal Source: Preference Block Trade (51)"
   end
   if value == 52 then
-    return "Deal Source: Reserved For Future Use (52)"
+    return "Deal Source: Reserved (52)"
   end
 
   return "Deal Source: Unknown("..value..")"
@@ -1770,28 +1705,28 @@ end
 asx_securities_trade_ouch_v3_6.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Timestamp
   index, timestamp_nanoseconds = asx_securities_trade_ouch_v3_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Token: 14 Byte Ascii String
+  -- Order Token: Alpha
   index, order_token = asx_securities_trade_ouch_v3_6.order_token.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_ouch_v3_6.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Traded Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Traded Quantity: Numeric
   index, traded_quantity = asx_securities_trade_ouch_v3_6.traded_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_trade_ouch_v3_6.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Match Id: 12 Byte Unsigned Fixed Width Integer
+  -- Match Id: Numeric
   index, match_id = asx_securities_trade_ouch_v3_6.match_id.dissect(buffer, index, packet, parent)
 
-  -- Deal Source: 2 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Deal Source: Numeric
   index, deal_source = asx_securities_trade_ouch_v3_6.deal_source.dissect(buffer, index, packet, parent)
 
-  -- Match Attributes: Struct of 4 fields
+  -- Match Attributes
   index, match_attributes = asx_securities_trade_ouch_v3_6.match_attributes.dissect(buffer, index, packet, parent)
 
   return index
@@ -1830,16 +1765,16 @@ asx_securities_trade_ouch_v3_6.reason.display = function(value)
     return "Reason: Order Inactivated Due To Connection Loss (4)"
   end
   if value == 9 then
-    return "Reason: Fill And Kill Order That Was Deleted In An Auction (9)"
+    return "Reason: Fill And Kill Order Deleted In Auction (9)"
   end
   if value == 10 then
-    return "Reason: Order Deleted By Asx On Behalf Of The Customer (10)"
+    return "Reason: Order Deleted By Asx (10)"
   end
   if value == 20 then
-    return "Reason: Deleted By System Due To Instrument Session Change (20)"
+    return "Reason: Deleted Due To Session Change (20)"
   end
   if value == 21 then
-    return "Reason: Inactivated By System Due To Instrument Session Change (21)"
+    return "Reason: Inactivated Due To Session Change (21)"
   end
   if value == 24 then
     return "Reason: Inactivated Day Order (24)"
@@ -1881,22 +1816,22 @@ end
 asx_securities_trade_ouch_v3_6.order_cancelled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Timestamp
   index, timestamp_nanoseconds = asx_securities_trade_ouch_v3_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Token: 14 Byte Ascii String
+  -- Order Token: Alpha
   index, order_token = asx_securities_trade_ouch_v3_6.order_token.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_ouch_v3_6.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: Alpha
   index, side = asx_securities_trade_ouch_v3_6.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_trade_ouch_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Reason: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Reason: Numeric
   index, reason = asx_securities_trade_ouch_v3_6.reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -2008,64 +1943,64 @@ end
 asx_securities_trade_ouch_v3_6.order_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Timestamp
   index, timestamp_nanoseconds = asx_securities_trade_ouch_v3_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Replacement Order Token: 14 Byte Ascii String
+  -- Replacement Order Token: Alpha
   index, replacement_order_token = asx_securities_trade_ouch_v3_6.replacement_order_token.dissect(buffer, index, packet, parent)
 
-  -- Previous Order Token: 14 Byte Ascii String
+  -- Previous Order Token: Alpha
   index, previous_order_token = asx_securities_trade_ouch_v3_6.previous_order_token.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_ouch_v3_6.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: Alpha
   index, side = asx_securities_trade_ouch_v3_6.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_trade_ouch_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_trade_ouch_v3_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_trade_ouch_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Time In Force: Numeric
   index, time_in_force = asx_securities_trade_ouch_v3_6.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Open Close: 1 Byte Unsigned Fixed Width Integer
+  -- Open Close: Numeric
   index, open_close = asx_securities_trade_ouch_v3_6.open_close.dissect(buffer, index, packet, parent)
 
-  -- Client Account: 10 Byte Ascii String
+  -- Client Account: Alpha
   index, client_account = asx_securities_trade_ouch_v3_6.client_account.dissect(buffer, index, packet, parent)
 
-  -- Order State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order State: Numeric
   index, order_state = asx_securities_trade_ouch_v3_6.order_state.dissect(buffer, index, packet, parent)
 
-  -- Customer Info: 15 Byte Ascii String
+  -- Customer Info: Alpha
   index, customer_info = asx_securities_trade_ouch_v3_6.customer_info.dissect(buffer, index, packet, parent)
 
-  -- Exchange Info: 32 Byte Ascii String
+  -- Exchange Info: Alpha
   index, exchange_info = asx_securities_trade_ouch_v3_6.exchange_info.dissect(buffer, index, packet, parent)
 
-  -- Clearing Participant: 1 Byte Ascii String
+  -- Clearing Participant: Alpha
   index, clearing_participant = asx_securities_trade_ouch_v3_6.clearing_participant.dissect(buffer, index, packet, parent)
 
-  -- Crossing Key: 4 Byte Unsigned Fixed Width Integer
+  -- Crossing Key: Numeric
   index, crossing_key = asx_securities_trade_ouch_v3_6.crossing_key.dissect(buffer, index, packet, parent)
 
   -- Regulatory Data: Struct of 6 fields
   index, regulatory_data = asx_securities_trade_ouch_v3_6.regulatory_data.dissect(buffer, index, packet, parent)
 
-  -- Ouch Order Type: 1 Byte Ascii String Enum with 10 values
+  -- Ouch Order Type: Alpha
   index, ouch_order_type = asx_securities_trade_ouch_v3_6.ouch_order_type.dissect(buffer, index, packet, parent)
 
-  -- Short Sell Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Short Sell Quantity: Numeric
   index, short_sell_quantity = asx_securities_trade_ouch_v3_6.short_sell_quantity.dissect(buffer, index, packet, parent)
 
-  -- Minimum Acceptable Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Minimum Acceptable Quantity: Numeric
   index, minimum_acceptable_quantity = asx_securities_trade_ouch_v3_6.minimum_acceptable_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -2130,13 +2065,13 @@ end
 asx_securities_trade_ouch_v3_6.order_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Timestamp
   index, timestamp_nanoseconds = asx_securities_trade_ouch_v3_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Token: 14 Byte Ascii String
+  -- Order Token: Alpha
   index, order_token = asx_securities_trade_ouch_v3_6.order_token.dissect(buffer, index, packet, parent)
 
-  -- Reject Code: 4 Byte Unsigned Fixed Width Integer
+  -- Reject Code: Numeric
   index, reject_code = asx_securities_trade_ouch_v3_6.reject_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -2194,61 +2129,61 @@ end
 asx_securities_trade_ouch_v3_6.order_accepted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Timestamp
   index, timestamp_nanoseconds = asx_securities_trade_ouch_v3_6.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Token: 14 Byte Ascii String
+  -- Order Token: Alpha
   index, order_token = asx_securities_trade_ouch_v3_6.order_token.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_ouch_v3_6.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: Alpha
   index, side = asx_securities_trade_ouch_v3_6.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_trade_ouch_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_trade_ouch_v3_6.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_trade_ouch_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Time In Force: Numeric
   index, time_in_force = asx_securities_trade_ouch_v3_6.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Open Close: 1 Byte Unsigned Fixed Width Integer
+  -- Open Close: Numeric
   index, open_close = asx_securities_trade_ouch_v3_6.open_close.dissect(buffer, index, packet, parent)
 
-  -- Client Account: 10 Byte Ascii String
+  -- Client Account: Alpha
   index, client_account = asx_securities_trade_ouch_v3_6.client_account.dissect(buffer, index, packet, parent)
 
-  -- Order State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order State: Numeric
   index, order_state = asx_securities_trade_ouch_v3_6.order_state.dissect(buffer, index, packet, parent)
 
-  -- Customer Info: 15 Byte Ascii String
+  -- Customer Info: Alpha
   index, customer_info = asx_securities_trade_ouch_v3_6.customer_info.dissect(buffer, index, packet, parent)
 
-  -- Exchange Info: 32 Byte Ascii String
+  -- Exchange Info: Alpha
   index, exchange_info = asx_securities_trade_ouch_v3_6.exchange_info.dissect(buffer, index, packet, parent)
 
-  -- Clearing Participant: 1 Byte Ascii String
+  -- Clearing Participant: Alpha
   index, clearing_participant = asx_securities_trade_ouch_v3_6.clearing_participant.dissect(buffer, index, packet, parent)
 
-  -- Crossing Key: 4 Byte Unsigned Fixed Width Integer
+  -- Crossing Key: Numeric
   index, crossing_key = asx_securities_trade_ouch_v3_6.crossing_key.dissect(buffer, index, packet, parent)
 
   -- Regulatory Data: Struct of 6 fields
   index, regulatory_data = asx_securities_trade_ouch_v3_6.regulatory_data.dissect(buffer, index, packet, parent)
 
-  -- Ouch Order Type: 1 Byte Ascii String Enum with 10 values
+  -- Ouch Order Type: Alpha
   index, ouch_order_type = asx_securities_trade_ouch_v3_6.ouch_order_type.dissect(buffer, index, packet, parent)
 
-  -- Short Sell Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Short Sell Quantity: Numeric
   index, short_sell_quantity = asx_securities_trade_ouch_v3_6.short_sell_quantity.dissect(buffer, index, packet, parent)
 
-  -- Minimum Acceptable Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Minimum Acceptable Quantity: Numeric
   index, minimum_acceptable_quantity = asx_securities_trade_ouch_v3_6.minimum_acceptable_quantity.dissect(buffer, index, packet, parent)
 
   return index

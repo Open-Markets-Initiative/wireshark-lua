@@ -455,18 +455,14 @@ memx_options_memoirdepth_sbe_v1_3.trade_conditions.size = 1
 
 -- Display: Trade Conditions
 memx_options_memoirdepth_sbe_v1_3.trade_conditions.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Intermarket Sweep flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Intermarket Sweep|"
+    flags[#flags + 1] = "Intermarket Sweep"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Conditions

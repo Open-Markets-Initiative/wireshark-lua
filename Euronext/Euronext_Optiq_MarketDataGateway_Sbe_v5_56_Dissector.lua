@@ -8637,226 +8637,222 @@ euronext_optiq_marketdatagateway_sbe_v5_56.strategy_authorized.size = 8
 
 -- Display: Strategy Authorized
 euronext_optiq_marketdatagateway_sbe_v5_56.strategy_authorized.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Jelly Roll flag set?
   if bit.band(value, 0x0000000000000001) ~= 0 then
-    display = display.."Jelly Roll|"
+    flags[#flags + 1] = "Jelly Roll"
   end
   -- Is Butterfly flag set?
   if bit.band(value, 0x0000000000000002) ~= 0 then
-    display = display.."Butterfly|"
+    flags[#flags + 1] = "Butterfly"
   end
   -- Is Call Or Put Cabinet flag set?
   if bit.band(value, 0x0000000000000004) ~= 0 then
-    display = display.."Call Or Put Cabinet|"
+    flags[#flags + 1] = "Call Or Put Cabinet"
   end
   -- Is Spread flag set?
   if bit.band(value, 0x0000000000000008) ~= 0 then
-    display = display.."Spread|"
+    flags[#flags + 1] = "Spread"
   end
   -- Is Calendar Spread flag set?
   if bit.band(value, 0x0000000000000010) ~= 0 then
-    display = display.."Calendar Spread|"
+    flags[#flags + 1] = "Calendar Spread"
   end
   -- Is Diagonal Calendar Spread flag set?
   if bit.band(value, 0x0000000000000020) ~= 0 then
-    display = display.."Diagonal Calendar Spread|"
+    flags[#flags + 1] = "Diagonal Calendar Spread"
   end
   -- Is Guts flag set?
   if bit.band(value, 0x0000000000000040) ~= 0 then
-    display = display.."Guts|"
+    flags[#flags + 1] = "Guts"
   end
   -- Is Two By One Ratio Spread flag set?
   if bit.band(value, 0x0000000000000080) ~= 0 then
-    display = display.."Two By One Ratio Spread|"
+    flags[#flags + 1] = "Two By One Ratio Spread"
   end
   -- Is Iron Butterfly flag set?
   if bit.band(value, 0x0000000000000100) ~= 0 then
-    display = display.."Iron Butterfly|"
+    flags[#flags + 1] = "Iron Butterfly"
   end
   -- Is Combo flag set?
   if bit.band(value, 0x0000000000000200) ~= 0 then
-    display = display.."Combo|"
+    flags[#flags + 1] = "Combo"
   end
   -- Is Strangle flag set?
   if bit.band(value, 0x0000000000000400) ~= 0 then
-    display = display.."Strangle|"
+    flags[#flags + 1] = "Strangle"
   end
   -- Is Ladder flag set?
   if bit.band(value, 0x0000000000000800) ~= 0 then
-    display = display.."Ladder|"
+    flags[#flags + 1] = "Ladder"
   end
   -- Is Strip flag set?
   if bit.band(value, 0x0000000000001000) ~= 0 then
-    display = display.."Strip|"
+    flags[#flags + 1] = "Strip"
   end
   -- Is Straddle Calendar Spread flag set?
   if bit.band(value, 0x0000000000002000) ~= 0 then
-    display = display.."Straddle Calendar Spread|"
+    flags[#flags + 1] = "Straddle Calendar Spread"
   end
   -- Is Pack flag set?
   if bit.band(value, 0x0000000000004000) ~= 0 then
-    display = display.."Pack|"
+    flags[#flags + 1] = "Pack"
   end
   -- Is Diagonal Straddle Calendar Spread flag set?
   if bit.band(value, 0x0000000000008000) ~= 0 then
-    display = display.."Diagonal Straddle Calendar Spread|"
+    flags[#flags + 1] = "Diagonal Straddle Calendar Spread"
   end
   -- Is Simple Inter Commodity Spread flag set?
   if bit.band(value, 0x0000000000010000) ~= 0 then
-    display = display.."Simple Inter Commodity Spread|"
+    flags[#flags + 1] = "Simple Inter Commodity Spread"
   end
   -- Is Conversion Reversal flag set?
   if bit.band(value, 0x0000000000020000) ~= 0 then
-    display = display.."Conversion Reversal|"
+    flags[#flags + 1] = "Conversion Reversal"
   end
   -- Is Straddle flag set?
   if bit.band(value, 0x0000000000040000) ~= 0 then
-    display = display.."Straddle|"
+    flags[#flags + 1] = "Straddle"
   end
   -- Is Volatility Trade flag set?
   if bit.band(value, 0x0000000000080000) ~= 0 then
-    display = display.."Volatility Trade|"
+    flags[#flags + 1] = "Volatility Trade"
   end
   -- Is Condor flag set?
   if bit.band(value, 0x0000000000100000) ~= 0 then
-    display = display.."Condor|"
+    flags[#flags + 1] = "Condor"
   end
   -- Is Box flag set?
   if bit.band(value, 0x0000000000200000) ~= 0 then
-    display = display.."Box|"
+    flags[#flags + 1] = "Box"
   end
   -- Is Bundle flag set?
   if bit.band(value, 0x0000000000400000) ~= 0 then
-    display = display.."Bundle|"
+    flags[#flags + 1] = "Bundle"
   end
   -- Is Reduced Tick Spread flag set?
   if bit.band(value, 0x0000000000800000) ~= 0 then
-    display = display.."Reduced Tick Spread|"
+    flags[#flags + 1] = "Reduced Tick Spread"
   end
   -- Is Ladder Versus Underlying flag set?
   if bit.band(value, 0x0000000001000000) ~= 0 then
-    display = display.."Ladder Versus Underlying|"
+    flags[#flags + 1] = "Ladder Versus Underlying"
   end
   -- Is Butterfly Versus Underlying flag set?
   if bit.band(value, 0x0000000002000000) ~= 0 then
-    display = display.."Butterfly Versus Underlying|"
+    flags[#flags + 1] = "Butterfly Versus Underlying"
   end
   -- Is Call Spread Versus Put Versus Underlying flag set?
   if bit.band(value, 0x0000000004000000) ~= 0 then
-    display = display.."Call Spread Versus Put Versus Underlying|"
+    flags[#flags + 1] = "Call Spread Versus Put Versus Underlying"
   end
   -- Is Call Or Put Spread Versus Underlying flag set?
   if bit.band(value, 0x0000000008000000) ~= 0 then
-    display = display.."Call Or Put Spread Versus Underlying|"
+    flags[#flags + 1] = "Call Or Put Spread Versus Underlying"
   end
   -- Is Call Or Put Calendar Spread Versus Underlying flag set?
   if bit.band(value, 0x0000000010000000) ~= 0 then
-    display = display.."Call Or Put Calendar Spread Versus Underlying|"
+    flags[#flags + 1] = "Call Or Put Calendar Spread Versus Underlying"
   end
   -- Is Call Put Diagonal Calendar Spread Versus Underlying flag set?
   if bit.band(value, 0x0000000020000000) ~= 0 then
-    display = display.."Call Put Diagonal Calendar Spread Versus Underlying|"
+    flags[#flags + 1] = "Call Put Diagonal Calendar Spread Versus Underlying"
   end
   -- Is Guts Versus Underlying flag set?
   if bit.band(value, 0x0000000040000000) ~= 0 then
-    display = display.."Guts Versus Underlying|"
+    flags[#flags + 1] = "Guts Versus Underlying"
   end
   -- Is Two By One Call Or Put Ratio Spread Versus Underlying flag set?
   if bit.band(value, 0x0000000080000000) ~= 0 then
-    display = display.."Two By One Call Or Put Ratio Spread Versus Underlying|"
+    flags[#flags + 1] = "Two By One Call Or Put Ratio Spread Versus Underlying"
   end
   -- Is Iron Butterfly Versus Underlying flag set?
   if bit.band(value, 0x0000000000000001) ~= 0 then
-    display = display.."Iron Butterfly Versus Underlying|"
+    flags[#flags + 1] = "Iron Butterfly Versus Underlying"
   end
   -- Is Combo Versus Underlying flag set?
   if bit.band(value, 0x0000000000000002) ~= 0 then
-    display = display.."Combo Versus Underlying|"
+    flags[#flags + 1] = "Combo Versus Underlying"
   end
   -- Is Strangle Versus Underlying flag set?
   if bit.band(value, 0x0000000000000004) ~= 0 then
-    display = display.."Strangle Versus Underlying|"
+    flags[#flags + 1] = "Strangle Versus Underlying"
   end
   -- Is Exchange For Physical flag set?
   if bit.band(value, 0x0000000000000008) ~= 0 then
-    display = display.."Exchange For Physical|"
+    flags[#flags + 1] = "Exchange For Physical"
   end
   -- Is Straddle Calendar Spread Versus Underlying flag set?
   if bit.band(value, 0x0000000000000010) ~= 0 then
-    display = display.."Straddle Calendar Spread Versus Underlying|"
+    flags[#flags + 1] = "Straddle Calendar Spread Versus Underlying"
   end
   -- Is Put Spread Versus Call Versus Underlying flag set?
   if bit.band(value, 0x0000000000000020) ~= 0 then
-    display = display.."Put Spread Versus Call Versus Underlying|"
+    flags[#flags + 1] = "Put Spread Versus Call Versus Underlying"
   end
   -- Is Diagonal Straddle Calendar Spread Versus Underlying flag set?
   if bit.band(value, 0x0000000000000040) ~= 0 then
-    display = display.."Diagonal Straddle Calendar Spread Versus Underlying|"
+    flags[#flags + 1] = "Diagonal Straddle Calendar Spread Versus Underlying"
   end
   -- Is Synthetic flag set?
   if bit.band(value, 0x0000000000000080) ~= 0 then
-    display = display.."Synthetic|"
+    flags[#flags + 1] = "Synthetic"
   end
   -- Is Straddle Versus Underlying flag set?
   if bit.band(value, 0x0000000000000100) ~= 0 then
-    display = display.."Straddle Versus Underlying|"
+    flags[#flags + 1] = "Straddle Versus Underlying"
   end
   -- Is Condor Versus Underlying flag set?
   if bit.band(value, 0x0000000000000200) ~= 0 then
-    display = display.."Condor Versus Underlying|"
+    flags[#flags + 1] = "Condor Versus Underlying"
   end
   -- Is Buy Write flag set?
   if bit.band(value, 0x0000000000000400) ~= 0 then
-    display = display.."Buy Write|"
+    flags[#flags + 1] = "Buy Write"
   end
   -- Is Iron Condor Versus Underlying flag set?
   if bit.band(value, 0x0000000000000800) ~= 0 then
-    display = display.."Iron Condor Versus Underlying|"
+    flags[#flags + 1] = "Iron Condor Versus Underlying"
   end
   -- Is Iron Condor flag set?
   if bit.band(value, 0x0000000000001000) ~= 0 then
-    display = display.."Iron Condor|"
+    flags[#flags + 1] = "Iron Condor"
   end
   -- Is Call Spread Versus Sell A Put flag set?
   if bit.band(value, 0x0000000000002000) ~= 0 then
-    display = display.."Call Spread Versus Sell A Put|"
+    flags[#flags + 1] = "Call Spread Versus Sell A Put"
   end
   -- Is Put Spread Versus Sell A Call flag set?
   if bit.band(value, 0x0000000000004000) ~= 0 then
-    display = display.."Put Spread Versus Sell A Call|"
+    flags[#flags + 1] = "Put Spread Versus Sell A Call"
   end
   -- Is Put Straddle Versus Sell A Call Or A Put flag set?
   if bit.band(value, 0x0000000000008000) ~= 0 then
-    display = display.."Put Straddle Versus Sell A Call Or A Put|"
+    flags[#flags + 1] = "Put Straddle Versus Sell A Call Or A Put"
   end
   -- Is Ics One Sided Combination Same Expiry flag set?
   if bit.band(value, 0x0000000000010000) ~= 0 then
-    display = display.."Ics One Sided Combination Same Expiry|"
+    flags[#flags + 1] = "Ics One Sided Combination Same Expiry"
   end
   -- Is Ics Two Sided Combination Same Expiry flag set?
   if bit.band(value, 0x0000000000020000) ~= 0 then
-    display = display.."Ics Two Sided Combination Same Expiry|"
+    flags[#flags + 1] = "Ics Two Sided Combination Same Expiry"
   end
   -- Is Ratio Inter Contract Spread flag set?
   if bit.band(value, 0x0000000000040000) ~= 0 then
-    display = display.."Ratio Inter Contract Spread|"
+    flags[#flags + 1] = "Ratio Inter Contract Spread"
   end
   -- Is Call Spread Versus Put Or Put Spread Versus Call flag set?
   if bit.band(value, 0x0000000000080000) ~= 0 then
-    display = display.."Call Spread Versus Put Or Put Spread Versus Call|"
+    flags[#flags + 1] = "Call Spread Versus Put Or Put Spread Versus Call"
   end
   -- Is Ratio Spread Option flag set?
   if bit.band(value, 0x0000000000100000) ~= 0 then
-    display = display.."Ratio Spread Option|"
+    flags[#flags + 1] = "Ratio Spread Option"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Strategy Authorized
@@ -9939,22 +9935,18 @@ euronext_optiq_marketdatagateway_sbe_v5_56.mm_protections.size = 1
 
 -- Display: Mm Protections
 euronext_optiq_marketdatagateway_sbe_v5_56.mm_protections.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Delta flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Delta|"
+    flags[#flags + 1] = "Delta"
   end
   -- Is Volume flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Volume|"
+    flags[#flags + 1] = "Volume"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Mm Protections
@@ -10060,38 +10052,34 @@ euronext_optiq_marketdatagateway_sbe_v5_56.order_type_rules.size = 2
 
 -- Display: Order Type Rules
 euronext_optiq_marketdatagateway_sbe_v5_56.order_type_rules.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Market flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Market|"
+    flags[#flags + 1] = "Market"
   end
   -- Is Limit flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Limit|"
+    flags[#flags + 1] = "Limit"
   end
   -- Is Stop Stop Loss flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Stop Stop Loss|"
+    flags[#flags + 1] = "Stop Stop Loss"
   end
   -- Is Stop Limit flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Stop Limit|"
+    flags[#flags + 1] = "Stop Limit"
   end
   -- Is Market On Open Moo flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Market On Open Moo|"
+    flags[#flags + 1] = "Market On Open Moo"
   end
   -- Is Trade At Settlement flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Trade At Settlement|"
+    flags[#flags + 1] = "Trade At Settlement"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Order Type Rules
@@ -14576,58 +14564,54 @@ euronext_optiq_marketdatagateway_sbe_v5_56.phase_qualifier.size = 2
 
 -- Display: Phase Qualifier
 euronext_optiq_marketdatagateway_sbe_v5_56.phase_qualifier.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is No Qualifier flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."No Qualifier|"
+    flags[#flags + 1] = "No Qualifier"
   end
   -- Is Call Bbo Only flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Call Bbo Only|"
+    flags[#flags + 1] = "Call Bbo Only"
   end
   -- Is Trading At Last flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Trading At Last|"
+    flags[#flags + 1] = "Trading At Last"
   end
   -- Is Random Uncrossing flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Random Uncrossing|"
+    flags[#flags + 1] = "Random Uncrossing"
   end
   -- Is Suspended flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Suspended|"
+    flags[#flags + 1] = "Suspended"
   end
   -- Is Wholesale Allowed flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Wholesale Allowed|"
+    flags[#flags + 1] = "Wholesale Allowed"
   end
   -- Is Stressed Market Conditions flag set?
   if bit.band(value, 0x0040) ~= 0 then
-    display = display.."Stressed Market Conditions|"
+    flags[#flags + 1] = "Stressed Market Conditions"
   end
   -- Is Exceptional Market Conditions flag set?
   if bit.band(value, 0x0080) ~= 0 then
-    display = display.."Exceptional Market Conditions|"
+    flags[#flags + 1] = "Exceptional Market Conditions"
   end
   -- Is Unused Phase Qualifierset 8 flag set?
   if bit.band(value, 0x0100) ~= 0 then
-    display = display.."Unused Phase Qualifierset 8|"
+    flags[#flags + 1] = "Unused Phase Qualifierset 8"
   end
   -- Is Quoting Period flag set?
   if bit.band(value, 0x0200) ~= 0 then
-    display = display.."Quoting Period|"
+    flags[#flags + 1] = "Quoting Period"
   end
   -- Is Execution Prevention Across All Firms flag set?
   if bit.band(value, 0x0400) ~= 0 then
-    display = display.."Execution Prevention Across All Firms|"
+    flags[#flags + 1] = "Execution Prevention Across All Firms"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Phase Qualifier
@@ -16328,46 +16312,42 @@ euronext_optiq_marketdatagateway_sbe_v5_56.trade_qualifier.size = 1
 
 -- Display: Trade Qualifier
 euronext_optiq_marketdatagateway_sbe_v5_56.trade_qualifier.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Uncrossing Trade flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Uncrossing Trade|"
+    flags[#flags + 1] = "Uncrossing Trade"
   end
   -- Is First Trade Price flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."First Trade Price|"
+    flags[#flags + 1] = "First Trade Price"
   end
   -- Is Passive Order flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Passive Order|"
+    flags[#flags + 1] = "Passive Order"
   end
   -- Is Aggressive Order flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Aggressive Order|"
+    flags[#flags + 1] = "Aggressive Order"
   end
   -- Is Trade Creation By Market Operations flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Trade Creation By Market Operations|"
+    flags[#flags + 1] = "Trade Creation By Market Operations"
   end
   -- Is Nav Trade Expressed In Bps flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Nav Trade Expressed In Bps|"
+    flags[#flags + 1] = "Nav Trade Expressed In Bps"
   end
   -- Is Nav Trade Expressed In Price Currency flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Nav Trade Expressed In Price Currency|"
+    flags[#flags + 1] = "Nav Trade Expressed In Price Currency"
   end
   -- Is Deferred Publication flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Deferred Publication|"
+    flags[#flags + 1] = "Deferred Publication"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Qualifier
@@ -19221,30 +19201,26 @@ euronext_optiq_marketdatagateway_sbe_v5_56.packet_flags.size = 2
 
 -- Display: Packet Flags
 euronext_optiq_marketdatagateway_sbe_v5_56.packet_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Has Status Message flag set?
   if bit.band(value, 0x0040) ~= 0 then
-    display = display.."Has Status Message|"
+    flags[#flags + 1] = "Has Status Message"
   end
   -- Is Has End Of Day Snapshot flag set?
   if bit.band(value, 0x0080) ~= 0 then
-    display = display.."Has End Of Day Snapshot|"
+    flags[#flags + 1] = "Has End Of Day Snapshot"
   end
   -- Is Has Start Of Day Snapshot flag set?
   if bit.band(value, 0x0100) ~= 0 then
-    display = display.."Has Start Of Day Snapshot|"
+    flags[#flags + 1] = "Has Start Of Day Snapshot"
   end
   -- Is Compression flag set?
   if bit.band(value, 0x8000) ~= 0 then
-    display = display.."Compression|"
+    flags[#flags + 1] = "Compression"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Packet Flags

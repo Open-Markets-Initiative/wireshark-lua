@@ -308,30 +308,26 @@ otc_markets_headers_ats_v1_0.packet_flag.size = 1
 
 -- Display: Packet Flag
 otc_markets_headers_ats_v1_0.packet_flag.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Heartbeat flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Heartbeat|"
+    flags[#flags + 1] = "Heartbeat"
   end
   -- Is Seq Num Reset flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Seq Num Reset|"
+    flags[#flags + 1] = "Seq Num Reset"
   end
   -- Is Replay flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Replay|"
+    flags[#flags + 1] = "Replay"
   end
   -- Is Test flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Test|"
+    flags[#flags + 1] = "Test"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Packet Flag

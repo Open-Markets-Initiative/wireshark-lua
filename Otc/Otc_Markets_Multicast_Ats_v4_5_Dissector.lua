@@ -433,18 +433,14 @@ otc_markets_multicast_ats_v4_5.trade_status.size = 1
 
 -- Display: Trade Status
 otc_markets_multicast_ats_v4_5.trade_status.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Irregular flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Irregular|"
+    flags[#flags + 1] = "Irregular"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Status
@@ -1216,58 +1212,54 @@ otc_markets_multicast_ats_v4_5.extended_security_flags.size = 2
 
 -- Display: Extended Security Flags
 otc_markets_multicast_ats_v4_5.extended_security_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Piggyback flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Piggyback|"
+    flags[#flags + 1] = "Piggyback"
   end
   -- Is Caveat Emptor Warning flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Caveat Emptor Warning|"
+    flags[#flags + 1] = "Caveat Emptor Warning"
   end
   -- Is Qualified Institutional Buyers Only flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Qualified Institutional Buyers Only|"
+    flags[#flags + 1] = "Qualified Institutional Buyers Only"
   end
   -- Is Unsolicited Only flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Unsolicited Only|"
+    flags[#flags + 1] = "Unsolicited Only"
   end
   -- Is Sponsored Status flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Sponsored Status|"
+    flags[#flags + 1] = "Sponsored Status"
   end
   -- Is Otc Link Ecn Eligible flag set?
   if bit.band(value, 0x0020) ~= 0 then
-    display = display.."Otc Link Ecn Eligible|"
+    flags[#flags + 1] = "Otc Link Ecn Eligible"
   end
   -- Is Otc Link Messaging Disabled flag set?
   if bit.band(value, 0x0040) ~= 0 then
-    display = display.."Otc Link Messaging Disabled|"
+    flags[#flags + 1] = "Otc Link Messaging Disabled"
   end
   -- Is Saturation Eligible flag set?
   if bit.band(value, 0x0080) ~= 0 then
-    display = display.."Saturation Eligible|"
+    flags[#flags + 1] = "Saturation Eligible"
   end
   -- Is Investment Grade flag set?
   if bit.band(value, 0x0100) ~= 0 then
-    display = display.."Investment Grade|"
+    flags[#flags + 1] = "Investment Grade"
   end
   -- Is Trading Flat flag set?
   if bit.band(value, 0x0200) ~= 0 then
-    display = display.."Trading Flat|"
+    flags[#flags + 1] = "Trading Flat"
   end
   -- Is Callable flag set?
   if bit.band(value, 0x0400) ~= 0 then
-    display = display.."Callable|"
+    flags[#flags + 1] = "Callable"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Extended Security Flags
@@ -1967,46 +1959,42 @@ otc_markets_multicast_ats_v4_5.quote_flags.size = 1
 
 -- Display: Quote Flags
 otc_markets_multicast_ats_v4_5.quote_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Update Side flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Update Side|"
+    flags[#flags + 1] = "Update Side"
   end
   -- Is State flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."State|"
+    flags[#flags + 1] = "State"
   end
   -- Is Ask Unsolicited flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Ask Unsolicited|"
+    flags[#flags + 1] = "Ask Unsolicited"
   end
   -- Is Ask Priced flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Ask Priced|"
+    flags[#flags + 1] = "Ask Priced"
   end
   -- Is Ask Bid Wanted flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Ask Bid Wanted|"
+    flags[#flags + 1] = "Ask Bid Wanted"
   end
   -- Is Bid Unsolicited flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Bid Unsolicited|"
+    flags[#flags + 1] = "Bid Unsolicited"
   end
   -- Is Bid Priced flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Bid Priced|"
+    flags[#flags + 1] = "Bid Priced"
   end
   -- Is Bid Ask Wanted flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Bid Ask Wanted|"
+    flags[#flags + 1] = "Bid Ask Wanted"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Quote Flags
@@ -2621,30 +2609,26 @@ otc_markets_multicast_ats_v4_5.extended_quote_flags.size = 1
 
 -- Display: Extended Quote Flags
 otc_markets_multicast_ats_v4_5.extended_quote_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Quote Saturated flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Quote Saturated|"
+    flags[#flags + 1] = "Quote Saturated"
   end
   -- Is Bid Auto Ex flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Bid Auto Ex|"
+    flags[#flags + 1] = "Bid Auto Ex"
   end
   -- Is Offer Auto Ex flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Offer Auto Ex|"
+    flags[#flags + 1] = "Offer Auto Ex"
   end
   -- Is Nms Conditional Quote flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Nms Conditional Quote|"
+    flags[#flags + 1] = "Nms Conditional Quote"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Extended Quote Flags
@@ -3045,46 +3029,42 @@ otc_markets_multicast_ats_v4_5.security_flags.size = 1
 
 -- Display: Security Flags
 otc_markets_multicast_ats_v4_5.security_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Proprietary Quote Eligible flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Proprietary Quote Eligible|"
+    flags[#flags + 1] = "Proprietary Quote Eligible"
   end
   -- Is Caveat Emptor Warning flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Caveat Emptor Warning|"
+    flags[#flags + 1] = "Caveat Emptor Warning"
   end
   -- Is Qualified Institutional Buyers Only flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Qualified Institutional Buyers Only|"
+    flags[#flags + 1] = "Qualified Institutional Buyers Only"
   end
   -- Is Unsolicited Only flag set?
   if bit.band(value, 0x08) ~= 0 then
-    display = display.."Unsolicited Only|"
+    flags[#flags + 1] = "Unsolicited Only"
   end
   -- Is Bb Quoted flag set?
   if bit.band(value, 0x10) ~= 0 then
-    display = display.."Bb Quoted|"
+    flags[#flags + 1] = "Bb Quoted"
   end
   -- Is Otc Link Ecn Eligible flag set?
   if bit.band(value, 0x20) ~= 0 then
-    display = display.."Otc Link Ecn Eligible|"
+    flags[#flags + 1] = "Otc Link Ecn Eligible"
   end
   -- Is Otc Link Messaging Disabled flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Otc Link Messaging Disabled|"
+    flags[#flags + 1] = "Otc Link Messaging Disabled"
   end
   -- Is Saturation Eligible flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Saturation Eligible|"
+    flags[#flags + 1] = "Saturation Eligible"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Security Flags
@@ -3923,30 +3903,26 @@ otc_markets_multicast_ats_v4_5.packet_flag.size = 1
 
 -- Display: Packet Flag
 otc_markets_multicast_ats_v4_5.packet_flag.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Heartbeat flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Heartbeat|"
+    flags[#flags + 1] = "Heartbeat"
   end
   -- Is Seq Num Reset flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Seq Num Reset|"
+    flags[#flags + 1] = "Seq Num Reset"
   end
   -- Is Replay flag set?
   if bit.band(value, 0x40) ~= 0 then
-    display = display.."Replay|"
+    flags[#flags + 1] = "Replay"
   end
   -- Is Test flag set?
   if bit.band(value, 0x80) ~= 0 then
-    display = display.."Test|"
+    flags[#flags + 1] = "Test"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Packet Flag

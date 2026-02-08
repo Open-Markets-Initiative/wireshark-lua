@@ -3030,18 +3030,14 @@ coinbase_derivatives_ordersapi_sbe_v1_7.flags.size = 1
 
 -- Display: Flags
 coinbase_derivatives_ordersapi_sbe_v1_7.flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Post Only flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Post Only|"
+    flags[#flags + 1] = "Post Only"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Flags

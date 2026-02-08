@@ -984,34 +984,30 @@ coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.size = 2
 
 -- Display: Definition Flags
 coinbase_derivatives_marketdataapi_sbe_v1_9.definition_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Prior Settlement Theoretical flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Is Prior Settlement Theoretical|"
+    flags[#flags + 1] = "Is Prior Settlement Theoretical"
   end
   -- Is Is Announced flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Is Announced|"
+    flags[#flags + 1] = "Is Announced"
   end
   -- Is Is Call flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Is Call|"
+    flags[#flags + 1] = "Is Call"
   end
   -- Is Is Strike Delisted flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Is Strike Delisted|"
+    flags[#flags + 1] = "Is Strike Delisted"
   end
   -- Is Funding Rate Applicable flag set?
   if bit.band(value, 0x0010) ~= 0 then
-    display = display.."Funding Rate Applicable|"
+    flags[#flags + 1] = "Funding Rate Applicable"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Definition Flags
@@ -3443,18 +3439,14 @@ coinbase_derivatives_marketdataapi_sbe_v1_9.flags.size = 1
 
 -- Display: Flags
 coinbase_derivatives_marketdataapi_sbe_v1_9.flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Final flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Is Final|"
+    flags[#flags + 1] = "Is Final"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Flags

@@ -5276,18 +5276,14 @@ nyse_amex_options_binarygateway_pillar_v3_25.bitfield_flow_indicator.size = 1
 
 -- Display: Bitfield Flow Indicator
 nyse_amex_options_binarygateway_pillar_v3_25.bitfield_flow_indicator.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Throttled flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Throttled|"
+    flags[#flags + 1] = "Throttled"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Bitfield Flow Indicator
@@ -8991,14 +8987,10 @@ nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.size = 1
 
 -- Display: Bitfield Quote Inst
 nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Bitfield Quote Inst

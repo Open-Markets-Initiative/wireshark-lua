@@ -1632,30 +1632,26 @@ hkex_derivatives_premium_omd_v1_47.trade_condition.size = 2
 
 -- Display: Trade Condition
 hkex_derivatives_premium_omd_v1_47.trade_condition.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Late Trade flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Late Trade|"
+    flags[#flags + 1] = "Late Trade"
   end
   -- Is Internal Trade Or Cross flag set?
   if bit.band(value, 0x0002) ~= 0 then
-    display = display.."Internal Trade Or Cross|"
+    flags[#flags + 1] = "Internal Trade Or Cross"
   end
   -- Is Buy Write flag set?
   if bit.band(value, 0x0004) ~= 0 then
-    display = display.."Buy Write|"
+    flags[#flags + 1] = "Buy Write"
   end
   -- Is Off Market flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    display = display.."Off Market|"
+    flags[#flags + 1] = "Off Market"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Condition
@@ -1700,26 +1696,22 @@ hkex_derivatives_premium_omd_v1_47.deal_type.size = 1
 
 -- Display: Deal Type
 hkex_derivatives_premium_omd_v1_47.deal_type.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Printable flag set?
   if bit.band(value, 0x01) ~= 0 then
-    display = display.."Printable|"
+    flags[#flags + 1] = "Printable"
   end
   -- Is Occurred At Cross flag set?
   if bit.band(value, 0x02) ~= 0 then
-    display = display.."Occurred At Cross|"
+    flags[#flags + 1] = "Occurred At Cross"
   end
   -- Is Reported Trade flag set?
   if bit.band(value, 0x04) ~= 0 then
-    display = display.."Reported Trade|"
+    flags[#flags + 1] = "Reported Trade"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Deal Type

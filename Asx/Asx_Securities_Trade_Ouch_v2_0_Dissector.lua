@@ -21,16 +21,12 @@ omi_asx_securities_trade_ouch_v2_0.fields.client_account = ProtoField.new("Clien
 omi_asx_securities_trade_ouch_v2_0.fields.crossing_key = ProtoField.new("Crossing Key", "asx.securities.trade.ouch.v2.0.crossingkey", ftypes.UINT32)
 omi_asx_securities_trade_ouch_v2_0.fields.customer_info = ProtoField.new("Customer Info", "asx.securities.trade.ouch.v2.0.customerinfo", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.deal_source = ProtoField.new("Deal Source", "asx.securities.trade.ouch.v2.0.dealsource", ftypes.UINT16)
-omi_asx_securities_trade_ouch_v2_0.fields.debug_packet = ProtoField.new("Debug Packet", "asx.securities.trade.ouch.v2.0.debugpacket", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.directed_wholesale = ProtoField.new("Directed Wholesale", "asx.securities.trade.ouch.v2.0.directedwholesale", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.exchange_info = ProtoField.new("Exchange Info", "asx.securities.trade.ouch.v2.0.exchangeinfo", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.execution_venue = ProtoField.new("Execution Venue", "asx.securities.trade.ouch.v2.0.executionvenue", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.existing_order_token = ProtoField.new("Existing Order Token", "asx.securities.trade.ouch.v2.0.existingordertoken", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.filler = ProtoField.new("Filler", "asx.securities.trade.ouch.v2.0.filler", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.intermediary_id = ProtoField.new("Intermediary Id", "asx.securities.trade.ouch.v2.0.intermediaryid", ftypes.STRING)
-omi_asx_securities_trade_ouch_v2_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "asx.securities.trade.ouch.v2.0.loginacceptedpacket", ftypes.STRING)
-omi_asx_securities_trade_ouch_v2_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "asx.securities.trade.ouch.v2.0.loginrejectedpacket", ftypes.STRING)
-omi_asx_securities_trade_ouch_v2_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "asx.securities.trade.ouch.v2.0.loginrequestpacket", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.match_attributes = ProtoField.new("Match Attributes", "asx.securities.trade.ouch.v2.0.matchattributes", ftypes.UINT8)
 omi_asx_securities_trade_ouch_v2_0.fields.match_id = ProtoField.new("Match Id", "asx.securities.trade.ouch.v2.0.matchid", ftypes.BYTES)
 omi_asx_securities_trade_ouch_v2_0.fields.minimum_acceptable_quantity = ProtoField.new("Minimum Acceptable Quantity", "asx.securities.trade.ouch.v2.0.minimumacceptablequantity", ftypes.UINT64)
@@ -57,7 +53,6 @@ omi_asx_securities_trade_ouch_v2_0.fields.replacement_order_token = ProtoField.n
 omi_asx_securities_trade_ouch_v2_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "asx.securities.trade.ouch.v2.0.requestedsequencenumber", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.requested_session = ProtoField.new("Requested Session", "asx.securities.trade.ouch.v2.0.requestedsession", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.sequence_number = ProtoField.new("Sequence Number", "asx.securities.trade.ouch.v2.0.sequencenumber", ftypes.STRING)
-omi_asx_securities_trade_ouch_v2_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "asx.securities.trade.ouch.v2.0.sequenceddatapacket", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "asx.securities.trade.ouch.v2.0.sequencedmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "asx.securities.trade.ouch.v2.0.sequencedmessagetype", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.session = ProtoField.new("Session", "asx.securities.trade.ouch.v2.0.session", ftypes.STRING)
@@ -69,12 +64,11 @@ omi_asx_securities_trade_ouch_v2_0.fields.time_in_force = ProtoField.new("Time I
 omi_asx_securities_trade_ouch_v2_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.securities.trade.ouch.v2.0.timestampnanoseconds", ftypes.UINT64)
 omi_asx_securities_trade_ouch_v2_0.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.trade.ouch.v2.0.tradeprice", ftypes.DOUBLE)
 omi_asx_securities_trade_ouch_v2_0.fields.traded_quantity = ProtoField.new("Traded Quantity", "asx.securities.trade.ouch.v2.0.tradedquantity", ftypes.UINT64)
-omi_asx_securities_trade_ouch_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.securities.trade.ouch.v2.0.unsequenceddatapacket", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "asx.securities.trade.ouch.v2.0.unsequencedmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "asx.securities.trade.ouch.v2.0.unsequencedmessagetype", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.username = ProtoField.new("Username", "asx.securities.trade.ouch.v2.0.username", ftypes.STRING)
 
--- Asx Securities Trade Ouch 2.0 messages
+-- Asx Securities Ouch Trade 2.0 Application Messages
 omi_asx_securities_trade_ouch_v2_0.fields.cancel_by_order_id_message = ProtoField.new("Cancel By Order Id Message", "asx.securities.trade.ouch.v2.0.cancelbyorderidmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "asx.securities.trade.ouch.v2.0.cancelordermessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.enter_order_message = ProtoField.new("Enter Order Message", "asx.securities.trade.ouch.v2.0.enterordermessage", ftypes.STRING)
@@ -84,6 +78,14 @@ omi_asx_securities_trade_ouch_v2_0.fields.order_executed_message = ProtoField.ne
 omi_asx_securities_trade_ouch_v2_0.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "asx.securities.trade.ouch.v2.0.orderrejectedmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "asx.securities.trade.ouch.v2.0.orderreplacedmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.replace_order_message = ProtoField.new("Replace Order Message", "asx.securities.trade.ouch.v2.0.replaceordermessage", ftypes.STRING)
+
+-- Asx Securities Ouch Trade 2.0 Session Messages
+omi_asx_securities_trade_ouch_v2_0.fields.debug_packet = ProtoField.new("Debug Packet", "asx.securities.trade.ouch.v2.0.debugpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v2_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "asx.securities.trade.ouch.v2.0.loginacceptedpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v2_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "asx.securities.trade.ouch.v2.0.loginrejectedpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v2_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "asx.securities.trade.ouch.v2.0.loginrequestpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v2_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "asx.securities.trade.ouch.v2.0.sequenceddatapacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.securities.trade.ouch.v2.0.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

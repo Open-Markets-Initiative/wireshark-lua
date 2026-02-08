@@ -584,18 +584,14 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.definition_flags.size = 2
 
 -- Display: Definition Flags
 coinbase_derivatives_marketdataapi_sbe_v1_2.definition_flags.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
   -- Is Is Prior Settlement Theoretical flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    display = display.."Is Prior Settlement Theoretical|"
+    flags[#flags + 1] = "Is Prior Settlement Theoretical"
   end
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Definition Flags

@@ -715,14 +715,10 @@ nasdaq_phlxoptions_orders_itch_v1_9.expiration.size = 2
 
 -- Display: Expiration
 nasdaq_phlxoptions_orders_itch_v1_9.expiration.display = function(range, value, packet, parent)
-  local display = ""
+  local flags = {}
 
 
-  if display:sub(-1) == "|" then
-    display = display:sub(1, -2)
-  end
-
-  return display
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Expiration
