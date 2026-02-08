@@ -15,10 +15,6 @@ local nasdaq_common_soupbin_tcp_v3_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq Common SoupBin Tcp 3.0 Fields
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.common.soupbin.tcp.v3.0.debugpacket", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.common.soupbin.tcp.v3.0.loginacceptedpacket", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrejectedpacket", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrequestpacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.soupbin.tcp.v3.0.packet", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.soupbin.tcp.v3.0.packetheader", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.common.soupbin.tcp.v3.0.packetlength", ftypes.UINT16)
@@ -29,16 +25,22 @@ omi_nasdaq_common_soupbin_tcp_v3_0.fields.reject_reason_code = ProtoField.new("R
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.common.soupbin.tcp.v3.0.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.common.soupbin.tcp.v3.0.requestedsession", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.common.soupbin.tcp.v3.0.sequencenumber", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.sequenceddatapacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.common.soupbin.tcp.v3.0.sequencedmessage", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.common.soupbin.tcp.v3.0.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.session = ProtoField.new("Session", "nasdaq.common.soupbin.tcp.v3.0.session", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbin.tcp.v3.0.soupbintcppacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.text = ProtoField.new("Text", "nasdaq.common.soupbin.tcp.v3.0.text", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.unsequenceddatapacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.common.soupbin.tcp.v3.0.unsequencedmessage", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.common.soupbin.tcp.v3.0.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.common.soupbin.tcp.v3.0.username", ftypes.STRING)
+
+-- Nasdaq Common Tcp SoupBin 3.0 Session Messages
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.common.soupbin.tcp.v3.0.debugpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.common.soupbin.tcp.v3.0.loginacceptedpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrejectedpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

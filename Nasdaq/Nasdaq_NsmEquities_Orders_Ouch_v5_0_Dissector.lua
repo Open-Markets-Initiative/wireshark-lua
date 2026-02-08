@@ -23,9 +23,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.capacity = ProtoField.new("Capaci
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.clordid = ProtoField.new("ClOrdId", "nasdaq.nsmequities.orders.ouch.v5.0.clordid", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.orders.ouch.v5.0.crosstype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.customer_type = ProtoField.new("Customer Type", "nasdaq.nsmequities.orders.ouch.v5.0.customertype", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.orders.ouch.v5.0.debugpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.decrement_shares = ProtoField.new("Decrement Shares", "nasdaq.nsmequities.orders.ouch.v5.0.decrementshares", ftypes.UINT32)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion = ProtoField.new("Discretion", "nasdaq.nsmequities.orders.ouch.v5.0.discretion", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_peg_offset = ProtoField.new("Discretion Peg Offset", "nasdaq.nsmequities.orders.ouch.v5.0.discretionpegoffset", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_peg_type = ProtoField.new("Discretion Peg Type", "nasdaq.nsmequities.orders.ouch.v5.0.discretionpegtype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_price = ProtoField.new("Discretion Price", "nasdaq.nsmequities.orders.ouch.v5.0.discretionprice", ftypes.DOUBLE)
@@ -42,9 +40,6 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.firm = ProtoField.new("Firm", "na
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.handle_inst = ProtoField.new("Handle Inst", "nasdaq.nsmequities.orders.ouch.v5.0.handleinst", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.inter_market_sweep_eligibility = ProtoField.new("Inter Market Sweep Eligibility", "nasdaq.nsmequities.orders.ouch.v5.0.intermarketsweepeligibility", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "nasdaq.nsmequities.orders.ouch.v5.0.liquidityflag", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginacceptedpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginrejectedpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginrequestpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.orders.ouch.v5.0.matchnumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.max_floor = ProtoField.new("Max Floor", "nasdaq.nsmequities.orders.ouch.v5.0.maxfloor", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.min_qty = ProtoField.new("Min Qty", "nasdaq.nsmequities.orders.ouch.v5.0.minqty", ftypes.UINT32)
@@ -74,8 +69,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.peg_offset = ProtoField.new("Peg 
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.post_only = ProtoField.new("Post Only", "nasdaq.nsmequities.orders.ouch.v5.0.postonly", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.orders.ouch.v5.0.price", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.price_type = ProtoField.new("Price Type", "nasdaq.nsmequities.orders.ouch.v5.0.pricetype", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.quantity_integer_4 = ProtoField.new("Quantity Integer 4", "nasdaq.nsmequities.orders.ouch.v5.0.quantityinteger4", ftypes.UINT32)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.quantity_numeric_4 = ProtoField.new("Quantity Numeric 4", "nasdaq.nsmequities.orders.ouch.v5.0.quantitynumeric4", ftypes.UINT32)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.quantity = ProtoField.new("Quantity", "nasdaq.nsmequities.orders.ouch.v5.0.quantity", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "nasdaq.nsmequities.orders.ouch.v5.0.quantitypreventedfromtrading", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.random_reserves = ProtoField.new("Random Reserves", "nasdaq.nsmequities.orders.ouch.v5.0.randomreserves", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.reference_price = ProtoField.new("Reference Price", "nasdaq.nsmequities.orders.ouch.v5.0.referenceprice", ftypes.DOUBLE)
@@ -93,7 +87,6 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.requested_session = ProtoField.ne
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.route = ProtoField.new("Route", "nasdaq.nsmequities.orders.ouch.v5.0.route", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.secondary_ord_ref_num = ProtoField.new("Secondary Ord Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.secondaryordrefnum", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.sequencenumber", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v5.0.sequenceddatapacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.nsmequities.orders.ouch.v5.0.sequencedmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nsmequities.orders.ouch.v5.0.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.orders.ouch.v5.0.session", ftypes.STRING)
@@ -102,11 +95,9 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.soup_bin_tcp_packet = ProtoField.
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.symbol = ProtoField.new("Symbol", "nasdaq.nsmequities.orders.ouch.v5.0.symbol", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.orders.ouch.v5.0.text", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.orders.ouch.v5.0.timeinforce", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.timestamp_integer_8 = ProtoField.new("Timestamp Integer 8", "nasdaq.nsmequities.orders.ouch.v5.0.timestampinteger8", ftypes.UINT64)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.timestamp_timestamp_8 = ProtoField.new("Timestamp Timestamp 8", "nasdaq.nsmequities.orders.ouch.v5.0.timestamptimestamp8", ftypes.UINT64)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.orders.ouch.v5.0.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_reason = ProtoField.new("Trade Correction Reason", "nasdaq.nsmequities.orders.ouch.v5.0.tradecorrectionreason", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_now = ProtoField.new("Trade Now", "nasdaq.nsmequities.orders.ouch.v5.0.tradenow", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v5.0.unsequenceddatapacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.orders.ouch.v5.0.unsequencedmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.nsmequities.orders.ouch.v5.0.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.user_ref_num = ProtoField.new("User Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.userrefnum", ftypes.UINT32)
@@ -132,6 +123,14 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_message = ProtoFiel
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message = ProtoField.new("Replaced Message", "nasdaq.nsmequities.orders.ouch.v5.0.replacedmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.orders.ouch.v5.0.systemeventmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.nsmequities.orders.ouch.v5.0.tradecorrectionmessage", ftypes.STRING)
+
+-- Nasdaq NsmEquities Ouch Orders 5.0 Session Messages
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.orders.ouch.v5.0.debugpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginacceptedpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginrejectedpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v5.0.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v5.0.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -436,25 +435,25 @@ end
 -- Dissect Nasdaq NsmEquities Orders Ouch 5.0
 -----------------------------------------------------------------------
 
--- Quantity Integer 4
-nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4 = {}
+-- Quantity
+nasdaq_nsmequities_orders_ouch_v5_0.quantity = {}
 
--- Size: Quantity Integer 4
-nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.size = 4
+-- Size: Quantity
+nasdaq_nsmequities_orders_ouch_v5_0.quantity.size = 4
 
--- Display: Quantity Integer 4
-nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.display = function(value)
-  return "Quantity Integer 4: "..value
+-- Display: Quantity
+nasdaq_nsmequities_orders_ouch_v5_0.quantity.display = function(value)
+  return "Quantity: "..value
 end
 
--- Dissect: Quantity Integer 4
-nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.size
+-- Dissect: Quantity
+nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.quantity_integer_4, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -525,7 +524,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message = {}
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.size =
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.side.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.size
+  nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
 
 -- Display: Modify Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.display = function(packet, parent, length)
@@ -542,8 +541,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.fields = function(buffe
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity Integer 4: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_integer_4 = nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.dissect(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -572,7 +571,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message = {}
 -- Size: Cancel Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.size =
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.size
+  nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
 
 -- Display: Cancel Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.display = function(packet, parent, length)
@@ -586,8 +585,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.fields = function(buffe
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity Integer 4: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_integer_4 = nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.dissect(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1238,8 +1237,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.fields = function(buff
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity Integer 4: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_integer_4 = nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.dissect(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
@@ -1622,8 +1621,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.fields = function(buffer
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity Integer 4: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_integer_4 = nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.dissect(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   -- Symbol: 8 Byte Ascii String
   index, symbol = nasdaq_nsmequities_orders_ouch_v5_0.symbol.dissect(buffer, index, packet, parent)
@@ -2017,25 +2016,29 @@ nasdaq_nsmequities_orders_ouch_v5_0.next_user_ref_num.dissect = function(buffer,
   return offset + length, value
 end
 
--- Timestamp Integer 8
-nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8 = {}
+-- Timestamp
+nasdaq_nsmequities_orders_ouch_v5_0.timestamp = {}
 
--- Size: Timestamp Integer 8
-nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.size = 8
+-- Size: Timestamp
+nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size = 8
 
--- Display: Timestamp Integer 8
-nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.display = function(value)
-  return "Timestamp Integer 8: "..value
+-- Display: Timestamp
+nasdaq_nsmequities_orders_ouch_v5_0.timestamp.display = function(value)
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
--- Dissect: Timestamp Integer 8
-nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.size
+-- Dissect: Timestamp
+nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.timestamp_integer_8, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -2045,7 +2048,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message = {}
 
 -- Size: Account Query Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.next_user_ref_num.size
 
 -- Display: Account Query Response Message
@@ -2057,8 +2060,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Integer 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_integer_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Next User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, next_user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.next_user_ref_num.dissect(buffer, index, packet, parent)
@@ -2331,29 +2334,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_reason.dissect = function(buf
   return offset + length, value
 end
 
--- Timestamp Timestamp 8
-nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8 = {}
-
--- Size: Timestamp Timestamp 8
-nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.size = 8
-
--- Display: Timestamp Timestamp 8
-nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.display = function(value)
-  return "Timestamp Timestamp 8: "..value
-end
-
--- Dissect: Timestamp Timestamp 8
-nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.timestamp_timestamp_8, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Restated Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message = {}
 
@@ -2373,8 +2353,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
@@ -2417,38 +2397,15 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.dissect = function(bu
   return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields(buffer, offset, packet, parent)
 end
 
--- Quantity Numeric 4
-nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4 = {}
-
--- Size: Quantity Numeric 4
-nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.size = 4
-
--- Display: Quantity Numeric 4
-nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.display = function(value)
-  return "Quantity Numeric 4: "..value
-end
-
--- Dissect: Quantity Numeric 4
-nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.quantity_numeric_4, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Modified Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message = {}
 
 -- Size: Order Modified Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.side.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.size
+  nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
 
 -- Display: Order Modified Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.display = function(packet, parent, length)
@@ -2459,8 +2416,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
@@ -2468,8 +2425,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.fields = function(buf
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity Numeric 4: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_numeric_4 = nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.dissect(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2520,7 +2477,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message = {}
 
 -- Size: Order Priority Update Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.price.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.display.size + 
@@ -2535,8 +2492,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
@@ -2576,7 +2533,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message = {}
 
 -- Size: Cancel Reject Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
 
 -- Display: Cancel Reject Message
@@ -2588,8 +2545,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Integer 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_integer_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
@@ -2620,7 +2577,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message = {}
 
 -- Size: Cancel Pending Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
 
 -- Display: Cancel Pending Message
@@ -2632,8 +2589,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Integer 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_integer_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
@@ -2781,7 +2738,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message = {}
 
 -- Size: Rejected Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.clordid.size
@@ -2795,8 +2752,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
@@ -2973,9 +2930,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message = {}
 
 -- Size: Trade Correction Message
 nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.quantity.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.price.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.match_number.size + 
@@ -2991,14 +2948,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity Numeric 4: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_numeric_4 = nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.dissect(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
@@ -3077,7 +3034,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message = {}
 
 -- Size: Broken Trade Message
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.match_number.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason.size + 
@@ -3092,8 +3049,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
@@ -3330,14 +3287,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity Numeric 4: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_numeric_4 = nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.dissect(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
@@ -3486,7 +3443,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message = {}
 
 -- Size: Aiq Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.decrement_shares.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.order_cancel_reason.size + 
@@ -3503,8 +3460,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
@@ -3616,9 +3573,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.canceled_message = {}
 
 -- Size: Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.quantity.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.size
 
 -- Display: Canceled Message
@@ -3630,14 +3587,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity Numeric 4: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_numeric_4 = nasdaq_nsmequities_orders_ouch_v5_0.quantity_numeric_4.dissect(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   -- Cancel Order Reason: 1 Byte Ascii String Enum with 14 values
   index, cancel_order_reason = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.dissect(buffer, index, packet, parent)
@@ -3943,8 +3900,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orig User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, orig_user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.orig_user_ref_num.dissect(buffer, index, packet, parent)
@@ -3955,8 +3912,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields = function(buffer, o
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity Integer 4: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_integer_4 = nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.dissect(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   -- Symbol: 8 Byte Ascii String
   index, symbol = nasdaq_nsmequities_orders_ouch_v5_0.symbol.dissect(buffer, index, packet, parent)
@@ -4150,29 +4107,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Discretion
-nasdaq_nsmequities_orders_ouch_v5_0.discretion = {}
-
--- Size: Discretion
-nasdaq_nsmequities_orders_ouch_v5_0.discretion.size = 1
-
--- Display: Discretion
-nasdaq_nsmequities_orders_ouch_v5_0.discretion.display = function(value)
-  return "Discretion: "..value
-end
-
--- Dissect: Discretion
-nasdaq_nsmequities_orders_ouch_v5_0.discretion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.discretion.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.discretion.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion, range, value, display)
-
-  return offset + length, value
-end
-
 -- Peg Offset
 nasdaq_nsmequities_orders_ouch_v5_0.peg_offset = {}
 
@@ -4230,10 +4164,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.size = functio
   -- Size of Peg Offset
   if order_accepted_optional_field == 7 then
     return nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.size
-  end
-  -- Size of Discretion
-  if order_accepted_optional_field == 8 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion.size
   end
   -- Size of Discretion Price
   if order_accepted_optional_field == 9 then
@@ -4309,10 +4239,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.branches = fun
   -- Dissect Peg Offset
   if order_accepted_optional_field == 7 then
     return nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Discretion
-  if order_accepted_optional_field == 8 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Discretion Price
   if order_accepted_optional_field == 9 then
@@ -4404,9 +4330,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.display = func
   if value == 7 then
     return "Order Accepted Optional Field: Peg Offset (7)"
   end
-  if value == 8 then
-    return "Order Accepted Optional Field: Discretion (8)"
-  end
   if value == 9 then
     return "Order Accepted Optional Field: Discretion Price (9)"
   end
@@ -4468,10 +4391,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields = function(b
   -- Optional Field Length: 1 Byte Signed Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Order Accepted Optional Field: 1 Byte Signed Fixed Width Integer Enum with 17 values
+  -- Order Accepted Optional Field: 1 Byte Signed Fixed Width Integer Enum with 16 values
   index, order_accepted_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.dissect(buffer, index, packet, parent)
 
-  -- Order Accepted Optional Value: Runtime Type with 17 branches
+  -- Order Accepted Optional Value: Runtime Type with 16 branches
   index = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dissect(buffer, index, packet, parent, order_accepted_optional_field)
 
   return index
@@ -4517,8 +4440,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Timestamp 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_timestamp_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_timestamp_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
@@ -4526,8 +4449,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields = function(buf
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity Integer 4: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_integer_4 = nasdaq_nsmequities_orders_ouch_v5_0.quantity_integer_4.dissect(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   -- Symbol: 8 Byte Ascii String
   index, symbol = nasdaq_nsmequities_orders_ouch_v5_0.symbol.dissect(buffer, index, packet, parent)
@@ -4629,7 +4552,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.system_event_message = {}
 
 -- Size: System Event Message
 nasdaq_nsmequities_orders_ouch_v5_0.system_event_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
   nasdaq_nsmequities_orders_ouch_v5_0.event_code.size
 
 -- Display: System Event Message
@@ -4641,8 +4564,8 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Integer 8: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_integer_8 = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_integer_8.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 2 values
   index, event_code = nasdaq_nsmequities_orders_ouch_v5_0.event_code.dissect(buffer, index, packet, parent)

@@ -22,7 +22,6 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_reason = ProtoField.
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.capacity = ProtoField.new("Capacity", "nasdaq.nsmequities.orders.ouch.v4.2.capacity", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.orders.ouch.v4.2.crosstype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.customer_type = ProtoField.new("Customer Type", "nasdaq.nsmequities.orders.ouch.v4.2.customertype", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.orders.ouch.v4.2.debugpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.decrement_shares = ProtoField.new("Decrement Shares", "nasdaq.nsmequities.orders.ouch.v4.2.decrementshares", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.orders.ouch.v4.2.display", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.orders.ouch.v4.2.eventcode", ftypes.STRING)
@@ -32,9 +31,6 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.existing_order_token = ProtoField
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.firm = ProtoField.new("Firm", "nasdaq.nsmequities.orders.ouch.v4.2.firm", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.intermarket_sweep_eligibility = ProtoField.new("Intermarket Sweep Eligibility", "nasdaq.nsmequities.orders.ouch.v4.2.intermarketsweepeligibility", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "nasdaq.nsmequities.orders.ouch.v4.2.liquidityflag", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginacceptedpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginrejectedpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginrequestpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.orders.ouch.v4.2.matchnumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "nasdaq.nsmequities.orders.ouch.v4.2.minimumquantity", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.orders.ouch.v4.2.orderreferencenumber", ftypes.UINT64)
@@ -59,7 +55,6 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_token_14 
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.orders.ouch.v4.2.requestedsession", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.sequencenumber", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v4.2.sequenceddatapacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.nsmequities.orders.ouch.v4.2.sequencedmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nsmequities.orders.ouch.v4.2.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.orders.ouch.v4.2.session", ftypes.STRING)
@@ -69,7 +64,6 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.stock = ProtoField.new("Stock", "
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.orders.ouch.v4.2.text", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.orders.ouch.v4.2.timeinforce", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.orders.ouch.v4.2.timestamp", ftypes.UINT64)
-omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v4.2.unsequenceddatapacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.orders.ouch.v4.2.unsequencedmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.nsmequities.orders.ouch.v4.2.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.orders.ouch.v4.2.username", ftypes.STRING)
@@ -94,6 +88,14 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replaced_message = ProtoField.new
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.orders.ouch.v4.2.systemeventmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.nsmequities.orders.ouch.v4.2.tradecorrectionmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_now_message = ProtoField.new("Trade Now Message", "nasdaq.nsmequities.orders.ouch.v4.2.tradenowmessage", ftypes.STRING)
+
+-- Nasdaq NsmEquities Ouch Orders 4.2 Session Messages
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.orders.ouch.v4.2.debugpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginacceptedpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginrejectedpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v4.2.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v4.2.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
