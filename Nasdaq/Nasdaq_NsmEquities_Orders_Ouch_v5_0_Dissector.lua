@@ -535,13 +535,13 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: Alpha
   index, side = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -582,10 +582,10 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -875,25 +875,25 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_field.size = 1
 -- Display: Replace Order Optional Field
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_field.display = function(value)
   if value == 3 then
-    return "Replace Order Optional Field: Min Qty (3)"
+    return "Replace Order Optional Field: MinQty (3)"
   end
   if value == 5 then
-    return "Replace Order Optional Field: Max Floor (5)"
+    return "Replace Order Optional Field: MaxFloor (5)"
   end
   if value == 6 then
-    return "Replace Order Optional Field: Price Type (6)"
+    return "Replace Order Optional Field: PriceType (6)"
   end
   if value == 12 then
-    return "Replace Order Optional Field: Post Only (12)"
+    return "Replace Order Optional Field: PostOnly (12)"
   end
   if value == 15 then
-    return "Replace Order Optional Field: Expire Time (15)"
+    return "Replace Order Optional Field: ExpireTime (15)"
   end
   if value == 16 then
-    return "Replace Order Optional Field: Trade Now (16)"
+    return "Replace Order Optional Field: TradeNow (16)"
   end
   if value == 17 then
-    return "Replace Order Optional Field: Handle Inst (17)"
+    return "Replace Order Optional Field: HandleInst (17)"
   end
 
   return "Replace Order Optional Field: Unknown("..value..")"
@@ -1231,31 +1231,31 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Orig User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- Orig User Ref Num: UserRefNum
   index, orig_user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.orig_user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 5 values
+  -- Time In Force: Alpha
   index, time_in_force = nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 14 values
+  -- Display: Alpha
   index, display = nasdaq_nsmequities_orders_ouch_v5_0.display.dissect(buffer, index, packet, parent)
 
-  -- Inter Market Sweep Eligibility: 1 Byte Ascii String Enum with 2 values
+  -- Inter Market Sweep Eligibility: Alpha
   index, inter_market_sweep_eligibility = nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 14 Byte Ascii String
+  -- ClOrdId: Alpha
   index, clordid = nasdaq_nsmequities_orders_ouch_v5_0.clordid.dissect(buffer, index, packet, parent)
 
-  -- Appendage Length: 2 Byte Unsigned Fixed Width Integer
+  -- Appendage Length: Numeric
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Replace Order Appendage
@@ -1420,13 +1420,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_field.display = functio
     return "Enter Order Optional Field: Firm (2)"
   end
   if value == 3 then
-    return "Enter Order Optional Field: Min Qty (3)"
+    return "Enter Order Optional Field: MinQty (3)"
   end
   if value == 4 then
-    return "Enter Order Optional Field: Customer Type (4)"
+    return "Enter Order Optional Field: CustomerType (4)"
   end
   if value == 5 then
-    return "Enter Order Optional Field: Max Floor (5)"
+    return "Enter Order Optional Field: MaxFloor (5)"
   end
 
   return "Enter Order Optional Field: Unknown("..value..")"
@@ -1615,40 +1615,40 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: Alpha
   index, side = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alpha
   index, symbol = nasdaq_nsmequities_orders_ouch_v5_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 5 values
+  -- Time In Force: Alpha
   index, time_in_force = nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 14 values
+  -- Display: Alpha
   index, display = nasdaq_nsmequities_orders_ouch_v5_0.display.dissect(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 4 values
+  -- Capacity: Alpha
   index, capacity = nasdaq_nsmequities_orders_ouch_v5_0.capacity.dissect(buffer, index, packet, parent)
 
-  -- Inter Market Sweep Eligibility: 1 Byte Ascii String Enum with 2 values
+  -- Inter Market Sweep Eligibility: Alpha
   index, inter_market_sweep_eligibility = nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 8 values
+  -- Cross Type: Alpha
   index, cross_type = nasdaq_nsmequities_orders_ouch_v5_0.cross_type.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 14 Byte Ascii String
+  -- ClOrdId: Alpha
   index, clordid = nasdaq_nsmequities_orders_ouch_v5_0.clordid.dissect(buffer, index, packet, parent)
 
-  -- Appendage Length: 2 Byte Unsigned Fixed Width Integer
+  -- Appendage Length: Numeric
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Enter Order Appendage
@@ -2060,10 +2060,10 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Next User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- Next User Ref Num: UserRefNum
   index, next_user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.next_user_ref_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -2241,7 +2241,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_field.display = func
     return "Order Restated Optional Field: Display Price (23)"
   end
   if value == 1 then
-    return "Order Restated Optional Field: Secondary Ord Ref Num (1)"
+    return "Order Restated Optional Field: SecondaryOrdRefNum (1)"
   end
 
   return "Order Restated Optional Field: Unknown("..value..")"
@@ -2353,16 +2353,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Order Restated Reason: 1 Byte Ascii String Enum with 2 values
+  -- Order Restated Reason: Alpha
   index, order_restated_reason = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_reason.dissect(buffer, index, packet, parent)
 
-  -- Appendage Length: 2 Byte Unsigned Fixed Width Integer
+  -- Appendage Length: Numeric
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Order Restated Appendage
@@ -2416,16 +2416,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: Alpha
   index, side = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -2492,19 +2492,19 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 14 values
+  -- Display: Alpha
   index, display = nasdaq_nsmequities_orders_ouch_v5_0.display.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Numeric
   index, order_reference_number = nasdaq_nsmequities_orders_ouch_v5_0.order_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -2545,10 +2545,10 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -2589,10 +2589,10 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -2752,16 +2752,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Rejected Order Reason: 2 Byte Unsigned Fixed Width Integer Enum with 31 values
+  -- Rejected Order Reason: Numeric
   index, rejected_order_reason = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 14 Byte Ascii String
+  -- ClOrdId: Alpha
   index, clordid = nasdaq_nsmequities_orders_ouch_v5_0.clordid.dissect(buffer, index, packet, parent)
 
   return index
@@ -2948,28 +2948,28 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Ascii String Enum with 22 values
+  -- Liquidity Flag: Alpha
   index, liquidity_flag = nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Numeric
   index, match_number = nasdaq_nsmequities_orders_ouch_v5_0.match_number.dissect(buffer, index, packet, parent)
 
-  -- Trade Correction Reason: 1 Byte Ascii String Enum with 1 values
+  -- Trade Correction Reason: Alpha
   index, trade_correction_reason = nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_reason.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 14 Byte Ascii String
+  -- ClOrdId: Alpha
   index, clordid = nasdaq_nsmequities_orders_ouch_v5_0.clordid.dissect(buffer, index, packet, parent)
 
   return index
@@ -3049,19 +3049,19 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Numeric
   index, match_number = nasdaq_nsmequities_orders_ouch_v5_0.match_number.dissect(buffer, index, packet, parent)
 
-  -- Broken Trade Reason: 1 Byte Ascii String Enum with 4 values
+  -- Broken Trade Reason: Alpha
   index, broken_trade_reason = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 14 Byte Ascii String
+  -- ClOrdId: Alpha
   index, clordid = nasdaq_nsmequities_orders_ouch_v5_0.clordid.dissect(buffer, index, packet, parent)
 
   return index
@@ -3287,25 +3287,25 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Ascii String Enum with 22 values
+  -- Liquidity Flag: Alpha
   index, liquidity_flag = nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Numeric
   index, match_number = nasdaq_nsmequities_orders_ouch_v5_0.match_number.dissect(buffer, index, packet, parent)
 
-  -- Appendage Length: 2 Byte Unsigned Fixed Width Integer
+  -- Appendage Length: Numeric
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Order Executed Appendage
@@ -3460,25 +3460,25 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Decrement Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Decrement Shares: Numeric
   index, decrement_shares = nasdaq_nsmequities_orders_ouch_v5_0.decrement_shares.dissect(buffer, index, packet, parent)
 
-  -- Order Cancel Reason: 1 Byte Ascii String
+  -- Order Cancel Reason: Alpha
   index, order_cancel_reason = nasdaq_nsmequities_orders_ouch_v5_0.order_cancel_reason.dissect(buffer, index, packet, parent)
 
-  -- Quantity Prevented From Trading: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity Prevented From Trading: Integer
   index, quantity_prevented_from_trading = nasdaq_nsmequities_orders_ouch_v5_0.quantity_prevented_from_trading.dissect(buffer, index, packet, parent)
 
-  -- Execution Price: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Price: Price
   index, execution_price = nasdaq_nsmequities_orders_ouch_v5_0.execution_price.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Flag: 1 Byte Ascii String Enum with 22 values
+  -- Liquidity Flag: Alpha
   index, liquidity_flag = nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.dissect(buffer, index, packet, parent)
 
   return index
@@ -3587,16 +3587,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Cancel Order Reason: 1 Byte Ascii String Enum with 14 values
+  -- Cancel Order Reason: Alpha
   index, cancel_order_reason = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -3767,28 +3767,28 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_field.display = fu
     return "Replaced Message Optional Field: Firm (2)"
   end
   if value == 3 then
-    return "Replaced Message Optional Field: Min Qty (3)"
+    return "Replaced Message Optional Field: MinQty (3)"
   end
   if value == 5 then
-    return "Replaced Message Optional Field: Max Floor (5)"
+    return "Replaced Message Optional Field: MaxFloor (5)"
   end
   if value == 6 then
-    return "Replaced Message Optional Field: Price Type (6)"
+    return "Replaced Message Optional Field: PriceType (6)"
   end
   if value == 12 then
-    return "Replaced Message Optional Field: Post Only (12)"
+    return "Replaced Message Optional Field: PostOnly (12)"
   end
   if value == 15 then
-    return "Replaced Message Optional Field: Expire Time (15)"
+    return "Replaced Message Optional Field: ExpireTime (15)"
   end
   if value == 16 then
-    return "Replaced Message Optional Field: Trade Now (16)"
+    return "Replaced Message Optional Field: TradeNow (16)"
   end
   if value == 17 then
-    return "Replaced Message Optional Field: Handle Inst (17)"
+    return "Replaced Message Optional Field: HandleInst (17)"
   end
   if value == 18 then
-    return "Replaced Message Optional Field: Bbo Weight Indicator (18)"
+    return "Replaced Message Optional Field: BBO Weight Indicator (18)"
   end
 
   return "Replaced Message Optional Field: Unknown("..value..")"
@@ -3900,52 +3900,52 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Orig User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- Orig User Ref Num: UserRefNum
   index, orig_user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.orig_user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: Alpha
   index, side = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alpha
   index, symbol = nasdaq_nsmequities_orders_ouch_v5_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 5 values
+  -- Time In Force: Alpha
   index, time_in_force = nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 14 values
+  -- Display: Alpha
   index, display = nasdaq_nsmequities_orders_ouch_v5_0.display.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Numeric
   index, order_reference_number = nasdaq_nsmequities_orders_ouch_v5_0.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 4 values
+  -- Capacity: Alpha
   index, capacity = nasdaq_nsmequities_orders_ouch_v5_0.capacity.dissect(buffer, index, packet, parent)
 
-  -- Inter Market Sweep Eligibility: 1 Byte Ascii String Enum with 2 values
+  -- Inter Market Sweep Eligibility: Alpha
   index, inter_market_sweep_eligibility = nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 8 values
+  -- Cross Type: Alpha
   index, cross_type = nasdaq_nsmequities_orders_ouch_v5_0.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Order State: 1 Byte Ascii String Enum with 2 values
+  -- Order State: Alpha
   index, order_state = nasdaq_nsmequities_orders_ouch_v5_0.order_state.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 14 Byte Ascii String
+  -- ClOrdId: Alpha
   index, clordid = nasdaq_nsmequities_orders_ouch_v5_0.clordid.dissect(buffer, index, packet, parent)
 
-  -- Appendage Length: 2 Byte Unsigned Fixed Width Integer
+  -- Appendage Length: Numeric
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Replaced Message Appendage
@@ -4316,49 +4316,49 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.display = func
     return "Order Accepted Optional Field: Firm (2)"
   end
   if value == 3 then
-    return "Order Accepted Optional Field: Min Qty (3)"
+    return "Order Accepted Optional Field: MinQty (3)"
   end
   if value == 4 then
-    return "Order Accepted Optional Field: Customer Type (4)"
+    return "Order Accepted Optional Field: CustomerType (4)"
   end
   if value == 5 then
-    return "Order Accepted Optional Field: Max Floor (5)"
+    return "Order Accepted Optional Field: MaxFloor (5)"
   end
   if value == 6 then
-    return "Order Accepted Optional Field: Price Type (6)"
+    return "Order Accepted Optional Field: PriceType (6)"
   end
   if value == 7 then
-    return "Order Accepted Optional Field: Peg Offset (7)"
+    return "Order Accepted Optional Field: PegOffset (7)"
   end
   if value == 9 then
-    return "Order Accepted Optional Field: Discretion Price (9)"
+    return "Order Accepted Optional Field: DiscretionPrice (9)"
   end
   if value == 10 then
-    return "Order Accepted Optional Field: Discretion Peg Type (10)"
+    return "Order Accepted Optional Field: DiscretionPegType (10)"
   end
   if value == 11 then
-    return "Order Accepted Optional Field: Discretion Peg Offset (11)"
+    return "Order Accepted Optional Field: DiscretionPegOffset (11)"
   end
   if value == 12 then
-    return "Order Accepted Optional Field: Post Only (12)"
+    return "Order Accepted Optional Field: PostOnly (12)"
   end
   if value == 13 then
-    return "Order Accepted Optional Field: Random Reserves (13)"
+    return "Order Accepted Optional Field: RandomReserves (13)"
   end
   if value == 14 then
     return "Order Accepted Optional Field: Route (14)"
   end
   if value == 15 then
-    return "Order Accepted Optional Field: Expire Time (15)"
+    return "Order Accepted Optional Field: ExpireTime (15)"
   end
   if value == 16 then
-    return "Order Accepted Optional Field: Trade Now (16)"
+    return "Order Accepted Optional Field: TradeNow (16)"
   end
   if value == 17 then
-    return "Order Accepted Optional Field: Handle Inst (17)"
+    return "Order Accepted Optional Field: HandleInst (17)"
   end
   if value == 18 then
-    return "Order Accepted Optional Field: Bbo Weight Indicator (18)"
+    return "Order Accepted Optional Field: BBO Weight Indicator (18)"
   end
 
   return "Order Accepted Optional Field: Unknown("..value..")"
@@ -4440,49 +4440,49 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: 4 Byte Unsigned Fixed Width Integer
+  -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 4 values
+  -- Side: Alpha
   index, side = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alpha
   index, symbol = nasdaq_nsmequities_orders_ouch_v5_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price
   index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 5 values
+  -- Time In Force: Alpha
   index, time_in_force = nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 14 values
+  -- Display: Alpha
   index, display = nasdaq_nsmequities_orders_ouch_v5_0.display.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Numeric
   index, order_reference_number = nasdaq_nsmequities_orders_ouch_v5_0.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 4 values
+  -- Capacity: Alpha
   index, capacity = nasdaq_nsmequities_orders_ouch_v5_0.capacity.dissect(buffer, index, packet, parent)
 
-  -- Inter Market Sweep Eligibility: 1 Byte Ascii String Enum with 2 values
+  -- Inter Market Sweep Eligibility: Alpha
   index, inter_market_sweep_eligibility = nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 8 values
+  -- Cross Type: Alpha
   index, cross_type = nasdaq_nsmequities_orders_ouch_v5_0.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Order State: 1 Byte Ascii String Enum with 2 values
+  -- Order State: Alpha
   index, order_state = nasdaq_nsmequities_orders_ouch_v5_0.order_state.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: 14 Byte Ascii String
+  -- ClOrdId: Alpha
   index, clordid = nasdaq_nsmequities_orders_ouch_v5_0.clordid.dissect(buffer, index, packet, parent)
 
-  -- Appendage Length: 2 Byte Unsigned Fixed Width Integer
+  -- Appendage Length: Numeric
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Order Accepted Appendage
@@ -4564,10 +4564,10 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 2 values
+  -- Event Code: Alpha
   index, event_code = nasdaq_nsmequities_orders_ouch_v5_0.event_code.dissect(buffer, index, packet, parent)
 
   return index
