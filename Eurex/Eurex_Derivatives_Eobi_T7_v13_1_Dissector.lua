@@ -834,8 +834,8 @@ eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_execution_time.display = function(val
     return "Trd Reg Ts Execution Time: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Trd Reg Ts Execution Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -943,8 +943,8 @@ eurex_derivatives_eobi_t7_v13_1.transact_time.display = function(value)
     return "Transact Time: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -1694,8 +1694,8 @@ eurex_derivatives_eobi_t7_v13_1.trans_bkd_time.display = function(value)
     return "Trans Bkd Time: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Trans Bkd Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -2186,8 +2186,8 @@ eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_time_priority.display = function(valu
     return "Trd Reg Ts Time Priority: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Trd Reg Ts Time Priority: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -2904,8 +2904,8 @@ eurex_derivatives_eobi_t7_v13_1.request_time.display = function(value)
     return "Request Time: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Request Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -3060,8 +3060,8 @@ eurex_derivatives_eobi_t7_v13_1.trd_reg_ts_prev_time_priority.display = function
     return "Trd Reg Ts Prev Time Priority: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Trd Reg Ts Prev Time Priority: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -4403,8 +4403,8 @@ eurex_derivatives_eobi_t7_v13_1.last_update_time.display = function(value)
     return "Last Update Time: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Last Update Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -4766,8 +4766,8 @@ eurex_derivatives_eobi_t7_v13_1.aggressor_time.display = function(value)
     return "Aggressor Time: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Aggressor Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -5007,8 +5007,8 @@ eurex_derivatives_eobi_t7_v13_1.exec_id.display = function(value)
     return "Exec Id: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Exec Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

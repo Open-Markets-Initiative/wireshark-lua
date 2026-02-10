@@ -287,8 +287,8 @@ memx_options_memoirdepth_sbe_v1_6_a.timestamp.size = 8
 -- Display: Timestamp
 memx_options_memoirdepth_sbe_v1_6_a.timestamp.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

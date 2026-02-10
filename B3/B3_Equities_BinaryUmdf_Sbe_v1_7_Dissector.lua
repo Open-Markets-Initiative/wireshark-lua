@@ -787,8 +787,8 @@ b3_equities_binaryumdf_sbe_v1_7.md_insert_timestamp.size = 8
 -- Display: Md Insert Timestamp
 b3_equities_binaryumdf_sbe_v1_7.md_insert_timestamp.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Md Insert Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -1225,8 +1225,8 @@ b3_equities_binaryumdf_sbe_v1_7.md_entry_timestamp.size = 8
 -- Display: Md Entry Timestamp
 b3_equities_binaryumdf_sbe_v1_7.md_entry_timestamp.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Md Entry Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -1772,8 +1772,8 @@ b3_equities_binaryumdf_sbe_v1_7.aggressor_time.size = 8
 -- Display: Aggressor Time
 b3_equities_binaryumdf_sbe_v1_7.aggressor_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Aggressor Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -4781,8 +4781,8 @@ b3_equities_binaryumdf_sbe_v1_7.orig_time.display = function(value)
     return "Orig Time: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Orig Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -8766,8 +8766,8 @@ b3_equities_binaryumdf_sbe_v1_7.trad_ses_open_time.display = function(value)
     return "Trad Ses Open Time: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Trad Ses Open Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -9929,8 +9929,8 @@ b3_equities_binaryumdf_sbe_v1_7.sending_time.size = 8
 -- Display: Sending Time
 b3_equities_binaryumdf_sbe_v1_7.sending_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

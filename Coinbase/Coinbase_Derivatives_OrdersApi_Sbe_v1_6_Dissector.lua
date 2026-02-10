@@ -803,8 +803,8 @@ coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.size = 8
 -- Display: Timestamp
 coinbase_derivatives_ordersapi_sbe_v1_6.timestamp.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -2215,8 +2215,8 @@ coinbase_derivatives_ordersapi_sbe_v1_6.receive_time.size = 8
 -- Display: Receive Time
 coinbase_derivatives_ordersapi_sbe_v1_6.receive_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Receive Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -3755,8 +3755,8 @@ coinbase_derivatives_ordersapi_sbe_v1_6.server_time.size = 8
 -- Display: Server Time
 coinbase_derivatives_ordersapi_sbe_v1_6.server_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Server Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -3782,8 +3782,8 @@ coinbase_derivatives_ordersapi_sbe_v1_6.request_time.size = 8
 -- Display: Request Time
 coinbase_derivatives_ordersapi_sbe_v1_6.request_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Request Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -5233,8 +5233,8 @@ coinbase_derivatives_ordersapi_sbe_v1_6.send_time_epoch_nanos.size = 8
 -- Display: Send Time Epoch Nanos
 coinbase_derivatives_ordersapi_sbe_v1_6.send_time_epoch_nanos.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Send Time Epoch Nanos: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

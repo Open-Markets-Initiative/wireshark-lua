@@ -580,8 +580,8 @@ eurex_derivatives_edci_t7_v13_1.sending_time.display = function(value)
     return "Sending Time: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -1275,8 +1275,8 @@ eurex_derivatives_edci_t7_v13_1.request_time.display = function(value)
     return "Request Time: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Request Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -3007,8 +3007,8 @@ eurex_derivatives_edci_t7_v13_1.exec_id.display = function(value)
     return "Exec Id: No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Exec Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

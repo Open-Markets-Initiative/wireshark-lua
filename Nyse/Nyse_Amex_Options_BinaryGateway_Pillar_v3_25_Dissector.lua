@@ -1821,8 +1821,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.size = 8
 -- Display: Transact Time Timestamp 8
 nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Transact Time Timestamp 8: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -8283,8 +8283,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.size = 8
 -- Display: Mm Sent Time
 nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Mm Sent Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

@@ -2460,8 +2460,8 @@ nyse_equities_binarygateway_pillar_v5_17.transact_time.size = 8
 -- Display: Transact Time
 nyse_equities_binarygateway_pillar_v5_17.transact_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -5360,8 +5360,8 @@ nyse_equities_binarygateway_pillar_v5_17.effective_time.size = 8
 -- Display: Effective Time
 nyse_equities_binarygateway_pillar_v5_17.effective_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Effective Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

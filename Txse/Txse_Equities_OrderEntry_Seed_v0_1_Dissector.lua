@@ -811,8 +811,8 @@ txse_equities_orderentry_seed_v0_1.transact_time.size = 8
 -- Display: Transact Time
 txse_equities_orderentry_seed_v0_1.transact_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -3385,8 +3385,8 @@ txse_equities_orderentry_seed_v0_1.expire_time.size = 8
 -- Display: Expire Time
 txse_equities_orderentry_seed_v0_1.expire_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Expire Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

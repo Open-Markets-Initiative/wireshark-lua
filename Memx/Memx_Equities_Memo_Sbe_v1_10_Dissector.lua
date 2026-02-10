@@ -759,8 +759,8 @@ memx_equities_memo_sbe_v1_10.sending_time.size = 8
 -- Display: Sending Time
 memx_equities_memo_sbe_v1_10.sending_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

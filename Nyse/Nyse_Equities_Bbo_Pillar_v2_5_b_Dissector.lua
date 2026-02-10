@@ -2836,8 +2836,8 @@ nyse_equities_bbo_pillar_v2_5_b.send_time.display = function(packet, parent, val
     return "No Value"
   end
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

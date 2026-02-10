@@ -3374,8 +3374,8 @@ cme_futures_streamlined_sbe_v5_9.transact_time.size = 8
 -- Display: Transact Time
 cme_futures_streamlined_sbe_v5_9.transact_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -5168,8 +5168,8 @@ cme_futures_streamlined_sbe_v5_9.transact_time_optional.size = 8
 -- Display: Transact Time Optional
 cme_futures_streamlined_sbe_v5_9.transact_time_optional.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Transact Time Optional: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -10389,8 +10389,8 @@ cme_futures_streamlined_sbe_v5_9.orig_time.size = 8
 -- Display: Orig Time
 cme_futures_streamlined_sbe_v5_9.orig_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Orig Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -13210,8 +13210,8 @@ cme_futures_streamlined_sbe_v5_9.sending_time.size = 8
 -- Display: Sending Time
 cme_futures_streamlined_sbe_v5_9.sending_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

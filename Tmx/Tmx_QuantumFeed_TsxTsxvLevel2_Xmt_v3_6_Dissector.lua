@@ -354,8 +354,8 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.trading_system_time_stamp.size = 8
 -- Display: Trading System Time Stamp
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.trading_system_time_stamp.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Trading System Time Stamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -1724,8 +1724,8 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.priority_time_stamp.size = 8
 -- Display: Priority Time Stamp
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.priority_time_stamp.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000)
-  local microseconds = value:tonumber()%1000000
+  local seconds = (value / UInt64(1000000)):tonumber()
+  local microseconds = (value % UInt64(1000000)):tonumber()
 
   return "Priority Time Stamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", microseconds)
 end

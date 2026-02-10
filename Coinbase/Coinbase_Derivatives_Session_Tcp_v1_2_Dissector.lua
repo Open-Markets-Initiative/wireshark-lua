@@ -1193,8 +1193,8 @@ coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.size = 8
 -- Display: Send Time Epoch Nanos
 coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Send Time Epoch Nanos: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

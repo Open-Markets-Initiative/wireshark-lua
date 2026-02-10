@@ -240,8 +240,8 @@ memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size = 8
 -- Display: Timestamp
 memx_equities_memoirtopofbook_sbe_v1_3.timestamp.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

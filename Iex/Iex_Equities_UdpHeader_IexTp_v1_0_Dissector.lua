@@ -259,8 +259,8 @@ iex_equities_udpheader_iextp_v1_0.send_time.size = 8
 -- Display: Send Time
 iex_equities_udpheader_iextp_v1_0.send_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Send Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

@@ -2096,8 +2096,8 @@ cme_futures_mdp3_sbe_v1_9.event_time.size = 8
 -- Display: Event Time
 cme_futures_mdp3_sbe_v1_9.event_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Event Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -3593,8 +3593,8 @@ cme_futures_mdp3_sbe_v1_9.last_update_time.size = 8
 -- Display: Last Update Time
 cme_futures_mdp3_sbe_v1_9.last_update_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Last Update Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -5685,8 +5685,8 @@ cme_futures_mdp3_sbe_v1_9.transact_time.size = 8
 -- Display: Transact Time
 cme_futures_mdp3_sbe_v1_9.transact_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -14435,8 +14435,8 @@ cme_futures_mdp3_sbe_v1_9.sending_time.size = 8
 -- Display: Sending Time
 cme_futures_mdp3_sbe_v1_9.sending_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

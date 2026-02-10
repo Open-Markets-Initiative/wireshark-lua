@@ -1438,8 +1438,8 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.size = 8
 -- Display: Transact Time
 coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
@@ -4412,8 +4412,8 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.size = 8
 -- Display: Sending Time
 coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

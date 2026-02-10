@@ -1986,8 +1986,8 @@ euronext_optiq_orderentrygateway_sbe_v5_16.sending_time.size = 8
 -- Display: Sending Time
 euronext_optiq_orderentrygateway_sbe_v5_16.sending_time.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end

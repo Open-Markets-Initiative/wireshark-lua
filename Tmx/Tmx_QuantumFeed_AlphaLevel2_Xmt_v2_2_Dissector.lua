@@ -265,8 +265,8 @@ tmx_quantumfeed_alphalevel2_xmt_v2_2.trading_system_time_stamp.size = 8
 -- Display: Trading System Time Stamp
 tmx_quantumfeed_alphalevel2_xmt_v2_2.trading_system_time_stamp.display = function(value)
   -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   return "Trading System Time Stamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
