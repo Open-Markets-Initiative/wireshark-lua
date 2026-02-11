@@ -18,6 +18,7 @@ local asx_securities_trade_ouch_v3_6 = {}
 omi_asx_securities_trade_ouch_v3_6.fields.capacity_of_participant = ProtoField.new("Capacity Of Participant", "asx.securities.trade.ouch.v3.6.capacityofparticipant", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.securities.trade.ouch.v3.6.clearingparticipant", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.client_account = ProtoField.new("Client Account", "asx.securities.trade.ouch.v3.6.clientaccount", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.crossing_dealing_capacity = ProtoField.new("Crossing Dealing Capacity", "asx.securities.trade.ouch.v3.6.crossingdealingcapacity", ftypes.UINT8, nil, base.DEC, 0x06)
 omi_asx_securities_trade_ouch_v3_6.fields.crossing_key = ProtoField.new("Crossing Key", "asx.securities.trade.ouch.v3.6.crossingkey", ftypes.UINT32)
 omi_asx_securities_trade_ouch_v3_6.fields.customer_info = ProtoField.new("Customer Info", "asx.securities.trade.ouch.v3.6.customerinfo", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.deal_source = ProtoField.new("Deal Source", "asx.securities.trade.ouch.v3.6.dealsource", ftypes.UINT16)
@@ -27,6 +28,7 @@ omi_asx_securities_trade_ouch_v3_6.fields.execution_venue = ProtoField.new("Exec
 omi_asx_securities_trade_ouch_v3_6.fields.existing_order_token = ProtoField.new("Existing Order Token", "asx.securities.trade.ouch.v3.6.existingordertoken", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.filler = ProtoField.new("Filler", "asx.securities.trade.ouch.v3.6.filler", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.intermediary_id = ProtoField.new("Intermediary Id", "asx.securities.trade.ouch.v3.6.intermediaryid", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.match_attributes = ProtoField.new("Match Attributes", "asx.securities.trade.ouch.v3.6.matchattributes", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.match_id = ProtoField.new("Match Id", "asx.securities.trade.ouch.v3.6.matchid", ftypes.BYTES)
 omi_asx_securities_trade_ouch_v3_6.fields.minimum_acceptable_quantity = ProtoField.new("Minimum Acceptable Quantity", "asx.securities.trade.ouch.v3.6.minimumacceptablequantity", ftypes.UINT64)
 omi_asx_securities_trade_ouch_v3_6.fields.open_close = ProtoField.new("Open Close", "asx.securities.trade.ouch.v3.6.openclose", ftypes.UINT8)
@@ -40,6 +42,7 @@ omi_asx_securities_trade_ouch_v3_6.fields.packet = ProtoField.new("Packet", "asx
 omi_asx_securities_trade_ouch_v3_6.fields.packet_header = ProtoField.new("Packet Header", "asx.securities.trade.ouch.v3.6.packetheader", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.packet_length = ProtoField.new("Packet Length", "asx.securities.trade.ouch.v3.6.packetlength", ftypes.UINT16)
 omi_asx_securities_trade_ouch_v3_6.fields.packet_type = ProtoField.new("Packet Type", "asx.securities.trade.ouch.v3.6.packettype", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.passive_aggressive_indicator = ProtoField.new("Passive Aggressive Indicator", "asx.securities.trade.ouch.v3.6.passiveaggressiveindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_asx_securities_trade_ouch_v3_6.fields.password = ProtoField.new("Password", "asx.securities.trade.ouch.v3.6.password", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.payload = ProtoField.new("Payload", "asx.securities.trade.ouch.v3.6.payload", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.previous_order_token = ProtoField.new("Previous Order Token", "asx.securities.trade.ouch.v3.6.previousordertoken", ftypes.STRING)
@@ -52,6 +55,7 @@ omi_asx_securities_trade_ouch_v3_6.fields.reject_reason_code = ProtoField.new("R
 omi_asx_securities_trade_ouch_v3_6.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "asx.securities.trade.ouch.v3.6.replacementordertoken", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "asx.securities.trade.ouch.v3.6.requestedsequencenumber", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.requested_session = ProtoField.new("Requested Session", "asx.securities.trade.ouch.v3.6.requestedsession", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.reserved = ProtoField.new("Reserved", "asx.securities.trade.ouch.v3.6.reserved", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_asx_securities_trade_ouch_v3_6.fields.sequence_number = ProtoField.new("Sequence Number", "asx.securities.trade.ouch.v3.6.sequencenumber", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.sequenced_message = ProtoField.new("Sequenced Message", "asx.securities.trade.ouch.v3.6.sequencedmessage", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "asx.securities.trade.ouch.v3.6.sequencedmessagetype", ftypes.STRING)
@@ -101,6 +105,7 @@ show.enter_order_message = true
 show.login_accepted_packet = true
 show.login_rejected_packet = true
 show.login_request_packet = true
+show.match_attributes = true
 show.order_accepted_message = true
 show.order_cancelled_message = true
 show.order_executed_message = true
@@ -125,6 +130,7 @@ omi_asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message = Pref.bool("S
 omi_asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_match_attributes = Pref.bool("Show Match Attributes", show.match_attributes, "Parse and add Match Attributes to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message = Pref.bool("Show Order Cancelled Message", show.order_cancelled_message, "Parse and add Order Cancelled Message to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
@@ -172,6 +178,10 @@ function omi_asx_securities_trade_ouch_v3_6.prefs_changed()
   end
   if show.login_request_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet then
     show.login_request_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet
+    changed = true
+  end
+  if show.match_attributes ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_match_attributes then
+    show.match_attributes = omi_asx_securities_trade_ouch_v3_6.prefs.show_match_attributes
     changed = true
   end
   if show.order_accepted_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message then
@@ -1521,6 +1531,52 @@ asx_securities_trade_ouch_v3_6.login_request_packet.dissect = function(buffer, o
   end
 end
 
+-- Match Attributes
+asx_securities_trade_ouch_v3_6.match_attributes = {}
+
+-- Size: Match Attributes
+asx_securities_trade_ouch_v3_6.match_attributes.size = 1
+
+-- Display: Match Attributes
+asx_securities_trade_ouch_v3_6.match_attributes.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Passive Aggressive Indicator flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Passive Aggressive Indicator"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Match Attributes
+asx_securities_trade_ouch_v3_6.match_attributes.bits = function(range, value, packet, parent)
+
+  -- Passive Aggressive Indicator: 1 Bit
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.passive_aggressive_indicator, range, value)
+
+  -- Crossing Dealing Capacity: 2 Bit Unsigned Fixed Width Integer
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.crossing_dealing_capacity, range, value)
+
+  -- Reserved: 5 Bit
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.reserved, range, value)
+end
+
+-- Dissect: Match Attributes
+asx_securities_trade_ouch_v3_6.match_attributes.dissect = function(buffer, offset, packet, parent)
+  local size = asx_securities_trade_ouch_v3_6.match_attributes.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = asx_securities_trade_ouch_v3_6.match_attributes.display(range, value, packet, parent)
+  local element = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.match_attributes, range, display)
+
+  if show.match_attributes then
+    asx_securities_trade_ouch_v3_6.match_attributes.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Deal Source
 asx_securities_trade_ouch_v3_6.deal_source = {}
 
@@ -1726,7 +1782,7 @@ asx_securities_trade_ouch_v3_6.order_executed_message.fields = function(buffer, 
   -- Deal Source: Numeric
   index, deal_source = asx_securities_trade_ouch_v3_6.deal_source.dissect(buffer, index, packet, parent)
 
-  -- Match Attributes
+  -- Match Attributes: Struct of 3 fields
   index, match_attributes = asx_securities_trade_ouch_v3_6.match_attributes.dissect(buffer, index, packet, parent)
 
   return index

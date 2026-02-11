@@ -16,18 +16,18 @@ local asx_securities_trade_itch_v3_1 = {}
 
 -- Asx Securities Trade Itch 3.1 Fields
 omi_asx_securities_trade_itch_v3_1.fields.ask_quantity = ProtoField.new("Ask Quantity", "asx.securities.trade.itch.v3.1.askquantity", ftypes.UINT64)
-omi_asx_securities_trade_itch_v3_1.fields.best_ask_price = ProtoField.new("Best Ask Price", "asx.securities.trade.itch.v3.1.bestaskprice", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.best_ask_price = ProtoField.new("Best Ask Price", "asx.securities.trade.itch.v3.1.bestaskprice", ftypes.DOUBLE)
 omi_asx_securities_trade_itch_v3_1.fields.best_ask_quantity = ProtoField.new("Best Ask Quantity", "asx.securities.trade.itch.v3.1.bestaskquantity", ftypes.UINT64)
-omi_asx_securities_trade_itch_v3_1.fields.best_bid_price = ProtoField.new("Best Bid Price", "asx.securities.trade.itch.v3.1.bestbidprice", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.best_bid_price = ProtoField.new("Best Bid Price", "asx.securities.trade.itch.v3.1.bestbidprice", ftypes.DOUBLE)
 omi_asx_securities_trade_itch_v3_1.fields.best_bid_quantity = ProtoField.new("Best Bid Quantity", "asx.securities.trade.itch.v3.1.bestbidquantity", ftypes.UINT64)
 omi_asx_securities_trade_itch_v3_1.fields.bid_quantity = ProtoField.new("Bid Quantity", "asx.securities.trade.itch.v3.1.bidquantity", ftypes.UINT64)
 omi_asx_securities_trade_itch_v3_1.fields.block_lot_size = ProtoField.new("Block Lot Size", "asx.securities.trade.itch.v3.1.blocklotsize", ftypes.UINT32)
-omi_asx_securities_trade_itch_v3_1.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "asx.securities.trade.itch.v3.1.equilibriumprice", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "asx.securities.trade.itch.v3.1.equilibriumprice", ftypes.DOUBLE)
 omi_asx_securities_trade_itch_v3_1.fields.event_code = ProtoField.new("Event Code", "asx.securities.trade.itch.v3.1.eventcode", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.exchange_order_type = ProtoField.new("Exchange Order Type", "asx.securities.trade.itch.v3.1.exchangeordertype", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.executed_quantity = ProtoField.new("Executed Quantity", "asx.securities.trade.itch.v3.1.executedquantity", ftypes.UINT64)
 omi_asx_securities_trade_itch_v3_1.fields.financial_product = ProtoField.new("Financial Product", "asx.securities.trade.itch.v3.1.financialproduct", ftypes.UINT8)
-omi_asx_securities_trade_itch_v3_1.fields.implied_order = ProtoField.new("Implied Order", "asx.securities.trade.itch.v3.1.impliedorder", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_asx_securities_trade_itch_v3_1.fields.implied_order = ProtoField.new("Implied Order", "asx.securities.trade.itch.v3.1.impliedorder", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x2000)
 omi_asx_securities_trade_itch_v3_1.fields.isin = ProtoField.new("Isin", "asx.securities.trade.itch.v3.1.isin", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.leg_1 = ProtoField.new("Leg 1", "asx.securities.trade.itch.v3.1.leg1", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.leg_2 = ProtoField.new("Leg 2", "asx.securities.trade.itch.v3.1.leg2", ftypes.STRING)
@@ -38,7 +38,7 @@ omi_asx_securities_trade_itch_v3_1.fields.leg_side = ProtoField.new("Leg Side", 
 omi_asx_securities_trade_itch_v3_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "asx.securities.trade.itch.v3.1.legsymbol", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.long_name = ProtoField.new("Long Name", "asx.securities.trade.itch.v3.1.longname", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.lot_type = ProtoField.new("Lot Type", "asx.securities.trade.itch.v3.1.lottype", ftypes.UINT8)
-omi_asx_securities_trade_itch_v3_1.fields.market_bid = ProtoField.new("Market Bid", "asx.securities.trade.itch.v3.1.marketbid", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x2000)
+omi_asx_securities_trade_itch_v3_1.fields.market_bid = ProtoField.new("Market Bid", "asx.securities.trade.itch.v3.1.marketbid", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
 omi_asx_securities_trade_itch_v3_1.fields.match_id = ProtoField.new("Match Id", "asx.securities.trade.itch.v3.1.matchid", ftypes.BYTES)
 omi_asx_securities_trade_itch_v3_1.fields.message = ProtoField.new("Message", "asx.securities.trade.itch.v3.1.message", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.message_count = ProtoField.new("Message Count", "asx.securities.trade.itch.v3.1.messagecount", ftypes.UINT16)
@@ -60,16 +60,17 @@ omi_asx_securities_trade_itch_v3_1.fields.participant_id = ProtoField.new("Parti
 omi_asx_securities_trade_itch_v3_1.fields.participant_id_counterparty = ProtoField.new("Participant Id Counterparty", "asx.securities.trade.itch.v3.1.participantidcounterparty", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.participant_id_owner = ProtoField.new("Participant Id Owner", "asx.securities.trade.itch.v3.1.participantidowner", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.payload = ProtoField.new("Payload", "asx.securities.trade.itch.v3.1.payload", ftypes.STRING)
-omi_asx_securities_trade_itch_v3_1.fields.price = ProtoField.new("Price", "asx.securities.trade.itch.v3.1.price", ftypes.INT32)
-omi_asx_securities_trade_itch_v3_1.fields.price_from = ProtoField.new("Price From", "asx.securities.trade.itch.v3.1.pricefrom", ftypes.INT32)
-omi_asx_securities_trade_itch_v3_1.fields.price_stabilisation = ProtoField.new("Price Stabilisation", "asx.securities.trade.itch.v3.1.pricestabilisation", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x1000)
-omi_asx_securities_trade_itch_v3_1.fields.price_to = ProtoField.new("Price To", "asx.securities.trade.itch.v3.1.priceto", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.price = ProtoField.new("Price", "asx.securities.trade.itch.v3.1.price", ftypes.DOUBLE)
+omi_asx_securities_trade_itch_v3_1.fields.price_from = ProtoField.new("Price From", "asx.securities.trade.itch.v3.1.pricefrom", ftypes.DOUBLE)
+omi_asx_securities_trade_itch_v3_1.fields.price_stabilisation = ProtoField.new("Price Stabilisation", "asx.securities.trade.itch.v3.1.pricestabilisation", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0008)
+omi_asx_securities_trade_itch_v3_1.fields.price_to = ProtoField.new("Price To", "asx.securities.trade.itch.v3.1.priceto", ftypes.DOUBLE)
 omi_asx_securities_trade_itch_v3_1.fields.printable = ProtoField.new("Printable", "asx.securities.trade.itch.v3.1.printable", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.quantity = ProtoField.new("Quantity", "asx.securities.trade.itch.v3.1.quantity", ftypes.UINT64)
-omi_asx_securities_trade_itch_v3_1.fields.reserved_2_bits = ProtoField.new("Reserved 2 Bits", "asx.securities.trade.itch.v3.1.reserved2bits", ftypes.UINT16, nil, base.DEC, 0xC000)
-omi_asx_securities_trade_itch_v3_1.fields.reserved_9_bits = ProtoField.new("Reserved 9 Bits", "asx.securities.trade.itch.v3.1.reserved9bits", ftypes.UINT16, nil, base.DEC, 0x03FE)
-omi_asx_securities_trade_itch_v3_1.fields.reserved_bit = ProtoField.new("Reserved Bit", "asx.securities.trade.itch.v3.1.reservedbit", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0800)
+omi_asx_securities_trade_itch_v3_1.fields.reserved_2_bits = ProtoField.new("Reserved 2 Bits", "asx.securities.trade.itch.v3.1.reserved2bits", ftypes.UINT16, nil, base.DEC, 0x0003)
+omi_asx_securities_trade_itch_v3_1.fields.reserved_7_bits = ProtoField.new("Reserved 7 Bits", "asx.securities.trade.itch.v3.1.reserved7bits", ftypes.UINT16, nil, base.DEC, 0x1FC0)
+omi_asx_securities_trade_itch_v3_1.fields.reserved_bit = ProtoField.new("Reserved Bit", "asx.securities.trade.itch.v3.1.reservedbit", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0010)
 omi_asx_securities_trade_itch_v3_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "asx.securities.trade.itch.v3.1.roundlotsize", ftypes.UINT32)
+omi_asx_securities_trade_itch_v3_1.fields.second = ProtoField.new("Second", "asx.securities.trade.itch.v3.1.second", ftypes.UINT32)
 omi_asx_securities_trade_itch_v3_1.fields.sequence_number = ProtoField.new("Sequence Number", "asx.securities.trade.itch.v3.1.sequencenumber", ftypes.UINT64)
 omi_asx_securities_trade_itch_v3_1.fields.session = ProtoField.new("Session", "asx.securities.trade.itch.v3.1.session", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.side = ProtoField.new("Side", "asx.securities.trade.itch.v3.1.side", ftypes.STRING)
@@ -77,12 +78,12 @@ omi_asx_securities_trade_itch_v3_1.fields.state_name = ProtoField.new("State Nam
 omi_asx_securities_trade_itch_v3_1.fields.symbol = ProtoField.new("Symbol", "asx.securities.trade.itch.v3.1.symbol", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.tick_size = ProtoField.new("Tick Size", "asx.securities.trade.itch.v3.1.ticksize", ftypes.UINT64)
 omi_asx_securities_trade_itch_v3_1.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.securities.trade.itch.v3.1.timestampnanoseconds", ftypes.UINT32)
-omi_asx_securities_trade_itch_v3_1.fields.timestamp_seconds = ProtoField.new("Timestamp Seconds", "asx.securities.trade.itch.v3.1.timestampseconds", ftypes.UINT32)
-omi_asx_securities_trade_itch_v3_1.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.trade.itch.v3.1.tradeprice", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.trade.itch.v3.1.tradeprice", ftypes.DOUBLE)
 omi_asx_securities_trade_itch_v3_1.fields.trading_currency = ProtoField.new("Trading Currency", "asx.securities.trade.itch.v3.1.tradingcurrency", ftypes.STRING)
-omi_asx_securities_trade_itch_v3_1.fields.undisclosed = ProtoField.new("Undisclosed", "asx.securities.trade.itch.v3.1.undisclosed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0400)
+omi_asx_securities_trade_itch_v3_1.fields.undisclosed = ProtoField.new("Undisclosed", "asx.securities.trade.itch.v3.1.undisclosed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0020)
+omi_asx_securities_trade_itch_v3_1.fields.unused_reserved_2_bits = ProtoField.new("Unused Reserved 2 Bits", "asx.securities.trade.itch.v3.1.unusedreserved2bits", ftypes.UINT16, nil, base.DEC, 0xC000)
 
--- Asx Securities Trade Itch 3.1 messages
+-- Asx Securities Itch Trade 3.1 Application Messages
 omi_asx_securities_trade_itch_v3_1.fields.add_order_no_participant_id_message = ProtoField.new("Add Order No Participant Id Message", "asx.securities.trade.itch.v3.1.addordernoparticipantidmessage", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.add_order_participant_id_message = ProtoField.new("Add Order Participant Id Message", "asx.securities.trade.itch.v3.1.addorderparticipantidmessage", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.combination_order_book_directory_message = ProtoField.new("Combination Order Book Directory Message", "asx.securities.trade.itch.v3.1.combinationorderbookdirectorymessage", ftypes.STRING)
@@ -347,11 +348,17 @@ asx_securities_trade_itch_v3_1.best_ask_price.display = function(value)
   return "Best Ask Price: "..value
 end
 
+-- Translate: Best Ask Price
+asx_securities_trade_itch_v3_1.best_ask_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Best Ask Price
 asx_securities_trade_itch_v3_1.best_ask_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_trade_itch_v3_1.best_ask_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_trade_itch_v3_1.best_ask_price.translate(raw)
   local display = asx_securities_trade_itch_v3_1.best_ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_trade_itch_v3_1.fields.best_ask_price, range, value, display)
@@ -370,11 +377,17 @@ asx_securities_trade_itch_v3_1.best_bid_price.display = function(value)
   return "Best Bid Price: "..value
 end
 
+-- Translate: Best Bid Price
+asx_securities_trade_itch_v3_1.best_bid_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Best Bid Price
 asx_securities_trade_itch_v3_1.best_bid_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_trade_itch_v3_1.best_bid_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_trade_itch_v3_1.best_bid_price.translate(raw)
   local display = asx_securities_trade_itch_v3_1.best_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_trade_itch_v3_1.fields.best_bid_price, range, value, display)
@@ -393,11 +406,17 @@ asx_securities_trade_itch_v3_1.equilibrium_price.display = function(value)
   return "Equilibrium Price: "..value
 end
 
+-- Translate: Equilibrium Price
+asx_securities_trade_itch_v3_1.equilibrium_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Equilibrium Price
 asx_securities_trade_itch_v3_1.equilibrium_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_trade_itch_v3_1.equilibrium_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_trade_itch_v3_1.equilibrium_price.translate(raw)
   local display = asx_securities_trade_itch_v3_1.equilibrium_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_trade_itch_v3_1.fields.equilibrium_price, range, value, display)
@@ -521,31 +540,31 @@ end
 asx_securities_trade_itch_v3_1.equilibrium_price_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Quantity: Numeric
   index, bid_quantity = asx_securities_trade_itch_v3_1.bid_quantity.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Ask Quantity: Numeric
   index, ask_quantity = asx_securities_trade_itch_v3_1.ask_quantity.dissect(buffer, index, packet, parent)
 
-  -- Equilibrium Price: 4 Byte Signed Fixed Width Integer
+  -- Equilibrium Price: Price
   index, equilibrium_price = asx_securities_trade_itch_v3_1.equilibrium_price.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Best Bid Price: Price
   index, best_bid_price = asx_securities_trade_itch_v3_1.best_bid_price.dissect(buffer, index, packet, parent)
 
-  -- Best Ask Price: 4 Byte Signed Fixed Width Integer
+  -- Best Ask Price: Price
   index, best_ask_price = asx_securities_trade_itch_v3_1.best_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Best Bid Quantity: Numeric
   index, best_bid_quantity = asx_securities_trade_itch_v3_1.best_bid_quantity.dissect(buffer, index, packet, parent)
 
-  -- Best Ask Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Best Ask Quantity: Numeric
   index, best_ask_quantity = asx_securities_trade_itch_v3_1.best_ask_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -686,11 +705,17 @@ asx_securities_trade_itch_v3_1.trade_price.display = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+asx_securities_trade_itch_v3_1.trade_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Trade Price
 asx_securities_trade_itch_v3_1.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_trade_itch_v3_1.trade_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_trade_itch_v3_1.trade_price.translate(raw)
   local display = asx_securities_trade_itch_v3_1.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_trade_itch_v3_1.fields.trade_price, range, value, display)
@@ -799,34 +824,34 @@ end
 asx_securities_trade_itch_v3_1.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Match Id: 12 Byte Unsigned Fixed Width Integer
+  -- Match Id: Numeric
   index, match_id = asx_securities_trade_itch_v3_1.match_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_trade_itch_v3_1.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_trade_itch_v3_1.quantity.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_trade_itch_v3_1.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Participant Id Owner: 7 Byte Ascii String
+  -- Participant Id Owner: Alpha
   index, participant_id_owner = asx_securities_trade_itch_v3_1.participant_id_owner.dissect(buffer, index, packet, parent)
 
-  -- Participant Id Counterparty: 7 Byte Ascii String
+  -- Participant Id Counterparty: Alpha
   index, participant_id_counterparty = asx_securities_trade_itch_v3_1.participant_id_counterparty.dissect(buffer, index, packet, parent)
 
-  -- Printable: 1 Byte Ascii String Enum with 2 values
+  -- Printable: Alpha
   index, printable = asx_securities_trade_itch_v3_1.printable.dissect(buffer, index, packet, parent)
 
-  -- Occurred At Cross: 1 Byte Ascii String Enum with 2 values
+  -- Occurred At Cross: Alpha
   index, occurred_at_cross = asx_securities_trade_itch_v3_1.occurred_at_cross.dissect(buffer, index, packet, parent)
 
   return index
@@ -892,16 +917,16 @@ end
 asx_securities_trade_itch_v3_1.order_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_trade_itch_v3_1.side.dissect(buffer, index, packet, parent)
 
   return index
@@ -932,70 +957,74 @@ asx_securities_trade_itch_v3_1.exchange_order_type = {}
 asx_securities_trade_itch_v3_1.exchange_order_type.size = 2
 
 -- Display: Exchange Order Type
-asx_securities_trade_itch_v3_1.exchange_order_type.display = function(buffer, packet, parent)
-  local display = ""
+asx_securities_trade_itch_v3_1.exchange_order_type.display = function(range, value, packet, parent)
+  local flags = {}
 
   -- Is Market Bid flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Market Bid|"
+  if bit.band(value, 0x0004) ~= 0 then
+    flags[#flags + 1] = "Market Bid"
   end
   -- Is Price Stabilisation flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Price Stabilisation|"
+  if bit.band(value, 0x0008) ~= 0 then
+    flags[#flags + 1] = "Price Stabilisation"
   end
   -- Is Reserved Bit flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Reserved Bit|"
+  if bit.band(value, 0x0010) ~= 0 then
+    flags[#flags + 1] = "Reserved Bit"
   end
   -- Is Undisclosed flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Undisclosed|"
+  if bit.band(value, 0x0020) ~= 0 then
+    flags[#flags + 1] = "Undisclosed"
   end
   -- Is Implied Order flag set?
-  if buffer:bitfield(15) > 0 then
-    display = display.."Implied Order|"
+  if bit.band(value, 0x2000) ~= 0 then
+    flags[#flags + 1] = "Implied Order"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Exchange Order Type
-asx_securities_trade_itch_v3_1.exchange_order_type.bits = function(buffer, offset, packet, parent)
+asx_securities_trade_itch_v3_1.exchange_order_type.bits = function(range, value, packet, parent)
 
   -- Reserved 2 Bits: 2 Bit
-  parent:add(omi_asx_securities_trade_itch_v3_1.fields.reserved_2_bits, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.reserved_2_bits, range, value)
 
   -- Market Bid: 1 Bit
-  parent:add(omi_asx_securities_trade_itch_v3_1.fields.market_bid, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.market_bid, range, value)
 
   -- Price Stabilisation: 1 Bit
-  parent:add(omi_asx_securities_trade_itch_v3_1.fields.price_stabilisation, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.price_stabilisation, range, value)
 
   -- Reserved Bit: 1 Bit
-  parent:add(omi_asx_securities_trade_itch_v3_1.fields.reserved_bit, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.reserved_bit, range, value)
 
   -- Undisclosed: 1 Bit
-  parent:add(omi_asx_securities_trade_itch_v3_1.fields.undisclosed, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.undisclosed, range, value)
 
-  -- Reserved 9 Bits: 9 Bit
-  parent:add(omi_asx_securities_trade_itch_v3_1.fields.reserved_9_bits, buffer(offset, 2))
+  -- Reserved 7 Bits: 7 Bit
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.reserved_7_bits, range, value)
 
   -- Implied Order: 1 Bit
-  parent:add(omi_asx_securities_trade_itch_v3_1.fields.implied_order, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.implied_order, range, value)
+
+  -- Unused Reserved 2 Bits: 2 Bit
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.unused_reserved_2_bits, range, value)
 end
 
 -- Dissect: Exchange Order Type
 asx_securities_trade_itch_v3_1.exchange_order_type.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = asx_securities_trade_itch_v3_1.exchange_order_type.size
   local range = buffer(offset, size)
-  local display = asx_securities_trade_itch_v3_1.exchange_order_type.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = asx_securities_trade_itch_v3_1.exchange_order_type.display(range, value, packet, parent)
   local element = parent:add(omi_asx_securities_trade_itch_v3_1.fields.exchange_order_type, range, display)
 
   if show.exchange_order_type then
-    asx_securities_trade_itch_v3_1.exchange_order_type.bits(buffer, offset, packet, element)
+    asx_securities_trade_itch_v3_1.exchange_order_type.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, value
 end
 
 -- Price
@@ -1009,11 +1038,17 @@ asx_securities_trade_itch_v3_1.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+asx_securities_trade_itch_v3_1.price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price
 asx_securities_trade_itch_v3_1.price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_trade_itch_v3_1.price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_trade_itch_v3_1.price.translate(raw)
   local display = asx_securities_trade_itch_v3_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_trade_itch_v3_1.fields.price, range, value, display)
@@ -1067,28 +1102,28 @@ end
 asx_securities_trade_itch_v3_1.order_replace_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_trade_itch_v3_1.side.dissect(buffer, index, packet, parent)
 
-  -- New Order Book Position: 4 Byte Unsigned Fixed Width Integer
+  -- New Order Book Position: Numeric
   index, new_order_book_position = asx_securities_trade_itch_v3_1.new_order_book_position.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_trade_itch_v3_1.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_trade_itch_v3_1.price.dissect(buffer, index, packet, parent)
 
-  -- Exchange Order Type: Struct of 7 fields
+  -- Exchange Order Type: Struct of 8 fields
   index, exchange_order_type = asx_securities_trade_itch_v3_1.exchange_order_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1161,37 +1196,37 @@ end
 asx_securities_trade_itch_v3_1.order_executed_with_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_trade_itch_v3_1.side.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_trade_itch_v3_1.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Match Id: 12 Byte Unsigned Fixed Width Integer
+  -- Match Id: Numeric
   index, match_id = asx_securities_trade_itch_v3_1.match_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Id Owner: 7 Byte Ascii String
+  -- Participant Id Owner: Alpha
   index, participant_id_owner = asx_securities_trade_itch_v3_1.participant_id_owner.dissect(buffer, index, packet, parent)
 
-  -- Participant Id Counterparty: 7 Byte Ascii String
+  -- Participant Id Counterparty: Alpha
   index, participant_id_counterparty = asx_securities_trade_itch_v3_1.participant_id_counterparty.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_trade_itch_v3_1.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Occurred At Cross: 1 Byte Ascii String Enum with 2 values
+  -- Occurred At Cross: Alpha
   index, occurred_at_cross = asx_securities_trade_itch_v3_1.occurred_at_cross.dissect(buffer, index, packet, parent)
 
-  -- Printable: 1 Byte Ascii String Enum with 2 values
+  -- Printable: Alpha
   index, printable = asx_securities_trade_itch_v3_1.printable.dissect(buffer, index, packet, parent)
 
   return index
@@ -1238,28 +1273,28 @@ end
 asx_securities_trade_itch_v3_1.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_trade_itch_v3_1.side.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_trade_itch_v3_1.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Match Id: 12 Byte Unsigned Fixed Width Integer
+  -- Match Id: Numeric
   index, match_id = asx_securities_trade_itch_v3_1.match_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Id Owner: 7 Byte Ascii String
+  -- Participant Id Owner: Alpha
   index, participant_id_owner = asx_securities_trade_itch_v3_1.participant_id_owner.dissect(buffer, index, packet, parent)
 
-  -- Participant Id Counterparty: 7 Byte Ascii String
+  -- Participant Id Counterparty: Alpha
   index, participant_id_counterparty = asx_securities_trade_itch_v3_1.participant_id_counterparty.dissect(buffer, index, packet, parent)
 
   return index
@@ -1393,34 +1428,34 @@ end
 asx_securities_trade_itch_v3_1.add_order_participant_id_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_trade_itch_v3_1.side.dissect(buffer, index, packet, parent)
 
-  -- Order Book Position: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Position: Numeric
   index, order_book_position = asx_securities_trade_itch_v3_1.order_book_position.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_trade_itch_v3_1.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_trade_itch_v3_1.price.dissect(buffer, index, packet, parent)
 
-  -- Exchange Order Type: Struct of 7 fields
+  -- Exchange Order Type: Struct of 8 fields
   index, exchange_order_type = asx_securities_trade_itch_v3_1.exchange_order_type.dissect(buffer, index, packet, parent)
 
-  -- Lot Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Lot Type: Numeric
   index, lot_type = asx_securities_trade_itch_v3_1.lot_type.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: 7 Byte Ascii String
+  -- Participant Id: Alpha
   index, participant_id = asx_securities_trade_itch_v3_1.participant_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1468,31 +1503,31 @@ end
 asx_securities_trade_itch_v3_1.add_order_no_participant_id_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_trade_itch_v3_1.side.dissect(buffer, index, packet, parent)
 
-  -- Order Book Position: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Position: Numeric
   index, order_book_position = asx_securities_trade_itch_v3_1.order_book_position.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_trade_itch_v3_1.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_trade_itch_v3_1.price.dissect(buffer, index, packet, parent)
 
-  -- Exchange Order Type: Struct of 7 fields
+  -- Exchange Order Type: Struct of 8 fields
   index, exchange_order_type = asx_securities_trade_itch_v3_1.exchange_order_type.dissect(buffer, index, packet, parent)
 
-  -- Lot Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Lot Type: Numeric
   index, lot_type = asx_securities_trade_itch_v3_1.lot_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1557,13 +1592,13 @@ end
 asx_securities_trade_itch_v3_1.order_book_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- State Name: 20 Byte Ascii String
+  -- State Name: Alpha
   index, state_name = asx_securities_trade_itch_v3_1.state_name.dissect(buffer, index, packet, parent)
 
   return index
@@ -1634,10 +1669,10 @@ end
 asx_securities_trade_itch_v3_1.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 2 values
+  -- Event Code: Alpha
   index, event_code = asx_securities_trade_itch_v3_1.event_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -1672,11 +1707,17 @@ asx_securities_trade_itch_v3_1.price_to.display = function(value)
   return "Price To: "..value
 end
 
+-- Translate: Price To
+asx_securities_trade_itch_v3_1.price_to.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price To
 asx_securities_trade_itch_v3_1.price_to.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_trade_itch_v3_1.price_to.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_trade_itch_v3_1.price_to.translate(raw)
   local display = asx_securities_trade_itch_v3_1.price_to.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_trade_itch_v3_1.fields.price_to, range, value, display)
@@ -1695,11 +1736,17 @@ asx_securities_trade_itch_v3_1.price_from.display = function(value)
   return "Price From: "..value
 end
 
+-- Translate: Price From
+asx_securities_trade_itch_v3_1.price_from.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price From
 asx_securities_trade_itch_v3_1.price_from.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_trade_itch_v3_1.price_from.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_trade_itch_v3_1.price_from.translate(raw)
   local display = asx_securities_trade_itch_v3_1.price_from.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_trade_itch_v3_1.fields.price_from, range, value, display)
@@ -1750,19 +1797,19 @@ end
 asx_securities_trade_itch_v3_1.tick_size_table_entry_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Tick Size: 8 Byte Unsigned Fixed Width Integer
+  -- Tick Size: Numeric
   index, tick_size = asx_securities_trade_itch_v3_1.tick_size.dissect(buffer, index, packet, parent)
 
-  -- Price From: 4 Byte Signed Fixed Width Integer
+  -- Price From: Price
   index, price_from = asx_securities_trade_itch_v3_1.price_from.dissect(buffer, index, packet, parent)
 
-  -- Price To: 4 Byte Signed Fixed Width Integer
+  -- Price To: Price
   index, price_to = asx_securities_trade_itch_v3_1.price_to.dissect(buffer, index, packet, parent)
 
   return index
@@ -1880,13 +1927,13 @@ end
 asx_securities_trade_itch_v3_1.leg_4.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Symbol: 32 Byte Ascii String
+  -- Leg Symbol: Alpha
   index, leg_symbol = asx_securities_trade_itch_v3_1.leg_symbol.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  -- Leg Side: Alpha
   index, leg_side = asx_securities_trade_itch_v3_1.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: Numeric
   index, leg_ratio = asx_securities_trade_itch_v3_1.leg_ratio.dissect(buffer, index, packet, parent)
 
   return index
@@ -1928,13 +1975,13 @@ end
 asx_securities_trade_itch_v3_1.leg_3.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Symbol: 32 Byte Ascii String
+  -- Leg Symbol: Alpha
   index, leg_symbol = asx_securities_trade_itch_v3_1.leg_symbol.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  -- Leg Side: Alpha
   index, leg_side = asx_securities_trade_itch_v3_1.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: Numeric
   index, leg_ratio = asx_securities_trade_itch_v3_1.leg_ratio.dissect(buffer, index, packet, parent)
 
   return index
@@ -1976,13 +2023,13 @@ end
 asx_securities_trade_itch_v3_1.leg_2.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Symbol: 32 Byte Ascii String
+  -- Leg Symbol: Alpha
   index, leg_symbol = asx_securities_trade_itch_v3_1.leg_symbol.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  -- Leg Side: Alpha
   index, leg_side = asx_securities_trade_itch_v3_1.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: Numeric
   index, leg_ratio = asx_securities_trade_itch_v3_1.leg_ratio.dissect(buffer, index, packet, parent)
 
   return index
@@ -2024,13 +2071,13 @@ end
 asx_securities_trade_itch_v3_1.leg_1.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Symbol: 32 Byte Ascii String
+  -- Leg Symbol: Alpha
   index, leg_symbol = asx_securities_trade_itch_v3_1.leg_symbol.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  -- Leg Side: Alpha
   index, leg_side = asx_securities_trade_itch_v3_1.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: Numeric
   index, leg_ratio = asx_securities_trade_itch_v3_1.leg_ratio.dissect(buffer, index, packet, parent)
 
   return index
@@ -2352,43 +2399,43 @@ end
 asx_securities_trade_itch_v3_1.combination_order_book_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 32 Byte Ascii String
+  -- Symbol: Alpha
   index, symbol = asx_securities_trade_itch_v3_1.symbol.dissect(buffer, index, packet, parent)
 
-  -- Long Name: 32 Byte Ascii String
+  -- Long Name: Alpha
   index, long_name = asx_securities_trade_itch_v3_1.long_name.dissect(buffer, index, packet, parent)
 
-  -- Isin: 12 Byte Ascii String
+  -- Isin: Alpha
   index, isin = asx_securities_trade_itch_v3_1.isin.dissect(buffer, index, packet, parent)
 
-  -- Financial Product: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Financial Product: Numeric
   index, financial_product = asx_securities_trade_itch_v3_1.financial_product.dissect(buffer, index, packet, parent)
 
-  -- Trading Currency: 3 Byte Ascii String
+  -- Trading Currency: Alpha
   index, trading_currency = asx_securities_trade_itch_v3_1.trading_currency.dissect(buffer, index, packet, parent)
 
-  -- Number Of Decimals In Price: 2 Byte Unsigned Fixed Width Integer
+  -- Number Of Decimals In Price: Numeric
   index, number_of_decimals_in_price = asx_securities_trade_itch_v3_1.number_of_decimals_in_price.dissect(buffer, index, packet, parent)
 
-  -- Number Of Decimals In Nominal Value: 2 Byte Unsigned Fixed Width Integer
+  -- Number Of Decimals In Nominal Value: Numeric
   index, number_of_decimals_in_nominal_value = asx_securities_trade_itch_v3_1.number_of_decimals_in_nominal_value.dissect(buffer, index, packet, parent)
 
-  -- Odd Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Odd Lot Size: Numeric
   index, odd_lot_size = asx_securities_trade_itch_v3_1.odd_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot Size: Numeric
   index, round_lot_size = asx_securities_trade_itch_v3_1.round_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Block Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Block Lot Size: Numeric
   index, block_lot_size = asx_securities_trade_itch_v3_1.block_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Nominal Value: 8 Byte Unsigned Fixed Width Integer
+  -- Nominal Value: Numeric
   index, nominal_value = asx_securities_trade_itch_v3_1.nominal_value.dissect(buffer, index, packet, parent)
 
   -- Leg 1: Struct of 3 fields
@@ -2452,43 +2499,43 @@ end
 asx_securities_trade_itch_v3_1.order_book_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = asx_securities_trade_itch_v3_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 32 Byte Ascii String
+  -- Symbol: Alpha
   index, symbol = asx_securities_trade_itch_v3_1.symbol.dissect(buffer, index, packet, parent)
 
-  -- Long Name: 32 Byte Ascii String
+  -- Long Name: Alpha
   index, long_name = asx_securities_trade_itch_v3_1.long_name.dissect(buffer, index, packet, parent)
 
-  -- Isin: 12 Byte Ascii String
+  -- Isin: Alpha
   index, isin = asx_securities_trade_itch_v3_1.isin.dissect(buffer, index, packet, parent)
 
-  -- Financial Product: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Financial Product: Numeric
   index, financial_product = asx_securities_trade_itch_v3_1.financial_product.dissect(buffer, index, packet, parent)
 
-  -- Trading Currency: 3 Byte Ascii String
+  -- Trading Currency: Alpha
   index, trading_currency = asx_securities_trade_itch_v3_1.trading_currency.dissect(buffer, index, packet, parent)
 
-  -- Number Of Decimals In Price: 2 Byte Unsigned Fixed Width Integer
+  -- Number Of Decimals In Price: Numeric
   index, number_of_decimals_in_price = asx_securities_trade_itch_v3_1.number_of_decimals_in_price.dissect(buffer, index, packet, parent)
 
-  -- Number Of Decimals In Nominal Value: 2 Byte Unsigned Fixed Width Integer
+  -- Number Of Decimals In Nominal Value: Numeric
   index, number_of_decimals_in_nominal_value = asx_securities_trade_itch_v3_1.number_of_decimals_in_nominal_value.dissect(buffer, index, packet, parent)
 
-  -- Odd Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Odd Lot Size: Numeric
   index, odd_lot_size = asx_securities_trade_itch_v3_1.odd_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot Size: Numeric
   index, round_lot_size = asx_securities_trade_itch_v3_1.round_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Block Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Block Lot Size: Numeric
   index, block_lot_size = asx_securities_trade_itch_v3_1.block_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Nominal Value: 8 Byte Unsigned Fixed Width Integer
+  -- Nominal Value: Numeric
   index, nominal_value = asx_securities_trade_itch_v3_1.nominal_value.dissect(buffer, index, packet, parent)
 
   return index
@@ -2512,25 +2559,25 @@ asx_securities_trade_itch_v3_1.order_book_directory_message.dissect = function(b
   end
 end
 
--- Timestamp Seconds
-asx_securities_trade_itch_v3_1.timestamp_seconds = {}
+-- Second
+asx_securities_trade_itch_v3_1.second = {}
 
--- Size: Timestamp Seconds
-asx_securities_trade_itch_v3_1.timestamp_seconds.size = 4
+-- Size: Second
+asx_securities_trade_itch_v3_1.second.size = 4
 
--- Display: Timestamp Seconds
-asx_securities_trade_itch_v3_1.timestamp_seconds.display = function(value)
-  return "Timestamp Seconds: "..value
+-- Display: Second
+asx_securities_trade_itch_v3_1.second.display = function(value)
+  return "Second: "..value
 end
 
--- Dissect: Timestamp Seconds
-asx_securities_trade_itch_v3_1.timestamp_seconds.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1.timestamp_seconds.size
+-- Dissect: Second
+asx_securities_trade_itch_v3_1.second.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_trade_itch_v3_1.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_securities_trade_itch_v3_1.timestamp_seconds.display(value, buffer, offset, packet, parent)
+  local display = asx_securities_trade_itch_v3_1.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_securities_trade_itch_v3_1.fields.timestamp_seconds, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.second, range, value, display)
 
   return offset + length, value
 end
@@ -2540,7 +2587,7 @@ asx_securities_trade_itch_v3_1.seconds_message = {}
 
 -- Size: Seconds Message
 asx_securities_trade_itch_v3_1.seconds_message.size =
-  asx_securities_trade_itch_v3_1.timestamp_seconds.size
+  asx_securities_trade_itch_v3_1.second.size
 
 -- Display: Seconds Message
 asx_securities_trade_itch_v3_1.seconds_message.display = function(packet, parent, length)
@@ -2551,8 +2598,8 @@ end
 asx_securities_trade_itch_v3_1.seconds_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp_seconds = asx_securities_trade_itch_v3_1.timestamp_seconds.dissect(buffer, index, packet, parent)
+  -- Second: Numeric
+  index, second = asx_securities_trade_itch_v3_1.second.dissect(buffer, index, packet, parent)
 
   return index
 end

@@ -117,7 +117,7 @@ omi_asx_securities_ntp_itch_v1_05.fields.underlying_tradeable_instrument_id = Pr
 omi_asx_securities_ntp_itch_v1_05.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.securities.ntp.itch.v1.05.voitradedate", ftypes.UINT16)
 omi_asx_securities_ntp_itch_v1_05.fields.volatility = ProtoField.new("Volatility", "asx.securities.ntp.itch.v1.05.volatility", ftypes.UINT64)
 
--- Asx Securities Ntp Itch 1.05 messages
+-- Asx Securities Itch Ntp 1.05 Application Messages
 omi_asx_securities_ntp_itch_v1_05.fields.add_order_message = ProtoField.new("Add Order Message", "asx.securities.ntp.itch.v1.05.addordermessage", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.anomalous_order_threshold_publish_message = ProtoField.new("Anomalous Order Threshold Publish Message", "asx.securities.ntp.itch.v1.05.anomalousorderthresholdpublishmessage", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.auction_order_executed_message = ProtoField.new("Auction Order Executed Message", "asx.securities.ntp.itch.v1.05.auctionorderexecutedmessage", ftypes.STRING)
@@ -520,7 +520,7 @@ asx_securities_ntp_itch_v1_05.timestamp.display = function(nanoseconds, info, pa
   local seconds = asx_securities_ntp_itch_v1_05.seconds.store
 
   if seconds ~= nil then
-    return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
   end
 
   return "Timestamp: "..nanoseconds

@@ -16,34 +16,30 @@ local asx_securities_t24_itch_v1_13 = {}
 
 -- Asx Securities T24 Itch 1.13 Fields
 omi_asx_securities_t24_itch_v1_13.fields.activated = ProtoField.new("Activated", "asx.securities.t24.itch.v1.13.activated", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.aot_lower_price = ProtoField.new("Aot Lower Price", "asx.securities.t24.itch.v1.13.aotlowerprice", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.aot_price = ProtoField.new("Aot Price", "asx.securities.t24.itch.v1.13.aotprice", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.aot_upper_price = ProtoField.new("Aot Upper Price", "asx.securities.t24.itch.v1.13.aotupperprice", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.best_ask_price = ProtoField.new("Best Ask Price", "asx.securities.t24.itch.v1.13.bestaskprice", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.all_fields = ProtoField.new("All Fields", "asx.securities.t24.itch.v1.13.allfields", ftypes.UINT8, nil, base.DEC, 0xC0)
+omi_asx_securities_t24_itch_v1_13.fields.aot_lower_price = ProtoField.new("Aot Lower Price", "asx.securities.t24.itch.v1.13.aotlowerprice", ftypes.DOUBLE)
+omi_asx_securities_t24_itch_v1_13.fields.aot_price = ProtoField.new("Aot Price", "asx.securities.t24.itch.v1.13.aotprice", ftypes.DOUBLE)
+omi_asx_securities_t24_itch_v1_13.fields.aot_upper_price = ProtoField.new("Aot Upper Price", "asx.securities.t24.itch.v1.13.aotupperprice", ftypes.DOUBLE)
+omi_asx_securities_t24_itch_v1_13.fields.best_ask_price = ProtoField.new("Best Ask Price", "asx.securities.t24.itch.v1.13.bestaskprice", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.best_ask_quantity = ProtoField.new("Best Ask Quantity", "asx.securities.t24.itch.v1.13.bestaskquantity", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.best_bid_price = ProtoField.new("Best Bid Price", "asx.securities.t24.itch.v1.13.bestbidprice", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.best_bid_price = ProtoField.new("Best Bid Price", "asx.securities.t24.itch.v1.13.bestbidprice", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.best_bid_quantity = ProtoField.new("Best Bid Quantity", "asx.securities.t24.itch.v1.13.bestbidquantity", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.buyer = ProtoField.new("Buyer", "asx.securities.t24.itch.v1.13.buyer", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.buyer_order_number = ProtoField.new("Buyer Order Number", "asx.securities.t24.itch.v1.13.buyerordernumber", ftypes.UINT64)
 omi_asx_securities_t24_itch_v1_13.fields.buyer_quantity_remaining = ProtoField.new("Buyer Quantity Remaining", "asx.securities.t24.itch.v1.13.buyerquantityremaining", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.buying_order_number = ProtoField.new("Buying Order Number", "asx.securities.t24.itch.v1.13.buyingordernumber", ftypes.UINT64)
+omi_asx_securities_t24_itch_v1_13.fields.contract_legs = ProtoField.new("Contract Legs", "asx.securities.t24.itch.v1.13.contractlegs", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.contract_number = ProtoField.new("Contract Number", "asx.securities.t24.itch.v1.13.contractnumber", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_1 = ProtoField.new("Contract Number Leg 1", "asx.securities.t24.itch.v1.13.contractnumberleg1", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_2 = ProtoField.new("Contract Number Leg 2", "asx.securities.t24.itch.v1.13.contractnumberleg2", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_3 = ProtoField.new("Contract Number Leg 3", "asx.securities.t24.itch.v1.13.contractnumberleg3", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_4 = ProtoField.new("Contract Number Leg 4", "asx.securities.t24.itch.v1.13.contractnumberleg4", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_5 = ProtoField.new("Contract Number Leg 5", "asx.securities.t24.itch.v1.13.contractnumberleg5", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_6 = ProtoField.new("Contract Number Leg 6", "asx.securities.t24.itch.v1.13.contractnumberleg6", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.contract_type = ProtoField.new("Contract Type", "asx.securities.t24.itch.v1.13.contracttype", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.coupon_rate = ProtoField.new("Coupon Rate", "asx.securities.t24.itch.v1.13.couponrate", ftypes.UINT16)
 omi_asx_securities_t24_itch_v1_13.fields.cumulative_volume = ProtoField.new("Cumulative Volume", "asx.securities.t24.itch.v1.13.cumulativevolume", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.currency = ProtoField.new("Currency", "asx.securities.t24.itch.v1.13.currency", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_number = ProtoField.new("Custom Market Order Number", "asx.securities.t24.itch.v1.13.custommarketordernumber", ftypes.UINT64)
 omi_asx_securities_t24_itch_v1_13.fields.custom_market_quantity_remaining = ProtoField.new("Custom Market Quantity Remaining", "asx.securities.t24.itch.v1.13.custommarketquantityremaining", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "asx.securities.t24.itch.v1.13.equilibriumprice", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.etr_lower_price = ProtoField.new("Etr Lower Price", "asx.securities.t24.itch.v1.13.etrlowerprice", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.etr_price = ProtoField.new("Etr Price", "asx.securities.t24.itch.v1.13.etrprice", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.etr_upper_price = ProtoField.new("Etr Upper Price", "asx.securities.t24.itch.v1.13.etrupperprice", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "asx.securities.t24.itch.v1.13.equilibriumprice", ftypes.DOUBLE)
+omi_asx_securities_t24_itch_v1_13.fields.etr_lower_price = ProtoField.new("Etr Lower Price", "asx.securities.t24.itch.v1.13.etrlowerprice", ftypes.DOUBLE)
+omi_asx_securities_t24_itch_v1_13.fields.etr_price = ProtoField.new("Etr Price", "asx.securities.t24.itch.v1.13.etrprice", ftypes.DOUBLE)
+omi_asx_securities_t24_itch_v1_13.fields.etr_upper_price = ProtoField.new("Etr Upper Price", "asx.securities.t24.itch.v1.13.etrupperprice", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.event_code = ProtoField.new("Event Code", "asx.securities.t24.itch.v1.13.eventcode", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.exchange = ProtoField.new("Exchange", "asx.securities.t24.itch.v1.13.exchange", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.executed_quantity = ProtoField.new("Executed Quantity", "asx.securities.t24.itch.v1.13.executedquantity", ftypes.UINT32)
@@ -51,19 +47,19 @@ omi_asx_securities_t24_itch_v1_13.fields.expiry_month = ProtoField.new("Expiry M
 omi_asx_securities_t24_itch_v1_13.fields.expiry_year = ProtoField.new("Expiry Year", "asx.securities.t24.itch.v1.13.expiryyear", ftypes.UINT16)
 omi_asx_securities_t24_itch_v1_13.fields.financial_type = ProtoField.new("Financial Type", "asx.securities.t24.itch.v1.13.financialtype", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.first_leg_contract_number = ProtoField.new("First Leg Contract Number", "asx.securities.t24.itch.v1.13.firstlegcontractnumber", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.highest_trade = ProtoField.new("Highest Trade", "asx.securities.t24.itch.v1.13.highesttrade", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.highest_trade = ProtoField.new("Highest Trade", "asx.securities.t24.itch.v1.13.highesttrade", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.highest_traded_price = ProtoField.new("Highest Traded Price", "asx.securities.t24.itch.v1.13.highesttradedprice", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 omi_asx_securities_t24_itch_v1_13.fields.instrument = ProtoField.new("Instrument", "asx.securities.t24.itch.v1.13.instrument", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.last_trade = ProtoField.new("Last Trade", "asx.securities.t24.itch.v1.13.lasttrade", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.last_trade = ProtoField.new("Last Trade", "asx.securities.t24.itch.v1.13.lasttrade", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.last_traded_price = ProtoField.new("Last Traded Price", "asx.securities.t24.itch.v1.13.lasttradedprice", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
 omi_asx_securities_t24_itch_v1_13.fields.last_traded_volume = ProtoField.new("Last Traded Volume", "asx.securities.t24.itch.v1.13.lasttradedvolume", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 omi_asx_securities_t24_itch_v1_13.fields.last_trading_date = ProtoField.new("Last Trading Date", "asx.securities.t24.itch.v1.13.lasttradingdate", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.last_volume = ProtoField.new("Last Volume", "asx.securities.t24.itch.v1.13.lastvolume", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.legs = ProtoField.new("Legs", "asx.securities.t24.itch.v1.13.legs", ftypes.UINT8)
 omi_asx_securities_t24_itch_v1_13.fields.lot_size_or_face_value = ProtoField.new("Lot Size Or Face Value", "asx.securities.t24.itch.v1.13.lotsizeorfacevalue", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.lowest_trade = ProtoField.new("Lowest Trade", "asx.securities.t24.itch.v1.13.lowesttrade", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.lowest_trade = ProtoField.new("Lowest Trade", "asx.securities.t24.itch.v1.13.lowesttrade", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.lowest_traded_price = ProtoField.new("Lowest Traded Price", "asx.securities.t24.itch.v1.13.lowesttradedprice", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
-omi_asx_securities_t24_itch_v1_13.fields.market_updates = ProtoField.new("Market Updates", "asx.securities.t24.itch.v1.13.marketupdates", ftypes.UINT8)
+omi_asx_securities_t24_itch_v1_13.fields.market_updates = ProtoField.new("Market Updates", "asx.securities.t24.itch.v1.13.marketupdates", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.match_number = ProtoField.new("Match Number", "asx.securities.t24.itch.v1.13.matchnumber", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.maturity_value = ProtoField.new("Maturity Value", "asx.securities.t24.itch.v1.13.maturityvalue", ftypes.UINT8)
 omi_asx_securities_t24_itch_v1_13.fields.message = ProtoField.new("Message", "asx.securities.t24.itch.v1.13.message", ftypes.STRING)
@@ -72,7 +68,7 @@ omi_asx_securities_t24_itch_v1_13.fields.message_header = ProtoField.new("Messag
 omi_asx_securities_t24_itch_v1_13.fields.message_length = ProtoField.new("Message Length", "asx.securities.t24.itch.v1.13.messagelength", ftypes.UINT16)
 omi_asx_securities_t24_itch_v1_13.fields.message_type = ProtoField.new("Message Type", "asx.securities.t24.itch.v1.13.messagetype", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.open_interest = ProtoField.new("Open Interest", "asx.securities.t24.itch.v1.13.openinterest", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.opening_trade = ProtoField.new("Opening Trade", "asx.securities.t24.itch.v1.13.openingtrade", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.opening_trade = ProtoField.new("Opening Trade", "asx.securities.t24.itch.v1.13.openingtrade", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.opening_trade_price = ProtoField.new("Opening Trade Price", "asx.securities.t24.itch.v1.13.openingtradeprice", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_asx_securities_t24_itch_v1_13.fields.option_type = ProtoField.new("Option Type", "asx.securities.t24.itch.v1.13.optiontype", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.order_book_priority = ProtoField.new("Order Book Priority", "asx.securities.t24.itch.v1.13.orderbookpriority", ftypes.UINT32)
@@ -81,29 +77,17 @@ omi_asx_securities_t24_itch_v1_13.fields.packet = ProtoField.new("Packet", "asx.
 omi_asx_securities_t24_itch_v1_13.fields.packet_header = ProtoField.new("Packet Header", "asx.securities.t24.itch.v1.13.packetheader", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.payload = ProtoField.new("Payload", "asx.securities.t24.itch.v1.13.payload", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.payments_per_year = ProtoField.new("Payments Per Year", "asx.securities.t24.itch.v1.13.paymentsperyear", ftypes.UINT8)
-omi_asx_securities_t24_itch_v1_13.fields.price = ProtoField.new("Price", "asx.securities.t24.itch.v1.13.price", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.price = ProtoField.new("Price", "asx.securities.t24.itch.v1.13.price", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.price_decimal_position = ProtoField.new("Price Decimal Position", "asx.securities.t24.itch.v1.13.pricedecimalposition", ftypes.UINT8)
 omi_asx_securities_t24_itch_v1_13.fields.price_fractional_denominator = ProtoField.new("Price Fractional Denominator", "asx.securities.t24.itch.v1.13.pricefractionaldenominator", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.price_leg_1 = ProtoField.new("Price Leg 1", "asx.securities.t24.itch.v1.13.priceleg1", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.price_leg_2 = ProtoField.new("Price Leg 2", "asx.securities.t24.itch.v1.13.priceleg2", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.price_leg_3 = ProtoField.new("Price Leg 3", "asx.securities.t24.itch.v1.13.priceleg3", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.price_leg_4 = ProtoField.new("Price Leg 4", "asx.securities.t24.itch.v1.13.priceleg4", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.price_leg_5 = ProtoField.new("Price Leg 5", "asx.securities.t24.itch.v1.13.priceleg5", ftypes.INT32)
-omi_asx_securities_t24_itch_v1_13.fields.price_leg_6 = ProtoField.new("Price Leg 6", "asx.securities.t24.itch.v1.13.priceleg6", ftypes.INT32)
 omi_asx_securities_t24_itch_v1_13.fields.price_minimum_tick = ProtoField.new("Price Minimum Tick", "asx.securities.t24.itch.v1.13.priceminimumtick", ftypes.UINT16)
 omi_asx_securities_t24_itch_v1_13.fields.primary_ratio = ProtoField.new("Primary Ratio", "asx.securities.t24.itch.v1.13.primaryratio", ftypes.UINT8)
 omi_asx_securities_t24_itch_v1_13.fields.printable = ProtoField.new("Printable", "asx.securities.t24.itch.v1.13.printable", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.prior_day_settlement = ProtoField.new("Prior Day Settlement", "asx.securities.t24.itch.v1.13.priordaysettlement", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.prior_day_settlement = ProtoField.new("Prior Day Settlement", "asx.securities.t24.itch.v1.13.priordaysettlement", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.protocol_version = ProtoField.new("Protocol Version", "asx.securities.t24.itch.v1.13.protocolversion", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.quantity = ProtoField.new("Quantity", "asx.securities.t24.itch.v1.13.quantity", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "asx.securities.t24.itch.v1.13.quantityremaining", ftypes.UINT32)
-omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_1 = ProtoField.new("Ratio Leg 1", "asx.securities.t24.itch.v1.13.ratioleg1", ftypes.UINT16)
-omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_2 = ProtoField.new("Ratio Leg 2", "asx.securities.t24.itch.v1.13.ratioleg2", ftypes.UINT16)
-omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_3 = ProtoField.new("Ratio Leg 3", "asx.securities.t24.itch.v1.13.ratioleg3", ftypes.UINT16)
-omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_4 = ProtoField.new("Ratio Leg 4", "asx.securities.t24.itch.v1.13.ratioleg4", ftypes.UINT16)
-omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_5 = ProtoField.new("Ratio Leg 5", "asx.securities.t24.itch.v1.13.ratioleg5", ftypes.UINT16)
-omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_6 = ProtoField.new("Ratio Leg 6", "asx.securities.t24.itch.v1.13.ratioleg6", ftypes.UINT16)
-omi_asx_securities_t24_itch_v1_13.fields.reserved = ProtoField.new("Reserved", "asx.securities.t24.itch.v1.13.reserved", ftypes.UINT8, nil, base.DEC, 0xC0)
+omi_asx_securities_t24_itch_v1_13.fields.ratio = ProtoField.new("Ratio", "asx.securities.t24.itch.v1.13.ratio", ftypes.UINT16)
 omi_asx_securities_t24_itch_v1_13.fields.second = ProtoField.new("Second", "asx.securities.t24.itch.v1.13.second", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.second_leg_contract_number = ProtoField.new("Second Leg Contract Number", "asx.securities.t24.itch.v1.13.secondlegcontractnumber", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.secondary_ratio = ProtoField.new("Secondary Ratio", "asx.securities.t24.itch.v1.13.secondaryratio", ftypes.UINT8)
@@ -114,19 +98,13 @@ omi_asx_securities_t24_itch_v1_13.fields.sequence_number = ProtoField.new("Seque
 omi_asx_securities_t24_itch_v1_13.fields.session = ProtoField.new("Session", "asx.securities.t24.itch.v1.13.session", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.session_week = ProtoField.new("Session Week", "asx.securities.t24.itch.v1.13.sessionweek", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.session_year = ProtoField.new("Session Year", "asx.securities.t24.itch.v1.13.sessionyear", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.settlement_price = ProtoField.new("Settlement Price", "asx.securities.t24.itch.v1.13.settlementprice", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.settlement_price = ProtoField.new("Settlement Price", "asx.securities.t24.itch.v1.13.settlementprice", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.settlement_type = ProtoField.new("Settlement Type", "asx.securities.t24.itch.v1.13.settlementtype", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.side = ProtoField.new("Side", "asx.securities.t24.itch.v1.13.side", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.side_leg_1 = ProtoField.new("Side Leg 1", "asx.securities.t24.itch.v1.13.sideleg1", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.side_leg_2 = ProtoField.new("Side Leg 2", "asx.securities.t24.itch.v1.13.sideleg2", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.side_leg_3 = ProtoField.new("Side Leg 3", "asx.securities.t24.itch.v1.13.sideleg3", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.side_leg_4 = ProtoField.new("Side Leg 4", "asx.securities.t24.itch.v1.13.sideleg4", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.side_leg_5 = ProtoField.new("Side Leg 5", "asx.securities.t24.itch.v1.13.sideleg5", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.side_leg_6 = ProtoField.new("Side Leg 6", "asx.securities.t24.itch.v1.13.sideleg6", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.side_of_buyer = ProtoField.new("Side Of Buyer", "asx.securities.t24.itch.v1.13.sideofbuyer", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.side_of_seller = ProtoField.new("Side Of Seller", "asx.securities.t24.itch.v1.13.sideofseller", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.source_id = ProtoField.new("Source Id", "asx.securities.t24.itch.v1.13.sourceid", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.spread_trade_price = ProtoField.new("Spread Trade Price", "asx.securities.t24.itch.v1.13.spreadtradeprice", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.spread_trade_price = ProtoField.new("Spread Trade Price", "asx.securities.t24.itch.v1.13.spreadtradeprice", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.strike = ProtoField.new("Strike", "asx.securities.t24.itch.v1.13.strike", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.strike_price_decimal_position = ProtoField.new("Strike Price Decimal Position", "asx.securities.t24.itch.v1.13.strikepricedecimalposition", ftypes.UINT8)
 omi_asx_securities_t24_itch_v1_13.fields.strike_price_fractional_denominator = ProtoField.new("Strike Price Fractional Denominator", "asx.securities.t24.itch.v1.13.strikepricefractionaldenominator", ftypes.UINT32)
@@ -137,7 +115,7 @@ omi_asx_securities_t24_itch_v1_13.fields.total_traded_volume = ProtoField.new("T
 omi_asx_securities_t24_itch_v1_13.fields.total_traded_volume_and_total_trades = ProtoField.new("Total Traded Volume and Total Trades", "asx.securities.t24.itch.v1.13.totaltradedvolumeandtotaltrades", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
 omi_asx_securities_t24_itch_v1_13.fields.total_trades = ProtoField.new("Total Trades", "asx.securities.t24.itch.v1.13.totaltrades", ftypes.UINT32)
 omi_asx_securities_t24_itch_v1_13.fields.trade_date = ProtoField.new("Trade Date", "asx.securities.t24.itch.v1.13.tradedate", ftypes.UINT16)
-omi_asx_securities_t24_itch_v1_13.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.t24.itch.v1.13.tradeprice", ftypes.INT32)
+omi_asx_securities_t24_itch_v1_13.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.t24.itch.v1.13.tradeprice", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.trade_side_of_leg = ProtoField.new("Trade Side Of Leg", "asx.securities.t24.itch.v1.13.tradesideofleg", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.trade_side_of_non_custom_order = ProtoField.new("Trade Side Of Non Custom Order", "asx.securities.t24.itch.v1.13.tradesideofnoncustomorder", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.trade_type = ProtoField.new("Trade Type", "asx.securities.t24.itch.v1.13.tradetype", ftypes.STRING)
@@ -148,39 +126,40 @@ omi_asx_securities_t24_itch_v1_13.fields.underlying_contract_number = ProtoField
 omi_asx_securities_t24_itch_v1_13.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.securities.t24.itch.v1.13.voitradedate", ftypes.UINT16)
 omi_asx_securities_t24_itch_v1_13.fields.volatility = ProtoField.new("Volatility", "asx.securities.t24.itch.v1.13.volatility", ftypes.UINT32)
 
--- Asx Securities T24 Itch 1.13 messages
-omi_asx_securities_t24_itch_v1_13.fields.ad_hoc_text = ProtoField.new("Ad Hoc Text", "asx.securities.t24.itch.v1.13.adhoctext", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.anomalous_order_threshold_publish = ProtoField.new("Anomalous Order Threshold Publish", "asx.securities.t24.itch.v1.13.anomalousorderthresholdpublish", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.custom_market_executed = ProtoField.new("Custom Market Executed", "asx.securities.t24.itch.v1.13.custommarketexecuted", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_added = ProtoField.new("Custom Market Order Added", "asx.securities.t24.itch.v1.13.custommarketorderadded", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_deleted = ProtoField.new("Custom Market Order Deleted", "asx.securities.t24.itch.v1.13.custommarketorderdeleted", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_replaced = ProtoField.new("Custom Market Order Replaced", "asx.securities.t24.itch.v1.13.custommarketorderreplaced", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.custom_market_trade = ProtoField.new("Custom Market Trade", "asx.securities.t24.itch.v1.13.custommarkettrade", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.equilibrium_price_auction_info = ProtoField.new("Equilibrium Price Auction Info", "asx.securities.t24.itch.v1.13.equilibriumpriceauctioninfo", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.future_symbol_directory = ProtoField.new("Future Symbol Directory", "asx.securities.t24.itch.v1.13.futuresymboldirectory", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.implied_order_added = ProtoField.new("Implied Order Added", "asx.securities.t24.itch.v1.13.impliedorderadded", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.implied_order_deleted = ProtoField.new("Implied Order Deleted", "asx.securities.t24.itch.v1.13.impliedorderdeleted", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.implied_order_replaced = ProtoField.new("Implied Order Replaced", "asx.securities.t24.itch.v1.13.impliedorderreplaced", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.market_settlement = ProtoField.new("Market Settlement", "asx.securities.t24.itch.v1.13.marketsettlement", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.open_high_low_last_trade_adjustment = ProtoField.new("Open High Low Last Trade Adjustment", "asx.securities.t24.itch.v1.13.openhighlowlasttradeadjustment", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.option_symbol_directory = ProtoField.new("Option Symbol Directory", "asx.securities.t24.itch.v1.13.optionsymboldirectory", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.order_added = ProtoField.new("Order Added", "asx.securities.t24.itch.v1.13.orderadded", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.order_book_state = ProtoField.new("Order Book State", "asx.securities.t24.itch.v1.13.orderbookstate", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.order_deleted = ProtoField.new("Order Deleted", "asx.securities.t24.itch.v1.13.orderdeleted", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.order_executed = ProtoField.new("Order Executed", "asx.securities.t24.itch.v1.13.orderexecuted", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.order_executed_with_price = ProtoField.new("Order Executed With Price", "asx.securities.t24.itch.v1.13.orderexecutedwithprice", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.order_replaced = ProtoField.new("Order Replaced", "asx.securities.t24.itch.v1.13.orderreplaced", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.order_volume_cancelled = ProtoField.new("Order Volume Cancelled", "asx.securities.t24.itch.v1.13.ordervolumecancelled", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.request_for_quote = ProtoField.new("Request For Quote", "asx.securities.t24.itch.v1.13.requestforquote", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.spread_executed = ProtoField.new("Spread Executed", "asx.securities.t24.itch.v1.13.spreadexecuted", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.spread_symbol_directory = ProtoField.new("Spread Symbol Directory", "asx.securities.t24.itch.v1.13.spreadsymboldirectory", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.system_event = ProtoField.new("System Event", "asx.securities.t24.itch.v1.13.systemevent", ftypes.STRING)
+-- Asx Securities Itch T24 1.13 Application Messages
+omi_asx_securities_t24_itch_v1_13.fields.ad_hoc_text_message = ProtoField.new("Ad Hoc Text Message", "asx.securities.t24.itch.v1.13.adhoctextmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.anomalous_order_threshold_publish_message = ProtoField.new("Anomalous Order Threshold Publish Message", "asx.securities.t24.itch.v1.13.anomalousorderthresholdpublishmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.custom_market_executed_message = ProtoField.new("Custom Market Executed Message", "asx.securities.t24.itch.v1.13.custommarketexecutedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_added_message = ProtoField.new("Custom Market Order Added Message", "asx.securities.t24.itch.v1.13.custommarketorderaddedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_deleted_message = ProtoField.new("Custom Market Order Deleted Message", "asx.securities.t24.itch.v1.13.custommarketorderdeletedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_replaced_message = ProtoField.new("Custom Market Order Replaced Message", "asx.securities.t24.itch.v1.13.custommarketorderreplacedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.custom_market_trade_message = ProtoField.new("Custom Market Trade Message", "asx.securities.t24.itch.v1.13.custommarkettrademessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.equilibrium_price_auction_info_message = ProtoField.new("Equilibrium Price Auction Info Message", "asx.securities.t24.itch.v1.13.equilibriumpriceauctioninfomessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.future_symbol_directory_message = ProtoField.new("Future Symbol Directory Message", "asx.securities.t24.itch.v1.13.futuresymboldirectorymessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.implied_order_added_message = ProtoField.new("Implied Order Added Message", "asx.securities.t24.itch.v1.13.impliedorderaddedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.implied_order_deleted_message = ProtoField.new("Implied Order Deleted Message", "asx.securities.t24.itch.v1.13.impliedorderdeletedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.implied_order_replaced_message = ProtoField.new("Implied Order Replaced Message", "asx.securities.t24.itch.v1.13.impliedorderreplacedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.market_settlement_message = ProtoField.new("Market Settlement Message", "asx.securities.t24.itch.v1.13.marketsettlementmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.open_high_low_last_trade_adjustment_message = ProtoField.new("Open High Low Last Trade Adjustment Message", "asx.securities.t24.itch.v1.13.openhighlowlasttradeadjustmentmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.option_symbol_directory_message = ProtoField.new("Option Symbol Directory Message", "asx.securities.t24.itch.v1.13.optionsymboldirectorymessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.order_added_message = ProtoField.new("Order Added Message", "asx.securities.t24.itch.v1.13.orderaddedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.order_book_state_message = ProtoField.new("Order Book State Message", "asx.securities.t24.itch.v1.13.orderbookstatemessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "asx.securities.t24.itch.v1.13.orderdeletedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.order_executed_message = ProtoField.new("Order Executed Message", "asx.securities.t24.itch.v1.13.orderexecutedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.order_executed_with_price_message = ProtoField.new("Order Executed With Price Message", "asx.securities.t24.itch.v1.13.orderexecutedwithpricemessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "asx.securities.t24.itch.v1.13.orderreplacedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.order_volume_cancelled_message = ProtoField.new("Order Volume Cancelled Message", "asx.securities.t24.itch.v1.13.ordervolumecancelledmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.request_for_quote_message = ProtoField.new("Request For Quote Message", "asx.securities.t24.itch.v1.13.requestforquotemessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.spread_executed_message = ProtoField.new("Spread Executed Message", "asx.securities.t24.itch.v1.13.spreadexecutedmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.spread_symbol_directory_message = ProtoField.new("Spread Symbol Directory Message", "asx.securities.t24.itch.v1.13.spreadsymboldirectorymessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.system_event_message = ProtoField.new("System Event Message", "asx.securities.t24.itch.v1.13.systemeventmessage", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.time_message = ProtoField.new("Time Message", "asx.securities.t24.itch.v1.13.timemessage", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.trade_cancellation = ProtoField.new("Trade Cancellation", "asx.securities.t24.itch.v1.13.tradecancellation", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.trade_spread_execution_chain = ProtoField.new("Trade Spread Execution Chain", "asx.securities.t24.itch.v1.13.tradespreadexecutionchain", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.volume_and_open_interest = ProtoField.new("Volume And Open Interest", "asx.securities.t24.itch.v1.13.volumeandopeninterest", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.trade_cancellation_message = ProtoField.new("Trade Cancellation Message", "asx.securities.t24.itch.v1.13.tradecancellationmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.trade_spread_execution_chain_message = ProtoField.new("Trade Spread Execution Chain Message", "asx.securities.t24.itch.v1.13.tradespreadexecutionchainmessage", ftypes.STRING)
+omi_asx_securities_t24_itch_v1_13.fields.volume_and_open_interest_message = ProtoField.new("Volume And Open Interest Message", "asx.securities.t24.itch.v1.13.volumeandopeninterestmessage", ftypes.STRING)
 
 -- Asx Securities T24 Itch 1.13 generated fields
+omi_asx_securities_t24_itch_v1_13.fields.contract_legs_index = ProtoField.new("Contract Legs Index", "asx.securities.t24.itch.v1.13.contractlegsindex", ftypes.UINT16)
 omi_asx_securities_t24_itch_v1_13.fields.message_index = ProtoField.new("Message Index", "asx.securities.t24.itch.v1.13.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -190,81 +169,83 @@ omi_asx_securities_t24_itch_v1_13.fields.message_index = ProtoField.new("Message
 local show = {}
 
 -- Asx Securities T24 Itch 1.13 Element Dissection Options
-show.ad_hoc_text = true
-show.anomalous_order_threshold_publish = true
-show.custom_market_executed = true
-show.custom_market_order_added = true
-show.custom_market_order_deleted = true
-show.custom_market_order_replaced = true
-show.custom_market_trade = true
-show.equilibrium_price_auction_info = true
-show.future_symbol_directory = true
-show.implied_order_added = true
-show.implied_order_deleted = true
-show.implied_order_replaced = true
-show.market_settlement = true
+show.ad_hoc_text_message = true
+show.anomalous_order_threshold_publish_message = true
+show.contract_legs = true
+show.custom_market_executed_message = true
+show.custom_market_order_added_message = true
+show.custom_market_order_deleted_message = true
+show.custom_market_order_replaced_message = true
+show.custom_market_trade_message = true
+show.equilibrium_price_auction_info_message = true
+show.future_symbol_directory_message = true
+show.implied_order_added_message = true
+show.implied_order_deleted_message = true
+show.implied_order_replaced_message = true
+show.market_settlement_message = true
 show.market_updates = true
 show.message = true
 show.message_header = true
-show.open_high_low_last_trade_adjustment = true
-show.option_symbol_directory = true
-show.order_added = true
-show.order_book_state = true
-show.order_deleted = true
-show.order_executed = true
-show.order_executed_with_price = true
-show.order_replaced = true
-show.order_volume_cancelled = true
+show.open_high_low_last_trade_adjustment_message = true
+show.option_symbol_directory_message = true
+show.order_added_message = true
+show.order_book_state_message = true
+show.order_deleted_message = true
+show.order_executed_message = true
+show.order_executed_with_price_message = true
+show.order_replaced_message = true
+show.order_volume_cancelled_message = true
 show.packet = true
 show.packet_header = true
-show.request_for_quote = true
+show.request_for_quote_message = true
 show.session = true
-show.spread_executed = true
-show.spread_symbol_directory = true
-show.system_event = true
+show.spread_executed_message = true
+show.spread_symbol_directory_message = true
+show.system_event_message = true
 show.time_message = true
-show.trade_cancellation = true
-show.trade_spread_execution_chain = true
-show.volume_and_open_interest = true
+show.trade_cancellation_message = true
+show.trade_spread_execution_chain_message = true
+show.volume_and_open_interest_message = true
 show.payload = false
 
 -- Register Asx Securities T24 Itch 1.13 Show Options
-omi_asx_securities_t24_itch_v1_13.prefs.show_ad_hoc_text = Pref.bool("Show Ad Hoc Text", show.ad_hoc_text, "Parse and add Ad Hoc Text to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish = Pref.bool("Show Anomalous Order Threshold Publish", show.anomalous_order_threshold_publish, "Parse and add Anomalous Order Threshold Publish to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_executed = Pref.bool("Show Custom Market Executed", show.custom_market_executed, "Parse and add Custom Market Executed to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_added = Pref.bool("Show Custom Market Order Added", show.custom_market_order_added, "Parse and add Custom Market Order Added to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_deleted = Pref.bool("Show Custom Market Order Deleted", show.custom_market_order_deleted, "Parse and add Custom Market Order Deleted to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_replaced = Pref.bool("Show Custom Market Order Replaced", show.custom_market_order_replaced, "Parse and add Custom Market Order Replaced to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_trade = Pref.bool("Show Custom Market Trade", show.custom_market_trade, "Parse and add Custom Market Trade to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info = Pref.bool("Show Equilibrium Price Auction Info", show.equilibrium_price_auction_info, "Parse and add Equilibrium Price Auction Info to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_future_symbol_directory = Pref.bool("Show Future Symbol Directory", show.future_symbol_directory, "Parse and add Future Symbol Directory to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_added = Pref.bool("Show Implied Order Added", show.implied_order_added, "Parse and add Implied Order Added to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_deleted = Pref.bool("Show Implied Order Deleted", show.implied_order_deleted, "Parse and add Implied Order Deleted to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_replaced = Pref.bool("Show Implied Order Replaced", show.implied_order_replaced, "Parse and add Implied Order Replaced to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_market_settlement = Pref.bool("Show Market Settlement", show.market_settlement, "Parse and add Market Settlement to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_ad_hoc_text_message = Pref.bool("Show Ad Hoc Text Message", show.ad_hoc_text_message, "Parse and add Ad Hoc Text Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish_message = Pref.bool("Show Anomalous Order Threshold Publish Message", show.anomalous_order_threshold_publish_message, "Parse and add Anomalous Order Threshold Publish Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs = Pref.bool("Show Contract Legs", show.contract_legs, "Parse and add Contract Legs to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_executed_message = Pref.bool("Show Custom Market Executed Message", show.custom_market_executed_message, "Parse and add Custom Market Executed Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_added_message = Pref.bool("Show Custom Market Order Added Message", show.custom_market_order_added_message, "Parse and add Custom Market Order Added Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_deleted_message = Pref.bool("Show Custom Market Order Deleted Message", show.custom_market_order_deleted_message, "Parse and add Custom Market Order Deleted Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_replaced_message = Pref.bool("Show Custom Market Order Replaced Message", show.custom_market_order_replaced_message, "Parse and add Custom Market Order Replaced Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_trade_message = Pref.bool("Show Custom Market Trade Message", show.custom_market_trade_message, "Parse and add Custom Market Trade Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info_message = Pref.bool("Show Equilibrium Price Auction Info Message", show.equilibrium_price_auction_info_message, "Parse and add Equilibrium Price Auction Info Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_future_symbol_directory_message = Pref.bool("Show Future Symbol Directory Message", show.future_symbol_directory_message, "Parse and add Future Symbol Directory Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_added_message = Pref.bool("Show Implied Order Added Message", show.implied_order_added_message, "Parse and add Implied Order Added Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_deleted_message = Pref.bool("Show Implied Order Deleted Message", show.implied_order_deleted_message, "Parse and add Implied Order Deleted Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_replaced_message = Pref.bool("Show Implied Order Replaced Message", show.implied_order_replaced_message, "Parse and add Implied Order Replaced Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_market_settlement_message = Pref.bool("Show Market Settlement Message", show.market_settlement_message, "Parse and add Market Settlement Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_market_updates = Pref.bool("Show Market Updates", show.market_updates, "Parse and add Market Updates to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment = Pref.bool("Show Open High Low Last Trade Adjustment", show.open_high_low_last_trade_adjustment, "Parse and add Open High Low Last Trade Adjustment to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_option_symbol_directory = Pref.bool("Show Option Symbol Directory", show.option_symbol_directory, "Parse and add Option Symbol Directory to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_added = Pref.bool("Show Order Added", show.order_added, "Parse and add Order Added to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_book_state = Pref.bool("Show Order Book State", show.order_book_state, "Parse and add Order Book State to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_deleted = Pref.bool("Show Order Deleted", show.order_deleted, "Parse and add Order Deleted to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed = Pref.bool("Show Order Executed", show.order_executed, "Parse and add Order Executed to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_with_price = Pref.bool("Show Order Executed With Price", show.order_executed_with_price, "Parse and add Order Executed With Price to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_replaced = Pref.bool("Show Order Replaced", show.order_replaced, "Parse and add Order Replaced to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_volume_cancelled = Pref.bool("Show Order Volume Cancelled", show.order_volume_cancelled, "Parse and add Order Volume Cancelled to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment_message = Pref.bool("Show Open High Low Last Trade Adjustment Message", show.open_high_low_last_trade_adjustment_message, "Parse and add Open High Low Last Trade Adjustment Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_option_symbol_directory_message = Pref.bool("Show Option Symbol Directory Message", show.option_symbol_directory_message, "Parse and add Option Symbol Directory Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_order_added_message = Pref.bool("Show Order Added Message", show.order_added_message, "Parse and add Order Added Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_order_book_state_message = Pref.bool("Show Order Book State Message", show.order_book_state_message, "Parse and add Order Book State Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_with_price_message = Pref.bool("Show Order Executed With Price Message", show.order_executed_with_price_message, "Parse and add Order Executed With Price Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_order_volume_cancelled_message = Pref.bool("Show Order Volume Cancelled Message", show.order_volume_cancelled_message, "Parse and add Order Volume Cancelled Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_request_for_quote = Pref.bool("Show Request For Quote", show.request_for_quote, "Parse and add Request For Quote to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_request_for_quote_message = Pref.bool("Show Request For Quote Message", show.request_for_quote_message, "Parse and add Request For Quote Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_session = Pref.bool("Show Session", show.session, "Parse and add Session to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_spread_executed = Pref.bool("Show Spread Executed", show.spread_executed, "Parse and add Spread Executed to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_spread_symbol_directory = Pref.bool("Show Spread Symbol Directory", show.spread_symbol_directory, "Parse and add Spread Symbol Directory to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_system_event = Pref.bool("Show System Event", show.system_event, "Parse and add System Event to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_spread_executed_message = Pref.bool("Show Spread Executed Message", show.spread_executed_message, "Parse and add Spread Executed Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_spread_symbol_directory_message = Pref.bool("Show Spread Symbol Directory Message", show.spread_symbol_directory_message, "Parse and add Spread Symbol Directory Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_trade_cancellation = Pref.bool("Show Trade Cancellation", show.trade_cancellation, "Parse and add Trade Cancellation to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_trade_spread_execution_chain = Pref.bool("Show Trade Spread Execution Chain", show.trade_spread_execution_chain, "Parse and add Trade Spread Execution Chain to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest = Pref.bool("Show Volume And Open Interest", show.volume_and_open_interest, "Parse and add Volume And Open Interest to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_trade_cancellation_message = Pref.bool("Show Trade Cancellation Message", show.trade_cancellation_message, "Parse and add Trade Cancellation Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_trade_spread_execution_chain_message = Pref.bool("Show Trade Spread Execution Chain Message", show.trade_spread_execution_chain_message, "Parse and add Trade Spread Execution Chain Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest_message = Pref.bool("Show Volume And Open Interest Message", show.volume_and_open_interest_message, "Parse and add Volume And Open Interest Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
@@ -272,56 +253,60 @@ function omi_asx_securities_t24_itch_v1_13.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.ad_hoc_text ~= omi_asx_securities_t24_itch_v1_13.prefs.show_ad_hoc_text then
-    show.ad_hoc_text = omi_asx_securities_t24_itch_v1_13.prefs.show_ad_hoc_text
+  if show.ad_hoc_text_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_ad_hoc_text_message then
+    show.ad_hoc_text_message = omi_asx_securities_t24_itch_v1_13.prefs.show_ad_hoc_text_message
     changed = true
   end
-  if show.anomalous_order_threshold_publish ~= omi_asx_securities_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish then
-    show.anomalous_order_threshold_publish = omi_asx_securities_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish
+  if show.anomalous_order_threshold_publish_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish_message then
+    show.anomalous_order_threshold_publish_message = omi_asx_securities_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish_message
     changed = true
   end
-  if show.custom_market_executed ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_executed then
-    show.custom_market_executed = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_executed
+  if show.contract_legs ~= omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs then
+    show.contract_legs = omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs
     changed = true
   end
-  if show.custom_market_order_added ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_added then
-    show.custom_market_order_added = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_added
+  if show.custom_market_executed_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_executed_message then
+    show.custom_market_executed_message = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_executed_message
     changed = true
   end
-  if show.custom_market_order_deleted ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_deleted then
-    show.custom_market_order_deleted = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_deleted
+  if show.custom_market_order_added_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_added_message then
+    show.custom_market_order_added_message = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_added_message
     changed = true
   end
-  if show.custom_market_order_replaced ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_replaced then
-    show.custom_market_order_replaced = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_replaced
+  if show.custom_market_order_deleted_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_deleted_message then
+    show.custom_market_order_deleted_message = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_deleted_message
     changed = true
   end
-  if show.custom_market_trade ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_trade then
-    show.custom_market_trade = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_trade
+  if show.custom_market_order_replaced_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_replaced_message then
+    show.custom_market_order_replaced_message = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_replaced_message
     changed = true
   end
-  if show.equilibrium_price_auction_info ~= omi_asx_securities_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info then
-    show.equilibrium_price_auction_info = omi_asx_securities_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info
+  if show.custom_market_trade_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_trade_message then
+    show.custom_market_trade_message = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_trade_message
     changed = true
   end
-  if show.future_symbol_directory ~= omi_asx_securities_t24_itch_v1_13.prefs.show_future_symbol_directory then
-    show.future_symbol_directory = omi_asx_securities_t24_itch_v1_13.prefs.show_future_symbol_directory
+  if show.equilibrium_price_auction_info_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info_message then
+    show.equilibrium_price_auction_info_message = omi_asx_securities_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info_message
     changed = true
   end
-  if show.implied_order_added ~= omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_added then
-    show.implied_order_added = omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_added
+  if show.future_symbol_directory_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_future_symbol_directory_message then
+    show.future_symbol_directory_message = omi_asx_securities_t24_itch_v1_13.prefs.show_future_symbol_directory_message
     changed = true
   end
-  if show.implied_order_deleted ~= omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_deleted then
-    show.implied_order_deleted = omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_deleted
+  if show.implied_order_added_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_added_message then
+    show.implied_order_added_message = omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_added_message
     changed = true
   end
-  if show.implied_order_replaced ~= omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_replaced then
-    show.implied_order_replaced = omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_replaced
+  if show.implied_order_deleted_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_deleted_message then
+    show.implied_order_deleted_message = omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_deleted_message
     changed = true
   end
-  if show.market_settlement ~= omi_asx_securities_t24_itch_v1_13.prefs.show_market_settlement then
-    show.market_settlement = omi_asx_securities_t24_itch_v1_13.prefs.show_market_settlement
+  if show.implied_order_replaced_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_replaced_message then
+    show.implied_order_replaced_message = omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_replaced_message
+    changed = true
+  end
+  if show.market_settlement_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_market_settlement_message then
+    show.market_settlement_message = omi_asx_securities_t24_itch_v1_13.prefs.show_market_settlement_message
     changed = true
   end
   if show.market_updates ~= omi_asx_securities_t24_itch_v1_13.prefs.show_market_updates then
@@ -336,40 +321,40 @@ function omi_asx_securities_t24_itch_v1_13.prefs_changed()
     show.message_header = omi_asx_securities_t24_itch_v1_13.prefs.show_message_header
     changed = true
   end
-  if show.open_high_low_last_trade_adjustment ~= omi_asx_securities_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment then
-    show.open_high_low_last_trade_adjustment = omi_asx_securities_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment
+  if show.open_high_low_last_trade_adjustment_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment_message then
+    show.open_high_low_last_trade_adjustment_message = omi_asx_securities_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment_message
     changed = true
   end
-  if show.option_symbol_directory ~= omi_asx_securities_t24_itch_v1_13.prefs.show_option_symbol_directory then
-    show.option_symbol_directory = omi_asx_securities_t24_itch_v1_13.prefs.show_option_symbol_directory
+  if show.option_symbol_directory_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_option_symbol_directory_message then
+    show.option_symbol_directory_message = omi_asx_securities_t24_itch_v1_13.prefs.show_option_symbol_directory_message
     changed = true
   end
-  if show.order_added ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_added then
-    show.order_added = omi_asx_securities_t24_itch_v1_13.prefs.show_order_added
+  if show.order_added_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_added_message then
+    show.order_added_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_added_message
     changed = true
   end
-  if show.order_book_state ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_book_state then
-    show.order_book_state = omi_asx_securities_t24_itch_v1_13.prefs.show_order_book_state
+  if show.order_book_state_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_book_state_message then
+    show.order_book_state_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_book_state_message
     changed = true
   end
-  if show.order_deleted ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_deleted then
-    show.order_deleted = omi_asx_securities_t24_itch_v1_13.prefs.show_order_deleted
+  if show.order_deleted_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_deleted_message then
+    show.order_deleted_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_deleted_message
     changed = true
   end
-  if show.order_executed ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed then
-    show.order_executed = omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed
+  if show.order_executed_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_message then
+    show.order_executed_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_executed_with_price ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_with_price then
-    show.order_executed_with_price = omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_with_price
+  if show.order_executed_with_price_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_with_price_message then
+    show.order_executed_with_price_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_with_price_message
     changed = true
   end
-  if show.order_replaced ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_replaced then
-    show.order_replaced = omi_asx_securities_t24_itch_v1_13.prefs.show_order_replaced
+  if show.order_replaced_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_replaced_message then
+    show.order_replaced_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_replaced_message
     changed = true
   end
-  if show.order_volume_cancelled ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_volume_cancelled then
-    show.order_volume_cancelled = omi_asx_securities_t24_itch_v1_13.prefs.show_order_volume_cancelled
+  if show.order_volume_cancelled_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_volume_cancelled_message then
+    show.order_volume_cancelled_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_volume_cancelled_message
     changed = true
   end
   if show.packet ~= omi_asx_securities_t24_itch_v1_13.prefs.show_packet then
@@ -380,40 +365,40 @@ function omi_asx_securities_t24_itch_v1_13.prefs_changed()
     show.packet_header = omi_asx_securities_t24_itch_v1_13.prefs.show_packet_header
     changed = true
   end
-  if show.request_for_quote ~= omi_asx_securities_t24_itch_v1_13.prefs.show_request_for_quote then
-    show.request_for_quote = omi_asx_securities_t24_itch_v1_13.prefs.show_request_for_quote
+  if show.request_for_quote_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_request_for_quote_message then
+    show.request_for_quote_message = omi_asx_securities_t24_itch_v1_13.prefs.show_request_for_quote_message
     changed = true
   end
   if show.session ~= omi_asx_securities_t24_itch_v1_13.prefs.show_session then
     show.session = omi_asx_securities_t24_itch_v1_13.prefs.show_session
     changed = true
   end
-  if show.spread_executed ~= omi_asx_securities_t24_itch_v1_13.prefs.show_spread_executed then
-    show.spread_executed = omi_asx_securities_t24_itch_v1_13.prefs.show_spread_executed
+  if show.spread_executed_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_spread_executed_message then
+    show.spread_executed_message = omi_asx_securities_t24_itch_v1_13.prefs.show_spread_executed_message
     changed = true
   end
-  if show.spread_symbol_directory ~= omi_asx_securities_t24_itch_v1_13.prefs.show_spread_symbol_directory then
-    show.spread_symbol_directory = omi_asx_securities_t24_itch_v1_13.prefs.show_spread_symbol_directory
+  if show.spread_symbol_directory_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_spread_symbol_directory_message then
+    show.spread_symbol_directory_message = omi_asx_securities_t24_itch_v1_13.prefs.show_spread_symbol_directory_message
     changed = true
   end
-  if show.system_event ~= omi_asx_securities_t24_itch_v1_13.prefs.show_system_event then
-    show.system_event = omi_asx_securities_t24_itch_v1_13.prefs.show_system_event
+  if show.system_event_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_system_event_message then
+    show.system_event_message = omi_asx_securities_t24_itch_v1_13.prefs.show_system_event_message
     changed = true
   end
   if show.time_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_time_message then
     show.time_message = omi_asx_securities_t24_itch_v1_13.prefs.show_time_message
     changed = true
   end
-  if show.trade_cancellation ~= omi_asx_securities_t24_itch_v1_13.prefs.show_trade_cancellation then
-    show.trade_cancellation = omi_asx_securities_t24_itch_v1_13.prefs.show_trade_cancellation
+  if show.trade_cancellation_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_trade_cancellation_message then
+    show.trade_cancellation_message = omi_asx_securities_t24_itch_v1_13.prefs.show_trade_cancellation_message
     changed = true
   end
-  if show.trade_spread_execution_chain ~= omi_asx_securities_t24_itch_v1_13.prefs.show_trade_spread_execution_chain then
-    show.trade_spread_execution_chain = omi_asx_securities_t24_itch_v1_13.prefs.show_trade_spread_execution_chain
+  if show.trade_spread_execution_chain_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_trade_spread_execution_chain_message then
+    show.trade_spread_execution_chain_message = omi_asx_securities_t24_itch_v1_13.prefs.show_trade_spread_execution_chain_message
     changed = true
   end
-  if show.volume_and_open_interest ~= omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest then
-    show.volume_and_open_interest = omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest
+  if show.volume_and_open_interest_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest_message then
+    show.volume_and_open_interest_message = omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest_message
     changed = true
   end
   if show.payload ~= omi_asx_securities_t24_itch_v1_13.prefs.show_payload then
@@ -588,11 +573,11 @@ asx_securities_t24_itch_v1_13.timestamp.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Volume And Open Interest
-asx_securities_t24_itch_v1_13.volume_and_open_interest = {}
+-- Volume And Open Interest Message
+asx_securities_t24_itch_v1_13.volume_and_open_interest_message = {}
 
--- Size: Volume And Open Interest
-asx_securities_t24_itch_v1_13.volume_and_open_interest.size =
+-- Size: Volume And Open Interest Message
+asx_securities_t24_itch_v1_13.volume_and_open_interest_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -600,51 +585,51 @@ asx_securities_t24_itch_v1_13.volume_and_open_interest.size =
   asx_securities_t24_itch_v1_13.open_interest.size + 
   asx_securities_t24_itch_v1_13.voi_trade_date.size
 
--- Display: Volume And Open Interest
-asx_securities_t24_itch_v1_13.volume_and_open_interest.display = function(packet, parent, length)
+-- Display: Volume And Open Interest Message
+asx_securities_t24_itch_v1_13.volume_and_open_interest_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Volume And Open Interest
-asx_securities_t24_itch_v1_13.volume_and_open_interest.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Volume And Open Interest Message
+asx_securities_t24_itch_v1_13.volume_and_open_interest_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Cumulative Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Cumulative Volume: Numeric
   index, cumulative_volume = asx_securities_t24_itch_v1_13.cumulative_volume.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: 4 Byte Unsigned Fixed Width Integer
+  -- Open Interest: Numeric
   index, open_interest = asx_securities_t24_itch_v1_13.open_interest.dissect(buffer, index, packet, parent)
 
-  -- Voi Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Voi Trade Date: Numeric
   index, voi_trade_date = asx_securities_t24_itch_v1_13.voi_trade_date.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Volume And Open Interest
-asx_securities_t24_itch_v1_13.volume_and_open_interest.dissect = function(buffer, offset, packet, parent)
-  if show.volume_and_open_interest then
+-- Dissect: Volume And Open Interest Message
+asx_securities_t24_itch_v1_13.volume_and_open_interest_message.dissect = function(buffer, offset, packet, parent)
+  if show.volume_and_open_interest_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.volume_and_open_interest, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.volume_and_open_interest.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.volume_and_open_interest_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.volume_and_open_interest_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.volume_and_open_interest.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.volume_and_open_interest_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.volume_and_open_interest.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.volume_and_open_interest_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -659,11 +644,17 @@ asx_securities_t24_itch_v1_13.etr_lower_price.display = function(value)
   return "Etr Lower Price: "..value
 end
 
+-- Translate: Etr Lower Price
+asx_securities_t24_itch_v1_13.etr_lower_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Etr Lower Price
 asx_securities_t24_itch_v1_13.etr_lower_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.etr_lower_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.etr_lower_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.etr_lower_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.etr_lower_price, range, value, display)
@@ -682,11 +673,17 @@ asx_securities_t24_itch_v1_13.etr_upper_price.display = function(value)
   return "Etr Upper Price: "..value
 end
 
+-- Translate: Etr Upper Price
+asx_securities_t24_itch_v1_13.etr_upper_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Etr Upper Price
 asx_securities_t24_itch_v1_13.etr_upper_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.etr_upper_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.etr_upper_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.etr_upper_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.etr_upper_price, range, value, display)
@@ -705,11 +702,17 @@ asx_securities_t24_itch_v1_13.etr_price.display = function(value)
   return "Etr Price: "..value
 end
 
+-- Translate: Etr Price
+asx_securities_t24_itch_v1_13.etr_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Etr Price
 asx_securities_t24_itch_v1_13.etr_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.etr_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.etr_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.etr_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.etr_price, range, value, display)
@@ -728,11 +731,17 @@ asx_securities_t24_itch_v1_13.aot_lower_price.display = function(value)
   return "Aot Lower Price: "..value
 end
 
+-- Translate: Aot Lower Price
+asx_securities_t24_itch_v1_13.aot_lower_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Aot Lower Price
 asx_securities_t24_itch_v1_13.aot_lower_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.aot_lower_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.aot_lower_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.aot_lower_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.aot_lower_price, range, value, display)
@@ -751,11 +760,17 @@ asx_securities_t24_itch_v1_13.aot_upper_price.display = function(value)
   return "Aot Upper Price: "..value
 end
 
+-- Translate: Aot Upper Price
+asx_securities_t24_itch_v1_13.aot_upper_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Aot Upper Price
 asx_securities_t24_itch_v1_13.aot_upper_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.aot_upper_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.aot_upper_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.aot_upper_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.aot_upper_price, range, value, display)
@@ -774,11 +789,17 @@ asx_securities_t24_itch_v1_13.aot_price.display = function(value)
   return "Aot Price: "..value
 end
 
+-- Translate: Aot Price
+asx_securities_t24_itch_v1_13.aot_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Aot Price
 asx_securities_t24_itch_v1_13.aot_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.aot_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.aot_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.aot_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.aot_price, range, value, display)
@@ -786,11 +807,11 @@ asx_securities_t24_itch_v1_13.aot_price.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Anomalous Order Threshold Publish
-asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish = {}
+-- Anomalous Order Threshold Publish Message
+asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message = {}
 
--- Size: Anomalous Order Threshold Publish
-asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.size =
+-- Size: Anomalous Order Threshold Publish Message
+asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -801,60 +822,60 @@ asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.size =
   asx_securities_t24_itch_v1_13.etr_upper_price.size + 
   asx_securities_t24_itch_v1_13.etr_lower_price.size
 
--- Display: Anomalous Order Threshold Publish
-asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.display = function(packet, parent, length)
+-- Display: Anomalous Order Threshold Publish Message
+asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Anomalous Order Threshold Publish
-asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Anomalous Order Threshold Publish Message
+asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Aot Price: 4 Byte Signed Fixed Width Integer
+  -- Aot Price: Price
   index, aot_price = asx_securities_t24_itch_v1_13.aot_price.dissect(buffer, index, packet, parent)
 
-  -- Aot Upper Price: 4 Byte Signed Fixed Width Integer
+  -- Aot Upper Price: Price
   index, aot_upper_price = asx_securities_t24_itch_v1_13.aot_upper_price.dissect(buffer, index, packet, parent)
 
-  -- Aot Lower Price: 4 Byte Signed Fixed Width Integer
+  -- Aot Lower Price: Price
   index, aot_lower_price = asx_securities_t24_itch_v1_13.aot_lower_price.dissect(buffer, index, packet, parent)
 
-  -- Etr Price: 4 Byte Signed Fixed Width Integer
+  -- Etr Price: Price
   index, etr_price = asx_securities_t24_itch_v1_13.etr_price.dissect(buffer, index, packet, parent)
 
-  -- Etr Upper Price: 4 Byte Signed Fixed Width Integer
+  -- Etr Upper Price: Price
   index, etr_upper_price = asx_securities_t24_itch_v1_13.etr_upper_price.dissect(buffer, index, packet, parent)
 
-  -- Etr Lower Price: 4 Byte Signed Fixed Width Integer
+  -- Etr Lower Price: Price
   index, etr_lower_price = asx_securities_t24_itch_v1_13.etr_lower_price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Anomalous Order Threshold Publish
-asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.dissect = function(buffer, offset, packet, parent)
-  if show.anomalous_order_threshold_publish then
+-- Dissect: Anomalous Order Threshold Publish Message
+asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.dissect = function(buffer, offset, packet, parent)
+  if show.anomalous_order_threshold_publish_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.anomalous_order_threshold_publish, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.anomalous_order_threshold_publish_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -892,11 +913,17 @@ asx_securities_t24_itch_v1_13.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+asx_securities_t24_itch_v1_13.price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price
 asx_securities_t24_itch_v1_13.price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.price, range, value, display)
@@ -904,59 +931,59 @@ asx_securities_t24_itch_v1_13.price.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Request For Quote
-asx_securities_t24_itch_v1_13.request_for_quote = {}
+-- Request For Quote Message
+asx_securities_t24_itch_v1_13.request_for_quote_message = {}
 
--- Size: Request For Quote
-asx_securities_t24_itch_v1_13.request_for_quote.size =
+-- Size: Request For Quote Message
+asx_securities_t24_itch_v1_13.request_for_quote_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
   asx_securities_t24_itch_v1_13.price.size + 
   asx_securities_t24_itch_v1_13.quantity.size
 
--- Display: Request For Quote
-asx_securities_t24_itch_v1_13.request_for_quote.display = function(packet, parent, length)
+-- Display: Request For Quote Message
+asx_securities_t24_itch_v1_13.request_for_quote_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Request For Quote
-asx_securities_t24_itch_v1_13.request_for_quote.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Request For Quote Message
+asx_securities_t24_itch_v1_13.request_for_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_t24_itch_v1_13.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_t24_itch_v1_13.quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Request For Quote
-asx_securities_t24_itch_v1_13.request_for_quote.dissect = function(buffer, offset, packet, parent)
-  if show.request_for_quote then
+-- Dissect: Request For Quote Message
+asx_securities_t24_itch_v1_13.request_for_quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.request_for_quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.request_for_quote, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.request_for_quote.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.request_for_quote_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.request_for_quote_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.request_for_quote.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.request_for_quote_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.request_for_quote.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.request_for_quote_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1006,55 +1033,55 @@ asx_securities_t24_itch_v1_13.source_id.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Ad Hoc Text
-asx_securities_t24_itch_v1_13.ad_hoc_text = {}
+-- Ad Hoc Text Message
+asx_securities_t24_itch_v1_13.ad_hoc_text_message = {}
 
--- Size: Ad Hoc Text
-asx_securities_t24_itch_v1_13.ad_hoc_text.size =
+-- Size: Ad Hoc Text Message
+asx_securities_t24_itch_v1_13.ad_hoc_text_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.source_id.size + 
   asx_securities_t24_itch_v1_13.text_message.size
 
--- Display: Ad Hoc Text
-asx_securities_t24_itch_v1_13.ad_hoc_text.display = function(packet, parent, length)
+-- Display: Ad Hoc Text Message
+asx_securities_t24_itch_v1_13.ad_hoc_text_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Ad Hoc Text
-asx_securities_t24_itch_v1_13.ad_hoc_text.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Ad Hoc Text Message
+asx_securities_t24_itch_v1_13.ad_hoc_text_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 6 Byte Ascii String
+  -- Source Id: Alpha
   index, source_id = asx_securities_t24_itch_v1_13.source_id.dissect(buffer, index, packet, parent)
 
-  -- Text Message: 100 Byte Ascii String
+  -- Text Message: Alpha
   index, text_message = asx_securities_t24_itch_v1_13.text_message.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Ad Hoc Text
-asx_securities_t24_itch_v1_13.ad_hoc_text.dissect = function(buffer, offset, packet, parent)
-  if show.ad_hoc_text then
+-- Dissect: Ad Hoc Text Message
+asx_securities_t24_itch_v1_13.ad_hoc_text_message.dissect = function(buffer, offset, packet, parent)
+  if show.ad_hoc_text_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.ad_hoc_text, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.ad_hoc_text.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.ad_hoc_text_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.ad_hoc_text_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.ad_hoc_text.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.ad_hoc_text_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.ad_hoc_text.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.ad_hoc_text_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1115,11 +1142,17 @@ asx_securities_t24_itch_v1_13.settlement_price.display = function(value)
   return "Settlement Price: "..value
 end
 
+-- Translate: Settlement Price
+asx_securities_t24_itch_v1_13.settlement_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Settlement Price
 asx_securities_t24_itch_v1_13.settlement_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.settlement_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.settlement_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.settlement_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.settlement_price, range, value, display)
@@ -1127,11 +1160,11 @@ asx_securities_t24_itch_v1_13.settlement_price.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Market Settlement
-asx_securities_t24_itch_v1_13.market_settlement = {}
+-- Market Settlement Message
+asx_securities_t24_itch_v1_13.market_settlement_message = {}
 
--- Size: Market Settlement
-asx_securities_t24_itch_v1_13.market_settlement.size =
+-- Size: Market Settlement Message
+asx_securities_t24_itch_v1_13.market_settlement_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -1139,51 +1172,51 @@ asx_securities_t24_itch_v1_13.market_settlement.size =
   asx_securities_t24_itch_v1_13.volatility.size + 
   asx_securities_t24_itch_v1_13.settlement_type.size
 
--- Display: Market Settlement
-asx_securities_t24_itch_v1_13.market_settlement.display = function(packet, parent, length)
+-- Display: Market Settlement Message
+asx_securities_t24_itch_v1_13.market_settlement_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Market Settlement
-asx_securities_t24_itch_v1_13.market_settlement.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Market Settlement Message
+asx_securities_t24_itch_v1_13.market_settlement_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price: 4 Byte Signed Fixed Width Integer
+  -- Settlement Price: Price
   index, settlement_price = asx_securities_t24_itch_v1_13.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Volatility: 4 Byte Unsigned Fixed Width Integer
+  -- Volatility: Numeric
   index, volatility = asx_securities_t24_itch_v1_13.volatility.dissect(buffer, index, packet, parent)
 
-  -- Settlement Type: 1 Byte Ascii String
+  -- Settlement Type: Alpha
   index, settlement_type = asx_securities_t24_itch_v1_13.settlement_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Market Settlement
-asx_securities_t24_itch_v1_13.market_settlement.dissect = function(buffer, offset, packet, parent)
-  if show.market_settlement then
+-- Dissect: Market Settlement Message
+asx_securities_t24_itch_v1_13.market_settlement_message.dissect = function(buffer, offset, packet, parent)
+  if show.market_settlement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.market_settlement, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.market_settlement.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.market_settlement_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.market_settlement_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.market_settlement.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.market_settlement_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.market_settlement.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.market_settlement_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1194,74 +1227,75 @@ asx_securities_t24_itch_v1_13.market_updates = {}
 asx_securities_t24_itch_v1_13.market_updates.size = 1
 
 -- Display: Market Updates
-asx_securities_t24_itch_v1_13.market_updates.display = function(buffer, packet, parent)
-  local display = ""
+asx_securities_t24_itch_v1_13.market_updates.display = function(range, value, packet, parent)
+  local flags = {}
 
-  -- Is Last Traded Volume flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Last Traded Volume|"
-  end
-  -- Is Last Traded Price flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Last Traded Price|"
-  end
-  -- Is Total Traded Volume and Total Trades flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Total Traded Volume and Total Trades|"
-  end
-  -- Is Lowest Traded Price flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Lowest Traded Price|"
+  -- Is Opening Trade Price flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Opening Trade Price"
   end
   -- Is Highest Traded Price flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Highest Traded Price|"
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Highest Traded Price"
   end
-  -- Is Opening Trade Price flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Opening Trade Price|"
+  -- Is Lowest Traded Price flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Lowest Traded Price"
+  end
+  -- Is Total Traded Volume and Total Trades flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Total Traded Volume and Total Trades"
+  end
+  -- Is Last Traded Price flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Last Traded Price"
+  end
+  -- Is Last Traded Volume flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Last Traded Volume"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Market Updates
-asx_securities_t24_itch_v1_13.market_updates.bits = function(buffer, offset, packet, parent)
-
-  -- Reserved: 2 Bit
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.reserved, buffer(offset, 1))
-
-  -- Last Traded Volume: 1 Bit
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.last_traded_volume, buffer(offset, 1))
-
-  -- Last Traded Price: 1 Bit
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.last_traded_price, buffer(offset, 1))
-
-  -- Total Traded Volume and Total Trades: 1 Bit
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.total_traded_volume_and_total_trades, buffer(offset, 1))
-
-  -- Lowest Traded Price: 1 Bit
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.lowest_traded_price, buffer(offset, 1))
-
-  -- Highest Traded Price: 1 Bit
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.highest_traded_price, buffer(offset, 1))
+asx_securities_t24_itch_v1_13.market_updates.bits = function(range, value, packet, parent)
 
   -- Opening Trade Price: 1 Bit
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.opening_trade_price, buffer(offset, 1))
+  parent:add(omi_asx_securities_t24_itch_v1_13.fields.opening_trade_price, range, value)
+
+  -- Highest Traded Price: 1 Bit
+  parent:add(omi_asx_securities_t24_itch_v1_13.fields.highest_traded_price, range, value)
+
+  -- Lowest Traded Price: 1 Bit
+  parent:add(omi_asx_securities_t24_itch_v1_13.fields.lowest_traded_price, range, value)
+
+  -- Total Traded Volume and Total Trades: 1 Bit
+  parent:add(omi_asx_securities_t24_itch_v1_13.fields.total_traded_volume_and_total_trades, range, value)
+
+  -- Last Traded Price: 1 Bit
+  parent:add(omi_asx_securities_t24_itch_v1_13.fields.last_traded_price, range, value)
+
+  -- Last Traded Volume: 1 Bit
+  parent:add(omi_asx_securities_t24_itch_v1_13.fields.last_traded_volume, range, value)
+
+  -- All Fields: 2 Bit
+  parent:add(omi_asx_securities_t24_itch_v1_13.fields.all_fields, range, value)
 end
 
 -- Dissect: Market Updates
 asx_securities_t24_itch_v1_13.market_updates.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = asx_securities_t24_itch_v1_13.market_updates.size
   local range = buffer(offset, size)
-  local display = asx_securities_t24_itch_v1_13.market_updates.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = asx_securities_t24_itch_v1_13.market_updates.display(range, value, packet, parent)
   local element = parent:add(omi_asx_securities_t24_itch_v1_13.fields.market_updates, range, display)
 
   if show.market_updates then
-    asx_securities_t24_itch_v1_13.market_updates.bits(buffer, offset, packet, element)
+    asx_securities_t24_itch_v1_13.market_updates.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Total Trades
@@ -1344,11 +1378,17 @@ asx_securities_t24_itch_v1_13.last_trade.display = function(value)
   return "Last Trade: "..value
 end
 
+-- Translate: Last Trade
+asx_securities_t24_itch_v1_13.last_trade.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Last Trade
 asx_securities_t24_itch_v1_13.last_trade.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.last_trade.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.last_trade.translate(raw)
   local display = asx_securities_t24_itch_v1_13.last_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.last_trade, range, value, display)
@@ -1367,11 +1407,17 @@ asx_securities_t24_itch_v1_13.lowest_trade.display = function(value)
   return "Lowest Trade: "..value
 end
 
+-- Translate: Lowest Trade
+asx_securities_t24_itch_v1_13.lowest_trade.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Lowest Trade
 asx_securities_t24_itch_v1_13.lowest_trade.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.lowest_trade.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.lowest_trade.translate(raw)
   local display = asx_securities_t24_itch_v1_13.lowest_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.lowest_trade, range, value, display)
@@ -1390,11 +1436,17 @@ asx_securities_t24_itch_v1_13.highest_trade.display = function(value)
   return "Highest Trade: "..value
 end
 
+-- Translate: Highest Trade
+asx_securities_t24_itch_v1_13.highest_trade.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Highest Trade
 asx_securities_t24_itch_v1_13.highest_trade.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.highest_trade.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.highest_trade.translate(raw)
   local display = asx_securities_t24_itch_v1_13.highest_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.highest_trade, range, value, display)
@@ -1413,11 +1465,17 @@ asx_securities_t24_itch_v1_13.opening_trade.display = function(value)
   return "Opening Trade: "..value
 end
 
+-- Translate: Opening Trade
+asx_securities_t24_itch_v1_13.opening_trade.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Opening Trade
 asx_securities_t24_itch_v1_13.opening_trade.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.opening_trade.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.opening_trade.translate(raw)
   local display = asx_securities_t24_itch_v1_13.opening_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.opening_trade, range, value, display)
@@ -1425,11 +1483,11 @@ asx_securities_t24_itch_v1_13.opening_trade.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Open High Low Last Trade Adjustment
-asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment = {}
+-- Open High Low Last Trade Adjustment Message
+asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message = {}
 
--- Size: Open High Low Last Trade Adjustment
-asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.size =
+-- Size: Open High Low Last Trade Adjustment Message
+asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -1442,43 +1500,43 @@ asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.size =
   asx_securities_t24_itch_v1_13.total_trades.size + 
   asx_securities_t24_itch_v1_13.market_updates.size
 
--- Display: Open High Low Last Trade Adjustment
-asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.display = function(packet, parent, length)
+-- Display: Open High Low Last Trade Adjustment Message
+asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Open High Low Last Trade Adjustment
-asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Open High Low Last Trade Adjustment Message
+asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Opening Trade: 4 Byte Signed Fixed Width Integer
+  -- Opening Trade: Price
   index, opening_trade = asx_securities_t24_itch_v1_13.opening_trade.dissect(buffer, index, packet, parent)
 
-  -- Highest Trade: 4 Byte Signed Fixed Width Integer
+  -- Highest Trade: Price
   index, highest_trade = asx_securities_t24_itch_v1_13.highest_trade.dissect(buffer, index, packet, parent)
 
-  -- Lowest Trade: 4 Byte Signed Fixed Width Integer
+  -- Lowest Trade: Price
   index, lowest_trade = asx_securities_t24_itch_v1_13.lowest_trade.dissect(buffer, index, packet, parent)
 
-  -- Last Trade: 4 Byte Signed Fixed Width Integer
+  -- Last Trade: Price
   index, last_trade = asx_securities_t24_itch_v1_13.last_trade.dissect(buffer, index, packet, parent)
 
-  -- Last Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Last Volume: Numeric
   index, last_volume = asx_securities_t24_itch_v1_13.last_volume.dissect(buffer, index, packet, parent)
 
-  -- Total Traded Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Total Traded Volume: Numeric
   index, total_traded_volume = asx_securities_t24_itch_v1_13.total_traded_volume.dissect(buffer, index, packet, parent)
 
-  -- Total Trades: 4 Byte Unsigned Fixed Width Integer
+  -- Total Trades: Numeric
   index, total_trades = asx_securities_t24_itch_v1_13.total_trades.dissect(buffer, index, packet, parent)
 
   -- Market Updates: Struct of 7 fields
@@ -1487,21 +1545,21 @@ asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.fields = funct
   return index
 end
 
--- Dissect: Open High Low Last Trade Adjustment
-asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.dissect = function(buffer, offset, packet, parent)
-  if show.open_high_low_last_trade_adjustment then
+-- Dissect: Open High Low Last Trade Adjustment Message
+asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.dissect = function(buffer, offset, packet, parent)
+  if show.open_high_low_last_trade_adjustment_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.open_high_low_last_trade_adjustment, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.open_high_low_last_trade_adjustment_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1562,11 +1620,17 @@ asx_securities_t24_itch_v1_13.best_ask_price.display = function(value)
   return "Best Ask Price: "..value
 end
 
+-- Translate: Best Ask Price
+asx_securities_t24_itch_v1_13.best_ask_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Best Ask Price
 asx_securities_t24_itch_v1_13.best_ask_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.best_ask_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.best_ask_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.best_ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.best_ask_price, range, value, display)
@@ -1585,11 +1649,17 @@ asx_securities_t24_itch_v1_13.best_bid_price.display = function(value)
   return "Best Bid Price: "..value
 end
 
+-- Translate: Best Bid Price
+asx_securities_t24_itch_v1_13.best_bid_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Best Bid Price
 asx_securities_t24_itch_v1_13.best_bid_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.best_bid_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.best_bid_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.best_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.best_bid_price, range, value, display)
@@ -1608,11 +1678,17 @@ asx_securities_t24_itch_v1_13.equilibrium_price.display = function(value)
   return "Equilibrium Price: "..value
 end
 
+-- Translate: Equilibrium Price
+asx_securities_t24_itch_v1_13.equilibrium_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Equilibrium Price
 asx_securities_t24_itch_v1_13.equilibrium_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.equilibrium_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.equilibrium_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.equilibrium_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.equilibrium_price, range, value, display)
@@ -1620,11 +1696,11 @@ asx_securities_t24_itch_v1_13.equilibrium_price.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Equilibrium Price Auction Info
-asx_securities_t24_itch_v1_13.equilibrium_price_auction_info = {}
+-- Equilibrium Price Auction Info Message
+asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message = {}
 
--- Size: Equilibrium Price Auction Info
-asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.size =
+-- Size: Equilibrium Price Auction Info Message
+asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -1634,57 +1710,57 @@ asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.size =
   asx_securities_t24_itch_v1_13.best_bid_quantity.size + 
   asx_securities_t24_itch_v1_13.best_ask_quantity.size
 
--- Display: Equilibrium Price Auction Info
-asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.display = function(packet, parent, length)
+-- Display: Equilibrium Price Auction Info Message
+asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Equilibrium Price Auction Info
-asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Equilibrium Price Auction Info Message
+asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Equilibrium Price: 4 Byte Signed Fixed Width Integer
+  -- Equilibrium Price: Price
   index, equilibrium_price = asx_securities_t24_itch_v1_13.equilibrium_price.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Best Bid Price: Price
   index, best_bid_price = asx_securities_t24_itch_v1_13.best_bid_price.dissect(buffer, index, packet, parent)
 
-  -- Best Ask Price: 4 Byte Signed Fixed Width Integer
+  -- Best Ask Price: Price
   index, best_ask_price = asx_securities_t24_itch_v1_13.best_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Best Bid Quantity: Numeric
   index, best_bid_quantity = asx_securities_t24_itch_v1_13.best_bid_quantity.dissect(buffer, index, packet, parent)
 
-  -- Best Ask Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Best Ask Quantity: Numeric
   index, best_ask_quantity = asx_securities_t24_itch_v1_13.best_ask_quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Equilibrium Price Auction Info
-asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.dissect = function(buffer, offset, packet, parent)
-  if show.equilibrium_price_auction_info then
+-- Dissect: Equilibrium Price Auction Info Message
+asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.dissect = function(buffer, offset, packet, parent)
+  if show.equilibrium_price_auction_info_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.equilibrium_price_auction_info, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.equilibrium_price_auction_info_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1711,51 +1787,51 @@ asx_securities_t24_itch_v1_13.match_number.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Trade Cancellation
-asx_securities_t24_itch_v1_13.trade_cancellation = {}
+-- Trade Cancellation Message
+asx_securities_t24_itch_v1_13.trade_cancellation_message = {}
 
--- Size: Trade Cancellation
-asx_securities_t24_itch_v1_13.trade_cancellation.size =
+-- Size: Trade Cancellation Message
+asx_securities_t24_itch_v1_13.trade_cancellation_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.match_number.size
 
--- Display: Trade Cancellation
-asx_securities_t24_itch_v1_13.trade_cancellation.display = function(packet, parent, length)
+-- Display: Trade Cancellation Message
+asx_securities_t24_itch_v1_13.trade_cancellation_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trade Cancellation
-asx_securities_t24_itch_v1_13.trade_cancellation.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Cancellation Message
+asx_securities_t24_itch_v1_13.trade_cancellation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Numeric
   index, match_number = asx_securities_t24_itch_v1_13.match_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Trade Cancellation
-asx_securities_t24_itch_v1_13.trade_cancellation.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancellation then
+-- Dissect: Trade Cancellation Message
+asx_securities_t24_itch_v1_13.trade_cancellation_message.dissect = function(buffer, offset, packet, parent)
+  if show.trade_cancellation_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.trade_cancellation, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.trade_cancellation.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.trade_cancellation_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.trade_cancellation_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.trade_cancellation.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.trade_cancellation_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.trade_cancellation.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.trade_cancellation_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1846,11 +1922,17 @@ asx_securities_t24_itch_v1_13.trade_price.display = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+asx_securities_t24_itch_v1_13.trade_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Trade Price
 asx_securities_t24_itch_v1_13.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.trade_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.trade_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.trade_price, range, value, display)
@@ -2069,11 +2151,11 @@ asx_securities_t24_itch_v1_13.side.dissect = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
--- Custom Market Trade
-asx_securities_t24_itch_v1_13.custom_market_trade = {}
+-- Custom Market Trade Message
+asx_securities_t24_itch_v1_13.custom_market_trade_message = {}
 
--- Size: Custom Market Trade
-asx_securities_t24_itch_v1_13.custom_market_trade.size =
+-- Size: Custom Market Trade Message
+asx_securities_t24_itch_v1_13.custom_market_trade_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -2090,78 +2172,78 @@ asx_securities_t24_itch_v1_13.custom_market_trade.size =
   asx_securities_t24_itch_v1_13.trade_side_of_non_custom_order.size + 
   asx_securities_t24_itch_v1_13.printable.size
 
--- Display: Custom Market Trade
-asx_securities_t24_itch_v1_13.custom_market_trade.display = function(packet, parent, length)
+-- Display: Custom Market Trade Message
+asx_securities_t24_itch_v1_13.custom_market_trade_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Custom Market Trade
-asx_securities_t24_itch_v1_13.custom_market_trade.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Custom Market Trade Message
+asx_securities_t24_itch_v1_13.custom_market_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity Remaining: Numeric
   index, quantity_remaining = asx_securities_t24_itch_v1_13.quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Custom Market Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Custom Market Order Number: Numeric
   index, custom_market_order_number = asx_securities_t24_itch_v1_13.custom_market_order_number.dissect(buffer, index, packet, parent)
 
-  -- Custom Market Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Custom Market Quantity Remaining: Numeric
   index, custom_market_quantity_remaining = asx_securities_t24_itch_v1_13.custom_market_quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 14 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_t24_itch_v1_13.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Numeric
   index, match_number = asx_securities_t24_itch_v1_13.match_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_t24_itch_v1_13.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_t24_itch_v1_13.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Traded Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Traded Contract Number: Numeric
   index, traded_contract_number = asx_securities_t24_itch_v1_13.traded_contract_number.dissect(buffer, index, packet, parent)
 
-  -- Trade Side Of Non Custom Order: 1 Byte Ascii String
+  -- Trade Side Of Non Custom Order: Alpha
   index, trade_side_of_non_custom_order = asx_securities_t24_itch_v1_13.trade_side_of_non_custom_order.dissect(buffer, index, packet, parent)
 
-  -- Printable: 1 Byte Ascii String Enum with 2 values
+  -- Printable: Alpha
   index, printable = asx_securities_t24_itch_v1_13.printable.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Custom Market Trade
-asx_securities_t24_itch_v1_13.custom_market_trade.dissect = function(buffer, offset, packet, parent)
-  if show.custom_market_trade then
+-- Dissect: Custom Market Trade Message
+asx_securities_t24_itch_v1_13.custom_market_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.custom_market_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_trade, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.custom_market_trade.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_trade_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.custom_market_trade_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.custom_market_trade.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.custom_market_trade_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.custom_market_trade.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.custom_market_trade_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2188,11 +2270,11 @@ asx_securities_t24_itch_v1_13.trade_side_of_leg.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Custom Market Executed
-asx_securities_t24_itch_v1_13.custom_market_executed = {}
+-- Custom Market Executed Message
+asx_securities_t24_itch_v1_13.custom_market_executed_message = {}
 
--- Size: Custom Market Executed
-asx_securities_t24_itch_v1_13.custom_market_executed.size =
+-- Size: Custom Market Executed Message
+asx_securities_t24_itch_v1_13.custom_market_executed_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.order_number.size + 
@@ -2205,66 +2287,66 @@ asx_securities_t24_itch_v1_13.custom_market_executed.size =
   asx_securities_t24_itch_v1_13.trade_side_of_leg.size + 
   asx_securities_t24_itch_v1_13.printable.size
 
--- Display: Custom Market Executed
-asx_securities_t24_itch_v1_13.custom_market_executed.display = function(packet, parent, length)
+-- Display: Custom Market Executed Message
+asx_securities_t24_itch_v1_13.custom_market_executed_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Custom Market Executed
-asx_securities_t24_itch_v1_13.custom_market_executed.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Custom Market Executed Message
+asx_securities_t24_itch_v1_13.custom_market_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity Remaining: Numeric
   index, quantity_remaining = asx_securities_t24_itch_v1_13.quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 14 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_t24_itch_v1_13.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Numeric
   index, match_number = asx_securities_t24_itch_v1_13.match_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_t24_itch_v1_13.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_t24_itch_v1_13.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Traded Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Traded Contract Number: Numeric
   index, traded_contract_number = asx_securities_t24_itch_v1_13.traded_contract_number.dissect(buffer, index, packet, parent)
 
-  -- Trade Side Of Leg: 1 Byte Ascii String
+  -- Trade Side Of Leg: Alpha
   index, trade_side_of_leg = asx_securities_t24_itch_v1_13.trade_side_of_leg.dissect(buffer, index, packet, parent)
 
-  -- Printable: 1 Byte Ascii String Enum with 2 values
+  -- Printable: Alpha
   index, printable = asx_securities_t24_itch_v1_13.printable.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Custom Market Executed
-asx_securities_t24_itch_v1_13.custom_market_executed.dissect = function(buffer, offset, packet, parent)
-  if show.custom_market_executed then
+-- Dissect: Custom Market Executed Message
+asx_securities_t24_itch_v1_13.custom_market_executed_message.dissect = function(buffer, offset, packet, parent)
+  if show.custom_market_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_executed, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.custom_market_executed.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_executed_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.custom_market_executed_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.custom_market_executed.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.custom_market_executed_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.custom_market_executed.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.custom_market_executed_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2279,11 +2361,17 @@ asx_securities_t24_itch_v1_13.spread_trade_price.display = function(value)
   return "Spread Trade Price: "..value
 end
 
+-- Translate: Spread Trade Price
+asx_securities_t24_itch_v1_13.spread_trade_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Spread Trade Price
 asx_securities_t24_itch_v1_13.spread_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.spread_trade_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.spread_trade_price.translate(raw)
   local display = asx_securities_t24_itch_v1_13.spread_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.spread_trade_price, range, value, display)
@@ -2475,11 +2563,11 @@ asx_securities_t24_itch_v1_13.buyer.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Trade Spread Execution Chain
-asx_securities_t24_itch_v1_13.trade_spread_execution_chain = {}
+-- Trade Spread Execution Chain Message
+asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message = {}
 
--- Size: Trade Spread Execution Chain
-asx_securities_t24_itch_v1_13.trade_spread_execution_chain.size =
+-- Size: Trade Spread Execution Chain Message
+asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.buyer.size + 
@@ -2498,92 +2586,92 @@ asx_securities_t24_itch_v1_13.trade_spread_execution_chain.size =
   asx_securities_t24_itch_v1_13.spread_trade_price.size + 
   asx_securities_t24_itch_v1_13.printable.size
 
--- Display: Trade Spread Execution Chain
-asx_securities_t24_itch_v1_13.trade_spread_execution_chain.display = function(packet, parent, length)
+-- Display: Trade Spread Execution Chain Message
+asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trade Spread Execution Chain
-asx_securities_t24_itch_v1_13.trade_spread_execution_chain.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Spread Execution Chain Message
+asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Buyer: 4 Byte Unsigned Fixed Width Integer
+  -- Buyer: Numeric
   index, buyer = asx_securities_t24_itch_v1_13.buyer.dissect(buffer, index, packet, parent)
 
-  -- Side Of Buyer: 1 Byte Ascii String
+  -- Side Of Buyer: Alpha
   index, side_of_buyer = asx_securities_t24_itch_v1_13.side_of_buyer.dissect(buffer, index, packet, parent)
 
-  -- Buyer Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Buyer Order Number: Numeric
   index, buyer_order_number = asx_securities_t24_itch_v1_13.buyer_order_number.dissect(buffer, index, packet, parent)
 
-  -- Buyer Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Buyer Quantity Remaining: Numeric
   index, buyer_quantity_remaining = asx_securities_t24_itch_v1_13.buyer_quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Seller Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Seller Contract Number: Numeric
   index, seller_contract_number = asx_securities_t24_itch_v1_13.seller_contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side Of Seller: 1 Byte Ascii String
+  -- Side Of Seller: Alpha
   index, side_of_seller = asx_securities_t24_itch_v1_13.side_of_seller.dissect(buffer, index, packet, parent)
 
-  -- Selling Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Selling Order Number: Numeric
   index, selling_order_number = asx_securities_t24_itch_v1_13.selling_order_number.dissect(buffer, index, packet, parent)
 
-  -- Seller Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Seller Quantity Remaining: Numeric
   index, seller_quantity_remaining = asx_securities_t24_itch_v1_13.seller_quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 14 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_t24_itch_v1_13.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Numeric
   index, match_number = asx_securities_t24_itch_v1_13.match_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_t24_itch_v1_13.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_t24_itch_v1_13.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Traded Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Traded Contract Number: Numeric
   index, traded_contract_number = asx_securities_t24_itch_v1_13.traded_contract_number.dissect(buffer, index, packet, parent)
 
-  -- Spread Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Spread Trade Price: Price
   index, spread_trade_price = asx_securities_t24_itch_v1_13.spread_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Printable: 1 Byte Ascii String Enum with 2 values
+  -- Printable: Alpha
   index, printable = asx_securities_t24_itch_v1_13.printable.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Trade Spread Execution Chain
-asx_securities_t24_itch_v1_13.trade_spread_execution_chain.dissect = function(buffer, offset, packet, parent)
-  if show.trade_spread_execution_chain then
+-- Dissect: Trade Spread Execution Chain Message
+asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.dissect = function(buffer, offset, packet, parent)
+  if show.trade_spread_execution_chain_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.trade_spread_execution_chain, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.trade_spread_execution_chain.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.trade_spread_execution_chain_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.trade_spread_execution_chain.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.trade_spread_execution_chain.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Spread Executed
-asx_securities_t24_itch_v1_13.spread_executed = {}
+-- Spread Executed Message
+asx_securities_t24_itch_v1_13.spread_executed_message = {}
 
--- Size: Spread Executed
-asx_securities_t24_itch_v1_13.spread_executed.size =
+-- Size: Spread Executed Message
+asx_securities_t24_itch_v1_13.spread_executed_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -2599,75 +2687,75 @@ asx_securities_t24_itch_v1_13.spread_executed.size =
   asx_securities_t24_itch_v1_13.trade_side_of_leg.size + 
   asx_securities_t24_itch_v1_13.printable.size
 
--- Display: Spread Executed
-asx_securities_t24_itch_v1_13.spread_executed.display = function(packet, parent, length)
+-- Display: Spread Executed Message
+asx_securities_t24_itch_v1_13.spread_executed_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Spread Executed
-asx_securities_t24_itch_v1_13.spread_executed.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Spread Executed Message
+asx_securities_t24_itch_v1_13.spread_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity Remaining: Numeric
   index, quantity_remaining = asx_securities_t24_itch_v1_13.quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 14 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_t24_itch_v1_13.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Numeric
   index, match_number = asx_securities_t24_itch_v1_13.match_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_t24_itch_v1_13.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_t24_itch_v1_13.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Traded Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Traded Contract Number: Numeric
   index, traded_contract_number = asx_securities_t24_itch_v1_13.traded_contract_number.dissect(buffer, index, packet, parent)
 
-  -- Spread Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Spread Trade Price: Price
   index, spread_trade_price = asx_securities_t24_itch_v1_13.spread_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Side Of Leg: 1 Byte Ascii String
+  -- Trade Side Of Leg: Alpha
   index, trade_side_of_leg = asx_securities_t24_itch_v1_13.trade_side_of_leg.dissect(buffer, index, packet, parent)
 
-  -- Printable: 1 Byte Ascii String Enum with 2 values
+  -- Printable: Alpha
   index, printable = asx_securities_t24_itch_v1_13.printable.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Spread Executed
-asx_securities_t24_itch_v1_13.spread_executed.dissect = function(buffer, offset, packet, parent)
-  if show.spread_executed then
+-- Dissect: Spread Executed Message
+asx_securities_t24_itch_v1_13.spread_executed_message.dissect = function(buffer, offset, packet, parent)
+  if show.spread_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.spread_executed, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.spread_executed.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.spread_executed_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.spread_executed_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.spread_executed.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.spread_executed_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.spread_executed.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.spread_executed_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2694,11 +2782,11 @@ asx_securities_t24_itch_v1_13.buying_order_number.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Order Executed With Price
-asx_securities_t24_itch_v1_13.order_executed_with_price = {}
+-- Order Executed With Price Message
+asx_securities_t24_itch_v1_13.order_executed_with_price_message = {}
 
--- Size: Order Executed With Price
-asx_securities_t24_itch_v1_13.order_executed_with_price.size =
+-- Size: Order Executed With Price Message
+asx_securities_t24_itch_v1_13.order_executed_with_price_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -2711,74 +2799,74 @@ asx_securities_t24_itch_v1_13.order_executed_with_price.size =
   asx_securities_t24_itch_v1_13.executed_quantity.size + 
   asx_securities_t24_itch_v1_13.trade_price.size
 
--- Display: Order Executed With Price
-asx_securities_t24_itch_v1_13.order_executed_with_price.display = function(packet, parent, length)
+-- Display: Order Executed With Price Message
+asx_securities_t24_itch_v1_13.order_executed_with_price_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Executed With Price
-asx_securities_t24_itch_v1_13.order_executed_with_price.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Executed With Price Message
+asx_securities_t24_itch_v1_13.order_executed_with_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Buying Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Buying Order Number: Numeric
   index, buying_order_number = asx_securities_t24_itch_v1_13.buying_order_number.dissect(buffer, index, packet, parent)
 
-  -- Buyer Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Buyer Quantity Remaining: Numeric
   index, buyer_quantity_remaining = asx_securities_t24_itch_v1_13.buyer_quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Selling Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Selling Order Number: Numeric
   index, selling_order_number = asx_securities_t24_itch_v1_13.selling_order_number.dissect(buffer, index, packet, parent)
 
-  -- Seller Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Seller Quantity Remaining: Numeric
   index, seller_quantity_remaining = asx_securities_t24_itch_v1_13.seller_quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 14 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_t24_itch_v1_13.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Numeric
   index, match_number = asx_securities_t24_itch_v1_13.match_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_t24_itch_v1_13.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_t24_itch_v1_13.trade_price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Order Executed With Price
-asx_securities_t24_itch_v1_13.order_executed_with_price.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_with_price then
+-- Dissect: Order Executed With Price Message
+asx_securities_t24_itch_v1_13.order_executed_with_price_message.dissect = function(buffer, offset, packet, parent)
+  if show.order_executed_with_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_executed_with_price, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.order_executed_with_price.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_executed_with_price_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.order_executed_with_price_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.order_executed_with_price.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.order_executed_with_price_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.order_executed_with_price.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_executed_with_price_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Order Executed
-asx_securities_t24_itch_v1_13.order_executed = {}
+-- Order Executed Message
+asx_securities_t24_itch_v1_13.order_executed_message = {}
 
--- Size: Order Executed
-asx_securities_t24_itch_v1_13.order_executed.size =
+-- Size: Order Executed Message
+asx_securities_t24_itch_v1_13.order_executed_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -2790,111 +2878,111 @@ asx_securities_t24_itch_v1_13.order_executed.size =
   asx_securities_t24_itch_v1_13.executed_quantity.size + 
   asx_securities_t24_itch_v1_13.trade_price.size
 
--- Display: Order Executed
-asx_securities_t24_itch_v1_13.order_executed.display = function(packet, parent, length)
+-- Display: Order Executed Message
+asx_securities_t24_itch_v1_13.order_executed_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Executed
-asx_securities_t24_itch_v1_13.order_executed.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Executed Message
+asx_securities_t24_itch_v1_13.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity Remaining: Numeric
   index, quantity_remaining = asx_securities_t24_itch_v1_13.quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 14 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_t24_itch_v1_13.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Numeric
   index, match_number = asx_securities_t24_itch_v1_13.match_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_t24_itch_v1_13.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_t24_itch_v1_13.trade_price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Order Executed
-asx_securities_t24_itch_v1_13.order_executed.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed then
+-- Dissect: Order Executed Message
+asx_securities_t24_itch_v1_13.order_executed_message.dissect = function(buffer, offset, packet, parent)
+  if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_executed, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.order_executed.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_executed_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.order_executed_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.order_executed.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.order_executed_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.order_executed.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_executed_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Custom Market Order Deleted
-asx_securities_t24_itch_v1_13.custom_market_order_deleted = {}
+-- Custom Market Order Deleted Message
+asx_securities_t24_itch_v1_13.custom_market_order_deleted_message = {}
 
--- Size: Custom Market Order Deleted
-asx_securities_t24_itch_v1_13.custom_market_order_deleted.size =
+-- Size: Custom Market Order Deleted Message
+asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.order_number.size
 
--- Display: Custom Market Order Deleted
-asx_securities_t24_itch_v1_13.custom_market_order_deleted.display = function(packet, parent, length)
+-- Display: Custom Market Order Deleted Message
+asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Custom Market Order Deleted
-asx_securities_t24_itch_v1_13.custom_market_order_deleted.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Custom Market Order Deleted Message
+asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Custom Market Order Deleted
-asx_securities_t24_itch_v1_13.custom_market_order_deleted.dissect = function(buffer, offset, packet, parent)
-  if show.custom_market_order_deleted then
+-- Dissect: Custom Market Order Deleted Message
+asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.dissect = function(buffer, offset, packet, parent)
+  if show.custom_market_order_deleted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_deleted, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.custom_market_order_deleted.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_deleted_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.custom_market_order_deleted.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.custom_market_order_deleted.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2921,612 +3009,141 @@ asx_securities_t24_itch_v1_13.order_book_priority.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Custom Market Order Replaced
-asx_securities_t24_itch_v1_13.custom_market_order_replaced = {}
+-- Custom Market Order Replaced Message
+asx_securities_t24_itch_v1_13.custom_market_order_replaced_message = {}
 
--- Size: Custom Market Order Replaced
-asx_securities_t24_itch_v1_13.custom_market_order_replaced.size =
+-- Size: Custom Market Order Replaced Message
+asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.order_number.size + 
   asx_securities_t24_itch_v1_13.order_book_priority.size + 
   asx_securities_t24_itch_v1_13.quantity.size
 
--- Display: Custom Market Order Replaced
-asx_securities_t24_itch_v1_13.custom_market_order_replaced.display = function(packet, parent, length)
+-- Display: Custom Market Order Replaced Message
+asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Custom Market Order Replaced
-asx_securities_t24_itch_v1_13.custom_market_order_replaced.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Custom Market Order Replaced Message
+asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Priority: Numeric
   index, order_book_priority = asx_securities_t24_itch_v1_13.order_book_priority.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_t24_itch_v1_13.quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Custom Market Order Replaced
-asx_securities_t24_itch_v1_13.custom_market_order_replaced.dissect = function(buffer, offset, packet, parent)
-  if show.custom_market_order_replaced then
+-- Dissect: Custom Market Order Replaced Message
+asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.dissect = function(buffer, offset, packet, parent)
+  if show.custom_market_order_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_replaced, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.custom_market_order_replaced.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_replaced_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.custom_market_order_replaced.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.custom_market_order_replaced.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Price Leg 6
-asx_securities_t24_itch_v1_13.price_leg_6 = {}
+-- Ratio
+asx_securities_t24_itch_v1_13.ratio = {}
 
--- Size: Price Leg 6
-asx_securities_t24_itch_v1_13.price_leg_6.size = 4
+-- Size: Ratio
+asx_securities_t24_itch_v1_13.ratio.size = 2
 
--- Display: Price Leg 6
-asx_securities_t24_itch_v1_13.price_leg_6.display = function(value)
-  return "Price Leg 6: "..value
+-- Display: Ratio
+asx_securities_t24_itch_v1_13.ratio.display = function(value)
+  return "Ratio: "..value
 end
 
--- Dissect: Price Leg 6
-asx_securities_t24_itch_v1_13.price_leg_6.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.price_leg_6.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = asx_securities_t24_itch_v1_13.price_leg_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.price_leg_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Ratio Leg 6
-asx_securities_t24_itch_v1_13.ratio_leg_6 = {}
-
--- Size: Ratio Leg 6
-asx_securities_t24_itch_v1_13.ratio_leg_6.size = 2
-
--- Display: Ratio Leg 6
-asx_securities_t24_itch_v1_13.ratio_leg_6.display = function(value)
-  return "Ratio Leg 6: "..value
-end
-
--- Dissect: Ratio Leg 6
-asx_securities_t24_itch_v1_13.ratio_leg_6.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.ratio_leg_6.size
+-- Dissect: Ratio
+asx_securities_t24_itch_v1_13.ratio.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_t24_itch_v1_13.ratio.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.ratio_leg_6.display(value, buffer, offset, packet, parent)
+  local display = asx_securities_t24_itch_v1_13.ratio.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Leg 6
-asx_securities_t24_itch_v1_13.side_leg_6 = {}
-
--- Size: Side Leg 6
-asx_securities_t24_itch_v1_13.side_leg_6.size = 1
-
--- Display: Side Leg 6
-asx_securities_t24_itch_v1_13.side_leg_6.display = function(value)
-  return "Side Leg 6: "..value
-end
-
--- Dissect: Side Leg 6
-asx_securities_t24_itch_v1_13.side_leg_6.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.side_leg_6.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_t24_itch_v1_13.side_leg_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.side_leg_6, range, value, display)
+  parent:add(omi_asx_securities_t24_itch_v1_13.fields.ratio, range, value, display)
 
   return offset + length, value
 end
 
--- Contract Number Leg 6
-asx_securities_t24_itch_v1_13.contract_number_leg_6 = {}
+-- Contract Legs
+asx_securities_t24_itch_v1_13.contract_legs = {}
 
--- Size: Contract Number Leg 6
-asx_securities_t24_itch_v1_13.contract_number_leg_6.size = 4
+-- Size: Contract Legs
+asx_securities_t24_itch_v1_13.contract_legs.size =
+  asx_securities_t24_itch_v1_13.contract_number.size + 
+  asx_securities_t24_itch_v1_13.side.size + 
+  asx_securities_t24_itch_v1_13.ratio.size + 
+  asx_securities_t24_itch_v1_13.price.size
 
--- Display: Contract Number Leg 6
-asx_securities_t24_itch_v1_13.contract_number_leg_6.display = function(value)
-  return "Contract Number Leg 6: "..value
+-- Display: Contract Legs
+asx_securities_t24_itch_v1_13.contract_legs.display = function(packet, parent, length)
+  return ""
 end
 
--- Dissect: Contract Number Leg 6
-asx_securities_t24_itch_v1_13.contract_number_leg_6.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.contract_number_leg_6.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.contract_number_leg_6.display(value, buffer, offset, packet, parent)
+-- Dissect Fields: Contract Legs
+asx_securities_t24_itch_v1_13.contract_legs.fields = function(buffer, offset, packet, parent, contract_legs_index)
+  local index = offset
 
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_6, range, value, display)
+  -- Implicit Contract Legs Index
+  if contract_legs_index ~= nil then
+    local iteration = parent:add(omi_asx_securities_t24_itch_v1_13.fields.contract_legs_index, contract_legs_index)
+    iteration:set_generated()
+  end
 
-  return offset + length, value
+  -- Contract Number: Numeric
+  index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
+
+  -- Ratio: Numeric
+  index, ratio = asx_securities_t24_itch_v1_13.ratio.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = asx_securities_t24_itch_v1_13.price.dissect(buffer, index, packet, parent)
+
+  return index
 end
 
--- Price Leg 5
-asx_securities_t24_itch_v1_13.price_leg_5 = {}
-
--- Size: Price Leg 5
-asx_securities_t24_itch_v1_13.price_leg_5.size = 4
-
--- Display: Price Leg 5
-asx_securities_t24_itch_v1_13.price_leg_5.display = function(value)
-  return "Price Leg 5: "..value
-end
-
--- Dissect: Price Leg 5
-asx_securities_t24_itch_v1_13.price_leg_5.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.price_leg_5.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = asx_securities_t24_itch_v1_13.price_leg_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.price_leg_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Ratio Leg 5
-asx_securities_t24_itch_v1_13.ratio_leg_5 = {}
-
--- Size: Ratio Leg 5
-asx_securities_t24_itch_v1_13.ratio_leg_5.size = 2
-
--- Display: Ratio Leg 5
-asx_securities_t24_itch_v1_13.ratio_leg_5.display = function(value)
-  return "Ratio Leg 5: "..value
-end
-
--- Dissect: Ratio Leg 5
-asx_securities_t24_itch_v1_13.ratio_leg_5.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.ratio_leg_5.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.ratio_leg_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Leg 5
-asx_securities_t24_itch_v1_13.side_leg_5 = {}
-
--- Size: Side Leg 5
-asx_securities_t24_itch_v1_13.side_leg_5.size = 1
-
--- Display: Side Leg 5
-asx_securities_t24_itch_v1_13.side_leg_5.display = function(value)
-  return "Side Leg 5: "..value
-end
-
--- Dissect: Side Leg 5
-asx_securities_t24_itch_v1_13.side_leg_5.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.side_leg_5.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_t24_itch_v1_13.side_leg_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.side_leg_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Number Leg 5
-asx_securities_t24_itch_v1_13.contract_number_leg_5 = {}
-
--- Size: Contract Number Leg 5
-asx_securities_t24_itch_v1_13.contract_number_leg_5.size = 4
-
--- Display: Contract Number Leg 5
-asx_securities_t24_itch_v1_13.contract_number_leg_5.display = function(value)
-  return "Contract Number Leg 5: "..value
-end
-
--- Dissect: Contract Number Leg 5
-asx_securities_t24_itch_v1_13.contract_number_leg_5.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.contract_number_leg_5.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.contract_number_leg_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Leg 4
-asx_securities_t24_itch_v1_13.price_leg_4 = {}
-
--- Size: Price Leg 4
-asx_securities_t24_itch_v1_13.price_leg_4.size = 4
-
--- Display: Price Leg 4
-asx_securities_t24_itch_v1_13.price_leg_4.display = function(value)
-  return "Price Leg 4: "..value
-end
-
--- Dissect: Price Leg 4
-asx_securities_t24_itch_v1_13.price_leg_4.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.price_leg_4.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = asx_securities_t24_itch_v1_13.price_leg_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.price_leg_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Ratio Leg 4
-asx_securities_t24_itch_v1_13.ratio_leg_4 = {}
-
--- Size: Ratio Leg 4
-asx_securities_t24_itch_v1_13.ratio_leg_4.size = 2
-
--- Display: Ratio Leg 4
-asx_securities_t24_itch_v1_13.ratio_leg_4.display = function(value)
-  return "Ratio Leg 4: "..value
-end
-
--- Dissect: Ratio Leg 4
-asx_securities_t24_itch_v1_13.ratio_leg_4.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.ratio_leg_4.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.ratio_leg_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Leg 4
-asx_securities_t24_itch_v1_13.side_leg_4 = {}
-
--- Size: Side Leg 4
-asx_securities_t24_itch_v1_13.side_leg_4.size = 1
-
--- Display: Side Leg 4
-asx_securities_t24_itch_v1_13.side_leg_4.display = function(value)
-  return "Side Leg 4: "..value
-end
-
--- Dissect: Side Leg 4
-asx_securities_t24_itch_v1_13.side_leg_4.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.side_leg_4.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_t24_itch_v1_13.side_leg_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.side_leg_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Number Leg 4
-asx_securities_t24_itch_v1_13.contract_number_leg_4 = {}
-
--- Size: Contract Number Leg 4
-asx_securities_t24_itch_v1_13.contract_number_leg_4.size = 4
-
--- Display: Contract Number Leg 4
-asx_securities_t24_itch_v1_13.contract_number_leg_4.display = function(value)
-  return "Contract Number Leg 4: "..value
-end
-
--- Dissect: Contract Number Leg 4
-asx_securities_t24_itch_v1_13.contract_number_leg_4.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.contract_number_leg_4.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.contract_number_leg_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Leg 3
-asx_securities_t24_itch_v1_13.price_leg_3 = {}
-
--- Size: Price Leg 3
-asx_securities_t24_itch_v1_13.price_leg_3.size = 4
-
--- Display: Price Leg 3
-asx_securities_t24_itch_v1_13.price_leg_3.display = function(value)
-  return "Price Leg 3: "..value
-end
-
--- Dissect: Price Leg 3
-asx_securities_t24_itch_v1_13.price_leg_3.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.price_leg_3.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = asx_securities_t24_itch_v1_13.price_leg_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.price_leg_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Ratio Leg 3
-asx_securities_t24_itch_v1_13.ratio_leg_3 = {}
-
--- Size: Ratio Leg 3
-asx_securities_t24_itch_v1_13.ratio_leg_3.size = 2
-
--- Display: Ratio Leg 3
-asx_securities_t24_itch_v1_13.ratio_leg_3.display = function(value)
-  return "Ratio Leg 3: "..value
-end
-
--- Dissect: Ratio Leg 3
-asx_securities_t24_itch_v1_13.ratio_leg_3.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.ratio_leg_3.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.ratio_leg_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Leg 3
-asx_securities_t24_itch_v1_13.side_leg_3 = {}
-
--- Size: Side Leg 3
-asx_securities_t24_itch_v1_13.side_leg_3.size = 1
-
--- Display: Side Leg 3
-asx_securities_t24_itch_v1_13.side_leg_3.display = function(value)
-  return "Side Leg 3: "..value
-end
-
--- Dissect: Side Leg 3
-asx_securities_t24_itch_v1_13.side_leg_3.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.side_leg_3.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_t24_itch_v1_13.side_leg_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.side_leg_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Number Leg 3
-asx_securities_t24_itch_v1_13.contract_number_leg_3 = {}
-
--- Size: Contract Number Leg 3
-asx_securities_t24_itch_v1_13.contract_number_leg_3.size = 4
-
--- Display: Contract Number Leg 3
-asx_securities_t24_itch_v1_13.contract_number_leg_3.display = function(value)
-  return "Contract Number Leg 3: "..value
-end
-
--- Dissect: Contract Number Leg 3
-asx_securities_t24_itch_v1_13.contract_number_leg_3.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.contract_number_leg_3.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.contract_number_leg_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Leg 2
-asx_securities_t24_itch_v1_13.price_leg_2 = {}
-
--- Size: Price Leg 2
-asx_securities_t24_itch_v1_13.price_leg_2.size = 4
-
--- Display: Price Leg 2
-asx_securities_t24_itch_v1_13.price_leg_2.display = function(value)
-  return "Price Leg 2: "..value
-end
-
--- Dissect: Price Leg 2
-asx_securities_t24_itch_v1_13.price_leg_2.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.price_leg_2.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = asx_securities_t24_itch_v1_13.price_leg_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.price_leg_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Ratio Leg 2
-asx_securities_t24_itch_v1_13.ratio_leg_2 = {}
-
--- Size: Ratio Leg 2
-asx_securities_t24_itch_v1_13.ratio_leg_2.size = 2
-
--- Display: Ratio Leg 2
-asx_securities_t24_itch_v1_13.ratio_leg_2.display = function(value)
-  return "Ratio Leg 2: "..value
-end
-
--- Dissect: Ratio Leg 2
-asx_securities_t24_itch_v1_13.ratio_leg_2.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.ratio_leg_2.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.ratio_leg_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Leg 2
-asx_securities_t24_itch_v1_13.side_leg_2 = {}
-
--- Size: Side Leg 2
-asx_securities_t24_itch_v1_13.side_leg_2.size = 1
-
--- Display: Side Leg 2
-asx_securities_t24_itch_v1_13.side_leg_2.display = function(value)
-  return "Side Leg 2: "..value
-end
-
--- Dissect: Side Leg 2
-asx_securities_t24_itch_v1_13.side_leg_2.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.side_leg_2.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_t24_itch_v1_13.side_leg_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.side_leg_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Number Leg 2
-asx_securities_t24_itch_v1_13.contract_number_leg_2 = {}
-
--- Size: Contract Number Leg 2
-asx_securities_t24_itch_v1_13.contract_number_leg_2.size = 4
-
--- Display: Contract Number Leg 2
-asx_securities_t24_itch_v1_13.contract_number_leg_2.display = function(value)
-  return "Contract Number Leg 2: "..value
-end
-
--- Dissect: Contract Number Leg 2
-asx_securities_t24_itch_v1_13.contract_number_leg_2.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.contract_number_leg_2.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.contract_number_leg_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Leg 1
-asx_securities_t24_itch_v1_13.price_leg_1 = {}
-
--- Size: Price Leg 1
-asx_securities_t24_itch_v1_13.price_leg_1.size = 4
-
--- Display: Price Leg 1
-asx_securities_t24_itch_v1_13.price_leg_1.display = function(value)
-  return "Price Leg 1: "..value
-end
-
--- Dissect: Price Leg 1
-asx_securities_t24_itch_v1_13.price_leg_1.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.price_leg_1.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = asx_securities_t24_itch_v1_13.price_leg_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.price_leg_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Ratio Leg 1
-asx_securities_t24_itch_v1_13.ratio_leg_1 = {}
-
--- Size: Ratio Leg 1
-asx_securities_t24_itch_v1_13.ratio_leg_1.size = 2
-
--- Display: Ratio Leg 1
-asx_securities_t24_itch_v1_13.ratio_leg_1.display = function(value)
-  return "Ratio Leg 1: "..value
-end
-
--- Dissect: Ratio Leg 1
-asx_securities_t24_itch_v1_13.ratio_leg_1.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.ratio_leg_1.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.ratio_leg_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.ratio_leg_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Leg 1
-asx_securities_t24_itch_v1_13.side_leg_1 = {}
-
--- Size: Side Leg 1
-asx_securities_t24_itch_v1_13.side_leg_1.size = 1
-
--- Display: Side Leg 1
-asx_securities_t24_itch_v1_13.side_leg_1.display = function(value)
-  return "Side Leg 1: "..value
-end
-
--- Dissect: Side Leg 1
-asx_securities_t24_itch_v1_13.side_leg_1.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.side_leg_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_t24_itch_v1_13.side_leg_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.side_leg_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Number Leg 1
-asx_securities_t24_itch_v1_13.contract_number_leg_1 = {}
-
--- Size: Contract Number Leg 1
-asx_securities_t24_itch_v1_13.contract_number_leg_1.size = 4
-
--- Display: Contract Number Leg 1
-asx_securities_t24_itch_v1_13.contract_number_leg_1.display = function(value)
-  return "Contract Number Leg 1: "..value
-end
-
--- Dissect: Contract Number Leg 1
-asx_securities_t24_itch_v1_13.contract_number_leg_1.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13.contract_number_leg_1.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13.contract_number_leg_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_t24_itch_v1_13.fields.contract_number_leg_1, range, value, display)
-
-  return offset + length, value
+-- Dissect: Contract Legs
+asx_securities_t24_itch_v1_13.contract_legs.dissect = function(buffer, offset, packet, parent, contract_legs_index)
+  if show.contract_legs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.contract_legs, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.contract_legs.fields(buffer, offset, packet, parent, contract_legs_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13.contract_legs.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13.contract_legs.fields(buffer, offset, packet, parent, contract_legs_index)
+  end
 end
 
 -- Legs
@@ -3552,223 +3169,133 @@ asx_securities_t24_itch_v1_13.legs.dissect = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
--- Custom Market Order Added
-asx_securities_t24_itch_v1_13.custom_market_order_added = {}
+-- Custom Market Order Added Message
+asx_securities_t24_itch_v1_13.custom_market_order_added_message = {}
 
--- Size: Custom Market Order Added
-asx_securities_t24_itch_v1_13.custom_market_order_added.size =
+-- Size: Custom Market Order Added Message
+asx_securities_t24_itch_v1_13.custom_market_order_added_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.order_number.size + 
   asx_securities_t24_itch_v1_13.order_book_priority.size + 
   asx_securities_t24_itch_v1_13.quantity.size + 
   asx_securities_t24_itch_v1_13.legs.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_1.size + 
-  asx_securities_t24_itch_v1_13.side_leg_1.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_1.size + 
-  asx_securities_t24_itch_v1_13.price_leg_1.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_2.size + 
-  asx_securities_t24_itch_v1_13.side_leg_2.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_2.size + 
-  asx_securities_t24_itch_v1_13.price_leg_2.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_3.size + 
-  asx_securities_t24_itch_v1_13.side_leg_3.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_3.size + 
-  asx_securities_t24_itch_v1_13.price_leg_3.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_4.size + 
-  asx_securities_t24_itch_v1_13.side_leg_4.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_4.size + 
-  asx_securities_t24_itch_v1_13.price_leg_4.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_5.size + 
-  asx_securities_t24_itch_v1_13.side_leg_5.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_5.size + 
-  asx_securities_t24_itch_v1_13.price_leg_5.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_6.size + 
-  asx_securities_t24_itch_v1_13.side_leg_6.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_6.size + 
-  asx_securities_t24_itch_v1_13.price_leg_6.size
+  asx_securities_t24_itch_v1_13.contract_legs.size
 
--- Display: Custom Market Order Added
-asx_securities_t24_itch_v1_13.custom_market_order_added.display = function(packet, parent, length)
+-- Display: Custom Market Order Added Message
+asx_securities_t24_itch_v1_13.custom_market_order_added_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Custom Market Order Added
-asx_securities_t24_itch_v1_13.custom_market_order_added.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Custom Market Order Added Message
+asx_securities_t24_itch_v1_13.custom_market_order_added_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Priority: Numeric
   index, order_book_priority = asx_securities_t24_itch_v1_13.order_book_priority.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_t24_itch_v1_13.quantity.dissect(buffer, index, packet, parent)
 
-  -- Legs: 1 Byte Unsigned Fixed Width Integer
+  -- Legs: Numeric
   index, legs = asx_securities_t24_itch_v1_13.legs.dissect(buffer, index, packet, parent)
 
-  -- Contract Number Leg 1: 4 Byte Unsigned Fixed Width Integer
-  index, contract_number_leg_1 = asx_securities_t24_itch_v1_13.contract_number_leg_1.dissect(buffer, index, packet, parent)
-
-  -- Side Leg 1: 1 Byte Ascii String
-  index, side_leg_1 = asx_securities_t24_itch_v1_13.side_leg_1.dissect(buffer, index, packet, parent)
-
-  -- Ratio Leg 1: 2 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_1 = asx_securities_t24_itch_v1_13.ratio_leg_1.dissect(buffer, index, packet, parent)
-
-  -- Price Leg 1: 4 Byte Signed Fixed Width Integer
-  index, price_leg_1 = asx_securities_t24_itch_v1_13.price_leg_1.dissect(buffer, index, packet, parent)
-
-  -- Contract Number Leg 2: 4 Byte Unsigned Fixed Width Integer
-  index, contract_number_leg_2 = asx_securities_t24_itch_v1_13.contract_number_leg_2.dissect(buffer, index, packet, parent)
-
-  -- Side Leg 2: 1 Byte Ascii String
-  index, side_leg_2 = asx_securities_t24_itch_v1_13.side_leg_2.dissect(buffer, index, packet, parent)
-
-  -- Ratio Leg 2: 2 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_2 = asx_securities_t24_itch_v1_13.ratio_leg_2.dissect(buffer, index, packet, parent)
-
-  -- Price Leg 2: 4 Byte Signed Fixed Width Integer
-  index, price_leg_2 = asx_securities_t24_itch_v1_13.price_leg_2.dissect(buffer, index, packet, parent)
-
-  -- Contract Number Leg 3: 4 Byte Unsigned Fixed Width Integer
-  index, contract_number_leg_3 = asx_securities_t24_itch_v1_13.contract_number_leg_3.dissect(buffer, index, packet, parent)
-
-  -- Side Leg 3: 1 Byte Ascii String
-  index, side_leg_3 = asx_securities_t24_itch_v1_13.side_leg_3.dissect(buffer, index, packet, parent)
-
-  -- Ratio Leg 3: 2 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_3 = asx_securities_t24_itch_v1_13.ratio_leg_3.dissect(buffer, index, packet, parent)
-
-  -- Price Leg 3: 4 Byte Signed Fixed Width Integer
-  index, price_leg_3 = asx_securities_t24_itch_v1_13.price_leg_3.dissect(buffer, index, packet, parent)
-
-  -- Contract Number Leg 4: 4 Byte Unsigned Fixed Width Integer
-  index, contract_number_leg_4 = asx_securities_t24_itch_v1_13.contract_number_leg_4.dissect(buffer, index, packet, parent)
-
-  -- Side Leg 4: 1 Byte Ascii String
-  index, side_leg_4 = asx_securities_t24_itch_v1_13.side_leg_4.dissect(buffer, index, packet, parent)
-
-  -- Ratio Leg 4: 2 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_4 = asx_securities_t24_itch_v1_13.ratio_leg_4.dissect(buffer, index, packet, parent)
-
-  -- Price Leg 4: 4 Byte Signed Fixed Width Integer
-  index, price_leg_4 = asx_securities_t24_itch_v1_13.price_leg_4.dissect(buffer, index, packet, parent)
-
-  -- Contract Number Leg 5: 4 Byte Unsigned Fixed Width Integer
-  index, contract_number_leg_5 = asx_securities_t24_itch_v1_13.contract_number_leg_5.dissect(buffer, index, packet, parent)
-
-  -- Side Leg 5: 1 Byte Ascii String
-  index, side_leg_5 = asx_securities_t24_itch_v1_13.side_leg_5.dissect(buffer, index, packet, parent)
-
-  -- Ratio Leg 5: 2 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_5 = asx_securities_t24_itch_v1_13.ratio_leg_5.dissect(buffer, index, packet, parent)
-
-  -- Price Leg 5: 4 Byte Signed Fixed Width Integer
-  index, price_leg_5 = asx_securities_t24_itch_v1_13.price_leg_5.dissect(buffer, index, packet, parent)
-
-  -- Contract Number Leg 6: 4 Byte Unsigned Fixed Width Integer
-  index, contract_number_leg_6 = asx_securities_t24_itch_v1_13.contract_number_leg_6.dissect(buffer, index, packet, parent)
-
-  -- Side Leg 6: 1 Byte Ascii String
-  index, side_leg_6 = asx_securities_t24_itch_v1_13.side_leg_6.dissect(buffer, index, packet, parent)
-
-  -- Ratio Leg 6: 2 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_6 = asx_securities_t24_itch_v1_13.ratio_leg_6.dissect(buffer, index, packet, parent)
-
-  -- Price Leg 6: 4 Byte Signed Fixed Width Integer
-  index, price_leg_6 = asx_securities_t24_itch_v1_13.price_leg_6.dissect(buffer, index, packet, parent)
+  -- Array Of: Contract Legs
+  for contract_legs_index = 1, 6 do
+    index, contract_legs = asx_securities_t24_itch_v1_13.contract_legs.dissect(buffer, index, packet, parent, contract_legs_index)
+  end
 
   return index
 end
 
--- Dissect: Custom Market Order Added
-asx_securities_t24_itch_v1_13.custom_market_order_added.dissect = function(buffer, offset, packet, parent)
-  if show.custom_market_order_added then
+-- Dissect: Custom Market Order Added Message
+asx_securities_t24_itch_v1_13.custom_market_order_added_message.dissect = function(buffer, offset, packet, parent)
+  if show.custom_market_order_added_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_added, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.custom_market_order_added.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_added_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.custom_market_order_added_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.custom_market_order_added.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.custom_market_order_added_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.custom_market_order_added.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.custom_market_order_added_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Implied Order Deleted
-asx_securities_t24_itch_v1_13.implied_order_deleted = {}
+-- Implied Order Deleted Message
+asx_securities_t24_itch_v1_13.implied_order_deleted_message = {}
 
--- Size: Implied Order Deleted
-asx_securities_t24_itch_v1_13.implied_order_deleted.size =
+-- Size: Implied Order Deleted Message
+asx_securities_t24_itch_v1_13.implied_order_deleted_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
   asx_securities_t24_itch_v1_13.side.size + 
   asx_securities_t24_itch_v1_13.order_number.size
 
--- Display: Implied Order Deleted
-asx_securities_t24_itch_v1_13.implied_order_deleted.display = function(packet, parent, length)
+-- Display: Implied Order Deleted Message
+asx_securities_t24_itch_v1_13.implied_order_deleted_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Implied Order Deleted
-asx_securities_t24_itch_v1_13.implied_order_deleted.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Implied Order Deleted Message
+asx_securities_t24_itch_v1_13.implied_order_deleted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Implied Order Deleted
-asx_securities_t24_itch_v1_13.implied_order_deleted.dissect = function(buffer, offset, packet, parent)
-  if show.implied_order_deleted then
+-- Dissect: Implied Order Deleted Message
+asx_securities_t24_itch_v1_13.implied_order_deleted_message.dissect = function(buffer, offset, packet, parent)
+  if show.implied_order_deleted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.implied_order_deleted, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.implied_order_deleted.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.implied_order_deleted_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.implied_order_deleted_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.implied_order_deleted.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.implied_order_deleted_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.implied_order_deleted.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.implied_order_deleted_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Implied Order Replaced
-asx_securities_t24_itch_v1_13.implied_order_replaced = {}
+-- Implied Order Replaced Message
+asx_securities_t24_itch_v1_13.implied_order_replaced_message = {}
 
--- Size: Implied Order Replaced
-asx_securities_t24_itch_v1_13.implied_order_replaced.size =
+-- Size: Implied Order Replaced Message
+asx_securities_t24_itch_v1_13.implied_order_replaced_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -3778,65 +3305,65 @@ asx_securities_t24_itch_v1_13.implied_order_replaced.size =
   asx_securities_t24_itch_v1_13.quantity.size + 
   asx_securities_t24_itch_v1_13.price.size
 
--- Display: Implied Order Replaced
-asx_securities_t24_itch_v1_13.implied_order_replaced.display = function(packet, parent, length)
+-- Display: Implied Order Replaced Message
+asx_securities_t24_itch_v1_13.implied_order_replaced_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Implied Order Replaced
-asx_securities_t24_itch_v1_13.implied_order_replaced.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Implied Order Replaced Message
+asx_securities_t24_itch_v1_13.implied_order_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Priority: Numeric
   index, order_book_priority = asx_securities_t24_itch_v1_13.order_book_priority.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_t24_itch_v1_13.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_t24_itch_v1_13.price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Implied Order Replaced
-asx_securities_t24_itch_v1_13.implied_order_replaced.dissect = function(buffer, offset, packet, parent)
-  if show.implied_order_replaced then
+-- Dissect: Implied Order Replaced Message
+asx_securities_t24_itch_v1_13.implied_order_replaced_message.dissect = function(buffer, offset, packet, parent)
+  if show.implied_order_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.implied_order_replaced, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.implied_order_replaced.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.implied_order_replaced_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.implied_order_replaced_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.implied_order_replaced.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.implied_order_replaced_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.implied_order_replaced.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.implied_order_replaced_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Implied Order Added
-asx_securities_t24_itch_v1_13.implied_order_added = {}
+-- Implied Order Added Message
+asx_securities_t24_itch_v1_13.implied_order_added_message = {}
 
--- Size: Implied Order Added
-asx_securities_t24_itch_v1_13.implied_order_added.size =
+-- Size: Implied Order Added Message
+asx_securities_t24_itch_v1_13.implied_order_added_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -3846,121 +3373,121 @@ asx_securities_t24_itch_v1_13.implied_order_added.size =
   asx_securities_t24_itch_v1_13.quantity.size + 
   asx_securities_t24_itch_v1_13.price.size
 
--- Display: Implied Order Added
-asx_securities_t24_itch_v1_13.implied_order_added.display = function(packet, parent, length)
+-- Display: Implied Order Added Message
+asx_securities_t24_itch_v1_13.implied_order_added_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Implied Order Added
-asx_securities_t24_itch_v1_13.implied_order_added.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Implied Order Added Message
+asx_securities_t24_itch_v1_13.implied_order_added_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Priority: Numeric
   index, order_book_priority = asx_securities_t24_itch_v1_13.order_book_priority.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_t24_itch_v1_13.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_t24_itch_v1_13.price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Implied Order Added
-asx_securities_t24_itch_v1_13.implied_order_added.dissect = function(buffer, offset, packet, parent)
-  if show.implied_order_added then
+-- Dissect: Implied Order Added Message
+asx_securities_t24_itch_v1_13.implied_order_added_message.dissect = function(buffer, offset, packet, parent)
+  if show.implied_order_added_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.implied_order_added, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.implied_order_added.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.implied_order_added_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.implied_order_added_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.implied_order_added.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.implied_order_added_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.implied_order_added.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.implied_order_added_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Order Deleted
-asx_securities_t24_itch_v1_13.order_deleted = {}
+-- Order Deleted Message
+asx_securities_t24_itch_v1_13.order_deleted_message = {}
 
--- Size: Order Deleted
-asx_securities_t24_itch_v1_13.order_deleted.size =
+-- Size: Order Deleted Message
+asx_securities_t24_itch_v1_13.order_deleted_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
   asx_securities_t24_itch_v1_13.side.size + 
   asx_securities_t24_itch_v1_13.order_number.size
 
--- Display: Order Deleted
-asx_securities_t24_itch_v1_13.order_deleted.display = function(packet, parent, length)
+-- Display: Order Deleted Message
+asx_securities_t24_itch_v1_13.order_deleted_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Deleted
-asx_securities_t24_itch_v1_13.order_deleted.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Deleted Message
+asx_securities_t24_itch_v1_13.order_deleted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Order Deleted
-asx_securities_t24_itch_v1_13.order_deleted.dissect = function(buffer, offset, packet, parent)
-  if show.order_deleted then
+-- Dissect: Order Deleted Message
+asx_securities_t24_itch_v1_13.order_deleted_message.dissect = function(buffer, offset, packet, parent)
+  if show.order_deleted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_deleted, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.order_deleted.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_deleted_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.order_deleted_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.order_deleted.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.order_deleted_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.order_deleted.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_deleted_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Order Volume Cancelled
-asx_securities_t24_itch_v1_13.order_volume_cancelled = {}
+-- Order Volume Cancelled Message
+asx_securities_t24_itch_v1_13.order_volume_cancelled_message = {}
 
--- Size: Order Volume Cancelled
-asx_securities_t24_itch_v1_13.order_volume_cancelled.size =
+-- Size: Order Volume Cancelled Message
+asx_securities_t24_itch_v1_13.order_volume_cancelled_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -3968,59 +3495,59 @@ asx_securities_t24_itch_v1_13.order_volume_cancelled.size =
   asx_securities_t24_itch_v1_13.order_number.size + 
   asx_securities_t24_itch_v1_13.quantity.size
 
--- Display: Order Volume Cancelled
-asx_securities_t24_itch_v1_13.order_volume_cancelled.display = function(packet, parent, length)
+-- Display: Order Volume Cancelled Message
+asx_securities_t24_itch_v1_13.order_volume_cancelled_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Volume Cancelled
-asx_securities_t24_itch_v1_13.order_volume_cancelled.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Volume Cancelled Message
+asx_securities_t24_itch_v1_13.order_volume_cancelled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_t24_itch_v1_13.quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Order Volume Cancelled
-asx_securities_t24_itch_v1_13.order_volume_cancelled.dissect = function(buffer, offset, packet, parent)
-  if show.order_volume_cancelled then
+-- Dissect: Order Volume Cancelled Message
+asx_securities_t24_itch_v1_13.order_volume_cancelled_message.dissect = function(buffer, offset, packet, parent)
+  if show.order_volume_cancelled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_volume_cancelled, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.order_volume_cancelled.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_volume_cancelled_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.order_volume_cancelled_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.order_volume_cancelled.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.order_volume_cancelled_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.order_volume_cancelled.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_volume_cancelled_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Order Replaced
-asx_securities_t24_itch_v1_13.order_replaced = {}
+-- Order Replaced Message
+asx_securities_t24_itch_v1_13.order_replaced_message = {}
 
--- Size: Order Replaced
-asx_securities_t24_itch_v1_13.order_replaced.size =
+-- Size: Order Replaced Message
+asx_securities_t24_itch_v1_13.order_replaced_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -4030,65 +3557,65 @@ asx_securities_t24_itch_v1_13.order_replaced.size =
   asx_securities_t24_itch_v1_13.quantity.size + 
   asx_securities_t24_itch_v1_13.price.size
 
--- Display: Order Replaced
-asx_securities_t24_itch_v1_13.order_replaced.display = function(packet, parent, length)
+-- Display: Order Replaced Message
+asx_securities_t24_itch_v1_13.order_replaced_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Replaced
-asx_securities_t24_itch_v1_13.order_replaced.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Replaced Message
+asx_securities_t24_itch_v1_13.order_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Priority: Numeric
   index, order_book_priority = asx_securities_t24_itch_v1_13.order_book_priority.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_t24_itch_v1_13.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_t24_itch_v1_13.price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Order Replaced
-asx_securities_t24_itch_v1_13.order_replaced.dissect = function(buffer, offset, packet, parent)
-  if show.order_replaced then
+-- Dissect: Order Replaced Message
+asx_securities_t24_itch_v1_13.order_replaced_message.dissect = function(buffer, offset, packet, parent)
+  if show.order_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_replaced, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.order_replaced.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_replaced_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.order_replaced_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.order_replaced.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.order_replaced_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.order_replaced.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_replaced_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Order Added
-asx_securities_t24_itch_v1_13.order_added = {}
+-- Order Added Message
+asx_securities_t24_itch_v1_13.order_added_message = {}
 
--- Size: Order Added
-asx_securities_t24_itch_v1_13.order_added.size =
+-- Size: Order Added Message
+asx_securities_t24_itch_v1_13.order_added_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -4098,57 +3625,57 @@ asx_securities_t24_itch_v1_13.order_added.size =
   asx_securities_t24_itch_v1_13.quantity.size + 
   asx_securities_t24_itch_v1_13.price.size
 
--- Display: Order Added
-asx_securities_t24_itch_v1_13.order_added.display = function(packet, parent, length)
+-- Display: Order Added Message
+asx_securities_t24_itch_v1_13.order_added_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Added
-asx_securities_t24_itch_v1_13.order_added.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Added Message
+asx_securities_t24_itch_v1_13.order_added_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_t24_itch_v1_13.side.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Numeric
   index, order_number = asx_securities_t24_itch_v1_13.order_number.dissect(buffer, index, packet, parent)
 
-  -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
+  -- Order Book Priority: Numeric
   index, order_book_priority = asx_securities_t24_itch_v1_13.order_book_priority.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_t24_itch_v1_13.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_t24_itch_v1_13.price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Order Added
-asx_securities_t24_itch_v1_13.order_added.dissect = function(buffer, offset, packet, parent)
-  if show.order_added then
+-- Dissect: Order Added Message
+asx_securities_t24_itch_v1_13.order_added_message.dissect = function(buffer, offset, packet, parent)
+  if show.order_added_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_added, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.order_added.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_added_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.order_added_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.order_added.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.order_added_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.order_added.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_added_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4215,55 +3742,55 @@ asx_securities_t24_itch_v1_13.trading_status.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Order Book State
-asx_securities_t24_itch_v1_13.order_book_state = {}
+-- Order Book State Message
+asx_securities_t24_itch_v1_13.order_book_state_message = {}
 
--- Size: Order Book State
-asx_securities_t24_itch_v1_13.order_book_state.size =
+-- Size: Order Book State Message
+asx_securities_t24_itch_v1_13.order_book_state_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
   asx_securities_t24_itch_v1_13.trading_status.size
 
--- Display: Order Book State
-asx_securities_t24_itch_v1_13.order_book_state.display = function(packet, parent, length)
+-- Display: Order Book State Message
+asx_securities_t24_itch_v1_13.order_book_state_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Book State
-asx_securities_t24_itch_v1_13.order_book_state.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Book State Message
+asx_securities_t24_itch_v1_13.order_book_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 13 values
+  -- Trading Status: Alpha
   index, trading_status = asx_securities_t24_itch_v1_13.trading_status.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Order Book State
-asx_securities_t24_itch_v1_13.order_book_state.dissect = function(buffer, offset, packet, parent)
-  if show.order_book_state then
+-- Dissect: Order Book State Message
+asx_securities_t24_itch_v1_13.order_book_state_message.dissect = function(buffer, offset, packet, parent)
+  if show.order_book_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_book_state, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.order_book_state.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_book_state_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.order_book_state_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.order_book_state.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.order_book_state_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.order_book_state.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_book_state_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4462,11 +3989,17 @@ asx_securities_t24_itch_v1_13.prior_day_settlement.display = function(value)
   return "Prior Day Settlement: "..value
 end
 
+-- Translate: Prior Day Settlement
+asx_securities_t24_itch_v1_13.prior_day_settlement.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Prior Day Settlement
 asx_securities_t24_itch_v1_13.prior_day_settlement.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13.prior_day_settlement.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = asx_securities_t24_itch_v1_13.prior_day_settlement.translate(raw)
   local display = asx_securities_t24_itch_v1_13.prior_day_settlement.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_t24_itch_v1_13.fields.prior_day_settlement, range, value, display)
@@ -4848,11 +4381,11 @@ asx_securities_t24_itch_v1_13.exchange.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Option Symbol Directory
-asx_securities_t24_itch_v1_13.option_symbol_directory = {}
+-- Option Symbol Directory Message
+asx_securities_t24_itch_v1_13.option_symbol_directory_message = {}
 
--- Size: Option Symbol Directory
-asx_securities_t24_itch_v1_13.option_symbol_directory.size =
+-- Size: Option Symbol Directory Message
+asx_securities_t24_itch_v1_13.option_symbol_directory_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -4881,114 +4414,114 @@ asx_securities_t24_itch_v1_13.option_symbol_directory.size =
   asx_securities_t24_itch_v1_13.payments_per_year.size + 
   asx_securities_t24_itch_v1_13.activated.size
 
--- Display: Option Symbol Directory
-asx_securities_t24_itch_v1_13.option_symbol_directory.display = function(packet, parent, length)
+-- Display: Option Symbol Directory Message
+asx_securities_t24_itch_v1_13.option_symbol_directory_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Option Symbol Directory
-asx_securities_t24_itch_v1_13.option_symbol_directory.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Option Symbol Directory Message
+asx_securities_t24_itch_v1_13.option_symbol_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Exchange: 6 Byte Ascii String
+  -- Exchange: Alpha
   index, exchange = asx_securities_t24_itch_v1_13.exchange.dissect(buffer, index, packet, parent)
 
-  -- Instrument: 6 Byte Ascii String
+  -- Instrument: Alpha
   index, instrument = asx_securities_t24_itch_v1_13.instrument.dissect(buffer, index, packet, parent)
 
-  -- Contract Type: 1 Byte Ascii String Enum with 7 values
+  -- Contract Type: Alpha
   index, contract_type = asx_securities_t24_itch_v1_13.contract_type.dissect(buffer, index, packet, parent)
 
-  -- Expiry Year: 2 Byte Unsigned Fixed Width Integer
+  -- Expiry Year: Numeric
   index, expiry_year = asx_securities_t24_itch_v1_13.expiry_year.dissect(buffer, index, packet, parent)
 
-  -- Expiry Month: 1 Byte Unsigned Fixed Width Integer
+  -- Expiry Month: Numeric
   index, expiry_month = asx_securities_t24_itch_v1_13.expiry_month.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 2 values
+  -- Option Type: Alpha
   index, option_type = asx_securities_t24_itch_v1_13.option_type.dissect(buffer, index, packet, parent)
 
-  -- Strike: 4 Byte Unsigned Fixed Width Integer
+  -- Strike: Numeric
   index, strike = asx_securities_t24_itch_v1_13.strike.dissect(buffer, index, packet, parent)
 
-  -- Underlying Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Contract Number: Numeric
   index, underlying_contract_number = asx_securities_t24_itch_v1_13.underlying_contract_number.dissect(buffer, index, packet, parent)
 
-  -- Price Decimal Position: 1 Byte Unsigned Fixed Width Integer
+  -- Price Decimal Position: Numeric
   index, price_decimal_position = asx_securities_t24_itch_v1_13.price_decimal_position.dissect(buffer, index, packet, parent)
 
-  -- Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
+  -- Price Fractional Denominator: Numeric
   index, price_fractional_denominator = asx_securities_t24_itch_v1_13.price_fractional_denominator.dissect(buffer, index, packet, parent)
 
-  -- Price Minimum Tick: 2 Byte Unsigned Fixed Width Integer
+  -- Price Minimum Tick: Numeric
   index, price_minimum_tick = asx_securities_t24_itch_v1_13.price_minimum_tick.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Decimal Position: 1 Byte Unsigned Fixed Width Integer
+  -- Strike Price Decimal Position: Numeric
   index, strike_price_decimal_position = asx_securities_t24_itch_v1_13.strike_price_decimal_position.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price Fractional Denominator: Numeric
   index, strike_price_fractional_denominator = asx_securities_t24_itch_v1_13.strike_price_fractional_denominator.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Minimum Tick: 2 Byte Unsigned Fixed Width Integer
+  -- Strike Price Minimum Tick: Numeric
   index, strike_price_minimum_tick = asx_securities_t24_itch_v1_13.strike_price_minimum_tick.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Date: 4 Byte Unsigned Fixed Width Integer
+  -- Last Trading Date: Numeric
   index, last_trading_date = asx_securities_t24_itch_v1_13.last_trading_date.dissect(buffer, index, packet, parent)
 
-  -- Prior Day Settlement: 4 Byte Signed Fixed Width Integer
+  -- Prior Day Settlement: Price
   index, prior_day_settlement = asx_securities_t24_itch_v1_13.prior_day_settlement.dissect(buffer, index, packet, parent)
 
-  -- Volatility: 4 Byte Unsigned Fixed Width Integer
+  -- Volatility: Numeric
   index, volatility = asx_securities_t24_itch_v1_13.volatility.dissect(buffer, index, packet, parent)
 
-  -- Financial Type: 1 Byte Ascii String Enum with 5 values
+  -- Financial Type: Alpha
   index, financial_type = asx_securities_t24_itch_v1_13.financial_type.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alpha
   index, currency = asx_securities_t24_itch_v1_13.currency.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Or Face Value: 4 Byte Unsigned Fixed Width Integer
+  -- Lot Size Or Face Value: Numeric
   index, lot_size_or_face_value = asx_securities_t24_itch_v1_13.lot_size_or_face_value.dissect(buffer, index, packet, parent)
 
-  -- Maturity Value: 1 Byte Unsigned Fixed Width Integer
+  -- Maturity Value: Numeric
   index, maturity_value = asx_securities_t24_itch_v1_13.maturity_value.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 2 Byte Unsigned Fixed Width Integer
+  -- Coupon Rate: Numeric
   index, coupon_rate = asx_securities_t24_itch_v1_13.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Payments Per Year: 1 Byte Unsigned Fixed Width Integer
+  -- Payments Per Year: Numeric
   index, payments_per_year = asx_securities_t24_itch_v1_13.payments_per_year.dissect(buffer, index, packet, parent)
 
-  -- Activated: 1 Byte Ascii String Enum with 2 values
+  -- Activated: Alpha
   index, activated = asx_securities_t24_itch_v1_13.activated.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Option Symbol Directory
-asx_securities_t24_itch_v1_13.option_symbol_directory.dissect = function(buffer, offset, packet, parent)
-  if show.option_symbol_directory then
+-- Dissect: Option Symbol Directory Message
+asx_securities_t24_itch_v1_13.option_symbol_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.option_symbol_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.option_symbol_directory, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.option_symbol_directory.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.option_symbol_directory_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.option_symbol_directory_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.option_symbol_directory.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.option_symbol_directory_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.option_symbol_directory.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.option_symbol_directory_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5084,11 +4617,11 @@ asx_securities_t24_itch_v1_13.first_leg_contract_number.dissect = function(buffe
   return offset + length, value
 end
 
--- Spread Symbol Directory
-asx_securities_t24_itch_v1_13.spread_symbol_directory = {}
+-- Spread Symbol Directory Message
+asx_securities_t24_itch_v1_13.spread_symbol_directory_message = {}
 
--- Size: Spread Symbol Directory
-asx_securities_t24_itch_v1_13.spread_symbol_directory.size =
+-- Size: Spread Symbol Directory Message
+asx_securities_t24_itch_v1_13.spread_symbol_directory_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -5102,77 +4635,77 @@ asx_securities_t24_itch_v1_13.spread_symbol_directory.size =
   asx_securities_t24_itch_v1_13.price_fractional_denominator.size + 
   asx_securities_t24_itch_v1_13.price_minimum_tick.size
 
--- Display: Spread Symbol Directory
-asx_securities_t24_itch_v1_13.spread_symbol_directory.display = function(packet, parent, length)
+-- Display: Spread Symbol Directory Message
+asx_securities_t24_itch_v1_13.spread_symbol_directory_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Spread Symbol Directory
-asx_securities_t24_itch_v1_13.spread_symbol_directory.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Spread Symbol Directory Message
+asx_securities_t24_itch_v1_13.spread_symbol_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Exchange: 6 Byte Ascii String
+  -- Exchange: Alpha
   index, exchange = asx_securities_t24_itch_v1_13.exchange.dissect(buffer, index, packet, parent)
 
-  -- Contract Type: 1 Byte Ascii String Enum with 7 values
+  -- Contract Type: Alpha
   index, contract_type = asx_securities_t24_itch_v1_13.contract_type.dissect(buffer, index, packet, parent)
 
-  -- First Leg Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- First Leg Contract Number: Numeric
   index, first_leg_contract_number = asx_securities_t24_itch_v1_13.first_leg_contract_number.dissect(buffer, index, packet, parent)
 
-  -- Second Leg Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Second Leg Contract Number: Numeric
   index, second_leg_contract_number = asx_securities_t24_itch_v1_13.second_leg_contract_number.dissect(buffer, index, packet, parent)
 
-  -- Primary Ratio: 1 Byte Unsigned Fixed Width Integer
+  -- Primary Ratio: Numeric
   index, primary_ratio = asx_securities_t24_itch_v1_13.primary_ratio.dissect(buffer, index, packet, parent)
 
-  -- Secondary Ratio: 1 Byte Unsigned Fixed Width Integer
+  -- Secondary Ratio: Numeric
   index, secondary_ratio = asx_securities_t24_itch_v1_13.secondary_ratio.dissect(buffer, index, packet, parent)
 
-  -- Price Decimal Position: 1 Byte Unsigned Fixed Width Integer
+  -- Price Decimal Position: Numeric
   index, price_decimal_position = asx_securities_t24_itch_v1_13.price_decimal_position.dissect(buffer, index, packet, parent)
 
-  -- Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
+  -- Price Fractional Denominator: Numeric
   index, price_fractional_denominator = asx_securities_t24_itch_v1_13.price_fractional_denominator.dissect(buffer, index, packet, parent)
 
-  -- Price Minimum Tick: 2 Byte Unsigned Fixed Width Integer
+  -- Price Minimum Tick: Numeric
   index, price_minimum_tick = asx_securities_t24_itch_v1_13.price_minimum_tick.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Spread Symbol Directory
-asx_securities_t24_itch_v1_13.spread_symbol_directory.dissect = function(buffer, offset, packet, parent)
-  if show.spread_symbol_directory then
+-- Dissect: Spread Symbol Directory Message
+asx_securities_t24_itch_v1_13.spread_symbol_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.spread_symbol_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.spread_symbol_directory, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.spread_symbol_directory.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.spread_symbol_directory_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.spread_symbol_directory_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.spread_symbol_directory.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.spread_symbol_directory_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.spread_symbol_directory.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.spread_symbol_directory_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Future Symbol Directory
-asx_securities_t24_itch_v1_13.future_symbol_directory = {}
+-- Future Symbol Directory Message
+asx_securities_t24_itch_v1_13.future_symbol_directory_message = {}
 
--- Size: Future Symbol Directory
-asx_securities_t24_itch_v1_13.future_symbol_directory.size =
+-- Size: Future Symbol Directory Message
+asx_securities_t24_itch_v1_13.future_symbol_directory_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.contract_number.size + 
@@ -5193,90 +4726,90 @@ asx_securities_t24_itch_v1_13.future_symbol_directory.size =
   asx_securities_t24_itch_v1_13.coupon_rate.size + 
   asx_securities_t24_itch_v1_13.payments_per_year.size
 
--- Display: Future Symbol Directory
-asx_securities_t24_itch_v1_13.future_symbol_directory.display = function(packet, parent, length)
+-- Display: Future Symbol Directory Message
+asx_securities_t24_itch_v1_13.future_symbol_directory_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Future Symbol Directory
-asx_securities_t24_itch_v1_13.future_symbol_directory.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Future Symbol Directory Message
+asx_securities_t24_itch_v1_13.future_symbol_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Contract Number: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Number: Numeric
   index, contract_number = asx_securities_t24_itch_v1_13.contract_number.dissect(buffer, index, packet, parent)
 
-  -- Exchange: 6 Byte Ascii String
+  -- Exchange: Alpha
   index, exchange = asx_securities_t24_itch_v1_13.exchange.dissect(buffer, index, packet, parent)
 
-  -- Instrument: 6 Byte Ascii String
+  -- Instrument: Alpha
   index, instrument = asx_securities_t24_itch_v1_13.instrument.dissect(buffer, index, packet, parent)
 
-  -- Contract Type: 1 Byte Ascii String Enum with 7 values
+  -- Contract Type: Alpha
   index, contract_type = asx_securities_t24_itch_v1_13.contract_type.dissect(buffer, index, packet, parent)
 
-  -- Expiry Year: 2 Byte Unsigned Fixed Width Integer
+  -- Expiry Year: Numeric
   index, expiry_year = asx_securities_t24_itch_v1_13.expiry_year.dissect(buffer, index, packet, parent)
 
-  -- Expiry Month: 1 Byte Unsigned Fixed Width Integer
+  -- Expiry Month: Numeric
   index, expiry_month = asx_securities_t24_itch_v1_13.expiry_month.dissect(buffer, index, packet, parent)
 
-  -- Price Decimal Position: 1 Byte Unsigned Fixed Width Integer
+  -- Price Decimal Position: Numeric
   index, price_decimal_position = asx_securities_t24_itch_v1_13.price_decimal_position.dissect(buffer, index, packet, parent)
 
-  -- Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
+  -- Price Fractional Denominator: Numeric
   index, price_fractional_denominator = asx_securities_t24_itch_v1_13.price_fractional_denominator.dissect(buffer, index, packet, parent)
 
-  -- Price Minimum Tick: 2 Byte Unsigned Fixed Width Integer
+  -- Price Minimum Tick: Numeric
   index, price_minimum_tick = asx_securities_t24_itch_v1_13.price_minimum_tick.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Date: 4 Byte Unsigned Fixed Width Integer
+  -- Last Trading Date: Numeric
   index, last_trading_date = asx_securities_t24_itch_v1_13.last_trading_date.dissect(buffer, index, packet, parent)
 
-  -- Prior Day Settlement: 4 Byte Signed Fixed Width Integer
+  -- Prior Day Settlement: Price
   index, prior_day_settlement = asx_securities_t24_itch_v1_13.prior_day_settlement.dissect(buffer, index, packet, parent)
 
-  -- Financial Type: 1 Byte Ascii String Enum with 5 values
+  -- Financial Type: Alpha
   index, financial_type = asx_securities_t24_itch_v1_13.financial_type.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alpha
   index, currency = asx_securities_t24_itch_v1_13.currency.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Or Face Value: 4 Byte Unsigned Fixed Width Integer
+  -- Lot Size Or Face Value: Numeric
   index, lot_size_or_face_value = asx_securities_t24_itch_v1_13.lot_size_or_face_value.dissect(buffer, index, packet, parent)
 
-  -- Maturity Value: 1 Byte Unsigned Fixed Width Integer
+  -- Maturity Value: Numeric
   index, maturity_value = asx_securities_t24_itch_v1_13.maturity_value.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 2 Byte Unsigned Fixed Width Integer
+  -- Coupon Rate: Numeric
   index, coupon_rate = asx_securities_t24_itch_v1_13.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Payments Per Year: 1 Byte Unsigned Fixed Width Integer
+  -- Payments Per Year: Numeric
   index, payments_per_year = asx_securities_t24_itch_v1_13.payments_per_year.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Future Symbol Directory
-asx_securities_t24_itch_v1_13.future_symbol_directory.dissect = function(buffer, offset, packet, parent)
-  if show.future_symbol_directory then
+-- Dissect: Future Symbol Directory Message
+asx_securities_t24_itch_v1_13.future_symbol_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.future_symbol_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.future_symbol_directory, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.future_symbol_directory.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.future_symbol_directory_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.future_symbol_directory_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.future_symbol_directory.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.future_symbol_directory_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.future_symbol_directory.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.future_symbol_directory_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5319,51 +4852,51 @@ asx_securities_t24_itch_v1_13.event_code.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- System Event
-asx_securities_t24_itch_v1_13.system_event = {}
+-- System Event Message
+asx_securities_t24_itch_v1_13.system_event_message = {}
 
--- Size: System Event
-asx_securities_t24_itch_v1_13.system_event.size =
+-- Size: System Event Message
+asx_securities_t24_itch_v1_13.system_event_message.size =
   asx_securities_t24_itch_v1_13.timestamp.size + 
   asx_securities_t24_itch_v1_13.trade_date.size + 
   asx_securities_t24_itch_v1_13.event_code.size
 
--- Display: System Event
-asx_securities_t24_itch_v1_13.system_event.display = function(packet, parent, length)
+-- Display: System Event Message
+asx_securities_t24_itch_v1_13.system_event_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: System Event
-asx_securities_t24_itch_v1_13.system_event.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: System Event Message
+asx_securities_t24_itch_v1_13.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = asx_securities_t24_itch_v1_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_t24_itch_v1_13.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 5 values
+  -- Event Code: Alpha
   index, event_code = asx_securities_t24_itch_v1_13.event_code.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: System Event
-asx_securities_t24_itch_v1_13.system_event.dissect = function(buffer, offset, packet, parent)
-  if show.system_event then
+-- Dissect: System Event Message
+asx_securities_t24_itch_v1_13.system_event_message.dissect = function(buffer, offset, packet, parent)
+  if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.system_event, buffer(offset, 0))
-    local index = asx_securities_t24_itch_v1_13.system_event.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.system_event_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.system_event_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_securities_t24_itch_v1_13.system_event.display(packet, parent, length)
+    local display = asx_securities_t24_itch_v1_13.system_event_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return asx_securities_t24_itch_v1_13.system_event.fields(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.system_event_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5406,7 +4939,7 @@ end
 asx_securities_t24_itch_v1_13.time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Second: 4 Byte Unsigned Fixed Width Integer
+  -- Second: Numeric
   index, second = asx_securities_t24_itch_v1_13.second.dissect(buffer, index, packet, parent)
 
   return index
@@ -5439,121 +4972,121 @@ asx_securities_t24_itch_v1_13.payload.size = function(buffer, offset, message_ty
   if message_type == "T" then
     return asx_securities_t24_itch_v1_13.time_message.size
   end
-  -- Size of System Event
+  -- Size of System Event Message
   if message_type == "S" then
-    return asx_securities_t24_itch_v1_13.system_event.size
+    return asx_securities_t24_itch_v1_13.system_event_message.size
   end
-  -- Size of Future Symbol Directory
+  -- Size of Future Symbol Directory Message
   if message_type == "f" then
-    return asx_securities_t24_itch_v1_13.future_symbol_directory.size
+    return asx_securities_t24_itch_v1_13.future_symbol_directory_message.size
   end
-  -- Size of Spread Symbol Directory
+  -- Size of Spread Symbol Directory Message
   if message_type == "g" then
-    return asx_securities_t24_itch_v1_13.spread_symbol_directory.size
+    return asx_securities_t24_itch_v1_13.spread_symbol_directory_message.size
   end
-  -- Size of Option Symbol Directory
+  -- Size of Option Symbol Directory Message
   if message_type == "h" then
-    return asx_securities_t24_itch_v1_13.option_symbol_directory.size
+    return asx_securities_t24_itch_v1_13.option_symbol_directory_message.size
   end
-  -- Size of Order Book State
+  -- Size of Order Book State Message
   if message_type == "O" then
-    return asx_securities_t24_itch_v1_13.order_book_state.size
+    return asx_securities_t24_itch_v1_13.order_book_state_message.size
   end
-  -- Size of Order Added
+  -- Size of Order Added Message
   if message_type == "A" then
-    return asx_securities_t24_itch_v1_13.order_added.size
+    return asx_securities_t24_itch_v1_13.order_added_message.size
   end
-  -- Size of Order Replaced
+  -- Size of Order Replaced Message
   if message_type == "U" then
-    return asx_securities_t24_itch_v1_13.order_replaced.size
+    return asx_securities_t24_itch_v1_13.order_replaced_message.size
   end
-  -- Size of Order Volume Cancelled
+  -- Size of Order Volume Cancelled Message
   if message_type == "X" then
-    return asx_securities_t24_itch_v1_13.order_volume_cancelled.size
+    return asx_securities_t24_itch_v1_13.order_volume_cancelled_message.size
   end
-  -- Size of Order Deleted
+  -- Size of Order Deleted Message
   if message_type == "D" then
-    return asx_securities_t24_itch_v1_13.order_deleted.size
+    return asx_securities_t24_itch_v1_13.order_deleted_message.size
   end
-  -- Size of Implied Order Added
+  -- Size of Implied Order Added Message
   if message_type == "j" then
-    return asx_securities_t24_itch_v1_13.implied_order_added.size
+    return asx_securities_t24_itch_v1_13.implied_order_added_message.size
   end
-  -- Size of Implied Order Replaced
+  -- Size of Implied Order Replaced Message
   if message_type == "l" then
-    return asx_securities_t24_itch_v1_13.implied_order_replaced.size
+    return asx_securities_t24_itch_v1_13.implied_order_replaced_message.size
   end
-  -- Size of Implied Order Deleted
+  -- Size of Implied Order Deleted Message
   if message_type == "k" then
-    return asx_securities_t24_itch_v1_13.implied_order_deleted.size
+    return asx_securities_t24_itch_v1_13.implied_order_deleted_message.size
   end
-  -- Size of Custom Market Order Added
+  -- Size of Custom Market Order Added Message
   if message_type == "m" then
-    return asx_securities_t24_itch_v1_13.custom_market_order_added.size
+    return asx_securities_t24_itch_v1_13.custom_market_order_added_message.size
   end
-  -- Size of Custom Market Order Replaced
+  -- Size of Custom Market Order Replaced Message
   if message_type == "n" then
-    return asx_securities_t24_itch_v1_13.custom_market_order_replaced.size
+    return asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.size
   end
-  -- Size of Custom Market Order Deleted
+  -- Size of Custom Market Order Deleted Message
   if message_type == "r" then
-    return asx_securities_t24_itch_v1_13.custom_market_order_deleted.size
+    return asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.size
   end
-  -- Size of Order Executed
+  -- Size of Order Executed Message
   if message_type == "E" then
-    return asx_securities_t24_itch_v1_13.order_executed.size
+    return asx_securities_t24_itch_v1_13.order_executed_message.size
   end
-  -- Size of Order Executed With Price
+  -- Size of Order Executed With Price Message
   if message_type == "C" then
-    return asx_securities_t24_itch_v1_13.order_executed_with_price.size
+    return asx_securities_t24_itch_v1_13.order_executed_with_price_message.size
   end
-  -- Size of Spread Executed
+  -- Size of Spread Executed Message
   if message_type == "e" then
-    return asx_securities_t24_itch_v1_13.spread_executed.size
+    return asx_securities_t24_itch_v1_13.spread_executed_message.size
   end
-  -- Size of Trade Spread Execution Chain
+  -- Size of Trade Spread Execution Chain Message
   if message_type == "P" then
-    return asx_securities_t24_itch_v1_13.trade_spread_execution_chain.size
+    return asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.size
   end
-  -- Size of Custom Market Executed
+  -- Size of Custom Market Executed Message
   if message_type == "u" then
-    return asx_securities_t24_itch_v1_13.custom_market_executed.size
+    return asx_securities_t24_itch_v1_13.custom_market_executed_message.size
   end
-  -- Size of Custom Market Trade
+  -- Size of Custom Market Trade Message
   if message_type == "p" then
-    return asx_securities_t24_itch_v1_13.custom_market_trade.size
+    return asx_securities_t24_itch_v1_13.custom_market_trade_message.size
   end
-  -- Size of Trade Cancellation
+  -- Size of Trade Cancellation Message
   if message_type == "B" then
-    return asx_securities_t24_itch_v1_13.trade_cancellation.size
+    return asx_securities_t24_itch_v1_13.trade_cancellation_message.size
   end
-  -- Size of Equilibrium Price Auction Info
+  -- Size of Equilibrium Price Auction Info Message
   if message_type == "Z" then
-    return asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.size
+    return asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.size
   end
-  -- Size of Open High Low Last Trade Adjustment
+  -- Size of Open High Low Last Trade Adjustment Message
   if message_type == "t" then
-    return asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.size
+    return asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.size
   end
-  -- Size of Market Settlement
+  -- Size of Market Settlement Message
   if message_type == "Y" then
-    return asx_securities_t24_itch_v1_13.market_settlement.size
+    return asx_securities_t24_itch_v1_13.market_settlement_message.size
   end
-  -- Size of Ad Hoc Text
+  -- Size of Ad Hoc Text Message
   if message_type == "x" then
-    return asx_securities_t24_itch_v1_13.ad_hoc_text.size
+    return asx_securities_t24_itch_v1_13.ad_hoc_text_message.size
   end
-  -- Size of Request For Quote
+  -- Size of Request For Quote Message
   if message_type == "q" then
-    return asx_securities_t24_itch_v1_13.request_for_quote.size
+    return asx_securities_t24_itch_v1_13.request_for_quote_message.size
   end
-  -- Size of Anomalous Order Threshold Publish
+  -- Size of Anomalous Order Threshold Publish Message
   if message_type == "W" then
-    return asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.size
+    return asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.size
   end
-  -- Size of Volume And Open Interest
+  -- Size of Volume And Open Interest Message
   if message_type == "V" then
-    return asx_securities_t24_itch_v1_13.volume_and_open_interest.size
+    return asx_securities_t24_itch_v1_13.volume_and_open_interest_message.size
   end
 
   return 0
@@ -5570,121 +5103,121 @@ asx_securities_t24_itch_v1_13.payload.branches = function(buffer, offset, packet
   if message_type == "T" then
     return asx_securities_t24_itch_v1_13.time_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect System Event
+  -- Dissect System Event Message
   if message_type == "S" then
-    return asx_securities_t24_itch_v1_13.system_event.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.system_event_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Future Symbol Directory
+  -- Dissect Future Symbol Directory Message
   if message_type == "f" then
-    return asx_securities_t24_itch_v1_13.future_symbol_directory.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.future_symbol_directory_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Spread Symbol Directory
+  -- Dissect Spread Symbol Directory Message
   if message_type == "g" then
-    return asx_securities_t24_itch_v1_13.spread_symbol_directory.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.spread_symbol_directory_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Option Symbol Directory
+  -- Dissect Option Symbol Directory Message
   if message_type == "h" then
-    return asx_securities_t24_itch_v1_13.option_symbol_directory.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.option_symbol_directory_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Book State
+  -- Dissect Order Book State Message
   if message_type == "O" then
-    return asx_securities_t24_itch_v1_13.order_book_state.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_book_state_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Added
+  -- Dissect Order Added Message
   if message_type == "A" then
-    return asx_securities_t24_itch_v1_13.order_added.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_added_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Replaced
+  -- Dissect Order Replaced Message
   if message_type == "U" then
-    return asx_securities_t24_itch_v1_13.order_replaced.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_replaced_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Volume Cancelled
+  -- Dissect Order Volume Cancelled Message
   if message_type == "X" then
-    return asx_securities_t24_itch_v1_13.order_volume_cancelled.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_volume_cancelled_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Deleted
+  -- Dissect Order Deleted Message
   if message_type == "D" then
-    return asx_securities_t24_itch_v1_13.order_deleted.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_deleted_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Implied Order Added
+  -- Dissect Implied Order Added Message
   if message_type == "j" then
-    return asx_securities_t24_itch_v1_13.implied_order_added.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.implied_order_added_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Implied Order Replaced
+  -- Dissect Implied Order Replaced Message
   if message_type == "l" then
-    return asx_securities_t24_itch_v1_13.implied_order_replaced.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.implied_order_replaced_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Implied Order Deleted
+  -- Dissect Implied Order Deleted Message
   if message_type == "k" then
-    return asx_securities_t24_itch_v1_13.implied_order_deleted.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.implied_order_deleted_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Custom Market Order Added
+  -- Dissect Custom Market Order Added Message
   if message_type == "m" then
-    return asx_securities_t24_itch_v1_13.custom_market_order_added.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.custom_market_order_added_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Custom Market Order Replaced
+  -- Dissect Custom Market Order Replaced Message
   if message_type == "n" then
-    return asx_securities_t24_itch_v1_13.custom_market_order_replaced.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Custom Market Order Deleted
+  -- Dissect Custom Market Order Deleted Message
   if message_type == "r" then
-    return asx_securities_t24_itch_v1_13.custom_market_order_deleted.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Executed
+  -- Dissect Order Executed Message
   if message_type == "E" then
-    return asx_securities_t24_itch_v1_13.order_executed.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_executed_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Executed With Price
+  -- Dissect Order Executed With Price Message
   if message_type == "C" then
-    return asx_securities_t24_itch_v1_13.order_executed_with_price.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Spread Executed
+  -- Dissect Spread Executed Message
   if message_type == "e" then
-    return asx_securities_t24_itch_v1_13.spread_executed.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.spread_executed_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Trade Spread Execution Chain
+  -- Dissect Trade Spread Execution Chain Message
   if message_type == "P" then
-    return asx_securities_t24_itch_v1_13.trade_spread_execution_chain.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Custom Market Executed
+  -- Dissect Custom Market Executed Message
   if message_type == "u" then
-    return asx_securities_t24_itch_v1_13.custom_market_executed.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.custom_market_executed_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Custom Market Trade
+  -- Dissect Custom Market Trade Message
   if message_type == "p" then
-    return asx_securities_t24_itch_v1_13.custom_market_trade.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.custom_market_trade_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Trade Cancellation
+  -- Dissect Trade Cancellation Message
   if message_type == "B" then
-    return asx_securities_t24_itch_v1_13.trade_cancellation.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.trade_cancellation_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Equilibrium Price Auction Info
+  -- Dissect Equilibrium Price Auction Info Message
   if message_type == "Z" then
-    return asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Open High Low Last Trade Adjustment
+  -- Dissect Open High Low Last Trade Adjustment Message
   if message_type == "t" then
-    return asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Market Settlement
+  -- Dissect Market Settlement Message
   if message_type == "Y" then
-    return asx_securities_t24_itch_v1_13.market_settlement.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.market_settlement_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Ad Hoc Text
+  -- Dissect Ad Hoc Text Message
   if message_type == "x" then
-    return asx_securities_t24_itch_v1_13.ad_hoc_text.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.ad_hoc_text_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Request For Quote
+  -- Dissect Request For Quote Message
   if message_type == "q" then
-    return asx_securities_t24_itch_v1_13.request_for_quote.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.request_for_quote_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Anomalous Order Threshold Publish
+  -- Dissect Anomalous Order Threshold Publish Message
   if message_type == "W" then
-    return asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Volume And Open Interest
+  -- Dissect Volume And Open Interest Message
   if message_type == "V" then
-    return asx_securities_t24_itch_v1_13.volume_and_open_interest.dissect(buffer, offset, packet, parent)
+    return asx_securities_t24_itch_v1_13.volume_and_open_interest_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5722,91 +5255,91 @@ asx_securities_t24_itch_v1_13.message_type.display = function(value)
     return "Message Type: Time Message (T)"
   end
   if value == "S" then
-    return "Message Type: System Event (S)"
+    return "Message Type: System Event Message (S)"
   end
   if value == "f" then
-    return "Message Type: Future Symbol Directory (f)"
+    return "Message Type: Future Symbol Directory Message (f)"
   end
   if value == "g" then
-    return "Message Type: Spread Symbol Directory (g)"
+    return "Message Type: Spread Symbol Directory Message (g)"
   end
   if value == "h" then
-    return "Message Type: Option Symbol Directory (h)"
+    return "Message Type: Option Symbol Directory Message (h)"
   end
   if value == "O" then
-    return "Message Type: Order Book State (O)"
+    return "Message Type: Order Book State Message (O)"
   end
   if value == "A" then
-    return "Message Type: Order Added (A)"
+    return "Message Type: Order Added Message (A)"
   end
   if value == "U" then
-    return "Message Type: Order Replaced (U)"
+    return "Message Type: Order Replaced Message (U)"
   end
   if value == "X" then
-    return "Message Type: Order Volume Cancelled (X)"
+    return "Message Type: Order Volume Cancelled Message (X)"
   end
   if value == "D" then
-    return "Message Type: Order Deleted (D)"
+    return "Message Type: Order Deleted Message (D)"
   end
   if value == "j" then
-    return "Message Type: Implied Order Added (j)"
+    return "Message Type: Implied Order Added Message (j)"
   end
   if value == "l" then
-    return "Message Type: Implied Order Replaced (l)"
+    return "Message Type: Implied Order Replaced Message (l)"
   end
   if value == "k" then
-    return "Message Type: Implied Order Deleted (k)"
+    return "Message Type: Implied Order Deleted Message (k)"
   end
   if value == "m" then
-    return "Message Type: Custom Market Order Added (m)"
+    return "Message Type: Custom Market Order Added Message (m)"
   end
   if value == "n" then
-    return "Message Type: Custom Market Order Replaced (n)"
+    return "Message Type: Custom Market Order Replaced Message (n)"
   end
   if value == "r" then
-    return "Message Type: Custom Market Order Deleted (r)"
+    return "Message Type: Custom Market Order Deleted Message (r)"
   end
   if value == "E" then
-    return "Message Type: Order Executed (E)"
+    return "Message Type: Order Executed Message (E)"
   end
   if value == "C" then
-    return "Message Type: Order Executed With Price (C)"
+    return "Message Type: Order Executed With Price Message (C)"
   end
   if value == "e" then
-    return "Message Type: Spread Executed (e)"
+    return "Message Type: Spread Executed Message (e)"
   end
   if value == "P" then
-    return "Message Type: Trade Spread Execution Chain (P)"
+    return "Message Type: Trade Spread Execution Chain Message (P)"
   end
   if value == "u" then
-    return "Message Type: Custom Market Executed (u)"
+    return "Message Type: Custom Market Executed Message (u)"
   end
   if value == "p" then
-    return "Message Type: Custom Market Trade (p)"
+    return "Message Type: Custom Market Trade Message (p)"
   end
   if value == "B" then
-    return "Message Type: Trade Cancellation (B)"
+    return "Message Type: Trade Cancellation Message (B)"
   end
   if value == "Z" then
-    return "Message Type: Equilibrium Price Auction Info (Z)"
+    return "Message Type: Equilibrium Price Auction Info Message (Z)"
   end
   if value == "t" then
-    return "Message Type: Open High Low Last Trade Adjustment (t)"
+    return "Message Type: Open High Low Last Trade Adjustment Message (t)"
   end
   if value == "Y" then
-    return "Message Type: Market Settlement (Y)"
+    return "Message Type: Market Settlement Message (Y)"
   end
   if value == "x" then
-    return "Message Type: Ad Hoc Text (x)"
+    return "Message Type: Ad Hoc Text Message (x)"
   end
   if value == "q" then
-    return "Message Type: Request For Quote (q)"
+    return "Message Type: Request For Quote Message (q)"
   end
   if value == "W" then
-    return "Message Type: Anomalous Order Threshold Publish (W)"
+    return "Message Type: Anomalous Order Threshold Publish Message (W)"
   end
   if value == "V" then
-    return "Message Type: Volume And Open Interest (V)"
+    return "Message Type: Volume And Open Interest Message (V)"
   end
 
   return "Message Type: Unknown("..value..")"
@@ -6116,16 +5649,20 @@ end
 
 -- Dissect: Session
 asx_securities_t24_itch_v1_13.session.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.session then
-    local length = asx_securities_t24_itch_v1_13.session.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:string()
-    local display = asx_securities_t24_itch_v1_13.session.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.session, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.session, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13.session.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13.session.display(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13.session.fields(buffer, offset, packet, parent)
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13.session.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Packet Header
