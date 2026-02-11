@@ -2623,11 +2623,11 @@ otc_markets_multicast_ats_v4_3.market_open.size = 8
 
 -- Display: Market Open
 otc_markets_multicast_ats_v4_3.market_open.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Market Open: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Market Open: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Market Open

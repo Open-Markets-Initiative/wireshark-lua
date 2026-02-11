@@ -4838,11 +4838,11 @@ cme_futures_streamlined_sbe_v5_8.transact_time.size = 8
 
 -- Display: Transact Time
 cme_futures_streamlined_sbe_v5_8.transact_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time
@@ -7373,11 +7373,11 @@ cme_futures_streamlined_sbe_v5_8.transact_time_optional.size = 8
 
 -- Display: Transact Time Optional
 cme_futures_streamlined_sbe_v5_8.transact_time_optional.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Transact Time Optional: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Transact Time Optional: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time Optional
@@ -9265,11 +9265,11 @@ cme_futures_streamlined_sbe_v5_8.orig_time.size = 8
 
 -- Display: Orig Time
 cme_futures_streamlined_sbe_v5_8.orig_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Orig Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Orig Time
@@ -12064,11 +12064,11 @@ cme_futures_streamlined_sbe_v5_8.sending_time.size = 8
 
 -- Display: Sending Time
 cme_futures_streamlined_sbe_v5_8.sending_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time

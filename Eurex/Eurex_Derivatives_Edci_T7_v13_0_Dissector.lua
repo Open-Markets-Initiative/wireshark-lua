@@ -575,15 +575,17 @@ eurex_derivatives_edci_t7_v13_0.sending_time.size = 8
 
 -- Display: Sending Time
 eurex_derivatives_edci_t7_v13_0.sending_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Sending Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time
@@ -1270,15 +1272,17 @@ eurex_derivatives_edci_t7_v13_0.request_time.size = 8
 
 -- Display: Request Time
 eurex_derivatives_edci_t7_v13_0.request_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Request Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Request Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Request Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Request Time
@@ -2999,15 +3003,17 @@ eurex_derivatives_edci_t7_v13_0.exec_id.size = 8
 
 -- Display: Exec Id
 eurex_derivatives_edci_t7_v13_0.exec_id.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Exec Id: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Exec Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Exec Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Exec Id

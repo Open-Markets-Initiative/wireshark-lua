@@ -1220,11 +1220,11 @@ b3_equities_binaryentrypoint_sbe_v8_3.transact_time.size = 8
 
 -- Display: Transact Time
 b3_equities_binaryentrypoint_sbe_v8_3.transact_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time
@@ -1402,15 +1402,17 @@ b3_equities_binaryentrypoint_sbe_v8_3.sending_time.size = 8
 
 -- Display: Sending Time
 b3_equities_binaryentrypoint_sbe_v8_3.sending_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0x00000000, 0x00000000) then
     return "Sending Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time
@@ -7153,15 +7155,17 @@ b3_equities_binaryentrypoint_sbe_v8_3.received_time.size = 8
 
 -- Display: Received Time
 b3_equities_binaryentrypoint_sbe_v8_3.received_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0x00000000, 0x00000000) then
     return "Received Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Received Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Received Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Received Time
@@ -10127,15 +10131,17 @@ b3_equities_binaryentrypoint_sbe_v8_3.market_segment_received_time.size = 8
 
 -- Display: Market Segment Received Time
 b3_equities_binaryentrypoint_sbe_v8_3.market_segment_received_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0x00000000, 0x00000000) then
     return "Market Segment Received Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Market Segment Received Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Market Segment Received Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Market Segment Received Time

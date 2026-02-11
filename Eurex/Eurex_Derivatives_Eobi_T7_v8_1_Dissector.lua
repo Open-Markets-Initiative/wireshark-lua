@@ -730,15 +730,17 @@ eurex_derivatives_eobi_t7_v8_1.trd_reg_ts_execution_time.size = 8
 
 -- Display: Trd Reg Ts Execution Time
 eurex_derivatives_eobi_t7_v8_1.trd_reg_ts_execution_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Trd Reg Ts Execution Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Trd Reg Ts Execution Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Trd Reg Ts Execution Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Execution Time
@@ -839,15 +841,17 @@ eurex_derivatives_eobi_t7_v8_1.transact_time.size = 8
 
 -- Display: Transact Time
 eurex_derivatives_eobi_t7_v8_1.transact_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Transact Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time
@@ -1589,15 +1593,17 @@ eurex_derivatives_eobi_t7_v8_1.trd_reg_ts_time_priority.size = 8
 
 -- Display: Trd Reg Ts Time Priority
 eurex_derivatives_eobi_t7_v8_1.trd_reg_ts_time_priority.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Trd Reg Ts Time Priority: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Trd Reg Ts Time Priority: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Trd Reg Ts Time Priority: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Time Priority
@@ -2256,15 +2262,17 @@ eurex_derivatives_eobi_t7_v8_1.trd_reg_ts_time_in.size = 8
 
 -- Display: Trd Reg Ts Time In
 eurex_derivatives_eobi_t7_v8_1.trd_reg_ts_time_in.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Trd Reg Ts Time In: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Trd Reg Ts Time In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Trd Reg Ts Time In: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Time In
@@ -2382,15 +2390,17 @@ eurex_derivatives_eobi_t7_v8_1.trd_reg_ts_prev_time_priority.size = 8
 
 -- Display: Trd Reg Ts Prev Time Priority
 eurex_derivatives_eobi_t7_v8_1.trd_reg_ts_prev_time_priority.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Trd Reg Ts Prev Time Priority: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Trd Reg Ts Prev Time Priority: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Trd Reg Ts Prev Time Priority: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Prev Time Priority
@@ -3512,15 +3522,17 @@ eurex_derivatives_eobi_t7_v8_1.last_update_time.size = 8
 
 -- Display: Last Update Time
 eurex_derivatives_eobi_t7_v8_1.last_update_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Last Update Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Last Update Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Last Update Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Last Update Time
@@ -3955,15 +3967,17 @@ eurex_derivatives_eobi_t7_v8_1.exec_id.size = 8
 
 -- Display: Exec Id
 eurex_derivatives_eobi_t7_v8_1.exec_id.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Exec Id: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Exec Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Exec Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Exec Id
@@ -3986,15 +4000,17 @@ eurex_derivatives_eobi_t7_v8_1.request_time.size = 8
 
 -- Display: Request Time
 eurex_derivatives_eobi_t7_v8_1.request_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Request Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Request Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Request Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Request Time
@@ -4017,15 +4033,17 @@ eurex_derivatives_eobi_t7_v8_1.aggressor_time.size = 8
 
 -- Display: Aggressor Time
 eurex_derivatives_eobi_t7_v8_1.aggressor_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Aggressor Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Aggressor Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Aggressor Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Aggressor Time

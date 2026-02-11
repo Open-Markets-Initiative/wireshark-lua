@@ -308,15 +308,18 @@ nyse_options_commonclient_pillar_v2_6.send_time.size =
   nyse_options_commonclient_pillar_v2_6.nanoseconds.size
 
 -- Display: Send Time
-nyse_options_commonclient_pillar_v2_6.send_time.display = function(packet, parent, value, length)
+nyse_options_commonclient_pillar_v2_6.send_time.display = function(packet, parent, value)
+  -- Check null value
   if value == nil then
-    return "No Value"
+    return "Send Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Send Time

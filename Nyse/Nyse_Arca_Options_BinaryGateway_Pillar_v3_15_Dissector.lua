@@ -8158,11 +8158,11 @@ nyse_arca_options_binarygateway_pillar_v3_15.mm_sent_time.size = 8
 
 -- Display: Mm Sent Time
 nyse_arca_options_binarygateway_pillar_v3_15.mm_sent_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Mm Sent Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Mm Sent Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Mm Sent Time

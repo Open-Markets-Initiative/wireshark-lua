@@ -1123,11 +1123,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11.event_time.size = 8
 
 -- Display: Event Time
 euronext_optiq_marketdatagateway_sbe_v4_11.event_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Event Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Event Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Event Time
@@ -4014,15 +4014,17 @@ euronext_optiq_marketdatagateway_sbe_v4_11.original_report_timestamp.size = 8
 
 -- Display: Original Report Timestamp
 euronext_optiq_marketdatagateway_sbe_v4_11.original_report_timestamp.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Original Report Timestamp: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Original Report Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Original Report Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Original Report Timestamp
@@ -11027,11 +11029,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11.low_time.size = 8
 
 -- Display: Low Time
 euronext_optiq_marketdatagateway_sbe_v4_11.low_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Low Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Low Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Low Time
@@ -11077,11 +11079,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11.high_time.size = 8
 
 -- Display: High Time
 euronext_optiq_marketdatagateway_sbe_v4_11.high_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "High Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "High Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: High Time
@@ -11196,15 +11198,17 @@ euronext_optiq_marketdatagateway_sbe_v4_11.confirmed_reference_time.size = 8
 
 -- Display: Confirmed Reference Time
 euronext_optiq_marketdatagateway_sbe_v4_11.confirmed_reference_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Confirmed Reference Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Confirmed Reference Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Confirmed Reference Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Confirmed Reference Time
@@ -11255,11 +11259,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11.opening_time.size = 8
 
 -- Display: Opening Time
 euronext_optiq_marketdatagateway_sbe_v4_11.opening_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Opening Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Opening Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Opening Time
@@ -14152,11 +14156,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11.phase_time.size = 8
 
 -- Display: Phase Time
 euronext_optiq_marketdatagateway_sbe_v4_11.phase_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Phase Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Phase Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Phase Time
@@ -14478,15 +14482,17 @@ euronext_optiq_marketdatagateway_sbe_v4_11.scheduled_event_time.size = 8
 
 -- Display: Scheduled Event Time
 euronext_optiq_marketdatagateway_sbe_v4_11.scheduled_event_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Scheduled Event Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Scheduled Event Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Scheduled Event Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Scheduled Event Time
@@ -17264,15 +17270,17 @@ euronext_optiq_marketdatagateway_sbe_v4_11.retransmission_end_time.size = 8
 
 -- Display: Retransmission End Time
 euronext_optiq_marketdatagateway_sbe_v4_11.retransmission_end_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Retransmission End Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Retransmission End Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Retransmission End Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Retransmission End Time
@@ -17295,15 +17303,17 @@ euronext_optiq_marketdatagateway_sbe_v4_11.retransmission_start_time.size = 8
 
 -- Display: Retransmission Start Time
 euronext_optiq_marketdatagateway_sbe_v4_11.retransmission_start_time.display = function(value)
-  -- Check null sentinel value
+  -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Retransmission Start Time: No Value"
+
   end
-  -- Parse unix timestamp
+
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Retransmission Start Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Retransmission Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Retransmission Start Time
@@ -18270,11 +18280,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11.packet_time.size = 8
 
 -- Display: Packet Time
 euronext_optiq_marketdatagateway_sbe_v4_11.packet_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Packet Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Packet Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Packet Time

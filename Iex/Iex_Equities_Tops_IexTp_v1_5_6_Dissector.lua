@@ -380,8 +380,8 @@ iex_equities_tops_iextp_v1_5_6.scheduled_auction_time.size = 4
 
 -- Display: Scheduled Auction Time
 iex_equities_tops_iextp_v1_5_6.scheduled_auction_time.display = function(value)
-  -- Parse unix timestamp
-  return "Scheduled Auction Time: "..os.date("%x %H:%M:%S", value)
+  -- Parse unix seconds timestamp
+  return "Scheduled Auction Time: "..os.date("%Y-%m-%d %H:%M:%S.", value)
 end
 
 -- Dissect: Scheduled Auction Time
@@ -587,11 +587,11 @@ iex_equities_tops_iextp_v1_5_6.timestamp.size = 8
 
 -- Display: Timestamp
 iex_equities_tops_iextp_v1_5_6.timestamp.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -2306,11 +2306,11 @@ iex_equities_tops_iextp_v1_5_6.send_time.size = 8
 
 -- Display: Send Time
 iex_equities_tops_iextp_v1_5_6.send_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Send Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Send Time

@@ -932,11 +932,11 @@ ice_futures_mdf_impact_v1_1_43.transact_date_time.size = 8
 
 -- Display: Transact Date Time
 ice_futures_mdf_impact_v1_1_43.transact_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Transact Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Transact Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Transact Date Time
@@ -1256,11 +1256,11 @@ ice_futures_mdf_impact_v1_1_43.valuation_date_time.size = 8
 
 -- Display: Valuation Date Time
 ice_futures_mdf_impact_v1_1_43.valuation_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Valuation Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Valuation Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Valuation Date Time
@@ -1326,11 +1326,11 @@ ice_futures_mdf_impact_v1_1_43.message_date_time.size = 8
 
 -- Display: Message Date Time
 ice_futures_mdf_impact_v1_1_43.message_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Message Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Message Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Message Date Time
@@ -2094,11 +2094,11 @@ ice_futures_mdf_impact_v1_1_43.message_timestamp.size = 8
 
 -- Display: Message Timestamp
 ice_futures_mdf_impact_v1_1_43.message_timestamp.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Message Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Message Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Message Timestamp
@@ -5258,11 +5258,11 @@ ice_futures_mdf_impact_v1_1_43.timestamp.size = 8
 
 -- Display: Timestamp
 ice_futures_mdf_impact_v1_1_43.timestamp.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -6218,11 +6218,11 @@ ice_futures_mdf_impact_v1_1_43.auction_end_time.size = 8
 
 -- Display: Auction End Time
 ice_futures_mdf_impact_v1_1_43.auction_end_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Auction End Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Auction End Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Auction End Time
@@ -6504,11 +6504,11 @@ ice_futures_mdf_impact_v1_1_43.request_trading_engine_received_timestamp.size = 
 
 -- Display: Request Trading Engine Received Timestamp
 ice_futures_mdf_impact_v1_1_43.request_trading_engine_received_timestamp.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Request Trading Engine Received Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Request Trading Engine Received Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Request Trading Engine Received Timestamp
@@ -6633,11 +6633,11 @@ ice_futures_mdf_impact_v1_1_43.modification_timestamp.size = 8
 
 -- Display: Modification Timestamp
 ice_futures_mdf_impact_v1_1_43.modification_timestamp.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Modification Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Modification Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Modification Timestamp
@@ -6683,11 +6683,11 @@ ice_futures_mdf_impact_v1_1_43.order_entry_date_time.size = 8
 
 -- Display: Order Entry Date Time
 ice_futures_mdf_impact_v1_1_43.order_entry_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Order Entry Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Order Entry Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Order Entry Date Time
@@ -9215,11 +9215,11 @@ ice_futures_mdf_impact_v1_1_43.notification_date_time.size = 8
 
 -- Display: Notification Date Time
 ice_futures_mdf_impact_v1_1_43.notification_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Notification Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Notification Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Notification Date Time
@@ -10135,11 +10135,11 @@ ice_futures_mdf_impact_v1_1_43.published_date_time.size = 8
 
 -- Display: Published Date Time
 ice_futures_mdf_impact_v1_1_43.published_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Published Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Published Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Published Date Time
@@ -11118,11 +11118,11 @@ ice_futures_mdf_impact_v1_1_43.delivery_end_date_time.size = 8
 
 -- Display: Delivery End Date Time
 ice_futures_mdf_impact_v1_1_43.delivery_end_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Delivery End Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Delivery End Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Delivery End Date Time
@@ -11145,11 +11145,11 @@ ice_futures_mdf_impact_v1_1_43.delivery_begin_date_time.size = 8
 
 -- Display: Delivery Begin Date Time
 ice_futures_mdf_impact_v1_1_43.delivery_begin_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Delivery Begin Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Delivery Begin Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Delivery Begin Date Time
@@ -11697,11 +11697,11 @@ ice_futures_mdf_impact_v1_1_43.settle_price_date_time.size = 8
 
 -- Display: Settle Price Date Time
 ice_futures_mdf_impact_v1_1_43.settle_price_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Settle Price Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Settle Price Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Settle Price Date Time
@@ -11724,11 +11724,11 @@ ice_futures_mdf_impact_v1_1_43.last_trade_date_time.size = 8
 
 -- Display: Last Trade Date Time
 ice_futures_mdf_impact_v1_1_43.last_trade_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Last Trade Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Last Trade Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Last Trade Date Time
@@ -12596,11 +12596,11 @@ ice_futures_mdf_impact_v1_1_43.sent_date_time.size = 8
 
 -- Display: Sent Date Time
 ice_futures_mdf_impact_v1_1_43.sent_date_time.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix millisecond timestamp
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Sent Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Sent Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Sent Date Time

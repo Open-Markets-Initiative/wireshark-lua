@@ -578,11 +578,11 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trading_system_time_stamp.size = 8
 
 -- Display: Trading System Time Stamp
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trading_system_time_stamp.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Trading System Time Stamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Trading System Time Stamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trading System Time Stamp

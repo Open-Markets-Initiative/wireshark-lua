@@ -396,7 +396,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.timestamp.display = function(nanoseconds
   local seconds = jpx_osederivatives_geniuminet_itch_v1_1.seconds.store
 
   if seconds ~= nil then
-    return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
   end
 
   return "Timestamp: "..nanoseconds

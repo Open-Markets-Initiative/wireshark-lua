@@ -353,11 +353,11 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.trading_system_time_stamp.size = 8
 
 -- Display: Trading System Time Stamp
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.trading_system_time_stamp.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix microsecond timestamp
   local seconds = (value / UInt64(1000000)):tonumber()
   local microseconds = (value % UInt64(1000000)):tonumber()
 
-  return "Trading System Time Stamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", microseconds)
+  return "Trading System Time Stamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%06d", microseconds)
 end
 
 -- Dissect: Trading System Time Stamp
@@ -1715,11 +1715,11 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.priority_time_stamp.size = 8
 
 -- Display: Priority Time Stamp
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.priority_time_stamp.display = function(value)
-  -- Parse unix timestamp
+  -- Parse unix microsecond timestamp
   local seconds = (value / UInt64(1000000)):tonumber()
   local microseconds = (value % UInt64(1000000)):tonumber()
 
-  return "Priority Time Stamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", microseconds)
+  return "Priority Time Stamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%06d", microseconds)
 end
 
 -- Dissect: Priority Time Stamp
