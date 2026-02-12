@@ -209,7 +209,6 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.maximum_decimals_in_quantit
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.md_seq_num = ProtoField.new("Md Seq Num", "euronext.optiq.marketdatagateway.sbe.v4.7.mdseqnum", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.md_seq_num_optional = ProtoField.new("Md Seq Num Optional", "euronext.optiq.marketdatagateway.sbe.v4.7.mdseqnumoptional", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.mdg_restart_count = ProtoField.new("Mdg Restart Count", "euronext.optiq.marketdatagateway.sbe.v4.7.mdgrestartcount", ftypes.UINT16, nil, base.DEC, 0x000E)
-omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.message = ProtoField.new("Message", "euronext.optiq.marketdatagateway.sbe.v4.7.message", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatagateway.sbe.v4.7.messageheader", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.message_price_notation = ProtoField.new("Message Price Notation", "euronext.optiq.marketdatagateway.sbe.v4.7.messagepricenotation", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.mic = ProtoField.new("Mic", "euronext.optiq.marketdatagateway.sbe.v4.7.mic", ftypes.STRING)
@@ -273,6 +272,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.opened_closed_fund = ProtoF
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.opening_level = ProtoField.new("Opening Level", "euronext.optiq.marketdatagateway.sbe.v4.7.openinglevel", ftypes.INT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.opening_time = ProtoField.new("Opening Time", "euronext.optiq.marketdatagateway.sbe.v4.7.openingtime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.option_type = ProtoField.new("Option Type", "euronext.optiq.marketdatagateway.sbe.v4.7.optiontype", ftypes.UINT8)
+omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatagateway.sbe.v4.7.optiqmessage", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.optiq_segment = ProtoField.new("Optiq Segment", "euronext.optiq.marketdatagateway.sbe.v4.7.optiqsegment", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.order_entry_qualifier = ProtoField.new("Order Entry Qualifier", "euronext.optiq.marketdatagateway.sbe.v4.7.orderentryqualifier", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.order_priority = ProtoField.new("Order Priority", "euronext.optiq.marketdatagateway.sbe.v4.7.orderpriority", ftypes.UINT64)
@@ -523,12 +523,12 @@ show.market_status_change_message = true
 show.market_update_message = true
 show.market_updates_group = true
 show.market_updates_groups = true
-show.message = true
 show.message_header = true
 show.mm_protections = true
 show.new_stats_group = true
 show.new_stats_groups = true
 show.not_used_groups = true
+show.optiq_message = true
 show.order_type_rules = true
 show.order_update_message = true
 show.order_updates_group = true
@@ -592,12 +592,12 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_market_status_change_me
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_market_update_message = Pref.bool("Show Market Update Message", show.market_update_message, "Parse and add Market Update Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_market_updates_group = Pref.bool("Show Market Updates Group", show.market_updates_group, "Parse and add Market Updates Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_market_updates_groups = Pref.bool("Show Market Updates Groups", show.market_updates_groups, "Parse and add Market Updates Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_mm_protections = Pref.bool("Show Mm Protections", show.mm_protections, "Parse and add Mm Protections to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_new_stats_group = Pref.bool("Show New Stats Group", show.new_stats_group, "Parse and add New Stats Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_new_stats_groups = Pref.bool("Show New Stats Groups", show.new_stats_groups, "Parse and add New Stats Groups to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_not_used_groups = Pref.bool("Show Not Used Groups", show.not_used_groups, "Parse and add Not Used Groups to protocol tree")
+omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_optiq_message = Pref.bool("Show Optiq Message", show.optiq_message, "Parse and add Optiq Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_order_type_rules = Pref.bool("Show Order Type Rules", show.order_type_rules, "Parse and add Order Type Rules to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_order_update_message = Pref.bool("Show Order Update Message", show.order_update_message, "Parse and add Order Update Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_order_updates_group = Pref.bool("Show Order Updates Group", show.order_updates_group, "Parse and add Order Updates Group to protocol tree")
@@ -758,10 +758,6 @@ function omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs_changed()
     show.market_updates_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_market_updates_groups
     changed = true
   end
-  if show.message ~= omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_message then
-    show.message = omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_message
-    changed = true
-  end
   if show.message_header ~= omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_message_header then
     show.message_header = omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_message_header
     changed = true
@@ -780,6 +776,10 @@ function omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs_changed()
   end
   if show.not_used_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_not_used_groups then
     show.not_used_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_not_used_groups
+    changed = true
+  end
+  if show.optiq_message ~= omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_optiq_message then
+    show.optiq_message = omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_optiq_message
     changed = true
   end
   if show.order_type_rules ~= omi_euronext_optiq_marketdatagateway_sbe_v4_7.prefs.show_order_type_rules then
@@ -18049,16 +18049,16 @@ euronext_optiq_marketdatagateway_sbe_v4_7.frame.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Message
-euronext_optiq_marketdatagateway_sbe_v4_7.message = {}
+-- Optiq Message
+euronext_optiq_marketdatagateway_sbe_v4_7.optiq_message = {}
 
--- Display: Message
-euronext_optiq_marketdatagateway_sbe_v4_7.message.display = function(packet, parent, length)
+-- Display: Optiq Message
+euronext_optiq_marketdatagateway_sbe_v4_7.optiq_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-euronext_optiq_marketdatagateway_sbe_v4_7.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Optiq Message
+euronext_optiq_marketdatagateway_sbe_v4_7.optiq_message.fields = function(buffer, offset, packet, parent, size_of_optiq_message)
   local index = offset
 
   -- Frame: 2 Byte Unsigned Fixed Width Integer
@@ -18076,22 +18076,22 @@ euronext_optiq_marketdatagateway_sbe_v4_7.message.fields = function(buffer, offs
   return index
 end
 
--- Dissect: Message
-euronext_optiq_marketdatagateway_sbe_v4_7.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Optiq Message
+euronext_optiq_marketdatagateway_sbe_v4_7.optiq_message.dissect = function(buffer, offset, packet, parent, size_of_optiq_message)
+  local index = offset + size_of_optiq_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
-    parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.message, buffer(offset, 0))
-    local current = euronext_optiq_marketdatagateway_sbe_v4_7.message.fields(buffer, offset, packet, parent, size_of_message)
-    parent:set_len(size_of_message)
-    local display = euronext_optiq_marketdatagateway_sbe_v4_7.message.display(buffer, packet, parent)
+  if show.optiq_message then
+    parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_7.fields.optiq_message, buffer(offset, 0))
+    local current = euronext_optiq_marketdatagateway_sbe_v4_7.optiq_message.fields(buffer, offset, packet, parent, size_of_optiq_message)
+    parent:set_len(size_of_optiq_message)
+    local display = euronext_optiq_marketdatagateway_sbe_v4_7.optiq_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    euronext_optiq_marketdatagateway_sbe_v4_7.message.fields(buffer, offset, packet, parent, size_of_message)
+    euronext_optiq_marketdatagateway_sbe_v4_7.optiq_message.fields(buffer, offset, packet, parent, size_of_optiq_message)
 
     return index
   end
@@ -18302,17 +18302,17 @@ euronext_optiq_marketdatagateway_sbe_v4_7.packet.dissect = function(buffer, pack
   -- Market Data Packet Header: Struct of 4 fields
   index, market_data_packet_header = euronext_optiq_marketdatagateway_sbe_v4_7.market_data_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
+  -- Dependency for Optiq Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 3 fields
+  -- Optiq Message: Struct of 3 fields
   while index < end_of_payload do
 
     -- Dependency element: Frame
     local frame = buffer(index, 2):le_uint()
 
-    -- Runtime Size Of: Message
-    index, message = euronext_optiq_marketdatagateway_sbe_v4_7.message.dissect(buffer, index, packet, parent, frame)
+    -- Runtime Size Of: Optiq Message
+    index, optiq_message = euronext_optiq_marketdatagateway_sbe_v4_7.optiq_message.dissect(buffer, index, packet, parent, frame)
   end
 
   return index

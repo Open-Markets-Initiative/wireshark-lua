@@ -24,8 +24,8 @@ omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.has_start_of_day_snapshot = 
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.has_status_message = ProtoField.new("Has Status Message", "euronext.optiq.marketdatapacket.udp.v1.0.hasstatusmessage", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200)
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "euronext.optiq.marketdatapacket.udp.v1.0.marketdatapacketheader", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.mdg_restart_count = ProtoField.new("Mdg Restart Count", "euronext.optiq.marketdatapacket.udp.v1.0.mdgrestartcount", ftypes.UINT16, nil, base.DEC, 0x000E)
-omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.message = ProtoField.new("Message", "euronext.optiq.marketdatapacket.udp.v1.0.message", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatapacket.udp.v1.0.messageheader", ftypes.STRING)
+omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatapacket.udp.v1.0.optiqmessage", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatapacket.udp.v1.0.packet", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatapacket.udp.v1.0.packetflags", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "euronext.optiq.marketdatapacket.udp.v1.0.packetsequencenumber", ftypes.UINT32)
@@ -45,15 +45,15 @@ local show = {}
 
 -- Euronext Optiq MarketDataPacket Udp 1.0 Element Dissection Options
 show.market_data_packet_header = true
-show.message = true
 show.message_header = true
+show.optiq_message = true
 show.packet = true
 show.packet_flags = true
 
 -- Register Euronext Optiq MarketDataPacket Udp 1.0 Show Options
 omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_market_data_packet_header = Pref.bool("Show Market Data Packet Header", show.market_data_packet_header, "Parse and add Market Data Packet Header to protocol tree")
-omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_optiq_message = Pref.bool("Show Optiq Message", show.optiq_message, "Parse and add Optiq Message to protocol tree")
 omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet_flags = Pref.bool("Show Packet Flags", show.packet_flags, "Parse and add Packet Flags to protocol tree")
 
@@ -66,12 +66,12 @@ function omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs_changed()
     show.market_data_packet_header = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_market_data_packet_header
     changed = true
   end
-  if show.message ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message then
-    show.message = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message
-    changed = true
-  end
   if show.message_header ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message_header then
     show.message_header = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message_header
+    changed = true
+  end
+  if show.optiq_message ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_optiq_message then
+    show.optiq_message = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_optiq_message
     changed = true
   end
   if show.packet ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet then
@@ -280,16 +280,16 @@ euronext_optiq_marketdatapacket_udp_v1_0.frame.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Message
-euronext_optiq_marketdatapacket_udp_v1_0.message = {}
+-- Optiq Message
+euronext_optiq_marketdatapacket_udp_v1_0.optiq_message = {}
 
--- Display: Message
-euronext_optiq_marketdatapacket_udp_v1_0.message.display = function(packet, parent, length)
+-- Display: Optiq Message
+euronext_optiq_marketdatapacket_udp_v1_0.optiq_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-euronext_optiq_marketdatapacket_udp_v1_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Optiq Message
+euronext_optiq_marketdatapacket_udp_v1_0.optiq_message.fields = function(buffer, offset, packet, parent, size_of_optiq_message)
   local index = offset
 
   -- Frame: 2 Byte Unsigned Fixed Width Integer
@@ -307,22 +307,22 @@ euronext_optiq_marketdatapacket_udp_v1_0.message.fields = function(buffer, offse
   return index
 end
 
--- Dissect: Message
-euronext_optiq_marketdatapacket_udp_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Optiq Message
+euronext_optiq_marketdatapacket_udp_v1_0.optiq_message.dissect = function(buffer, offset, packet, parent, size_of_optiq_message)
+  local index = offset + size_of_optiq_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
-    parent = parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.message, buffer(offset, 0))
-    local current = euronext_optiq_marketdatapacket_udp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
-    parent:set_len(size_of_message)
-    local display = euronext_optiq_marketdatapacket_udp_v1_0.message.display(buffer, packet, parent)
+  if show.optiq_message then
+    parent = parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.optiq_message, buffer(offset, 0))
+    local current = euronext_optiq_marketdatapacket_udp_v1_0.optiq_message.fields(buffer, offset, packet, parent, size_of_optiq_message)
+    parent:set_len(size_of_optiq_message)
+    local display = euronext_optiq_marketdatapacket_udp_v1_0.optiq_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    euronext_optiq_marketdatapacket_udp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    euronext_optiq_marketdatapacket_udp_v1_0.optiq_message.fields(buffer, offset, packet, parent, size_of_optiq_message)
 
     return index
   end
@@ -533,17 +533,17 @@ euronext_optiq_marketdatapacket_udp_v1_0.packet.dissect = function(buffer, packe
   -- Market Data Packet Header: Struct of 4 fields
   index, market_data_packet_header = euronext_optiq_marketdatapacket_udp_v1_0.market_data_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
+  -- Dependency for Optiq Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 3 fields
+  -- Optiq Message: Struct of 3 fields
   while index < end_of_payload do
 
     -- Dependency element: Frame
     local frame = buffer(index, 2):le_uint()
 
-    -- Runtime Size Of: Message
-    index, message = euronext_optiq_marketdatapacket_udp_v1_0.message.dissect(buffer, index, packet, parent, frame)
+    -- Runtime Size Of: Optiq Message
+    index, optiq_message = euronext_optiq_marketdatapacket_udp_v1_0.optiq_message.dissect(buffer, index, packet, parent, frame)
   end
 
   return index
