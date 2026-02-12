@@ -125,19 +125,16 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.ref_seq_msg_id = ProtoField.
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reinstatement_required_by_other = ProtoField.new("Reinstatement Required By Other", "nyse.equities.binarygateway.pillar.v5.17.reinstatementrequiredbyother", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reinstatement_required_by_self = ProtoField.new("Reinstatement Required By Self", "nyse.equities.binarygateway.pillar.v5.17.reinstatementrequiredbyself", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reject_type = ProtoField.new("Reject Type", "nyse.equities.binarygateway.pillar.v5.17.rejecttype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_100 = ProtoField.new("Reserved 100", "nyse.equities.binarygateway.pillar.v5.17.reserved100", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_12 = ProtoField.new("Reserved 12", "nyse.equities.binarygateway.pillar.v5.17.reserved12", ftypes.UINT64, nil, base.DEC, 0x0000000000000FFF)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.equities.binarygateway.pillar.v5.17.reserved4", ftypes.BYTES)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_7 = ProtoField.new("Reserved 7", "nyse.equities.binarygateway.pillar.v5.17.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_char_100100 = ProtoField.new("Reserved Char 100100", "nyse.equities.binarygateway.pillar.v5.17.reservedchar100100", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_char_44 = ProtoField.new("Reserved Char 44", "nyse.equities.binarygateway.pillar.v5.17.reservedchar44", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_char_5050 = ProtoField.new("Reserved Char 5050", "nyse.equities.binarygateway.pillar.v5.17.reservedchar5050", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_char_77 = ProtoField.new("Reserved Char 77", "nyse.equities.binarygateway.pillar.v5.17.reservedchar77", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_char_88 = ProtoField.new("Reserved Char 88", "nyse.equities.binarygateway.pillar.v5.17.reservedchar88", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_u_324 = ProtoField.new("Reserved U 324", "nyse.equities.binarygateway.pillar.v5.17.reservedu324", ftypes.UINT32)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_190190 = ProtoField.new("Reserved Zchar 190190", "nyse.equities.binarygateway.pillar.v5.17.reservedzchar190190", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_199199 = ProtoField.new("Reserved Zchar 199199", "nyse.equities.binarygateway.pillar.v5.17.reservedzchar199199", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_200200 = ProtoField.new("Reserved Zchar 200200", "nyse.equities.binarygateway.pillar.v5.17.reservedzchar200200", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_4949 = ProtoField.new("Reserved Zchar 4949", "nyse.equities.binarygateway.pillar.v5.17.reservedzchar4949", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_190 = ProtoField.new("Reserved 190", "nyse.equities.binarygateway.pillar.v5.17.reserved190", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_199 = ProtoField.new("Reserved 199", "nyse.equities.binarygateway.pillar.v5.17.reserved199", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_200 = ProtoField.new("Reserved 200", "nyse.equities.binarygateway.pillar.v5.17.reserved200", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.equities.binarygateway.pillar.v5.17.reserved4", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_49 = ProtoField.new("Reserved 49", "nyse.equities.binarygateway.pillar.v5.17.reserved49", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_50 = ProtoField.new("Reserved 50", "nyse.equities.binarygateway.pillar.v5.17.reserved50", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_7 = ProtoField.new("Reserved 7", "nyse.equities.binarygateway.pillar.v5.17.reserved7", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_8 = ProtoField.new("Reserved 8", "nyse.equities.binarygateway.pillar.v5.17.reserved8", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.retail_indicator = ProtoField.new("Retail Indicator", "nyse.equities.binarygateway.pillar.v5.17.retailindicator", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000040000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.ridge_price = ProtoField.new("Ridge Price", "nyse.equities.binarygateway.pillar.v5.17.ridgeprice", ftypes.DOUBLE)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "nyse.equities.binarygateway.pillar.v5.17.riskacktype", ftypes.UINT8)
@@ -185,7 +182,7 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.threshold_breach_level = Pro
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.equities.binarygateway.pillar.v5.17.throttlepreference", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.equities.binarygateway.pillar.v5.17.throttlethreshold", ftypes.UINT16)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.equities.binarygateway.pillar.v5.17.throttlewindow", ftypes.UINT16)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttled = ProtoField.new("Throttled", "nyse.equities.binarygateway.pillar.v5.17.throttled", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttled = ProtoField.new("Throttled", "nyse.equities.binarygateway.pillar.v5.17.throttled", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x00000000000001)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.time_in_force = ProtoField.new("Time In Force", "nyse.equities.binarygateway.pillar.v5.17.timeinforce", ftypes.UINT64, [1]="Day", [2]="Ioc", [3]="At The Opening", [4]="On Close", base.DEC, 0x0000000080000000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.time_limit = ProtoField.new("Time Limit", "nyse.equities.binarygateway.pillar.v5.17.timelimit", ftypes.INT32)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.binarygateway.pillar.v5.17.timestamp", ftypes.UINT64)
@@ -613,25 +610,25 @@ end
 -- Dissect Nyse Equities BinaryGateway Pillar 5.17
 -----------------------------------------------------------------------
 
--- Reserved Zchar 200200
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_200200 = {}
+-- Reserved 200
+nyse_equities_binarygateway_pillar_v5_17.reserved_200 = {}
 
--- Size: Reserved Zchar 200200
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_200200.size = 200
+-- Size: Reserved 200
+nyse_equities_binarygateway_pillar_v5_17.reserved_200.size = 200
 
--- Display: Reserved Zchar 200200
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_200200.display = function(value)
+-- Display: Reserved 200
+nyse_equities_binarygateway_pillar_v5_17.reserved_200.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Reserved Zchar 200200: No Value"
+    return "Reserved 200: No Value"
   end
 
-  return "Reserved Zchar 200200: "..value
+  return "Reserved 200: "..value
 end
 
--- Dissect: Reserved Zchar 200200
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_200200.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_200200.size
+-- Dissect: Reserved 200
+nyse_equities_binarygateway_pillar_v5_17.reserved_200.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_200.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -645,9 +642,9 @@ nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_200200.dissect = functio
     value = range:string()
   end
 
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_200200.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_200.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_200200, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_200, range, value, display)
 
   return offset + length, value
 end
@@ -1599,8 +1596,8 @@ nyse_equities_binarygateway_pillar_v5_17.risk_control_alert_message.fields = fun
   -- Reinstatement Required By Other: u8
   index, reinstatement_required_by_other = nyse_equities_binarygateway_pillar_v5_17.reinstatement_required_by_other.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 200200: zchar(200)
-  index, reserved_zchar_200200 = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_200200.dissect(buffer, index, packet, parent)
+  -- Reserved 200: zchar(200)
+  index, reserved_200 = nyse_equities_binarygateway_pillar_v5_17.reserved_200.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1622,25 +1619,25 @@ nyse_equities_binarygateway_pillar_v5_17.risk_control_alert_message.dissect = fu
   return offset + size_of_risk_control_alert_message
 end
 
--- Reserved Zchar 190190
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_190190 = {}
+-- Reserved 190
+nyse_equities_binarygateway_pillar_v5_17.reserved_190 = {}
 
--- Size: Reserved Zchar 190190
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_190190.size = 190
+-- Size: Reserved 190
+nyse_equities_binarygateway_pillar_v5_17.reserved_190.size = 190
 
--- Display: Reserved Zchar 190190
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_190190.display = function(value)
+-- Display: Reserved 190
+nyse_equities_binarygateway_pillar_v5_17.reserved_190.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Reserved Zchar 190190: No Value"
+    return "Reserved 190: No Value"
   end
 
-  return "Reserved Zchar 190190: "..value
+  return "Reserved 190: "..value
 end
 
--- Dissect: Reserved Zchar 190190
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_190190.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_190190.size
+-- Dissect: Reserved 190
+nyse_equities_binarygateway_pillar_v5_17.reserved_190.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_190.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1654,9 +1651,9 @@ nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_190190.dissect = functio
     value = range:string()
   end
 
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_190190.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_190.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_190190, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_190, range, value, display)
 
   return offset + length, value
 end
@@ -1820,25 +1817,25 @@ nyse_equities_binarygateway_pillar_v5_17.cl_ord_id.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Reserved U 324
-nyse_equities_binarygateway_pillar_v5_17.reserved_u_324 = {}
+-- Reserved 4
+nyse_equities_binarygateway_pillar_v5_17.reserved_4 = {}
 
--- Size: Reserved U 324
-nyse_equities_binarygateway_pillar_v5_17.reserved_u_324.size = 4
+-- Size: Reserved 4
+nyse_equities_binarygateway_pillar_v5_17.reserved_4.size = 4
 
--- Display: Reserved U 324
-nyse_equities_binarygateway_pillar_v5_17.reserved_u_324.display = function(value)
-  return "Reserved U 324: "..value
+-- Display: Reserved 4
+nyse_equities_binarygateway_pillar_v5_17.reserved_4.display = function(value)
+  return "Reserved 4: "..value
 end
 
--- Dissect: Reserved U 324
-nyse_equities_binarygateway_pillar_v5_17.reserved_u_324.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_u_324.size
+-- Dissect: Reserved 4
+nyse_equities_binarygateway_pillar_v5_17.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_4.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_u_324.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_u_324, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -1877,8 +1874,8 @@ nyse_equities_binarygateway_pillar_v5_17.risk_control_acknowledgement_message.fi
   -- Mp Sub Id Zchar 44: zchar(4)
   index, mp_sub_id_zchar_44 = nyse_equities_binarygateway_pillar_v5_17.mp_sub_id_zchar_44.dissect(buffer, index, packet, parent)
 
-  -- Reserved U 324: u32
-  index, reserved_u_324 = nyse_equities_binarygateway_pillar_v5_17.reserved_u_324.dissect(buffer, index, packet, parent)
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_equities_binarygateway_pillar_v5_17.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_equities_binarygateway_pillar_v5_17.clearing_number.dissect(buffer, index, packet, parent)
@@ -1958,8 +1955,8 @@ nyse_equities_binarygateway_pillar_v5_17.risk_control_acknowledgement_message.fi
   -- Price Scale: u8
   index, price_scale = nyse_equities_binarygateway_pillar_v5_17.price_scale.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 190190: zchar(190)
-  index, reserved_zchar_190190 = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_190190.dissect(buffer, index, packet, parent)
+  -- Reserved 190: zchar(190)
+  index, reserved_190 = nyse_equities_binarygateway_pillar_v5_17.reserved_190.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3102,29 +3099,6 @@ nyse_equities_binarygateway_pillar_v5_17.symbol_subscription_acknowledgement_mes
   return offset + size_of_symbol_subscription_acknowledgement_message
 end
 
--- Reserved Char 44
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_44 = {}
-
--- Size: Reserved Char 44
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_44.size = 4
-
--- Display: Reserved Char 44
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_44.display = function(value)
-  return "Reserved Char 44: "..value
-end
-
--- Dissect: Reserved Char 44
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_44.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_char_44.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_char_44.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_char_44, range, value, display)
-
-  return offset + length, value
-end
-
 -- User Data
 nyse_equities_binarygateway_pillar_v5_17.user_data = {}
 
@@ -4209,8 +4183,8 @@ nyse_equities_binarygateway_pillar_v5_17.application_layer_reject_message.fields
   -- User Data: zchar(8)
   index, user_data = nyse_equities_binarygateway_pillar_v5_17.user_data.dissect(buffer, index, packet, parent)
 
-  -- Reserved Char 44: char(4)
-  index, reserved_char_44 = nyse_equities_binarygateway_pillar_v5_17.reserved_char_44.dissect(buffer, index, packet, parent)
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_equities_binarygateway_pillar_v5_17.reserved_4.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5175,18 +5149,41 @@ nyse_equities_binarygateway_pillar_v5_17.order_priority_update_acknowledgment_me
   return offset + size_of_order_priority_update_acknowledgment_message
 end
 
+-- Reserved 7
+nyse_equities_binarygateway_pillar_v5_17.reserved_7 = {}
+
+-- Size: Reserved 7
+nyse_equities_binarygateway_pillar_v5_17.reserved_7.size = 7
+
+-- Display: Reserved 7
+nyse_equities_binarygateway_pillar_v5_17.reserved_7.display = function(value)
+  return "Reserved 7: "..value
+end
+
+-- Dissect: Reserved 7
+nyse_equities_binarygateway_pillar_v5_17.reserved_7.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_7.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_7.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_7, range, value, display)
+
+  return offset + length, value
+end
+
 -- Bitfield Flow Indicator
 nyse_equities_binarygateway_pillar_v5_17.bitfield_flow_indicator = {}
 
 -- Size: Bitfield Flow Indicator
-nyse_equities_binarygateway_pillar_v5_17.bitfield_flow_indicator.size = 1
+nyse_equities_binarygateway_pillar_v5_17.bitfield_flow_indicator.size = 7
 
 -- Display: Bitfield Flow Indicator
 nyse_equities_binarygateway_pillar_v5_17.bitfield_flow_indicator.display = function(range, value, packet, parent)
   local flags = {}
 
   -- Is Throttled flag set?
-  if bit.band(value, 0x01) ~= 0 then
+  if bit.band(value, 0x00000000000001) ~= 0 then
     flags[#flags + 1] = "Throttled"
   end
 
@@ -5199,7 +5196,7 @@ nyse_equities_binarygateway_pillar_v5_17.bitfield_flow_indicator.bits = function
   -- Throttled: 1 Bit Enum with 2 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttled, range, value)
 
-  -- Reserved 7: 7 Bit
+  -- Reserved 7: char(7)
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_7, range, value)
 end
 
@@ -5407,25 +5404,25 @@ nyse_equities_binarygateway_pillar_v5_17.offset_price.dissect = function(buffer,
   return offset + length, value
 end
 
--- Reserved Char 88
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_88 = {}
+-- Reserved 8
+nyse_equities_binarygateway_pillar_v5_17.reserved_8 = {}
 
--- Size: Reserved Char 88
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_88.size = 8
+-- Size: Reserved 8
+nyse_equities_binarygateway_pillar_v5_17.reserved_8.size = 8
 
--- Display: Reserved Char 88
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_88.display = function(value)
-  return "Reserved Char 88: "..value
+-- Display: Reserved 8
+nyse_equities_binarygateway_pillar_v5_17.reserved_8.display = function(value)
+  return "Reserved 8: "..value
 end
 
--- Dissect: Reserved Char 88
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_88.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_char_88.size
+-- Dissect: Reserved 8
+nyse_equities_binarygateway_pillar_v5_17.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_8.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_char_88.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_char_88, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -5570,7 +5567,7 @@ nyse_equities_binarygateway_pillar_v5_17.optional_order_add_on.size =
   nyse_equities_binarygateway_pillar_v5_17.deliver_to_comp_id.size + 
   nyse_equities_binarygateway_pillar_v5_17.max_floor.size + 
   nyse_equities_binarygateway_pillar_v5_17.locate_broker.size + 
-  nyse_equities_binarygateway_pillar_v5_17.reserved_char_88.size + 
+  nyse_equities_binarygateway_pillar_v5_17.reserved_8.size + 
   nyse_equities_binarygateway_pillar_v5_17.offset_price.size + 
   nyse_equities_binarygateway_pillar_v5_17.effective_time.size
 
@@ -5598,8 +5595,8 @@ nyse_equities_binarygateway_pillar_v5_17.optional_order_add_on.fields = function
   -- Locate Broker: zchar(4)
   index, locate_broker = nyse_equities_binarygateway_pillar_v5_17.locate_broker.dissect(buffer, index, packet, parent)
 
-  -- Reserved Char 88: char(8)
-  index, reserved_char_88 = nyse_equities_binarygateway_pillar_v5_17.reserved_char_88.dissect(buffer, index, packet, parent)
+  -- Reserved 8: char(8)
+  index, reserved_8 = nyse_equities_binarygateway_pillar_v5_17.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Offset Price: Price
   index, offset_price = nyse_equities_binarygateway_pillar_v5_17.offset_price.dissect(buffer, index, packet, parent)
@@ -5887,25 +5884,25 @@ nyse_equities_binarygateway_pillar_v5_17.order_and_cancel_replace_acknowledgemen
   return offset + size_of_order_and_cancel_replace_acknowledgement_message
 end
 
--- Reserved Zchar 4949
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_4949 = {}
+-- Reserved 49
+nyse_equities_binarygateway_pillar_v5_17.reserved_49 = {}
 
--- Size: Reserved Zchar 4949
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_4949.size = 49
+-- Size: Reserved 49
+nyse_equities_binarygateway_pillar_v5_17.reserved_49.size = 49
 
--- Display: Reserved Zchar 4949
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_4949.display = function(value)
+-- Display: Reserved 49
+nyse_equities_binarygateway_pillar_v5_17.reserved_49.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Reserved Zchar 4949: No Value"
+    return "Reserved 49: No Value"
   end
 
-  return "Reserved Zchar 4949: "..value
+  return "Reserved 49: "..value
 end
 
--- Dissect: Reserved Zchar 4949
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_4949.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_4949.size
+-- Dissect: Reserved 49
+nyse_equities_binarygateway_pillar_v5_17.reserved_49.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_49.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -5919,9 +5916,9 @@ nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_4949.dissect = function(
     value = range:string()
   end
 
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_4949.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_49.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_4949, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_49, range, value, display)
 
   return offset + length, value
 end
@@ -6391,8 +6388,8 @@ nyse_equities_binarygateway_pillar_v5_17.session_configuration_acknowledgement_m
   -- Bold Designation: u8
   index, bold_designation = nyse_equities_binarygateway_pillar_v5_17.bold_designation.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 4949: zchar(49)
-  index, reserved_zchar_4949 = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_4949.dissect(buffer, index, packet, parent)
+  -- Reserved 49: zchar(49)
+  index, reserved_49 = nyse_equities_binarygateway_pillar_v5_17.reserved_49.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6414,25 +6411,25 @@ nyse_equities_binarygateway_pillar_v5_17.session_configuration_acknowledgement_m
   return offset + size_of_session_configuration_acknowledgement_message
 end
 
--- Reserved Char 100100
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_100100 = {}
+-- Reserved 100
+nyse_equities_binarygateway_pillar_v5_17.reserved_100 = {}
 
--- Size: Reserved Char 100100
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_100100.size = 100
+-- Size: Reserved 100
+nyse_equities_binarygateway_pillar_v5_17.reserved_100.size = 100
 
--- Display: Reserved Char 100100
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_100100.display = function(value)
-  return "Reserved Char 100100: "..value
+-- Display: Reserved 100
+nyse_equities_binarygateway_pillar_v5_17.reserved_100.display = function(value)
+  return "Reserved 100: "..value
 end
 
--- Dissect: Reserved Char 100100
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_100100.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_char_100100.size
+-- Dissect: Reserved 100
+nyse_equities_binarygateway_pillar_v5_17.reserved_100.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_100.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_char_100100.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_100.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_char_100100, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_100, range, value, display)
 
   return offset + length, value
 end
@@ -6494,8 +6491,8 @@ nyse_equities_binarygateway_pillar_v5_17.mmid_configuration_message.fields = fun
   -- Username: char(16)
   index, username = nyse_equities_binarygateway_pillar_v5_17.username.dissect(buffer, index, packet, parent)
 
-  -- Reserved Char 100100: char(100)
-  index, reserved_char_100100 = nyse_equities_binarygateway_pillar_v5_17.reserved_char_100100.dissect(buffer, index, packet, parent)
+  -- Reserved 100: char(100)
+  index, reserved_100 = nyse_equities_binarygateway_pillar_v5_17.reserved_100.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6517,25 +6514,25 @@ nyse_equities_binarygateway_pillar_v5_17.mmid_configuration_message.dissect = fu
   return offset + size_of_mmid_configuration_message
 end
 
--- Reserved Char 5050
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_5050 = {}
+-- Reserved 50
+nyse_equities_binarygateway_pillar_v5_17.reserved_50 = {}
 
--- Size: Reserved Char 5050
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_5050.size = 50
+-- Size: Reserved 50
+nyse_equities_binarygateway_pillar_v5_17.reserved_50.size = 50
 
--- Display: Reserved Char 5050
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_5050.display = function(value)
-  return "Reserved Char 5050: "..value
+-- Display: Reserved 50
+nyse_equities_binarygateway_pillar_v5_17.reserved_50.display = function(value)
+  return "Reserved 50: "..value
 end
 
--- Dissect: Reserved Char 5050
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_5050.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_char_5050.size
+-- Dissect: Reserved 50
+nyse_equities_binarygateway_pillar_v5_17.reserved_50.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_50.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_char_5050.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_50.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_char_5050, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_50, range, value, display)
 
   return offset + length, value
 end
@@ -6607,8 +6604,8 @@ nyse_equities_binarygateway_pillar_v5_17.mpid_configuration_message.fields = fun
   -- Username: char(16)
   index, username = nyse_equities_binarygateway_pillar_v5_17.username.dissect(buffer, index, packet, parent)
 
-  -- Reserved Char 5050: char(50)
-  index, reserved_char_5050 = nyse_equities_binarygateway_pillar_v5_17.reserved_char_5050.dissect(buffer, index, packet, parent)
+  -- Reserved 50: char(50)
+  index, reserved_50 = nyse_equities_binarygateway_pillar_v5_17.reserved_50.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7430,29 +7427,6 @@ nyse_equities_binarygateway_pillar_v5_17.test_symbol_indicator.dissect = functio
   return offset + length, value
 end
 
--- Reserved Char 77
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_77 = {}
-
--- Size: Reserved Char 77
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_77.size = 7
-
--- Display: Reserved Char 77
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_77.display = function(value)
-  return "Reserved Char 77: "..value
-end
-
--- Dissect: Reserved Char 77
-nyse_equities_binarygateway_pillar_v5_17.reserved_char_77.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_char_77.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_char_77.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_char_77, range, value, display)
-
-  return offset + length, value
-end
-
 -- Adv Risk Range Id
 nyse_equities_binarygateway_pillar_v5_17.adv_risk_range_id = {}
 
@@ -7562,8 +7536,8 @@ nyse_equities_binarygateway_pillar_v5_17.equities_symbol_reference_data_message.
   -- Adv Risk Range Id: u8
   index, adv_risk_range_id = nyse_equities_binarygateway_pillar_v5_17.adv_risk_range_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved Char 77: char(7)
-  index, reserved_char_77 = nyse_equities_binarygateway_pillar_v5_17.reserved_char_77.dissect(buffer, index, packet, parent)
+  -- Reserved 7: char(7)
+  index, reserved_7 = nyse_equities_binarygateway_pillar_v5_17.reserved_7.dissect(buffer, index, packet, parent)
 
   -- Mpv Class Id: u16
   index, mpv_class_id = nyse_equities_binarygateway_pillar_v5_17.mpv_class_id.dissect(buffer, index, packet, parent)
@@ -7591,25 +7565,25 @@ nyse_equities_binarygateway_pillar_v5_17.equities_symbol_reference_data_message.
   return offset + size_of_equities_symbol_reference_data_message
 end
 
--- Reserved Zchar 199199
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_199199 = {}
+-- Reserved 199
+nyse_equities_binarygateway_pillar_v5_17.reserved_199 = {}
 
--- Size: Reserved Zchar 199199
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_199199.size = 199
+-- Size: Reserved 199
+nyse_equities_binarygateway_pillar_v5_17.reserved_199.size = 199
 
--- Display: Reserved Zchar 199199
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_199199.display = function(value)
+-- Display: Reserved 199
+nyse_equities_binarygateway_pillar_v5_17.reserved_199.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Reserved Zchar 199199: No Value"
+    return "Reserved 199: No Value"
   end
 
-  return "Reserved Zchar 199199: "..value
+  return "Reserved 199: "..value
 end
 
--- Dissect: Reserved Zchar 199199
-nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_199199.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_199199.size
+-- Dissect: Reserved 199
+nyse_equities_binarygateway_pillar_v5_17.reserved_199.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_199.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -7623,9 +7597,9 @@ nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_199199.dissect = functio
     value = range:string()
   end
 
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_199199.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_199.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_199199, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_199, range, value, display)
 
   return offset + length, value
 end
@@ -7664,8 +7638,8 @@ nyse_equities_binarygateway_pillar_v5_17.risk_action_request_message.fields = fu
   -- Mp Sub Id Zchar 44: zchar(4)
   index, mp_sub_id_zchar_44 = nyse_equities_binarygateway_pillar_v5_17.mp_sub_id_zchar_44.dissect(buffer, index, packet, parent)
 
-  -- Reserved U 324: u32
-  index, reserved_u_324 = nyse_equities_binarygateway_pillar_v5_17.reserved_u_324.dissect(buffer, index, packet, parent)
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_equities_binarygateway_pillar_v5_17.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_equities_binarygateway_pillar_v5_17.clearing_number.dissect(buffer, index, packet, parent)
@@ -7688,8 +7662,8 @@ nyse_equities_binarygateway_pillar_v5_17.risk_action_request_message.fields = fu
   -- Risk Range Id: u8
   index, risk_range_id = nyse_equities_binarygateway_pillar_v5_17.risk_range_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 199199: zchar(199)
-  index, reserved_zchar_199199 = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_199199.dissect(buffer, index, packet, parent)
+  -- Reserved 199: zchar(199)
+  index, reserved_199 = nyse_equities_binarygateway_pillar_v5_17.reserved_199.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7781,8 +7755,8 @@ nyse_equities_binarygateway_pillar_v5_17.risk_limit_update_request_message.field
   -- Mp Sub Id Zchar 44: zchar(4)
   index, mp_sub_id_zchar_44 = nyse_equities_binarygateway_pillar_v5_17.mp_sub_id_zchar_44.dissect(buffer, index, packet, parent)
 
-  -- Reserved U 324: u32
-  index, reserved_u_324 = nyse_equities_binarygateway_pillar_v5_17.reserved_u_324.dissect(buffer, index, packet, parent)
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_equities_binarygateway_pillar_v5_17.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_equities_binarygateway_pillar_v5_17.clearing_number.dissect(buffer, index, packet, parent)
@@ -7829,8 +7803,8 @@ nyse_equities_binarygateway_pillar_v5_17.risk_limit_update_request_message.field
   -- Price Scale: u8
   index, price_scale = nyse_equities_binarygateway_pillar_v5_17.price_scale.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 190190: zchar(190)
-  index, reserved_zchar_190190 = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_190190.dissect(buffer, index, packet, parent)
+  -- Reserved 190: zchar(190)
+  index, reserved_190 = nyse_equities_binarygateway_pillar_v5_17.reserved_190.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8467,8 +8441,8 @@ nyse_equities_binarygateway_pillar_v5_17.session_configuration_request_message.f
   -- Bold Designation: u8
   index, bold_designation = nyse_equities_binarygateway_pillar_v5_17.bold_designation.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 4949: zchar(49)
-  index, reserved_zchar_4949 = nyse_equities_binarygateway_pillar_v5_17.reserved_zchar_4949.dissect(buffer, index, packet, parent)
+  -- Reserved 49: zchar(49)
+  index, reserved_49 = nyse_equities_binarygateway_pillar_v5_17.reserved_49.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9004,29 +8978,6 @@ nyse_equities_binarygateway_pillar_v5_17.timestamp.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Reserved 4
-nyse_equities_binarygateway_pillar_v5_17.reserved_4 = {}
-
--- Size: Reserved 4
-nyse_equities_binarygateway_pillar_v5_17.reserved_4.size = 4
-
--- Display: Reserved 4
-nyse_equities_binarygateway_pillar_v5_17.reserved_4.display = function(value)
-  return "Reserved 4: "..value
-end
-
--- Dissect: Reserved 4
-nyse_equities_binarygateway_pillar_v5_17.reserved_4.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_binarygateway_pillar_v5_17.reserved_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_equities_binarygateway_pillar_v5_17.reserved_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
 -- Seq Msg Id
 nyse_equities_binarygateway_pillar_v5_17.seq_msg_id = {}
 
@@ -9217,7 +9168,7 @@ nyse_equities_binarygateway_pillar_v5_17.seq_msg.fields = function(buffer, offse
   -- Seq Msg Id: Struct of 2 fields
   index, seq_msg_id = nyse_equities_binarygateway_pillar_v5_17.seq_msg_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: u32
   index, reserved_4 = nyse_equities_binarygateway_pillar_v5_17.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer

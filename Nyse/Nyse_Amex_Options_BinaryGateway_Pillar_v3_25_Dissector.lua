@@ -23,14 +23,12 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.appointment_status = Pro
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.auction_id = ProtoField.new("Auction Id", "nyse.amex.options.binarygateway.pillar.v3.25.auctionid", ftypes.UINT64)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bitfield_flow_indicator = ProtoField.new("Bitfield Flow Indicator", "nyse.amex.options.binarygateway.pillar.v3.25.bitfieldflowindicator", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bitfield_order_instructions = ProtoField.new("Bitfield Order Instructions", "nyse.amex.options.binarygateway.pillar.v3.25.bitfieldorderinstructions", ftypes.BYTES)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bitfield_quote_inst = ProtoField.new("Bitfield Quote Inst", "nyse.amex.options.binarygateway.pillar.v3.25.bitfieldquoteinst", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.blocked_by_breach_indicator = ProtoField.new("Blocked By Breach Indicator", "nyse.amex.options.binarygateway.pillar.v3.25.blockedbybreachindicator", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.blocked_by_kill_switch_indicator = ProtoField.new("Blocked By Kill Switch Indicator", "nyse.amex.options.binarygateway.pillar.v3.25.blockedbykillswitchindicator", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bold_designation = ProtoField.new("Bold Designation", "nyse.amex.options.binarygateway.pillar.v3.25.bolddesignation", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.breach_action_request = ProtoField.new("Breach Action Request", "nyse.amex.options.binarygateway.pillar.v3.25.breachactionrequest", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.breach_action_response = ProtoField.new("Breach Action Response", "nyse.amex.options.binarygateway.pillar.v3.25.breachactionresponse", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_action = ProtoField.new("Bulk Action", "nyse.amex.options.binarygateway.pillar.v3.25.bulkaction", ftypes.UINT8)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_quote_group = ProtoField.new("Bulk Quote Group", "nyse.amex.options.binarygateway.pillar.v3.25.bulkquotegroup", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bust_correct_indicator = ProtoField.new("Bust Correct Indicator", "nyse.amex.options.binarygateway.pillar.v3.25.bustcorrectindicator", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "nyse.amex.options.binarygateway.pillar.v3.25.cancelondisconnect", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cancel_scope = ProtoField.new("Cancel Scope", "nyse.amex.options.binarygateway.pillar.v3.25.cancelscope", ftypes.UINT8)
@@ -85,7 +83,6 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.max_order_price = ProtoF
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.max_order_quantity = ProtoField.new("Max Order Quantity", "nyse.amex.options.binarygateway.pillar.v3.25.maxorderquantity", ftypes.UINT32)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mic = ProtoField.new("Mic", "nyse.amex.options.binarygateway.pillar.v3.25.mic", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.min_qty = ProtoField.new("Min Qty", "nyse.amex.options.binarygateway.pillar.v3.25.minqty", ftypes.UINT32)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_quote_type = ProtoField.new("Mm Quote Type", "nyse.amex.options.binarygateway.pillar.v3.25.mmquotetype", ftypes.UINT8, [0]="Standard", [1]="Repricing", [2]="Add Liquidity Only Non Taking", [3]="Reserved", [4]="Repricing Add Liquidity Only Non Taking", base.DEC, 0x1C)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.amex.options.binarygateway.pillar.v3.25.mmsenttime", ftypes.UINT64)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_type = ProtoField.new("Mm Type", "nyse.amex.options.binarygateway.pillar.v3.25.mmtype", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mode = ProtoField.new("Mode", "nyse.amex.options.binarygateway.pillar.v3.25.mode", ftypes.UINT8)
@@ -108,6 +105,7 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.optional_data = ProtoFie
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.optional_data_covered = ProtoField.new("Optional Data Covered", "nyse.amex.options.binarygateway.pillar.v3.25.optionaldatacovered", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.optional_data_exposed = ProtoField.new("Optional Data Exposed", "nyse.amex.options.binarygateway.pillar.v3.25.optionaldataexposed", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.amex.options.binarygateway.pillar.v3.25.optionalorderaddon", ftypes.STRING)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_entry_limit_price = ProtoField.new("Order Entry Limit Price", "nyse.amex.options.binarygateway.pillar.v3.25.orderentrylimitprice", ftypes.DOUBLE)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_id = ProtoField.new("Order Id", "nyse.amex.options.binarygateway.pillar.v3.25.orderid", ftypes.UINT64)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_priority_update_ack_subscription = ProtoField.new("Order Priority Update Ack Subscription", "nyse.amex.options.binarygateway.pillar.v3.25.orderpriorityupdateacksubscription", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_qty = ProtoField.new("Order Qty", "nyse.amex.options.binarygateway.pillar.v3.25.orderqty", ftypes.UINT32)
@@ -117,13 +115,9 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.password = ProtoField.ne
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.percentage_limit = ProtoField.new("Percentage Limit", "nyse.amex.options.binarygateway.pillar.v3.25.percentagelimit", ftypes.INT32)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.pillar_stream_message = ProtoField.new("Pillar Stream Message", "nyse.amex.options.binarygateway.pillar.v3.25.pillarstreammessage", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.pre_liquidity_indicator = ProtoField.new("Pre Liquidity Indicator", "nyse.amex.options.binarygateway.pillar.v3.25.preliquidityindicator", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price_price_8 = ProtoField.new("Price Price 8", "nyse.amex.options.binarygateway.pillar.v3.25.priceprice8", ftypes.DOUBLE)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price = ProtoField.new("Price", "nyse.amex.options.binarygateway.pillar.v3.25.price", ftypes.DOUBLE)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price_scale = ProtoField.new("Price Scale", "nyse.amex.options.binarygateway.pillar.v3.25.pricescale", ftypes.UINT8)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price_u_price_8 = ProtoField.new("Price U Price 8", "nyse.amex.options.binarygateway.pillar.v3.25.priceuprice8", ftypes.DOUBLE)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.amex.options.binarygateway.pillar.v3.25.putorcall", ftypes.UINT8)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quantity = ProtoField.new("Quantity", "nyse.amex.options.binarygateway.pillar.v3.25.quantity", ftypes.UINT32)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quote_ack_group_294 = ProtoField.new("Quote Ack Group 294", "nyse.amex.options.binarygateway.pillar.v3.25.quoteackgroup294", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quote_ack_group_308 = ProtoField.new("Quote Ack Group 308", "nyse.amex.options.binarygateway.pillar.v3.25.quoteackgroup308", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.amex.options.binarygateway.pillar.v3.25.quotingmpv", ftypes.DOUBLE)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reason_code = ProtoField.new("Reason Code", "nyse.amex.options.binarygateway.pillar.v3.25.reasoncode", ftypes.UINT16)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ref_cl_ord_id = ProtoField.new("Ref Cl Ord Id", "nyse.amex.options.binarygateway.pillar.v3.25.refclordid", ftypes.UINT64)
@@ -132,20 +126,17 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reinstatement_required_b
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reinstatement_required_by_self = ProtoField.new("Reinstatement Required By Self", "nyse.amex.options.binarygateway.pillar.v3.25.reinstatementrequiredbyself", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reject_type = ProtoField.new("Reject Type", "nyse.amex.options.binarygateway.pillar.v3.25.rejecttype", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.repeating_groups = ProtoField.new("Repeating Groups", "nyse.amex.options.binarygateway.pillar.v3.25.repeatinggroups", ftypes.UINT8)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1_u_324 = ProtoField.new("Reserved 1 U 324", "nyse.amex.options.binarygateway.pillar.v3.25.reserved1u324", ftypes.UINT32)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1_u_81 = ProtoField.new("Reserved 1 U 81", "nyse.amex.options.binarygateway.pillar.v3.25.reserved1u81", ftypes.UINT8)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amex.options.binarygateway.pillar.v3.25.reserved1", ftypes.UINT8)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_16 = ProtoField.new("Reserved 16", "nyse.amex.options.binarygateway.pillar.v3.25.reserved16", ftypes.STRING)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_190 = ProtoField.new("Reserved 190", "nyse.amex.options.binarygateway.pillar.v3.25.reserved190", ftypes.STRING)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_199 = ProtoField.new("Reserved 199", "nyse.amex.options.binarygateway.pillar.v3.25.reserved199", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amex.options.binarygateway.pillar.v3.25.reserved2", ftypes.UINT16)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_3 = ProtoField.new("Reserved 3", "nyse.amex.options.binarygateway.pillar.v3.25.reserved3", ftypes.UINT8, nil, base.DEC, 0xE0)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amex.options.binarygateway.pillar.v3.25.reserved4", ftypes.BYTES)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_20 = ProtoField.new("Reserved 20", "nyse.amex.options.binarygateway.pillar.v3.25.reserved20", ftypes.STRING)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_200 = ProtoField.new("Reserved 200", "nyse.amex.options.binarygateway.pillar.v3.25.reserved200", ftypes.STRING)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amex.options.binarygateway.pillar.v3.25.reserved4", ftypes.UINT32)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_49 = ProtoField.new("Reserved 49", "nyse.amex.options.binarygateway.pillar.v3.25.reserved49", ftypes.STRING)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_50 = ProtoField.new("Reserved 50", "nyse.amex.options.binarygateway.pillar.v3.25.reserved50", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_7 = ProtoField.new("Reserved 7", "nyse.amex.options.binarygateway.pillar.v3.25.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_char_1616 = ProtoField.new("Reserved Char 1616", "nyse.amex.options.binarygateway.pillar.v3.25.reservedchar1616", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_char_2020 = ProtoField.new("Reserved Char 2020", "nyse.amex.options.binarygateway.pillar.v3.25.reservedchar2020", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_char_44 = ProtoField.new("Reserved Char 44", "nyse.amex.options.binarygateway.pillar.v3.25.reservedchar44", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_char_5050 = ProtoField.new("Reserved Char 5050", "nyse.amex.options.binarygateway.pillar.v3.25.reservedchar5050", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_zchar_190190 = ProtoField.new("Reserved Zchar 190190", "nyse.amex.options.binarygateway.pillar.v3.25.reservedzchar190190", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_zchar_199199 = ProtoField.new("Reserved Zchar 199199", "nyse.amex.options.binarygateway.pillar.v3.25.reservedzchar199199", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_zchar_200200 = ProtoField.new("Reserved Zchar 200200", "nyse.amex.options.binarygateway.pillar.v3.25.reservedzchar200200", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_zchar_4949 = ProtoField.new("Reserved Zchar 4949", "nyse.amex.options.binarygateway.pillar.v3.25.reservedzchar4949", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "nyse.amex.options.binarygateway.pillar.v3.25.riskacktype", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_action_type = ProtoField.new("Risk Action Type", "nyse.amex.options.binarygateway.pillar.v3.25.riskactiontype", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_control_activation = ProtoField.new("Risk Control Activation", "nyse.amex.options.binarygateway.pillar.v3.25.riskcontrolactivation", ftypes.UINT8)
@@ -165,7 +156,6 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sequenced_message = Prot
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_index = ProtoField.new("Series Index", "nyse.amex.options.binarygateway.pillar.v3.25.seriesindex", ftypes.UINT32)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_type = ProtoField.new("Series Type", "nyse.amex.options.binarygateway.pillar.v3.25.seriestype", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sess = ProtoField.new("Sess", "nyse.amex.options.binarygateway.pillar.v3.25.sess", ftypes.UINT32)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.side_2 = ProtoField.new("Side 2", "nyse.amex.options.binarygateway.pillar.v3.25.side2", ftypes.UINT8, nil, base.DEC, 0x03)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.side_u_81 = ProtoField.new("Side U 81", "nyse.amex.options.binarygateway.pillar.v3.25.sideu81", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.start_seq = ProtoField.new("Start Seq", "nyse.amex.options.binarygateway.pillar.v3.25.startseq", ftypes.UINT64)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.status = ProtoField.new("Status", "nyse.amex.options.binarygateway.pillar.v3.25.status", ftypes.UINT8)
@@ -261,12 +251,10 @@ local show = {}
 -- Nyse Amex Options BinaryGateway Pillar 3.25 Element Dissection Options
 show.application_layer_reject_message = true
 show.bitfield_flow_indicator = true
-show.bitfield_quote_inst = true
 show.bulk_cancel_request_type_223_message = true
 show.bulk_cancel_request_type_224_message = true
 show.bulk_quote_acknowledgment_message = true
 show.bulk_quote_acknowledgment_type_294_message = true
-show.bulk_quote_group = true
 show.close = true
 show.close_response = true
 show.complex_series_leg_group = true
@@ -297,8 +285,6 @@ show.order_cancel_request_message = true
 show.order_modify_request_message = true
 show.order_priority_update_acknowledgment_message = true
 show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = true
-show.quote_ack_group_294 = true
-show.quote_ack_group_308 = true
 show.ref_seq_msg_id = true
 show.risk_action_request_message = true
 show.risk_control_acknowledgement_message = true
@@ -321,12 +307,10 @@ show.sequenced_message = false
 -- Register Nyse Amex Options BinaryGateway Pillar 3.25 Show Options
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_layer_reject_message = Pref.bool("Show Application Layer Reject Message", show.application_layer_reject_message, "Parse and add Application Layer Reject Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bitfield_flow_indicator = Pref.bool("Show Bitfield Flow Indicator", show.bitfield_flow_indicator, "Parse and add Bitfield Flow Indicator to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bitfield_quote_inst = Pref.bool("Show Bitfield Quote Inst", show.bitfield_quote_inst, "Parse and add Bitfield Quote Inst to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_cancel_request_type_223_message = Pref.bool("Show Bulk Cancel Request Type 223 Message", show.bulk_cancel_request_type_223_message, "Parse and add Bulk Cancel Request Type 223 Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_cancel_request_type_224_message = Pref.bool("Show Bulk Cancel Request Type 224 Message", show.bulk_cancel_request_type_224_message, "Parse and add Bulk Cancel Request Type 224 Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_acknowledgment_message = Pref.bool("Show Bulk Quote Acknowledgment Message", show.bulk_quote_acknowledgment_message, "Parse and add Bulk Quote Acknowledgment Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_acknowledgment_type_294_message = Pref.bool("Show Bulk Quote Acknowledgment Type 294 Message", show.bulk_quote_acknowledgment_type_294_message, "Parse and add Bulk Quote Acknowledgment Type 294 Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_group = Pref.bool("Show Bulk Quote Group", show.bulk_quote_group, "Parse and add Bulk Quote Group to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_close = Pref.bool("Show Close", show.close, "Parse and add Close to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_close_response = Pref.bool("Show Close Response", show.close_response, "Parse and add Close Response to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_complex_series_leg_group = Pref.bool("Show Complex Series Leg Group", show.complex_series_leg_group, "Parse and add Complex Series Leg Group to protocol tree")
@@ -357,8 +341,6 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_cancel_request
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_modify_request_message = Pref.bool("Show Order Modify Request Message", show.order_modify_request_message, "Parse and add Order Modify Request Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_priority_update_acknowledgment_message = Pref.bool("Show Order Priority Update Acknowledgment Message", show.order_priority_update_acknowledgment_message, "Parse and add Order Priority Update Acknowledgment Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = Pref.bool("Show Order Single Complex Modify Cancel Request Acknowledgment And Urout Message", show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message, "Parse and add Order Single Complex Modify Cancel Request Acknowledgment And Urout Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_quote_ack_group_294 = Pref.bool("Show Quote Ack Group 294", show.quote_ack_group_294, "Parse and add Quote Ack Group 294 to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_quote_ack_group_308 = Pref.bool("Show Quote Ack Group 308", show.quote_ack_group_308, "Parse and add Quote Ack Group 308 to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_action_request_message = Pref.bool("Show Risk Action Request Message", show.risk_action_request_message, "Parse and add Risk Action Request Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_control_acknowledgement_message = Pref.bool("Show Risk Control Acknowledgement Message", show.risk_control_acknowledgement_message, "Parse and add Risk Control Acknowledgement Message to protocol tree")
@@ -391,10 +373,6 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
     show.bitfield_flow_indicator = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bitfield_flow_indicator
     changed = true
   end
-  if show.bitfield_quote_inst ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bitfield_quote_inst then
-    show.bitfield_quote_inst = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bitfield_quote_inst
-    changed = true
-  end
   if show.bulk_cancel_request_type_223_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_cancel_request_type_223_message then
     show.bulk_cancel_request_type_223_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_cancel_request_type_223_message
     changed = true
@@ -409,10 +387,6 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
   end
   if show.bulk_quote_acknowledgment_type_294_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_acknowledgment_type_294_message then
     show.bulk_quote_acknowledgment_type_294_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_acknowledgment_type_294_message
-    changed = true
-  end
-  if show.bulk_quote_group ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_group then
-    show.bulk_quote_group = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_group
     changed = true
   end
   if show.close ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_close then
@@ -533,14 +507,6 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
   end
   if show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message then
     show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message
-    changed = true
-  end
-  if show.quote_ack_group_294 ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_quote_ack_group_294 then
-    show.quote_ack_group_294 = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_quote_ack_group_294
-    changed = true
-  end
-  if show.quote_ack_group_308 ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_quote_ack_group_308 then
-    show.quote_ack_group_308 = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_quote_ack_group_308
     changed = true
   end
   if show.ref_seq_msg_id ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id then
@@ -1904,25 +1870,25 @@ nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgem
   return offset + size_of_complex_series_request_acknowledgement_message
 end
 
--- Reserved Zchar 200200
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_200200 = {}
+-- Reserved 200
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_200 = {}
 
--- Size: Reserved Zchar 200200
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_200200.size = 200
+-- Size: Reserved 200
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.size = 200
 
--- Display: Reserved Zchar 200200
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_200200.display = function(value)
+-- Display: Reserved 200
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Reserved Zchar 200200: No Value"
+    return "Reserved 200: No Value"
   end
 
-  return "Reserved Zchar 200200: "..value
+  return "Reserved 200: "..value
 end
 
--- Dissect: Reserved Zchar 200200
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_200200.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_200200.size
+-- Dissect: Reserved 200
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1936,9 +1902,9 @@ nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_200200.dissect = fun
     value = range:string()
   end
 
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_200200.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_zchar_200200, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_200, range, value, display)
 
   return offset + length, value
 end
@@ -2816,8 +2782,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.fields =
   -- Reinstatement Required By Other: u8
   index, reinstatement_required_by_other = nyse_amex_options_binarygateway_pillar_v3_25.reinstatement_required_by_other.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 200200: zchar(200)
-  index, reserved_zchar_200200 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_200200.dissect(buffer, index, packet, parent)
+  -- Reserved 200: zchar(200)
+  index, reserved_200 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2839,25 +2805,25 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.dissect 
   return offset + size_of_risk_control_alert_message
 end
 
--- Reserved Zchar 190190
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_190190 = {}
+-- Reserved 190
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_190 = {}
 
--- Size: Reserved Zchar 190190
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_190190.size = 190
+-- Size: Reserved 190
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.size = 190
 
--- Display: Reserved Zchar 190190
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_190190.display = function(value)
+-- Display: Reserved 190
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Reserved Zchar 190190: No Value"
+    return "Reserved 190: No Value"
   end
 
-  return "Reserved Zchar 190190: "..value
+  return "Reserved 190: "..value
 end
 
--- Dissect: Reserved Zchar 190190
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_190190.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_190190.size
+-- Dissect: Reserved 190
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2871,9 +2837,9 @@ nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_190190.dissect = fun
     value = range:string()
   end
 
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_190190.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_zchar_190190, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_190, range, value, display)
 
   return offset + length, value
 end
@@ -3007,25 +2973,25 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.dissect = function(bu
   return offset + length, value
 end
 
--- Reserved 1 U 324
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_324 = {}
+-- Reserved 4
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_4 = {}
 
--- Size: Reserved 1 U 324
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_324.size = 4
+-- Size: Reserved 4
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.size = 4
 
--- Display: Reserved 1 U 324
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_324.display = function(value)
-  return "Reserved 1 U 324: "..value
+-- Display: Reserved 4
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.display = function(value)
+  return "Reserved 4: "..value
 end
 
--- Dissect: Reserved 1 U 324
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_324.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_324.size
+-- Dissect: Reserved 4
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_324.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1_u_324, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -3064,8 +3030,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_messag
   -- Mp Sub Id: zchar(4)
   index, mp_sub_id = nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 U 324: u32
-  index, reserved_1_u_324 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_324.dissect(buffer, index, packet, parent)
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.dissect(buffer, index, packet, parent)
@@ -3145,8 +3111,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_messag
   -- Price Scale: u8
   index, price_scale = nyse_amex_options_binarygateway_pillar_v3_25.price_scale.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 190190: zchar(190)
-  index, reserved_zchar_190190 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_190190.dissect(buffer, index, packet, parent)
+  -- Reserved 190: zchar(190)
+  index, reserved_190 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3166,29 +3132,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_messag
   nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_risk_control_acknowledgement_message)
 
   return offset + size_of_risk_control_acknowledgement_message
-end
-
--- Reserved Char 44
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_44 = {}
-
--- Size: Reserved Char 44
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_44.size = 4
-
--- Display: Reserved Char 44
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_44.display = function(value)
-  return "Reserved Char 44: "..value
-end
-
--- Dissect: Reserved Char 44
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_44.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_44.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_44.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_char_44, range, value, display)
-
-  return offset + length, value
 end
 
 -- User Data
@@ -3324,8 +3267,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.fi
   -- User Data: zchar(10)
   index, user_data = nyse_amex_options_binarygateway_pillar_v3_25.user_data.dissect(buffer, index, packet, parent)
 
-  -- Reserved Char 44: char(4)
-  index, reserved_char_44 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_44.dissect(buffer, index, packet, parent)
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4530,25 +4473,25 @@ nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.dissect = function(buffe
   return offset + length, value
 end
 
--- Reserved 1 U 81
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_81 = {}
+-- Reserved 1
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_1 = {}
 
--- Size: Reserved 1 U 81
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_81.size = 1
+-- Size: Reserved 1
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.size = 1
 
--- Display: Reserved 1 U 81
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_81.display = function(value)
-  return "Reserved 1 U 81: "..value
+-- Display: Reserved 1
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.display = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved 1 U 81
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_81.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_81.size
+-- Dissect: Reserved 1
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_81.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1_u_81, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -4752,8 +4695,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.fields = f
   -- Multileg Reporting Type: u8
   index, multileg_reporting_type = nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 U 81: u8
-  index, reserved_1_u_81 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_81.dissect(buffer, index, packet, parent)
+  -- Reserved 1: u8
+  index, reserved_1 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: u16
   index, reserved_2 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.dissect(buffer, index, packet, parent)
@@ -5311,31 +5254,31 @@ nyse_amex_options_binarygateway_pillar_v3_25.bitfield_flow_indicator.dissect = f
   return offset + size, value
 end
 
--- Price Price 8
-nyse_amex_options_binarygateway_pillar_v3_25.price_price_8 = {}
+-- Price
+nyse_amex_options_binarygateway_pillar_v3_25.price = {}
 
--- Size: Price Price 8
-nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.size = 8
+-- Size: Price
+nyse_amex_options_binarygateway_pillar_v3_25.price.size = 8
 
--- Display: Price Price 8
-nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.display = function(value)
-  return "Price Price 8: "..value
+-- Display: Price
+nyse_amex_options_binarygateway_pillar_v3_25.price.display = function(value)
+  return "Price: "..value
 end
 
--- Translate: Price Price 8
-nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.translate = function(raw)
+-- Translate: Price
+nyse_amex_options_binarygateway_pillar_v3_25.price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Price Price 8
-nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.size
+-- Dissect: Price
+nyse_amex_options_binarygateway_pillar_v3_25.price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.display(value, buffer, offset, packet, parent)
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.price.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price_price_8, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -5426,8 +5369,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_
   -- Orig Cl Ord Id: u64
   index, orig_cl_ord_id = nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Price Price 8: Price
-  index, price_price_8 = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.dissect(buffer, index, packet, parent)
+  -- Price: Price
+  index, price = nyse_amex_options_binarygateway_pillar_v3_25.price.dissect(buffer, index, packet, parent)
 
   -- Order Qty: u32
   index, order_qty = nyse_amex_options_binarygateway_pillar_v3_25.order_qty.dissect(buffer, index, packet, parent)
@@ -5489,120 +5432,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_
   nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.fields(buffer, offset, packet, parent, size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message)
 
   return offset + size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message
-end
-
--- Quantity
-nyse_amex_options_binarygateway_pillar_v3_25.quantity = {}
-
--- Size: Quantity
-nyse_amex_options_binarygateway_pillar_v3_25.quantity.size = 4
-
--- Display: Quantity
-nyse_amex_options_binarygateway_pillar_v3_25.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-nyse_amex_options_binarygateway_pillar_v3_25.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Series Index
-nyse_amex_options_binarygateway_pillar_v3_25.series_index = {}
-
--- Size: Series Index
-nyse_amex_options_binarygateway_pillar_v3_25.series_index.size = 4
-
--- Display: Series Index
-nyse_amex_options_binarygateway_pillar_v3_25.series_index.display = function(value)
-  return "Series Index: "..value
-end
-
--- Dissect: Series Index
-nyse_amex_options_binarygateway_pillar_v3_25.series_index.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.series_index.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.series_index.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_index, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Ack Group 308
-nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_308 = {}
-
--- Size: Quote Ack Group 308
-nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_308.size =
-  nyse_amex_options_binarygateway_pillar_v3_25.series_index.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.ack_type.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.quantity.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.reason_code.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.order_id.size
-
--- Display: Quote Ack Group 308
-nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_308.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Ack Group 308
-nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_308.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Series Index: u32
-  index, series_index = nyse_amex_options_binarygateway_pillar_v3_25.series_index.dissect(buffer, index, packet, parent)
-
-  -- Side U 81: u8
-  index, side_u_81 = nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.dissect(buffer, index, packet, parent)
-
-  -- Ack Type: u8
-  index, ack_type = nyse_amex_options_binarygateway_pillar_v3_25.ack_type.dissect(buffer, index, packet, parent)
-
-  -- Price Price 8: Price
-  index, price_price_8 = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.dissect(buffer, index, packet, parent)
-
-  -- Quantity: u32
-  index, quantity = nyse_amex_options_binarygateway_pillar_v3_25.quantity.dissect(buffer, index, packet, parent)
-
-  -- Reason Code: u16
-  index, reason_code = nyse_amex_options_binarygateway_pillar_v3_25.reason_code.dissect(buffer, index, packet, parent)
-
-  -- Working Away From Display: u8
-  index, working_away_from_display = nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.dissect(buffer, index, packet, parent)
-
-  -- Order Id: u64
-  index, order_id = nyse_amex_options_binarygateway_pillar_v3_25.order_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Ack Group 308
-nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_308.dissect = function(buffer, offset, packet, parent)
-  if show.quote_ack_group_308 then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quote_ack_group_308, buffer(offset, 0))
-    local index = nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_308.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_308.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_308.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Self Trade Type U 81
@@ -5716,7 +5545,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.f
   -- Repeating Groups: u8
   index, repeating_groups = nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.dissect(buffer, index, packet, parent)
 
-  -- Quote Ack Group 308: Struct of 8 fields
+  -- Quote Ack Group 308
   index, quote_ack_group_308 = nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_308.dissect(buffer, index, packet, parent)
 
   return index
@@ -5737,70 +5566,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.d
   nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_message)
 
   return offset + size_of_bulk_quote_acknowledgment_message
-end
-
--- Quote Ack Group 294
-nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_294 = {}
-
--- Size: Quote Ack Group 294
-nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_294.size =
-  nyse_amex_options_binarygateway_pillar_v3_25.series_index.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.ack_type.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.quantity.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.reason_code.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.size
-
--- Display: Quote Ack Group 294
-nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_294.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Ack Group 294
-nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_294.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Series Index: u32
-  index, series_index = nyse_amex_options_binarygateway_pillar_v3_25.series_index.dissect(buffer, index, packet, parent)
-
-  -- Side U 81: u8
-  index, side_u_81 = nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.dissect(buffer, index, packet, parent)
-
-  -- Ack Type: u8
-  index, ack_type = nyse_amex_options_binarygateway_pillar_v3_25.ack_type.dissect(buffer, index, packet, parent)
-
-  -- Price Price 8: Price
-  index, price_price_8 = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.dissect(buffer, index, packet, parent)
-
-  -- Quantity: u32
-  index, quantity = nyse_amex_options_binarygateway_pillar_v3_25.quantity.dissect(buffer, index, packet, parent)
-
-  -- Reason Code: u16
-  index, reason_code = nyse_amex_options_binarygateway_pillar_v3_25.reason_code.dissect(buffer, index, packet, parent)
-
-  -- Working Away From Display: u8
-  index, working_away_from_display = nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Ack Group 294
-nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_294.dissect = function(buffer, offset, packet, parent)
-  if show.quote_ack_group_294 then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quote_ack_group_294, buffer(offset, 0))
-    local index = nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_294.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_294.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_294.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Bulk Quote Acknowledgment Type 294 Message
@@ -5852,7 +5617,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_
   -- Repeating Groups: u8
   index, repeating_groups = nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.dissect(buffer, index, packet, parent)
 
-  -- Quote Ack Group 294: Struct of 7 fields
+  -- Quote Ack Group 294
   index, quote_ack_group_294 = nyse_amex_options_binarygateway_pillar_v3_25.quote_ack_group_294.dissect(buffer, index, packet, parent)
 
   return index
@@ -6017,8 +5782,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledg
   -- Bitfield Order Instructions: u128
   index, bitfield_order_instructions = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.dissect(buffer, index, packet, parent)
 
-  -- Price Price 8: Price
-  index, price_price_8 = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.dissect(buffer, index, packet, parent)
+  -- Price: Price
+  index, price = nyse_amex_options_binarygateway_pillar_v3_25.price.dissect(buffer, index, packet, parent)
 
   -- Order Qty: u32
   index, order_qty = nyse_amex_options_binarygateway_pillar_v3_25.order_qty.dissect(buffer, index, packet, parent)
@@ -6094,25 +5859,25 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledg
   return offset + size_of_order_and_cancel_replace_acknowledgement_message
 end
 
--- Reserved Zchar 4949
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_4949 = {}
+-- Reserved 49
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_49 = {}
 
--- Size: Reserved Zchar 4949
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_4949.size = 49
+-- Size: Reserved 49
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.size = 49
 
--- Display: Reserved Zchar 4949
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_4949.display = function(value)
+-- Display: Reserved 49
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Reserved Zchar 4949: No Value"
+    return "Reserved 49: No Value"
   end
 
-  return "Reserved Zchar 4949: "..value
+  return "Reserved 49: "..value
 end
 
--- Dissect: Reserved Zchar 4949
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_4949.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_4949.size
+-- Dissect: Reserved 49
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -6126,9 +5891,9 @@ nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_4949.dissect = funct
     value = range:string()
   end
 
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_4949.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_zchar_4949, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_49, range, value, display)
 
   return offset + length, value
 end
@@ -6622,8 +6387,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgeme
   -- Bold Designation: u8
   index, bold_designation = nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 4949: zchar(49)
-  index, reserved_zchar_4949 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_4949.dissect(buffer, index, packet, parent)
+  -- Reserved 49: zchar(49)
+  index, reserved_49 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6645,25 +6410,25 @@ nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgeme
   return offset + size_of_session_configuration_acknowledgement_message
 end
 
--- Reserved Char 5050
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_5050 = {}
+-- Reserved 50
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_50 = {}
 
--- Size: Reserved Char 5050
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_5050.size = 50
+-- Size: Reserved 50
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.size = 50
 
--- Display: Reserved Char 5050
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_5050.display = function(value)
-  return "Reserved Char 5050: "..value
+-- Display: Reserved 50
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.display = function(value)
+  return "Reserved 50: "..value
 end
 
--- Dissect: Reserved Char 5050
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_5050.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_5050.size
+-- Dissect: Reserved 50
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_5050.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_char_5050, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_50, range, value, display)
 
   return offset + length, value
 end
@@ -6812,8 +6577,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appoint
   -- Appointment Status: u8
   index, appointment_status = nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.dissect(buffer, index, packet, parent)
 
-  -- Reserved Char 5050: char(50)
-  index, reserved_char_5050 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_5050.dissect(buffer, index, packet, parent)
+  -- Reserved 50: char(50)
+  index, reserved_50 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6902,8 +6667,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.fields =
   -- Username: char(16)
   index, username = nyse_amex_options_binarygateway_pillar_v3_25.username.dissect(buffer, index, packet, parent)
 
-  -- Reserved Char 5050: char(50)
-  index, reserved_char_5050 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_5050.dissect(buffer, index, packet, parent)
+  -- Reserved 50: char(50)
+  index, reserved_50 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7006,31 +6771,31 @@ nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.dissect = function(buff
   return offset + length, value
 end
 
--- Price U Price 8
-nyse_amex_options_binarygateway_pillar_v3_25.price_u_price_8 = {}
+-- Order Entry Limit Price
+nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price = {}
 
--- Size: Price U Price 8
-nyse_amex_options_binarygateway_pillar_v3_25.price_u_price_8.size = 8
+-- Size: Order Entry Limit Price
+nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.size = 8
 
--- Display: Price U Price 8
-nyse_amex_options_binarygateway_pillar_v3_25.price_u_price_8.display = function(value)
-  return "Price U Price 8: "..value
+-- Display: Order Entry Limit Price
+nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.display = function(value)
+  return "Order Entry Limit Price: "..value
 end
 
--- Translate: Price U Price 8
-nyse_amex_options_binarygateway_pillar_v3_25.price_u_price_8.translate = function(raw)
+-- Translate: Order Entry Limit Price
+nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Price U Price 8
-nyse_amex_options_binarygateway_pillar_v3_25.price_u_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.price_u_price_8.size
+-- Dissect: Order Entry Limit Price
+nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.price_u_price_8.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.price_u_price_8.display(value, buffer, offset, packet, parent)
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price_u_price_8, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_entry_limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -7064,7 +6829,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_definition = {}
 -- Size: Mpv Level Definition
 nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_definition.size =
   nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.price_u_price_8.size + 
+  nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.size + 
   nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.size + 
   nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.size + 
   nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.size
@@ -7081,8 +6846,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_definition.fields = funct
   -- Mpv Level Name: char(24)
   index, mpv_level_name = nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.dissect(buffer, index, packet, parent)
 
-  -- Price U Price 8: uPrice
-  index, price_u_price_8 = nyse_amex_options_binarygateway_pillar_v3_25.price_u_price_8.dissect(buffer, index, packet, parent)
+  -- Order Entry Limit Price: uPrice
+  index, order_entry_limit_price = nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.dissect(buffer, index, packet, parent)
 
   -- Quoting Mpv: uPrice
   index, quoting_mpv = nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.dissect(buffer, index, packet, parent)
@@ -7139,8 +6904,13 @@ nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_referen
   -- Transact Time Timestamp 8: Timestamp
   index, transact_time_timestamp_8 = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.dissect(buffer, index, packet, parent)
 
+  -- Dependency for Mpv Level Definition
+  local end_of_payload = buffer:len()
+
   -- Mpv Level Definition: Struct of 5 fields
-  index, mpv_level_definition = nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_definition.dissect(buffer, index, packet, parent)
+  while index < end_of_payload do
+    index, mpv_level_definition = nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_definition.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -7449,6 +7219,29 @@ nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.dissect = function(
   local display = nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.occ_symbol_root, range, value, display)
+
+  return offset + length, value
+end
+
+-- Series Index
+nyse_amex_options_binarygateway_pillar_v3_25.series_index = {}
+
+-- Size: Series Index
+nyse_amex_options_binarygateway_pillar_v3_25.series_index.size = 4
+
+-- Display: Series Index
+nyse_amex_options_binarygateway_pillar_v3_25.series_index.display = function(value)
+  return "Series Index: "..value
+end
+
+-- Dissect: Series Index
+nyse_amex_options_binarygateway_pillar_v3_25.series_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.series_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.series_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_index, range, value, display)
 
   return offset + length, value
 end
@@ -7898,8 +7691,13 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.
   -- Mpid: zchar(4)
   index, mpid = nyse_amex_options_binarygateway_pillar_v3_25.mpid.dissect(buffer, index, packet, parent)
 
+  -- Dependency for Complex Series Leg Group
+  local end_of_payload = buffer:len()
+
   -- Complex Series Leg Group: Struct of 3 fields
-  index, complex_series_leg_group = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_leg_group.dissect(buffer, index, packet, parent)
+  while index < end_of_payload do
+    index, complex_series_leg_group = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_leg_group.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -7921,25 +7719,25 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.
   return offset + size_of_new_complex_series_request_message
 end
 
--- Reserved Zchar 199199
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_199199 = {}
+-- Reserved 199
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_199 = {}
 
--- Size: Reserved Zchar 199199
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_199199.size = 199
+-- Size: Reserved 199
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.size = 199
 
--- Display: Reserved Zchar 199199
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_199199.display = function(value)
+-- Display: Reserved 199
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Reserved Zchar 199199: No Value"
+    return "Reserved 199: No Value"
   end
 
-  return "Reserved Zchar 199199: "..value
+  return "Reserved 199: "..value
 end
 
--- Dissect: Reserved Zchar 199199
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_199199.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_199199.size
+-- Dissect: Reserved 199
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -7953,9 +7751,9 @@ nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_199199.dissect = fun
     value = range:string()
   end
 
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_199199.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_zchar_199199, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_199, range, value, display)
 
   return offset + length, value
 end
@@ -7994,8 +7792,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.fields 
   -- Mp Sub Id: zchar(4)
   index, mp_sub_id = nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 U 324: u32
-  index, reserved_1_u_324 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_324.dissect(buffer, index, packet, parent)
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.dissect(buffer, index, packet, parent)
@@ -8018,8 +7816,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.fields 
   -- Risk Range Id: u8
   index, risk_range_id = nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 199199: zchar(199)
-  index, reserved_zchar_199199 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_199199.dissect(buffer, index, packet, parent)
+  -- Reserved 199: zchar(199)
+  index, reserved_199 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8111,8 +7909,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.f
   -- Mp Sub Id: zchar(4)
   index, mp_sub_id = nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 U 324: u32
-  index, reserved_1_u_324 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1_u_324.dissect(buffer, index, packet, parent)
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.dissect(buffer, index, packet, parent)
@@ -8159,8 +7957,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.f
   -- Price Scale: u8
   index, price_scale = nyse_amex_options_binarygateway_pillar_v3_25.price_scale.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 190190: zchar(190)
-  index, reserved_zchar_190190 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_190190.dissect(buffer, index, packet, parent)
+  -- Reserved 190: zchar(190)
+  index, reserved_190 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8182,25 +7980,25 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.d
   return offset + size_of_risk_limit_update_request_message
 end
 
--- Reserved Char 2020
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_2020 = {}
+-- Reserved 20
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_20 = {}
 
--- Size: Reserved Char 2020
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_2020.size = 20
+-- Size: Reserved 20
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.size = 20
 
--- Display: Reserved Char 2020
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_2020.display = function(value)
-  return "Reserved Char 2020: "..value
+-- Display: Reserved 20
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.display = function(value)
+  return "Reserved 20: "..value
 end
 
--- Dissect: Reserved Char 2020
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_2020.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_2020.size
+-- Dissect: Reserved 20
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_2020.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_char_2020, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_20, range, value, display)
 
   return offset + length, value
 end
@@ -8251,8 +8049,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_messag
   -- Target Cancel Mpid: zchar(4)
   index, target_cancel_mpid = nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.dissect(buffer, index, packet, parent)
 
-  -- Reserved Char 2020: char(20)
-  index, reserved_char_2020 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_2020.dissect(buffer, index, packet, parent)
+  -- Reserved 20: char(20)
+  index, reserved_20 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8399,7 +8197,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.covered.size = function(buffer, off
 
   index = index + nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.size
 
-  index = index + nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.size
+  index = index + nyse_amex_options_binarygateway_pillar_v3_25.price.size
 
   index = index + nyse_amex_options_binarygateway_pillar_v3_25.order_qty.size
 
@@ -8454,8 +8252,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.covered.fields = function(buffer, o
   -- Bitfield Order Instructions: u128
   index, bitfield_order_instructions = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.dissect(buffer, index, packet, parent)
 
-  -- Price Price 8: Price
-  index, price_price_8 = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.dissect(buffer, index, packet, parent)
+  -- Price: Price
+  index, price = nyse_amex_options_binarygateway_pillar_v3_25.price.dissect(buffer, index, packet, parent)
 
   -- Order Qty: u32
   index, order_qty = nyse_amex_options_binarygateway_pillar_v3_25.order_qty.dissect(buffer, index, packet, parent)
@@ -8523,7 +8321,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.exposed.size = function(buffer, off
 
   index = index + nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.size
 
-  index = index + nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.size
+  index = index + nyse_amex_options_binarygateway_pillar_v3_25.price.size
 
   index = index + nyse_amex_options_binarygateway_pillar_v3_25.order_qty.size
 
@@ -8578,8 +8376,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.exposed.fields = function(buffer, o
   -- Bitfield Order Instructions: u128
   index, bitfield_order_instructions = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.dissect(buffer, index, packet, parent)
 
-  -- Price Price 8: Price
-  index, price_price_8 = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.dissect(buffer, index, packet, parent)
+  -- Price: Price
+  index, price = nyse_amex_options_binarygateway_pillar_v3_25.price.dissect(buffer, index, packet, parent)
 
   -- Order Qty: u32
   index, order_qty = nyse_amex_options_binarygateway_pillar_v3_25.order_qty.dissect(buffer, index, packet, parent)
@@ -8624,25 +8422,25 @@ nyse_amex_options_binarygateway_pillar_v3_25.exposed.dissect = function(buffer, 
   return nyse_amex_options_binarygateway_pillar_v3_25.exposed.fields(buffer, offset, packet, parent)
 end
 
--- Reserved Char 1616
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_1616 = {}
+-- Reserved 16
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_16 = {}
 
--- Size: Reserved Char 1616
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_1616.size = 16
+-- Size: Reserved 16
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.size = 16
 
--- Display: Reserved Char 1616
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_1616.display = function(value)
-  return "Reserved Char 1616: "..value
+-- Display: Reserved 16
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.display = function(value)
+  return "Reserved 16: "..value
 end
 
--- Dissect: Reserved Char 1616
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_1616.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_1616.size
+-- Dissect: Reserved 16
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_1616.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_char_1616, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_16, range, value, display)
 
   return offset + length, value
 end
@@ -8950,8 +8748,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.fields = fu
   -- Optional Data Covered: zchar(16)
   index, optional_data_covered = nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.dissect(buffer, index, packet, parent)
 
-  -- Reserved Char 1616: char(16)
-  index, reserved_char_1616 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_char_1616.dissect(buffer, index, packet, parent)
+  -- Reserved 16: char(16)
+  index, reserved_16 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.dissect(buffer, index, packet, parent)
 
   -- Exposed: Struct of 15 fields
   index, exposed = nyse_amex_options_binarygateway_pillar_v3_25.exposed.dissect(buffer, index, packet, parent)
@@ -8977,100 +8775,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.dissect = f
   nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.fields(buffer, offset, packet, parent, size_of_new_order_cross_message)
 
   return offset + size_of_new_order_cross_message
-end
-
--- Bitfield Quote Inst
-nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst = {}
-
--- Size: Bitfield Quote Inst
-nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.size = 1
-
--- Display: Bitfield Quote Inst
-nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.display = function(range, value, packet, parent)
-  local flags = {}
-
-
-  return table.concat(flags, "|")
-end
-
--- Dissect Bit Fields: Bitfield Quote Inst
-nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.bits = function(range, value, packet, parent)
-
-  -- Side 2: 2 Bit Unsigned Fixed Width Integer
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.side_2, range, value)
-
-  -- Mm Quote Type: 3 Bit Unsigned Fixed Width Integer Enum with 5 values
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_quote_type, range, value)
-
-  -- Reserved 3: 3 Bit
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_3, range, value)
-end
-
--- Dissect: Bitfield Quote Inst
-nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.dissect = function(buffer, offset, packet, parent)
-  local size = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.size
-  local range = buffer(offset, size)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.display(range, value, packet, parent)
-  local element = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bitfield_quote_inst, range, display)
-
-  if show.bitfield_quote_inst then
-    nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.bits(range, value, packet, element)
-  end
-
-  return offset + size, value
-end
-
--- Bulk Quote Group
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_group = {}
-
--- Size: Bulk Quote Group
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_group.size =
-  nyse_amex_options_binarygateway_pillar_v3_25.series_index.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.order_qty.size
-
--- Display: Bulk Quote Group
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bulk Quote Group
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_group.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Series Index: u32
-  index, series_index = nyse_amex_options_binarygateway_pillar_v3_25.series_index.dissect(buffer, index, packet, parent)
-
-  -- Bitfield Quote Inst: Struct of 3 fields
-  index, bitfield_quote_inst = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.dissect(buffer, index, packet, parent)
-
-  -- Price Price 8: Price
-  index, price_price_8 = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: u32
-  index, order_qty = nyse_amex_options_binarygateway_pillar_v3_25.order_qty.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bulk Quote Group
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_group.dissect = function(buffer, offset, packet, parent)
-  if show.bulk_quote_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_quote_group, buffer(offset, 0))
-    local index = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_group.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_group.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- New Bulk Quote Type 259 Message
@@ -9116,7 +8820,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.fie
   -- Mm Sent Time: Timestamp
   index, mm_sent_time = nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.dissect(buffer, index, packet, parent)
 
-  -- Bulk Quote Group: Struct of 4 fields
+  -- Bulk Quote Group
   index, bulk_quote_group = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_group.dissect(buffer, index, packet, parent)
 
   return index
@@ -9365,8 +9069,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.fields = function
   -- Bitfield Order Instructions: u128
   index, bitfield_order_instructions = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.dissect(buffer, index, packet, parent)
 
-  -- Price Price 8: Price
-  index, price_price_8 = nyse_amex_options_binarygateway_pillar_v3_25.price_price_8.dissect(buffer, index, packet, parent)
+  -- Price: Price
+  index, price = nyse_amex_options_binarygateway_pillar_v3_25.price.dissect(buffer, index, packet, parent)
 
   -- Order Qty: u32
   index, order_qty = nyse_amex_options_binarygateway_pillar_v3_25.order_qty.dissect(buffer, index, packet, parent)
@@ -9455,8 +9159,8 @@ nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_messa
   -- Bold Designation: u8
   index, bold_designation = nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.dissect(buffer, index, packet, parent)
 
-  -- Reserved Zchar 4949: zchar(49)
-  index, reserved_zchar_4949 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_zchar_4949.dissect(buffer, index, packet, parent)
+  -- Reserved 49: zchar(49)
+  index, reserved_49 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9972,29 +9676,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.timestamp.dissect = function(buffer
   return offset + length, value
 end
 
--- Reserved 4
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_4 = {}
-
--- Size: Reserved 4
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.size = 4
-
--- Display: Reserved 4
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.display = function(value)
-  return "Reserved 4: "..value
-end
-
--- Dissect: Reserved 4
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
 -- Seq Msg Id
 nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id = {}
 
@@ -10185,7 +9866,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.fields = function(buffer, o
   -- Seq Msg Id: Struct of 2 fields
   index, seq_msg_id = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: u32
   index, reserved_4 = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
