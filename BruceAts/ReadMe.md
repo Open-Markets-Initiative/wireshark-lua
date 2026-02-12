@@ -5,6 +5,8 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| Equities | [BestBidAndOffer][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | Itch | [1.0][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1283 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Pdf] |
+| Equities | [DepthOfBook][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | Itch | [1.0][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1283 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.DepthOfBook.Itch.v1.0.Pdf] |
 | Equities | [LastSale][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | Itch | [1.0][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1327 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.LastSale.Itch.v1.0.Pdf] |
 
 
@@ -23,5 +25,9 @@ BruceAts: [website](https://www.brucemarkets.com "Go to Bruce Markets")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
+[BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/BruceAts/BruceAts_Equities_BestBidAndOffer_Itch_v1_0_Dissector.lua "BruceAts Equities BestBidAndOffer Itch v1.0 Wireshark Dissector"
+[BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Specifications/Equities/BestBidAndOffer/Bruce.Equities.BestBidAndOffer.Itch.v1.0.pdf "Bruce Markets 1.0 Pdf"
+[BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/BruceAts/BruceAts_Equities_DepthOfBook_Itch_v1_0_Dissector.lua "BruceAts Equities DepthOfBook Itch v1.0 Wireshark Dissector"
+[BruceAts.Equities.DepthOfBook.Itch.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Specifications/Equities/DepthOfBook/Bruce.Equities.DepthOfBook.Itch.v1.0.pdf "Bruce Markets 1.0 Pdf"
 [BruceAts.Equities.LastSale.Itch.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/BruceAts/BruceAts_Equities_LastSale_Itch_v1_0_Dissector.lua "BruceAts Equities LastSale Itch v1.0 Wireshark Dissector"
 [BruceAts.Equities.LastSale.Itch.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Specifications/Equities/LastSale/Bruce.Equities.LastSale.Itch.v1.0.pdf "Bruce Markets 1.0 Pdf"
