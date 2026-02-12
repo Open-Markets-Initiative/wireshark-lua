@@ -70,7 +70,7 @@ omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.packet = ProtoField.new("Pack
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.ordersapi.sbe.v1.8.padding", ftypes.BYTES)
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.password = ProtoField.new("Password", "coinbase.derivatives.ordersapi.sbe.v1.8.password", ftypes.STRING)
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.ordersapi.sbe.v1.8.payload", ftypes.STRING)
-omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.post_only = ProtoField.new("Post Only", "coinbase.derivatives.ordersapi.sbe.v1.8.postonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.post_only = ProtoField.new("Post Only", "coinbase.derivatives.ordersapi.sbe.v1.8.postonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.product_id = ProtoField.new("Product Id", "coinbase.derivatives.ordersapi.sbe.v1.8.productid", ftypes.INT32)
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.derivatives.ordersapi.sbe.v1.8.protocolid", ftypes.UINT8)
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.quantity = ProtoField.new("Quantity", "coinbase.derivatives.ordersapi.sbe.v1.8.quantity", ftypes.INT32)

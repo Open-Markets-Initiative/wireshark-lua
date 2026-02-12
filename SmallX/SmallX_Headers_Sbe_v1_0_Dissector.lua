@@ -15,12 +15,12 @@ local smallx_headers_sbe_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- SmallX Headers Sbe 1.0 Fields
-omi_smallx_headers_sbe_v1_0.fields.administrative = ProtoField.new("Administrative", "smallx.headers.sbe.v1.0.administrative", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_smallx_headers_sbe_v1_0.fields.administrative = ProtoField.new("Administrative", "smallx.headers.sbe.v1.0.administrative", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_smallx_headers_sbe_v1_0.fields.block_length = ProtoField.new("Block Length", "smallx.headers.sbe.v1.0.blocklength", ftypes.UINT16)
 omi_smallx_headers_sbe_v1_0.fields.channel_id = ProtoField.new("Channel Id", "smallx.headers.sbe.v1.0.channelid", ftypes.UINT8)
 omi_smallx_headers_sbe_v1_0.fields.frame_length = ProtoField.new("Frame Length", "smallx.headers.sbe.v1.0.framelength", ftypes.UINT8)
 omi_smallx_headers_sbe_v1_0.fields.incarnation = ProtoField.new("Incarnation", "smallx.headers.sbe.v1.0.incarnation", ftypes.INT16)
-omi_smallx_headers_sbe_v1_0.fields.incarnation_end = ProtoField.new("Incarnation End", "smallx.headers.sbe.v1.0.incarnationend", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_smallx_headers_sbe_v1_0.fields.incarnation_end = ProtoField.new("Incarnation End", "smallx.headers.sbe.v1.0.incarnationend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_smallx_headers_sbe_v1_0.fields.message_count = ProtoField.new("Message Count", "smallx.headers.sbe.v1.0.messagecount", ftypes.UINT8)
 omi_smallx_headers_sbe_v1_0.fields.message_header = ProtoField.new("Message Header", "smallx.headers.sbe.v1.0.messageheader", ftypes.STRING)
 omi_smallx_headers_sbe_v1_0.fields.message_sequence = ProtoField.new("Message Sequence", "smallx.headers.sbe.v1.0.messagesequence", ftypes.INT32)
@@ -29,7 +29,7 @@ omi_smallx_headers_sbe_v1_0.fields.packet_flags = ProtoField.new("Packet Flags",
 omi_smallx_headers_sbe_v1_0.fields.packet_header = ProtoField.new("Packet Header", "smallx.headers.sbe.v1.0.packetheader", ftypes.STRING)
 omi_smallx_headers_sbe_v1_0.fields.payload = ProtoField.new("Payload", "smallx.headers.sbe.v1.0.payload", ftypes.BYTES)
 omi_smallx_headers_sbe_v1_0.fields.reserved_5 = ProtoField.new("Reserved 5", "smallx.headers.sbe.v1.0.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
-omi_smallx_headers_sbe_v1_0.fields.retransmission = ProtoField.new("Retransmission", "smallx.headers.sbe.v1.0.retransmission", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_smallx_headers_sbe_v1_0.fields.retransmission = ProtoField.new("Retransmission", "smallx.headers.sbe.v1.0.retransmission", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_smallx_headers_sbe_v1_0.fields.sbe_frame = ProtoField.new("Sbe Frame", "smallx.headers.sbe.v1.0.sbeframe", ftypes.STRING)
 omi_smallx_headers_sbe_v1_0.fields.schema_id = ProtoField.new("Schema Id", "smallx.headers.sbe.v1.0.schemaid", ftypes.UINT16)
 omi_smallx_headers_sbe_v1_0.fields.source = ProtoField.new("Source", "smallx.headers.sbe.v1.0.source", ftypes.UINT8)

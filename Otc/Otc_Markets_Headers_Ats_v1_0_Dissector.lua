@@ -15,7 +15,7 @@ local otc_markets_headers_ats_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Otc Markets Headers Ats 1.0 Fields
-omi_otc_markets_headers_ats_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "otc.markets.headers.ats.v1.0.heartbeat", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_otc_markets_headers_ats_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "otc.markets.headers.ats.v1.0.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_otc_markets_headers_ats_v1_0.fields.message = ProtoField.new("Message", "otc.markets.headers.ats.v1.0.message", ftypes.STRING)
 omi_otc_markets_headers_ats_v1_0.fields.message_header = ProtoField.new("Message Header", "otc.markets.headers.ats.v1.0.messageheader", ftypes.STRING)
 omi_otc_markets_headers_ats_v1_0.fields.message_size = ProtoField.new("Message Size", "otc.markets.headers.ats.v1.0.messagesize", ftypes.UINT16)
@@ -27,11 +27,11 @@ omi_otc_markets_headers_ats_v1_0.fields.packet_header = ProtoField.new("Packet H
 omi_otc_markets_headers_ats_v1_0.fields.packet_milli = ProtoField.new("Packet Milli", "otc.markets.headers.ats.v1.0.packetmilli", ftypes.UINT32)
 omi_otc_markets_headers_ats_v1_0.fields.packet_size = ProtoField.new("Packet Size", "otc.markets.headers.ats.v1.0.packetsize", ftypes.UINT16)
 omi_otc_markets_headers_ats_v1_0.fields.payload = ProtoField.new("Payload", "otc.markets.headers.ats.v1.0.payload", ftypes.BYTES)
-omi_otc_markets_headers_ats_v1_0.fields.replay = ProtoField.new("Replay", "otc.markets.headers.ats.v1.0.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_otc_markets_headers_ats_v1_0.fields.replay = ProtoField.new("Replay", "otc.markets.headers.ats.v1.0.replay", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_otc_markets_headers_ats_v1_0.fields.reserved_4 = ProtoField.new("Reserved 4", "otc.markets.headers.ats.v1.0.reserved4", ftypes.UINT8, nil, base.DEC, 0x3C)
 omi_otc_markets_headers_ats_v1_0.fields.seq_num = ProtoField.new("Seq Num", "otc.markets.headers.ats.v1.0.seqnum", ftypes.UINT32)
-omi_otc_markets_headers_ats_v1_0.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otc.markets.headers.ats.v1.0.seqnumreset", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-omi_otc_markets_headers_ats_v1_0.fields.test = ProtoField.new("Test", "otc.markets.headers.ats.v1.0.test", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_otc_markets_headers_ats_v1_0.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otc.markets.headers.ats.v1.0.seqnumreset", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_otc_markets_headers_ats_v1_0.fields.test = ProtoField.new("Test", "otc.markets.headers.ats.v1.0.test", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 
 -- Otc Markets Headers Ats 1.0 generated fields
 omi_otc_markets_headers_ats_v1_0.fields.message_index = ProtoField.new("Message Index", "otc.markets.headers.ats.v1.0.messageindex", ftypes.UINT16)

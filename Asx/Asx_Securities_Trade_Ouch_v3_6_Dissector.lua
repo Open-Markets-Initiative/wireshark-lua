@@ -18,7 +18,7 @@ local asx_securities_trade_ouch_v3_6 = {}
 omi_asx_securities_trade_ouch_v3_6.fields.capacity_of_participant = ProtoField.new("Capacity Of Participant", "asx.securities.trade.ouch.v3.6.capacityofparticipant", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.securities.trade.ouch.v3.6.clearingparticipant", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.client_account = ProtoField.new("Client Account", "asx.securities.trade.ouch.v3.6.clientaccount", ftypes.STRING)
-omi_asx_securities_trade_ouch_v3_6.fields.crossing_dealing_capacity = ProtoField.new("Crossing Dealing Capacity", "asx.securities.trade.ouch.v3.6.crossingdealingcapacity", ftypes.UINT8, nil, base.DEC, 0x06)
+omi_asx_securities_trade_ouch_v3_6.fields.crossing_dealing_capacity = ProtoField.new("Crossing Dealing Capacity", "asx.securities.trade.ouch.v3.6.crossingdealingcapacity", ftypes.UINT8, [0]="Not Crossed", [1]="Principal Order", [3]="Agency Order", [4]="Mixed Agency And Principal Order", base.DEC, 0x06)
 omi_asx_securities_trade_ouch_v3_6.fields.crossing_key = ProtoField.new("Crossing Key", "asx.securities.trade.ouch.v3.6.crossingkey", ftypes.UINT32)
 omi_asx_securities_trade_ouch_v3_6.fields.customer_info = ProtoField.new("Customer Info", "asx.securities.trade.ouch.v3.6.customerinfo", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.deal_source = ProtoField.new("Deal Source", "asx.securities.trade.ouch.v3.6.dealsource", ftypes.UINT16)
@@ -42,7 +42,7 @@ omi_asx_securities_trade_ouch_v3_6.fields.packet = ProtoField.new("Packet", "asx
 omi_asx_securities_trade_ouch_v3_6.fields.packet_header = ProtoField.new("Packet Header", "asx.securities.trade.ouch.v3.6.packetheader", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.packet_length = ProtoField.new("Packet Length", "asx.securities.trade.ouch.v3.6.packetlength", ftypes.UINT16)
 omi_asx_securities_trade_ouch_v3_6.fields.packet_type = ProtoField.new("Packet Type", "asx.securities.trade.ouch.v3.6.packettype", ftypes.STRING)
-omi_asx_securities_trade_ouch_v3_6.fields.passive_aggressive_indicator = ProtoField.new("Passive Aggressive Indicator", "asx.securities.trade.ouch.v3.6.passiveaggressiveindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_asx_securities_trade_ouch_v3_6.fields.passive_aggressive_indicator = ProtoField.new("Passive Aggressive Indicator", "asx.securities.trade.ouch.v3.6.passiveaggressiveindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_asx_securities_trade_ouch_v3_6.fields.password = ProtoField.new("Password", "asx.securities.trade.ouch.v3.6.password", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.payload = ProtoField.new("Payload", "asx.securities.trade.ouch.v3.6.payload", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.previous_order_token = ProtoField.new("Previous Order Token", "asx.securities.trade.ouch.v3.6.previousordertoken", ftypes.STRING)
@@ -1555,7 +1555,7 @@ asx_securities_trade_ouch_v3_6.match_attributes.bits = function(range, value, pa
   -- Passive Aggressive Indicator: 1 Bit
   parent:add(omi_asx_securities_trade_ouch_v3_6.fields.passive_aggressive_indicator, range, value)
 
-  -- Crossing Dealing Capacity: 2 Bit Unsigned Fixed Width Integer
+  -- Crossing Dealing Capacity: 2 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_asx_securities_trade_ouch_v3_6.fields.crossing_dealing_capacity, range, value)
 
   -- Reserved: 5 Bit

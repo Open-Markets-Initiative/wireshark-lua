@@ -32,7 +32,7 @@ omi_memx_options_memoirtop_sbe_v1_3.fields.cust_quantity = ProtoField.new("Cust 
 omi_memx_options_memoirtop_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "memx.options.memoirtop.sbe.v1.3.headerlength", ftypes.UINT8)
 omi_memx_options_memoirtop_sbe_v1_3.fields.instrument_trading_status = ProtoField.new("Instrument Trading Status", "memx.options.memoirtop.sbe.v1.3.instrumenttradingstatus", ftypes.STRING)
 omi_memx_options_memoirtop_sbe_v1_3.fields.instrument_trading_status_reason = ProtoField.new("Instrument Trading Status Reason", "memx.options.memoirtop.sbe.v1.3.instrumenttradingstatusreason", ftypes.STRING)
-omi_memx_options_memoirtop_sbe_v1_3.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "memx.options.memoirtop.sbe.v1.3.intermarketsweep", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_memx_options_memoirtop_sbe_v1_3.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "memx.options.memoirtop.sbe.v1.3.intermarketsweep", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_memx_options_memoirtop_sbe_v1_3.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "memx.options.memoirtop.sbe.v1.3.istestsymbol", ftypes.UINT8)
 omi_memx_options_memoirtop_sbe_v1_3.fields.maturity_date = ProtoField.new("Maturity Date", "memx.options.memoirtop.sbe.v1.3.maturitydate", ftypes.STRING)
 omi_memx_options_memoirtop_sbe_v1_3.fields.message = ProtoField.new("Message", "memx.options.memoirtop.sbe.v1.3.message", ftypes.STRING)

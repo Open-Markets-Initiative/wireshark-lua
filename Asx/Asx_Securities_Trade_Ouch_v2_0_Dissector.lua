@@ -42,7 +42,7 @@ omi_asx_securities_trade_ouch_v2_0.fields.packet = ProtoField.new("Packet", "asx
 omi_asx_securities_trade_ouch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "asx.securities.trade.ouch.v2.0.packetheader", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.packet_length = ProtoField.new("Packet Length", "asx.securities.trade.ouch.v2.0.packetlength", ftypes.UINT16)
 omi_asx_securities_trade_ouch_v2_0.fields.packet_type = ProtoField.new("Packet Type", "asx.securities.trade.ouch.v2.0.packettype", ftypes.STRING)
-omi_asx_securities_trade_ouch_v2_0.fields.passive_aggressive_indicator = ProtoField.new("Passive Aggressive Indicator", "asx.securities.trade.ouch.v2.0.passiveaggressiveindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_asx_securities_trade_ouch_v2_0.fields.passive_aggressive_indicator = ProtoField.new("Passive Aggressive Indicator", "asx.securities.trade.ouch.v2.0.passiveaggressiveindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_asx_securities_trade_ouch_v2_0.fields.password = ProtoField.new("Password", "asx.securities.trade.ouch.v2.0.password", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.payload = ProtoField.new("Payload", "asx.securities.trade.ouch.v2.0.payload", ftypes.STRING)
 omi_asx_securities_trade_ouch_v2_0.fields.previous_order_token = ProtoField.new("Previous Order Token", "asx.securities.trade.ouch.v2.0.previousordertoken", ftypes.STRING)

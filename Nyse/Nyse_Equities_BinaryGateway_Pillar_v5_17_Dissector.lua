@@ -19,7 +19,7 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.access = ProtoField.new("Acc
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.ack_status = ProtoField.new("Ack Status", "nyse.equities.binarygateway.pillar.v5.17.ackstatus", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.ack_type = ProtoField.new("Ack Type", "nyse.equities.binarygateway.pillar.v5.17.acktype", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.adv_risk_range_id = ProtoField.new("Adv Risk Range Id", "nyse.equities.binarygateway.pillar.v5.17.advriskrangeid", ftypes.UINT8)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.attributed_quote = ProtoField.new("Attributed Quote", "nyse.equities.binarygateway.pillar.v5.17.attributedquote", ftypes.UINT64, nil, base.DEC, 0x0000000000380000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.attributed_quote = ProtoField.new("Attributed Quote", "nyse.equities.binarygateway.pillar.v5.17.attributedquote", ftypes.UINT64, [0]="Not Attributed", [1]="Market Data Feeds", [2]="Broker Volume", [3]="Market Data Feeds And Broker Volume", base.DEC, 0x0000000000380000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.auction_type = ProtoField.new("Auction Type", "nyse.equities.binarygateway.pillar.v5.17.auctiontype", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.bitfield_flow_indicator = ProtoField.new("Bitfield Flow Indicator", "nyse.equities.binarygateway.pillar.v5.17.bitfieldflowindicator", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.bitfield_order_instructions = ProtoField.new("Bitfield Order Instructions", "nyse.equities.binarygateway.pillar.v5.17.bitfieldorderinstructions", ftypes.STRING)
@@ -31,7 +31,7 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.breach_action_request = Prot
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.breach_action_response = ProtoField.new("Breach Action Response", "nyse.equities.binarygateway.pillar.v5.17.breachactionresponse", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.bulk_cancel_type = ProtoField.new("Bulk Cancel Type", "nyse.equities.binarygateway.pillar.v5.17.bulkcanceltype", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.buy_dmm_available_qty = ProtoField.new("Buy Dmm Available Qty", "nyse.equities.binarygateway.pillar.v5.17.buydmmavailableqty", ftypes.UINT32)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.cancel_instead_of_reprice = ProtoField.new("Cancel Instead Of Reprice", "nyse.equities.binarygateway.pillar.v5.17.cancelinsteadofreprice", ftypes.UINT64, nil, base.DEC, 0x0000000000000F00)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.cancel_instead_of_reprice = ProtoField.new("Cancel Instead Of Reprice", "nyse.equities.binarygateway.pillar.v5.17.cancelinsteadofreprice", ftypes.UINT64, [0]="Not Applicable", [1]="Cancel Instead Of Repricing Luld Only", [3]="Cancel Instead Of Repricing Any Reason", base.DEC, 0x0000000000000F00)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "nyse.equities.binarygateway.pillar.v5.17.cancelondisconnect", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "nyse.equities.binarygateway.pillar.v5.17.clordid", ftypes.UINT64)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.clearing_number = ProtoField.new("Clearing Number", "nyse.equities.binarygateway.pillar.v5.17.clearingnumber", ftypes.STRING)
@@ -49,11 +49,11 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.dmm_requested_qty = ProtoFie
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.dmm_unit_num = ProtoField.new("Dmm Unit Num", "nyse.equities.binarygateway.pillar.v5.17.dmmunitnum", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.effective_time = ProtoField.new("Effective Time", "nyse.equities.binarygateway.pillar.v5.17.effectivetime", ftypes.UINT64)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.end_seq = ProtoField.new("End Seq", "nyse.equities.binarygateway.pillar.v5.17.endseq", ftypes.UINT64)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.equities.binarygateway.pillar.v5.17.execinst", ftypes.UINT64, nil, base.DEC, 0x0000000000F00000)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.equities.binarygateway.pillar.v5.17.extendedexecinst", ftypes.UINT64, nil, base.DEC, 0x00000000000F0000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.equities.binarygateway.pillar.v5.17.execinst", ftypes.UINT64, [0]="None", [1]="Reserved 1", [2]="Reserved 2", [3]="Tracking", [4]="Iso", [5]="Primary Peg", [6]="Market Peg", [7]="Midpoint", [8]="Non Displayed", [9]="Trade At Iso", [10]="Last Sale Peg", base.DEC, 0x0000000000F00000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.equities.binarygateway.pillar.v5.17.extendedexecinst", ftypes.UINT64, [0]="None", [1]="Alo", [3]="No Ioi Route", [5]="Retail Type 1", [6]="Retail Type 2", [7]="Retail Provider", [8]="Imbalance Offset", [9]="Discretionary Peg", [10]="Dark Primary Peg", [14]="Ido", base.DEC, 0x00000000000F0000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.equities.binarygateway.pillar.v5.17.imbalanceside", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nyse.equities.binarygateway.pillar.v5.17.imbalancevolume", ftypes.UINT32)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.interest_type = ProtoField.new("Interest Type", "nyse.equities.binarygateway.pillar.v5.17.interesttype", ftypes.UINT64, nil, base.DEC, 0x000000000E000000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.interest_type = ProtoField.new("Interest Type", "nyse.equities.binarygateway.pillar.v5.17.interesttype", ftypes.UINT64, [0]="No Interest Type", [5]="Cco", [6]="Cco Partial Fill Contraside", base.DEC, 0x000000000E000000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.intraday_sell_short_qty = ProtoField.new("Intraday Sell Short Qty", "nyse.equities.binarygateway.pillar.v5.17.intradaysellshortqty", ftypes.UINT32)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.introducing_badge_id = ProtoField.new("Introducing Badge Id", "nyse.equities.binarygateway.pillar.v5.17.introducingbadgeid", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.ioc_attribution = ProtoField.new("Ioc Attribution", "nyse.equities.binarygateway.pillar.v5.17.iocattribution", ftypes.UINT8)
@@ -64,7 +64,7 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.liquidity_indicator = ProtoF
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.listed_mic = ProtoField.new("Listed Mic", "nyse.equities.binarygateway.pillar.v5.17.listedmic", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.lmocp = ProtoField.new("Lmocp", "nyse.equities.binarygateway.pillar.v5.17.lmocp", ftypes.DOUBLE)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.locate_broker = ProtoField.new("Locate Broker", "nyse.equities.binarygateway.pillar.v5.17.locatebroker", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.locate_reqd = ProtoField.new("Locate Reqd", "nyse.equities.binarygateway.pillar.v5.17.locatereqd", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000020000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.locate_reqd = ProtoField.new("Locate Reqd", "nyse.equities.binarygateway.pillar.v5.17.locatereqd", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000020000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.locate_reqd_u_81 = ProtoField.new("Locate Reqd U 81", "nyse.equities.binarygateway.pillar.v5.17.locatereqdu81", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.luldmpv = ProtoField.new("Luldmpv", "nyse.equities.binarygateway.pillar.v5.17.luldmpv", ftypes.DOUBLE)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.manual_action_id = ProtoField.new("Manual Action Id", "nyse.equities.binarygateway.pillar.v5.17.manualactionid", ftypes.STRING)
@@ -98,8 +98,8 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.offset_price = ProtoField.ne
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.open_on_trade_max_qty = ProtoField.new("Open On Trade Max Qty", "nyse.equities.binarygateway.pillar.v5.17.openontrademaxqty", ftypes.UINT64)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.equities.binarygateway.pillar.v5.17.optionalorderaddon", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.optional_settlement_type_add_on = ProtoField.new("Optional Settlement Type Add On", "nyse.equities.binarygateway.pillar.v5.17.optionalsettlementtypeaddon", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.ord_type = ProtoField.new("Ord Type", "nyse.equities.binarygateway.pillar.v5.17.ordtype", ftypes.UINT64, nil, base.DEC, 0x000000000F000000)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_capacity = ProtoField.new("Order Capacity", "nyse.equities.binarygateway.pillar.v5.17.ordercapacity", ftypes.UINT64, nil, base.DEC, 0x0000000001C00000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.ord_type = ProtoField.new("Ord Type", "nyse.equities.binarygateway.pillar.v5.17.ordtype", ftypes.UINT64, [1]="Market", [2]="Limit", [3]="Inside Limit", [4]="Pegged", base.DEC, 0x000000000F000000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_capacity = ProtoField.new("Order Capacity", "nyse.equities.binarygateway.pillar.v5.17.ordercapacity", ftypes.UINT64, [1]="Agency", [2]="Principal", [3]="Riskless Principal", [4]="Error Account", base.DEC, 0x0000000001C00000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_id = ProtoField.new("Order Id", "nyse.equities.binarygateway.pillar.v5.17.orderid", ftypes.UINT64)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_priority_update_ack_subscription = ProtoField.new("Order Priority Update Ack Subscription", "nyse.equities.binarygateway.pillar.v5.17.orderpriorityupdateacksubscription", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_qty = ProtoField.new("Order Qty", "nyse.equities.binarygateway.pillar.v5.17.orderqty", ftypes.UINT32)
@@ -116,7 +116,7 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.ppp_3 = ProtoField.new("Ppp 
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.pre_liquidity_indicator = ProtoField.new("Pre Liquidity Indicator", "nyse.equities.binarygateway.pillar.v5.17.preliquidityindicator", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.price = ProtoField.new("Price", "nyse.equities.binarygateway.pillar.v5.17.price", ftypes.DOUBLE)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.price_scale = ProtoField.new("Price Scale", "nyse.equities.binarygateway.pillar.v5.17.pricescale", ftypes.UINT8)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.equities.binarygateway.pillar.v5.17.proactiveiflocked", ftypes.UINT64, nil, base.DEC, 0x000000000000001C)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.equities.binarygateway.pillar.v5.17.proactiveiflocked", ftypes.UINT64, [0]="No Proactive If Locked", [1]="Proactive Route", [2]="Proactive Trade Non Display", base.DEC, 0x000000000000001C)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.equities.binarygateway.pillar.v5.17.quotingmpv", ftypes.DOUBLE)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.rd_seq = ProtoField.new("Rd Seq", "nyse.equities.binarygateway.pillar.v5.17.rdseq", ftypes.UINT64)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reason_code = ProtoField.new("Reason Code", "nyse.equities.binarygateway.pillar.v5.17.reasoncode", ftypes.UINT16)
@@ -138,7 +138,7 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_190190 = Prot
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_199199 = ProtoField.new("Reserved Zchar 199199", "nyse.equities.binarygateway.pillar.v5.17.reservedzchar199199", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_200200 = ProtoField.new("Reserved Zchar 200200", "nyse.equities.binarygateway.pillar.v5.17.reservedzchar200200", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.reserved_zchar_4949 = ProtoField.new("Reserved Zchar 4949", "nyse.equities.binarygateway.pillar.v5.17.reservedzchar4949", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.retail_indicator = ProtoField.new("Retail Indicator", "nyse.equities.binarygateway.pillar.v5.17.retailindicator", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000040000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.retail_indicator = ProtoField.new("Retail Indicator", "nyse.equities.binarygateway.pillar.v5.17.retailindicator", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000040000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.ridge_price = ProtoField.new("Ridge Price", "nyse.equities.binarygateway.pillar.v5.17.ridgeprice", ftypes.DOUBLE)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "nyse.equities.binarygateway.pillar.v5.17.riskacktype", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_action_type = ProtoField.new("Risk Action Type", "nyse.equities.binarygateway.pillar.v5.17.riskactiontype", ftypes.UINT8)
@@ -149,10 +149,10 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_range_id = ProtoField.n
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_user_crd = ProtoField.new("Risk User Crd", "nyse.equities.binarygateway.pillar.v5.17.riskusercrd", ftypes.UINT32)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_user_type = ProtoField.new("Risk User Type", "nyse.equities.binarygateway.pillar.v5.17.riskusertype", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.round_lot_size = ProtoField.new("Round Lot Size", "nyse.equities.binarygateway.pillar.v5.17.roundlotsize", ftypes.UINT8)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.routing_inst = ProtoField.new("Routing Inst", "nyse.equities.binarygateway.pillar.v5.17.routinginst", ftypes.UINT64, nil, base.DEC, 0x000000000000F000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.routing_inst = ProtoField.new("Routing Inst", "nyse.equities.binarygateway.pillar.v5.17.routinginst", ftypes.UINT64, [0]="None", [1]="Non Routable", [2]="Routable", [3]="Directed Primary", [4]="Directed Routable", [5]="Primary Until 0945", [6]="Primary After 1555", [7]="Primary Time Windows", [8]="Minimum Fill", [10]="Route To Ats", base.DEC, 0x000000000000F000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.rpimpv = ProtoField.new("Rpimpv", "nyse.equities.binarygateway.pillar.v5.17.rpimpv", ftypes.DOUBLE)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.equities.binarygateway.pillar.v5.17.selftradeprevention", ftypes.UINT8)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.self_trade_type = ProtoField.new("Self Trade Type", "nyse.equities.binarygateway.pillar.v5.17.selftradetype", ftypes.UINT64, nil, base.DEC, 0x00000000000000E0)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.self_trade_type = ProtoField.new("Self Trade Type", "nyse.equities.binarygateway.pillar.v5.17.selftradetype", ftypes.UINT64, [0]="Default Cancel Newest", [1]="No Self Trade Prevention", [2]="Cancel Newest", [3]="Cancel Oldest", [4]="Cancel Both", [5]="Cancel Decrement", base.DEC, 0x00000000000000E0)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.self_trade_type_u_81 = ProtoField.new("Self Trade Type U 81", "nyse.equities.binarygateway.pillar.v5.17.selftradetypeu81", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.sell_dmm_available_qty = ProtoField.new("Sell Dmm Available Qty", "nyse.equities.binarygateway.pillar.v5.17.selldmmavailableqty", ftypes.UINT32)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.sell_indicator = ProtoField.new("Sell Indicator", "nyse.equities.binarygateway.pillar.v5.17.sellindicator", ftypes.UINT8)
@@ -167,13 +167,13 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.settlement_type = ProtoField
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.side_4 = ProtoField.new("Side 4", "nyse.equities.binarygateway.pillar.v5.17.side4", ftypes.UINT64, nil, base.DEC, 0x00000000F0000000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.side_of_unpaired_qty = ProtoField.new("Side Of Unpaired Qty", "nyse.equities.binarygateway.pillar.v5.17.sideofunpairedqty", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.side_u_81 = ProtoField.new("Side U 81", "nyse.equities.binarygateway.pillar.v5.17.sideu81", ftypes.UINT8)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.equities.binarygateway.pillar.v5.17.specialordtype", ftypes.UINT64, nil, base.DEC, 0x000000000001E000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.equities.binarygateway.pillar.v5.17.specialordtype", ftypes.UINT64, [0]="No Special Ord Type", [1]="Dmm Auction Aoc", [2]="Dmm Preauction", [3]="Dmm Afterauction", [4]="Qct", [8]="Reserved", base.DEC, 0x000000000001E000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.equities.binarygateway.pillar.v5.17.ssrfilingprice", ftypes.DOUBLE)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.start_seq = ProtoField.new("Start Seq", "nyse.equities.binarygateway.pillar.v5.17.startseq", ftypes.UINT64)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.status = ProtoField.new("Status", "nyse.equities.binarygateway.pillar.v5.17.status", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.stop_px = ProtoField.new("Stop Px", "nyse.equities.binarygateway.pillar.v5.17.stoppx", ftypes.DOUBLE)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.stream_id = ProtoField.new("Stream Id", "nyse.equities.binarygateway.pillar.v5.17.streamid", ftypes.STRING)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.sub_id_indicator = ProtoField.new("Sub Id Indicator", "nyse.equities.binarygateway.pillar.v5.17.subidindicator", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000001000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.sub_id_indicator = ProtoField.new("Sub Id Indicator", "nyse.equities.binarygateway.pillar.v5.17.subidindicator", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000001000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.equities.binarygateway.pillar.v5.17.submsgheader", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.sub_msg_length = ProtoField.new("Sub Msg Length", "nyse.equities.binarygateway.pillar.v5.17.submsglength", ftypes.UINT16)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.sub_msg_type = ProtoField.new("Sub Msg Type", "nyse.equities.binarygateway.pillar.v5.17.submsgtype", ftypes.UINT16)
@@ -185,12 +185,12 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.threshold_breach_level = Pro
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.equities.binarygateway.pillar.v5.17.throttlepreference", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.equities.binarygateway.pillar.v5.17.throttlethreshold", ftypes.UINT16)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.equities.binarygateway.pillar.v5.17.throttlewindow", ftypes.UINT16)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttled = ProtoField.new("Throttled", "nyse.equities.binarygateway.pillar.v5.17.throttled", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.time_in_force = ProtoField.new("Time In Force", "nyse.equities.binarygateway.pillar.v5.17.timeinforce", ftypes.UINT64, nil, base.DEC, 0x0000000080000000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.throttled = ProtoField.new("Throttled", "nyse.equities.binarygateway.pillar.v5.17.throttled", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.time_in_force = ProtoField.new("Time In Force", "nyse.equities.binarygateway.pillar.v5.17.timeinforce", ftypes.UINT64, [1]="Day", [2]="Ioc", [3]="At The Opening", [4]="On Close", base.DEC, 0x0000000080000000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.time_limit = ProtoField.new("Time Limit", "nyse.equities.binarygateway.pillar.v5.17.timelimit", ftypes.INT32)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.binarygateway.pillar.v5.17.timestamp", ftypes.UINT64)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.equities.binarygateway.pillar.v5.17.tradingmpv", ftypes.DOUBLE)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.equities.binarygateway.pillar.v5.17.tradingsessionid", ftypes.UINT64, nil, base.DEC, 0x0000000070000000)
+omi_nyse_equities_binarygateway_pillar_v5_17.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.equities.binarygateway.pillar.v5.17.tradingsessionid", ftypes.UINT64, [1]="Early Trading Session", [2]="Core Trading Session", [3]="Late Trading Session", [4]="Early And Core Trading Sessions", [5]="Core And Late Trading Sessions", [6]="Early Core And Late Trading Sessions", base.DEC, 0x0000000070000000)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.transact_time = ProtoField.new("Transact Time", "nyse.equities.binarygateway.pillar.v5.17.transacttime", ftypes.UINT64)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.unpaired_qty = ProtoField.new("Unpaired Qty", "nyse.equities.binarygateway.pillar.v5.17.unpairedqty", ftypes.UINT32)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.usd_calculation_1 = ProtoField.new("Usd Calculation 1", "nyse.equities.binarygateway.pillar.v5.17.usdcalculation1", ftypes.INT64)
@@ -5686,7 +5686,7 @@ nyse_equities_binarygateway_pillar_v5_17.bitfield_order_instructions.bits = func
   -- Sub Id Indicator: 1 Bit Enum with 2 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.sub_id_indicator, range, value)
 
-  -- Special Ord Type: 4 Bit Enum with 6 values
+  -- Special Ord Type: 4 Bit Unsigned Fixed Width Integer Enum with 6 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.special_ord_type, range, value)
 
   -- Locate Reqd: 1 Bit Enum with 2 values
@@ -5695,43 +5695,43 @@ nyse_equities_binarygateway_pillar_v5_17.bitfield_order_instructions.bits = func
   -- Retail Indicator: 1 Bit Enum with 2 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.retail_indicator, range, value)
 
-  -- Attributed Quote: 3 Bit Enum with 4 values
+  -- Attributed Quote: 3 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.attributed_quote, range, value)
 
-  -- Order Capacity: 3 Bit Enum with 4 values
+  -- Order Capacity: 3 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_capacity, range, value)
 
-  -- Interest Type: 3 Bit Enum with 3 values
+  -- Interest Type: 3 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.interest_type, range, value)
 
-  -- Trading Session Id: 3 Bit Enum with 6 values
+  -- Trading Session Id: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.trading_session_id, range, value)
 
-  -- Time In Force: 3 Bit Enum with 4 values
+  -- Time In Force: 3 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.time_in_force, range, value)
 
-  -- Proactive If Locked: 3 Bit Enum with 3 values
+  -- Proactive If Locked: 3 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.proactive_if_locked, range, value)
 
-  -- Self Trade Type: 3 Bit Enum with 6 values
+  -- Self Trade Type: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.self_trade_type, range, value)
 
-  -- Cancel Instead Of Reprice: 4 Bit Enum with 3 values
+  -- Cancel Instead Of Reprice: 4 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.cancel_instead_of_reprice, range, value)
 
-  -- Routing Inst: 4 Bit Enum with 10 values
+  -- Routing Inst: 4 Bit Unsigned Fixed Width Integer Enum with 10 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.routing_inst, range, value)
 
-  -- Extended Exec Inst: 4 Bit Enum with 10 values
+  -- Extended Exec Inst: 4 Bit Unsigned Fixed Width Integer Enum with 10 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.extended_exec_inst, range, value)
 
-  -- Exec Inst: 4 Bit Enum with 11 values
+  -- Exec Inst: 4 Bit Unsigned Fixed Width Integer Enum with 11 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.exec_inst, range, value)
 
-  -- Ord Type: 4 Bit Enum with 4 values
+  -- Ord Type: 4 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.ord_type, range, value)
 
-  -- Side 4: 4 Bit
+  -- Side 4: 4 Bit Unsigned Fixed Width Integer
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.side_4, range, value)
 end
 

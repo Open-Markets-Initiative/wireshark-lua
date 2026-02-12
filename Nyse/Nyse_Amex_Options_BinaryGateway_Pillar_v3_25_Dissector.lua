@@ -85,7 +85,7 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.max_order_price = ProtoF
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.max_order_quantity = ProtoField.new("Max Order Quantity", "nyse.amex.options.binarygateway.pillar.v3.25.maxorderquantity", ftypes.UINT32)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mic = ProtoField.new("Mic", "nyse.amex.options.binarygateway.pillar.v3.25.mic", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.min_qty = ProtoField.new("Min Qty", "nyse.amex.options.binarygateway.pillar.v3.25.minqty", ftypes.UINT32)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_quote_type = ProtoField.new("Mm Quote Type", "nyse.amex.options.binarygateway.pillar.v3.25.mmquotetype", ftypes.UINT8, nil, base.DEC, 0x1C)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_quote_type = ProtoField.new("Mm Quote Type", "nyse.amex.options.binarygateway.pillar.v3.25.mmquotetype", ftypes.UINT8, [0]="Standard", [1]="Repricing", [2]="Add Liquidity Only Non Taking", [3]="Reserved", [4]="Repricing Add Liquidity Only Non Taking", base.DEC, 0x1C)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.amex.options.binarygateway.pillar.v3.25.mmsenttime", ftypes.UINT64)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_type = ProtoField.new("Mm Type", "nyse.amex.options.binarygateway.pillar.v3.25.mmtype", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mode = ProtoField.new("Mode", "nyse.amex.options.binarygateway.pillar.v3.25.mode", ftypes.UINT8)
@@ -185,7 +185,7 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.threshold_breach_level =
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.amex.options.binarygateway.pillar.v3.25.throttlepreference", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.amex.options.binarygateway.pillar.v3.25.throttlethreshold", ftypes.UINT16)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.amex.options.binarygateway.pillar.v3.25.throttlewindow", ftypes.UINT16)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttled = ProtoField.new("Throttled", "nyse.amex.options.binarygateway.pillar.v3.25.throttled", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttled = ProtoField.new("Throttled", "nyse.amex.options.binarygateway.pillar.v3.25.throttled", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.time_limit = ProtoField.new("Time Limit", "nyse.amex.options.binarygateway.pillar.v3.25.timelimit", ftypes.INT32)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.timestamp = ProtoField.new("Timestamp", "nyse.amex.options.binarygateway.pillar.v3.25.timestamp", ftypes.UINT64)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.amex.options.binarygateway.pillar.v3.25.tradingmpv", ftypes.DOUBLE)
@@ -8996,10 +8996,10 @@ end
 -- Dissect Bit Fields: Bitfield Quote Inst
 nyse_amex_options_binarygateway_pillar_v3_25.bitfield_quote_inst.bits = function(range, value, packet, parent)
 
-  -- Side 2: 2 Bit
+  -- Side 2: 2 Bit Unsigned Fixed Width Integer
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.side_2, range, value)
 
-  -- Mm Quote Type: 3 Bit Enum with 5 values
+  -- Mm Quote Type: 3 Bit Unsigned Fixed Width Integer Enum with 5 values
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_quote_type, range, value)
 
   -- Reserved 3: 3 Bit

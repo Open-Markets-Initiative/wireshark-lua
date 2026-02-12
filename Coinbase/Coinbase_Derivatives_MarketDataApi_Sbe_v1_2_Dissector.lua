@@ -45,7 +45,7 @@ omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instr_seq_num = ProtoFiel
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instrument_flags = ProtoField.new("Instrument Flags", "coinbase.derivatives.marketdataapi.sbe.v1.2.instrumentflags", ftypes.UINT8)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.2.instrumentid", ftypes.INT32)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instrument_side = ProtoField.new("Instrument Side", "coinbase.derivatives.marketdataapi.sbe.v1.2.instrumentside", ftypes.INT8)
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.is_prior_settlement_theoretical = ProtoField.new("Is Prior Settlement Theoretical", "coinbase.derivatives.marketdataapi.sbe.v1.2.ispriorsettlementtheoretical", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.is_prior_settlement_theoretical = ProtoField.new("Is Prior Settlement Theoretical", "coinbase.derivatives.marketdataapi.sbe.v1.2.ispriorsettlementtheoretical", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_instr_seq_num = ProtoField.new("Last Instr Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.2.lastinstrseqnum", ftypes.UINT32)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_trade_price = ProtoField.new("Last Trade Price", "coinbase.derivatives.marketdataapi.sbe.v1.2.lasttradeprice", ftypes.INT64)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_trade_qty = ProtoField.new("Last Trade Qty", "coinbase.derivatives.marketdataapi.sbe.v1.2.lasttradeqty", ftypes.INT32)
