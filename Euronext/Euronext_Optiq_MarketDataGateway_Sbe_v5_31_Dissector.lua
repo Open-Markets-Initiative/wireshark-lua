@@ -18776,10 +18776,10 @@ euronext_optiq_marketdatagateway_sbe_v5_31.packet_flags.bits = function(range, v
   -- Has Start Of Day Snapshot: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_31.fields.has_start_of_day_snapshot, range, value)
 
-  -- Psn High Weight: 3 Bit
+  -- Psn High Weight: 3 Bit Unsigned Fixed Width Integer
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_31.fields.psn_high_weight, range, value)
 
-  -- Mdg Restart Count: 3 Bit
+  -- Mdg Restart Count: 3 Bit Unsigned Fixed Width Integer
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_31.fields.mdg_restart_count, range, value)
 
   -- Compression: 1 Bit
