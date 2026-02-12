@@ -51,7 +51,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.collar_max_unhalt_nb = Prot
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.collar_unhalt_delay = ProtoField.new("Collar Unhalt Delay", "euronext.optiq.marketdatagateway.sbe.v4.3.collarunhaltdelay", ftypes.UINT32)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.combo = ProtoField.new("Combo", "euronext.optiq.marketdatagateway.sbe.v4.3.combo", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000200)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.combo_versus_underlying = ProtoField.new("Combo Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.3.comboversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000002)
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.compression = ProtoField.new("Compression", "euronext.optiq.marketdatagateway.sbe.v4.3.compression", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x8000)
+omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.compression = ProtoField.new("Compression", "euronext.optiq.marketdatagateway.sbe.v4.3.compression", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.condor = ProtoField.new("Condor", "euronext.optiq.marketdatagateway.sbe.v4.3.condor", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000100000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.condor_versus_underlying = ProtoField.new("Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.3.condorversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000200)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.confirmed_reference_level = ProtoField.new("Confirmed Reference Level", "euronext.optiq.marketdatagateway.sbe.v4.3.confirmedreferencelevel", ftypes.INT64)
@@ -133,9 +133,9 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.group_size_encoding = Proto
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.guarantee_indicator = ProtoField.new("Guarantee Indicator", "euronext.optiq.marketdatagateway.sbe.v4.3.guaranteeindicator", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.guts = ProtoField.new("Guts", "euronext.optiq.marketdatagateway.sbe.v4.3.guts", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000040)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.guts_versus_underlying = ProtoField.new("Guts Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.3.gutsversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000040000000)
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_end_of_day_snapshot = ProtoField.new("Has End Of Day Snapshot", "euronext.optiq.marketdatagateway.sbe.v4.3.hasendofdaysnapshot", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_start_of_day_snapshot = ProtoField.new("Has Start Of Day Snapshot", "euronext.optiq.marketdatagateway.sbe.v4.3.hasstartofdaysnapshot", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_status_message = ProtoField.new("Has Status Message", "euronext.optiq.marketdatagateway.sbe.v4.3.hasstatusmessage", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0040)
+omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_end_of_day_snapshot = ProtoField.new("Has End Of Day Snapshot", "euronext.optiq.marketdatagateway.sbe.v4.3.hasendofdaysnapshot", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
+omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_start_of_day_snapshot = ProtoField.new("Has Start Of Day Snapshot", "euronext.optiq.marketdatagateway.sbe.v4.3.hasstartofdaysnapshot", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
+omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_status_message = ProtoField.new("Has Status Message", "euronext.optiq.marketdatagateway.sbe.v4.3.hasstatusmessage", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0200)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.high_level = ProtoField.new("High Level", "euronext.optiq.marketdatagateway.sbe.v4.3.highlevel", ftypes.INT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.high_time = ProtoField.new("High Time", "euronext.optiq.marketdatagateway.sbe.v4.3.hightime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.icb = ProtoField.new("Icb", "euronext.optiq.marketdatagateway.sbe.v4.3.icb", ftypes.STRING)
@@ -207,7 +207,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.maturity_date_optional = Pr
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.maximum_decimals_in_quantity = ProtoField.new("Maximum Decimals In Quantity", "euronext.optiq.marketdatagateway.sbe.v4.3.maximumdecimalsinquantity", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.md_seq_num = ProtoField.new("Md Seq Num", "euronext.optiq.marketdatagateway.sbe.v4.3.mdseqnum", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.md_seq_num_optional = ProtoField.new("Md Seq Num Optional", "euronext.optiq.marketdatagateway.sbe.v4.3.mdseqnumoptional", ftypes.UINT64)
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.mdg_restart_count = ProtoField.new("Mdg Restart Count", "euronext.optiq.marketdatagateway.sbe.v4.3.mdgrestartcount", ftypes.UINT16, nil, base.DEC, 0x7000)
+omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.mdg_restart_count = ProtoField.new("Mdg Restart Count", "euronext.optiq.marketdatagateway.sbe.v4.3.mdgrestartcount", ftypes.UINT16, nil, base.DEC, 0x000E)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.message = ProtoField.new("Message", "euronext.optiq.marketdatagateway.sbe.v4.3.message", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatagateway.sbe.v4.3.messageheader", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.message_price_notation = ProtoField.new("Message Price Notation", "euronext.optiq.marketdatagateway.sbe.v4.3.messagepricenotation", ftypes.UINT8)
@@ -317,7 +317,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.price_updates_group = Proto
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.price_updates_groups = ProtoField.new("Price Updates Groups", "euronext.optiq.marketdatagateway.sbe.v4.3.priceupdatesgroups", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.pricing_algorithm = ProtoField.new("Pricing Algorithm", "euronext.optiq.marketdatagateway.sbe.v4.3.pricingalgorithm", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.product_code = ProtoField.new("Product Code", "euronext.optiq.marketdatagateway.sbe.v4.3.productcode", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.psn_high_weight = ProtoField.new("Psn High Weight", "euronext.optiq.marketdatagateway.sbe.v4.3.psnhighweight", ftypes.UINT16, nil, base.DEC, 0x0E00)
+omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.psn_high_weight = ProtoField.new("Psn High Weight", "euronext.optiq.marketdatagateway.sbe.v4.3.psnhighweight", ftypes.UINT16, nil, base.DEC, 0x0070)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.publication_date_time = ProtoField.new("Publication Date Time", "euronext.optiq.marketdatagateway.sbe.v4.3.publicationdatetime", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.put_spread_versus_call_versus_underlying = ProtoField.new("Put Spread Versus Call Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.3.putspreadversuscallversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000000020)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.put_spread_versus_sell_a_call = ProtoField.new("Put Spread Versus Sell A Call", "euronext.optiq.marketdatagateway.sbe.v4.3.putspreadversussellacall", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x0000000000004000)
@@ -343,7 +343,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.repo_settlement_date = Prot
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.reserved_10 = ProtoField.new("Reserved 10", "euronext.optiq.marketdatagateway.sbe.v4.3.reserved10", ftypes.UINT16, nil, base.DEC, 0xFFC0)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.reserved_16 = ProtoField.new("Reserved 16", "euronext.optiq.marketdatagateway.sbe.v4.3.reserved16", ftypes.UINT64, nil, base.DEC, 0x00000000FFFF0000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.reserved_6 = ProtoField.new("Reserved 6", "euronext.optiq.marketdatagateway.sbe.v4.3.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC)
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.reserved_bits = ProtoField.new("Reserved Bits", "euronext.optiq.marketdatagateway.sbe.v4.3.reservedbits", ftypes.UINT16, nil, base.DEC, 0x003F)
+omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.reserved_bits = ProtoField.new("Reserved Bits", "euronext.optiq.marketdatagateway.sbe.v4.3.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFC00)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.retransmission_end_time = ProtoField.new("Retransmission End Time", "euronext.optiq.marketdatagateway.sbe.v4.3.retransmissionendtime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.retransmission_start_time = ProtoField.new("Retransmission Start Time", "euronext.optiq.marketdatagateway.sbe.v4.3.retransmissionstarttime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.scheduled_event = ProtoField.new("Scheduled Event", "euronext.optiq.marketdatagateway.sbe.v4.3.scheduledevent", ftypes.UINT8)
@@ -18035,29 +18035,13 @@ end
 -- Message
 euronext_optiq_marketdatagateway_sbe_v4_3.message = {}
 
--- Calculate size of: Message
-euronext_optiq_marketdatagateway_sbe_v4_3.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_3.frame.size
-
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_3.message_header.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 6, 2):le_uint()
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_3.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 euronext_optiq_marketdatagateway_sbe_v4_3.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-euronext_optiq_marketdatagateway_sbe_v4_3.message.fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_3.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Frame: 2 Byte Unsigned Fixed Width Integer
@@ -18076,16 +18060,24 @@ euronext_optiq_marketdatagateway_sbe_v4_3.message.fields = function(buffer, offs
 end
 
 -- Dissect: Message
-euronext_optiq_marketdatagateway_sbe_v4_3.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.message then
-    local length = euronext_optiq_marketdatagateway_sbe_v4_3.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_marketdatagateway_sbe_v4_3.message.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.message, range, display)
-  end
+euronext_optiq_marketdatagateway_sbe_v4_3.message.dissect = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset + size_of_message
 
-  return euronext_optiq_marketdatagateway_sbe_v4_3.message.fields(buffer, offset, packet, parent)
+  -- Optionally add group/struct element to protocol tree
+  if show.message then
+    parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.message, buffer(offset, 0))
+    local current = euronext_optiq_marketdatagateway_sbe_v4_3.message.fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = euronext_optiq_marketdatagateway_sbe_v4_3.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    euronext_optiq_marketdatagateway_sbe_v4_3.message.fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
+  end
 end
 
 -- Channel Id
@@ -18121,21 +18113,21 @@ euronext_optiq_marketdatagateway_sbe_v4_3.packet_flags.size = 2
 euronext_optiq_marketdatagateway_sbe_v4_3.packet_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Has Status Message flag set?
-  if bit.band(value, 0x0040) ~= 0 then
-    flags[#flags + 1] = "Has Status Message"
-  end
-  -- Is Has End Of Day Snapshot flag set?
-  if bit.band(value, 0x0080) ~= 0 then
-    flags[#flags + 1] = "Has End Of Day Snapshot"
+  -- Is Compression flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    flags[#flags + 1] = "Compression"
   end
   -- Is Has Start Of Day Snapshot flag set?
-  if bit.band(value, 0x0100) ~= 0 then
+  if bit.band(value, 0x0080) ~= 0 then
     flags[#flags + 1] = "Has Start Of Day Snapshot"
   end
-  -- Is Compression flag set?
-  if bit.band(value, 0x8000) ~= 0 then
-    flags[#flags + 1] = "Compression"
+  -- Is Has End Of Day Snapshot flag set?
+  if bit.band(value, 0x0100) ~= 0 then
+    flags[#flags + 1] = "Has End Of Day Snapshot"
+  end
+  -- Is Has Status Message flag set?
+  if bit.band(value, 0x0200) ~= 0 then
+    flags[#flags + 1] = "Has Status Message"
   end
 
   return table.concat(flags, "|")
@@ -18144,26 +18136,26 @@ end
 -- Dissect Bit Fields: Packet Flags
 euronext_optiq_marketdatagateway_sbe_v4_3.packet_flags.bits = function(range, value, packet, parent)
 
-  -- Reserved Bits: 6 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.reserved_bits, range, value)
-
-  -- Has Status Message: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_status_message, range, value)
-
-  -- Has End Of Day Snapshot: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_end_of_day_snapshot, range, value)
-
-  -- Has Start Of Day Snapshot: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_start_of_day_snapshot, range, value)
-
-  -- Psn High Weight: 3 Bit Unsigned Fixed Width Integer
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.psn_high_weight, range, value)
+  -- Compression: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.compression, range, value)
 
   -- Mdg Restart Count: 3 Bit Unsigned Fixed Width Integer
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.mdg_restart_count, range, value)
 
-  -- Compression: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.compression, range, value)
+  -- Psn High Weight: 3 Bit Unsigned Fixed Width Integer
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.psn_high_weight, range, value)
+
+  -- Has Start Of Day Snapshot: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_start_of_day_snapshot, range, value)
+
+  -- Has End Of Day Snapshot: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_end_of_day_snapshot, range, value)
+
+  -- Has Status Message: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.has_status_message, range, value)
+
+  -- Reserved Bits: 6 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.reserved_bits, range, value)
 end
 
 -- Dissect: Packet Flags
@@ -18172,7 +18164,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.packet_flags.dissect = function(buffer
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = euronext_optiq_marketdatagateway_sbe_v4_3.packet_flags.display(range, value, packet, parent)
-  local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.packet_flags, range, display)
+  local element = parent:add_le(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.packet_flags, range, display)
 
   if show.packet_flags then
     euronext_optiq_marketdatagateway_sbe_v4_3.packet_flags.bits(range, value, packet, element)
@@ -18298,7 +18290,12 @@ euronext_optiq_marketdatagateway_sbe_v4_3.packet.dissect = function(buffer, pack
 
   -- Message: Struct of 3 fields
   while index < end_of_payload do
-    index, message = euronext_optiq_marketdatagateway_sbe_v4_3.message.dissect(buffer, index, packet, parent)
+
+    -- Dependency element: Frame
+    local frame = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = euronext_optiq_marketdatagateway_sbe_v4_3.message.dissect(buffer, index, packet, parent, frame)
   end
 
   return index
