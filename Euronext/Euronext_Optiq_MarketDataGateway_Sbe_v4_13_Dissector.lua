@@ -913,6 +913,79 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- LZ4 decompression
+local function lz4_decompress(input, decompressed_size)
+  local compressed_size = input:len()
+
+  local compressed_position = 0
+  local decompressed_position = 0
+
+  local output = ByteArray.new()
+  output:set_size(decompressed_size)
+
+  while compressed_position < compressed_size do
+    -- Read token
+    local token = input:get_index(compressed_position)
+    compressed_position = compressed_position + 1
+
+    -- Literal length (high nibble)
+    local literal_length = bit.rshift(token, 4)
+    if literal_length == 15 then
+      local extra
+      repeat
+        if compressed_position >= compressed_size then break end
+        extra = input:get_index(compressed_position)
+        compressed_position = compressed_position + 1
+        literal_length = literal_length + extra
+      until extra ~= 255
+    end
+
+    -- Cdecompressed_positiony literals
+    for i = 0, literal_length - 1 do
+      if compressed_position >= compressed_size then break end
+      output:set_index(decompressed_position, input:get_index(compressed_position))
+      decompressed_position = decompressed_position + 1
+      compressed_position = compressed_position + 1
+    end
+
+    -- Check if we reached the end of input
+    if compressed_position + 1 >= compressed_size then
+      break
+    end
+
+    -- Match offset (2 bytes, little-endian)
+    local match_offset = input:get_index(compressed_position) + input:get_index(compressed_position + 1) * 256
+    compressed_position = compressed_position + 2
+
+    -- Match length (low nibble + 4 minimum match)
+    local match_length = bit.band(token, 0x0F) + 4
+    if bit.band(token, 0x0F) == 15 then
+      local extra
+      repeat
+        if compressed_position >= compressed_size then break end
+        extra = input:get_index(compressed_position)
+        compressed_position = compressed_position + 1
+        match_length = match_length + extra
+      until extra ~= 255
+    end
+
+    -- Cdecompressed_positiony match (byte-by-byte to handle overlapping cdecompressed_positionies)
+    local match_pos = decompressed_position - match_offset
+    for i = 0, match_length - 1 do
+      output:set_index(decompressed_position, output:get_index(match_pos))
+      decompressed_position = decompressed_position + 1
+      match_pos = match_pos + 1
+    end
+  end
+
+  output:set_size(decompressed_position)
+  return output
+end
+-----------------------------------------------------------------------
 -- Dissect Euronext Optiq MarketDataGateway Sbe 4.13
 -----------------------------------------------------------------------
 
@@ -18414,6 +18487,14 @@ euronext_optiq_marketdatagateway_sbe_v4_13.packet.dissect = function(buffer, pac
 
   -- Market Data Packet Header: Struct of 4 fields
   index, market_data_packet_header = euronext_optiq_marketdatagateway_sbe_v4_13.market_data_packet_header.dissect(buffer, index, packet, parent)
+
+  local optiq_message_conversion = bit.band(packet_flags, 0x0001) == 1
+
+  if optiq_message_conversion then
+    local compressed = buffer(index, buffer:len() - index):bytes()
+    buffer = lz4_decompress(compressed, 8192):tvb("Decompressed")
+    index = 0
+  end
 
   -- Dependency for Optiq Message
   local end_of_payload = buffer:len()
