@@ -5174,7 +5174,7 @@ nyse_equities_binarygateway_pillar_v5_17.bitfield_flow_indicator.dissect = funct
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_17.bitfield_flow_indicator.display(range, value, packet, parent)
-  local element = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.bitfield_flow_indicator, range, display)
+  local element = parent:add_le(omi_nyse_equities_binarygateway_pillar_v5_17.fields.bitfield_flow_indicator, range, display)
 
   if show.bitfield_flow_indicator then
     nyse_equities_binarygateway_pillar_v5_17.bitfield_flow_indicator.bits(range, value, packet, element)
@@ -5706,7 +5706,7 @@ nyse_equities_binarygateway_pillar_v5_17.bitfield_order_instructions.dissect = f
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_17.bitfield_order_instructions.display(range, value, packet, parent)
-  local element = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.bitfield_order_instructions, range, display)
+  local element = parent:add_le(omi_nyse_equities_binarygateway_pillar_v5_17.fields.bitfield_order_instructions, range, display)
 
   if show.bitfield_order_instructions then
     nyse_equities_binarygateway_pillar_v5_17.bitfield_order_instructions.bits(range, value, packet, element)
