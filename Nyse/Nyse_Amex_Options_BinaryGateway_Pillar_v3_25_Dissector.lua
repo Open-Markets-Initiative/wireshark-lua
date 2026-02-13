@@ -126,16 +126,16 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reinstatement_required_b
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reinstatement_required_by_self = ProtoField.new("Reinstatement Required By Self", "nyse.amex.options.binarygateway.pillar.v3.25.reinstatementrequiredbyself", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reject_type = ProtoField.new("Reject Type", "nyse.amex.options.binarygateway.pillar.v3.25.rejecttype", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.repeating_groups = ProtoField.new("Repeating Groups", "nyse.amex.options.binarygateway.pillar.v3.25.repeatinggroups", ftypes.UINT8)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amex.options.binarygateway.pillar.v3.25.reserved1", ftypes.UINT8)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_16 = ProtoField.new("Reserved 16", "nyse.amex.options.binarygateway.pillar.v3.25.reserved16", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_190 = ProtoField.new("Reserved 190", "nyse.amex.options.binarygateway.pillar.v3.25.reserved190", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_199 = ProtoField.new("Reserved 199", "nyse.amex.options.binarygateway.pillar.v3.25.reserved199", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amex.options.binarygateway.pillar.v3.25.reserved2", ftypes.UINT16)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_20 = ProtoField.new("Reserved 20", "nyse.amex.options.binarygateway.pillar.v3.25.reserved20", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_200 = ProtoField.new("Reserved 200", "nyse.amex.options.binarygateway.pillar.v3.25.reserved200", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amex.options.binarygateway.pillar.v3.25.reserved4", ftypes.UINT32)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_49 = ProtoField.new("Reserved 49", "nyse.amex.options.binarygateway.pillar.v3.25.reserved49", ftypes.STRING)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_50 = ProtoField.new("Reserved 50", "nyse.amex.options.binarygateway.pillar.v3.25.reserved50", ftypes.STRING)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amex.options.binarygateway.pillar.v3.25.reserved1", ftypes.BYTES)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_16 = ProtoField.new("Reserved 16", "nyse.amex.options.binarygateway.pillar.v3.25.reserved16", ftypes.BYTES)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_190 = ProtoField.new("Reserved 190", "nyse.amex.options.binarygateway.pillar.v3.25.reserved190", ftypes.BYTES)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_199 = ProtoField.new("Reserved 199", "nyse.amex.options.binarygateway.pillar.v3.25.reserved199", ftypes.BYTES)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amex.options.binarygateway.pillar.v3.25.reserved2", ftypes.BYTES)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_20 = ProtoField.new("Reserved 20", "nyse.amex.options.binarygateway.pillar.v3.25.reserved20", ftypes.BYTES)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_200 = ProtoField.new("Reserved 200", "nyse.amex.options.binarygateway.pillar.v3.25.reserved200", ftypes.BYTES)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amex.options.binarygateway.pillar.v3.25.reserved4", ftypes.BYTES)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_49 = ProtoField.new("Reserved 49", "nyse.amex.options.binarygateway.pillar.v3.25.reserved49", ftypes.BYTES)
+omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_50 = ProtoField.new("Reserved 50", "nyse.amex.options.binarygateway.pillar.v3.25.reserved50", ftypes.BYTES)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_7 = ProtoField.new("Reserved 7", "nyse.amex.options.binarygateway.pillar.v3.25.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "nyse.amex.options.binarygateway.pillar.v3.25.riskacktype", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_action_type = ProtoField.new("Risk Action Type", "nyse.amex.options.binarygateway.pillar.v3.25.riskactiontype", ftypes.UINT8)
@@ -1878,11 +1878,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.size = 200
 
 -- Display: Reserved 200
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reserved 200: No Value"
-  end
-
   return "Reserved 200: "..value
 end
 
@@ -1890,18 +1885,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_200, range, value, display)
@@ -2813,11 +2797,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.size = 190
 
 -- Display: Reserved 190
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reserved 190: No Value"
-  end
-
   return "Reserved 190: "..value
 end
 
@@ -2825,18 +2804,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_190, range, value, display)
@@ -2988,7 +2956,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_4, range, value, display)
@@ -4465,7 +4433,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_2, range, value, display)
@@ -4488,7 +4456,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1, range, value, display)
@@ -5867,11 +5835,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.size = 49
 
 -- Display: Reserved 49
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reserved 49: No Value"
-  end
-
   return "Reserved 49: "..value
 end
 
@@ -5879,18 +5842,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_49, range, value, display)
@@ -6425,7 +6377,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_50, range, value, display)
@@ -7727,11 +7679,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.size = 199
 
 -- Display: Reserved 199
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reserved 199: No Value"
-  end
-
   return "Reserved 199: "..value
 end
 
@@ -7739,18 +7686,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_199, range, value, display)
@@ -7995,7 +7931,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_20, range, value, display)
@@ -8437,7 +8373,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_16, range, value, display)

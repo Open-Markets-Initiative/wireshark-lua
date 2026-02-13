@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 405 | 4,131,078 |
+| 407 | 4,133,516 |
 
 ## Testing
 
