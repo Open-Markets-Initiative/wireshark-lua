@@ -43,7 +43,7 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.number_of_legs = ProtoFiel
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.open_interest_quantity = ProtoField.new("Open Interest Quantity", "miax.onyxfutures.depthofmarket.mach.v1.0.b.openinterestquantity", ftypes.UINT32)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.opening_match_quantity = ProtoField.new("Opening Match Quantity", "miax.onyxfutures.depthofmarket.mach.v1.0.b.openingmatchquantity", ftypes.UINT32)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_id = ProtoField.new("Order Id", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderid", ftypes.UINT64)
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_position = ProtoField.new("Order Position", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderposition", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_position = ProtoField.new("Order Position", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderposition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_side = ProtoField.new("Order Side", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderside", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_type = ProtoField.new("Order Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.ordertype", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packet", ftypes.STRING)
@@ -79,7 +79,7 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoFie
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused_7 = ProtoField.new("Unused 7", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
--- Miax OnyxFutures DepthOfMarket Mach 1.0.b messages
+-- Miax OnyxFutures Mach DepthOfMarket 1.0.b Application Messages
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.add_order_message = ProtoField.new("Add Order Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.addordermessage", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.anticipated_opening_price_message = ProtoField.new("Anticipated Opening Price Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.anticipatedopeningpricemessage", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.complex_instrument_definition_message = ProtoField.new("Complex Instrument Definition Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.complexinstrumentdefinitionmessage", ftypes.STRING)
@@ -421,11 +421,11 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size = 8
 
 -- Display: Timestamp
 miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -737,39 +737,40 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags = {}
 miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.size = 1
 
 -- Display: Modify Flags
-miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.display = function(buffer, packet, parent)
-  local display = ""
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.display = function(range, value, packet, parent)
+  local flags = {}
 
   -- Is Order Position flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Order Position|"
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Order Position"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Modify Flags
-miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 7: 7 Bit
-  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused_7, buffer(offset, 1))
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.bits = function(range, value, packet, parent)
 
   -- Order Position: 1 Bit
-  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_position, buffer(offset, 1))
+  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_position, range, value)
+
+  -- Unused 7: 7 Bit
+  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused_7, range, value)
 end
 
 -- Dissect: Modify Flags
 miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.size
   local range = buffer(offset, size)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.display(range, value, packet, parent)
   local element = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.modify_flags, range, display)
 
   if show.modify_flags then
-    miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.bits(buffer, offset, packet, element)
+    miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Modify Order Message

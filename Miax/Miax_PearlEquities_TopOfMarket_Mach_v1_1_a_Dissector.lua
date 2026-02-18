@@ -50,7 +50,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.to_m_version = ProtoField.
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.topofmarket.mach.v1.1.a.tradeid", ftypes.UINT64)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.topofmarket.mach.v1.1.a.tradingstatus", ftypes.UINT8)
 
--- Miax PearlEquities TopOfMarket Mach 1.1.a messages
+-- Miax PearlEquities Mach TopOfMarket 1.1.a Application Messages
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.compact_top_of_market_best_bid_and_offer_message = ProtoField.new("Compact Top Of Market Best Bid And Offer Message", "miax.pearlequities.topofmarket.mach.v1.1.a.compacttopofmarketbestbidandoffermessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.pearlequities.topofmarket.mach.v1.1.a.lastsalemessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.security_trading_status_notification_message = ProtoField.new("Security Trading Status Notification Message", "miax.pearlequities.topofmarket.mach.v1.1.a.securitytradingstatusnotificationmessage", ftypes.STRING)

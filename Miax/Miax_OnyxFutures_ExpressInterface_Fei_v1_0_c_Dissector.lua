@@ -26,7 +26,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_trade_id = Proto
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.computer_id = ProtoField.new("Computer Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.computerid", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.correction_number = ProtoField.new("Correction Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.correctionnumber", ftypes.UINT8)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cti_code = ProtoField.new("Cti Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.cticode", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation = ProtoField.new("Customer Of Firm Designation", "miax.onyxfutures.expressinterface.fei.v1.0.c.customeroffirmdesignation", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation = ProtoField.new("Customer Of Firm Designation", "miax.onyxfutures.expressinterface.fei.v1.0.c.customeroffirmdesignation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_order_handling_instruction = ProtoField.new("Customer Order Handling Instruction", "miax.onyxfutures.expressinterface.fei.v1.0.c.customerorderhandlinginstruction", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.endsequencenumber", ftypes.UINT64)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.execution_id = ProtoField.new("Execution Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.executionid", ftypes.UINT64)
@@ -46,13 +46,13 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_status = ProtoFiel
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_reason = ProtoField.new("Logout Reason", "miax.onyxfutures.expressinterface.fei.v1.0.c.logoutreason", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_request = ProtoField.new("Logout Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.logoutrequest", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_text = ProtoField.new("Logout Text", "miax.onyxfutures.expressinterface.fei.v1.0.c.logouttext", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.manualorderindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.manualorderindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine = ProtoField.new("Matching Engine", "miax.onyxfutures.expressinterface.fei.v1.0.c.matchingengine", ftypes.UINT64)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_time = ProtoField.new("Matching Engine Time", "miax.onyxfutures.expressinterface.fei.v1.0.c.matchingenginetime", ftypes.UINT64)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.min_qty = ProtoField.new("Min Qty", "miax.onyxfutures.expressinterface.fei.v1.0.c.minqty", ftypes.UINT32)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mp_id = ProtoField.new("Mp Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.mpid", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.onyxfutures.expressinterface.fei.v1.0.c.numberoflegs", ftypes.UINT8)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator = ProtoField.new("Open Close Position Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.openclosepositionindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator = ProtoField.new("Open Close Position Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.openclosepositionindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_id = ProtoField.new("Operator Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.operatorid", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_location = ProtoField.new("Operator Location", "miax.onyxfutures.expressinterface.fei.v1.0.c.operatorlocation", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_expiry_date = ProtoField.new("Order Expiry Date", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderexpirydate", ftypes.UINT16)
@@ -90,7 +90,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message_type =
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmtcppacket", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_version = ProtoField.new("Sesm Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmversion", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.session_id = ProtoField.new("Session Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.sessionid", ftypes.UINT8)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side = ProtoField.new("Side", "miax.onyxfutures.expressinterface.fei.v1.0.c.side", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side = ProtoField.new("Side", "miax.onyxfutures.expressinterface.fei.v1.0.c.side", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_trade_id = ProtoField.new("Simple Trade Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.simpletradeid", ftypes.UINT64)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_s_4 = ProtoField.new("Size Binary S 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.sizebinarys4", ftypes.INT32)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_u_4 = ProtoField.new("Size Binary U 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.sizebinaryu4", ftypes.UINT32)
@@ -114,7 +114,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.update_status = ProtoFie
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.username = ProtoField.new("Username", "miax.onyxfutures.expressinterface.fei.v1.0.c.username", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.version = ProtoField.new("Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.version", ftypes.STRING)
 
--- Miax OnyxFutures ExpressInterface Fei 1.0.c messages
+-- Miax OnyxFutures Fei ExpressInterface 1.0.c Application Messages
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_request_message = ProtoField.new("Cancel Order Request Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelorderrequestmessage", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_response = ProtoField.new("Cancel Order Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelorderresponse", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reduce_size_order_notification = ProtoField.new("Cancel Reduce Size Order Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelreducesizeordernotification", ftypes.STRING)
@@ -1126,11 +1126,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size = 8
 
 -- Display: Matching Engine Time
 miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Matching Engine Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Matching Engine Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Matching Engine Time
@@ -1437,11 +1437,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size = 8
 
 -- Display: Client Send Time
 miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Client Send Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Client Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Client Send Time
@@ -2214,53 +2214,54 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.size = 1
 
 -- Display: Additional Order Indicators
-miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.display = function(buffer, packet, parent)
-  local display = ""
+miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.display = function(range, value, packet, parent)
+  local flags = {}
 
-  -- Is Open Close Position Indicator flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Open Close Position Indicator|"
+  -- Is Customer Of Firm Designation flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Customer Of Firm Designation"
   end
   -- Is Manual Order Indicator flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Manual Order Indicator|"
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Manual Order Indicator"
   end
-  -- Is Customer Of Firm Designation flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Customer Of Firm Designation|"
+  -- Is Open Close Position Indicator flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Open Close Position Indicator"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Additional Order Indicators
-miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 5: 5 Bit
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_5, buffer(offset, 1))
-
-  -- Open Close Position Indicator: 1 Bit
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator, buffer(offset, 1))
-
-  -- Manual Order Indicator: 1 Bit
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator, buffer(offset, 1))
+miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.bits = function(range, value, packet, parent)
 
   -- Customer Of Firm Designation: 1 Bit
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation, buffer(offset, 1))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation, range, value)
+
+  -- Manual Order Indicator: 1 Bit
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator, range, value)
+
+  -- Open Close Position Indicator: 1 Bit
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator, range, value)
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_5, range, value)
 end
 
 -- Dissect: Additional Order Indicators
 miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.size
   local range = buffer(offset, size)
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.display(range, value, packet, parent)
   local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.additional_order_indicators, range, display)
 
   if show.additional_order_indicators then
-    miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.bits(buffer, offset, packet, element)
+    miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Customer Order Handling Instruction
@@ -2537,11 +2538,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine.size = 8
 
 -- Display: Matching Engine
 miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Matching Engine: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Matching Engine: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Matching Engine
@@ -2741,38 +2742,39 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.size = 1
 
 -- Display: Self Trade Protection
-miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.display = function(buffer, packet, parent)
-  local display = ""
+miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.display = function(range, value, packet, parent)
+  local flags = {}
 
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Self Trade Protection
-miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 2: 2 Bit
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_2, buffer(offset, 1))
-
-  -- Self Trade Protection Instruction: 3 Bit
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_instruction, buffer(offset, 1))
+miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.bits = function(range, value, packet, parent)
 
   -- Self Trade Protection Level: 3 Bit
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level, buffer(offset, 1))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level, range, value)
+
+  -- Self Trade Protection Instruction: 3 Bit
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_instruction, range, value)
+
+  -- Unused 2: 2 Bit
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_2, range, value)
 end
 
 -- Dissect: Self Trade Protection
 miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.size
   local range = buffer(offset, size)
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.display(range, value, packet, parent)
   local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection, range, display)
 
   if show.self_trade_protection then
-    miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.bits(buffer, offset, packet, element)
+    miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Order Type
@@ -2844,39 +2846,40 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.size = 2
 
 -- Display: Order Instructions
-miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.display = function(buffer, packet, parent)
-  local display = ""
+miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.display = function(range, value, packet, parent)
+  local flags = {}
 
   -- Is Side flag set?
-  if buffer:bitfield(15) > 0 then
-    display = display.."Side|"
+  if bit.band(value, 0x0001) ~= 0 then
+    flags[#flags + 1] = "Side"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Order Instructions
-miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 15: 15 Bit
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_15, buffer(offset, 2))
+miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.bits = function(range, value, packet, parent)
 
   -- Side: 1 Bit
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side, buffer(offset, 2))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side, range, value)
+
+  -- Unused 15: 15 Bit
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_15, range, value)
 end
 
 -- Dissect: Order Instructions
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.size
   local range = buffer(offset, size)
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_instructions, range, display)
 
   if show.order_instructions then
-    miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.bits(buffer, offset, packet, element)
+    miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, value
 end
 
 -- Size Binary U 4

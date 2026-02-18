@@ -72,7 +72,7 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.underlying_asset_type = Prot
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "miax.onyxfutures.topofmarket.mach.v1.0.b.unitofmeasure", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.topofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
 
--- Miax OnyxFutures TopOfMarket Mach 1.0.b messages
+-- Miax OnyxFutures Mach TopOfMarket 1.0.b Application Messages
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.best_bid_and_offer_message = ProtoField.new("Best Bid And Offer Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.bestbidandoffermessage", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.complex_instrument_definition_message = ProtoField.new("Complex Instrument Definition Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.complexinstrumentdefinitionmessage", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_trading_status_notification_message = ProtoField.new("Instrument Trading Status Notification Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumenttradingstatusnotificationmessage", ftypes.STRING)
@@ -359,11 +359,11 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.size = 8
 
 -- Display: Timestamp
 miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp

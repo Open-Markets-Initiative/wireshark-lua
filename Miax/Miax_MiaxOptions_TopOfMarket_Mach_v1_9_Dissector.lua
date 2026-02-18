@@ -80,7 +80,7 @@ omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.trade_size = ProtoField.new("T
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.trading_status = ProtoField.new("Trading Status", "miax.miaxoptions.topofmarket.mach.v1.9.tradingstatus", ftypes.STRING)
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.miaxoptions.topofmarket.mach.v1.9.underlyingsymbol", ftypes.STRING)
 
--- Miax MiaxOptions TopOfMarket Mach 1.9 messages
+-- Miax MiaxOptions Mach TopOfMarket 1.9 Application Messages
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.double_sided_top_of_market_compact_message = ProtoField.new("Double Sided Top Of Market Compact Message", "miax.miaxoptions.topofmarket.mach.v1.9.doublesidedtopofmarketcompactmessage", ftypes.STRING)
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.series_update = ProtoField.new("Series Update", "miax.miaxoptions.topofmarket.mach.v1.9.seriesupdate", ftypes.STRING)
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.system_state_message = ProtoField.new("System State Message", "miax.miaxoptions.topofmarket.mach.v1.9.systemstatemessage", ftypes.STRING)

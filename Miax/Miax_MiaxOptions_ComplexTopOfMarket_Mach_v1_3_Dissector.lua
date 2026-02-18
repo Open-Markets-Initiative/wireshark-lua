@@ -85,7 +85,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.underlying_symbol = Pro
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.update_reason = ProtoField.new("Update Reason", "miax.miaxoptions.complextopofmarket.mach.v1.3.updatereason", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.version = ProtoField.new("Version", "miax.miaxoptions.complextopofmarket.mach.v1.3.version", ftypes.STRING)
 
--- Miax MiaxOptions ComplexTopOfMarket Mach 1.3 messages
+-- Miax MiaxOptions Mach ComplexTopOfMarket 1.3 Application Messages
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.complex_double_sided_top_of_market_compact_message = ProtoField.new("Complex Double Sided Top Of Market Compact Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.complexdoublesidedtopofmarketcompactmessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.complex_double_sided_top_of_market_wide_message = ProtoField.new("Complex Double Sided Top Of Market Wide Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.complexdoublesidedtopofmarketwidemessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.complex_strategy_definition_message = ProtoField.new("Complex Strategy Definition Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.complexstrategydefinitionmessage", ftypes.STRING)

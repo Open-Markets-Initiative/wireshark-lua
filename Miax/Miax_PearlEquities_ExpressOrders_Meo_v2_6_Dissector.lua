@@ -20,7 +20,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.action = ProtoField.new("Ac
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.additional_liquidity_indicator = ProtoField.new("Additional Liquidity Indicator", "miax.pearlequities.expressorders.meo.v2.6.additionalliquidityindicator", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.expressorders.meo.v2.6.applicationprotocol", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.attributable_order = ProtoField.new("Attributable Order", "miax.pearlequities.expressorders.meo.v2.6.attributableorder", ftypes.UINT16, nil, base.DEC, 0x0300)
-omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_if_not_a_nbbo_setter = ProtoField.new("Cancel Order If Not A Nbbo Setter", "miax.pearlequities.expressorders.meo.v2.6.cancelorderifnotanbbosetter", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x1000)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_if_not_a_nbbo_setter = ProtoField.new("Cancel Order If Not A Nbbo Setter", "miax.pearlequities.expressorders.meo.v2.6.cancelorderifnotanbbosetter", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_reason = ProtoField.new("Cancel Reason", "miax.pearlequities.expressorders.meo.v2.6.cancelreason", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_status = ProtoField.new("Cancel Status", "miax.pearlequities.expressorders.meo.v2.6.cancelstatus", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.capacity = ProtoField.new("Capacity", "miax.pearlequities.expressorders.meo.v2.6.capacity", ftypes.STRING)
@@ -31,7 +31,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.computer_id = ProtoField.ne
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.correction_number = ProtoField.new("Correction Number", "miax.pearlequities.expressorders.meo.v2.6.correctionnumber", ftypes.UINT8)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.display_qty = ProtoField.new("Display Qty", "miax.pearlequities.expressorders.meo.v2.6.displayqty", ftypes.UINT32)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.display_range_qty = ProtoField.new("Display Range Qty", "miax.pearlequities.expressorders.meo.v2.6.displayrangeqty", ftypes.UINT32)
-omi_miax_pearlequities_expressorders_meo_v2_6.fields.displayed = ProtoField.new("Displayed", "miax.pearlequities.expressorders.meo.v2.6.displayed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0008)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.displayed = ProtoField.new("Displayed", "miax.pearlequities.expressorders.meo.v2.6.displayed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.pearlequities.expressorders.meo.v2.6.endsequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.expressorders.meo.v2.6.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.expressorders.meo.v2.6.esesmversion", ftypes.STRING)
@@ -41,13 +41,13 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.execution_id = ProtoField.n
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.future = ProtoField.new("Future", "miax.pearlequities.expressorders.meo.v2.6.future", ftypes.UINT8)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.expressorders.meo.v2.6.goodbyepacket", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.expressorders.meo.v2.6.highestsequencenumber", ftypes.UINT64)
-omi_miax_pearlequities_expressorders_meo_v2_6.fields.iso = ProtoField.new("Iso", "miax.pearlequities.expressorders.meo.v2.6.iso", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0040)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.iso = ProtoField.new("Iso", "miax.pearlequities.expressorders.meo.v2.6.iso", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.last_price = ProtoField.new("Last Price", "miax.pearlequities.expressorders.meo.v2.6.lastprice", ftypes.DOUBLE)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.last_size = ProtoField.new("Last Size", "miax.pearlequities.expressorders.meo.v2.6.lastsize", ftypes.UINT32)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.leaves_qty = ProtoField.new("Leaves Qty", "miax.pearlequities.expressorders.meo.v2.6.leavesqty", ftypes.UINT32)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "miax.pearlequities.expressorders.meo.v2.6.liquidityindicator", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.locate_account = ProtoField.new("Locate Account", "miax.pearlequities.expressorders.meo.v2.6.locateaccount", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_6.fields.locate_required = ProtoField.new("Locate Required", "miax.pearlequities.expressorders.meo.v2.6.locaterequired", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0020)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.locate_required = ProtoField.new("Locate Required", "miax.pearlequities.expressorders.meo.v2.6.locaterequired", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.login_request = ProtoField.new("Login Request", "miax.pearlequities.expressorders.meo.v2.6.loginrequest", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.login_response = ProtoField.new("Login Response", "miax.pearlequities.expressorders.meo.v2.6.loginresponse", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.login_status = ProtoField.new("Login Status", "miax.pearlequities.expressorders.meo.v2.6.loginstatus", ftypes.STRING)
@@ -86,7 +86,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.peg_offset = ProtoField.new
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.pending_cancel_status = ProtoField.new("Pending Cancel Status", "miax.pearlequities.expressorders.meo.v2.6.pendingcancelstatus", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.pending_modify_status = ProtoField.new("Pending Modify Status", "miax.pearlequities.expressorders.meo.v2.6.pendingmodifystatus", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.pending_reject_reason = ProtoField.new("Pending Reject Reason", "miax.pearlequities.expressorders.meo.v2.6.pendingrejectreason", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_6.fields.post_only = ProtoField.new("Post Only", "miax.pearlequities.expressorders.meo.v2.6.postonly", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0010)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.post_only = ProtoField.new("Post Only", "miax.pearlequities.expressorders.meo.v2.6.postonly", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.price = ProtoField.new("Price", "miax.pearlequities.expressorders.meo.v2.6.price", ftypes.DOUBLE)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.price_sliding_and_reprice_frequency = ProtoField.new("Price Sliding And Reprice Frequency", "miax.pearlequities.expressorders.meo.v2.6.priceslidingandrepricefrequency", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.expressorders.meo.v2.6.primarymarketcode", ftypes.STRING)
@@ -102,7 +102,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_26 = ProtoField.ne
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_28 = ProtoField.new("Reserved 28", "miax.pearlequities.expressorders.meo.v2.6.reserved28", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearlequities.expressorders.meo.v2.6.reserved8", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_9 = ProtoField.new("Reserved 9", "miax.pearlequities.expressorders.meo.v2.6.reserved9", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_6.fields.retail_order = ProtoField.new("Retail Order", "miax.pearlequities.expressorders.meo.v2.6.retailorder", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0080)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.retail_order = ProtoField.new("Retail Order", "miax.pearlequities.expressorders.meo.v2.6.retailorder", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.expressorders.meo.v2.6.retransmissionrequest", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.routing = ProtoField.new("Routing", "miax.pearlequities.expressorders.meo.v2.6.routing", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.routing_instruction = ProtoField.new("Routing Instruction", "miax.pearlequities.expressorders.meo.v2.6.routinginstruction", ftypes.UINT8, nil, base.DEC, 0x07)
@@ -119,7 +119,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.sequenced_message = ProtoFi
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.pearlequities.expressorders.meo.v2.6.sequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.session_id = ProtoField.new("Session Id", "miax.pearlequities.expressorders.meo.v2.6.sessionid", ftypes.UINT8)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.short_sale_indicator = ProtoField.new("Short Sale Indicator", "miax.pearlequities.expressorders.meo.v2.6.shortsaleindicator", ftypes.UINT16, nil, base.DEC, 0x0006)
-omi_miax_pearlequities_expressorders_meo_v2_6.fields.side = ProtoField.new("Side", "miax.pearlequities.expressorders.meo.v2.6.side", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.side = ProtoField.new("Side", "miax.pearlequities.expressorders.meo.v2.6.side", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.size = ProtoField.new("Size", "miax.pearlequities.expressorders.meo.v2.6.size", ftypes.UINT32)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.pearlequities.expressorders.meo.v2.6.startsequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.symbol_id = ProtoField.new("Symbol Id", "miax.pearlequities.expressorders.meo.v2.6.symbolid", ftypes.UINT32)
@@ -144,7 +144,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_5 = ProtoField.new("
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.username = ProtoField.new("Username", "miax.pearlequities.expressorders.meo.v2.6.username", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.working_price = ProtoField.new("Working Price", "miax.pearlequities.expressorders.meo.v2.6.workingprice", ftypes.DOUBLE)
 
--- Miax PearlEquities ExpressOrders Meo 2.6 messages
+-- Miax PearlEquities Meo ExpressOrders 2.6 Application Messages
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_by_exchange_order_id_request = ProtoField.new("Cancel Order By Exchange Order Id Request", "miax.pearlequities.expressorders.meo.v2.6.cancelorderbyexchangeorderidrequest", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_by_exchange_order_id_response_message = ProtoField.new("Cancel Order By Exchange Order Id Response Message", "miax.pearlequities.expressorders.meo.v2.6.cancelorderbyexchangeorderidresponsemessage", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_request = ProtoField.new("Cancel Order Request", "miax.pearlequities.expressorders.meo.v2.6.cancelorderrequest", ftypes.STRING)
@@ -1237,35 +1237,36 @@ miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator = {}
 miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.size = 1
 
 -- Display: Additional Liquidity Indicator
-miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.display = function(buffer, packet, parent)
-  local display = ""
+miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.display = function(range, value, packet, parent)
+  local flags = {}
 
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Additional Liquidity Indicator
-miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 5: 5 Bit
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_5, buffer(offset, 1))
+miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.bits = function(range, value, packet, parent)
 
   -- Nbbo Setter Joiner: 3 Bit
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.nbbo_setter_joiner, buffer(offset, 1))
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.nbbo_setter_joiner, range, value)
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_5, range, value)
 end
 
 -- Dissect: Additional Liquidity Indicator
 miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.size
   local range = buffer(offset, size)
-  local display = miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.additional_liquidity_indicator, range, display)
 
   if show.additional_liquidity_indicator then
-    miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.bits(buffer, offset, packet, element)
+    miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Original Order Capacity
@@ -1484,39 +1485,40 @@ miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions = {}
 miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.size = 2
 
 -- Display: Order Execution Instructions
-miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.display = function(buffer, packet, parent)
-  local display = ""
+miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.display = function(range, value, packet, parent)
+  local flags = {}
 
   -- Is Side flag set?
-  if buffer:bitfield(15) > 0 then
-    display = display.."Side|"
+  if bit.band(value, 0x0001) ~= 0 then
+    flags[#flags + 1] = "Side"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Order Execution Instructions
-miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 15: 15 Bit
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_15, buffer(offset, 2))
+miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.bits = function(range, value, packet, parent)
 
   -- Side: 1 Bit Enum with 2 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.side, buffer(offset, 2))
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.side, range, value)
+
+  -- Unused 15: 15 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_15, range, value)
 end
 
 -- Dissect: Order Execution Instructions
 miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.size
   local range = buffer(offset, size)
-  local display = miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.order_execution_instructions, range, display)
 
   if show.order_execution_instructions then
-    miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.bits(buffer, offset, packet, element)
+    miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, value
 end
 
 -- Last Size
@@ -1766,11 +1768,11 @@ miax_pearlequities_expressorders_meo_v2_6.matching_engine_time.size = 8
 
 -- Display: Matching Engine Time
 miax_pearlequities_expressorders_meo_v2_6.matching_engine_time.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Matching Engine Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Matching Engine Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Matching Engine Time
@@ -2094,11 +2096,11 @@ miax_pearlequities_expressorders_meo_v2_6.notification_time.size = 8
 
 -- Display: Notification Time
 miax_pearlequities_expressorders_meo_v2_6.notification_time.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Notification Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Notification Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Notification Time
@@ -3097,42 +3099,43 @@ miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions = {}
 miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.size = 1
 
 -- Display: Modify Order Instructions
-miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.display = function(buffer, packet, parent)
-  local display = ""
+miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.display = function(range, value, packet, parent)
+  local flags = {}
 
   -- Is Locate Required flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Locate Required|"
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Locate Required"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Modify Order Instructions
-miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 5: 5 Bit
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_5, buffer(offset, 1))
-
-  -- Locate Required: 1 Bit Enum with 2 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.locate_required, buffer(offset, 1))
+miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.bits = function(range, value, packet, parent)
 
   -- Short Sale Indicator: 2 Bit Enum with 4 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.short_sale_indicator, buffer(offset, 1))
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.short_sale_indicator, range, value)
+
+  -- Locate Required: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.locate_required, range, value)
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_5, range, value)
 end
 
 -- Dissect: Modify Order Instructions
 miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.size
   local range = buffer(offset, size)
-  local display = miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.modify_order_instructions, range, display)
 
   if show.modify_order_instructions then
-    miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.bits(buffer, offset, packet, element)
+    miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Size
@@ -3755,38 +3758,39 @@ miax_pearlequities_expressorders_meo_v2_6.routing = {}
 miax_pearlequities_expressorders_meo_v2_6.routing.size = 1
 
 -- Display: Routing
-miax_pearlequities_expressorders_meo_v2_6.routing.display = function(buffer, packet, parent)
-  local display = ""
+miax_pearlequities_expressorders_meo_v2_6.routing.display = function(range, value, packet, parent)
+  local flags = {}
 
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Routing
-miax_pearlequities_expressorders_meo_v2_6.routing.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 2: 2 Bit
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_2, buffer(offset, 1))
-
-  -- Routing Strategy: 3 Bit Enum with 3 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.routing_strategy, buffer(offset, 1))
+miax_pearlequities_expressorders_meo_v2_6.routing.bits = function(range, value, packet, parent)
 
   -- Routing Instruction: 3 Bit Enum with 3 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.routing_instruction, buffer(offset, 1))
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.routing_instruction, range, value)
+
+  -- Routing Strategy: 3 Bit Enum with 3 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.routing_strategy, range, value)
+
+  -- Unused 2: 2 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_2, range, value)
 end
 
 -- Dissect: Routing
 miax_pearlequities_expressorders_meo_v2_6.routing.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = miax_pearlequities_expressorders_meo_v2_6.routing.size
   local range = buffer(offset, size)
-  local display = miax_pearlequities_expressorders_meo_v2_6.routing.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v2_6.routing.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.routing, range, display)
 
   if show.routing then
-    miax_pearlequities_expressorders_meo_v2_6.routing.bits(buffer, offset, packet, element)
+    miax_pearlequities_expressorders_meo_v2_6.routing.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Self Trade Protection Group
@@ -3819,38 +3823,39 @@ miax_pearlequities_expressorders_meo_v2_6.self_trade_protection = {}
 miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.size = 1
 
 -- Display: Self Trade Protection
-miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.display = function(buffer, packet, parent)
-  local display = ""
+miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.display = function(range, value, packet, parent)
+  local flags = {}
 
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Self Trade Protection
-miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 2: 2 Bit
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_2, buffer(offset, 1))
-
-  -- Self Trade Protection Instruction: 3 Bit Enum with 5 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection_instruction, buffer(offset, 1))
+miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.bits = function(range, value, packet, parent)
 
   -- Self Trade Protection Level: 3 Bit Enum with 4 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection_level, buffer(offset, 1))
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection_level, range, value)
+
+  -- Self Trade Protection Instruction: 3 Bit Enum with 5 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection_instruction, range, value)
+
+  -- Unused 2: 2 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_2, range, value)
 end
 
 -- Dissect: Self Trade Protection
 miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.size
   local range = buffer(offset, size)
-  local display = miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection, range, display)
 
   if show.self_trade_protection then
-    miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.bits(buffer, offset, packet, element)
+    miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Price Sliding And Reprice Frequency
@@ -3971,90 +3976,91 @@ miax_pearlequities_expressorders_meo_v2_6.new_order_instructions = {}
 miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.size = 2
 
 -- Display: New Order Instructions
-miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.display = function(buffer, packet, parent)
-  local display = ""
+miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.display = function(range, value, packet, parent)
+  local flags = {}
 
-  -- Is Cancel Order If Not A Nbbo Setter flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Cancel Order If Not A Nbbo Setter|"
-  end
-  -- Is Retail Order flag set?
-  if buffer:bitfield(8) > 0 then
-    display = display.."Retail Order|"
-  end
-  -- Is Iso flag set?
-  if buffer:bitfield(9) > 0 then
-    display = display.."Iso|"
-  end
-  -- Is Locate Required flag set?
-  if buffer:bitfield(10) > 0 then
-    display = display.."Locate Required|"
-  end
-  -- Is Post Only flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Post Only|"
+  -- Is Side flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    flags[#flags + 1] = "Side"
   end
   -- Is Displayed flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Displayed|"
+  if bit.band(value, 0x0008) ~= 0 then
+    flags[#flags + 1] = "Displayed"
   end
-  -- Is Side flag set?
-  if buffer:bitfield(15) > 0 then
-    display = display.."Side|"
+  -- Is Post Only flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    flags[#flags + 1] = "Post Only"
+  end
+  -- Is Locate Required flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    flags[#flags + 1] = "Locate Required"
+  end
+  -- Is Iso flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    flags[#flags + 1] = "Iso"
+  end
+  -- Is Retail Order flag set?
+  if bit.band(value, 0x0080) ~= 0 then
+    flags[#flags + 1] = "Retail Order"
+  end
+  -- Is Cancel Order If Not A Nbbo Setter flag set?
+  if bit.band(value, 0x1000) ~= 0 then
+    flags[#flags + 1] = "Cancel Order If Not A Nbbo Setter"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: New Order Instructions
-miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 3: 3 Bit
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_3, buffer(offset, 2))
-
-  -- Cancel Order If Not A Nbbo Setter: 1 Bit Enum with 2 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_if_not_a_nbbo_setter, buffer(offset, 2))
-
-  -- Min Qty Exec Type: 2 Bit Enum with 3 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.min_qty_exec_type, buffer(offset, 2))
-
-  -- Attributable Order: 2 Bit Enum with 3 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.attributable_order, buffer(offset, 2))
-
-  -- Retail Order: 1 Bit Enum with 2 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.retail_order, buffer(offset, 2))
-
-  -- Iso: 1 Bit Enum with 2 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.iso, buffer(offset, 2))
-
-  -- Locate Required: 1 Bit Enum with 2 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.locate_required, buffer(offset, 2))
-
-  -- Post Only: 1 Bit Enum with 2 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.post_only, buffer(offset, 2))
-
-  -- Displayed: 1 Bit Enum with 2 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.displayed, buffer(offset, 2))
-
-  -- Short Sale Indicator: 2 Bit Enum with 4 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.short_sale_indicator, buffer(offset, 2))
+miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.bits = function(range, value, packet, parent)
 
   -- Side: 1 Bit Enum with 2 values
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.side, buffer(offset, 2))
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.side, range, value)
+
+  -- Short Sale Indicator: 2 Bit Enum with 4 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.short_sale_indicator, range, value)
+
+  -- Displayed: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.displayed, range, value)
+
+  -- Post Only: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.post_only, range, value)
+
+  -- Locate Required: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.locate_required, range, value)
+
+  -- Iso: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.iso, range, value)
+
+  -- Retail Order: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.retail_order, range, value)
+
+  -- Attributable Order: 2 Bit Enum with 3 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.attributable_order, range, value)
+
+  -- Min Qty Exec Type: 2 Bit Enum with 3 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.min_qty_exec_type, range, value)
+
+  -- Cancel Order If Not A Nbbo Setter: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_if_not_a_nbbo_setter, range, value)
+
+  -- Unused 3: 3 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_3, range, value)
 end
 
 -- Dissect: New Order Instructions
 miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.dissect = function(buffer, offset, packet, parent)
-  local size = 2
+  local size = miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.size
   local range = buffer(offset, size)
-  local display = miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.new_order_instructions, range, display)
 
   if show.new_order_instructions then
-    miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.bits(buffer, offset, packet, element)
+    miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.bits(range, value, packet, element)
   end
 
-  return offset + 2, range
+  return offset + size, value
 end
 
 -- New Order Request Message

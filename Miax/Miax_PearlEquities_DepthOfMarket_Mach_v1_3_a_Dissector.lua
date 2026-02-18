@@ -29,7 +29,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.modify_order_flags = Pro
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.opening_time = ProtoField.new("Opening Time", "miax.pearlequities.depthofmarket.mach.v1.3.a.openingtime", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_execution_flags = ProtoField.new("Order Execution Flags", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderexecutionflags", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_id = ProtoField.new("Order Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderid", ftypes.UINT64)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_position = ProtoField.new("Order Position", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderposition", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_position = ProtoField.new("Order Position", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderposition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_side = ProtoField.new("Order Side", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderside", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.depthofmarket.mach.v1.3.a.packet", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet_length = ProtoField.new("Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.a.packetlength", ftypes.UINT16)
@@ -37,7 +37,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet_type = ProtoField
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.payload = ProtoField.new("Payload", "miax.pearlequities.depthofmarket.mach.v1.3.a.payload", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.price = ProtoField.new("Price", "miax.pearlequities.depthofmarket.mach.v1.3.a.price", ftypes.DOUBLE)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.depthofmarket.mach.v1.3.a.primarymarketcode", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable = ProtoField.new("Reportable", "miax.pearlequities.depthofmarket.mach.v1.3.a.reportable", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable = ProtoField.new("Reportable", "miax.pearlequities.depthofmarket.mach.v1.3.a.reportable", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.depthofmarket.mach.v1.3.a.reserved1", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.a.sequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.session_id = ProtoField.new("Session Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.sessionid", ftypes.UINT8)
@@ -54,7 +54,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_id = ProtoField.ne
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradingstatus", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7 = ProtoField.new("Unused 7", "miax.pearlequities.depthofmarket.mach.v1.3.a.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
--- Miax PearlEquities DepthOfMarket Mach 1.3.a messages
+-- Miax PearlEquities Mach DepthOfMarket 1.3.a Application Messages
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.add_order_message = ProtoField.new("Add Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.addordermessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.delete_order_message = ProtoField.new("Delete Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.deleteordermessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.modify_order_message = ProtoField.new("Modify Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.modifyordermessage", ftypes.STRING)
@@ -437,39 +437,40 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.size = 1
 
 -- Display: Trade Flags
-miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.display = function(buffer, packet, parent)
-  local display = ""
+miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.display = function(range, value, packet, parent)
+  local flags = {}
 
   -- Is Reportable flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Reportable|"
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Reportable"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Trade Flags
-miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 7: 7 Bit
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, buffer(offset, 1))
+miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.bits = function(range, value, packet, parent)
 
   -- Reportable: 1 Bit
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable, buffer(offset, 1))
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable, range, value)
+
+  -- Unused 7: 7 Bit
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, range, value)
 end
 
 -- Dissect: Trade Flags
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.size
   local range = buffer(offset, size)
-  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_flags, range, display)
 
   if show.trade_flags then
-    miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.bits(buffer, offset, packet, element)
+    miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Trade Message
@@ -543,39 +544,40 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.size = 1
 
 -- Display: Order Execution Flags
-miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.display = function(buffer, packet, parent)
-  local display = ""
+miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.display = function(range, value, packet, parent)
+  local flags = {}
 
   -- Is Reportable flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Reportable|"
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Reportable"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Order Execution Flags
-miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 7: 7 Bit
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, buffer(offset, 1))
+miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.bits = function(range, value, packet, parent)
 
   -- Reportable: 1 Bit
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable, buffer(offset, 1))
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable, range, value)
+
+  -- Unused 7: 7 Bit
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, range, value)
 end
 
 -- Dissect: Order Execution Flags
 miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.size
   local range = buffer(offset, size)
-  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_execution_flags, range, display)
 
   if show.order_execution_flags then
-    miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.bits(buffer, offset, packet, element)
+    miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Order Id
@@ -720,39 +722,40 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.size = 1
 
 -- Display: Modify Order Flags
-miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.display = function(buffer, packet, parent)
-  local display = ""
+miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.display = function(range, value, packet, parent)
+  local flags = {}
 
   -- Is Order Position flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."Order Position|"
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Order Position"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Modify Order Flags
-miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.bits = function(buffer, offset, packet, parent)
-
-  -- Unused 7: 7 Bit
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, buffer(offset, 1))
+miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.bits = function(range, value, packet, parent)
 
   -- Order Position: 1 Bit
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_position, buffer(offset, 1))
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_position, range, value)
+
+  -- Unused 7: 7 Bit
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, range, value)
 end
 
 -- Dissect: Modify Order Flags
 miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.size
   local range = buffer(offset, size)
-  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.modify_order_flags, range, display)
 
   if show.modify_order_flags then
-    miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.bits(buffer, offset, packet, element)
+    miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
+  return offset + size, value
 end
 
 -- Modify Order Message
