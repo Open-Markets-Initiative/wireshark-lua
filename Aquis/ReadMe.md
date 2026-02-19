@@ -7,6 +7,7 @@
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Equities | [UdpHeader][Aquis.Equities.UdpHeader.Amd.v1.0.Dissector] | Amd | [1.0][Aquis.Equities.UdpHeader.Amd.v1.0.Dissector] | 6/24/2013 | 379 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.UdpHeader.Amd.v1.0.Url] |
 | Equities | [TcpHeader][Aquis.Equities.TcpHeader.Atp.v1.0.Dissector] | Atp | [1.0][Aquis.Equities.TcpHeader.Atp.v1.0.Dissector] | 6/24/2013 | 376 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.TcpHeader.Atp.v1.0.Url] |
+| Equities | [TradingProtocol][Aquis.Equities.TradingProtocol.Atp.v4.0.Dissector] | Atp | [4.0][Aquis.Equities.TradingProtocol.Atp.v4.0.Dissector] | 8/1/2025 | 3936 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.TradingProtocol.Atp.v4.0.Url] - [pdf][Aquis.Equities.TradingProtocol.Atp.v4.0.Pdf] |
 
 
 Aquis: [website](https://www.aquis.eu "Go to Aquis Exchange")
@@ -28,3 +29,6 @@ Aquis: [website](https://www.aquis.eu "Go to Aquis Exchange")
 [Aquis.Equities.UdpHeader.Amd.v1.0.Url]: https://www.aquis.eu/technologies "Aquis Exchange 1.0 Url"
 [Aquis.Equities.TcpHeader.Atp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Aquis/Aquis_Equities_TcpHeader_Atp_v1_0_Dissector.lua "Aquis Equities TcpHeader Atp v1.0 Wireshark Dissector"
 [Aquis.Equities.TcpHeader.Atp.v1.0.Url]: https://www.aquis.eu/technologies "Aquis Exchange 1.0 Url"
+[Aquis.Equities.TradingProtocol.Atp.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Aquis/Aquis_Equities_TradingProtocol_Atp_v4_0_Dissector.lua "Aquis Equities TradingProtocol Atp v4.0 Wireshark Dissector"
+[Aquis.Equities.TradingProtocol.Atp.v4.0.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 4.0 Url"
+[Aquis.Equities.TradingProtocol.Atp.v4.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Specifications/Atp/Aquis.Equities.TradingProtocol.Atp.v4.0.pdf "Aquis Exchange 4.0 Pdf"
