@@ -18394,14 +18394,14 @@ euronext_optiq_marketdatagateway_sbe_v5_19.template_id.size = 2
 
 -- Display: Template Id
 euronext_optiq_marketdatagateway_sbe_v5_19.template_id.display = function(value)
+  if value == 1103 then
+    return "Template Id: Health Status Message (1103)"
+  end
   if value == 1101 then
     return "Template Id: Start Of Day Message (1101)"
   end
   if value == 1102 then
     return "Template Id: End Of Day Message (1102)"
-  end
-  if value == 1103 then
-    return "Template Id: Health Status Message (1103)"
   end
   if value == 1106 then
     return "Template Id: Technical Notification Message (1106)"

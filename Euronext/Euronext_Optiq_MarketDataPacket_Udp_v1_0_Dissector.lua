@@ -240,7 +240,11 @@ euronext_optiq_marketdatapacket_udp_v1_0.template_id.size = 2
 
 -- Display: Template Id
 euronext_optiq_marketdatapacket_udp_v1_0.template_id.display = function(value)
-  return "Template Id: "..value
+  if value == 1103 then
+    return "Template Id: Health Status Message (1103)"
+  end
+
+  return "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -300,7 +304,7 @@ euronext_optiq_marketdatapacket_udp_v1_0.message_header.fields = function(buffer
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = euronext_optiq_marketdatapacket_udp_v1_0.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, template_id = euronext_optiq_marketdatapacket_udp_v1_0.template_id.dissect(buffer, index, packet, parent)
 
   -- Schema Id: 2 Byte Unsigned Fixed Width Integer
