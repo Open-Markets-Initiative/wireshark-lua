@@ -21,6 +21,7 @@ omi_aquis_equities_udpheader_amd_v1_0.fields.message_header = ProtoField.new("Me
 omi_aquis_equities_udpheader_amd_v1_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.equities.udpheader.amd.v1.0.msglength", ftypes.UINT8)
 omi_aquis_equities_udpheader_amd_v1_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.equities.udpheader.amd.v1.0.msgtype", ftypes.UINT8)
 omi_aquis_equities_udpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.equities.udpheader.amd.v1.0.packet", ftypes.STRING)
+omi_aquis_equities_udpheader_amd_v1_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.equities.udpheader.amd.v1.0.packetheader", ftypes.STRING)
 omi_aquis_equities_udpheader_amd_v1_0.fields.payload = ProtoField.new("Payload", "aquis.equities.udpheader.amd.v1.0.payload", ftypes.BYTES)
 omi_aquis_equities_udpheader_amd_v1_0.fields.seq_no = ProtoField.new("Seq No", "aquis.equities.udpheader.amd.v1.0.seqno", ftypes.UINT32)
 
@@ -37,11 +38,13 @@ local show = {}
 show.message = true
 show.message_header = true
 show.packet = true
+show.packet_header = true
 
 -- Register Aquis Equities UdpHeader Amd 1.0 Show Options
 omi_aquis_equities_udpheader_amd_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_aquis_equities_udpheader_amd_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_aquis_equities_udpheader_amd_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_aquis_equities_udpheader_amd_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 
 -- Handle changed preferences
 function omi_aquis_equities_udpheader_amd_v1_0.prefs_changed()
@@ -58,6 +61,10 @@ function omi_aquis_equities_udpheader_amd_v1_0.prefs_changed()
   end
   if show.packet ~= omi_aquis_equities_udpheader_amd_v1_0.prefs.show_packet then
     show.packet = omi_aquis_equities_udpheader_amd_v1_0.prefs.show_packet
+    changed = true
+  end
+  if show.packet_header ~= omi_aquis_equities_udpheader_amd_v1_0.prefs.show_packet_header then
+    show.packet_header = omi_aquis_equities_udpheader_amd_v1_0.prefs.show_packet_header
     changed = true
   end
 
@@ -283,6 +290,46 @@ aquis_equities_udpheader_amd_v1_0.message_count.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Packet Header
+aquis_equities_udpheader_amd_v1_0.packet_header = {}
+
+-- Size: Packet Header
+aquis_equities_udpheader_amd_v1_0.packet_header.size =
+  aquis_equities_udpheader_amd_v1_0.message_count.size
+
+-- Display: Packet Header
+aquis_equities_udpheader_amd_v1_0.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+aquis_equities_udpheader_amd_v1_0.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = aquis_equities_udpheader_amd_v1_0.message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+aquis_equities_udpheader_amd_v1_0.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.packet_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_aquis_equities_udpheader_amd_v1_0.fields.packet_header, buffer(offset, 0))
+    local index = aquis_equities_udpheader_amd_v1_0.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = aquis_equities_udpheader_amd_v1_0.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return aquis_equities_udpheader_amd_v1_0.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet
 aquis_equities_udpheader_amd_v1_0.packet = {}
 
@@ -290,8 +337,11 @@ aquis_equities_udpheader_amd_v1_0.packet = {}
 aquis_equities_udpheader_amd_v1_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = aquis_equities_udpheader_amd_v1_0.message_count.dissect(buffer, index, packet, parent)
+  -- Packet Header: Struct of 1 fields
+  index, packet_header = aquis_equities_udpheader_amd_v1_0.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 1, 1):uint()
 
   -- Repeating: Message
   for message_index = 1, message_count do
