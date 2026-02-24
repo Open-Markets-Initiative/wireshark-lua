@@ -77,7 +77,7 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.underlying_asset = ProtoFi
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.underlying_asset_type = ProtoField.new("Underlying Asset Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.underlyingassettype", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unitofmeasure", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused_7 = ProtoField.new("Unused 7", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused = ProtoField.new("Unused", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unused", ftypes.UINT8, nil, base.DEC, 0xFE)
 
 -- Miax OnyxFutures Mach DepthOfMarket 1.0.b Application Messages
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.add_order_message = ProtoField.new("Add Order Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.addordermessage", ftypes.STRING)
@@ -754,8 +754,8 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.bits = function(range, v
   -- Order Position: 1 Bit
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_position, range, value)
 
-  -- Unused 7: 7 Bit
-  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused_7, range, value)
+  -- Unused: 7 Bit
+  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused, range, value)
 end
 
 -- Dissect: Modify Flags

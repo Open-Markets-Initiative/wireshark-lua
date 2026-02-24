@@ -52,7 +52,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.timestamp = ProtoField.n
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_flags = ProtoField.new("Trade Flags", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradeflags", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradeid", ftypes.UINT64)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradingstatus", ftypes.UINT8)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7 = ProtoField.new("Unused 7", "miax.pearlequities.depthofmarket.mach.v1.3.a.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused = ProtoField.new("Unused", "miax.pearlequities.depthofmarket.mach.v1.3.a.unused", ftypes.UINT8, nil, base.DEC, 0xFE)
 
 -- Miax PearlEquities Mach DepthOfMarket 1.3.a Application Messages
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.add_order_message = ProtoField.new("Add Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.addordermessage", ftypes.STRING)
@@ -454,8 +454,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.bits = function(range, 
   -- Reportable: 1 Bit
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable, range, value)
 
-  -- Unused 7: 7 Bit
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, range, value)
+  -- Unused: 7 Bit
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused, range, value)
 end
 
 -- Dissect: Trade Flags
@@ -561,8 +561,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.bits = functi
   -- Reportable: 1 Bit
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable, range, value)
 
-  -- Unused 7: 7 Bit
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, range, value)
+  -- Unused: 7 Bit
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused, range, value)
 end
 
 -- Dissect: Order Execution Flags
@@ -739,8 +739,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.bits = function(
   -- Order Position: 1 Bit
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_position, range, value)
 
-  -- Unused 7: 7 Bit
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, range, value)
+  -- Unused: 7 Bit
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused, range, value)
 end
 
 -- Dissect: Modify Order Flags
