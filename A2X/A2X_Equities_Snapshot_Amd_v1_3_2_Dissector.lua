@@ -39,7 +39,7 @@ omi_a2x_equities_snapshot_amd_v1_3_2.fields.stream_seq_no = ProtoField.new("Stre
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.equities.snapshot.amd.v1.3.2.timestamp", ftypes.UINT64)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.equities.snapshot.amd.v1.3.2.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.equities.snapshot.amd.v1.3.2.tradingstatus", ftypes.UINT8)
-omi_a2x_equities_snapshot_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.equities.snapshot.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
+omi_a2x_equities_snapshot_amd_v1_3_2.fields.unused = ProtoField.new("Unused", "a2x.equities.snapshot.amd.v1.3.2.unused", ftypes.UINT8, nil, base.DEC, 0x1F)
 
 -- A2X Equities Amd Snapshot 1.3.2 Application Messages
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.book_entry_message = ProtoField.new("Book Entry Message", "a2x.equities.snapshot.amd.v1.3.2.bookentrymessage", ftypes.STRING)
@@ -448,8 +448,8 @@ end
 -- Dissect Bit Fields: Market Flags
 a2x_equities_snapshot_amd_v1_3_2.market_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 5: 5 Bit
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.unused_5, range, value)
+  -- Unused: 5 Bit
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.unused, range, value)
 
   -- Mac Run: 1 Bit
   parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.mac_run, range, value)
