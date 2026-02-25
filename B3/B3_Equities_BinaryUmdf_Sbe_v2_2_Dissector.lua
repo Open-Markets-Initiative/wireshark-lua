@@ -4700,7 +4700,7 @@ end
 
 -- Display: Url Link
 b3_equities_binaryumdf_sbe_v2_2.url_link.display = function(buffer, offset, value, packet, parent)
-  return "Url Link: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Url Link
@@ -4806,7 +4806,7 @@ end
 
 -- Display: Text
 b3_equities_binaryumdf_sbe_v2_2.text.display = function(buffer, offset, value, packet, parent)
-  return "Text: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Text
@@ -4912,7 +4912,7 @@ end
 
 -- Display: Headline
 b3_equities_binaryumdf_sbe_v2_2.headline.display = function(buffer, offset, value, packet, parent)
-  return "Headline: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Headline

@@ -4162,10 +4162,10 @@ cme_futures_ilink3_sbe_v8_6.leg_option_delta.size =
 -- Display: Leg Option Delta
 cme_futures_ilink3_sbe_v8_6.leg_option_delta.display = function(raw, value)
   if raw ~= nil then
-    return "Leg Option Delta: No Value"
+    return "No Value"
   end
 
-  return "Leg Option Delta: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Leg Option Delta
@@ -6026,10 +6026,10 @@ cme_futures_ilink3_sbe_v8_6.gross_trade_amt.size =
 -- Display: Gross Trade Amt
 cme_futures_ilink3_sbe_v8_6.gross_trade_amt.display = function(raw, value)
   if raw ~= nil then
-    return "Gross Trade Amt: No Value"
+    return "No Value"
   end
 
-  return "Gross Trade Amt: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Gross Trade Amt
@@ -6077,10 +6077,10 @@ cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.size =
 -- Display: Calculated Ccy Last Qty
 cme_futures_ilink3_sbe_v8_6.calculated_ccy_last_qty.display = function(raw, value)
   if raw ~= nil then
-    return "Calculated Ccy Last Qty: No Value"
+    return "No Value"
   end
 
-  return "Calculated Ccy Last Qty: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Calculated Ccy Last Qty
@@ -7295,10 +7295,10 @@ cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.size =
 -- Display: Contra Calculated Ccy Last Qty
 cme_futures_ilink3_sbe_v8_6.contra_calculated_ccy_last_qty.display = function(raw, value)
   if raw ~= nil then
-    return "Contra Calculated Ccy Last Qty: No Value"
+    return "No Value"
   end
 
-  return "Contra Calculated Ccy Last Qty: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Contra Calculated Ccy Last Qty
@@ -7346,10 +7346,10 @@ cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.size =
 -- Display: Contra Gross Trade Amt
 cme_futures_ilink3_sbe_v8_6.contra_gross_trade_amt.display = function(raw, value)
   if raw ~= nil then
-    return "Contra Gross Trade Amt: No Value"
+    return "No Value"
   end
 
-  return "Contra Gross Trade Amt: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Contra Gross Trade Amt
@@ -12688,10 +12688,10 @@ cme_futures_ilink3_sbe_v8_6.risk_free_rate.size =
 -- Display: Risk Free Rate
 cme_futures_ilink3_sbe_v8_6.risk_free_rate.display = function(raw, value)
   if raw ~= nil then
-    return "Risk Free Rate: No Value"
+    return "No Value"
   end
 
-  return "Risk Free Rate: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Risk Free Rate
@@ -12739,10 +12739,10 @@ cme_futures_ilink3_sbe_v8_6.time_to_expiration.size =
 -- Display: Time To Expiration
 cme_futures_ilink3_sbe_v8_6.time_to_expiration.display = function(raw, value)
   if raw ~= nil then
-    return "Time To Expiration: No Value"
+    return "No Value"
   end
 
-  return "Time To Expiration: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Time To Expiration
@@ -12790,10 +12790,10 @@ cme_futures_ilink3_sbe_v8_6.option_delta.size =
 -- Display: Option Delta
 cme_futures_ilink3_sbe_v8_6.option_delta.display = function(raw, value)
   if raw ~= nil then
-    return "Option Delta: No Value"
+    return "No Value"
   end
 
-  return "Option Delta: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Option Delta
@@ -12880,10 +12880,10 @@ cme_futures_ilink3_sbe_v8_6.volatility.size =
 -- Display: Volatility
 cme_futures_ilink3_sbe_v8_6.volatility.display = function(raw, value)
   if raw ~= nil then
-    return "Volatility: No Value"
+    return "No Value"
   end
 
-  return "Volatility: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Volatility

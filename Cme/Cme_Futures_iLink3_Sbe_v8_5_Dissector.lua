@@ -3291,10 +3291,10 @@ cme_futures_ilink3_sbe_v8_5.leg_option_delta.size =
 -- Display: Leg Option Delta
 cme_futures_ilink3_sbe_v8_5.leg_option_delta.display = function(raw, value)
   if raw ~= nil then
-    return "Leg Option Delta: No Value"
+    return "No Value"
   end
 
-  return "Leg Option Delta: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Leg Option Delta
@@ -11818,10 +11818,10 @@ cme_futures_ilink3_sbe_v8_5.risk_free_rate.size =
 -- Display: Risk Free Rate
 cme_futures_ilink3_sbe_v8_5.risk_free_rate.display = function(raw, value)
   if raw ~= nil then
-    return "Risk Free Rate: No Value"
+    return "No Value"
   end
 
-  return "Risk Free Rate: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Risk Free Rate
@@ -11869,10 +11869,10 @@ cme_futures_ilink3_sbe_v8_5.time_to_expiration.size =
 -- Display: Time To Expiration
 cme_futures_ilink3_sbe_v8_5.time_to_expiration.display = function(raw, value)
   if raw ~= nil then
-    return "Time To Expiration: No Value"
+    return "No Value"
   end
 
-  return "Time To Expiration: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Time To Expiration
@@ -11920,10 +11920,10 @@ cme_futures_ilink3_sbe_v8_5.option_delta.size =
 -- Display: Option Delta
 cme_futures_ilink3_sbe_v8_5.option_delta.display = function(raw, value)
   if raw ~= nil then
-    return "Option Delta: No Value"
+    return "No Value"
   end
 
-  return "Option Delta: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Option Delta
@@ -12038,10 +12038,10 @@ cme_futures_ilink3_sbe_v8_5.volatility.size =
 -- Display: Volatility
 cme_futures_ilink3_sbe_v8_5.volatility.display = function(raw, value)
   if raw ~= nil then
-    return "Volatility: No Value"
+    return "No Value"
   end
 
-  return "Volatility: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Volatility

@@ -3639,7 +3639,7 @@ siac_opra_recipient_obi_v6_2.block_timestamp.size =
 siac_opra_recipient_obi_v6_2.block_timestamp.display = function(packet, parent, value)
   -- Check null value
   if value == nil then
-    return "Block Timestamp: No Value"
+    return "No Value"
 
   end
 
@@ -3647,7 +3647,7 @@ siac_opra_recipient_obi_v6_2.block_timestamp.display = function(packet, parent, 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Block Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Block Timestamp

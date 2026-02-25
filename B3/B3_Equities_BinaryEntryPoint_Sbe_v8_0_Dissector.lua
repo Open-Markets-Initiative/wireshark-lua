@@ -3916,7 +3916,7 @@ end
 
 -- Display: Quote Req Id
 b3_equities_binaryentrypoint_sbe_v8_0.quote_req_id.display = function(buffer, offset, value, packet, parent)
-  return "Quote Req Id: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Quote Req Id

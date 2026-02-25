@@ -1932,7 +1932,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.leg_definition.size =
 
 -- Display: Leg Definition
 miax_miaxoptions_complextopofmarket_mach_v1_3.leg_definition.display = function(buffer, offset, value, packet, parent)
-  return "Leg Definition: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Leg Definition

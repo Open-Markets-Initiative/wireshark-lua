@@ -3430,7 +3430,7 @@ end
 
 -- Display: Data
 coinbase_derivatives_ordersapi_sbe_v1_5.data.display = function(buffer, offset, value, packet, parent)
-  return "Data: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Data

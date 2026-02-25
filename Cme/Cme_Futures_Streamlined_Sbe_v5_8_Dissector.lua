@@ -1301,10 +1301,10 @@ cme_futures_streamlined_sbe_v5_8.interpolation_factor.size =
 -- Display: Interpolation Factor
 cme_futures_streamlined_sbe_v5_8.interpolation_factor.display = function(raw, value)
   if raw ~= nil then
-    return "Interpolation Factor: No Value"
+    return "No Value"
   end
 
-  return "Interpolation Factor: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Interpolation Factor
@@ -1592,10 +1592,10 @@ cme_futures_streamlined_sbe_v5_8.previous_fixing_rate.size =
 -- Display: Previous Fixing Rate
 cme_futures_streamlined_sbe_v5_8.previous_fixing_rate.display = function(raw, value)
   if raw ~= nil then
-    return "Previous Fixing Rate: No Value"
+    return "No Value"
   end
 
-  return "Previous Fixing Rate: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Previous Fixing Rate
@@ -2467,10 +2467,10 @@ cme_futures_streamlined_sbe_v5_8.min_price_increment.size =
 -- Display: Min Price Increment
 cme_futures_streamlined_sbe_v5_8.min_price_increment.display = function(raw, value)
   if raw ~= nil then
-    return "Min Price Increment: No Value"
+    return "No Value"
   end
 
-  return "Min Price Increment: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Min Price Increment
@@ -3867,10 +3867,10 @@ cme_futures_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.size =
 -- Display: Unit Of Measure Qty Decimal
 cme_futures_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.display = function(raw, value)
   if raw ~= nil then
-    return "Unit Of Measure Qty Decimal: No Value"
+    return "No Value"
   end
 
-  return "Unit Of Measure Qty Decimal: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Unit Of Measure Qty Decimal
@@ -3996,10 +3996,10 @@ cme_futures_streamlined_sbe_v5_8.strike_price_decimal.size =
 -- Display: Strike Price Decimal
 cme_futures_streamlined_sbe_v5_8.strike_price_decimal.display = function(raw, value)
   if raw ~= nil then
-    return "Strike Price Decimal: No Value"
+    return "No Value"
   end
 
-  return "Strike Price Decimal: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Strike Price Decimal
@@ -4283,10 +4283,10 @@ cme_futures_streamlined_sbe_v5_8.md_entry_size.size =
 -- Display: Md Entry Size
 cme_futures_streamlined_sbe_v5_8.md_entry_size.display = function(raw, value)
   if raw ~= nil then
-    return "Md Entry Size: No Value"
+    return "No Value"
   end
 
-  return "Md Entry Size: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Md Entry Size
@@ -5149,10 +5149,10 @@ cme_futures_streamlined_sbe_v5_8.cal_fut_px.size =
 -- Display: Cal Fut Px
 cme_futures_streamlined_sbe_v5_8.cal_fut_px.display = function(raw, value)
   if raw ~= nil then
-    return "Cal Fut Px: No Value"
+    return "No Value"
   end
 
-  return "Cal Fut Px: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Cal Fut Px
@@ -5228,10 +5228,10 @@ cme_futures_streamlined_sbe_v5_8.md_entry_px_decimal.size =
 -- Display: Md Entry Px Decimal
 cme_futures_streamlined_sbe_v5_8.md_entry_px_decimal.display = function(raw, value)
   if raw ~= nil then
-    return "Md Entry Px Decimal: No Value"
+    return "No Value"
   end
 
-  return "Md Entry Px Decimal: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Md Entry Px Decimal
@@ -7533,10 +7533,10 @@ cme_futures_streamlined_sbe_v5_8.percent_trading.size =
 -- Display: Percent Trading
 cme_futures_streamlined_sbe_v5_8.percent_trading.display = function(raw, value)
   if raw ~= nil then
-    return "Percent Trading: No Value"
+    return "No Value"
   end
 
-  return "Percent Trading: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Percent Trading
@@ -7584,10 +7584,10 @@ cme_futures_streamlined_sbe_v5_8.net_pct_chg.size =
 -- Display: Net Pct Chg
 cme_futures_streamlined_sbe_v5_8.net_pct_chg.display = function(raw, value)
   if raw ~= nil then
-    return "Net Pct Chg: No Value"
+    return "No Value"
   end
 
-  return "Net Pct Chg: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Net Pct Chg
@@ -7635,10 +7635,10 @@ cme_futures_streamlined_sbe_v5_8.net_chg_prev_day.size =
 -- Display: Net Chg Prev Day
 cme_futures_streamlined_sbe_v5_8.net_chg_prev_day.display = function(raw, value)
   if raw ~= nil then
-    return "Net Chg Prev Day: No Value"
+    return "No Value"
   end
 
-  return "Net Chg Prev Day: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Net Chg Prev Day
@@ -7686,10 +7686,10 @@ cme_futures_streamlined_sbe_v5_8.yield.size =
 -- Display: Yield
 cme_futures_streamlined_sbe_v5_8.yield.display = function(raw, value)
   if raw ~= nil then
-    return "Yield: No Value"
+    return "No Value"
   end
 
-  return "Yield: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Yield
@@ -9645,10 +9645,10 @@ cme_futures_streamlined_sbe_v5_8.final_settlement_futures_price.size =
 -- Display: Final Settlement Futures Price
 cme_futures_streamlined_sbe_v5_8.final_settlement_futures_price.display = function(raw, value)
   if raw ~= nil then
-    return "Final Settlement Futures Price: No Value"
+    return "No Value"
   end
 
-  return "Final Settlement Futures Price: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Final Settlement Futures Price
@@ -9696,10 +9696,10 @@ cme_futures_streamlined_sbe_v5_8.settlement_npv.size =
 -- Display: Settlement Npv
 cme_futures_streamlined_sbe_v5_8.settlement_npv.display = function(raw, value)
   if raw ~= nil then
-    return "Settlement Npv: No Value"
+    return "No Value"
   end
 
-  return "Settlement Npv: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Settlement Npv
@@ -9747,10 +9747,10 @@ cme_futures_streamlined_sbe_v5_8.d_v_01.size =
 -- Display: D V 01
 cme_futures_streamlined_sbe_v5_8.d_v_01.display = function(raw, value)
   if raw ~= nil then
-    return "D V 01: No Value"
+    return "No Value"
   end
 
-  return "D V 01: "..value
+  return ""..value
 end
 
 -- Dissect Fields: D V 01
@@ -9798,10 +9798,10 @@ cme_futures_streamlined_sbe_v5_8.p_v_01.size =
 -- Display: P V 01
 cme_futures_streamlined_sbe_v5_8.p_v_01.display = function(raw, value)
   if raw ~= nil then
-    return "P V 01: No Value"
+    return "No Value"
   end
 
-  return "P V 01: "..value
+  return ""..value
 end
 
 -- Dissect Fields: P V 01
@@ -9877,10 +9877,10 @@ cme_futures_streamlined_sbe_v5_8.leg_contract_multiplier.size =
 -- Display: Leg Contract Multiplier
 cme_futures_streamlined_sbe_v5_8.leg_contract_multiplier.display = function(raw, value)
   if raw ~= nil then
-    return "Leg Contract Multiplier: No Value"
+    return "No Value"
   end
 
-  return "Leg Contract Multiplier: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Leg Contract Multiplier
@@ -10051,10 +10051,10 @@ cme_futures_streamlined_sbe_v5_8.previous_eris_pai.size =
 -- Display: Previous Eris Pai
 cme_futures_streamlined_sbe_v5_8.previous_eris_pai.display = function(raw, value)
   if raw ~= nil then
-    return "Previous Eris Pai: No Value"
+    return "No Value"
   end
 
-  return "Previous Eris Pai: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Previous Eris Pai
@@ -10130,10 +10130,10 @@ cme_futures_streamlined_sbe_v5_8.next_floating_payment_amount.size =
 -- Display: Next Floating Payment Amount
 cme_futures_streamlined_sbe_v5_8.next_floating_payment_amount.display = function(raw, value)
   if raw ~= nil then
-    return "Next Floating Payment Amount: No Value"
+    return "No Value"
   end
 
-  return "Next Floating Payment Amount: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Next Floating Payment Amount
@@ -10181,10 +10181,10 @@ cme_futures_streamlined_sbe_v5_8.next_fixed_payment_amount.size =
 -- Display: Next Fixed Payment Amount
 cme_futures_streamlined_sbe_v5_8.next_fixed_payment_amount.display = function(raw, value)
   if raw ~= nil then
-    return "Next Fixed Payment Amount: No Value"
+    return "No Value"
   end
 
-  return "Next Fixed Payment Amount: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Next Fixed Payment Amount
@@ -10260,10 +10260,10 @@ cme_futures_streamlined_sbe_v5_8.floating_payment.size =
 -- Display: Floating Payment
 cme_futures_streamlined_sbe_v5_8.floating_payment.display = function(raw, value)
   if raw ~= nil then
-    return "Floating Payment: No Value"
+    return "No Value"
   end
 
-  return "Floating Payment: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Floating Payment
@@ -10311,10 +10311,10 @@ cme_futures_streamlined_sbe_v5_8.fixed_payment.size =
 -- Display: Fixed Payment
 cme_futures_streamlined_sbe_v5_8.fixed_payment.display = function(raw, value)
   if raw ~= nil then
-    return "Fixed Payment: No Value"
+    return "No Value"
   end
 
-  return "Fixed Payment: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Fixed Payment
@@ -10362,10 +10362,10 @@ cme_futures_streamlined_sbe_v5_8.min_price_increment_optional.size =
 -- Display: Min Price Increment Optional
 cme_futures_streamlined_sbe_v5_8.min_price_increment_optional.display = function(raw, value)
   if raw ~= nil then
-    return "Min Price Increment Optional: No Value"
+    return "No Value"
   end
 
-  return "Min Price Increment Optional: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Min Price Increment Optional
@@ -10413,10 +10413,10 @@ cme_futures_streamlined_sbe_v5_8.fed_funds_rate.size =
 -- Display: Fed Funds Rate
 cme_futures_streamlined_sbe_v5_8.fed_funds_rate.display = function(raw, value)
   if raw ~= nil then
-    return "Fed Funds Rate: No Value"
+    return "No Value"
   end
 
-  return "Fed Funds Rate: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Fed Funds Rate
@@ -10464,10 +10464,10 @@ cme_futures_streamlined_sbe_v5_8.eris_pai.size =
 -- Display: Eris Pai
 cme_futures_streamlined_sbe_v5_8.eris_pai.display = function(raw, value)
   if raw ~= nil then
-    return "Eris Pai: No Value"
+    return "No Value"
   end
 
-  return "Eris Pai: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Eris Pai
@@ -10515,10 +10515,10 @@ cme_futures_streamlined_sbe_v5_8.daily_incremental_eris_pai.size =
 -- Display: Daily Incremental Eris Pai
 cme_futures_streamlined_sbe_v5_8.daily_incremental_eris_pai.display = function(raw, value)
   if raw ~= nil then
-    return "Daily Incremental Eris Pai: No Value"
+    return "No Value"
   end
 
-  return "Daily Incremental Eris Pai: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Daily Incremental Eris Pai
@@ -10566,10 +10566,10 @@ cme_futures_streamlined_sbe_v5_8.accrued_coupons.size =
 -- Display: Accrued Coupons
 cme_futures_streamlined_sbe_v5_8.accrued_coupons.display = function(raw, value)
   if raw ~= nil then
-    return "Accrued Coupons: No Value"
+    return "No Value"
   end
 
-  return "Accrued Coupons: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Accrued Coupons
@@ -10617,10 +10617,10 @@ cme_futures_streamlined_sbe_v5_8.npv.size =
 -- Display: Npv
 cme_futures_streamlined_sbe_v5_8.npv.display = function(raw, value)
   if raw ~= nil then
-    return "Npv: No Value"
+    return "No Value"
   end
 
-  return "Npv: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Npv
@@ -10668,10 +10668,10 @@ cme_futures_streamlined_sbe_v5_8.float_npv.size =
 -- Display: Float Npv
 cme_futures_streamlined_sbe_v5_8.float_npv.display = function(raw, value)
   if raw ~= nil then
-    return "Float Npv: No Value"
+    return "No Value"
   end
 
-  return "Float Npv: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Float Npv
@@ -10719,10 +10719,10 @@ cme_futures_streamlined_sbe_v5_8.fixed_npv.size =
 -- Display: Fixed Npv
 cme_futures_streamlined_sbe_v5_8.fixed_npv.display = function(raw, value)
   if raw ~= nil then
-    return "Fixed Npv: No Value"
+    return "No Value"
   end
 
-  return "Fixed Npv: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Fixed Npv
@@ -10770,10 +10770,10 @@ cme_futures_streamlined_sbe_v5_8.leg_purchase_rate.size =
 -- Display: Leg Purchase Rate
 cme_futures_streamlined_sbe_v5_8.leg_purchase_rate.display = function(raw, value)
   if raw ~= nil then
-    return "Leg Purchase Rate: No Value"
+    return "No Value"
   end
 
-  return "Leg Purchase Rate: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Leg Purchase Rate
@@ -10821,10 +10821,10 @@ cme_futures_streamlined_sbe_v5_8.fair_coupon_pct.size =
 -- Display: Fair Coupon Pct
 cme_futures_streamlined_sbe_v5_8.fair_coupon_pct.display = function(raw, value)
   if raw ~= nil then
-    return "Fair Coupon Pct: No Value"
+    return "No Value"
   end
 
-  return "Fair Coupon Pct: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Fair Coupon Pct
@@ -10900,10 +10900,10 @@ cme_futures_streamlined_sbe_v5_8.coupon_rate_optional.size =
 -- Display: Coupon Rate Optional
 cme_futures_streamlined_sbe_v5_8.coupon_rate_optional.display = function(raw, value)
   if raw ~= nil then
-    return "Coupon Rate Optional: No Value"
+    return "No Value"
   end
 
-  return "Coupon Rate Optional: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Coupon Rate Optional
@@ -10951,10 +10951,10 @@ cme_futures_streamlined_sbe_v5_8.cal_fut_px_optional.size =
 -- Display: Cal Fut Px Optional
 cme_futures_streamlined_sbe_v5_8.cal_fut_px_optional.display = function(raw, value)
   if raw ~= nil then
-    return "Cal Fut Px Optional: No Value"
+    return "No Value"
   end
 
-  return "Cal Fut Px Optional: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Cal Fut Px Optional
@@ -11091,10 +11091,10 @@ cme_futures_streamlined_sbe_v5_8.md_entry_px_decimal_optional.size =
 -- Display: Md Entry Px Decimal Optional
 cme_futures_streamlined_sbe_v5_8.md_entry_px_decimal_optional.display = function(raw, value)
   if raw ~= nil then
-    return "Md Entry Px Decimal Optional: No Value"
+    return "No Value"
   end
 
-  return "Md Entry Px Decimal Optional: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Md Entry Px Decimal Optional

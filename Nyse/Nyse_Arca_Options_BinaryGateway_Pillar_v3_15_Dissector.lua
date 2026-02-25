@@ -5696,7 +5696,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.size =
 
 -- Display: Quote Ack
 nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.display = function(buffer, offset, value, packet, parent)
-  return "Quote Ack: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Quote Ack

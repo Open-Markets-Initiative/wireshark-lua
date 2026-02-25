@@ -422,10 +422,10 @@ cme_futures_settlements_sbe_v7_0.high_px.size =
 -- Display: High Px
 cme_futures_settlements_sbe_v7_0.high_px.display = function(raw, value)
   if raw ~= nil then
-    return "High Px: No Value"
+    return "No Value"
   end
 
-  return "High Px: "..value
+  return ""..value
 end
 
 -- Dissect Fields: High Px
@@ -519,10 +519,10 @@ cme_futures_settlements_sbe_v7_0.low_px.size =
 -- Display: Low Px
 cme_futures_settlements_sbe_v7_0.low_px.display = function(raw, value)
   if raw ~= nil then
-    return "Low Px: No Value"
+    return "No Value"
   end
 
-  return "Low Px: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Low Px
@@ -974,10 +974,10 @@ cme_futures_settlements_sbe_v7_0.strike_price.size =
 -- Display: Strike Price
 cme_futures_settlements_sbe_v7_0.strike_price.display = function(raw, value)
   if raw ~= nil then
-    return "Strike Price: No Value"
+    return "No Value"
   end
 
-  return "Strike Price: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Strike Price
@@ -2059,10 +2059,10 @@ cme_futures_settlements_sbe_v7_0.formatted_last_px.size =
 -- Display: Formatted Last Px
 cme_futures_settlements_sbe_v7_0.formatted_last_px.display = function(raw, value)
   if raw ~= nil then
-    return "Formatted Last Px: No Value"
+    return "No Value"
   end
 
-  return "Formatted Last Px: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Formatted Last Px

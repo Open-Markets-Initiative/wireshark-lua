@@ -312,10 +312,10 @@ cme_brokertec_ust_sbe_v10_1.coupon_rate.size =
 -- Display: Coupon Rate
 cme_brokertec_ust_sbe_v10_1.coupon_rate.display = function(raw, value)
   if raw ~= nil then
-    return "Coupon Rate: No Value"
+    return "No Value"
   end
 
-  return "Coupon Rate: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Coupon Rate
@@ -617,10 +617,10 @@ cme_brokertec_ust_sbe_v10_1.md_entry_px.size =
 -- Display: Md Entry Px
 cme_brokertec_ust_sbe_v10_1.md_entry_px.display = function(raw, value)
   if raw ~= nil then
-    return "Md Entry Px: No Value"
+    return "No Value"
   end
 
-  return "Md Entry Px: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Md Entry Px

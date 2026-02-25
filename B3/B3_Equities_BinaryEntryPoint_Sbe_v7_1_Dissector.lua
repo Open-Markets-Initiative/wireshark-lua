@@ -4038,7 +4038,7 @@ end
 
 -- Display: Quote Req Id
 b3_equities_binaryentrypoint_sbe_v7_1.quote_req_id.display = function(buffer, offset, value, packet, parent)
-  return "Quote Req Id: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Quote Req Id
@@ -10737,7 +10737,7 @@ end
 
 -- Display: Deprecated Investor Id
 b3_equities_binaryentrypoint_sbe_v7_1.deprecated_investor_id.display = function(buffer, offset, value, packet, parent)
-  return "Deprecated Investor Id: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Deprecated Investor Id

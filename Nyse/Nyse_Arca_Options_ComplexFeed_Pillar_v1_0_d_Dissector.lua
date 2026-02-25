@@ -4274,7 +4274,7 @@ nyse_arca_options_complexfeed_pillar_v1_0_d.send_time.size =
 nyse_arca_options_complexfeed_pillar_v1_0_d.send_time.display = function(packet, parent, value)
   -- Check null value
   if value == nil then
-    return "Send Time: No Value"
+    return "No Value"
 
   end
 
@@ -4282,7 +4282,7 @@ nyse_arca_options_complexfeed_pillar_v1_0_d.send_time.display = function(packet,
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Send Time

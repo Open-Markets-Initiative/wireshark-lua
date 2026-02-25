@@ -2185,7 +2185,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.market_code.display = function(value)
     return "Market Code: Nasdaq (Q)"
   end
   if value == "B" then
-    return "Market Code: Bx (B)"
+    return "Market Code: Nasdaq Texas (B)"
   end
   if value == "X" then
     return "Market Code: Psx (X)"
@@ -3515,6 +3515,9 @@ nasdaq_nsmequities_totalview_itch_v5_0.ipo_flag.display = function(value)
   if value == "N" then
     return "Ipo Flag: Not Set Up For Ipo Release (N)"
   end
+  if value == "Z" then
+    return "Ipo Flag: Non Ipo New Listed Security (Z)"
+  end
   if value == " " then
     return "Ipo Flag: Not Available (<whitespace>)"
   end
@@ -4002,6 +4005,9 @@ nasdaq_nsmequities_totalview_itch_v5_0.market_category.display = function(value)
   end
   if value == "P" then
     return "Market Category: Nyse Arca (P)"
+  end
+  if value == "M" then
+    return "Market Category: Nyse Texas (M)"
   end
   if value == "Z" then
     return "Market Category: Bats Z (Z)"
@@ -4881,7 +4887,7 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0:register_heuristic("udp", omi_nasdaq_
 -- Protocol:
 --   Organization: National Association of Securities Dealers Automated Quotations
 --   Version: 5.0
---   Date: Friday, April 28, 2023
+--   Date: Thursday, February 19, 2026
 --   Specification: NQTVITCHSpecification.pdf
 -- 
 -- Script:

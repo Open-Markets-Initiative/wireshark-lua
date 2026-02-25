@@ -5625,7 +5625,7 @@ asx_securities_t24_itch_v1_13.session.size =
 
 -- Display: Session
 asx_securities_t24_itch_v1_13.session.display = function(buffer, offset, value, packet, parent)
-  return "Session: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Session
