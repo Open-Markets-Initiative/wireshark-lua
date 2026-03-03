@@ -29,7 +29,6 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_offer_price = P
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_offer_size = ProtoField.new("Compact Offer Size", "miax.miaxoptions.complextopofmarket.mach.v1.1.compactoffersize", ftypes.UINT16)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_price = ProtoField.new("Compact Price", "miax.miaxoptions.complextopofmarket.mach.v1.1.compactprice", ftypes.DOUBLE)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_size = ProtoField.new("Compact Size", "miax.miaxoptions.complextopofmarket.mach.v1.1.compactsize", ftypes.UINT16)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.data = ProtoField.new("Data", "miax.miaxoptions.complextopofmarket.mach.v1.1.data", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.event_reason = ProtoField.new("Event Reason", "miax.miaxoptions.complextopofmarket.mach.v1.1.eventreason", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.miaxoptions.complextopofmarket.mach.v1.1.expectedeventtimenanosecondspart", ftypes.UINT32)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.expiration_date = ProtoField.new("Expiration Date", "miax.miaxoptions.complextopofmarket.mach.v1.1.expirationdate", ftypes.STRING)
@@ -50,7 +49,6 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.opening_underlying_mark
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet = ProtoField.new("Packet", "miax.miaxoptions.complextopofmarket.mach.v1.1.packet", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet_length = ProtoField.new("Packet Length", "miax.miaxoptions.complextopofmarket.mach.v1.1.packetlength", ftypes.UINT16)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.complextopofmarket.mach.v1.1.packettype", ftypes.UINT8)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.payload = ProtoField.new("Payload", "miax.miaxoptions.complextopofmarket.mach.v1.1.payload", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.miaxoptions.complextopofmarket.mach.v1.1.priorityquotewidth", ftypes.DOUBLE)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.miaxoptions.complextopofmarket.mach.v1.1.productaddupdatetime", ftypes.UINT32)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.product_id = ProtoField.new("Product Id", "miax.miaxoptions.complextopofmarket.mach.v1.1.productid", ftypes.UINT32)
@@ -131,8 +129,6 @@ show.wide_complex_double_sided_top_of_market_message = true
 show.wide_complex_top_of_market_bid_message = true
 show.wide_complex_top_of_market_offer_message = true
 show.wide_offer = true
-show.data = false
-show.payload = false
 
 -- Register Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Show Options
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
@@ -155,8 +151,6 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_wide_complex_double
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_wide_complex_top_of_market_bid_message = Pref.bool("Show Wide Complex Top Of Market Bid Message", show.wide_complex_top_of_market_bid_message, "Parse and add Wide Complex Top Of Market Bid Message to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_wide_complex_top_of_market_offer_message = Pref.bool("Show Wide Complex Top Of Market Offer Message", show.wide_complex_top_of_market_offer_message, "Parse and add Wide Complex Top Of Market Offer Message to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_wide_offer = Pref.bool("Show Wide Offer", show.wide_offer, "Parse and add Wide Offer to protocol tree")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs_changed()
@@ -241,14 +235,6 @@ function omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs_changed()
   end
   if show.wide_offer ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_wide_offer then
     show.wide_offer = omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_wide_offer
-    changed = true
-  end
-  if show.data ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_data then
-    show.data = omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_data
-    changed = true
-  end
-  if show.payload ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_payload then
-    show.payload = omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_payload
     changed = true
   end
 
@@ -2895,11 +2881,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.data.size = function(buffer, offse
   return 0
 end
 
--- Display: Data
-miax_miaxoptions_complextopofmarket_mach_v1_1.data.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Data
 miax_miaxoptions_complextopofmarket_mach_v1_1.data.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
@@ -2956,20 +2937,11 @@ end
 
 -- Dissect: Data
 miax_miaxoptions_complextopofmarket_mach_v1_1.data.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.data then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.data.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_miaxoptions_complextopofmarket_mach_v1_1.data.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_1.data.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.data, range, display)
 
   return miax_miaxoptions_complextopofmarket_mach_v1_1.data.branches(buffer, offset, packet, parent, message_type)
 end
@@ -3095,11 +3067,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.payload.size = function(buffer, of
   return 0
 end
 
--- Display: Payload
-miax_miaxoptions_complextopofmarket_mach_v1_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 miax_miaxoptions_complextopofmarket_mach_v1_1.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
@@ -3112,20 +3079,11 @@ end
 
 -- Dissect: Payload
 miax_miaxoptions_complextopofmarket_mach_v1_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_miaxoptions_complextopofmarket_mach_v1_1.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.payload, range, display)
 
   return miax_miaxoptions_complextopofmarket_mach_v1_1.payload.branches(buffer, offset, packet, parent, packet_type)
 end

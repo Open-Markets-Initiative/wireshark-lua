@@ -29,7 +29,6 @@ omi_imperative_intelligentcross_mdf_v1_11.fields.message_type = ProtoField.new("
 omi_imperative_intelligentcross_mdf_v1_11.fields.order_id = ProtoField.new("Order Id", "imperative.intelligentcross.mdf.v1.11.orderid", ftypes.UINT64)
 omi_imperative_intelligentcross_mdf_v1_11.fields.packet = ProtoField.new("Packet", "imperative.intelligentcross.mdf.v1.11.packet", ftypes.STRING)
 omi_imperative_intelligentcross_mdf_v1_11.fields.packet_header = ProtoField.new("Packet Header", "imperative.intelligentcross.mdf.v1.11.packetheader", ftypes.STRING)
-omi_imperative_intelligentcross_mdf_v1_11.fields.payload = ProtoField.new("Payload", "imperative.intelligentcross.mdf.v1.11.payload", ftypes.STRING)
 omi_imperative_intelligentcross_mdf_v1_11.fields.price = ProtoField.new("Price", "imperative.intelligentcross.mdf.v1.11.price", ftypes.DOUBLE)
 omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_1 = ProtoField.new("Reserved 1", "imperative.intelligentcross.mdf.v1.11.reserved1", ftypes.STRING)
 omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_2 = ProtoField.new("Reserved 2", "imperative.intelligentcross.mdf.v1.11.reserved2", ftypes.STRING)
@@ -81,7 +80,6 @@ show.symbol_information_message = true
 show.symbol_state_message = true
 show.trade_break_message = true
 show.trade_message = true
-show.payload = false
 
 -- Register Imperative IntelligentCross Mdf 1.11 Show Options
 omi_imperative_intelligentcross_mdf_v1_11.prefs.show_market_event_message = Pref.bool("Show Market Event Message", show.market_event_message, "Parse and add Market Event Message to protocol tree")
@@ -98,7 +96,6 @@ omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_information_message 
 omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_state_message = Pref.bool("Show Symbol State Message", show.symbol_state_message, "Parse and add Symbol State Message to protocol tree")
 omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
 omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_imperative_intelligentcross_mdf_v1_11.prefs_changed()
@@ -159,10 +156,6 @@ function omi_imperative_intelligentcross_mdf_v1_11.prefs_changed()
   end
   if show.trade_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message then
     show.trade_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message
-    changed = true
-  end
-  if show.payload ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_payload then
-    show.payload = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_payload
     changed = true
   end
 
@@ -1298,11 +1291,6 @@ imperative_intelligentcross_mdf_v1_11.payload.size = function(buffer, offset, me
   return 0
 end
 
--- Display: Payload
-imperative_intelligentcross_mdf_v1_11.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 imperative_intelligentcross_mdf_v1_11.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Market Event Message
@@ -1351,20 +1339,11 @@ end
 
 -- Dissect: Payload
 imperative_intelligentcross_mdf_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return imperative_intelligentcross_mdf_v1_11.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = imperative_intelligentcross_mdf_v1_11.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = imperative_intelligentcross_mdf_v1_11.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.payload, range, display)
 
   return imperative_intelligentcross_mdf_v1_11.payload.branches(buffer, offset, packet, parent, message_type)
 end

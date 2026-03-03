@@ -36,7 +36,6 @@ omi_a2x_equities_rtmdf_amd_v1_3_2.fields.msg_type = ProtoField.new("Msg Type", "
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.name = ProtoField.new("Name", "a2x.equities.rtmdf.amd.v1.3.2.name", ftypes.STRING)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_ref = ProtoField.new("Order Ref", "a2x.equities.rtmdf.amd.v1.3.2.orderref", ftypes.UINT32)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.equities.rtmdf.amd.v1.3.2.packet", ftypes.STRING)
-omi_a2x_equities_rtmdf_amd_v1_3_2.fields.payload = ProtoField.new("Payload", "a2x.equities.rtmdf.amd.v1.3.2.payload", ftypes.STRING)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.equities.rtmdf.amd.v1.3.2.price", ftypes.UINT64)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.quantity = ProtoField.new("Quantity", "a2x.equities.rtmdf.amd.v1.3.2.quantity", ftypes.UINT32)
 omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_flags = ProtoField.new("Security Flags", "a2x.equities.rtmdf.amd.v1.3.2.securityflags", ftypes.STRING)
@@ -94,7 +93,6 @@ show.security_status_message = true
 show.tick_table_data_message = true
 show.trade_bust_message = true
 show.trade_message = true
-show.payload = false
 
 -- Register A2X Equities Rtmdf Amd 1.3.2 Show Options
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_auction_on_demand_message = Pref.bool("Show Auction On Demand Message", show.auction_on_demand_message, "Parse and add Auction On Demand Message to protocol tree")
@@ -112,7 +110,6 @@ omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_status_message = Pref.bool
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_tick_table_data_message = Pref.bool("Show Tick Table Data Message", show.tick_table_data_message, "Parse and add Tick Table Data Message to protocol tree")
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_a2x_equities_rtmdf_amd_v1_3_2.prefs_changed()
@@ -177,10 +174,6 @@ function omi_a2x_equities_rtmdf_amd_v1_3_2.prefs_changed()
   end
   if show.trade_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message then
     show.trade_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message
-    changed = true
-  end
-  if show.payload ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_payload then
-    show.payload = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_payload
     changed = true
   end
 
@@ -1537,11 +1530,6 @@ a2x_equities_rtmdf_amd_v1_3_2.payload.size = function(buffer, offset, msg_type)
   return 0
 end
 
--- Display: Payload
-a2x_equities_rtmdf_amd_v1_3_2.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 a2x_equities_rtmdf_amd_v1_3_2.payload.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Heartbeat Message
@@ -1593,20 +1581,11 @@ end
 
 -- Dissect: Payload
 a2x_equities_rtmdf_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  if not show.payload then
-    return a2x_equities_rtmdf_amd_v1_3_2.payload.branches(buffer, offset, packet, parent, msg_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = a2x_equities_rtmdf_amd_v1_3_2.payload.size(buffer, offset, msg_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = a2x_equities_rtmdf_amd_v1_3_2.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.payload, range, display)
 
   return a2x_equities_rtmdf_amd_v1_3_2.payload.branches(buffer, offset, packet, parent, msg_type)
 end

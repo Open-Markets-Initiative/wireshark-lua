@@ -41,7 +41,6 @@ omi_nasdaq_psxequities_orders_ouch_v4_2.fields.packet_header = ProtoField.new("P
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.psxequities.orders.ouch.v4.2.packetlength", ftypes.UINT16)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.psxequities.orders.ouch.v4.2.packettype", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.password = ProtoField.new("Password", "nasdaq.psxequities.orders.ouch.v4.2.password", ftypes.STRING)
-omi_nasdaq_psxequities_orders_ouch_v4_2.fields.payload = ProtoField.new("Payload", "nasdaq.psxequities.orders.ouch.v4.2.payload", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.previous_order_token = ProtoField.new("Previous Order Token", "nasdaq.psxequities.orders.ouch.v4.2.previousordertoken", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.price = ProtoField.new("Price", "nasdaq.psxequities.orders.ouch.v4.2.price", ftypes.DOUBLE)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "nasdaq.psxequities.orders.ouch.v4.2.quantitypreventedfromtrading", ftypes.UINT32)
@@ -52,7 +51,6 @@ omi_nasdaq_psxequities_orders_ouch_v4_2.fields.replacement_order_token_token_14 
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.psxequities.orders.ouch.v4.2.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.psxequities.orders.ouch.v4.2.requestedsession", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.orders.ouch.v4.2.sequencenumber", ftypes.STRING)
-omi_nasdaq_psxequities_orders_ouch_v4_2.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.psxequities.orders.ouch.v4.2.sequencedmessage", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.psxequities.orders.ouch.v4.2.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.session = ProtoField.new("Session", "nasdaq.psxequities.orders.ouch.v4.2.session", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.shares = ProtoField.new("Shares", "nasdaq.psxequities.orders.ouch.v4.2.shares", ftypes.UINT32)
@@ -61,7 +59,6 @@ omi_nasdaq_psxequities_orders_ouch_v4_2.fields.stock = ProtoField.new("Stock", "
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.text = ProtoField.new("Text", "nasdaq.psxequities.orders.ouch.v4.2.text", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.psxequities.orders.ouch.v4.2.timeinforce", ftypes.UINT32)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.orders.ouch.v4.2.timestamp", ftypes.UINT64)
-omi_nasdaq_psxequities_orders_ouch_v4_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.psxequities.orders.ouch.v4.2.unsequencedmessage", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.psxequities.orders.ouch.v4.2.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.username = ProtoField.new("Username", "nasdaq.psxequities.orders.ouch.v4.2.username", ftypes.STRING)
 
@@ -123,9 +120,6 @@ show.sequenced_data_packet = true
 show.soup_bin_tcp_packet = true
 show.system_event_message = true
 show.unsequenced_data_packet = true
-show.payload = false
-show.sequenced_message = false
-show.unsequenced_message = false
 
 -- Register Nasdaq PsxEquities Orders Ouch 4.2 Show Options
 omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_accepted_message = Pref.bool("Show Accepted Message", show.accepted_message, "Parse and add Accepted Message to protocol tree")
@@ -153,9 +147,6 @@ omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_sequenced_data_packet = Pref.
 omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_psxequities_orders_ouch_v4_2.prefs_changed()
@@ -260,18 +251,6 @@ function omi_nasdaq_psxequities_orders_ouch_v4_2.prefs_changed()
   end
   if show.unsequenced_data_packet ~= omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet
-    changed = true
-  end
-  if show.payload ~= omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_payload then
-    show.payload = omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_payload
-    changed = true
-  end
-  if show.sequenced_message ~= omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_sequenced_message then
-    show.sequenced_message = omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_sequenced_message
-    changed = true
-  end
-  if show.unsequenced_message ~= omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_unsequenced_message then
-    show.unsequenced_message = omi_nasdaq_psxequities_orders_ouch_v4_2.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -972,11 +951,6 @@ nasdaq_psxequities_orders_ouch_v4_2.unsequenced_message.size = function(buffer, 
   return 0
 end
 
--- Display: Unsequenced Message
-nasdaq_psxequities_orders_ouch_v4_2.unsequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Unsequenced Message
 nasdaq_psxequities_orders_ouch_v4_2.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Enter Order Message
@@ -1001,20 +975,11 @@ end
 
 -- Dissect: Unsequenced Message
 nasdaq_psxequities_orders_ouch_v4_2.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  if not show.unsequenced_message then
-    return nasdaq_psxequities_orders_ouch_v4_2.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_psxequities_orders_ouch_v4_2.unsequenced_message.size(buffer, offset, unsequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_psxequities_orders_ouch_v4_2.unsequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.unsequenced_message, range, display)
 
   return nasdaq_psxequities_orders_ouch_v4_2.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -2602,11 +2567,6 @@ nasdaq_psxequities_orders_ouch_v4_2.sequenced_message.size = function(buffer, of
   return 0
 end
 
--- Display: Sequenced Message
-nasdaq_psxequities_orders_ouch_v4_2.sequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Sequenced Message
 nasdaq_psxequities_orders_ouch_v4_2.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect System Event Message
@@ -2663,20 +2623,11 @@ end
 
 -- Dissect: Sequenced Message
 nasdaq_psxequities_orders_ouch_v4_2.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  if not show.sequenced_message then
-    return nasdaq_psxequities_orders_ouch_v4_2.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_psxequities_orders_ouch_v4_2.sequenced_message.size(buffer, offset, sequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_psxequities_orders_ouch_v4_2.sequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.sequenced_message, range, display)
 
   return nasdaq_psxequities_orders_ouch_v4_2.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -3038,11 +2989,6 @@ nasdaq_psxequities_orders_ouch_v4_2.payload.size = function(buffer, offset, pack
   return 0
 end
 
--- Display: Payload
-nasdaq_psxequities_orders_ouch_v4_2.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nasdaq_psxequities_orders_ouch_v4_2.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
@@ -3075,20 +3021,11 @@ end
 
 -- Dissect: Payload
 nasdaq_psxequities_orders_ouch_v4_2.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return nasdaq_psxequities_orders_ouch_v4_2.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_psxequities_orders_ouch_v4_2.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_psxequities_orders_ouch_v4_2.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.payload, range, display)
 
   return nasdaq_psxequities_orders_ouch_v4_2.payload.branches(buffer, offset, packet, parent, packet_type)
 end

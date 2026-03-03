@@ -46,7 +46,6 @@ omi_nyse_options_complexfeed_xdp_v1_3_a.fields.no_of_legs = ProtoField.new("No O
 omi_nyse_options_complexfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.options.complexfeed.xdp.v1.3.a.packet", ftypes.STRING)
 omi_nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.options.complexfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
 omi_nyse_options_complexfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.options.complexfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
-omi_nyse_options_complexfeed_xdp_v1_3_a.fields.payload = ProtoField.new("Payload", "nyse.options.complexfeed.xdp.v1.3.a.payload", ftypes.STRING)
 omi_nyse_options_complexfeed_xdp_v1_3_a.fields.price = ProtoField.new("Price", "nyse.options.complexfeed.xdp.v1.3.a.price", ftypes.INT32)
 omi_nyse_options_complexfeed_xdp_v1_3_a.fields.product_id = ProtoField.new("Product Id", "nyse.options.complexfeed.xdp.v1.3.a.productid", ftypes.UINT8)
 omi_nyse_options_complexfeed_xdp_v1_3_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.options.complexfeed.xdp.v1.3.a.quotecondition", ftypes.STRING)
@@ -99,7 +98,6 @@ show.refresh_complex_quote_message = true
 show.refresh_complex_trade_message = true
 show.sequence_number_reset_message = true
 show.stream_id_message = true
-show.payload = false
 
 -- Register Nyse Options ComplexFeed Xdp 1.3.a Show Options
 omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message = Pref.bool("Show Complex Crossing Rfq Message", show.complex_crossing_rfq_message, "Parse and add Complex Crossing Rfq Message to protocol tree")
@@ -117,7 +115,6 @@ omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message
 omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message = Pref.bool("Show Refresh Complex Trade Message", show.refresh_complex_trade_message, "Parse and add Refresh Complex Trade Message to protocol tree")
 omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
 omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
-omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_options_complexfeed_xdp_v1_3_a.prefs_changed()
@@ -182,10 +179,6 @@ function omi_nyse_options_complexfeed_xdp_v1_3_a.prefs_changed()
   end
   if show.stream_id_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message then
     show.stream_id_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message
-    changed = true
-  end
-  if show.payload ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_payload then
-    show.payload = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_payload
     changed = true
   end
 
@@ -1882,11 +1875,6 @@ nyse_options_complexfeed_xdp_v1_3_a.payload.size = function(buffer, offset, mess
   return 0
 end
 
--- Display: Payload
-nyse_options_complexfeed_xdp_v1_3_a.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nyse_options_complexfeed_xdp_v1_3_a.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Complex Quote Message
@@ -1935,20 +1923,11 @@ end
 
 -- Dissect: Payload
 nyse_options_complexfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nyse_options_complexfeed_xdp_v1_3_a.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nyse_options_complexfeed_xdp_v1_3_a.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nyse_options_complexfeed_xdp_v1_3_a.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.payload, range, display)
 
   return nyse_options_complexfeed_xdp_v1_3_a.payload.branches(buffer, offset, packet, parent, message_type)
 end

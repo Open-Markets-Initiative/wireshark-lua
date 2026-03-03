@@ -19,7 +19,6 @@ omi_finra_otc_bbds_dfi_v2018_1a.fields.action = ProtoField.new("Action", "finra.
 omi_finra_otc_bbds_dfi_v2018_1a.fields.action_datetime = ProtoField.new("Action Datetime", "finra.otc.bbds.dfi.v2018.1a.actiondatetime", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative = ProtoField.new("Administrative", "finra.otc.bbds.dfi.v2018.1a.administrative", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.otc.bbds.dfi.v2018.1a.administrativemessagetype", ftypes.STRING)
-omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative_payload = ProtoField.new("Administrative Payload", "finra.otc.bbds.dfi.v2018.1a.administrativepayload", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_price = ProtoField.new("Ask Price", "finra.otc.bbds.dfi.v2018.1a.askprice", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_price_denominator = ProtoField.new("Ask Price Denominator", "finra.otc.bbds.dfi.v2018.1a.askpricedenominator", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_size = ProtoField.new("Ask Size", "finra.otc.bbds.dfi.v2018.1a.asksize", ftypes.STRING)
@@ -29,7 +28,6 @@ omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_size = ProtoField.new("Bid Size", "fi
 omi_finra_otc_bbds_dfi_v2018_1a.fields.block_soh = ProtoField.new("Block Soh", "finra.otc.bbds.dfi.v2018.1a.blocksoh", ftypes.UINT8)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.control = ProtoField.new("Control", "finra.otc.bbds.dfi.v2018.1a.control", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.control_message_type = ProtoField.new("Control Message Type", "finra.otc.bbds.dfi.v2018.1a.controlmessagetype", ftypes.STRING)
-omi_finra_otc_bbds_dfi_v2018_1a.fields.control_payload = ProtoField.new("Control Payload", "finra.otc.bbds.dfi.v2018.1a.controlpayload", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.currency = ProtoField.new("Currency", "finra.otc.bbds.dfi.v2018.1a.currency", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.datetime = ProtoField.new("Datetime", "finra.otc.bbds.dfi.v2018.1a.datetime", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.day = ProtoField.new("Day", "finra.otc.bbds.dfi.v2018.1a.day", ftypes.STRING)
@@ -58,10 +56,8 @@ omi_finra_otc_bbds_dfi_v2018_1a.fields.month = ProtoField.new("Month", "finra.ot
 omi_finra_otc_bbds_dfi_v2018_1a.fields.otcbb_symbol = ProtoField.new("Otcbb Symbol", "finra.otc.bbds.dfi.v2018.1a.otcbbsymbol", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.otcbb_type = ProtoField.new("Otcbb Type", "finra.otc.bbds.dfi.v2018.1a.otcbbtype", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.packet = ProtoField.new("Packet", "finra.otc.bbds.dfi.v2018.1a.packet", ftypes.STRING)
-omi_finra_otc_bbds_dfi_v2018_1a.fields.payload = ProtoField.new("Payload", "finra.otc.bbds.dfi.v2018.1a.payload", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation = ProtoField.new("Quotation", "finra.otc.bbds.dfi.v2018.1a.quotation", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation_message_type = ProtoField.new("Quotation Message Type", "finra.otc.bbds.dfi.v2018.1a.quotationmessagetype", ftypes.STRING)
-omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation_payload = ProtoField.new("Quotation Payload", "finra.otc.bbds.dfi.v2018.1a.quotationpayload", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.reason_code = ProtoField.new("Reason Code", "finra.otc.bbds.dfi.v2018.1a.reasoncode", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.reserved = ProtoField.new("Reserved", "finra.otc.bbds.dfi.v2018.1a.reserved", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.retransmission_requester = ProtoField.new("Retransmission Requester", "finra.otc.bbds.dfi.v2018.1a.retransmissionrequester", ftypes.STRING)
@@ -115,10 +111,6 @@ show.quotation = true
 show.sequence_number_reset_message = true
 show.start_of_day_message = true
 show.trading_action_message = true
-show.administrative_payload = false
-show.control_payload = false
-show.payload = false
-show.quotation_payload = false
 
 -- Register Finra Otc Bbds Dfi 2018.1A Show Options
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_action_datetime = Pref.bool("Show Action Datetime", show.action_datetime, "Parse and add Action Datetime to protocol tree")
@@ -142,10 +134,6 @@ omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation = Pref.bool("Show Quotation
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation_payload = Pref.bool("Show Quotation Payload", show.quotation_payload, "Parse and add Quotation Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_finra_otc_bbds_dfi_v2018_1a.prefs_changed()
@@ -234,22 +222,6 @@ function omi_finra_otc_bbds_dfi_v2018_1a.prefs_changed()
   end
   if show.trading_action_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message then
     show.trading_action_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message
-    changed = true
-  end
-  if show.administrative_payload ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative_payload then
-    show.administrative_payload = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative_payload
-    changed = true
-  end
-  if show.control_payload ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control_payload then
-    show.control_payload = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control_payload
-    changed = true
-  end
-  if show.payload ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_payload then
-    show.payload = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_payload
-    changed = true
-  end
-  if show.quotation_payload ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation_payload then
-    show.quotation_payload = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation_payload
     changed = true
   end
 
@@ -1090,11 +1062,6 @@ finra_otc_bbds_dfi_v2018_1a.control_payload.size = function(buffer, offset, cont
   return 0
 end
 
--- Display: Control Payload
-finra_otc_bbds_dfi_v2018_1a.control_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Control Payload
 finra_otc_bbds_dfi_v2018_1a.control_payload.branches = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
@@ -1139,20 +1106,11 @@ end
 
 -- Dissect: Control Payload
 finra_otc_bbds_dfi_v2018_1a.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  if not show.control_payload then
-    return finra_otc_bbds_dfi_v2018_1a.control_payload.branches(buffer, offset, packet, parent, control_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = finra_otc_bbds_dfi_v2018_1a.control_payload.size(buffer, offset, control_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = finra_otc_bbds_dfi_v2018_1a.control_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.control_payload, range, display)
 
   return finra_otc_bbds_dfi_v2018_1a.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
@@ -1535,11 +1493,6 @@ finra_otc_bbds_dfi_v2018_1a.administrative_payload.size = function(buffer, offse
   return 0
 end
 
--- Display: Administrative Payload
-finra_otc_bbds_dfi_v2018_1a.administrative_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Administrative Payload
 finra_otc_bbds_dfi_v2018_1a.administrative_payload.branches = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect General Administrative Message
@@ -1556,20 +1509,11 @@ end
 
 -- Dissect: Administrative Payload
 finra_otc_bbds_dfi_v2018_1a.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  if not show.administrative_payload then
-    return finra_otc_bbds_dfi_v2018_1a.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = finra_otc_bbds_dfi_v2018_1a.administrative_payload.size(buffer, offset, administrative_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = finra_otc_bbds_dfi_v2018_1a.administrative_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative_payload, range, display)
 
   return finra_otc_bbds_dfi_v2018_1a.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
@@ -2513,11 +2457,6 @@ finra_otc_bbds_dfi_v2018_1a.quotation_payload.size = function(buffer, offset, qu
   return 0
 end
 
--- Display: Quotation Payload
-finra_otc_bbds_dfi_v2018_1a.quotation_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Quotation Payload
 finra_otc_bbds_dfi_v2018_1a.quotation_payload.branches = function(buffer, offset, packet, parent, quotation_message_type)
   -- Dissect Market Participant Quote Update Message
@@ -2530,20 +2469,11 @@ end
 
 -- Dissect: Quotation Payload
 finra_otc_bbds_dfi_v2018_1a.quotation_payload.dissect = function(buffer, offset, packet, parent, quotation_message_type)
-  if not show.quotation_payload then
-    return finra_otc_bbds_dfi_v2018_1a.quotation_payload.branches(buffer, offset, packet, parent, quotation_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = finra_otc_bbds_dfi_v2018_1a.quotation_payload.size(buffer, offset, quotation_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = finra_otc_bbds_dfi_v2018_1a.quotation_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation_payload, range, display)
 
   return finra_otc_bbds_dfi_v2018_1a.quotation_payload.branches(buffer, offset, packet, parent, quotation_message_type)
 end
@@ -2644,11 +2574,6 @@ finra_otc_bbds_dfi_v2018_1a.payload.size = function(buffer, offset, message_cate
   return 0
 end
 
--- Display: Payload
-finra_otc_bbds_dfi_v2018_1a.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 finra_otc_bbds_dfi_v2018_1a.payload.branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Quotation
@@ -2669,20 +2594,11 @@ end
 
 -- Dissect: Payload
 finra_otc_bbds_dfi_v2018_1a.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  if not show.payload then
-    return finra_otc_bbds_dfi_v2018_1a.payload.branches(buffer, offset, packet, parent, message_category)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = finra_otc_bbds_dfi_v2018_1a.payload.size(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = finra_otc_bbds_dfi_v2018_1a.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.payload, range, display)
 
   return finra_otc_bbds_dfi_v2018_1a.payload.branches(buffer, offset, packet, parent, message_category)
 end

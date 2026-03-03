@@ -28,7 +28,6 @@ omi_currenex_forex_now_cbp_v10_0.fields.instrument_type = ProtoField.new("Instru
 omi_currenex_forex_now_cbp_v10_0.fields.itch_etx = ProtoField.new("Itch Etx", "currenex.forex.now.cbp.v10.0.itchetx", ftypes.INT8)
 omi_currenex_forex_now_cbp_v10_0.fields.itch_soh = ProtoField.new("Itch Soh", "currenex.forex.now.cbp.v10.0.itchsoh", ftypes.INT8)
 omi_currenex_forex_now_cbp_v10_0.fields.level = ProtoField.new("Level", "currenex.forex.now.cbp.v10.0.level", ftypes.STRING)
-omi_currenex_forex_now_cbp_v10_0.fields.message_body = ProtoField.new("Message Body", "currenex.forex.now.cbp.v10.0.messagebody", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.message_header = ProtoField.new("Message Header", "currenex.forex.now.cbp.v10.0.messageheader", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.message_type = ProtoField.new("Message Type", "currenex.forex.now.cbp.v10.0.messagetype", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.offer = ProtoField.new("Offer", "currenex.forex.now.cbp.v10.0.offer", ftypes.STRING)
@@ -103,7 +102,6 @@ show.reject_message = true
 show.subscription_reply_message = true
 show.subscription_request_message = true
 show.wamr_with_confidence_factor_message = true
-show.message_body = false
 
 -- Register Currenex Forex Now Cbp 10.0 Show Options
 omi_currenex_forex_now_cbp_v10_0.prefs.show_bid = Pref.bool("Show Bid", show.bid, "Parse and add Bid to protocol tree")
@@ -128,7 +126,6 @@ omi_currenex_forex_now_cbp_v10_0.prefs.show_reject_message = Pref.bool("Show Rej
 omi_currenex_forex_now_cbp_v10_0.prefs.show_subscription_reply_message = Pref.bool("Show Subscription Reply Message", show.subscription_reply_message, "Parse and add Subscription Reply Message to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_subscription_request_message = Pref.bool("Show Subscription Request Message", show.subscription_request_message, "Parse and add Subscription Request Message to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_wamr_with_confidence_factor_message = Pref.bool("Show Wamr With Confidence Factor Message", show.wamr_with_confidence_factor_message, "Parse and add Wamr With Confidence Factor Message to protocol tree")
-omi_currenex_forex_now_cbp_v10_0.prefs.show_message_body = Pref.bool("Show Message Body", show.message_body, "Parse and add Message Body to protocol tree")
 
 -- Handle changed preferences
 function omi_currenex_forex_now_cbp_v10_0.prefs_changed()
@@ -221,10 +218,6 @@ function omi_currenex_forex_now_cbp_v10_0.prefs_changed()
   end
   if show.wamr_with_confidence_factor_message ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_wamr_with_confidence_factor_message then
     show.wamr_with_confidence_factor_message = omi_currenex_forex_now_cbp_v10_0.prefs.show_wamr_with_confidence_factor_message
-    changed = true
-  end
-  if show.message_body ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_message_body then
-    show.message_body = omi_currenex_forex_now_cbp_v10_0.prefs.show_message_body
     changed = true
   end
 
@@ -2105,11 +2098,6 @@ currenex_forex_now_cbp_v10_0.message_body.size = function(buffer, offset, messag
   return 0
 end
 
--- Display: Message Body
-currenex_forex_now_cbp_v10_0.message_body.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Message Body
 currenex_forex_now_cbp_v10_0.message_body.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Logon Message
@@ -2174,20 +2162,11 @@ end
 
 -- Dissect: Message Body
 currenex_forex_now_cbp_v10_0.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.message_body then
-    return currenex_forex_now_cbp_v10_0.message_body.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = currenex_forex_now_cbp_v10_0.message_body.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = currenex_forex_now_cbp_v10_0.message_body.display(buffer, packet, parent)
-  local element = parent:add(omi_currenex_forex_now_cbp_v10_0.fields.message_body, range, display)
 
   return currenex_forex_now_cbp_v10_0.message_body.branches(buffer, offset, packet, parent, message_type)
 end

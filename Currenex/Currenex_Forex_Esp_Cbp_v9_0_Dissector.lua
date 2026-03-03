@@ -22,7 +22,6 @@ omi_currenex_forex_esp_cbp_v9_0.fields.instrument_type = ProtoField.new("Instrum
 omi_currenex_forex_esp_cbp_v9_0.fields.itch_etx = ProtoField.new("Itch Etx", "currenex.forex.esp.cbp.v9.0.itchetx", ftypes.INT8)
 omi_currenex_forex_esp_cbp_v9_0.fields.itch_soh = ProtoField.new("Itch Soh", "currenex.forex.esp.cbp.v9.0.itchsoh", ftypes.INT8)
 omi_currenex_forex_esp_cbp_v9_0.fields.max_amount = ProtoField.new("Max Amount", "currenex.forex.esp.cbp.v9.0.maxamount", ftypes.INT64)
-omi_currenex_forex_esp_cbp_v9_0.fields.message_body = ProtoField.new("Message Body", "currenex.forex.esp.cbp.v9.0.messagebody", ftypes.STRING)
 omi_currenex_forex_esp_cbp_v9_0.fields.message_header = ProtoField.new("Message Header", "currenex.forex.esp.cbp.v9.0.messageheader", ftypes.STRING)
 omi_currenex_forex_esp_cbp_v9_0.fields.message_type = ProtoField.new("Message Type", "currenex.forex.esp.cbp.v9.0.messagetype", ftypes.STRING)
 omi_currenex_forex_esp_cbp_v9_0.fields.min_amount = ProtoField.new("Min Amount", "currenex.forex.esp.cbp.v9.0.minamount", ftypes.INT64)
@@ -77,7 +76,6 @@ show.reject_message = true
 show.subscription_reply = true
 show.subscription_request = true
 show.trade_ticker_message = true
-show.message_body = false
 
 -- Register Currenex Forex Esp Cbp 9.0 Show Options
 omi_currenex_forex_esp_cbp_v9_0.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
@@ -92,7 +90,6 @@ omi_currenex_forex_esp_cbp_v9_0.prefs.show_reject_message = Pref.bool("Show Reje
 omi_currenex_forex_esp_cbp_v9_0.prefs.show_subscription_reply = Pref.bool("Show Subscription Reply", show.subscription_reply, "Parse and add Subscription Reply to protocol tree")
 omi_currenex_forex_esp_cbp_v9_0.prefs.show_subscription_request = Pref.bool("Show Subscription Request", show.subscription_request, "Parse and add Subscription Request to protocol tree")
 omi_currenex_forex_esp_cbp_v9_0.prefs.show_trade_ticker_message = Pref.bool("Show Trade Ticker Message", show.trade_ticker_message, "Parse and add Trade Ticker Message to protocol tree")
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_message_body = Pref.bool("Show Message Body", show.message_body, "Parse and add Message Body to protocol tree")
 
 -- Handle changed preferences
 function omi_currenex_forex_esp_cbp_v9_0.prefs_changed()
@@ -145,10 +142,6 @@ function omi_currenex_forex_esp_cbp_v9_0.prefs_changed()
   end
   if show.trade_ticker_message ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_trade_ticker_message then
     show.trade_ticker_message = omi_currenex_forex_esp_cbp_v9_0.prefs.show_trade_ticker_message
-    changed = true
-  end
-  if show.message_body ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_message_body then
-    show.message_body = omi_currenex_forex_esp_cbp_v9_0.prefs.show_message_body
     changed = true
   end
 
@@ -1446,11 +1439,6 @@ currenex_forex_esp_cbp_v9_0.message_body.size = function(buffer, offset, message
   return 0
 end
 
--- Display: Message Body
-currenex_forex_esp_cbp_v9_0.message_body.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Message Body
 currenex_forex_esp_cbp_v9_0.message_body.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Logon
@@ -1499,20 +1487,11 @@ end
 
 -- Dissect: Message Body
 currenex_forex_esp_cbp_v9_0.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.message_body then
-    return currenex_forex_esp_cbp_v9_0.message_body.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = currenex_forex_esp_cbp_v9_0.message_body.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = currenex_forex_esp_cbp_v9_0.message_body.display(buffer, packet, parent)
-  local element = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.message_body, range, display)
 
   return currenex_forex_esp_cbp_v9_0.message_body.branches(buffer, offset, packet, parent, message_type)
 end

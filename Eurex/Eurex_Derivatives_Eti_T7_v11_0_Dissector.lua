@@ -310,7 +310,6 @@ omi_eurex_derivatives_eti_t7_v11_0.fields.party_order_origination_disclosure_ins
 omi_eurex_derivatives_eti_t7_v11_0.fields.party_order_origination_trader = ProtoField.new("Party Order Origination Trader", "eurex.derivatives.eti.t7.v11.0.partyorderoriginationtrader", ftypes.STRING)
 omi_eurex_derivatives_eti_t7_v11_0.fields.party_sub_id_type = ProtoField.new("Party Sub Id Type", "eurex.derivatives.eti.t7.v11.0.partysubidtype", ftypes.UINT16)
 omi_eurex_derivatives_eti_t7_v11_0.fields.password = ProtoField.new("Password", "eurex.derivatives.eti.t7.v11.0.password", ftypes.STRING)
-omi_eurex_derivatives_eti_t7_v11_0.fields.payload = ProtoField.new("Payload", "eurex.derivatives.eti.t7.v11.0.payload", ftypes.STRING)
 omi_eurex_derivatives_eti_t7_v11_0.fields.pct_count = ProtoField.new("Pct Count", "eurex.derivatives.eti.t7.v11.0.pctcount", ftypes.INT32)
 omi_eurex_derivatives_eti_t7_v11_0.fields.position_effect = ProtoField.new("Position Effect", "eurex.derivatives.eti.t7.v11.0.positioneffect", ftypes.STRING)
 omi_eurex_derivatives_eti_t7_v11_0.fields.price = ProtoField.new("Price", "eurex.derivatives.eti.t7.v11.0.price", ftypes.DOUBLE)
@@ -934,7 +933,6 @@ show.user_login_request = true
 show.user_login_response = true
 show.user_logout_request = true
 show.user_logout_response = true
-show.payload = false
 
 -- Register Eurex Derivatives Eti T7 11.0 Show Options
 omi_eurex_derivatives_eti_t7_v11_0.prefs.show_add_complex_instrument_request = Pref.bool("Show Add Complex Instrument Request", show.add_complex_instrument_request, "Parse and add Add Complex Instrument Request to protocol tree")
@@ -1138,7 +1136,6 @@ omi_eurex_derivatives_eti_t7_v11_0.prefs.show_user_login_request = Pref.bool("Sh
 omi_eurex_derivatives_eti_t7_v11_0.prefs.show_user_login_response = Pref.bool("Show User Login Response", show.user_login_response, "Parse and add User Login Response to protocol tree")
 omi_eurex_derivatives_eti_t7_v11_0.prefs.show_user_logout_request = Pref.bool("Show User Logout Request", show.user_logout_request, "Parse and add User Logout Request to protocol tree")
 omi_eurex_derivatives_eti_t7_v11_0.prefs.show_user_logout_response = Pref.bool("Show User Logout Response", show.user_logout_response, "Parse and add User Logout Response to protocol tree")
-omi_eurex_derivatives_eti_t7_v11_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_derivatives_eti_t7_v11_0.prefs_changed()
@@ -1947,10 +1944,6 @@ function omi_eurex_derivatives_eti_t7_v11_0.prefs_changed()
   end
   if show.user_logout_response ~= omi_eurex_derivatives_eti_t7_v11_0.prefs.show_user_logout_response then
     show.user_logout_response = omi_eurex_derivatives_eti_t7_v11_0.prefs.show_user_logout_response
-    changed = true
-  end
-  if show.payload ~= omi_eurex_derivatives_eti_t7_v11_0.prefs.show_payload then
-    show.payload = omi_eurex_derivatives_eti_t7_v11_0.prefs.show_payload
     changed = true
   end
 
@@ -35011,11 +35004,6 @@ eurex_derivatives_eti_t7_v11_0.payload.size = function(buffer, offset, template_
   return 0
 end
 
--- Display: Payload
-eurex_derivatives_eti_t7_v11_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 eurex_derivatives_eti_t7_v11_0.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Add Complex Instrument Request
@@ -35612,20 +35600,11 @@ end
 
 -- Dissect: Payload
 eurex_derivatives_eti_t7_v11_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return eurex_derivatives_eti_t7_v11_0.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = eurex_derivatives_eti_t7_v11_0.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = eurex_derivatives_eti_t7_v11_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_eurex_derivatives_eti_t7_v11_0.fields.payload, range, display)
 
   return eurex_derivatives_eti_t7_v11_0.payload.branches(buffer, offset, packet, parent, template_id)
 end

@@ -254,7 +254,6 @@ omi_euronext_optiq_marketdatagateway_sbe_v3_1.fields.par_value = ProtoField.new(
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.fields.partition_id = ProtoField.new("Partition Id", "euronext.optiq.marketdatagateway.sbe.v3.1.partitionid", ftypes.UINT16)
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.fields.passive_order = ProtoField.new("Passive Order", "euronext.optiq.marketdatagateway.sbe.v3.1.passiveorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.fields.pattern_id = ProtoField.new("Pattern Id", "euronext.optiq.marketdatagateway.sbe.v3.1.patternid", ftypes.UINT16)
-omi_euronext_optiq_marketdatagateway_sbe_v3_1.fields.payload = ProtoField.new("Payload", "euronext.optiq.marketdatagateway.sbe.v3.1.payload", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.fields.pctg_of_capitalization = ProtoField.new("Pctg Of Capitalization", "euronext.optiq.marketdatagateway.sbe.v3.1.pctgofcapitalization", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.fields.peg_offset = ProtoField.new("Peg Offset", "euronext.optiq.marketdatagateway.sbe.v3.1.pegoffset", ftypes.INT8)
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.fields.phase_id = ProtoField.new("Phase Id", "euronext.optiq.marketdatagateway.sbe.v3.1.phaseid", ftypes.UINT8)
@@ -487,7 +486,6 @@ show.timetable_message = true
 show.timetables_group = true
 show.timetables_groups = true
 show.trade_qualifier = true
-show.payload = false
 
 -- Register Euronext Optiq MarketDataGateway Sbe 3.1 Show Options
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_apa_full_trade_information_message = Pref.bool("Show Apa Full Trade Information Message", show.apa_full_trade_information_message, "Parse and add Apa Full Trade Information Message to protocol tree")
@@ -547,7 +545,6 @@ omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_timetable_message = Pre
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_timetables_group = Pref.bool("Show Timetables Group", show.timetables_group, "Parse and add Timetables Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_timetables_groups = Pref.bool("Show Timetables Groups", show.timetables_groups, "Parse and add Timetables Groups to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_trade_qualifier = Pref.bool("Show Trade Qualifier", show.trade_qualifier, "Parse and add Trade Qualifier to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs_changed()
@@ -780,10 +777,6 @@ function omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs_changed()
   end
   if show.trade_qualifier ~= omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_trade_qualifier then
     show.trade_qualifier = omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_trade_qualifier
-    changed = true
-  end
-  if show.payload ~= omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_payload then
-    show.payload = omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_payload
     changed = true
   end
 
@@ -15126,11 +15119,6 @@ euronext_optiq_marketdatagateway_sbe_v3_1.payload.size = function(buffer, offset
   return 0
 end
 
--- Display: Payload
-euronext_optiq_marketdatagateway_sbe_v3_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 euronext_optiq_marketdatagateway_sbe_v3_1.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Start Of Day Message
@@ -15231,20 +15219,11 @@ end
 
 -- Dissect: Payload
 euronext_optiq_marketdatagateway_sbe_v3_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = euronext_optiq_marketdatagateway_sbe_v3_1.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = euronext_optiq_marketdatagateway_sbe_v3_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v3_1.fields.payload, range, display)
 
   return euronext_optiq_marketdatagateway_sbe_v3_1.payload.branches(buffer, offset, packet, parent, template_id)
 end

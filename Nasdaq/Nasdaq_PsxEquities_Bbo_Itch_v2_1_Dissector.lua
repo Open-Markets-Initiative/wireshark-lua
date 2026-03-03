@@ -42,7 +42,6 @@ omi_nasdaq_psxequities_bbo_itch_v2_1.fields.next_shares_symbol = ProtoField.new(
 omi_nasdaq_psxequities_bbo_itch_v2_1.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psxequities.bbo.itch.v2.1.operationalhaltaction", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.itch.v2.1.packet", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.bbo.itch.v2.1.packetheader", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_itch_v2_1.fields.payload = ProtoField.new("Payload", "nasdaq.psxequities.bbo.itch.v2.1.payload", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_price = ProtoField.new("Psx Best Bid Price", "nasdaq.psxequities.bbo.itch.v2.1.psxbestbidprice", ftypes.DOUBLE)
 omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_size = ProtoField.new("Psx Best Bid Size", "nasdaq.psxequities.bbo.itch.v2.1.psxbestbidsize", ftypes.UINT32)
 omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_offer_price = ProtoField.new("Psx Best Offer Price", "nasdaq.psxequities.bbo.itch.v2.1.psxbestofferprice", ftypes.DOUBLE)
@@ -93,7 +92,6 @@ show.reg_sho_short_sale_price_test_restricted_indicator_message = true
 show.stock_directory_message = true
 show.stock_trading_action_message = true
 show.system_event_message = true
-show.payload = false
 
 -- Register Nasdaq PsxEquities Bbo Itch 2.1 Show Options
 omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -109,7 +107,6 @@ omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_reg_sho_short_sale_price_test_re
 omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
 omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
 omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_psxequities_bbo_itch_v2_1.prefs_changed()
@@ -166,10 +163,6 @@ function omi_nasdaq_psxequities_bbo_itch_v2_1.prefs_changed()
   end
   if show.system_event_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_system_event_message then
     show.system_event_message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_system_event_message
-    changed = true
-  end
-  if show.payload ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_payload then
-    show.payload = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_payload
     changed = true
   end
 
@@ -1800,11 +1793,6 @@ nasdaq_psxequities_bbo_itch_v2_1.payload.size = function(buffer, offset, message
   return 0
 end
 
--- Display: Payload
-nasdaq_psxequities_bbo_itch_v2_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nasdaq_psxequities_bbo_itch_v2_1.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
@@ -1849,20 +1837,11 @@ end
 
 -- Dissect: Payload
 nasdaq_psxequities_bbo_itch_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nasdaq_psxequities_bbo_itch_v2_1.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_psxequities_bbo_itch_v2_1.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_psxequities_bbo_itch_v2_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.payload, range, display)
 
   return nasdaq_psxequities_bbo_itch_v2_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
@@ -1988,6 +1967,16 @@ end
 -- Message
 nasdaq_psxequities_bbo_itch_v2_1.message = {}
 
+-- Read runtime size of: Message
+nasdaq_psxequities_bbo_itch_v2_1.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
+
+  return message_length + 2
+end
+
 -- Display: Message
 nasdaq_psxequities_bbo_itch_v2_1.message.display = function(packet, parent, length)
   return ""
@@ -2016,24 +2005,20 @@ nasdaq_psxequities_bbo_itch_v2_1.message.fields = function(buffer, offset, packe
 end
 
 -- Dissect: Message
-nasdaq_psxequities_bbo_itch_v2_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
+nasdaq_psxequities_bbo_itch_v2_1.message.dissect = function(buffer, offset, packet, parent)
+  -- Parse runtime size
+  local size_of_message = nasdaq_psxequities_bbo_itch_v2_1.message.size(buffer, offset)
 
-  -- Optionally add group/struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.message then
-    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message, buffer(offset, 0))
-    local current = nasdaq_psxequities_bbo_itch_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
+    local range = buffer(offset, size_of_message)
     local display = nasdaq_psxequities_bbo_itch_v2_1.message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nasdaq_psxequities_bbo_itch_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-
-    return index
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message, range, display)
   end
+
+  nasdaq_psxequities_bbo_itch_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+  return offset + size_of_message
 end
 
 -- Message Count
@@ -2179,9 +2164,6 @@ nasdaq_psxequities_bbo_itch_v2_1.packet.dissect = function(buffer, packet, paren
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_psxequities_bbo_itch_v2_1.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 2, 2):uint()
-
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -2191,7 +2173,7 @@ nasdaq_psxequities_bbo_itch_v2_1.packet.dissect = function(buffer, packet, paren
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
 
-    -- Message: Struct of 2 fields
+    -- Message: Runtime Type with 3 branches
     index, message = nasdaq_psxequities_bbo_itch_v2_1.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 

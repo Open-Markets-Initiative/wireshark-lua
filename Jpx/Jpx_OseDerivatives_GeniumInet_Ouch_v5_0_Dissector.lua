@@ -33,7 +33,6 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet_header = ProtoField.ne
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet_length = ProtoField.new("Packet Length", "jpx.osederivatives.geniuminet.ouch.v5.0.packetlength", ftypes.UINT16)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet_type = ProtoField.new("Packet Type", "jpx.osederivatives.geniuminet.ouch.v5.0.packettype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.password = ProtoField.new("Password", "jpx.osederivatives.geniuminet.ouch.v5.0.password", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.payload = ProtoField.new("Payload", "jpx.osederivatives.geniuminet.ouch.v5.0.payload", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.previous_order_token = ProtoField.new("Previous Order Token", "jpx.osederivatives.geniuminet.ouch.v5.0.previousordertoken", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.price = ProtoField.new("Price", "jpx.osederivatives.geniuminet.ouch.v5.0.price", ftypes.DOUBLE)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.quantity = ProtoField.new("Quantity", "jpx.osederivatives.geniuminet.ouch.v5.0.quantity", ftypes.UINT64)
@@ -44,7 +43,6 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_sequence_number = P
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_session = ProtoField.new("Requested Session", "jpx.osederivatives.geniuminet.ouch.v5.0.requestedsession", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.scope = ProtoField.new("Scope", "jpx.osederivatives.geniuminet.ouch.v5.0.scope", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequence_number = ProtoField.new("Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencenumber", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencedmessage", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencedmessagetype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.session = ProtoField.new("Session", "jpx.osederivatives.geniuminet.ouch.v5.0.session", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.side = ProtoField.new("Side", "jpx.osederivatives.geniuminet.ouch.v5.0.side", ftypes.STRING)
@@ -56,7 +54,6 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds = Proto
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.trade_price = ProtoField.new("Trade Price", "jpx.osederivatives.geniuminet.ouch.v5.0.tradeprice", ftypes.DOUBLE)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.traded_quantity = ProtoField.new("Traded Quantity", "jpx.osederivatives.geniuminet.ouch.v5.0.tradedquantity", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.underlying_id = ProtoField.new("Underlying Id", "jpx.osederivatives.geniuminet.ouch.v5.0.underlyingid", ftypes.UINT32)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequencedmessage", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequencedmessagetype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.username = ProtoField.new("Username", "jpx.osederivatives.geniuminet.ouch.v5.0.username", ftypes.STRING)
 
@@ -110,9 +107,6 @@ show.replace_order = true
 show.sequenced_data_packet = true
 show.soup_bin_tcp_packet = true
 show.unsequenced_data_packet = true
-show.payload = false
-show.sequenced_message = false
-show.unsequenced_message = false
 
 -- Register Jpx OseDerivatives GeniumInet Ouch 5.0 Show Options
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_by_order_id = Pref.bool("Show Cancel By Order Id", show.cancel_by_order_id, "Parse and add Cancel By Order Id to protocol tree")
@@ -136,9 +130,6 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_replace_order = Pref.bool
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()
@@ -227,18 +218,6 @@ function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()
   end
   if show.unsequenced_data_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_unsequenced_data_packet
-    changed = true
-  end
-  if show.payload ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_payload then
-    show.payload = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_payload
-    changed = true
-  end
-  if show.sequenced_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequenced_message then
-    show.sequenced_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequenced_message
-    changed = true
-  end
-  if show.unsequenced_message ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_unsequenced_message then
-    show.unsequenced_message = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -1040,11 +1019,6 @@ jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.size = function(buff
   return 0
 end
 
--- Display: Unsequenced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Unsequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Enter Order
@@ -1077,20 +1051,11 @@ end
 
 -- Dissect: Unsequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  if not show.unsequenced_message then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.size(buffer, offset, unsequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_message, range, display)
 
   return jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -2603,11 +2568,6 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.size = function(buffer
   return 0
 end
 
--- Display: Sequenced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Sequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect Order Accepted
@@ -2640,20 +2600,11 @@ end
 
 -- Dissect: Sequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  if not show.sequenced_message then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.size(buffer, offset, sequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_message, range, display)
 
   return jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -2997,11 +2948,6 @@ jpx_osederivatives_geniuminet_ouch_v5_0.payload.size = function(buffer, offset, 
   return 0
 end
 
--- Display: Payload
-jpx_osederivatives_geniuminet_ouch_v5_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 jpx_osederivatives_geniuminet_ouch_v5_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
@@ -3034,20 +2980,11 @@ end
 
 -- Dissect: Payload
 jpx_osederivatives_geniuminet_ouch_v5_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = jpx_osederivatives_geniuminet_ouch_v5_0.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.payload, range, display)
 
   return jpx_osederivatives_geniuminet_ouch_v5_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end

@@ -32,7 +32,6 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.display_price = ProtoField.new("D
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.display_quantity = ProtoField.new("Display Quantity", "nasdaq.nsmequities.orders.ouch.v5.0.displayquantity", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_appendage = ProtoField.new("Enter Order Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.enterorderappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_optional_field = ProtoField.new("Enter Order Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.enterorderoptionalfield", ftypes.INT8)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_optional_value = ProtoField.new("Enter Order Optional Value", "nasdaq.nsmequities.orders.ouch.v5.0.enterorderoptionalvalue", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.orders.ouch.v5.0.eventcode", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.nsmequities.orders.ouch.v5.0.executionprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.expire_time = ProtoField.new("Expire Time", "nasdaq.nsmequities.orders.ouch.v5.0.expiretime", ftypes.UINT32)
@@ -47,15 +46,12 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.next_user_ref_num = ProtoField.ne
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.optional_field_length = ProtoField.new("Optional Field Length", "nasdaq.nsmequities.orders.ouch.v5.0.optionalfieldlength", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_appendage = ProtoField.new("Order Accepted Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.orderacceptedappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_optional_field = ProtoField.new("Order Accepted Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.orderacceptedoptionalfield", ftypes.INT8)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_optional_value = ProtoField.new("Order Accepted Optional Value", "nasdaq.nsmequities.orders.ouch.v5.0.orderacceptedoptionalvalue", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_cancel_reason = ProtoField.new("Order Cancel Reason", "nasdaq.nsmequities.orders.ouch.v5.0.ordercancelreason", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_appendage = ProtoField.new("Order Executed Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.orderexecutedappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_optional_field = ProtoField.new("Order Executed Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.orderexecutedoptionalfield", ftypes.INT8)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_optional_value = ProtoField.new("Order Executed Optional Value", "nasdaq.nsmequities.orders.ouch.v5.0.orderexecutedoptionalvalue", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.orders.ouch.v5.0.orderreferencenumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_appendage = ProtoField.new("Order Restated Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.orderrestatedappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_optional_field = ProtoField.new("Order Restated Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.orderrestatedoptionalfield", ftypes.INT8)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_optional_value = ProtoField.new("Order Restated Optional Value", "nasdaq.nsmequities.orders.ouch.v5.0.orderrestatedoptionalvalue", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_reason = ProtoField.new("Order Restated Reason", "nasdaq.nsmequities.orders.ouch.v5.0.orderrestatedreason", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_state = ProtoField.new("Order State", "nasdaq.nsmequities.orders.ouch.v5.0.orderstate", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.orig_user_ref_num = ProtoField.new("Orig User Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.origuserrefnum", ftypes.UINT32)
@@ -64,7 +60,6 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.packet_header = ProtoField.new("P
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.nsmequities.orders.ouch.v5.0.packetlength", ftypes.UINT16)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.nsmequities.orders.ouch.v5.0.packettype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.orders.ouch.v5.0.password", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.payload = ProtoField.new("Payload", "nasdaq.nsmequities.orders.ouch.v5.0.payload", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.peg_offset = ProtoField.new("Peg Offset", "nasdaq.nsmequities.orders.ouch.v5.0.pegoffset", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.post_only = ProtoField.new("Post Only", "nasdaq.nsmequities.orders.ouch.v5.0.postonly", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.orders.ouch.v5.0.price", ftypes.DOUBLE)
@@ -78,16 +73,13 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.reject_reason_code = ProtoField.n
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_reason = ProtoField.new("Rejected Order Reason", "nasdaq.nsmequities.orders.ouch.v5.0.rejectedorderreason", ftypes.UINT16)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_appendage = ProtoField.new("Replace Order Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.replaceorderappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_optional_field = ProtoField.new("Replace Order Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.replaceorderoptionalfield", ftypes.INT8)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_optional_value = ProtoField.new("Replace Order Optional Value", "nasdaq.nsmequities.orders.ouch.v5.0.replaceorderoptionalvalue", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_appendage = ProtoField.new("Replaced Message Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.replacedmessageappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_optional_field = ProtoField.new("Replaced Message Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.replacedmessageoptionalfield", ftypes.INT8)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_optional_value = ProtoField.new("Replaced Message Optional Value", "nasdaq.nsmequities.orders.ouch.v5.0.replacedmessageoptionalvalue", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.orders.ouch.v5.0.requestedsession", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.route = ProtoField.new("Route", "nasdaq.nsmequities.orders.ouch.v5.0.route", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.secondary_ord_ref_num = ProtoField.new("Secondary Ord Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.secondaryordrefnum", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.sequencenumber", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.nsmequities.orders.ouch.v5.0.sequencedmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nsmequities.orders.ouch.v5.0.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.orders.ouch.v5.0.session", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.orders.ouch.v5.0.side", ftypes.STRING)
@@ -98,7 +90,6 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.time_in_force = ProtoField.new("T
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.orders.ouch.v5.0.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_reason = ProtoField.new("Trade Correction Reason", "nasdaq.nsmequities.orders.ouch.v5.0.tradecorrectionreason", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_now = ProtoField.new("Trade Now", "nasdaq.nsmequities.orders.ouch.v5.0.tradenow", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.orders.ouch.v5.0.unsequencedmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.nsmequities.orders.ouch.v5.0.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.user_ref_num = ProtoField.new("User Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.userrefnum", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.orders.ouch.v5.0.username", ftypes.STRING)
@@ -173,15 +164,6 @@ show.soup_bin_tcp_packet = true
 show.system_event_message = true
 show.trade_correction_message = true
 show.unsequenced_data_packet = true
-show.enter_order_optional_value = false
-show.order_accepted_optional_value = false
-show.order_executed_optional_value = false
-show.order_restated_optional_value = false
-show.payload = false
-show.replace_order_optional_value = false
-show.replaced_message_optional_value = false
-show.sequenced_message = false
-show.unsequenced_message = false
 
 -- Register Nasdaq NsmEquities Orders Ouch 5.0 Show Options
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_account_query_response_message = Pref.bool("Show Account Query Response Message", show.account_query_response_message, "Parse and add Account Query Response Message to protocol tree")
@@ -218,15 +200,6 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet = Pref.bo
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_optional_value = Pref.bool("Show Enter Order Optional Value", show.enter_order_optional_value, "Parse and add Enter Order Optional Value to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_optional_value = Pref.bool("Show Order Accepted Optional Value", show.order_accepted_optional_value, "Parse and add Order Accepted Optional Value to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_optional_value = Pref.bool("Show Order Executed Optional Value", show.order_executed_optional_value, "Parse and add Order Executed Optional Value to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_optional_value = Pref.bool("Show Order Restated Optional Value", show.order_restated_optional_value, "Parse and add Order Restated Optional Value to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_optional_value = Pref.bool("Show Replace Order Optional Value", show.replace_order_optional_value, "Parse and add Replace Order Optional Value to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_optional_value = Pref.bool("Show Replaced Message Optional Value", show.replaced_message_optional_value, "Parse and add Replaced Message Optional Value to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs_changed()
@@ -367,42 +340,6 @@ function omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs_changed()
   end
   if show.unsequenced_data_packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_unsequenced_data_packet
-    changed = true
-  end
-  if show.enter_order_optional_value ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_optional_value then
-    show.enter_order_optional_value = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_optional_value
-    changed = true
-  end
-  if show.order_accepted_optional_value ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_optional_value then
-    show.order_accepted_optional_value = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_optional_value
-    changed = true
-  end
-  if show.order_executed_optional_value ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_optional_value then
-    show.order_executed_optional_value = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_optional_value
-    changed = true
-  end
-  if show.order_restated_optional_value ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_optional_value then
-    show.order_restated_optional_value = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_optional_value
-    changed = true
-  end
-  if show.payload ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_payload then
-    show.payload = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_payload
-    changed = true
-  end
-  if show.replace_order_optional_value ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_optional_value then
-    show.replace_order_optional_value = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_optional_value
-    changed = true
-  end
-  if show.replaced_message_optional_value ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_optional_value then
-    show.replaced_message_optional_value = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_optional_value
-    changed = true
-  end
-  if show.sequenced_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_sequenced_message then
-    show.sequenced_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_sequenced_message
-    changed = true
-  end
-  if show.unsequenced_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_unsequenced_message then
-    show.unsequenced_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -807,11 +744,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.size = function
   return 0
 end
 
--- Display: Replace Order Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Replace Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.branches = function(buffer, offset, packet, parent, replace_order_optional_field)
   -- Dissect Min Qty
@@ -848,20 +780,11 @@ end
 
 -- Dissect: Replace Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dissect = function(buffer, offset, packet, parent, replace_order_optional_field)
-  if not show.replace_order_optional_value then
-    return nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.branches(buffer, offset, packet, parent, replace_order_optional_field)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.size(buffer, offset, replace_order_optional_field)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_optional_value, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.branches(buffer, offset, packet, parent, replace_order_optional_field)
 end
@@ -1361,11 +1284,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.size = function(b
   return 0
 end
 
--- Display: Enter Order Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Enter Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.branches = function(buffer, offset, packet, parent, enter_order_optional_field)
   -- Dissect Firm
@@ -1390,20 +1308,11 @@ end
 
 -- Dissect: Enter Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dissect = function(buffer, offset, packet, parent, enter_order_optional_field)
-  if not show.enter_order_optional_value then
-    return nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.branches(buffer, offset, packet, parent, enter_order_optional_field)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.size(buffer, offset, enter_order_optional_field)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_optional_value, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.branches(buffer, offset, packet, parent, enter_order_optional_field)
 end
@@ -1712,11 +1621,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.size = function(buffer, 
   return 0
 end
 
--- Display: Unsequenced Message
-nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Enter Order Message
@@ -1744,20 +1648,11 @@ end
 
 -- Dissect: Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  if not show.unsequenced_message then
-    return nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.size(buffer, offset, unsequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_message, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -2183,11 +2078,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.size = functio
   return 0
 end
 
--- Display: Order Restated Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Order Restated Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.branches = function(buffer, offset, packet, parent, order_restated_optional_field)
   -- Dissect Display Quantity
@@ -2208,20 +2098,11 @@ end
 
 -- Dissect: Order Restated Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dissect = function(buffer, offset, packet, parent, order_restated_optional_field)
-  if not show.order_restated_optional_value then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.branches(buffer, offset, packet, parent, order_restated_optional_field)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.size(buffer, offset, order_restated_optional_field)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_optional_value, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.branches(buffer, offset, packet, parent, order_restated_optional_field)
 end
@@ -3154,11 +3035,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.size = functio
   return 0
 end
 
--- Display: Order Executed Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Order Executed Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.branches = function(buffer, offset, packet, parent, order_executed_optional_field)
   -- Dissect Reference Price
@@ -3175,20 +3051,11 @@ end
 
 -- Dissect: Order Executed Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dissect = function(buffer, offset, packet, parent, order_executed_optional_field)
-  if not show.order_executed_optional_value then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.branches(buffer, offset, packet, parent, order_executed_optional_field)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.size(buffer, offset, order_executed_optional_field)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_optional_value, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.branches(buffer, offset, packet, parent, order_executed_optional_field)
 end
@@ -3688,11 +3555,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.size = funct
   return 0
 end
 
--- Display: Replaced Message Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Replaced Message Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.branches = function(buffer, offset, packet, parent, replaced_message_optional_field)
   -- Dissect Firm
@@ -3737,20 +3599,11 @@ end
 
 -- Dissect: Replaced Message Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dissect = function(buffer, offset, packet, parent, replaced_message_optional_field)
-  if not show.replaced_message_optional_value then
-    return nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.branches(buffer, offset, packet, parent, replaced_message_optional_field)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.size(buffer, offset, replaced_message_optional_field)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_optional_value, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.branches(buffer, offset, packet, parent, replaced_message_optional_field)
 end
@@ -4209,11 +4062,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.size = functio
   return 0
 end
 
--- Display: Order Accepted Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Order Accepted Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.branches = function(buffer, offset, packet, parent, order_accepted_optional_field)
   -- Dissect Firm
@@ -4286,20 +4134,11 @@ end
 
 -- Dissect: Order Accepted Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dissect = function(buffer, offset, packet, parent, order_accepted_optional_field)
-  if not show.order_accepted_optional_value then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.branches(buffer, offset, packet, parent, order_accepted_optional_field)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.size(buffer, offset, order_accepted_optional_field)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_optional_value, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.branches(buffer, offset, packet, parent, order_accepted_optional_field)
 end
@@ -4660,11 +4499,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.size = function(buffer, of
   return 0
 end
 
--- Display: Sequenced Message
-nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Sequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect System Event Message
@@ -4733,20 +4567,11 @@ end
 
 -- Dissect: Sequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  if not show.sequenced_message then
-    return nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.size(buffer, offset, sequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_message, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -5117,11 +4942,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.payload.size = function(buffer, offset, pack
   return 0
 end
 
--- Display: Payload
-nasdaq_nsmequities_orders_ouch_v5_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nasdaq_nsmequities_orders_ouch_v5_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
@@ -5154,20 +4974,11 @@ end
 
 -- Dissect: Payload
 nasdaq_nsmequities_orders_ouch_v5_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return nasdaq_nsmequities_orders_ouch_v5_0.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_nsmequities_orders_ouch_v5_0.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.payload, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v5_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end

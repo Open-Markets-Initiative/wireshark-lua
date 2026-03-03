@@ -63,7 +63,6 @@ omi_asx_securities_trade_itch_v2_0.fields.packet_header = ProtoField.new("Packet
 omi_asx_securities_trade_itch_v2_0.fields.participant_id = ProtoField.new("Participant Id", "asx.securities.trade.itch.v2.0.participantid", ftypes.STRING)
 omi_asx_securities_trade_itch_v2_0.fields.participant_id_counterparty = ProtoField.new("Participant Id Counterparty", "asx.securities.trade.itch.v2.0.participantidcounterparty", ftypes.STRING)
 omi_asx_securities_trade_itch_v2_0.fields.participant_id_owner = ProtoField.new("Participant Id Owner", "asx.securities.trade.itch.v2.0.participantidowner", ftypes.STRING)
-omi_asx_securities_trade_itch_v2_0.fields.payload = ProtoField.new("Payload", "asx.securities.trade.itch.v2.0.payload", ftypes.STRING)
 omi_asx_securities_trade_itch_v2_0.fields.price = ProtoField.new("Price", "asx.securities.trade.itch.v2.0.price", ftypes.DOUBLE)
 omi_asx_securities_trade_itch_v2_0.fields.price_from = ProtoField.new("Price From", "asx.securities.trade.itch.v2.0.pricefrom", ftypes.DOUBLE)
 omi_asx_securities_trade_itch_v2_0.fields.price_stabilisation = ProtoField.new("Price Stabilisation", "asx.securities.trade.itch.v2.0.pricestabilisation", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
@@ -131,7 +130,6 @@ show.seconds_message = true
 show.system_event_message = true
 show.tick_size_message = true
 show.trade_message = true
-show.payload = false
 
 -- Register Asx Securities Trade Itch 2.0 Show Options
 omi_asx_securities_trade_itch_v2_0.prefs.show_add_order_no_participant_id_message = Pref.bool("Show Add Order No Participant Id Message", show.add_order_no_participant_id_message, "Parse and add Add Order No Participant Id Message to protocol tree")
@@ -153,7 +151,6 @@ omi_asx_securities_trade_itch_v2_0.prefs.show_seconds_message = Pref.bool("Show 
 omi_asx_securities_trade_itch_v2_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 omi_asx_securities_trade_itch_v2_0.prefs.show_tick_size_message = Pref.bool("Show Tick Size Message", show.tick_size_message, "Parse and add Tick Size Message to protocol tree")
 omi_asx_securities_trade_itch_v2_0.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_asx_securities_trade_itch_v2_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_asx_securities_trade_itch_v2_0.prefs_changed()
@@ -234,10 +231,6 @@ function omi_asx_securities_trade_itch_v2_0.prefs_changed()
   end
   if show.trade_message ~= omi_asx_securities_trade_itch_v2_0.prefs.show_trade_message then
     show.trade_message = omi_asx_securities_trade_itch_v2_0.prefs.show_trade_message
-    changed = true
-  end
-  if show.payload ~= omi_asx_securities_trade_itch_v2_0.prefs.show_payload then
-    show.payload = omi_asx_securities_trade_itch_v2_0.prefs.show_payload
     changed = true
   end
 
@@ -2730,11 +2723,6 @@ asx_securities_trade_itch_v2_0.payload.size = function(buffer, offset, message_t
   return 0
 end
 
--- Display: Payload
-asx_securities_trade_itch_v2_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 asx_securities_trade_itch_v2_0.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Seconds Message
@@ -2799,20 +2787,11 @@ end
 
 -- Dissect: Payload
 asx_securities_trade_itch_v2_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return asx_securities_trade_itch_v2_0.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = asx_securities_trade_itch_v2_0.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = asx_securities_trade_itch_v2_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_asx_securities_trade_itch_v2_0.fields.payload, range, display)
 
   return asx_securities_trade_itch_v2_0.payload.branches(buffer, offset, packet, parent, message_type)
 end
@@ -2953,6 +2932,16 @@ end
 -- Message
 asx_securities_trade_itch_v2_0.message = {}
 
+-- Read runtime size of: Message
+asx_securities_trade_itch_v2_0.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
+
+  return message_length + 2
+end
+
 -- Display: Message
 asx_securities_trade_itch_v2_0.message.display = function(packet, parent, length)
   return ""
@@ -2981,24 +2970,20 @@ asx_securities_trade_itch_v2_0.message.fields = function(buffer, offset, packet,
 end
 
 -- Dissect: Message
-asx_securities_trade_itch_v2_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
+asx_securities_trade_itch_v2_0.message.dissect = function(buffer, offset, packet, parent)
+  -- Parse runtime size
+  local size_of_message = asx_securities_trade_itch_v2_0.message.size(buffer, offset)
 
-  -- Optionally add group/struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.message then
-    parent = parent:add(omi_asx_securities_trade_itch_v2_0.fields.message, buffer(offset, 0))
-    local current = asx_securities_trade_itch_v2_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
+    local range = buffer(offset, size_of_message)
     local display = asx_securities_trade_itch_v2_0.message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    asx_securities_trade_itch_v2_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-
-    return index
+    parent = parent:add(omi_asx_securities_trade_itch_v2_0.fields.message, range, display)
   end
+
+  asx_securities_trade_itch_v2_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+  return offset + size_of_message
 end
 
 -- Message Count
@@ -3144,9 +3129,6 @@ asx_securities_trade_itch_v2_0.packet.dissect = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = asx_securities_trade_itch_v2_0.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 2, 2):uint()
-
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -3156,7 +3138,7 @@ asx_securities_trade_itch_v2_0.packet.dissect = function(buffer, packet, parent)
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
 
-    -- Message: Struct of 2 fields
+    -- Message: Runtime Type with 3 branches
     index, message = asx_securities_trade_itch_v2_0.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 

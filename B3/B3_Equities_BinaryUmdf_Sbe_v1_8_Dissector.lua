@@ -144,7 +144,6 @@ omi_b3_equities_binaryumdf_sbe_v1_8.fields.padding_2 = ProtoField.new("Padding 2
 omi_b3_equities_binaryumdf_sbe_v1_8.fields.padding_3 = ProtoField.new("Padding 3", "b3.equities.binaryumdf.sbe.v1.8.padding3", ftypes.BYTES)
 omi_b3_equities_binaryumdf_sbe_v1_8.fields.part_count = ProtoField.new("Part Count", "b3.equities.binaryumdf.sbe.v1.8.partcount", ftypes.UINT16)
 omi_b3_equities_binaryumdf_sbe_v1_8.fields.part_number = ProtoField.new("Part Number", "b3.equities.binaryumdf.sbe.v1.8.partnumber", ftypes.UINT16)
-omi_b3_equities_binaryumdf_sbe_v1_8.fields.payload = ProtoField.new("Payload", "b3.equities.binaryumdf.sbe.v1.8.payload", ftypes.STRING)
 omi_b3_equities_binaryumdf_sbe_v1_8.fields.price_band_midpoint_price_type = ProtoField.new("Price Band Midpoint Price Type", "b3.equities.binaryumdf.sbe.v1.8.pricebandmidpointpricetype", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_8.fields.price_band_type = ProtoField.new("Price Band Type", "b3.equities.binaryumdf.sbe.v1.8.pricebandtype", ftypes.UINT8)
 omi_b3_equities_binaryumdf_sbe_v1_8.fields.price_divisor = ProtoField.new("Price Divisor", "b3.equities.binaryumdf.sbe.v1.8.pricedivisor", ftypes.DOUBLE)
@@ -351,7 +350,6 @@ show.trade_condition = true
 show.underlyings_group = true
 show.underlyings_groups = true
 show.url_link = true
-show.payload = false
 
 -- Register B3 Equities BinaryUmdf Sbe 1.8 Show Options
 omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_auction_imbalance_19_message = Pref.bool("Show Auction Imbalance 19 Message", show.auction_imbalance_19_message, "Parse and add Auction Imbalance 19 Message to protocol tree")
@@ -413,7 +411,6 @@ omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_trade_condition = Pref.bool("Show
 omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_group = Pref.bool("Show Underlyings Group", show.underlyings_group, "Parse and add Underlyings Group to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_groups = Pref.bool("Show Underlyings Groups", show.underlyings_groups, "Parse and add Underlyings Groups to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_url_link = Pref.bool("Show Url Link", show.url_link, "Parse and add Url Link to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_b3_equities_binaryumdf_sbe_v1_8.prefs_changed()
@@ -654,10 +651,6 @@ function omi_b3_equities_binaryumdf_sbe_v1_8.prefs_changed()
   end
   if show.url_link ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_url_link then
     show.url_link = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_url_link
-    changed = true
-  end
-  if show.payload ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_payload then
-    show.payload = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_payload
     changed = true
   end
 
@@ -9684,11 +9677,6 @@ b3_equities_binaryumdf_sbe_v1_8.payload.size = function(buffer, offset, template
   return 0
 end
 
--- Display: Payload
-b3_equities_binaryumdf_sbe_v1_8.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 b3_equities_binaryumdf_sbe_v1_8.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Sequence Reset Message
@@ -9820,20 +9808,11 @@ end
 
 -- Dissect: Payload
 b3_equities_binaryumdf_sbe_v1_8.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return b3_equities_binaryumdf_sbe_v1_8.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = b3_equities_binaryumdf_sbe_v1_8.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = b3_equities_binaryumdf_sbe_v1_8.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_b3_equities_binaryumdf_sbe_v1_8.fields.payload, range, display)
 
   return b3_equities_binaryumdf_sbe_v1_8.payload.branches(buffer, offset, packet, parent, template_id)
 end

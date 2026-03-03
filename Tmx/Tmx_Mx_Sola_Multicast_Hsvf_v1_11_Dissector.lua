@@ -25,7 +25,6 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_n_6 = ProtoField.new("Bid 
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_sign = ProtoField.new("Bid Price Sign", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricesign", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_x_6 = ProtoField.new("Bid Price X 6", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricex6", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_size = ProtoField.new("Bid Size", "tmx.mx.sola.multicast.hsvf.v1.11.bidsize", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin = ProtoField.new("Bulletin", "tmx.mx.sola.multicast.hsvf.v1.11.bulletin", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin_contents_x_49 = ProtoField.new("Bulletin Contents X 49", "tmx.mx.sola.multicast.hsvf.v1.11.bulletincontentsx49", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin_type = ProtoField.new("Bulletin Type", "tmx.mx.sola.multicast.hsvf.v1.11.bulletintype", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.call_put_code = ProtoField.new("Call Put Code", "tmx.mx.sola.multicast.hsvf.v1.11.callputcode", ftypes.STRING)
@@ -92,7 +91,6 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_number_of_contracts_per_orde
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpricefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_n_6 = ProtoField.new("Maximum Threshold Price N 6", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpricen6", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_x_6 = ProtoField.new("Maximum Threshold Price X 6", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpricex6", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.message_body = ProtoField.new("Message Body", "tmx.mx.sola.multicast.hsvf.v1.11.messagebody", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.message_header = ProtoField.new("Message Header", "tmx.mx.sola.multicast.hsvf.v1.11.messageheader", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.message_type = ProtoField.new("Message Type", "tmx.mx.sola.multicast.hsvf.v1.11.messagetype", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.min_price = ProtoField.new("Min Price", "tmx.mx.sola.multicast.hsvf.v1.11.minprice", ftypes.STRING)
@@ -335,8 +333,6 @@ show.swap_future_trade_message = true
 show.tick_entry_group = true
 show.tick_table_message = true
 show.underlying_instrument_keys_message = true
-show.bulletin = false
-show.message_body = false
 
 -- Register Tmx Mx Sola Multicast Hsvf 1.11 Show Options
 omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_beginning_of_future_options_summary_message = Pref.bool("Show Beginning Of Future Options Summary Message", show.beginning_of_future_options_summary_message, "Parse and add Beginning Of Future Options Summary Message to protocol tree")
@@ -408,8 +404,6 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_swap_future_trade_message = Pref
 omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_tick_entry_group = Pref.bool("Show Tick Entry Group", show.tick_entry_group, "Parse and add Tick Entry Group to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_tick_table_message = Pref.bool("Show Tick Table Message", show.tick_table_message, "Parse and add Tick Table Message to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_underlying_instrument_keys_message = Pref.bool("Show Underlying Instrument Keys Message", show.underlying_instrument_keys_message, "Parse and add Underlying Instrument Keys Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_bulletin = Pref.bool("Show Bulletin", show.bulletin, "Parse and add Bulletin to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_message_body = Pref.bool("Show Message Body", show.message_body, "Parse and add Message Body to protocol tree")
 
 -- Handle changed preferences
 function omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs_changed()
@@ -690,14 +684,6 @@ function omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs_changed()
   end
   if show.underlying_instrument_keys_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_underlying_instrument_keys_message then
     show.underlying_instrument_keys_message = omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_underlying_instrument_keys_message
-    changed = true
-  end
-  if show.bulletin ~= omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_bulletin then
-    show.bulletin = omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_bulletin
-    changed = true
-  end
-  if show.message_body ~= omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_message_body then
-    show.message_body = omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_message_body
     changed = true
   end
 
@@ -1459,11 +1445,6 @@ tmx_mx_sola_multicast_hsvf_v1_11.bulletin.size = function(buffer, offset, bullet
   return 0
 end
 
--- Display: Bulletin
-tmx_mx_sola_multicast_hsvf_v1_11.bulletin.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Bulletin
 tmx_mx_sola_multicast_hsvf_v1_11.bulletin.branches = function(buffer, offset, packet, parent, bulletin_type)
   -- Dissect Regular Text Bulletin
@@ -1480,20 +1461,11 @@ end
 
 -- Dissect: Bulletin
 tmx_mx_sola_multicast_hsvf_v1_11.bulletin.dissect = function(buffer, offset, packet, parent, bulletin_type)
-  if not show.bulletin then
-    return tmx_mx_sola_multicast_hsvf_v1_11.bulletin.branches(buffer, offset, packet, parent, bulletin_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = tmx_mx_sola_multicast_hsvf_v1_11.bulletin.size(buffer, offset, bulletin_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.bulletin.display(buffer, packet, parent)
-  local element = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin, range, display)
 
   return tmx_mx_sola_multicast_hsvf_v1_11.bulletin.branches(buffer, offset, packet, parent, bulletin_type)
 end
@@ -10867,11 +10839,6 @@ tmx_mx_sola_multicast_hsvf_v1_11.message_body.size = function(buffer, offset, me
   return 0
 end
 
--- Display: Message Body
-tmx_mx_sola_multicast_hsvf_v1_11.message_body.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Message Body
 tmx_mx_sola_multicast_hsvf_v1_11.message_body.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Option Trade Message
@@ -11112,20 +11079,11 @@ end
 
 -- Dissect: Message Body
 tmx_mx_sola_multicast_hsvf_v1_11.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.message_body then
-    return tmx_mx_sola_multicast_hsvf_v1_11.message_body.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = tmx_mx_sola_multicast_hsvf_v1_11.message_body.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.message_body.display(buffer, packet, parent)
-  local element = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.message_body, range, display)
 
   return tmx_mx_sola_multicast_hsvf_v1_11.message_body.branches(buffer, offset, packet, parent, message_type)
 end

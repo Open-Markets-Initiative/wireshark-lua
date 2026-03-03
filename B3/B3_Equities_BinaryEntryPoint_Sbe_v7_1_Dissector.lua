@@ -163,7 +163,6 @@ omi_b3_equities_binaryentrypoint_sbe_v7_1.fields.outbound_business_header = Prot
 omi_b3_equities_binaryentrypoint_sbe_v7_1.fields.packet = ProtoField.new("Packet", "b3.equities.binaryentrypoint.sbe.v7.1.packet", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v7_1.fields.padding = ProtoField.new("Padding", "b3.equities.binaryentrypoint.sbe.v7.1.padding", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v7_1.fields.padding_1 = ProtoField.new("Padding 1", "b3.equities.binaryentrypoint.sbe.v7.1.padding1", ftypes.BYTES)
-omi_b3_equities_binaryentrypoint_sbe_v7_1.fields.payload = ProtoField.new("Payload", "b3.equities.binaryentrypoint.sbe.v7.1.payload", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v7_1.fields.pos_maint_action = ProtoField.new("Pos Maint Action", "b3.equities.binaryentrypoint.sbe.v7.1.posmaintaction", ftypes.STRING)
 omi_b3_equities_binaryentrypoint_sbe_v7_1.fields.pos_maint_result = ProtoField.new("Pos Maint Result", "b3.equities.binaryentrypoint.sbe.v7.1.posmaintresult", ftypes.UINT32)
 omi_b3_equities_binaryentrypoint_sbe_v7_1.fields.pos_maint_rpt_id = ProtoField.new("Pos Maint Rpt Id", "b3.equities.binaryentrypoint.sbe.v7.1.posmaintrptid", ftypes.UINT64)
@@ -366,7 +365,6 @@ show.simple_open_frame = true
 show.simple_open_framing_header = true
 show.terminate_message = true
 show.text = true
-show.payload = false
 
 -- Register B3 Equities BinaryEntryPoint Sbe 7.1 Show Options
 omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs.show_allocation_instruction_message = Pref.bool("Show Allocation Instruction Message", show.allocation_instruction_message, "Parse and add Allocation Instruction Message to protocol tree")
@@ -437,7 +435,6 @@ omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs.show_simple_open_frame = Pref.bo
 omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs.show_simple_open_framing_header = Pref.bool("Show Simple Open Framing Header", show.simple_open_framing_header, "Parse and add Simple Open Framing Header to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs.show_terminate_message = Pref.bool("Show Terminate Message", show.terminate_message, "Parse and add Terminate Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs.show_text = Pref.bool("Show Text", show.text, "Parse and add Text to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs_changed()
@@ -714,10 +711,6 @@ function omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs_changed()
   end
   if show.text ~= omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs.show_text then
     show.text = omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs.show_text
-    changed = true
-  end
-  if show.payload ~= omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs.show_payload then
-    show.payload = omi_b3_equities_binaryentrypoint_sbe_v7_1.prefs.show_payload
     changed = true
   end
 
@@ -13827,11 +13820,6 @@ b3_equities_binaryentrypoint_sbe_v7_1.payload.size = function(buffer, offset, te
   return 0
 end
 
--- Display: Payload
-b3_equities_binaryentrypoint_sbe_v7_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 b3_equities_binaryentrypoint_sbe_v7_1.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Negotiate Message
@@ -13996,20 +13984,11 @@ end
 
 -- Dissect: Payload
 b3_equities_binaryentrypoint_sbe_v7_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return b3_equities_binaryentrypoint_sbe_v7_1.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = b3_equities_binaryentrypoint_sbe_v7_1.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = b3_equities_binaryentrypoint_sbe_v7_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_1.fields.payload, range, display)
 
   return b3_equities_binaryentrypoint_sbe_v7_1.payload.branches(buffer, offset, packet, parent, template_id)
 end

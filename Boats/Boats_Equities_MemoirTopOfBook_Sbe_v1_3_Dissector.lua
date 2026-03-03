@@ -34,7 +34,6 @@ omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short = ProtoFiel
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_size = ProtoField.new("Offer size", "boats.equities.memoirtopofbook.sbe.v1.3.offersize", ftypes.UINT32)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16 = ProtoField.new("Offer Size uint 16", "boats.equities.memoirtopofbook.sbe.v1.3.offersizeuint16", ftypes.UINT16)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "boats.equities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.payload = ProtoField.new("Payload", "boats.equities.memoirtopofbook.sbe.v1.3.payload", ftypes.STRING)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "boats.equities.memoirtopofbook.sbe.v1.3.roundlot", ftypes.UINT32)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "boats.equities.memoirtopofbook.sbe.v1.3.sbeheader", ftypes.STRING)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "boats.equities.memoirtopofbook.sbe.v1.3.sbemessage", ftypes.STRING)
@@ -44,7 +43,6 @@ omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status = Pro
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_reason = ProtoField.new("Security Trading Status Reason", "boats.equities.memoirtopofbook.sbe.v1.3.securitytradingstatusreason", ftypes.STRING)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "boats.equities.memoirtopofbook.sbe.v1.3.sequencenumber", ftypes.UINT64)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "boats.equities.memoirtopofbook.sbe.v1.3.sequencedmessage", ftypes.STRING)
-omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_messages = ProtoField.new("Sequenced Messages", "boats.equities.memoirtopofbook.sbe.v1.3.sequencedmessages", ftypes.STRING)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.session_id = ProtoField.new("Session Id", "boats.equities.memoirtopofbook.sbe.v1.3.sessionid", ftypes.UINT64)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "boats.equities.memoirtopofbook.sbe.v1.3.shortsalerestriction", ftypes.UINT8)
 omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "boats.equities.memoirtopofbook.sbe.v1.3.symbol", ftypes.STRING)
@@ -94,8 +92,6 @@ show.security_trading_status_message = true
 show.sequenced_message = true
 show.snapshot_complete_message = true
 show.trading_session_status_message = true
-show.payload = false
-show.sequenced_messages = false
 
 -- Register Boats Equities MemoirTopOfBook Sbe 1.3 Show Options
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_message = Pref.bool("Show Best Bid Message", show.best_bid_message, "Parse and add Best Bid Message to protocol tree")
@@ -115,8 +111,6 @@ omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_m
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
 omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
-omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_messages = Pref.bool("Show Sequenced Messages", show.sequenced_messages, "Parse and add Sequenced Messages to protocol tree")
 
 -- Handle changed preferences
 function omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs_changed()
@@ -189,14 +183,6 @@ function omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs_changed()
   end
   if show.trading_session_status_message ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message then
     show.trading_session_status_message = omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message
-    changed = true
-  end
-  if show.payload ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_payload then
-    show.payload = omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_payload
-    changed = true
-  end
-  if show.sequenced_messages ~= omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_messages then
-    show.sequenced_messages = omi_boats_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_messages
     changed = true
   end
 
@@ -1439,11 +1425,6 @@ boats_equities_memoirtopofbook_sbe_v1_3.payload.size = function(buffer, offset, 
   return 0
 end
 
--- Display: Payload
-boats_equities_memoirtopofbook_sbe_v1_3.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 boats_equities_memoirtopofbook_sbe_v1_3.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Instrument Directory Message
@@ -1496,20 +1477,11 @@ end
 
 -- Dissect: Payload
 boats_equities_memoirtopofbook_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return boats_equities_memoirtopofbook_sbe_v1_3.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = boats_equities_memoirtopofbook_sbe_v1_3.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = boats_equities_memoirtopofbook_sbe_v1_3.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.payload, range, display)
 
   return boats_equities_memoirtopofbook_sbe_v1_3.payload.branches(buffer, offset, packet, parent, template_id)
 end
@@ -1914,11 +1886,6 @@ boats_equities_memoirtopofbook_sbe_v1_3.sequenced_messages.size = function(buffe
   return 0
 end
 
--- Display: Sequenced Messages
-boats_equities_memoirtopofbook_sbe_v1_3.sequenced_messages.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Sequenced Messages
 boats_equities_memoirtopofbook_sbe_v1_3.sequenced_messages.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequenced Message
@@ -1931,20 +1898,11 @@ end
 
 -- Dissect: Sequenced Messages
 boats_equities_memoirtopofbook_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.sequenced_messages then
-    return boats_equities_memoirtopofbook_sbe_v1_3.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = boats_equities_memoirtopofbook_sbe_v1_3.sequenced_messages.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = boats_equities_memoirtopofbook_sbe_v1_3.sequenced_messages.display(buffer, packet, parent)
-  local element = parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_messages, range, display)
 
   return boats_equities_memoirtopofbook_sbe_v1_3.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
 end

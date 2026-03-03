@@ -81,7 +81,6 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.packet = ProtoField.new("Pa
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.packet_header = ProtoField.new("Packet Header", "miax.pearlequities.expressorders.meo.v2.6.packetheader", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.packet_length = ProtoField.new("Packet Length", "miax.pearlequities.expressorders.meo.v2.6.packetlength", ftypes.UINT16)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.packet_type = ProtoField.new("Packet Type", "miax.pearlequities.expressorders.meo.v2.6.packettype", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_6.fields.payload = ProtoField.new("Payload", "miax.pearlequities.expressorders.meo.v2.6.payload", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.peg_offset = ProtoField.new("Peg Offset", "miax.pearlequities.expressorders.meo.v2.6.pegoffset", ftypes.DOUBLE)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.pending_cancel_status = ProtoField.new("Pending Cancel Status", "miax.pearlequities.expressorders.meo.v2.6.pendingcancelstatus", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.pending_modify_status = ProtoField.new("Pending Modify Status", "miax.pearlequities.expressorders.meo.v2.6.pendingmodifystatus", ftypes.STRING)
@@ -115,7 +114,6 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection_instr
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection_level = ProtoField.new("Self Trade Protection Level", "miax.pearlequities.expressorders.meo.v2.6.selftradeprotectionlevel", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.expressorders.meo.v2.6.sequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearlequities.expressorders.meo.v2.6.sequenceddatapacket", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_6.fields.sequenced_message = ProtoField.new("Sequenced Message", "miax.pearlequities.expressorders.meo.v2.6.sequencedmessage", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.pearlequities.expressorders.meo.v2.6.sequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.session_id = ProtoField.new("Session Id", "miax.pearlequities.expressorders.meo.v2.6.sessionid", ftypes.UINT8)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.short_sale_indicator = ProtoField.new("Short Sale Indicator", "miax.pearlequities.expressorders.meo.v2.6.shortsaleindicator", ftypes.UINT16, nil, base.DEC, 0x0006)
@@ -135,7 +133,6 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.trade_status = ProtoField.n
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.trading_collar_dollar_value = ProtoField.new("Trading Collar Dollar Value", "miax.pearlequities.expressorders.meo.v2.6.tradingcollardollarvalue", ftypes.DOUBLE)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.pearlequities.expressorders.meo.v2.6.tradingsessionid", ftypes.UINT8)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.pearlequities.expressorders.meo.v2.6.unsequenceddatapacket", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_6.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "miax.pearlequities.expressorders.meo.v2.6.unsequencedmessage", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.expressorders.meo.v2.6.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_15 = ProtoField.new("Unused 15", "miax.pearlequities.expressorders.meo.v2.6.unused15", ftypes.UINT16, nil, base.DEC, 0xFFFE)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_2 = ProtoField.new("Unused 2", "miax.pearlequities.expressorders.meo.v2.6.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
@@ -207,9 +204,6 @@ show.synchronization_complete = true
 show.system_state_notification = true
 show.test_packet = true
 show.unsequenced_data_packet = true
-show.payload = false
-show.sequenced_message = false
-show.unsequenced_message = false
 
 -- Register Miax PearlEquities ExpressOrders Meo 2.6 Show Options
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_additional_liquidity_indicator = Pref.bool("Show Additional Liquidity Indicator", show.additional_liquidity_indicator, "Parse and add Additional Liquidity Indicator to protocol tree")
@@ -248,9 +242,6 @@ omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_synchronization_complet
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_system_state_notification = Pref.bool("Show System State Notification", show.system_state_notification, "Parse and add System State Notification to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_test_packet = Pref.bool("Show Test Packet", show.test_packet, "Parse and add Test Packet to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
@@ -399,18 +390,6 @@ function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
   end
   if show.unsequenced_data_packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_unsequenced_data_packet
-    changed = true
-  end
-  if show.payload ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_payload then
-    show.payload = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_payload
-    changed = true
-  end
-  if show.sequenced_message ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_sequenced_message then
-    show.sequenced_message = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_sequenced_message
-    changed = true
-  end
-  if show.unsequenced_message ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_unsequenced_message then
-    show.unsequenced_message = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -4252,11 +4231,6 @@ miax_pearlequities_expressorders_meo_v2_6.unsequenced_message.size = function(bu
   return 0
 end
 
--- Display: Unsequenced Message
-miax_pearlequities_expressorders_meo_v2_6.unsequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Unsequenced Message
 miax_pearlequities_expressorders_meo_v2_6.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect New Order Request Message
@@ -4313,20 +4287,11 @@ end
 
 -- Dissect: Unsequenced Message
 miax_pearlequities_expressorders_meo_v2_6.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  if not show.unsequenced_message then
-    return miax_pearlequities_expressorders_meo_v2_6.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_pearlequities_expressorders_meo_v2_6.unsequenced_message.size(buffer, offset, unsequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_pearlequities_expressorders_meo_v2_6.unsequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unsequenced_message, range, display)
 
   return miax_pearlequities_expressorders_meo_v2_6.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -5680,11 +5645,6 @@ miax_pearlequities_expressorders_meo_v2_6.sequenced_message.size = function(buff
   return 0
 end
 
--- Display: Sequenced Message
-miax_pearlequities_expressorders_meo_v2_6.sequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Sequenced Message
 miax_pearlequities_expressorders_meo_v2_6.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect Symbol Update
@@ -5741,20 +5701,11 @@ end
 
 -- Dissect: Sequenced Message
 miax_pearlequities_expressorders_meo_v2_6.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  if not show.sequenced_message then
-    return miax_pearlequities_expressorders_meo_v2_6.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_pearlequities_expressorders_meo_v2_6.sequenced_message.size(buffer, offset, sequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_pearlequities_expressorders_meo_v2_6.sequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.sequenced_message, range, display)
 
   return miax_pearlequities_expressorders_meo_v2_6.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -5976,11 +5927,6 @@ miax_pearlequities_expressorders_meo_v2_6.payload.size = function(buffer, offset
   return 0
 end
 
--- Display: Payload
-miax_pearlequities_expressorders_meo_v2_6.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 miax_pearlequities_expressorders_meo_v2_6.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Sequenced Data Packet
@@ -6034,20 +5980,11 @@ end
 
 -- Dissect: Payload
 miax_pearlequities_expressorders_meo_v2_6.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return miax_pearlequities_expressorders_meo_v2_6.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_pearlequities_expressorders_meo_v2_6.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_pearlequities_expressorders_meo_v2_6.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.payload, range, display)
 
   return miax_pearlequities_expressorders_meo_v2_6.payload.branches(buffer, offset, packet, parent, packet_type)
 end

@@ -30,7 +30,6 @@ omi_aquis_equities_snapshot_amd_v4_0.fields.msg_type = ProtoField.new("Msg Type"
 omi_aquis_equities_snapshot_amd_v4_0.fields.order_ref = ProtoField.new("Order Ref", "aquis.equities.snapshot.amd.v4.0.orderref", ftypes.UINT32)
 omi_aquis_equities_snapshot_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.equities.snapshot.amd.v4.0.packet", ftypes.STRING)
 omi_aquis_equities_snapshot_amd_v4_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.equities.snapshot.amd.v4.0.packetheader", ftypes.STRING)
-omi_aquis_equities_snapshot_amd_v4_0.fields.payload = ProtoField.new("Payload", "aquis.equities.snapshot.amd.v4.0.payload", ftypes.STRING)
 omi_aquis_equities_snapshot_amd_v4_0.fields.price = ProtoField.new("Price", "aquis.equities.snapshot.amd.v4.0.price", ftypes.UINT64)
 omi_aquis_equities_snapshot_amd_v4_0.fields.quantity = ProtoField.new("Quantity", "aquis.equities.snapshot.amd.v4.0.quantity", ftypes.UINT32)
 omi_aquis_equities_snapshot_amd_v4_0.fields.reserved = ProtoField.new("Reserved", "aquis.equities.snapshot.amd.v4.0.reserved", ftypes.UINT8, nil, base.DEC, 0xF8)
@@ -68,7 +67,6 @@ show.message_header = true
 show.packet = true
 show.packet_header = true
 show.snapshot_start_message = true
-show.payload = false
 
 -- Register Aquis Equities Snapshot Amd 4.0 Show Options
 omi_aquis_equities_snapshot_amd_v4_0.prefs.show_book_entry_message = Pref.bool("Show Book Entry Message", show.book_entry_message, "Parse and add Book Entry Message to protocol tree")
@@ -80,7 +78,6 @@ omi_aquis_equities_snapshot_amd_v4_0.prefs.show_message_header = Pref.bool("Show
 omi_aquis_equities_snapshot_amd_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_aquis_equities_snapshot_amd_v4_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_aquis_equities_snapshot_amd_v4_0.prefs.show_snapshot_start_message = Pref.bool("Show Snapshot Start Message", show.snapshot_start_message, "Parse and add Snapshot Start Message to protocol tree")
-omi_aquis_equities_snapshot_amd_v4_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_aquis_equities_snapshot_amd_v4_0.prefs_changed()
@@ -121,10 +118,6 @@ function omi_aquis_equities_snapshot_amd_v4_0.prefs_changed()
   end
   if show.snapshot_start_message ~= omi_aquis_equities_snapshot_amd_v4_0.prefs.show_snapshot_start_message then
     show.snapshot_start_message = omi_aquis_equities_snapshot_amd_v4_0.prefs.show_snapshot_start_message
-    changed = true
-  end
-  if show.payload ~= omi_aquis_equities_snapshot_amd_v4_0.prefs.show_payload then
-    show.payload = omi_aquis_equities_snapshot_amd_v4_0.prefs.show_payload
     changed = true
   end
 
@@ -767,11 +760,6 @@ aquis_equities_snapshot_amd_v4_0.payload.size = function(buffer, offset, msg_typ
   return 0
 end
 
--- Display: Payload
-aquis_equities_snapshot_amd_v4_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 aquis_equities_snapshot_amd_v4_0.payload.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Snapshot Start Message
@@ -796,20 +784,11 @@ end
 
 -- Dissect: Payload
 aquis_equities_snapshot_amd_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  if not show.payload then
-    return aquis_equities_snapshot_amd_v4_0.payload.branches(buffer, offset, packet, parent, msg_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = aquis_equities_snapshot_amd_v4_0.payload.size(buffer, offset, msg_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = aquis_equities_snapshot_amd_v4_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.payload, range, display)
 
   return aquis_equities_snapshot_amd_v4_0.payload.branches(buffer, offset, packet, parent, msg_type)
 end

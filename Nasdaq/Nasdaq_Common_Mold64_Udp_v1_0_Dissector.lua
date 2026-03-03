@@ -192,6 +192,16 @@ end
 -- Message
 nasdaq_common_mold64_udp_v1_0.message = {}
 
+-- Read runtime size of: Message
+nasdaq_common_mold64_udp_v1_0.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
+
+  return message_length + 2
+end
+
 -- Display: Message
 nasdaq_common_mold64_udp_v1_0.message.display = function(packet, parent, length)
   return ""
@@ -223,24 +233,20 @@ nasdaq_common_mold64_udp_v1_0.message.fields = function(buffer, offset, packet, 
 end
 
 -- Dissect: Message
-nasdaq_common_mold64_udp_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
+nasdaq_common_mold64_udp_v1_0.message.dissect = function(buffer, offset, packet, parent)
+  -- Parse runtime size
+  local size_of_message = nasdaq_common_mold64_udp_v1_0.message.size(buffer, offset)
 
-  -- Optionally add group/struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.message then
-    parent = parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message, buffer(offset, 0))
-    local current = nasdaq_common_mold64_udp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
+    local range = buffer(offset, size_of_message)
     local display = nasdaq_common_mold64_udp_v1_0.message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nasdaq_common_mold64_udp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-
-    return index
+    parent = parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message, range, display)
   end
+
+  nasdaq_common_mold64_udp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+  return offset + size_of_message
 end
 
 -- Message Count
@@ -386,9 +392,6 @@ nasdaq_common_mold64_udp_v1_0.packet.dissect = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_common_mold64_udp_v1_0.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 2, 2):uint()
-
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -398,7 +401,7 @@ nasdaq_common_mold64_udp_v1_0.packet.dissect = function(buffer, packet, parent)
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
 
-    -- Message: Struct of 2 fields
+    -- Message: Runtime Type with 3 branches
     index, message = nasdaq_common_mold64_udp_v1_0.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 

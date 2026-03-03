@@ -254,7 +254,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.packet = ProtoField.new("Pa
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.parent_exec_id = ProtoField.new("Parent Exec Id", "euronext.optiq.orderentrygateway.sbe.v2.1.parentexecid", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.parent_symbol_index = ProtoField.new("Parent Symbol Index", "euronext.optiq.orderentrygateway.sbe.v2.1.parentsymbolindex", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.passive_order = ProtoField.new("Passive Order", "euronext.optiq.orderentrygateway.sbe.v2.1.passiveorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
-omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.payload = ProtoField.new("Payload", "euronext.optiq.orderentrygateway.sbe.v2.1.payload", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.peg_offset = ProtoField.new("Peg Offset", "euronext.optiq.orderentrygateway.sbe.v2.1.pegoffset", ftypes.INT8)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.potential_matching_px = ProtoField.new("Potential Matching Px", "euronext.optiq.orderentrygateway.sbe.v2.1.potentialmatchingpx", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.potential_matching_qty = ProtoField.new("Potential Matching Qty", "euronext.optiq.orderentrygateway.sbe.v2.1.potentialmatchingqty", ftypes.UINT64)
@@ -566,7 +565,6 @@ show.wholesale_client_groups = true
 show.wholesale_legs_group = true
 show.wholesale_legs_groups = true
 show.wholesale_order_ack_message = true
-show.payload = false
 
 -- Register Euronext Optiq OrderEntryGateway Sbe 2.1 Show Options
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_ack_message = Pref.bool("Show Ack Message", show.ack_message, "Parse and add Ack Message to protocol tree")
@@ -686,7 +684,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_wholesale_client_groups
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_wholesale_legs_group = Pref.bool("Show Wholesale Legs Group", show.wholesale_legs_group, "Parse and add Wholesale Legs Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_wholesale_legs_groups = Pref.bool("Show Wholesale Legs Groups", show.wholesale_legs_groups, "Parse and add Wholesale Legs Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_wholesale_order_ack_message = Pref.bool("Show Wholesale Order Ack Message", show.wholesale_order_ack_message, "Parse and add Wholesale Order Ack Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs_changed()
@@ -1159,10 +1156,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs_changed()
   end
   if show.wholesale_order_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_wholesale_order_ack_message then
     show.wholesale_order_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_wholesale_order_ack_message
-    changed = true
-  end
-  if show.payload ~= omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_payload then
-    show.payload = omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_payload
     changed = true
   end
 
@@ -17370,11 +17363,6 @@ euronext_optiq_orderentrygateway_sbe_v2_1.payload.size = function(buffer, offset
   return 0
 end
 
--- Display: Payload
-euronext_optiq_orderentrygateway_sbe_v2_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 euronext_optiq_orderentrygateway_sbe_v2_1.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect New Order Message
@@ -17585,20 +17573,11 @@ end
 
 -- Dissect: Payload
 euronext_optiq_orderentrygateway_sbe_v2_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return euronext_optiq_orderentrygateway_sbe_v2_1.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = euronext_optiq_orderentrygateway_sbe_v2_1.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = euronext_optiq_orderentrygateway_sbe_v2_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.payload, range, display)
 
   return euronext_optiq_orderentrygateway_sbe_v2_1.payload.branches(buffer, offset, packet, parent, template_id)
 end

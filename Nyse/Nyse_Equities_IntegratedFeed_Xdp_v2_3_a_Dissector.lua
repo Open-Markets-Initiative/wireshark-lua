@@ -74,7 +74,6 @@ omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet = ProtoField.new("Pack
 omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.integratedfeed.xdp.v2.3.a.packetheader", ftypes.STRING)
 omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.integratedfeed.xdp.v2.3.a.packetsize", ftypes.UINT16)
 omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.equities.integratedfeed.xdp.v2.3.a.pairedqty", ftypes.UINT32)
-omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.payload = ProtoField.new("Payload", "nyse.equities.integratedfeed.xdp.v2.3.a.payload", ftypes.STRING)
 omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.position_change = ProtoField.new("Position Change", "nyse.equities.integratedfeed.xdp.v2.3.a.positionchange", ftypes.UINT8)
 omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.integratedfeed.xdp.v2.3.a.prevcloseprice", ftypes.UINT32)
 omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.integratedfeed.xdp.v2.3.a.prevclosevolume", ftypes.UINT32)
@@ -174,7 +173,6 @@ show.symbol_clear_message = true
 show.symbol_index_mapping_message = true
 show.symbol_index_mapping_request_message = true
 show.trade_cancel_message = true
-show.payload = false
 
 -- Register Nyse Equities IntegratedFeed Xdp 2.3.a Show Options
 omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
@@ -206,7 +204,6 @@ omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_clear_message = Pr
 omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
 omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
 omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
-omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs_changed()
@@ -327,10 +324,6 @@ function omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs_changed()
   end
   if show.trade_cancel_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_trade_cancel_message then
     show.trade_cancel_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_trade_cancel_message
-    changed = true
-  end
-  if show.payload ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_payload then
-    show.payload = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_payload
     changed = true
   end
 
@@ -4363,11 +4356,6 @@ nyse_equities_integratedfeed_xdp_v2_3_a.payload.size = function(buffer, offset, 
   return 0
 end
 
--- Display: Payload
-nyse_equities_integratedfeed_xdp_v2_3_a.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nyse_equities_integratedfeed_xdp_v2_3_a.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequence Number Reset Message
@@ -4476,20 +4464,11 @@ end
 
 -- Dissect: Payload
 nyse_equities_integratedfeed_xdp_v2_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nyse_equities_integratedfeed_xdp_v2_3_a.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nyse_equities_integratedfeed_xdp_v2_3_a.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nyse_equities_integratedfeed_xdp_v2_3_a.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.payload, range, display)
 
   return nyse_equities_integratedfeed_xdp_v2_3_a.payload.branches(buffer, offset, packet, parent, message_type)
 end

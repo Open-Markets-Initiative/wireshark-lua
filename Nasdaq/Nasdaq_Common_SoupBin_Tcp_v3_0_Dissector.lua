@@ -20,7 +20,6 @@ omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_header = ProtoField.new("Packet
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.common.soupbin.tcp.v3.0.packetlength", ftypes.UINT16)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.common.soupbin.tcp.v3.0.packettype", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.password = ProtoField.new("Password", "nasdaq.common.soupbin.tcp.v3.0.password", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.payload = ProtoField.new("Payload", "nasdaq.common.soupbin.tcp.v3.0.payload", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.common.soupbin.tcp.v3.0.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.common.soupbin.tcp.v3.0.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.common.soupbin.tcp.v3.0.requestedsession", ftypes.STRING)
@@ -58,7 +57,6 @@ show.packet_header = true
 show.sequenced_data_packet = true
 show.soup_bin_tcp_packet = true
 show.unsequenced_data_packet = true
-show.payload = false
 
 -- Register Nasdaq Common SoupBin Tcp 3.0 Show Options
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
@@ -70,7 +68,6 @@ omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header = Pref.bool("Show Pa
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
@@ -111,10 +108,6 @@ function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
   end
   if show.unsequenced_data_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet
-    changed = true
-  end
-  if show.payload ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_payload then
-    show.payload = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_payload
     changed = true
   end
 
@@ -714,11 +707,6 @@ nasdaq_common_soupbin_tcp_v3_0.payload.size = function(buffer, offset, packet_ty
   return 0
 end
 
--- Display: Payload
-nasdaq_common_soupbin_tcp_v3_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nasdaq_common_soupbin_tcp_v3_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
@@ -751,20 +739,11 @@ end
 
 -- Dissect: Payload
 nasdaq_common_soupbin_tcp_v3_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return nasdaq_common_soupbin_tcp_v3_0.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_common_soupbin_tcp_v3_0.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_common_soupbin_tcp_v3_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.payload, range, display)
 
   return nasdaq_common_soupbin_tcp_v3_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end

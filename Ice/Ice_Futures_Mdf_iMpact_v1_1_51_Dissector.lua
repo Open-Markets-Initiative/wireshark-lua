@@ -199,7 +199,6 @@ omi_ice_futures_mdf_impact_v1_1_51.fields.order_sequence_id = ProtoField.new("Or
 omi_ice_futures_mdf_impact_v1_1_51.fields.override_block_min = ProtoField.new("Override Block Min", "ice.futures.mdf.impact.v1.1.51.overrideblockmin", ftypes.STRING)
 omi_ice_futures_mdf_impact_v1_1_51.fields.packet = ProtoField.new("Packet", "ice.futures.mdf.impact.v1.1.51.packet", ftypes.STRING)
 omi_ice_futures_mdf_impact_v1_1_51.fields.packet_header = ProtoField.new("Packet Header", "ice.futures.mdf.impact.v1.1.51.packetheader", ftypes.STRING)
-omi_ice_futures_mdf_impact_v1_1_51.fields.payload = ProtoField.new("Payload", "ice.futures.mdf.impact.v1.1.51.payload", ftypes.STRING)
 omi_ice_futures_mdf_impact_v1_1_51.fields.pre_open_price = ProtoField.new("Pre Open Price", "ice.futures.mdf.impact.v1.1.51.preopenprice", ftypes.INT64)
 omi_ice_futures_mdf_impact_v1_1_51.fields.pre_open_volume = ProtoField.new("Pre Open Volume", "ice.futures.mdf.impact.v1.1.51.preopenvolume", ftypes.INT32)
 omi_ice_futures_mdf_impact_v1_1_51.fields.previous_day_settlement_price = ProtoField.new("Previous Day Settlement Price", "ice.futures.mdf.impact.v1.1.51.previousdaysettlementprice", ftypes.INT64)
@@ -266,7 +265,6 @@ omi_ice_futures_mdf_impact_v1_1_51.fields.unused_7 = ProtoField.new("Unused 7", 
 omi_ice_futures_mdf_impact_v1_1_51.fields.usd_price = ProtoField.new("Usd Price", "ice.futures.mdf.impact.v1.1.51.usdprice", ftypes.INT64)
 omi_ice_futures_mdf_impact_v1_1_51.fields.valuation_date_applying_date = ProtoField.new("Valuation Date Applying Date", "ice.futures.mdf.impact.v1.1.51.valuationdateapplyingdate", ftypes.STRING)
 omi_ice_futures_mdf_impact_v1_1_51.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.futures.mdf.impact.v1.1.51.valuationdatetime", ftypes.INT64)
-omi_ice_futures_mdf_impact_v1_1_51.fields.variable_field = ProtoField.new("Variable Field", "ice.futures.mdf.impact.v1.1.51.variablefield", ftypes.STRING)
 omi_ice_futures_mdf_impact_v1_1_51.fields.volatility = ProtoField.new("Volatility", "ice.futures.mdf.impact.v1.1.51.volatility", ftypes.INT64)
 omi_ice_futures_mdf_impact_v1_1_51.fields.volume = ProtoField.new("Volume", "ice.futures.mdf.impact.v1.1.51.volume", ftypes.INT32)
 omi_ice_futures_mdf_impact_v1_1_51.fields.vwap = ProtoField.new("Vwap", "ice.futures.mdf.impact.v1.1.51.vwap", ftypes.INT64)
@@ -377,8 +375,6 @@ show.strip_info_message = true
 show.system_text_message = true
 show.trade_flags = true
 show.trade_message = true
-show.payload = false
-show.variable_field = false
 
 -- Register Ice Futures Mdf iMpact 1.1.51 Show Options
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_add_or_modify_order_message = Pref.bool("Show Add Or Modify Order Message", show.add_or_modify_order_message, "Parse and add Add Or Modify Order Message to protocol tree")
@@ -431,8 +427,6 @@ omi_ice_futures_mdf_impact_v1_1_51.prefs.show_strip_info_message = Pref.bool("Sh
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_system_text_message = Pref.bool("Show System Text Message", show.system_text_message, "Parse and add System Text Message to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_variable_field = Pref.bool("Show Variable Field", show.variable_field, "Parse and add Variable Field to protocol tree")
 
 -- Handle changed preferences
 function omi_ice_futures_mdf_impact_v1_1_51.prefs_changed()
@@ -637,14 +631,6 @@ function omi_ice_futures_mdf_impact_v1_1_51.prefs_changed()
   end
   if show.trade_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_trade_message then
     show.trade_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_trade_message
-    changed = true
-  end
-  if show.payload ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_payload then
-    show.payload = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_payload
-    changed = true
-  end
-  if show.variable_field ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_variable_field then
-    show.variable_field = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_variable_field
     changed = true
   end
 
@@ -7160,11 +7146,6 @@ ice_futures_mdf_impact_v1_1_51.variable_field.size = function(buffer, offset, sp
   return 0
 end
 
--- Display: Variable Field
-ice_futures_mdf_impact_v1_1_51.variable_field.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Variable Field
 ice_futures_mdf_impact_v1_1_51.variable_field.branches = function(buffer, offset, packet, parent, special_field_id)
   -- Dissect Alt Price
@@ -7217,20 +7198,11 @@ end
 
 -- Dissect: Variable Field
 ice_futures_mdf_impact_v1_1_51.variable_field.dissect = function(buffer, offset, packet, parent, special_field_id)
-  if not show.variable_field then
-    return ice_futures_mdf_impact_v1_1_51.variable_field.branches(buffer, offset, packet, parent, special_field_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = ice_futures_mdf_impact_v1_1_51.variable_field.size(buffer, offset, special_field_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = ice_futures_mdf_impact_v1_1_51.variable_field.display(buffer, packet, parent)
-  local element = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.variable_field, range, display)
 
   return ice_futures_mdf_impact_v1_1_51.variable_field.branches(buffer, offset, packet, parent, special_field_id)
 end
@@ -12243,11 +12215,6 @@ ice_futures_mdf_impact_v1_1_51.payload.size = function(buffer, offset, message_t
   return 0
 end
 
--- Display: Payload
-ice_futures_mdf_impact_v1_1_51.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 ice_futures_mdf_impact_v1_1_51.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Market Snapshot Message
@@ -12408,20 +12375,11 @@ end
 
 -- Dissect: Payload
 ice_futures_mdf_impact_v1_1_51.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return ice_futures_mdf_impact_v1_1_51.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = ice_futures_mdf_impact_v1_1_51.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = ice_futures_mdf_impact_v1_1_51.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.payload, range, display)
 
   return ice_futures_mdf_impact_v1_1_51.payload.branches(buffer, offset, packet, parent, message_type)
 end

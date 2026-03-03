@@ -42,7 +42,6 @@ omi_aquis_equities_realtime_amd_v4_0.fields.name = ProtoField.new("Name", "aquis
 omi_aquis_equities_realtime_amd_v4_0.fields.order_ref = ProtoField.new("Order Ref", "aquis.equities.realtime.amd.v4.0.orderref", ftypes.UINT32)
 omi_aquis_equities_realtime_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.equities.realtime.amd.v4.0.packet", ftypes.STRING)
 omi_aquis_equities_realtime_amd_v4_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.equities.realtime.amd.v4.0.packetheader", ftypes.STRING)
-omi_aquis_equities_realtime_amd_v4_0.fields.payload = ProtoField.new("Payload", "aquis.equities.realtime.amd.v4.0.payload", ftypes.STRING)
 omi_aquis_equities_realtime_amd_v4_0.fields.price = ProtoField.new("Price", "aquis.equities.realtime.amd.v4.0.price", ftypes.UINT64)
 omi_aquis_equities_realtime_amd_v4_0.fields.quantity = ProtoField.new("Quantity", "aquis.equities.realtime.amd.v4.0.quantity", ftypes.UINT32)
 omi_aquis_equities_realtime_amd_v4_0.fields.reserved_1 = ProtoField.new("Reserved 1", "aquis.equities.realtime.amd.v4.0.reserved1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
@@ -107,7 +106,6 @@ show.security_status_message = true
 show.tick_table_data_message = true
 show.trade = true
 show.trade_bust_message = true
-show.payload = false
 
 -- Register Aquis Equities RealTime Amd 4.0 Show Options
 omi_aquis_equities_realtime_amd_v4_0.prefs.show_ao_d_update_message = Pref.bool("Show Ao D Update Message", show.ao_d_update_message, "Parse and add Ao D Update Message to protocol tree")
@@ -127,7 +125,6 @@ omi_aquis_equities_realtime_amd_v4_0.prefs.show_security_status_message = Pref.b
 omi_aquis_equities_realtime_amd_v4_0.prefs.show_tick_table_data_message = Pref.bool("Show Tick Table Data Message", show.tick_table_data_message, "Parse and add Tick Table Data Message to protocol tree")
 omi_aquis_equities_realtime_amd_v4_0.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
 omi_aquis_equities_realtime_amd_v4_0.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
-omi_aquis_equities_realtime_amd_v4_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_aquis_equities_realtime_amd_v4_0.prefs_changed()
@@ -200,10 +197,6 @@ function omi_aquis_equities_realtime_amd_v4_0.prefs_changed()
   end
   if show.trade_bust_message ~= omi_aquis_equities_realtime_amd_v4_0.prefs.show_trade_bust_message then
     show.trade_bust_message = omi_aquis_equities_realtime_amd_v4_0.prefs.show_trade_bust_message
-    changed = true
-  end
-  if show.payload ~= omi_aquis_equities_realtime_amd_v4_0.prefs.show_payload then
-    show.payload = omi_aquis_equities_realtime_amd_v4_0.prefs.show_payload
     changed = true
   end
 
@@ -1794,11 +1787,6 @@ aquis_equities_realtime_amd_v4_0.payload.size = function(buffer, offset, msg_typ
   return 0
 end
 
--- Display: Payload
-aquis_equities_realtime_amd_v4_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 aquis_equities_realtime_amd_v4_0.payload.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Order Add
@@ -1847,20 +1835,11 @@ end
 
 -- Dissect: Payload
 aquis_equities_realtime_amd_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  if not show.payload then
-    return aquis_equities_realtime_amd_v4_0.payload.branches(buffer, offset, packet, parent, msg_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = aquis_equities_realtime_amd_v4_0.payload.size(buffer, offset, msg_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = aquis_equities_realtime_amd_v4_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.payload, range, display)
 
   return aquis_equities_realtime_amd_v4_0.payload.branches(buffer, offset, packet, parent, msg_type)
 end

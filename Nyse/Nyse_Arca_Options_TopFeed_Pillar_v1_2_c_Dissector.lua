@@ -67,7 +67,6 @@ omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.packet = ProtoField.new("Pack
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.packet_header = ProtoField.new("Packet Header", "nyse.arca.options.topfeed.pillar.v1.2.c.packetheader", ftypes.STRING)
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arca.options.topfeed.pillar.v1.2.c.pairedqty", ftypes.UINT32)
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.participant = ProtoField.new("Participant", "nyse.arca.options.topfeed.pillar.v1.2.c.participant", ftypes.UINT32)
-omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.payload = ProtoField.new("Payload", "nyse.arca.options.topfeed.pillar.v1.2.c.payload", ftypes.STRING)
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arca.options.topfeed.pillar.v1.2.c.pktsize", ftypes.UINT16)
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arca.options.topfeed.pillar.v1.2.c.prevcloseprice", ftypes.UINT32)
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.arca.options.topfeed.pillar.v1.2.c.prevclosevolume", ftypes.UINT32)
@@ -188,7 +187,6 @@ show.symbol_index_mapping_message = true
 show.symbol_index_mapping_request_message = true
 show.time_reference_message = true
 show.trade_condition = true
-show.payload = false
 
 -- Register Nyse Arca Options TopFeed Pillar 1.2.c Show Options
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs.show_correction_condition = Pref.bool("Show Correction Condition", show.correction_condition, "Parse and add Correction Condition to protocol tree")
@@ -219,7 +217,6 @@ omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs.show_symbol_index_mapping_mess
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs.show_time_reference_message = Pref.bool("Show Time Reference Message", show.time_reference_message, "Parse and add Time Reference Message to protocol tree")
 omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
-omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs_changed()
@@ -336,10 +333,6 @@ function omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs_changed()
   end
   if show.trade_condition ~= omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs.show_trade_condition then
     show.trade_condition = omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs.show_trade_condition
-    changed = true
-  end
-  if show.payload ~= omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs.show_payload then
-    show.payload = omi_nyse_arca_options_topfeed_pillar_v1_2_c.prefs.show_payload
     changed = true
   end
 
@@ -4665,11 +4658,6 @@ nyse_arca_options_topfeed_pillar_v1_2_c.payload.size = function(buffer, offset, 
   return 0
 end
 
--- Display: Payload
-nyse_arca_options_topfeed_pillar_v1_2_c.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nyse_arca_options_topfeed_pillar_v1_2_c.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequence Number Reset Message
@@ -4762,20 +4750,11 @@ end
 
 -- Dissect: Payload
 nyse_arca_options_topfeed_pillar_v1_2_c.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nyse_arca_options_topfeed_pillar_v1_2_c.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nyse_arca_options_topfeed_pillar_v1_2_c.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.payload, range, display)
 
   return nyse_arca_options_topfeed_pillar_v1_2_c.payload.branches(buffer, offset, packet, parent, message_type)
 end

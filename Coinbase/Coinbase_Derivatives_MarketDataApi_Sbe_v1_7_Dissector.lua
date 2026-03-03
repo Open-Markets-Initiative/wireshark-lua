@@ -89,7 +89,6 @@ omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet = ProtoField.new("
 omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.derivatives.marketdataapi.sbe.v1.7.packetflags", ftypes.UINT8)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet_header = ProtoField.new("Packet Header", "coinbase.derivatives.marketdataapi.sbe.v1.7.packetheader", ftypes.STRING)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.marketdataapi.sbe.v1.7.padding", ftypes.BYTES)
-omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.marketdataapi.sbe.v1.7.payload", ftypes.STRING)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.price = ProtoField.new("Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.price", ftypes.DOUBLE)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.priorsettlementprice", ftypes.DOUBLE)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.prior_settlement_price_optional = ProtoField.new("Prior Settlement Price Optional", "coinbase.derivatives.marketdataapi.sbe.v1.7.priorsettlementpriceoptional", ftypes.DOUBLE)
@@ -189,7 +188,6 @@ show.trade_message = true
 show.trade_session_volume_message = true
 show.trade_summary_message = true
 show.trading_status_update_message = true
-show.payload = false
 
 -- Register Coinbase Derivatives MarketDataApi Sbe 1.7 Show Options
 omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_definition_flags = Pref.bool("Show Definition Flags", show.definition_flags, "Parse and add Definition Flags to protocol tree")
@@ -222,7 +220,6 @@ omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_message = Pref.
 omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_session_volume_message = Pref.bool("Show Trade Session Volume Message", show.trade_session_volume_message, "Parse and add Trade Session Volume Message to protocol tree")
 omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_summary_message = Pref.bool("Show Trade Summary Message", show.trade_summary_message, "Parse and add Trade Summary Message to protocol tree")
 omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trading_status_update_message = Pref.bool("Show Trading Status Update Message", show.trading_status_update_message, "Parse and add Trading Status Update Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs_changed()
@@ -347,10 +344,6 @@ function omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs_changed()
   end
   if show.trading_status_update_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trading_status_update_message then
     show.trading_status_update_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trading_status_update_message
-    changed = true
-  end
-  if show.payload ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_payload then
-    show.payload = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_payload
     changed = true
   end
 
@@ -4905,11 +4898,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.payload.size = function(buffer, offs
   return 0
 end
 
--- Display: Payload
-coinbase_derivatives_marketdataapi_sbe_v1_7.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 coinbase_derivatives_marketdataapi_sbe_v1_7.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Outright Instrument Definition Message
@@ -5010,20 +4998,11 @@ end
 
 -- Dissect: Payload
 coinbase_derivatives_marketdataapi_sbe_v1_7.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return coinbase_derivatives_marketdataapi_sbe_v1_7.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = coinbase_derivatives_marketdataapi_sbe_v1_7.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_7.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.payload, range, display)
 
   return coinbase_derivatives_marketdataapi_sbe_v1_7.payload.branches(buffer, offset, packet, parent, template_id)
 end

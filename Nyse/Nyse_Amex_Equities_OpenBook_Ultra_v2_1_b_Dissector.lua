@@ -33,7 +33,6 @@ omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.num_orders = ProtoField.new(
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet = ProtoField.new("Packet", "nyse.amex.equities.openbook.ultra.v2.1.b.packet", ftypes.STRING)
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.amex.equities.openbook.ultra.v2.1.b.packetheader", ftypes.STRING)
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_size = ProtoField.new("Packet Size", "nyse.amex.equities.openbook.ultra.v2.1.b.packetsize", ftypes.UINT16)
-omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.payload = ProtoField.new("Payload", "nyse.amex.equities.openbook.ultra.v2.1.b.payload", ftypes.STRING)
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_numerator = ProtoField.new("Price Numerator", "nyse.amex.equities.openbook.ultra.v2.1.b.pricenumerator", ftypes.INT32)
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amex.equities.openbook.ultra.v2.1.b.pricescalecode", ftypes.INT8)
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.product_id = ProtoField.new("Product Id", "nyse.amex.equities.openbook.ultra.v2.1.b.productid", ftypes.UINT8)
@@ -76,7 +75,6 @@ show.full_update_messages = true
 show.packet = true
 show.packet_header = true
 show.sequence_number_reset_message = true
-show.payload = false
 
 -- Register Nyse Amex Equities OpenBook Ultra 2.1.b Show Options
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point = Pref.bool("Show Delta Price Point", show.delta_price_point, "Parse and add Delta Price Point to protocol tree")
@@ -88,7 +86,6 @@ omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages = P
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs_changed()
@@ -129,10 +126,6 @@ function omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs_changed()
   end
   if show.sequence_number_reset_message ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message then
     show.sequence_number_reset_message = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message
-    changed = true
-  end
-  if show.payload ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload then
-    show.payload = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload
     changed = true
   end
 
@@ -1181,11 +1174,6 @@ nyse_amex_equities_openbook_ultra_v2_1_b.payload.size = function(buffer, offset,
   return 0
 end
 
--- Display: Payload
-nyse_amex_equities_openbook_ultra_v2_1_b.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nyse_amex_equities_openbook_ultra_v2_1_b.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Full Update Messages
@@ -1209,20 +1197,11 @@ end
 
 -- Dissect: Payload
 nyse_amex_equities_openbook_ultra_v2_1_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nyse_amex_equities_openbook_ultra_v2_1_b.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nyse_amex_equities_openbook_ultra_v2_1_b.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.payload, range, display)
 
   return nyse_amex_equities_openbook_ultra_v2_1_b.payload.branches(buffer, offset, packet, parent, message_type)
 end

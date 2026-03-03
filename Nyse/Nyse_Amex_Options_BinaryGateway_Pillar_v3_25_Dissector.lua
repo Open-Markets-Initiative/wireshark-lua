@@ -152,7 +152,6 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_header = ProtoFi
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_id = ProtoField.new("Seq Msg Id", "nyse.amex.options.binarygateway.pillar.v3.25.seqmsgid", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.amex.options.binarygateway.pillar.v3.25.seqmsglength", ftypes.UINT16)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.amex.options.binarygateway.pillar.v3.25.seqmsgtype", ftypes.UINT16)
-omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sequenced_message = ProtoField.new("Sequenced Message", "nyse.amex.options.binarygateway.pillar.v3.25.sequencedmessage", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_index = ProtoField.new("Series Index", "nyse.amex.options.binarygateway.pillar.v3.25.seriesindex", ftypes.UINT32)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_type = ProtoField.new("Series Type", "nyse.amex.options.binarygateway.pillar.v3.25.seriestype", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sess = ProtoField.new("Sess", "nyse.amex.options.binarygateway.pillar.v3.25.sess", ftypes.UINT32)
@@ -285,6 +284,7 @@ show.order_cancel_request_message = true
 show.order_modify_request_message = true
 show.order_priority_update_acknowledgment_message = true
 show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = true
+show.pillar_stream_message = true
 show.ref_seq_msg_id = true
 show.risk_action_request_message = true
 show.risk_control_acknowledgement_message = true
@@ -301,8 +301,6 @@ show.stream_id = true
 show.sub_msg_header = true
 show.trade_bust_correct_message = true
 show.underlying_symbol_reference_data_message = true
-show.pillar_stream_message = false
-show.sequenced_message = false
 
 -- Register Nyse Amex Options BinaryGateway Pillar 3.25 Show Options
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_layer_reject_message = Pref.bool("Show Application Layer Reject Message", show.application_layer_reject_message, "Parse and add Application Layer Reject Message to protocol tree")
@@ -341,6 +339,7 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_cancel_request
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_modify_request_message = Pref.bool("Show Order Modify Request Message", show.order_modify_request_message, "Parse and add Order Modify Request Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_priority_update_acknowledgment_message = Pref.bool("Show Order Priority Update Acknowledgment Message", show.order_priority_update_acknowledgment_message, "Parse and add Order Priority Update Acknowledgment Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = Pref.bool("Show Order Single Complex Modify Cancel Request Acknowledgment And Urout Message", show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message, "Parse and add Order Single Complex Modify Cancel Request Acknowledgment And Urout Message to protocol tree")
+omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_action_request_message = Pref.bool("Show Risk Action Request Message", show.risk_action_request_message, "Parse and add Risk Action Request Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_control_acknowledgement_message = Pref.bool("Show Risk Control Acknowledgement Message", show.risk_control_acknowledgement_message, "Parse and add Risk Control Acknowledgement Message to protocol tree")
@@ -357,8 +356,6 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_stream_id = Pref.boo
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_trade_bust_correct_message = Pref.bool("Show Trade Bust Correct Message", show.trade_bust_correct_message, "Parse and add Trade Bust Correct Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_underlying_symbol_reference_data_message = Pref.bool("Show Underlying Symbol Reference Data Message", show.underlying_symbol_reference_data_message, "Parse and add Underlying Symbol Reference Data Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
@@ -509,6 +506,10 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
     show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message
     changed = true
   end
+  if show.pillar_stream_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_pillar_stream_message then
+    show.pillar_stream_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_pillar_stream_message
+    changed = true
+  end
   if show.ref_seq_msg_id ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id then
     show.ref_seq_msg_id = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id
     changed = true
@@ -573,14 +574,6 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
     show.underlying_symbol_reference_data_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_underlying_symbol_reference_data_message
     changed = true
   end
-  if show.pillar_stream_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_pillar_stream_message then
-    show.pillar_stream_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_pillar_stream_message
-    changed = true
-  end
-  if show.sequenced_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_sequenced_message then
-    show.sequenced_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_sequenced_message
-    changed = true
-  end
 
   -- Reload on changed preference
   if changed then
@@ -610,6 +603,46 @@ end
 -----------------------------------------------------------------------
 -- Dissect Nyse Amex Options BinaryGateway Pillar 3.25
 -----------------------------------------------------------------------
+
+-- Pillar Stream Message
+nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message = {}
+
+-- Size: Pillar Stream Message
+nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.size =
+  nyse_amex_options_binarygateway_pillar_v3_25.message.size
+
+-- Display: Pillar Stream Message
+nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Pillar Stream Message
+nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message
+  index, message = nyse_amex_options_binarygateway_pillar_v3_25.message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Pillar Stream Message
+nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.dissect = function(buffer, offset, packet, parent)
+  if show.pillar_stream_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.pillar_stream_message, buffer(offset, 0))
+    local index = nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Leg Side
 nyse_amex_options_binarygateway_pillar_v3_25.leg_side = {}
@@ -9251,11 +9284,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.size = function(b
   return 0
 end
 
--- Display: Sequenced Message
-nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Sequenced Message
 nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.branches = function(buffer, offset, packet, parent, seq_msg_type)
   -- Dissect Session Configuration Request Message
@@ -9387,20 +9415,11 @@ end
 
 -- Dissect: Sequenced Message
 nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
-  if not show.sequenced_message then
-    return nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.branches(buffer, offset, packet, parent, seq_msg_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.size(buffer, offset, seq_msg_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sequenced_message, range, display)
 
   return nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.branches(buffer, offset, packet, parent, seq_msg_type)
 end
@@ -10478,56 +10497,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.login_message.dissect = function(bu
   nyse_amex_options_binarygateway_pillar_v3_25.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
 
   return offset + size_of_login_message
-end
-
--- Pillar Stream Message
-nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message = {}
-
--- Dissect Pillar Stream Message
-nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.dissect = function(buffer, packet, parent)
-  local offset = 0
-
-  -- Dependency element: Msg Type
-  local msg_type = buffer(0, 2):le_uint()
-
-  -- Dissect Login Message
-  if msg_type == 0x0201 then
-    return nyse_amex_options_binarygateway_pillar_v3_25.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if msg_type == 0x0202 then
-    return nyse_amex_options_binarygateway_pillar_v3_25.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Avail
-  if msg_type == 0x0203 then
-    return nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if msg_type == 0x0204 then
-    return nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open
-  if msg_type == 0x0205 then
-    return nyse_amex_options_binarygateway_pillar_v3_25.open.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Response
-  if msg_type == 0x0206 then
-    return nyse_amex_options_binarygateway_pillar_v3_25.open_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Close
-  if msg_type == 0x0207 then
-    return nyse_amex_options_binarygateway_pillar_v3_25.close.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Close Response
-  if msg_type == 0x0208 then
-    return nyse_amex_options_binarygateway_pillar_v3_25.close_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Seq Msg
-  if msg_type == 0x0905 then
-    return nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
 end
 
 

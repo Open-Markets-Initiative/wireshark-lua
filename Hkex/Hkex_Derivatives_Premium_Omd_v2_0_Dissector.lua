@@ -98,7 +98,6 @@ omi_hkex_derivatives_premium_omd_v2_0.fields.order_book_id = ProtoField.new("Ord
 omi_hkex_derivatives_premium_omd_v2_0.fields.order_id = ProtoField.new("Order Id", "hkex.derivatives.premium.omd.v2.0.orderid", ftypes.UINT64)
 omi_hkex_derivatives_premium_omd_v2_0.fields.packet = ProtoField.new("Packet", "hkex.derivatives.premium.omd.v2.0.packet", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.packet_header = ProtoField.new("Packet Header", "hkex.derivatives.premium.omd.v2.0.packetheader", ftypes.STRING)
-omi_hkex_derivatives_premium_omd_v2_0.fields.payload = ProtoField.new("Payload", "hkex.derivatives.premium.omd.v2.0.payload", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.derivatives.premium.omd.v2.0.pktsize", ftypes.UINT16)
 omi_hkex_derivatives_premium_omd_v2_0.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.derivatives.premium.omd.v2.0.plannedstarttime", ftypes.UINT64)
 omi_hkex_derivatives_premium_omd_v2_0.fields.price = ProtoField.new("Price", "hkex.derivatives.premium.omd.v2.0.price", ftypes.INT64)
@@ -215,7 +214,6 @@ show.trade_amendment_message = true
 show.trade_statistics_message = true
 show.vcm_end = true
 show.vcm_trigger = true
-show.payload = false
 
 -- Register Hkex Derivatives Premium Omd 2.0 Show Options
 omi_hkex_derivatives_premium_omd_v2_0.prefs.show_aggregate_implied_order = Pref.bool("Show Aggregate Implied Order", show.aggregate_implied_order, "Parse and add Aggregate Implied Order to protocol tree")
@@ -250,7 +248,6 @@ omi_hkex_derivatives_premium_omd_v2_0.prefs.show_trade_amendment_message = Pref.
 omi_hkex_derivatives_premium_omd_v2_0.prefs.show_trade_statistics_message = Pref.bool("Show Trade Statistics Message", show.trade_statistics_message, "Parse and add Trade Statistics Message to protocol tree")
 omi_hkex_derivatives_premium_omd_v2_0.prefs.show_vcm_end = Pref.bool("Show Vcm End", show.vcm_end, "Parse and add Vcm End to protocol tree")
 omi_hkex_derivatives_premium_omd_v2_0.prefs.show_vcm_trigger = Pref.bool("Show Vcm Trigger", show.vcm_trigger, "Parse and add Vcm Trigger to protocol tree")
-omi_hkex_derivatives_premium_omd_v2_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_hkex_derivatives_premium_omd_v2_0.prefs_changed()
@@ -383,10 +380,6 @@ function omi_hkex_derivatives_premium_omd_v2_0.prefs_changed()
   end
   if show.vcm_trigger ~= omi_hkex_derivatives_premium_omd_v2_0.prefs.show_vcm_trigger then
     show.vcm_trigger = omi_hkex_derivatives_premium_omd_v2_0.prefs.show_vcm_trigger
-    changed = true
-  end
-  if show.payload ~= omi_hkex_derivatives_premium_omd_v2_0.prefs.show_payload then
-    show.payload = omi_hkex_derivatives_premium_omd_v2_0.prefs.show_payload
     changed = true
   end
 
@@ -5213,11 +5206,6 @@ hkex_derivatives_premium_omd_v2_0.payload.size = function(buffer, offset, msg_ty
   return 0
 end
 
--- Display: Payload
-hkex_derivatives_premium_omd_v2_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 hkex_derivatives_premium_omd_v2_0.payload.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Sequence Reset
@@ -5334,20 +5322,11 @@ end
 
 -- Dissect: Payload
 hkex_derivatives_premium_omd_v2_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  if not show.payload then
-    return hkex_derivatives_premium_omd_v2_0.payload.branches(buffer, offset, packet, parent, msg_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = hkex_derivatives_premium_omd_v2_0.payload.size(buffer, offset, msg_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = hkex_derivatives_premium_omd_v2_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.payload, range, display)
 
   return hkex_derivatives_premium_omd_v2_0.payload.branches(buffer, offset, packet, parent, msg_type)
 end

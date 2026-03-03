@@ -86,7 +86,6 @@ omi_eurex_derivatives_edci_t7_v14_0.fields.party_id_session_id = ProtoField.new(
 omi_eurex_derivatives_edci_t7_v14_0.fields.party_id_sponsored_access_unit = ProtoField.new("Party Id Sponsored Access Unit", "eurex.derivatives.edci.t7.v14.0.partyidsponsoredaccessunit", ftypes.UINT32)
 omi_eurex_derivatives_edci_t7_v14_0.fields.party_sponsored_access_unit = ProtoField.new("Party Sponsored Access Unit", "eurex.derivatives.edci.t7.v14.0.partysponsoredaccessunit", ftypes.STRING)
 omi_eurex_derivatives_edci_t7_v14_0.fields.password = ProtoField.new("Password", "eurex.derivatives.edci.t7.v14.0.password", ftypes.STRING)
-omi_eurex_derivatives_edci_t7_v14_0.fields.payload = ProtoField.new("Payload", "eurex.derivatives.edci.t7.v14.0.payload", ftypes.STRING)
 omi_eurex_derivatives_edci_t7_v14_0.fields.price = ProtoField.new("Price", "eurex.derivatives.edci.t7.v14.0.price", ftypes.DOUBLE)
 omi_eurex_derivatives_edci_t7_v14_0.fields.product_complex = ProtoField.new("Product Complex", "eurex.derivatives.edci.t7.v14.0.productcomplex", ftypes.UINT8)
 omi_eurex_derivatives_edci_t7_v14_0.fields.rbc_header_comp = ProtoField.new("Rbc Header Comp", "eurex.derivatives.edci.t7.v14.0.rbcheadercomp", ftypes.STRING)
@@ -165,7 +164,6 @@ show.response_header_comp = true
 show.session_list_notification = true
 show.session_status_broadcast = true
 show.sessions_grp_comp = true
-show.payload = false
 
 -- Register Eurex Derivatives Edci T7 14.0 Show Options
 omi_eurex_derivatives_edci_t7_v14_0.prefs.show_affected_ord_grp_comp = Pref.bool("Show Affected Ord Grp Comp", show.affected_ord_grp_comp, "Parse and add Affected Ord Grp Comp to protocol tree")
@@ -192,7 +190,6 @@ omi_eurex_derivatives_edci_t7_v14_0.prefs.show_response_header_comp = Pref.bool(
 omi_eurex_derivatives_edci_t7_v14_0.prefs.show_session_list_notification = Pref.bool("Show Session List Notification", show.session_list_notification, "Parse and add Session List Notification to protocol tree")
 omi_eurex_derivatives_edci_t7_v14_0.prefs.show_session_status_broadcast = Pref.bool("Show Session Status Broadcast", show.session_status_broadcast, "Parse and add Session Status Broadcast to protocol tree")
 omi_eurex_derivatives_edci_t7_v14_0.prefs.show_sessions_grp_comp = Pref.bool("Show Sessions Grp Comp", show.sessions_grp_comp, "Parse and add Sessions Grp Comp to protocol tree")
-omi_eurex_derivatives_edci_t7_v14_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_derivatives_edci_t7_v14_0.prefs_changed()
@@ -293,10 +290,6 @@ function omi_eurex_derivatives_edci_t7_v14_0.prefs_changed()
   end
   if show.sessions_grp_comp ~= omi_eurex_derivatives_edci_t7_v14_0.prefs.show_sessions_grp_comp then
     show.sessions_grp_comp = omi_eurex_derivatives_edci_t7_v14_0.prefs.show_sessions_grp_comp
-    changed = true
-  end
-  if show.payload ~= omi_eurex_derivatives_edci_t7_v14_0.prefs.show_payload then
-    show.payload = omi_eurex_derivatives_edci_t7_v14_0.prefs.show_payload
     changed = true
   end
 
@@ -4460,11 +4453,6 @@ eurex_derivatives_edci_t7_v14_0.payload.size = function(buffer, offset, template
   return 0
 end
 
--- Display: Payload
-eurex_derivatives_edci_t7_v14_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 eurex_derivatives_edci_t7_v14_0.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Delete Order Broadcast
@@ -4525,20 +4513,11 @@ end
 
 -- Dissect: Payload
 eurex_derivatives_edci_t7_v14_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return eurex_derivatives_edci_t7_v14_0.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = eurex_derivatives_edci_t7_v14_0.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = eurex_derivatives_edci_t7_v14_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_eurex_derivatives_edci_t7_v14_0.fields.payload, range, display)
 
   return eurex_derivatives_edci_t7_v14_0.payload.branches(buffer, offset, packet, parent, template_id)
 end

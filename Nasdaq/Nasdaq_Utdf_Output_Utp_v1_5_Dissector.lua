@@ -18,7 +18,6 @@ local nasdaq_utdf_output_utp_v1_5 = {}
 omi_nasdaq_utdf_output_utp_v1_5.fields.action_timestamp = ProtoField.new("Action Timestamp", "nasdaq.utdf.output.utp.v1.5.actiontimestamp", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.administrative = ProtoField.new("Administrative", "nasdaq.utdf.output.utp.v1.5.administrative", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.utdf.output.utp.v1.5.administrativemessagetype", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v1_5.fields.administrative_payload = ProtoField.new("Administrative Payload", "nasdaq.utdf.output.utp.v1.5.administrativepayload", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.as_of_action = ProtoField.new("As Of Action", "nasdaq.utdf.output.utp.v1.5.asofaction", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.utdf.output.utp.v1.5.authenticity", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.collar_down_price = ProtoField.new("Collar Down Price", "nasdaq.utdf.output.utp.v1.5.collardownprice", ftypes.DOUBLE)
@@ -32,7 +31,6 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_price_change_indicator = Pro
 omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_volume = ProtoField.new("Consolidated Volume", "nasdaq.utdf.output.utp.v1.5.consolidatedvolume", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.control = ProtoField.new("Control", "nasdaq.utdf.output.utp.v1.5.control", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.control_message_type = ProtoField.new("Control Message Type", "nasdaq.utdf.output.utp.v1.5.controlmessagetype", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v1_5.fields.control_payload = ProtoField.new("Control Payload", "nasdaq.utdf.output.utp.v1.5.controlpayload", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_sale_condition = ProtoField.new("Corrected Sale Condition", "nasdaq.utdf.output.utp.v1.5.correctedsalecondition", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_sellers_sale_days = ProtoField.new("Corrected Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.correctedsellerssaledays", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_id = ProtoField.new("Corrected Trade Id", "nasdaq.utdf.output.utp.v1.5.correctedtradeid", ftypes.UINT64)
@@ -91,7 +89,6 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.packet_header = ProtoField.new("Packet He
 omi_nasdaq_utdf_output_utp_v1_5.fields.participant_price_change_indicator = ProtoField.new("Participant Price Change Indicator", "nasdaq.utdf.output.utp.v1.5.participantpricechangeindicator", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "nasdaq.utdf.output.utp.v1.5.participanttimestamp", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.participant_token = ProtoField.new("Participant Token", "nasdaq.utdf.output.utp.v1.5.participanttoken", ftypes.UINT64)
-omi_nasdaq_utdf_output_utp_v1_5.fields.payload = ProtoField.new("Payload", "nasdaq.utdf.output.utp.v1.5.payload", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.utdf.output.utp.v1.5.regshoaction", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.utdf.output.utp.v1.5.roundlotsize", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.sale_condition = ProtoField.new("Sale Condition", "nasdaq.utdf.output.utp.v1.5.salecondition", ftypes.STRING)
@@ -110,7 +107,6 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.trade = ProtoField.new("Trade", "nasdaq.u
 omi_nasdaq_utdf_output_utp_v1_5.fields.trade_cancellation_type = ProtoField.new("Trade Cancellation Type", "nasdaq.utdf.output.utp.v1.5.tradecancellationtype", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.trade_id = ProtoField.new("Trade Id", "nasdaq.utdf.output.utp.v1.5.tradeid", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.trade_message_type = ProtoField.new("Trade Message Type", "nasdaq.utdf.output.utp.v1.5.trademessagetype", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v1_5.fields.trade_payload = ProtoField.new("Trade Payload", "nasdaq.utdf.output.utp.v1.5.tradepayload", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.utdf.output.utp.v1.5.tradeprice", ftypes.DOUBLE)
 omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price_short = ProtoField.new("Trade Price Short", "nasdaq.utdf.output.utp.v1.5.tradepriceshort", ftypes.DOUBLE)
 omi_nasdaq_utdf_output_utp_v1_5.fields.trade_through_exempt_flag = ProtoField.new("Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.tradethroughexemptflag", ftypes.STRING)
@@ -123,7 +119,6 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_sequence_number = ProtoFie
 omi_nasdaq_utdf_output_utp_v1_5.fields.version = ProtoField.new("Version", "nasdaq.utdf.output.utp.v1.5.version", ftypes.UINT8)
 omi_nasdaq_utdf_output_utp_v1_5.fields.volume = ProtoField.new("Volume", "nasdaq.utdf.output.utp.v1.5.volume", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.volume_message_type = ProtoField.new("Volume Message Type", "nasdaq.utdf.output.utp.v1.5.volumemessagetype", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v1_5.fields.volume_payload = ProtoField.new("Volume Payload", "nasdaq.utdf.output.utp.v1.5.volumepayload", ftypes.STRING)
 
 -- Nasdaq Utdf Utp Output 1.5 Application Messages
 omi_nasdaq_utdf_output_utp_v1_5.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utdf.output.utp.v1.5.auctioncollarmessage", ftypes.STRING)
@@ -197,11 +192,6 @@ show.trade_correction_message = true
 show.trade_report_message_long_form_message = true
 show.trade_report_message_short_form_message = true
 show.volume = true
-show.administrative_payload = false
-show.control_payload = false
-show.payload = false
-show.trade_payload = false
-show.volume_payload = false
 
 -- Register Nasdaq Utdf Output Utp 1.5 Show Options
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
@@ -240,11 +230,6 @@ omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_correction_message = Pref.bool(
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_long_form_message = Pref.bool("Show Trade Report Message Long Form Message", show.trade_report_message_long_form_message, "Parse and add Trade Report Message Long Form Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_short_form_message = Pref.bool("Show Trade Report Message Short Form Message", show.trade_report_message_short_form_message, "Parse and add Trade Report Message Short Form Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume = Pref.bool("Show Volume", show.volume, "Parse and add Volume to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_payload = Pref.bool("Show Trade Payload", show.trade_payload, "Parse and add Trade Payload to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume_payload = Pref.bool("Show Volume Payload", show.volume_payload, "Parse and add Volume Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
@@ -393,26 +378,6 @@ function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
   end
   if show.volume ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume then
     show.volume = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume
-    changed = true
-  end
-  if show.administrative_payload ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative_payload then
-    show.administrative_payload = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative_payload
-    changed = true
-  end
-  if show.control_payload ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control_payload then
-    show.control_payload = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control_payload
-    changed = true
-  end
-  if show.payload ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_payload then
-    show.payload = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_payload
-    changed = true
-  end
-  if show.trade_payload ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_payload then
-    show.trade_payload = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_payload
-    changed = true
-  end
-  if show.volume_payload ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume_payload then
-    show.volume_payload = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume_payload
     changed = true
   end
 
@@ -1024,11 +989,6 @@ nasdaq_utdf_output_utp_v1_5.control_payload.size = function(buffer, offset, cont
   return 0
 end
 
--- Display: Control Payload
-nasdaq_utdf_output_utp_v1_5.control_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Control Payload
 nasdaq_utdf_output_utp_v1_5.control_payload.branches = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
@@ -1065,20 +1025,11 @@ end
 
 -- Dissect: Control Payload
 nasdaq_utdf_output_utp_v1_5.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  if not show.control_payload then
-    return nasdaq_utdf_output_utp_v1_5.control_payload.branches(buffer, offset, packet, parent, control_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_utdf_output_utp_v1_5.control_payload.size(buffer, offset, control_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_utdf_output_utp_v1_5.control_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.control_payload, range, display)
 
   return nasdaq_utdf_output_utp_v1_5.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
@@ -1387,11 +1338,6 @@ nasdaq_utdf_output_utp_v1_5.volume_payload.size = function(buffer, offset, volum
   return 0
 end
 
--- Display: Volume Payload
-nasdaq_utdf_output_utp_v1_5.volume_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Volume Payload
 nasdaq_utdf_output_utp_v1_5.volume_payload.branches = function(buffer, offset, packet, parent, volume_message_type)
   -- Dissect Total Consolidated And Market Center Volume Message
@@ -1404,20 +1350,11 @@ end
 
 -- Dissect: Volume Payload
 nasdaq_utdf_output_utp_v1_5.volume_payload.dissect = function(buffer, offset, packet, parent, volume_message_type)
-  if not show.volume_payload then
-    return nasdaq_utdf_output_utp_v1_5.volume_payload.branches(buffer, offset, packet, parent, volume_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_utdf_output_utp_v1_5.volume_payload.size(buffer, offset, volume_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_utdf_output_utp_v1_5.volume_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.volume_payload, range, display)
 
   return nasdaq_utdf_output_utp_v1_5.volume_payload.branches(buffer, offset, packet, parent, volume_message_type)
 end
@@ -3285,11 +3222,6 @@ nasdaq_utdf_output_utp_v1_5.administrative_payload.size = function(buffer, offse
   return 0
 end
 
--- Display: Administrative Payload
-nasdaq_utdf_output_utp_v1_5.administrative_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Administrative Payload
 nasdaq_utdf_output_utp_v1_5.administrative_payload.branches = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect General Administrative Message
@@ -3338,20 +3270,11 @@ end
 
 -- Dissect: Administrative Payload
 nasdaq_utdf_output_utp_v1_5.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  if not show.administrative_payload then
-    return nasdaq_utdf_output_utp_v1_5.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_utdf_output_utp_v1_5.administrative_payload.size(buffer, offset, administrative_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_utdf_output_utp_v1_5.administrative_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.administrative_payload, range, display)
 
   return nasdaq_utdf_output_utp_v1_5.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
@@ -5036,11 +4959,6 @@ nasdaq_utdf_output_utp_v1_5.trade_payload.size = function(buffer, offset, trade_
   return 0
 end
 
--- Display: Trade Payload
-nasdaq_utdf_output_utp_v1_5.trade_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Trade Payload
 nasdaq_utdf_output_utp_v1_5.trade_payload.branches = function(buffer, offset, packet, parent, trade_message_type)
   -- Dissect Trade Report Message Short Form Message
@@ -5069,20 +4987,11 @@ end
 
 -- Dissect: Trade Payload
 nasdaq_utdf_output_utp_v1_5.trade_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  if not show.trade_payload then
-    return nasdaq_utdf_output_utp_v1_5.trade_payload.branches(buffer, offset, packet, parent, trade_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_utdf_output_utp_v1_5.trade_payload.size(buffer, offset, trade_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_utdf_output_utp_v1_5.trade_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_payload, range, display)
 
   return nasdaq_utdf_output_utp_v1_5.trade_payload.branches(buffer, offset, packet, parent, trade_message_type)
 end
@@ -5199,11 +5108,6 @@ nasdaq_utdf_output_utp_v1_5.payload.size = function(buffer, offset, message_cate
   return 0
 end
 
--- Display: Payload
-nasdaq_utdf_output_utp_v1_5.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nasdaq_utdf_output_utp_v1_5.payload.branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Trade
@@ -5228,20 +5132,11 @@ end
 
 -- Dissect: Payload
 nasdaq_utdf_output_utp_v1_5.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  if not show.payload then
-    return nasdaq_utdf_output_utp_v1_5.payload.branches(buffer, offset, packet, parent, message_category)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_utdf_output_utp_v1_5.payload.size(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_utdf_output_utp_v1_5.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.payload, range, display)
 
   return nasdaq_utdf_output_utp_v1_5.payload.branches(buffer, offset, packet, parent, message_category)
 end

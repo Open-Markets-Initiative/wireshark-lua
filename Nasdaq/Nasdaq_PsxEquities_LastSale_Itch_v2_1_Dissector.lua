@@ -54,7 +54,6 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.original_trade_price = ProtoFie
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.original_trade_size = ProtoField.new("Original Trade Size", "nasdaq.psxequities.lastsale.itch.v2.1.originaltradesize", ftypes.UINT32)
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.lastsale.itch.v2.1.packet", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.lastsale.itch.v2.1.packetheader", ftypes.STRING)
-omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.payload = ProtoField.new("Payload", "nasdaq.psxequities.lastsale.itch.v2.1.payload", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.proxy_price = ProtoField.new("Proxy Price", "nasdaq.psxequities.lastsale.itch.v2.1.proxyprice", ftypes.DOUBLE)
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.lastsale.itch.v2.1.regshoaction", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.lastsale.itch.v2.1.roundlotsize", ftypes.UINT32)
@@ -117,7 +116,6 @@ show.trade_correction_for_next_shares_message = true
 show.trade_correction_message = true
 show.trade_report_message = true
 show.trading_action_message = true
-show.payload = false
 
 -- Register Nasdaq PsxEquities LastSale Itch 2.1 Show Options
 omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -137,7 +135,6 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs.show_trade_correction_for_next_s
 omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs_changed()
@@ -210,10 +207,6 @@ function omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs_changed()
   end
   if show.trading_action_message ~= omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs.show_trading_action_message then
     show.trading_action_message = omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs.show_trading_action_message
-    changed = true
-  end
-  if show.payload ~= omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs.show_payload then
-    show.payload = omi_nasdaq_psxequities_lastsale_itch_v2_1.prefs.show_payload
     changed = true
   end
 
@@ -2901,11 +2894,6 @@ nasdaq_psxequities_lastsale_itch_v2_1.payload.size = function(buffer, offset, me
   return 0
 end
 
--- Display: Payload
-nasdaq_psxequities_lastsale_itch_v2_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nasdaq_psxequities_lastsale_itch_v2_1.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
@@ -2966,20 +2954,11 @@ end
 
 -- Dissect: Payload
 nasdaq_psxequities_lastsale_itch_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nasdaq_psxequities_lastsale_itch_v2_1.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_psxequities_lastsale_itch_v2_1.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_psxequities_lastsale_itch_v2_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.payload, range, display)
 
   return nasdaq_psxequities_lastsale_itch_v2_1.payload.branches(buffer, offset, packet, parent, message_type)
 end

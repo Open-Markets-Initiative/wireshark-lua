@@ -23,7 +23,6 @@ omi_aquis_equities_replay_amd_v4_0.fields.msg_length = ProtoField.new("Msg Lengt
 omi_aquis_equities_replay_amd_v4_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.equities.replay.amd.v4.0.msgtype", ftypes.UINT8)
 omi_aquis_equities_replay_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.equities.replay.amd.v4.0.packet", ftypes.STRING)
 omi_aquis_equities_replay_amd_v4_0.fields.password = ProtoField.new("Password", "aquis.equities.replay.amd.v4.0.password", ftypes.STRING)
-omi_aquis_equities_replay_amd_v4_0.fields.payload = ProtoField.new("Payload", "aquis.equities.replay.amd.v4.0.payload", ftypes.STRING)
 omi_aquis_equities_replay_amd_v4_0.fields.response_code = ProtoField.new("Response Code", "aquis.equities.replay.amd.v4.0.responsecode", ftypes.UINT8)
 omi_aquis_equities_replay_amd_v4_0.fields.seq_no = ProtoField.new("Seq No", "aquis.equities.replay.amd.v4.0.seqno", ftypes.UINT32)
 omi_aquis_equities_replay_amd_v4_0.fields.username = ProtoField.new("Username", "aquis.equities.replay.amd.v4.0.username", ftypes.STRING)
@@ -46,7 +45,6 @@ show.message_header = true
 show.packet = true
 show.replay_request_message = true
 show.replay_response_message = true
-show.payload = false
 
 -- Register Aquis Equities Replay Amd 4.0 Show Options
 omi_aquis_equities_replay_amd_v4_0.prefs.show_login_message = Pref.bool("Show Login Message", show.login_message, "Parse and add Login Message to protocol tree")
@@ -55,7 +53,6 @@ omi_aquis_equities_replay_amd_v4_0.prefs.show_message_header = Pref.bool("Show M
 omi_aquis_equities_replay_amd_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_aquis_equities_replay_amd_v4_0.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
 omi_aquis_equities_replay_amd_v4_0.prefs.show_replay_response_message = Pref.bool("Show Replay Response Message", show.replay_response_message, "Parse and add Replay Response Message to protocol tree")
-omi_aquis_equities_replay_amd_v4_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_aquis_equities_replay_amd_v4_0.prefs_changed()
@@ -84,10 +81,6 @@ function omi_aquis_equities_replay_amd_v4_0.prefs_changed()
   end
   if show.replay_response_message ~= omi_aquis_equities_replay_amd_v4_0.prefs.show_replay_response_message then
     show.replay_response_message = omi_aquis_equities_replay_amd_v4_0.prefs.show_replay_response_message
-    changed = true
-  end
-  if show.payload ~= omi_aquis_equities_replay_amd_v4_0.prefs.show_payload then
-    show.payload = omi_aquis_equities_replay_amd_v4_0.prefs.show_payload
     changed = true
   end
 
@@ -408,11 +401,6 @@ aquis_equities_replay_amd_v4_0.payload.size = function(buffer, offset, msg_type)
   return 0
 end
 
--- Display: Payload
-aquis_equities_replay_amd_v4_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 aquis_equities_replay_amd_v4_0.payload.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Login Message
@@ -433,20 +421,11 @@ end
 
 -- Dissect: Payload
 aquis_equities_replay_amd_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  if not show.payload then
-    return aquis_equities_replay_amd_v4_0.payload.branches(buffer, offset, packet, parent, msg_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = aquis_equities_replay_amd_v4_0.payload.size(buffer, offset, msg_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = aquis_equities_replay_amd_v4_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_aquis_equities_replay_amd_v4_0.fields.payload, range, display)
 
   return aquis_equities_replay_amd_v4_0.payload.branches(buffer, offset, packet, parent, msg_type)
 end

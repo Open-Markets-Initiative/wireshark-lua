@@ -25,7 +25,6 @@ omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.body = ProtoField.new("Body", "t
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.alphalevel1.xmt.v2.1.bodyheader", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.alphalevel1.xmt.v2.1.bodymessage", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.alphalevel1.xmt.v2.1.businessheader", ftypes.STRING)
-omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.business_message = ProtoField.new("Business Message", "tmx.quantumfeed.alphalevel1.xmt.v2.1.businessmessage", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "tmx.quantumfeed.alphalevel1.xmt.v2.1.buybrokernumber", ftypes.UINT16)
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.bypass = ProtoField.new("Bypass", "tmx.quantumfeed.alphalevel1.xmt.v2.1.bypass", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.comment = ProtoField.new("Comment", "tmx.quantumfeed.alphalevel1.xmt.v2.1.comment", ftypes.STRING)
@@ -95,7 +94,6 @@ show.stock_status_message = true
 show.symbol_status_message = true
 show.trade_cancelled_message = true
 show.trade_message = true
-show.business_message = false
 
 -- Register Tmx QuantumFeed AlphaLevel1 Xmt 2.1 Show Options
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body = Pref.bool("Show Body", show.body, "Parse and add Body to protocol tree")
@@ -109,7 +107,6 @@ omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_stock_status_message = Pref.
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_symbol_status_message = Pref.bool("Show Symbol Status Message", show.symbol_status_message, "Parse and add Symbol Status Message to protocol tree")
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_trade_cancelled_message = Pref.bool("Show Trade Cancelled Message", show.trade_cancelled_message, "Parse and add Trade Cancelled Message to protocol tree")
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_business_message = Pref.bool("Show Business Message", show.business_message, "Parse and add Business Message to protocol tree")
 
 -- Handle changed preferences
 function omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs_changed()
@@ -158,10 +155,6 @@ function omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs_changed()
   end
   if show.trade_message ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_trade_message then
     show.trade_message = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_trade_message
-    changed = true
-  end
-  if show.business_message ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_business_message then
-    show.business_message = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_business_message
     changed = true
   end
 
@@ -1401,11 +1394,6 @@ tmx_quantumfeed_alphalevel1_xmt_v2_1.business_message.size = function(buffer, of
   return 0
 end
 
--- Display: Business Message
-tmx_quantumfeed_alphalevel1_xmt_v2_1.business_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Business Message
 tmx_quantumfeed_alphalevel1_xmt_v2_1.business_message.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Symbol Status Message
@@ -1434,20 +1422,11 @@ end
 
 -- Dissect: Business Message
 tmx_quantumfeed_alphalevel1_xmt_v2_1.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  if not show.business_message then
-    return tmx_quantumfeed_alphalevel1_xmt_v2_1.business_message.branches(buffer, offset, packet, parent, msg_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = tmx_quantumfeed_alphalevel1_xmt_v2_1.business_message.size(buffer, offset, msg_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = tmx_quantumfeed_alphalevel1_xmt_v2_1.business_message.display(buffer, packet, parent)
-  local element = parent:add(omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.business_message, range, display)
 
   return tmx_quantumfeed_alphalevel1_xmt_v2_1.business_message.branches(buffer, offset, packet, parent, msg_type)
 end

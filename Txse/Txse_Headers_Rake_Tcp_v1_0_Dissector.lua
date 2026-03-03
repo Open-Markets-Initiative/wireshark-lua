@@ -26,7 +26,6 @@ omi_txse_headers_rake_tcp_v1_0.fields.next_sequence_number = ProtoField.new("Nex
 omi_txse_headers_rake_tcp_v1_0.fields.number_stream_ids = ProtoField.new("Number Stream Ids", "txse.headers.rake.tcp.v1.0.numberstreamids", ftypes.UINT8)
 omi_txse_headers_rake_tcp_v1_0.fields.packet = ProtoField.new("Packet", "txse.headers.rake.tcp.v1.0.packet", ftypes.STRING)
 omi_txse_headers_rake_tcp_v1_0.fields.packet_type = ProtoField.new("Packet Type", "txse.headers.rake.tcp.v1.0.packettype", ftypes.UINT8)
-omi_txse_headers_rake_tcp_v1_0.fields.payload = ProtoField.new("Payload", "txse.headers.rake.tcp.v1.0.payload", ftypes.STRING)
 omi_txse_headers_rake_tcp_v1_0.fields.rake_instance = ProtoField.new("Rake Instance", "txse.headers.rake.tcp.v1.0.rakeinstance", ftypes.UINT32)
 omi_txse_headers_rake_tcp_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.headers.rake.tcp.v1.0.rakemessageheader", ftypes.STRING)
 omi_txse_headers_rake_tcp_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.headers.rake.tcp.v1.0.raketcpmessage", ftypes.STRING)
@@ -57,7 +56,6 @@ show.rake_message_header = true
 show.rake_tcp_message = true
 show.tcp_sequenced_message = true
 show.tcp_unsequenced_message = true
-show.payload = false
 
 -- Register Txse Headers Rake Tcp 1.0 Show Options
 omi_txse_headers_rake_tcp_v1_0.prefs.show_debug_message = Pref.bool("Show Debug Message", show.debug_message, "Parse and add Debug Message to protocol tree")
@@ -68,7 +66,6 @@ omi_txse_headers_rake_tcp_v1_0.prefs.show_rake_message_header = Pref.bool("Show 
 omi_txse_headers_rake_tcp_v1_0.prefs.show_rake_tcp_message = Pref.bool("Show Rake Tcp Message", show.rake_tcp_message, "Parse and add Rake Tcp Message to protocol tree")
 omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_sequenced_message = Pref.bool("Show Tcp Sequenced Message", show.tcp_sequenced_message, "Parse and add Tcp Sequenced Message to protocol tree")
 omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_message = Pref.bool("Show Tcp Unsequenced Message", show.tcp_unsequenced_message, "Parse and add Tcp Unsequenced Message to protocol tree")
-omi_txse_headers_rake_tcp_v1_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_txse_headers_rake_tcp_v1_0.prefs_changed()
@@ -105,10 +102,6 @@ function omi_txse_headers_rake_tcp_v1_0.prefs_changed()
   end
   if show.tcp_unsequenced_message ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_message then
     show.tcp_unsequenced_message = omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_message
-    changed = true
-  end
-  if show.payload ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_payload then
-    show.payload = omi_txse_headers_rake_tcp_v1_0.prefs.show_payload
     changed = true
   end
 
@@ -778,11 +771,6 @@ txse_headers_rake_tcp_v1_0.payload.size = function(buffer, offset, packet_type)
   return 0
 end
 
--- Display: Payload
-txse_headers_rake_tcp_v1_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 txse_headers_rake_tcp_v1_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Logon Request Packet
@@ -814,20 +802,11 @@ end
 
 -- Dissect: Payload
 txse_headers_rake_tcp_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return txse_headers_rake_tcp_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = txse_headers_rake_tcp_v1_0.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = txse_headers_rake_tcp_v1_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_txse_headers_rake_tcp_v1_0.fields.payload, range, display)
 
   return txse_headers_rake_tcp_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end

@@ -83,7 +83,6 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.order_update_action = ProtoField.new("O
 omi_smallx_orderbookfeed_sbe_v2_2.fields.packet = ProtoField.new("Packet", "smallx.orderbookfeed.sbe.v2.2.packet", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_flags = ProtoField.new("Packet Flags", "smallx.orderbookfeed.sbe.v2.2.packetflags", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_header = ProtoField.new("Packet Header", "smallx.orderbookfeed.sbe.v2.2.packetheader", ftypes.STRING)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.payload = ProtoField.new("Payload", "smallx.orderbookfeed.sbe.v2.2.payload", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.price = ProtoField.new("Price", "smallx.orderbookfeed.sbe.v2.2.price", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.price_increment = ProtoField.new("Price Increment", "smallx.orderbookfeed.sbe.v2.2.priceincrement", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.price_multiplier = ProtoField.new("Price Multiplier", "smallx.orderbookfeed.sbe.v2.2.pricemultiplier", ftypes.DOUBLE)
@@ -206,7 +205,6 @@ show.trade_correct_group = true
 show.trade_correct_groups = true
 show.trade_correct_message = true
 show.trades_incremental_message = true
-show.payload = false
 
 -- Register SmallX OrderBookFeed Sbe 2.2 Show Options
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_group_dimension = Pref.bool("Show Group Dimension", show.group_dimension, "Parse and add Group Dimension to protocol tree")
@@ -244,7 +242,6 @@ omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group = Pref.bool("Sh
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_groups = Pref.bool("Show Trade Correct Groups", show.trade_correct_groups, "Parse and add Trade Correct Groups to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_message = Pref.bool("Show Trade Correct Message", show.trade_correct_message, "Parse and add Trade Correct Message to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trades_incremental_message = Pref.bool("Show Trades Incremental Message", show.trades_incremental_message, "Parse and add Trades Incremental Message to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
@@ -389,10 +386,6 @@ function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
   end
   if show.trades_incremental_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trades_incremental_message then
     show.trades_incremental_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trades_incremental_message
-    changed = true
-  end
-  if show.payload ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_payload then
-    show.payload = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_payload
     changed = true
   end
 
@@ -5117,11 +5110,6 @@ smallx_orderbookfeed_sbe_v2_2.payload.size = function(buffer, offset, template_i
   return 0
 end
 
--- Display: Payload
-smallx_orderbookfeed_sbe_v2_2.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 smallx_orderbookfeed_sbe_v2_2.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Instrument Trading Status Incremental Message
@@ -5182,20 +5170,11 @@ end
 
 -- Dissect: Payload
 smallx_orderbookfeed_sbe_v2_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return smallx_orderbookfeed_sbe_v2_2.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = smallx_orderbookfeed_sbe_v2_2.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = smallx_orderbookfeed_sbe_v2_2.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.payload, range, display)
 
   return smallx_orderbookfeed_sbe_v2_2.payload.branches(buffer, offset, packet, parent, template_id)
 end

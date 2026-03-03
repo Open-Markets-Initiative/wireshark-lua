@@ -89,7 +89,6 @@ omi_hkex_derivatives_lite_omd_v1_47.fields.open = ProtoField.new("Open", "hkex.d
 omi_hkex_derivatives_lite_omd_v1_47.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.derivatives.lite.omd.v1.47.orderbookid", ftypes.UINT32)
 omi_hkex_derivatives_lite_omd_v1_47.fields.packet = ProtoField.new("Packet", "hkex.derivatives.lite.omd.v1.47.packet", ftypes.STRING)
 omi_hkex_derivatives_lite_omd_v1_47.fields.packet_header = ProtoField.new("Packet Header", "hkex.derivatives.lite.omd.v1.47.packetheader", ftypes.STRING)
-omi_hkex_derivatives_lite_omd_v1_47.fields.payload = ProtoField.new("Payload", "hkex.derivatives.lite.omd.v1.47.payload", ftypes.STRING)
 omi_hkex_derivatives_lite_omd_v1_47.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.derivatives.lite.omd.v1.47.pktsize", ftypes.UINT16)
 omi_hkex_derivatives_lite_omd_v1_47.fields.planned_start_date = ProtoField.new("Planned Start Date", "hkex.derivatives.lite.omd.v1.47.plannedstartdate", ftypes.STRING)
 omi_hkex_derivatives_lite_omd_v1_47.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.derivatives.lite.omd.v1.47.plannedstarttime", ftypes.STRING)
@@ -177,7 +176,6 @@ show.series_definition_base_message = true
 show.series_definition_extended_message = true
 show.series_status_message = true
 show.trade_statistics_message = true
-show.payload = false
 
 -- Register Hkex Derivatives Lite Omd 1.47 Show Options
 omi_hkex_derivatives_lite_omd_v1_47.prefs.show_aggregate_order_book_update_message = Pref.bool("Show Aggregate Order Book Update Message", show.aggregate_order_book_update_message, "Parse and add Aggregate Order Book Update Message to protocol tree")
@@ -202,7 +200,6 @@ omi_hkex_derivatives_lite_omd_v1_47.prefs.show_series_definition_base_message = 
 omi_hkex_derivatives_lite_omd_v1_47.prefs.show_series_definition_extended_message = Pref.bool("Show Series Definition Extended Message", show.series_definition_extended_message, "Parse and add Series Definition Extended Message to protocol tree")
 omi_hkex_derivatives_lite_omd_v1_47.prefs.show_series_status_message = Pref.bool("Show Series Status Message", show.series_status_message, "Parse and add Series Status Message to protocol tree")
 omi_hkex_derivatives_lite_omd_v1_47.prefs.show_trade_statistics_message = Pref.bool("Show Trade Statistics Message", show.trade_statistics_message, "Parse and add Trade Statistics Message to protocol tree")
-omi_hkex_derivatives_lite_omd_v1_47.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_hkex_derivatives_lite_omd_v1_47.prefs_changed()
@@ -295,10 +292,6 @@ function omi_hkex_derivatives_lite_omd_v1_47.prefs_changed()
   end
   if show.trade_statistics_message ~= omi_hkex_derivatives_lite_omd_v1_47.prefs.show_trade_statistics_message then
     show.trade_statistics_message = omi_hkex_derivatives_lite_omd_v1_47.prefs.show_trade_statistics_message
-    changed = true
-  end
-  if show.payload ~= omi_hkex_derivatives_lite_omd_v1_47.prefs.show_payload then
-    show.payload = omi_hkex_derivatives_lite_omd_v1_47.prefs.show_payload
     changed = true
   end
 
@@ -4522,11 +4515,6 @@ hkex_derivatives_lite_omd_v1_47.payload.size = function(buffer, offset, msg_type
   return 0
 end
 
--- Display: Payload
-hkex_derivatives_lite_omd_v1_47.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 hkex_derivatives_lite_omd_v1_47.payload.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Sequence Reset
@@ -4603,20 +4591,11 @@ end
 
 -- Dissect: Payload
 hkex_derivatives_lite_omd_v1_47.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  if not show.payload then
-    return hkex_derivatives_lite_omd_v1_47.payload.branches(buffer, offset, packet, parent, msg_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = hkex_derivatives_lite_omd_v1_47.payload.size(buffer, offset, msg_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = hkex_derivatives_lite_omd_v1_47.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.payload, range, display)
 
   return hkex_derivatives_lite_omd_v1_47.payload.branches(buffer, offset, packet, parent, msg_type)
 end

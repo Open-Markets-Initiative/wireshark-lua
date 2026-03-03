@@ -30,7 +30,6 @@ omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_id = ProtoField.new(
 omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_index = ProtoField.new("Instrument Index", "currenex.forex.orderservice.cbp.v26.0.instrumentindex", ftypes.INT16)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_type = ProtoField.new("Instrument Type", "currenex.forex.orderservice.cbp.v26.0.instrumenttype", ftypes.STRING)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.leaves_amt = ProtoField.new("Leaves Amt", "currenex.forex.orderservice.cbp.v26.0.leavesamt", ftypes.INT64)
-omi_currenex_forex_orderservice_cbp_v26_0.fields.message_body = ProtoField.new("Message Body", "currenex.forex.orderservice.cbp.v26.0.messagebody", ftypes.STRING)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.message_header = ProtoField.new("Message Header", "currenex.forex.orderservice.cbp.v26.0.messageheader", ftypes.STRING)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.message_type = ProtoField.new("Message Type", "currenex.forex.orderservice.cbp.v26.0.messagetype", ftypes.STRING)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.min_amt = ProtoField.new("Min Amt", "currenex.forex.orderservice.cbp.v26.0.minamt", ftypes.INT64)
@@ -107,7 +106,6 @@ show.pending_fill_cancel = true
 show.resend_request = true
 show.trade = true
 show.trade_pending = true
-show.message_body = false
 
 -- Register Currenex Forex OrderService Cbp 26.0 Show Options
 omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_gap_fill = Pref.bool("Show Gap Fill", show.gap_fill, "Parse and add Gap Fill to protocol tree")
@@ -130,7 +128,6 @@ omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_pending_fill_cancel = Pref.
 omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_resend_request = Pref.bool("Show Resend Request", show.resend_request, "Parse and add Resend Request to protocol tree")
 omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
 omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_trade_pending = Pref.bool("Show Trade Pending", show.trade_pending, "Parse and add Trade Pending to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_message_body = Pref.bool("Show Message Body", show.message_body, "Parse and add Message Body to protocol tree")
 
 -- Handle changed preferences
 function omi_currenex_forex_orderservice_cbp_v26_0.prefs_changed()
@@ -215,10 +212,6 @@ function omi_currenex_forex_orderservice_cbp_v26_0.prefs_changed()
   end
   if show.trade_pending ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_trade_pending then
     show.trade_pending = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_trade_pending
-    changed = true
-  end
-  if show.message_body ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_message_body then
-    show.message_body = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_message_body
     changed = true
   end
 
@@ -2345,11 +2338,6 @@ currenex_forex_orderservice_cbp_v26_0.message_body.size = function(buffer, offse
   return 0
 end
 
--- Display: Message Body
-currenex_forex_orderservice_cbp_v26_0.message_body.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Message Body
 currenex_forex_orderservice_cbp_v26_0.message_body.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Logon
@@ -2430,20 +2418,11 @@ end
 
 -- Dissect: Message Body
 currenex_forex_orderservice_cbp_v26_0.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.message_body then
-    return currenex_forex_orderservice_cbp_v26_0.message_body.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = currenex_forex_orderservice_cbp_v26_0.message_body.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = currenex_forex_orderservice_cbp_v26_0.message_body.display(buffer, packet, parent)
-  local element = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.message_body, range, display)
 
   return currenex_forex_orderservice_cbp_v26_0.message_body.branches(buffer, offset, packet, parent, message_type)
 end

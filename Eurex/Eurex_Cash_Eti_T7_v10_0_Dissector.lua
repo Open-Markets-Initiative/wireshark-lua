@@ -213,7 +213,6 @@ omi_eurex_cash_eti_t7_v10_0.fields.party_id_specialist_trader = ProtoField.new("
 omi_eurex_cash_eti_t7_v10_0.fields.party_specialist_firm = ProtoField.new("Party Specialist Firm", "eurex.cash.eti.t7.v10.0.partyspecialistfirm", ftypes.STRING)
 omi_eurex_cash_eti_t7_v10_0.fields.party_specialist_trader = ProtoField.new("Party Specialist Trader", "eurex.cash.eti.t7.v10.0.partyspecialisttrader", ftypes.STRING)
 omi_eurex_cash_eti_t7_v10_0.fields.password = ProtoField.new("Password", "eurex.cash.eti.t7.v10.0.password", ftypes.STRING)
-omi_eurex_cash_eti_t7_v10_0.fields.payload = ProtoField.new("Payload", "eurex.cash.eti.t7.v10.0.payload", ftypes.STRING)
 omi_eurex_cash_eti_t7_v10_0.fields.peg_offset_value_abs = ProtoField.new("Peg Offset Value Abs", "eurex.cash.eti.t7.v10.0.pegoffsetvalueabs", ftypes.DOUBLE)
 omi_eurex_cash_eti_t7_v10_0.fields.peg_offset_value_pct = ProtoField.new("Peg Offset Value Pct", "eurex.cash.eti.t7.v10.0.pegoffsetvaluepct", ftypes.DOUBLE)
 omi_eurex_cash_eti_t7_v10_0.fields.potential_exec_volume = ProtoField.new("Potential Exec Volume", "eurex.cash.eti.t7.v10.0.potentialexecvolume", ftypes.DOUBLE)
@@ -671,7 +670,6 @@ show.xetra_en_light_quoting_status_request = true
 show.xetra_en_light_status_broadcast = true
 show.xetra_en_light_target_parties_comp = true
 show.xetra_en_light_update_negotiation_request = true
-show.payload = false
 
 -- Register Eurex Cash Eti T7 10.0 Show Options
 omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_ord_grp_comp = Pref.bool("Show Affected Ord Grp Comp", show.affected_ord_grp_comp, "Parse and add Affected Ord Grp Comp to protocol tree")
@@ -821,7 +819,6 @@ omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_quoting_status_request = P
 omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_status_broadcast = Pref.bool("Show Xetra En Light Status Broadcast", show.xetra_en_light_status_broadcast, "Parse and add Xetra En Light Status Broadcast to protocol tree")
 omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_target_parties_comp = Pref.bool("Show Xetra En Light Target Parties Comp", show.xetra_en_light_target_parties_comp, "Parse and add Xetra En Light Target Parties Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_update_negotiation_request = Pref.bool("Show Xetra En Light Update Negotiation Request", show.xetra_en_light_update_negotiation_request, "Parse and add Xetra En Light Update Negotiation Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_cash_eti_t7_v10_0.prefs_changed()
@@ -1414,10 +1411,6 @@ function omi_eurex_cash_eti_t7_v10_0.prefs_changed()
   end
   if show.xetra_en_light_update_negotiation_request ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_update_negotiation_request then
     show.xetra_en_light_update_negotiation_request = omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_update_negotiation_request
-    changed = true
-  end
-  if show.payload ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_payload then
-    show.payload = omi_eurex_cash_eti_t7_v10_0.prefs.show_payload
     changed = true
   end
 
@@ -25015,11 +25008,6 @@ eurex_cash_eti_t7_v10_0.payload.size = function(buffer, offset, template_id)
   return 0
 end
 
--- Display: Payload
-eurex_cash_eti_t7_v10_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 eurex_cash_eti_t7_v10_0.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Approve Tes Trade Request
@@ -25500,20 +25488,11 @@ end
 
 -- Dissect: Payload
 eurex_cash_eti_t7_v10_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return eurex_cash_eti_t7_v10_0.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = eurex_cash_eti_t7_v10_0.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = eurex_cash_eti_t7_v10_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.payload, range, display)
 
   return eurex_cash_eti_t7_v10_0.payload.branches(buffer, offset, packet, parent, template_id)
 end

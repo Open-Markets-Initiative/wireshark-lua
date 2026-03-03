@@ -46,7 +46,6 @@ omi_memx_options_memoirtop_sbe_v1_6_a.fields.original_price = ProtoField.new("Or
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.original_quantity = ProtoField.new("Original Quantity", "memx.options.memoirtop.sbe.v1.6.a.originalquantity", ftypes.UINT32)
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.osi_root = ProtoField.new("Osi Root", "memx.options.memoirtop.sbe.v1.6.a.osiroot", ftypes.STRING)
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.options.memoirtop.sbe.v1.6.a.packet", ftypes.STRING)
-omi_memx_options_memoirtop_sbe_v1_6_a.fields.payload = ProtoField.new("Payload", "memx.options.memoirtop.sbe.v1.6.a.payload", ftypes.STRING)
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.price = ProtoField.new("Price", "memx.options.memoirtop.sbe.v1.6.a.price", ftypes.DOUBLE)
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.quantity = ProtoField.new("Quantity", "memx.options.memoirtop.sbe.v1.6.a.quantity", ftypes.UINT32)
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.reserved_7 = ProtoField.new("Reserved 7", "memx.options.memoirtop.sbe.v1.6.a.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
@@ -55,7 +54,6 @@ omi_memx_options_memoirtop_sbe_v1_6_a.fields.sbe_message = ProtoField.new("Sbe M
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.schema_id = ProtoField.new("Schema Id", "memx.options.memoirtop.sbe.v1.6.a.schemaid", ftypes.UINT8)
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.sequence_number = ProtoField.new("Sequence Number", "memx.options.memoirtop.sbe.v1.6.a.sequencenumber", ftypes.UINT64)
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.options.memoirtop.sbe.v1.6.a.sequencedmessage", ftypes.STRING)
-omi_memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_messages = ProtoField.new("Sequenced Messages", "memx.options.memoirtop.sbe.v1.6.a.sequencedmessages", ftypes.STRING)
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.session_id = ProtoField.new("Session Id", "memx.options.memoirtop.sbe.v1.6.a.sessionid", ftypes.UINT64)
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.side = ProtoField.new("Side", "memx.options.memoirtop.sbe.v1.6.a.side", ftypes.STRING)
 omi_memx_options_memoirtop_sbe_v1_6_a.fields.strike_price = ProtoField.new("Strike Price", "memx.options.memoirtop.sbe.v1.6.a.strikeprice", ftypes.DOUBLE)
@@ -114,8 +112,6 @@ show.snapshot_complete_message = true
 show.trade_conditions = true
 show.trade_message = true
 show.underlier_instrument_status_message = true
-show.payload = false
-show.sequenced_messages = false
 
 -- Register Memx Options MemoirTop Sbe 1.6.a Show Options
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_message = Pref.bool("Show Best Bid Message", show.best_bid_message, "Parse and add Best Bid Message to protocol tree")
@@ -138,8 +134,6 @@ omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_snapshot_complete_message = Pre
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_conditions = Pref.bool("Show Trade Conditions", show.trade_conditions, "Parse and add Trade Conditions to protocol tree")
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message = Pref.bool("Show Underlier Instrument Status Message", show.underlier_instrument_status_message, "Parse and add Underlier Instrument Status Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_messages = Pref.bool("Show Sequenced Messages", show.sequenced_messages, "Parse and add Sequenced Messages to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_options_memoirtop_sbe_v1_6_a.prefs_changed()
@@ -224,14 +218,6 @@ function omi_memx_options_memoirtop_sbe_v1_6_a.prefs_changed()
   end
   if show.underlier_instrument_status_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message then
     show.underlier_instrument_status_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message
-    changed = true
-  end
-  if show.payload ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_payload then
-    show.payload = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_payload
-    changed = true
-  end
-  if show.sequenced_messages ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_messages then
-    show.sequenced_messages = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_messages
     changed = true
   end
 
@@ -2155,11 +2141,6 @@ memx_options_memoirtop_sbe_v1_6_a.payload.size = function(buffer, offset, templa
   return 0
 end
 
--- Display: Payload
-memx_options_memoirtop_sbe_v1_6_a.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 memx_options_memoirtop_sbe_v1_6_a.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Instrument Directory Message
@@ -2220,20 +2201,11 @@ end
 
 -- Dissect: Payload
 memx_options_memoirtop_sbe_v1_6_a.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return memx_options_memoirtop_sbe_v1_6_a.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = memx_options_memoirtop_sbe_v1_6_a.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = memx_options_memoirtop_sbe_v1_6_a.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.payload, range, display)
 
   return memx_options_memoirtop_sbe_v1_6_a.payload.branches(buffer, offset, packet, parent, template_id)
 end
@@ -2631,11 +2603,6 @@ memx_options_memoirtop_sbe_v1_6_a.sequenced_messages.size = function(buffer, off
   return 0
 end
 
--- Display: Sequenced Messages
-memx_options_memoirtop_sbe_v1_6_a.sequenced_messages.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Sequenced Messages
 memx_options_memoirtop_sbe_v1_6_a.sequenced_messages.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequenced Message
@@ -2648,20 +2615,11 @@ end
 
 -- Dissect: Sequenced Messages
 memx_options_memoirtop_sbe_v1_6_a.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.sequenced_messages then
-    return memx_options_memoirtop_sbe_v1_6_a.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = memx_options_memoirtop_sbe_v1_6_a.sequenced_messages.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = memx_options_memoirtop_sbe_v1_6_a.sequenced_messages.display(buffer, packet, parent)
-  local element = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_messages, range, display)
 
   return memx_options_memoirtop_sbe_v1_6_a.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
 end

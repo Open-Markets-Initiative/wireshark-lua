@@ -189,7 +189,6 @@ omi_cme_futures_mdp3_sbe_v1_11.fields.padding_6 = ProtoField.new("Padding 6", "c
 omi_cme_futures_mdp3_sbe_v1_11.fields.padding_7 = ProtoField.new("Padding 7", "cme.futures.mdp3.sbe.v1.11.padding7", ftypes.BYTES)
 omi_cme_futures_mdp3_sbe_v1_11.fields.par_value = ProtoField.new("Par Value", "cme.futures.mdp3.sbe.v1.11.parvalue", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_11.fields.party_role_clearing_org = ProtoField.new("Party Role Clearing Org", "cme.futures.mdp3.sbe.v1.11.partyroleclearingorg", ftypes.STRING)
-omi_cme_futures_mdp3_sbe_v1_11.fields.payload = ProtoField.new("Payload", "cme.futures.mdp3.sbe.v1.11.payload", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_11.fields.price_display_format = ProtoField.new("Price Display Format", "cme.futures.mdp3.sbe.v1.11.pricedisplayformat", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_11.fields.price_quote_method = ProtoField.new("Price Quote Method", "cme.futures.mdp3.sbe.v1.11.pricequotemethod", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_11.fields.price_ratio = ProtoField.new("Price Ratio", "cme.futures.mdp3.sbe.v1.11.priceratio", ftypes.DOUBLE)
@@ -435,7 +434,6 @@ show.snapshot_full_refresh_tcp_groups = true
 show.snapshot_refresh_top_orders = true
 show.snapshot_refresh_top_orders_group = true
 show.snapshot_refresh_top_orders_groups = true
-show.payload = false
 
 -- Register Cme Futures Mdp3 Sbe 1.11 Show Options
 omi_cme_futures_mdp3_sbe_v1_11.prefs.show_admin_login = Pref.bool("Show Admin Login", show.admin_login, "Parse and add Admin Login to protocol tree")
@@ -522,7 +520,6 @@ omi_cme_futures_mdp3_sbe_v1_11.prefs.show_snapshot_full_refresh_tcp_groups = Pre
 omi_cme_futures_mdp3_sbe_v1_11.prefs.show_snapshot_refresh_top_orders = Pref.bool("Show Snapshot Refresh Top Orders", show.snapshot_refresh_top_orders, "Parse and add Snapshot Refresh Top Orders to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_11.prefs.show_snapshot_refresh_top_orders_group = Pref.bool("Show Snapshot Refresh Top Orders Group", show.snapshot_refresh_top_orders_group, "Parse and add Snapshot Refresh Top Orders Group to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_11.prefs.show_snapshot_refresh_top_orders_groups = Pref.bool("Show Snapshot Refresh Top Orders Groups", show.snapshot_refresh_top_orders_groups, "Parse and add Snapshot Refresh Top Orders Groups to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_11.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_cme_futures_mdp3_sbe_v1_11.prefs_changed()
@@ -863,10 +860,6 @@ function omi_cme_futures_mdp3_sbe_v1_11.prefs_changed()
   end
   if show.snapshot_refresh_top_orders_groups ~= omi_cme_futures_mdp3_sbe_v1_11.prefs.show_snapshot_refresh_top_orders_groups then
     show.snapshot_refresh_top_orders_groups = omi_cme_futures_mdp3_sbe_v1_11.prefs.show_snapshot_refresh_top_orders_groups
-    changed = true
-  end
-  if show.payload ~= omi_cme_futures_mdp3_sbe_v1_11.prefs.show_payload then
-    show.payload = omi_cme_futures_mdp3_sbe_v1_11.prefs.show_payload
     changed = true
   end
 
@@ -12379,11 +12372,6 @@ cme_futures_mdp3_sbe_v1_11.payload.size = function(buffer, offset, template_id)
   return 0
 end
 
--- Display: Payload
-cme_futures_mdp3_sbe_v1_11.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 cme_futures_mdp3_sbe_v1_11.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Channel Reset
@@ -12487,20 +12475,11 @@ end
 
 -- Dissect: Payload
 cme_futures_mdp3_sbe_v1_11.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return cme_futures_mdp3_sbe_v1_11.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = cme_futures_mdp3_sbe_v1_11.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cme_futures_mdp3_sbe_v1_11.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.payload, range, display)
 
   return cme_futures_mdp3_sbe_v1_11.payload.branches(buffer, offset, packet, parent, template_id)
 end

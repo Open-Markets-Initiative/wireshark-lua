@@ -29,7 +29,6 @@ omi_a2x_equities_snapshot_amd_v1_3_2.fields.msg_length = ProtoField.new("Msg Len
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.msg_type = ProtoField.new("Msg Type", "a2x.equities.snapshot.amd.v1.3.2.msgtype", ftypes.UINT8)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.order_ref = ProtoField.new("Order Ref", "a2x.equities.snapshot.amd.v1.3.2.orderref", ftypes.UINT32)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.equities.snapshot.amd.v1.3.2.packet", ftypes.STRING)
-omi_a2x_equities_snapshot_amd_v1_3_2.fields.payload = ProtoField.new("Payload", "a2x.equities.snapshot.amd.v1.3.2.payload", ftypes.STRING)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.equities.snapshot.amd.v1.3.2.price", ftypes.UINT64)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.quantity = ProtoField.new("Quantity", "a2x.equities.snapshot.amd.v1.3.2.quantity", ftypes.UINT32)
 omi_a2x_equities_snapshot_amd_v1_3_2.fields.security_count = ProtoField.new("Security Count", "a2x.equities.snapshot.amd.v1.3.2.securitycount", ftypes.UINT16)
@@ -65,7 +64,6 @@ show.message = true
 show.message_header = true
 show.packet = true
 show.snapshot_start_message = true
-show.payload = false
 
 -- Register A2X Equities Snapshot Amd 1.3.2 Show Options
 omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_book_entry_message = Pref.bool("Show Book Entry Message", show.book_entry_message, "Parse and add Book Entry Message to protocol tree")
@@ -76,7 +74,6 @@ omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message = Pref.bool("Show Messag
 omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_snapshot_start_message = Pref.bool("Show Snapshot Start Message", show.snapshot_start_message, "Parse and add Snapshot Start Message to protocol tree")
-omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_a2x_equities_snapshot_amd_v1_3_2.prefs_changed()
@@ -113,10 +110,6 @@ function omi_a2x_equities_snapshot_amd_v1_3_2.prefs_changed()
   end
   if show.snapshot_start_message ~= omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_snapshot_start_message then
     show.snapshot_start_message = omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_snapshot_start_message
-    changed = true
-  end
-  if show.payload ~= omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_payload then
-    show.payload = omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_payload
     changed = true
   end
 
@@ -709,11 +702,6 @@ a2x_equities_snapshot_amd_v1_3_2.payload.size = function(buffer, offset, msg_typ
   return 0
 end
 
--- Display: Payload
-a2x_equities_snapshot_amd_v1_3_2.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 a2x_equities_snapshot_amd_v1_3_2.payload.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Heartbeat Message
@@ -741,20 +729,11 @@ end
 
 -- Dissect: Payload
 a2x_equities_snapshot_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  if not show.payload then
-    return a2x_equities_snapshot_amd_v1_3_2.payload.branches(buffer, offset, packet, parent, msg_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = a2x_equities_snapshot_amd_v1_3_2.payload.size(buffer, offset, msg_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = a2x_equities_snapshot_amd_v1_3_2.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.payload, range, display)
 
   return a2x_equities_snapshot_amd_v1_3_2.payload.branches(buffer, offset, packet, parent, msg_type)
 end

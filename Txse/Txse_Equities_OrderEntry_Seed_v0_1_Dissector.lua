@@ -180,7 +180,6 @@ omi_txse_equities_orderentry_seed_v0_1.fields.order_restated_presence_bits = Pro
 omi_txse_equities_orderentry_seed_v0_1.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "txse.equities.orderentry.seed.v0.1.origclordid", ftypes.INT64)
 omi_txse_equities_orderentry_seed_v0_1.fields.packet = ProtoField.new("Packet", "txse.equities.orderentry.seed.v0.1.packet", ftypes.STRING)
 omi_txse_equities_orderentry_seed_v0_1.fields.packet_type = ProtoField.new("Packet Type", "txse.equities.orderentry.seed.v0.1.packettype", ftypes.UINT8)
-omi_txse_equities_orderentry_seed_v0_1.fields.payload = ProtoField.new("Payload", "txse.equities.orderentry.seed.v0.1.payload", ftypes.STRING)
 omi_txse_equities_orderentry_seed_v0_1.fields.price = ProtoField.new("Price", "txse.equities.orderentry.seed.v0.1.price", ftypes.INT64)
 omi_txse_equities_orderentry_seed_v0_1.fields.price_slide_instruction = ProtoField.new("Price Slide Instruction", "txse.equities.orderentry.seed.v0.1.priceslideinstruction", ftypes.INT8)
 omi_txse_equities_orderentry_seed_v0_1.fields.rake_instance = ProtoField.new("Rake Instance", "txse.equities.orderentry.seed.v0.1.rakeinstance", ftypes.UINT32)
@@ -208,7 +207,6 @@ omi_txse_equities_orderentry_seed_v0_1.fields.restatement_reason = ProtoField.ne
 omi_txse_equities_orderentry_seed_v0_1.fields.self_match_instruction = ProtoField.new("Self Match Instruction", "txse.equities.orderentry.seed.v0.1.selfmatchinstruction", ftypes.INT8)
 omi_txse_equities_orderentry_seed_v0_1.fields.self_match_scope = ProtoField.new("Self Match Scope", "txse.equities.orderentry.seed.v0.1.selfmatchscope", ftypes.INT8)
 omi_txse_equities_orderentry_seed_v0_1.fields.sender_comp = ProtoField.new("Sender Comp", "txse.equities.orderentry.seed.v0.1.sendercomp", ftypes.STRING)
-omi_txse_equities_orderentry_seed_v0_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "txse.equities.orderentry.seed.v0.1.sequencedmessage", ftypes.STRING)
 omi_txse_equities_orderentry_seed_v0_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "txse.equities.orderentry.seed.v0.1.sequencedmessagetype", ftypes.UINT8)
 omi_txse_equities_orderentry_seed_v0_1.fields.session = ProtoField.new("Session", "txse.equities.orderentry.seed.v0.1.session", ftypes.UINT64)
 omi_txse_equities_orderentry_seed_v0_1.fields.short_sale_restriction_state = ProtoField.new("Short Sale Restriction State", "txse.equities.orderentry.seed.v0.1.shortsalerestrictionstate", ftypes.INT8)
@@ -225,7 +223,6 @@ omi_txse_equities_orderentry_seed_v0_1.fields.time_in_force = ProtoField.new("Ti
 omi_txse_equities_orderentry_seed_v0_1.fields.trading_session_status_presence_bits = ProtoField.new("Trading Session Status Presence Bits", "txse.equities.orderentry.seed.v0.1.tradingsessionstatuspresencebits", ftypes.STRING)
 omi_txse_equities_orderentry_seed_v0_1.fields.trading_state = ProtoField.new("Trading State", "txse.equities.orderentry.seed.v0.1.tradingstate", ftypes.INT8)
 omi_txse_equities_orderentry_seed_v0_1.fields.transact_time = ProtoField.new("Transact Time", "txse.equities.orderentry.seed.v0.1.transacttime", ftypes.INT64)
-omi_txse_equities_orderentry_seed_v0_1.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "txse.equities.orderentry.seed.v0.1.unsequencedmessage", ftypes.STRING)
 omi_txse_equities_orderentry_seed_v0_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "txse.equities.orderentry.seed.v0.1.unsequencedmessagetype", ftypes.UINT8)
 omi_txse_equities_orderentry_seed_v0_1.fields.user_data = ProtoField.new("User Data", "txse.equities.orderentry.seed.v0.1.userdata", ftypes.INT64)
 
@@ -315,9 +312,6 @@ show.tcp_sequenced_message = true
 show.tcp_unsequenced_message = true
 show.trading_session_status_message = true
 show.trading_session_status_presence_bits = true
-show.payload = false
-show.sequenced_message = false
-show.unsequenced_message = false
 
 -- Register Txse Equities OrderEntry Seed 0.1 Show Options
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
@@ -374,9 +368,6 @@ omi_txse_equities_orderentry_seed_v0_1.prefs.show_tcp_sequenced_message = Pref.b
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_tcp_unsequenced_message = Pref.bool("Show Tcp Unsequenced Message", show.tcp_unsequenced_message, "Parse and add Tcp Unsequenced Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_presence_bits = Pref.bool("Show Trading Session Status Presence Bits", show.trading_session_status_presence_bits, "Parse and add Trading Session Status Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
 function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
@@ -597,18 +588,6 @@ function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
   end
   if show.trading_session_status_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_presence_bits then
     show.trading_session_status_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_presence_bits
-    changed = true
-  end
-  if show.payload ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_payload then
-    show.payload = omi_txse_equities_orderentry_seed_v0_1.prefs.show_payload
-    changed = true
-  end
-  if show.sequenced_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_sequenced_message then
-    show.sequenced_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_sequenced_message
-    changed = true
-  end
-  if show.unsequenced_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_unsequenced_message then
-    show.unsequenced_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -5021,11 +5000,6 @@ txse_equities_orderentry_seed_v0_1.sequenced_message.size = function(buffer, off
   return 0
 end
 
--- Display: Sequenced Message
-txse_equities_orderentry_seed_v0_1.sequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Sequenced Message
 txse_equities_orderentry_seed_v0_1.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect Trading Session Status Message
@@ -5106,20 +5080,11 @@ end
 
 -- Dissect: Sequenced Message
 txse_equities_orderentry_seed_v0_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  if not show.sequenced_message then
-    return txse_equities_orderentry_seed_v0_1.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = txse_equities_orderentry_seed_v0_1.sequenced_message.size(buffer, offset, sequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = txse_equities_orderentry_seed_v0_1.sequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.sequenced_message, range, display)
 
   return txse_equities_orderentry_seed_v0_1.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -6431,11 +6396,6 @@ txse_equities_orderentry_seed_v0_1.unsequenced_message.size = function(buffer, o
   return 0
 end
 
--- Display: Unsequenced Message
-txse_equities_orderentry_seed_v0_1.unsequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Unsequenced Message
 txse_equities_orderentry_seed_v0_1.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Limit Order Message
@@ -6464,20 +6424,11 @@ end
 
 -- Dissect: Unsequenced Message
 txse_equities_orderentry_seed_v0_1.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  if not show.unsequenced_message then
-    return txse_equities_orderentry_seed_v0_1.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = txse_equities_orderentry_seed_v0_1.unsequenced_message.size(buffer, offset, unsequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = txse_equities_orderentry_seed_v0_1.unsequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.unsequenced_message, range, display)
 
   return txse_equities_orderentry_seed_v0_1.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -6703,11 +6654,6 @@ txse_equities_orderentry_seed_v0_1.payload.size = function(buffer, offset, packe
   return 0
 end
 
--- Display: Payload
-txse_equities_orderentry_seed_v0_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 txse_equities_orderentry_seed_v0_1.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Logon Request Packet
@@ -6739,20 +6685,11 @@ end
 
 -- Dissect: Payload
 txse_equities_orderentry_seed_v0_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return txse_equities_orderentry_seed_v0_1.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = txse_equities_orderentry_seed_v0_1.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = txse_equities_orderentry_seed_v0_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.payload, range, display)
 
   return txse_equities_orderentry_seed_v0_1.payload.branches(buffer, offset, packet, parent, packet_type)
 end

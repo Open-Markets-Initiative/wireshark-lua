@@ -26,7 +26,6 @@ omi_boats_equities_memo_sbe_v1_13.fields.cum_qty = ProtoField.new("Cum Qty", "bo
 omi_boats_equities_memo_sbe_v1_13.fields.cust_order_capacity = ProtoField.new("Cust Order Capacity", "boats.equities.memo.sbe.v1.13.custordercapacity", ftypes.UINT8)
 omi_boats_equities_memo_sbe_v1_13.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "boats.equities.memo.sbe.v1.13.cxlrejreason", ftypes.UINT8)
 omi_boats_equities_memo_sbe_v1_13.fields.cxl_rej_response_to = ProtoField.new("Cxl Rej Response To", "boats.equities.memo.sbe.v1.13.cxlrejresponseto", ftypes.STRING)
-omi_boats_equities_memo_sbe_v1_13.fields.data = ProtoField.new("Data", "boats.equities.memo.sbe.v1.13.data", ftypes.STRING)
 omi_boats_equities_memo_sbe_v1_13.fields.display_method = ProtoField.new("Display Method", "boats.equities.memo.sbe.v1.13.displaymethod", ftypes.STRING)
 omi_boats_equities_memo_sbe_v1_13.fields.display_min_incr = ProtoField.new("Display Min Incr", "boats.equities.memo.sbe.v1.13.displayminincr", ftypes.UINT32)
 omi_boats_equities_memo_sbe_v1_13.fields.display_qty = ProtoField.new("Display Qty", "boats.equities.memo.sbe.v1.13.displayqty", ftypes.UINT32)
@@ -79,7 +78,6 @@ omi_boats_equities_memo_sbe_v1_13.fields.parties_groups = ProtoField.new("Partie
 omi_boats_equities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id = ProtoField.new("Party I D New Order Single Party Id", "boats.equities.memo.sbe.v1.13.partyidnewordersinglepartyid", ftypes.STRING)
 omi_boats_equities_memo_sbe_v1_13.fields.party_id_source = ProtoField.new("Party Id Source", "boats.equities.memo.sbe.v1.13.partyidsource", ftypes.STRING)
 omi_boats_equities_memo_sbe_v1_13.fields.party_role = ProtoField.new("Party Role", "boats.equities.memo.sbe.v1.13.partyrole", ftypes.UINT8)
-omi_boats_equities_memo_sbe_v1_13.fields.payload = ProtoField.new("Payload", "boats.equities.memo.sbe.v1.13.payload", ftypes.STRING)
 omi_boats_equities_memo_sbe_v1_13.fields.peg_offset_value = ProtoField.new("Peg Offset Value", "boats.equities.memo.sbe.v1.13.pegoffsetvalue", ftypes.DOUBLE)
 omi_boats_equities_memo_sbe_v1_13.fields.peg_price_type = ProtoField.new("Peg Price Type", "boats.equities.memo.sbe.v1.13.pegpricetype", ftypes.UINT8)
 omi_boats_equities_memo_sbe_v1_13.fields.pending_message_count = ProtoField.new("Pending Message Count", "boats.equities.memo.sbe.v1.13.pendingmessagecount", ftypes.UINT32)
@@ -200,8 +198,6 @@ show.stream_complete_message = true
 show.stream_rejected_message = true
 show.stream_request_message = true
 show.unsequenced_message = true
-show.data = false
-show.payload = false
 
 -- Register Boats Equities Memo Sbe 1.13 Show Options
 omi_boats_equities_memo_sbe_v1_13.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
@@ -246,8 +242,6 @@ omi_boats_equities_memo_sbe_v1_13.prefs.show_stream_complete_message = Pref.bool
 omi_boats_equities_memo_sbe_v1_13.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
 omi_boats_equities_memo_sbe_v1_13.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
 omi_boats_equities_memo_sbe_v1_13.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
-omi_boats_equities_memo_sbe_v1_13.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-omi_boats_equities_memo_sbe_v1_13.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_boats_equities_memo_sbe_v1_13.prefs_changed()
@@ -420,14 +414,6 @@ function omi_boats_equities_memo_sbe_v1_13.prefs_changed()
   end
   if show.unsequenced_message ~= omi_boats_equities_memo_sbe_v1_13.prefs.show_unsequenced_message then
     show.unsequenced_message = omi_boats_equities_memo_sbe_v1_13.prefs.show_unsequenced_message
-    changed = true
-  end
-  if show.data ~= omi_boats_equities_memo_sbe_v1_13.prefs.show_data then
-    show.data = omi_boats_equities_memo_sbe_v1_13.prefs.show_data
-    changed = true
-  end
-  if show.payload ~= omi_boats_equities_memo_sbe_v1_13.prefs.show_payload then
-    show.payload = omi_boats_equities_memo_sbe_v1_13.prefs.show_payload
     changed = true
   end
 
@@ -5453,11 +5439,6 @@ boats_equities_memo_sbe_v1_13.payload.size = function(buffer, offset, template_i
   return 0
 end
 
--- Display: Payload
-boats_equities_memo_sbe_v1_13.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 boats_equities_memo_sbe_v1_13.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect New Order Single Message
@@ -5542,20 +5523,11 @@ end
 
 -- Dissect: Payload
 boats_equities_memo_sbe_v1_13.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return boats_equities_memo_sbe_v1_13.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = boats_equities_memo_sbe_v1_13.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = boats_equities_memo_sbe_v1_13.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_boats_equities_memo_sbe_v1_13.fields.payload, range, display)
 
   return boats_equities_memo_sbe_v1_13.payload.branches(buffer, offset, packet, parent, template_id)
 end
@@ -6867,11 +6839,6 @@ boats_equities_memo_sbe_v1_13.data.size = function(buffer, offset, message_type)
   return 0
 end
 
--- Display: Data
-boats_equities_memo_sbe_v1_13.data.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Data
 boats_equities_memo_sbe_v1_13.data.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
@@ -6940,20 +6907,11 @@ end
 
 -- Dissect: Data
 boats_equities_memo_sbe_v1_13.data.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.data then
-    return boats_equities_memo_sbe_v1_13.data.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = boats_equities_memo_sbe_v1_13.data.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = boats_equities_memo_sbe_v1_13.data.display(buffer, packet, parent)
-  local element = parent:add(omi_boats_equities_memo_sbe_v1_13.fields.data, range, display)
 
   return boats_equities_memo_sbe_v1_13.data.branches(buffer, offset, packet, parent, message_type)
 end

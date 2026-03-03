@@ -90,7 +90,6 @@ omi_box_options_sola_unicast_hsvf_v4_5_1.fields.max_threshold_price_sign = Proto
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_number_of_contracts_per_order = ProtoField.new("Maximum Number Of Contracts Per Order", "box.options.sola.unicast.hsvf.v4.5.1.maximumnumberofcontractsperorder", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_threshold_price = ProtoField.new("Maximum Threshold Price", "box.options.sola.unicast.hsvf.v4.5.1.maximumthresholdprice", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.maximumthresholdpricefractionindicator", ftypes.STRING)
-omi_box_options_sola_unicast_hsvf_v4_5_1.fields.message_body = ProtoField.new("Message Body", "box.options.sola.unicast.hsvf.v4.5.1.messagebody", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.message_header = ProtoField.new("Message Header", "box.options.sola.unicast.hsvf.v4.5.1.messageheader", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.message_type = ProtoField.new("Message Type", "box.options.sola.unicast.hsvf.v4.5.1.messagetype", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.min_number_of_contracts_per_order = ProtoField.new("Min Number Of Contracts Per Order", "box.options.sola.unicast.hsvf.v4.5.1.minnumberofcontractsperorder", ftypes.STRING)
@@ -242,7 +241,6 @@ show.option_trade_cancellation_message = true
 show.option_trade_message = true
 show.packet = true
 show.system_timestamp_message = true
-show.message_body = false
 
 -- Register Box Options Sola Unicast Hsvf 4.5.1 Show Options
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_complex_order_summary_message = Pref.bool("Show Beginning Of Complex Order Summary Message", show.beginning_of_complex_order_summary_message, "Parse and add Beginning Of Complex Order Summary Message to protocol tree")
@@ -284,7 +282,6 @@ omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_cancellation_me
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_message = Pref.bool("Show Option Trade Message", show.option_trade_message, "Parse and add Option Trade Message to protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message = Pref.bool("Show System Timestamp Message", show.system_timestamp_message, "Parse and add System Timestamp Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_body = Pref.bool("Show Message Body", show.message_body, "Parse and add Message Body to protocol tree")
 
 -- Handle changed preferences
 function omi_box_options_sola_unicast_hsvf_v4_5_1.prefs_changed()
@@ -445,10 +442,6 @@ function omi_box_options_sola_unicast_hsvf_v4_5_1.prefs_changed()
   end
   if show.system_timestamp_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message then
     show.system_timestamp_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message
-    changed = true
-  end
-  if show.message_body ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_body then
-    show.message_body = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_body
     changed = true
   end
 
@@ -6908,11 +6901,6 @@ box_options_sola_unicast_hsvf_v4_5_1.message_body.size = function(buffer, offset
   return 0
 end
 
--- Display: Message Body
-box_options_sola_unicast_hsvf_v4_5_1.message_body.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Message Body
 box_options_sola_unicast_hsvf_v4_5_1.message_body.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Connection Message
@@ -7045,20 +7033,11 @@ end
 
 -- Dissect: Message Body
 box_options_sola_unicast_hsvf_v4_5_1.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.message_body then
-    return box_options_sola_unicast_hsvf_v4_5_1.message_body.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = box_options_sola_unicast_hsvf_v4_5_1.message_body.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = box_options_sola_unicast_hsvf_v4_5_1.message_body.display(buffer, packet, parent)
-  local element = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.message_body, range, display)
 
   return box_options_sola_unicast_hsvf_v4_5_1.message_body.branches(buffer, offset, packet, parent, message_type)
 end

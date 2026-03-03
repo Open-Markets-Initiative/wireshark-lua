@@ -169,7 +169,6 @@ omi_cme_futures_streamlined_sbe_v5_9.fields.packet = ProtoField.new("Packet", "c
 omi_cme_futures_streamlined_sbe_v5_9.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.futures.streamlined.sbe.v5.9.packetsequencenumber", ftypes.UINT32)
 omi_cme_futures_streamlined_sbe_v5_9.fields.party_id = ProtoField.new("Party Id", "cme.futures.streamlined.sbe.v5.9.partyid", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.party_role = ProtoField.new("Party Role", "cme.futures.streamlined.sbe.v5.9.partyrole", ftypes.STRING)
-omi_cme_futures_streamlined_sbe_v5_9.fields.payload = ProtoField.new("Payload", "cme.futures.streamlined.sbe.v5.9.payload", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.percent_trading = ProtoField.new("Percent Trading", "cme.futures.streamlined.sbe.v5.9.percenttrading", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.previous_eris_pai = ProtoField.new("Previous Eris Pai", "cme.futures.streamlined.sbe.v5.9.previouserispai", ftypes.STRING)
 omi_cme_futures_streamlined_sbe_v5_9.fields.previous_fixing_date = ProtoField.new("Previous Fixing Date", "cme.futures.streamlined.sbe.v5.9.previousfixingdate", ftypes.UINT16)
@@ -432,7 +431,6 @@ show.underlying_maturity_month_year = true
 show.unit_of_measure_qty_decimal = true
 show.unit_of_measure_qty_decimal_optional = true
 show.yield = true
-show.payload = false
 
 -- Register Cme Futures Streamlined Sbe 5.9 Show Options
 omi_cme_futures_streamlined_sbe_v5_9.prefs.show_accrued_coupons = Pref.bool("Show Accrued Coupons", show.accrued_coupons, "Parse and add Accrued Coupons to protocol tree")
@@ -548,7 +546,6 @@ omi_cme_futures_streamlined_sbe_v5_9.prefs.show_underlying_maturity_month_year =
 omi_cme_futures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal = Pref.bool("Show Unit Of Measure Qty Decimal", show.unit_of_measure_qty_decimal, "Parse and add Unit Of Measure Qty Decimal to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal_optional = Pref.bool("Show Unit Of Measure Qty Decimal Optional", show.unit_of_measure_qty_decimal_optional, "Parse and add Unit Of Measure Qty Decimal Optional to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_9.prefs.show_yield = Pref.bool("Show Yield", show.yield, "Parse and add Yield to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_cme_futures_streamlined_sbe_v5_9.prefs_changed()
@@ -1005,10 +1002,6 @@ function omi_cme_futures_streamlined_sbe_v5_9.prefs_changed()
   end
   if show.yield ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_yield then
     show.yield = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_yield
-    changed = true
-  end
-  if show.payload ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_payload then
-    show.payload = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_payload
     changed = true
   end
 
@@ -12858,11 +12851,6 @@ cme_futures_streamlined_sbe_v5_9.payload.size = function(buffer, offset, templat
   return 0
 end
 
--- Display: Payload
-cme_futures_streamlined_sbe_v5_9.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 cme_futures_streamlined_sbe_v5_9.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Admin Heartbeat
@@ -12934,20 +12922,11 @@ end
 
 -- Dissect: Payload
 cme_futures_streamlined_sbe_v5_9.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return cme_futures_streamlined_sbe_v5_9.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = cme_futures_streamlined_sbe_v5_9.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cme_futures_streamlined_sbe_v5_9.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.payload, range, display)
 
   return cme_futures_streamlined_sbe_v5_9.payload.branches(buffer, offset, packet, parent, template_id)
 end

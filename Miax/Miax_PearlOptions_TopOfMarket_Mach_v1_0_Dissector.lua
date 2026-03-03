@@ -24,7 +24,6 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.fields.bid_size = ProtoField.new("Bi
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.call_or_put = ProtoField.new("Call Or Put", "miax.pearloptions.topofmarket.mach.v1.0.callorput", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.closing_time = ProtoField.new("Closing Time", "miax.pearloptions.topofmarket.mach.v1.0.closingtime", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.correction_number = ProtoField.new("Correction Number", "miax.pearloptions.topofmarket.mach.v1.0.correctionnumber", ftypes.UINT8)
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.data = ProtoField.new("Data", "miax.pearloptions.topofmarket.mach.v1.0.data", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.event_reason = ProtoField.new("Event Reason", "miax.pearloptions.topofmarket.mach.v1.0.eventreason", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.pearloptions.topofmarket.mach.v1.0.expectedeventtimenanosecondspart", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.pearloptions.topofmarket.mach.v1.0.expectedeventtimesecondspart", ftypes.UINT32)
@@ -43,7 +42,6 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.fields.opening_underlying_market_cod
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.pearloptions.topofmarket.mach.v1.0.packet", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.packet_length = ProtoField.new("Packet Length", "miax.pearloptions.topofmarket.mach.v1.0.packetlength", ftypes.UINT16)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.packet_type = ProtoField.new("Packet Type", "miax.pearloptions.topofmarket.mach.v1.0.packettype", ftypes.UINT8)
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.payload = ProtoField.new("Payload", "miax.pearloptions.topofmarket.mach.v1.0.payload", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_condition = ProtoField.new("Pbbo Condition", "miax.pearloptions.topofmarket.mach.v1.0.pbbocondition", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_price = ProtoField.new("Pbbo Price", "miax.pearloptions.topofmarket.mach.v1.0.pbboprice", ftypes.DOUBLE)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_priority_customer_size = ProtoField.new("Pbbo Priority Customer Size", "miax.pearloptions.topofmarket.mach.v1.0.pbboprioritycustomersize", ftypes.UINT16)
@@ -115,8 +113,6 @@ show.underlying_trading_status_notification = true
 show.wide_double_sided_top_of_market_message = true
 show.wide_top_of_market_best_bid_message = true
 show.wide_top_of_market_best_offer_message = true
-show.data = false
-show.payload = false
 
 -- Register Miax PearlOptions TopOfMarket Mach 1.0 Show Options
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
@@ -134,8 +130,6 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_underlying_trading_status
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_double_sided_top_of_market_message = Pref.bool("Show Wide Double Sided Top Of Market Message", show.wide_double_sided_top_of_market_message, "Parse and add Wide Double Sided Top Of Market Message to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_top_of_market_best_bid_message = Pref.bool("Show Wide Top Of Market Best Bid Message", show.wide_top_of_market_best_bid_message, "Parse and add Wide Top Of Market Best Bid Message to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_top_of_market_best_offer_message = Pref.bool("Show Wide Top Of Market Best Offer Message", show.wide_top_of_market_best_offer_message, "Parse and add Wide Top Of Market Best Offer Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_pearloptions_topofmarket_mach_v1_0.prefs_changed()
@@ -200,14 +194,6 @@ function omi_miax_pearloptions_topofmarket_mach_v1_0.prefs_changed()
   end
   if show.wide_top_of_market_best_offer_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_top_of_market_best_offer_message then
     show.wide_top_of_market_best_offer_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_top_of_market_best_offer_message
-    changed = true
-  end
-  if show.data ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_data then
-    show.data = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_data
-    changed = true
-  end
-  if show.payload ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_payload then
-    show.payload = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_payload
     changed = true
   end
 
@@ -2575,11 +2561,6 @@ miax_pearloptions_topofmarket_mach_v1_0.data.size = function(buffer, offset, mes
   return 0
 end
 
--- Display: Data
-miax_pearloptions_topofmarket_mach_v1_0.data.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Data
 miax_pearloptions_topofmarket_mach_v1_0.data.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Pearl System Time Message
@@ -2636,20 +2617,11 @@ end
 
 -- Dissect: Data
 miax_pearloptions_topofmarket_mach_v1_0.data.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.data then
-    return miax_pearloptions_topofmarket_mach_v1_0.data.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_pearloptions_topofmarket_mach_v1_0.data.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_pearloptions_topofmarket_mach_v1_0.data.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.data, range, display)
 
   return miax_pearloptions_topofmarket_mach_v1_0.data.branches(buffer, offset, packet, parent, message_type)
 end
@@ -2775,11 +2747,6 @@ miax_pearloptions_topofmarket_mach_v1_0.payload.size = function(buffer, offset, 
   return 0
 end
 
--- Display: Payload
-miax_pearloptions_topofmarket_mach_v1_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 miax_pearloptions_topofmarket_mach_v1_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
@@ -2792,20 +2759,11 @@ end
 
 -- Dissect: Payload
 miax_pearloptions_topofmarket_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return miax_pearloptions_topofmarket_mach_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_pearloptions_topofmarket_mach_v1_0.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_pearloptions_topofmarket_mach_v1_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.payload, range, display)
 
   return miax_pearloptions_topofmarket_mach_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end

@@ -61,7 +61,6 @@ omi_nyse_options_topfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packe
 omi_nyse_options_topfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.options.topfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
 omi_nyse_options_topfeed_xdp_v1_3_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.options.topfeed.xdp.v1.3.a.pairedqty", ftypes.UINT16)
 omi_nyse_options_topfeed_xdp_v1_3_a.fields.participant = ProtoField.new("Participant", "nyse.options.topfeed.xdp.v1.3.a.participant", ftypes.STRING)
-omi_nyse_options_topfeed_xdp_v1_3_a.fields.payload = ProtoField.new("Payload", "nyse.options.topfeed.xdp.v1.3.a.payload", ftypes.STRING)
 omi_nyse_options_topfeed_xdp_v1_3_a.fields.price = ProtoField.new("Price", "nyse.options.topfeed.xdp.v1.3.a.price", ftypes.INT32)
 omi_nyse_options_topfeed_xdp_v1_3_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.options.topfeed.xdp.v1.3.a.priceresolution", ftypes.UINT8)
 omi_nyse_options_topfeed_xdp_v1_3_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.options.topfeed.xdp.v1.3.a.pricescalecode", ftypes.UINT8)
@@ -137,7 +136,6 @@ show.series_index_mapping_message = true
 show.stream_id_message = true
 show.underlying_index_mapping_message = true
 show.underlying_status_message = true
-show.payload = false
 
 -- Register Nyse Options TopFeed Xdp 1.3.a Show Options
 omi_nyse_options_topfeed_xdp_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -161,7 +159,6 @@ omi_nyse_options_topfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message = Pr
 omi_nyse_options_topfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
 omi_nyse_options_topfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message = Pref.bool("Show Underlying Index Mapping Message", show.underlying_index_mapping_message, "Parse and add Underlying Index Mapping Message to protocol tree")
 omi_nyse_options_topfeed_xdp_v1_3_a.prefs.show_underlying_status_message = Pref.bool("Show Underlying Status Message", show.underlying_status_message, "Parse and add Underlying Status Message to protocol tree")
-omi_nyse_options_topfeed_xdp_v1_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_options_topfeed_xdp_v1_3_a.prefs_changed()
@@ -250,10 +247,6 @@ function omi_nyse_options_topfeed_xdp_v1_3_a.prefs_changed()
   end
   if show.underlying_status_message ~= omi_nyse_options_topfeed_xdp_v1_3_a.prefs.show_underlying_status_message then
     show.underlying_status_message = omi_nyse_options_topfeed_xdp_v1_3_a.prefs.show_underlying_status_message
-    changed = true
-  end
-  if show.payload ~= omi_nyse_options_topfeed_xdp_v1_3_a.prefs.show_payload then
-    show.payload = omi_nyse_options_topfeed_xdp_v1_3_a.prefs.show_payload
     changed = true
   end
 
@@ -3196,11 +3189,6 @@ nyse_options_topfeed_xdp_v1_3_a.payload.size = function(buffer, offset, message_
   return 0
 end
 
--- Display: Payload
-nyse_options_topfeed_xdp_v1_3_a.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nyse_options_topfeed_xdp_v1_3_a.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Outright Quote Message
@@ -3277,20 +3265,11 @@ end
 
 -- Dissect: Payload
 nyse_options_topfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nyse_options_topfeed_xdp_v1_3_a.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nyse_options_topfeed_xdp_v1_3_a.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nyse_options_topfeed_xdp_v1_3_a.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nyse_options_topfeed_xdp_v1_3_a.fields.payload, range, display)
 
   return nyse_options_topfeed_xdp_v1_3_a.payload.branches(buffer, offset, packet, parent, message_type)
 end

@@ -36,7 +36,6 @@ omi_cme_brokertec_ust_sbe_v10_1.fields.message_size = ProtoField.new("Message Si
 omi_cme_brokertec_ust_sbe_v10_1.fields.num_in_group = ProtoField.new("Num In Group", "cme.brokertec.ust.sbe.v10.1.numingroup", ftypes.UINT8)
 omi_cme_brokertec_ust_sbe_v10_1.fields.packet = ProtoField.new("Packet", "cme.brokertec.ust.sbe.v10.1.packet", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.brokertec.ust.sbe.v10.1.packetsequencenumber", ftypes.UINT32)
-omi_cme_brokertec_ust_sbe_v10_1.fields.payload = ProtoField.new("Payload", "cme.brokertec.ust.sbe.v10.1.payload", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.price_type = ProtoField.new("Price Type", "cme.brokertec.ust.sbe.v10.1.pricetype", ftypes.UINT8)
 omi_cme_brokertec_ust_sbe_v10_1.fields.schema_id = ProtoField.new("Schema Id", "cme.brokertec.ust.sbe.v10.1.schemaid", ftypes.UINT16)
 omi_cme_brokertec_ust_sbe_v10_1.fields.security_alt_id = ProtoField.new("Security Alt Id", "cme.brokertec.ust.sbe.v10.1.securityaltid", ftypes.STRING)
@@ -73,7 +72,6 @@ show.md_incremental_refresh_btec = true
 show.message = true
 show.message_header = true
 show.packet = true
-show.payload = false
 
 -- Register Cme BrokerTec Ust Sbe 10.1 Show Options
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
@@ -86,7 +84,6 @@ omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_incremental_refresh_btec = Pref.bo
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cme_brokertec_ust_sbe_v10_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_cme_brokertec_ust_sbe_v10_1.prefs_changed()
@@ -131,10 +128,6 @@ function omi_cme_brokertec_ust_sbe_v10_1.prefs_changed()
   end
   if show.packet ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_packet then
     show.packet = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_packet
-    changed = true
-  end
-  if show.payload ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_payload then
-    show.payload = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_payload
     changed = true
   end
 
@@ -1118,11 +1111,6 @@ cme_brokertec_ust_sbe_v10_1.payload.size = function(buffer, offset, template_id)
   return 0
 end
 
--- Display: Payload
-cme_brokertec_ust_sbe_v10_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 cme_brokertec_ust_sbe_v10_1.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Md Incremental Refresh Btec
@@ -1138,20 +1126,11 @@ end
 
 -- Dissect: Payload
 cme_brokertec_ust_sbe_v10_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return cme_brokertec_ust_sbe_v10_1.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = cme_brokertec_ust_sbe_v10_1.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cme_brokertec_ust_sbe_v10_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.payload, range, display)
 
   return cme_brokertec_ust_sbe_v10_1.payload.branches(buffer, offset, packet, parent, template_id)
 end

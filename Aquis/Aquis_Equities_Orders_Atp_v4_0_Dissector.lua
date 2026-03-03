@@ -55,7 +55,6 @@ omi_aquis_equities_orders_atp_v4_0.fields.packet = ProtoField.new("Packet", "aqu
 omi_aquis_equities_orders_atp_v4_0.fields.party_role = ProtoField.new("Party Role", "aquis.equities.orders.atp.v4.0.partyrole", ftypes.UINT8, nil, base.DEC, 0x0F)
 omi_aquis_equities_orders_atp_v4_0.fields.party_role_qualifier = ProtoField.new("Party Role Qualifier", "aquis.equities.orders.atp.v4.0.partyrolequalifier", ftypes.UINT8, nil, base.DEC, 0xF0)
 omi_aquis_equities_orders_atp_v4_0.fields.password = ProtoField.new("Password", "aquis.equities.orders.atp.v4.0.password", ftypes.STRING)
-omi_aquis_equities_orders_atp_v4_0.fields.payload = ProtoField.new("Payload", "aquis.equities.orders.atp.v4.0.payload", ftypes.STRING)
 omi_aquis_equities_orders_atp_v4_0.fields.peg_difference = ProtoField.new("Peg Difference", "aquis.equities.orders.atp.v4.0.pegdifference", ftypes.INT64)
 omi_aquis_equities_orders_atp_v4_0.fields.price = ProtoField.new("Price", "aquis.equities.orders.atp.v4.0.price", ftypes.UINT64)
 omi_aquis_equities_orders_atp_v4_0.fields.protocol_version = ProtoField.new("Protocol Version", "aquis.equities.orders.atp.v4.0.protocolversion", ftypes.UINT16)
@@ -153,7 +152,6 @@ show.trade_capture_message = true
 show.trade_capture_response_message = true
 show.trade_flags = true
 show.trade_message = true
-show.payload = false
 
 -- Register Aquis Equities Orders Atp 4.0 Show Options
 omi_aquis_equities_orders_atp_v4_0.prefs.show_extended_order_flags = Pref.bool("Show Extended Order Flags", show.extended_order_flags, "Parse and add Extended Order Flags to protocol tree")
@@ -188,7 +186,6 @@ omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_message = Pref.bool(
 omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_response_message = Pref.bool("Show Trade Capture Response Message", show.trade_capture_response_message, "Parse and add Trade Capture Response Message to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_aquis_equities_orders_atp_v4_0.prefs_changed()
@@ -321,10 +318,6 @@ function omi_aquis_equities_orders_atp_v4_0.prefs_changed()
   end
   if show.trade_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_message then
     show.trade_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_message
-    changed = true
-  end
-  if show.payload ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_payload then
-    show.payload = omi_aquis_equities_orders_atp_v4_0.prefs.show_payload
     changed = true
   end
 
@@ -3492,11 +3485,6 @@ aquis_equities_orders_atp_v4_0.payload.size = function(buffer, offset, msg_type)
   return 0
 end
 
--- Display: Payload
-aquis_equities_orders_atp_v4_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 aquis_equities_orders_atp_v4_0.payload.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Login Message
@@ -3587,20 +3575,11 @@ end
 
 -- Dissect: Payload
 aquis_equities_orders_atp_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  if not show.payload then
-    return aquis_equities_orders_atp_v4_0.payload.branches(buffer, offset, packet, parent, msg_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = aquis_equities_orders_atp_v4_0.payload.size(buffer, offset, msg_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = aquis_equities_orders_atp_v4_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.payload, range, display)
 
   return aquis_equities_orders_atp_v4_0.payload.branches(buffer, offset, packet, parent, msg_type)
 end

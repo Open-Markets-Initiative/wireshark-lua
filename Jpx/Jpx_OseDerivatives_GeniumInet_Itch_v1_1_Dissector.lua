@@ -59,7 +59,6 @@ omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.packet_header = ProtoField.ne
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.participant_id = ProtoField.new("Participant Id", "jpx.osederivatives.geniuminet.itch.v1.1.participantid", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.participant_id_counterparty = ProtoField.new("Participant Id Counterparty", "jpx.osederivatives.geniuminet.itch.v1.1.participantidcounterparty", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.participant_id_owner = ProtoField.new("Participant Id Owner", "jpx.osederivatives.geniuminet.itch.v1.1.participantidowner", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.payload = ProtoField.new("Payload", "jpx.osederivatives.geniuminet.itch.v1.1.payload", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.price = ProtoField.new("Price", "jpx.osederivatives.geniuminet.itch.v1.1.price", ftypes.INT32)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.price_from = ProtoField.new("Price From", "jpx.osederivatives.geniuminet.itch.v1.1.pricefrom", ftypes.INT32)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.price_stabilization = ProtoField.new("Price Stabilization", "jpx.osederivatives.geniuminet.itch.v1.1.pricestabilization", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
@@ -130,7 +129,6 @@ show.seconds_message = true
 show.system_event_message = true
 show.tick_size_table_entry = true
 show.trade_message = true
-show.payload = false
 
 -- Register Jpx OseDerivatives GeniumInet Itch 1.1 Show Options
 omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_add_order_no_mpid = Pref.bool("Show Add Order No Mpid", show.add_order_no_mpid, "Parse and add Add Order No Mpid to protocol tree")
@@ -152,7 +150,6 @@ omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_seconds_message = Pref.bo
 omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_tick_size_table_entry = Pref.bool("Show Tick Size Table Entry", show.tick_size_table_entry, "Parse and add Tick Size Table Entry to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs_changed()
@@ -233,10 +230,6 @@ function omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs_changed()
   end
   if show.trade_message ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_trade_message then
     show.trade_message = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_trade_message
-    changed = true
-  end
-  if show.payload ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_payload then
-    show.payload = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_payload
     changed = true
   end
 
@@ -2622,11 +2615,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.payload.size = function(buffer, offset, 
   return 0
 end
 
--- Display: Payload
-jpx_osederivatives_geniuminet_itch_v1_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 jpx_osederivatives_geniuminet_itch_v1_1.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Seconds Message
@@ -2691,20 +2679,11 @@ end
 
 -- Dissect: Payload
 jpx_osederivatives_geniuminet_itch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return jpx_osederivatives_geniuminet_itch_v1_1.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = jpx_osederivatives_geniuminet_itch_v1_1.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.payload, range, display)
 
   return jpx_osederivatives_geniuminet_itch_v1_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
@@ -2845,6 +2824,16 @@ end
 -- Message
 jpx_osederivatives_geniuminet_itch_v1_1.message = {}
 
+-- Read runtime size of: Message
+jpx_osederivatives_geniuminet_itch_v1_1.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
+
+  return message_length + 2
+end
+
 -- Display: Message
 jpx_osederivatives_geniuminet_itch_v1_1.message.display = function(packet, parent, length)
   return ""
@@ -2873,24 +2862,20 @@ jpx_osederivatives_geniuminet_itch_v1_1.message.fields = function(buffer, offset
 end
 
 -- Dissect: Message
-jpx_osederivatives_geniuminet_itch_v1_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
+jpx_osederivatives_geniuminet_itch_v1_1.message.dissect = function(buffer, offset, packet, parent)
+  -- Parse runtime size
+  local size_of_message = jpx_osederivatives_geniuminet_itch_v1_1.message.size(buffer, offset)
 
-  -- Optionally add group/struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.message then
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message, buffer(offset, 0))
-    local current = jpx_osederivatives_geniuminet_itch_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
+    local range = buffer(offset, size_of_message)
     local display = jpx_osederivatives_geniuminet_itch_v1_1.message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    jpx_osederivatives_geniuminet_itch_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-
-    return index
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message, range, display)
   end
+
+  jpx_osederivatives_geniuminet_itch_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+  return offset + size_of_message
 end
 
 -- Message Count
@@ -3036,9 +3021,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.packet.dissect = function(buffer, packet
   -- Packet Header: Struct of 3 fields
   index, packet_header = jpx_osederivatives_geniuminet_itch_v1_1.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 2, 2):uint()
-
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -3048,7 +3030,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.packet.dissect = function(buffer, packet
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
 
-    -- Message: Struct of 2 fields
+    -- Message: Runtime Type with 3 branches
     index, message = jpx_osederivatives_geniuminet_itch_v1_1.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 

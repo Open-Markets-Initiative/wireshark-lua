@@ -28,7 +28,6 @@ omi_coinbase_derivatives_session_tcp_v1_2.fields.new_sequence_number = ProtoFiel
 omi_coinbase_derivatives_session_tcp_v1_2.fields.packet = ProtoField.new("Packet", "coinbase.derivatives.session.tcp.v1.2.packet", ftypes.STRING)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.session.tcp.v1.2.padding", ftypes.UINT32)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.password = ProtoField.new("Password", "coinbase.derivatives.session.tcp.v1.2.password", ftypes.STRING)
-omi_coinbase_derivatives_session_tcp_v1_2.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.session.tcp.v1.2.payload", ftypes.STRING)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.derivatives.session.tcp.v1.2.protocolid", ftypes.UINT8)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.reason_reject_reason = ProtoField.new("Reason Reject Reason", "coinbase.derivatives.session.tcp.v1.2.reasonrejectreason", ftypes.INT32)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.reason_string_64 = ProtoField.new("Reason String 64", "coinbase.derivatives.session.tcp.v1.2.reasonstring64", ftypes.STRING)
@@ -74,7 +73,6 @@ show.reject_message = true
 show.resend_request_message = true
 show.sbe_message = true
 show.test_request_message = true
-show.payload = false
 
 -- Register Coinbase Derivatives Session Tcp 1.2 Show Options
 omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_gap_fill_message = Pref.bool("Show Gap Fill Message", show.gap_fill_message, "Parse and add Gap Fill Message to protocol tree")
@@ -89,7 +87,6 @@ omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_reject_message = Pref.bool(
 omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_resend_request_message = Pref.bool("Show Resend Request Message", show.resend_request_message, "Parse and add Resend Request Message to protocol tree")
 omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_test_request_message = Pref.bool("Show Test Request Message", show.test_request_message, "Parse and add Test Request Message to protocol tree")
-omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_coinbase_derivatives_session_tcp_v1_2.prefs_changed()
@@ -142,10 +139,6 @@ function omi_coinbase_derivatives_session_tcp_v1_2.prefs_changed()
   end
   if show.test_request_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_test_request_message then
     show.test_request_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_test_request_message
-    changed = true
-  end
-  if show.payload ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_payload then
-    show.payload = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_payload
     changed = true
   end
 
@@ -989,11 +982,6 @@ coinbase_derivatives_session_tcp_v1_2.payload.size = function(buffer, offset, te
   return 0
 end
 
--- Display: Payload
-coinbase_derivatives_session_tcp_v1_2.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 coinbase_derivatives_session_tcp_v1_2.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Logon Message
@@ -1038,20 +1026,11 @@ end
 
 -- Dissect: Payload
 coinbase_derivatives_session_tcp_v1_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return coinbase_derivatives_session_tcp_v1_2.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = coinbase_derivatives_session_tcp_v1_2.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = coinbase_derivatives_session_tcp_v1_2.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.payload, range, display)
 
   return coinbase_derivatives_session_tcp_v1_2.payload.branches(buffer, offset, packet, parent, template_id)
 end

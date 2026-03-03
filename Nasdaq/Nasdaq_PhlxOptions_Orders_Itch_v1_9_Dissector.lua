@@ -55,7 +55,6 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_type = ProtoField.new("Orde
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.original_order_volume = ProtoField.new("Original Order Volume", "nasdaq.phlxoptions.orders.itch.v1.9.originalordervolume", ftypes.UINT32)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.orders.itch.v1.9.packet", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.orders.itch.v1.9.packetheader", ftypes.STRING)
-omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.payload = ProtoField.new("Payload", "nasdaq.phlxoptions.orders.itch.v1.9.payload", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.phlx_tradable = ProtoField.new("Phlx Tradable", "nasdaq.phlxoptions.orders.itch.v1.9.phlxtradable", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.price = ProtoField.new("Price", "nasdaq.phlxoptions.orders.itch.v1.9.price", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlxoptions.orders.itch.v1.9.reserved", ftypes.UINT32)
@@ -115,7 +114,6 @@ show.security_trading_action_message = true
 show.simple_order_message = true
 show.strategy_open_closed_message = true
 show.system_event_message = true
-show.payload = false
 
 -- Register Nasdaq PhlxOptions Orders Itch 1.9 Show Options
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_auction_notification_message = Pref.bool("Show Auction Notification Message", show.auction_notification_message, "Parse and add Auction Notification Message to protocol tree")
@@ -136,7 +134,6 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_security_trading_action_messa
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_simple_order_message = Pref.bool("Show Simple Order Message", show.simple_order_message, "Parse and add Simple Order Message to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_strategy_open_closed_message = Pref.bool("Show Strategy Open Closed Message", show.strategy_open_closed_message, "Parse and add Strategy Open Closed Message to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs_changed()
@@ -213,10 +210,6 @@ function omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs_changed()
   end
   if show.system_event_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_system_event_message then
     show.system_event_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_system_event_message
-    changed = true
-  end
-  if show.payload ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_payload then
-    show.payload = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_payload
     changed = true
   end
 
@@ -2491,11 +2484,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.payload.size = function(buffer, offset, mess
   return 0
 end
 
--- Display: Payload
-nasdaq_phlxoptions_orders_itch_v1_9.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nasdaq_phlxoptions_orders_itch_v1_9.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
@@ -2548,20 +2536,11 @@ end
 
 -- Dissect: Payload
 nasdaq_phlxoptions_orders_itch_v1_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nasdaq_phlxoptions_orders_itch_v1_9.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_phlxoptions_orders_itch_v1_9.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.payload, range, display)
 
   return nasdaq_phlxoptions_orders_itch_v1_9.payload.branches(buffer, offset, packet, parent, message_type)
 end

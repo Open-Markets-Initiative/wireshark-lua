@@ -61,7 +61,6 @@ omi_memx_options_riskcontrol_sbe_v1_7.fields.clordid = ProtoField.new("ClOrdId",
 omi_memx_options_riskcontrol_sbe_v1_7.fields.clordid_optional = ProtoField.new("ClOrdId Optional", "memx.options.riskcontrol.sbe.v1.7.clordidoptional", ftypes.STRING)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.common_header = ProtoField.new("Common Header", "memx.options.riskcontrol.sbe.v1.7.commonheader", ftypes.STRING)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.count = ProtoField.new("Count", "memx.options.riskcontrol.sbe.v1.7.count", ftypes.UINT32)
-omi_memx_options_riskcontrol_sbe_v1_7.fields.data = ProtoField.new("Data", "memx.options.riskcontrol.sbe.v1.7.data", ftypes.STRING)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_acknowledge_all_request_efid = ProtoField.new("Efi D Active Risk Acknowledge All Request Efid", "memx.options.riskcontrol.sbe.v1.7.efidactiveriskacknowledgeallrequestefid", ftypes.STRING)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_acknowledge_rejected_efid = ProtoField.new("Efi D Active Risk Acknowledge Rejected Efid", "memx.options.riskcontrol.sbe.v1.7.efidactiveriskacknowledgerejectedefid", ftypes.STRING)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_acknowledgement_request_efid = ProtoField.new("Efi D Active Risk Acknowledgement Request Efid", "memx.options.riskcontrol.sbe.v1.7.efidactiveriskacknowledgementrequestefid", ftypes.STRING)
@@ -114,7 +113,6 @@ omi_memx_options_riskcontrol_sbe_v1_7.fields.number_msgs_sent = ProtoField.new("
 omi_memx_options_riskcontrol_sbe_v1_7.fields.option_security_id = ProtoField.new("Option Security Id", "memx.options.riskcontrol.sbe.v1.7.optionsecurityid", ftypes.STRING)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.order_id = ProtoField.new("Order Id", "memx.options.riskcontrol.sbe.v1.7.orderid", ftypes.UINT64)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.packet = ProtoField.new("Packet", "memx.options.riskcontrol.sbe.v1.7.packet", ftypes.STRING)
-omi_memx_options_riskcontrol_sbe_v1_7.fields.payload = ProtoField.new("Payload", "memx.options.riskcontrol.sbe.v1.7.payload", ftypes.STRING)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.options.riskcontrol.sbe.v1.7.pendingmessagecount", ftypes.UINT32)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.percent = ProtoField.new("Percent", "memx.options.riskcontrol.sbe.v1.7.percent", ftypes.INT32)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.period_in_milli_seconds = ProtoField.new("Period In Milli Seconds", "memx.options.riskcontrol.sbe.v1.7.periodinmilliseconds", ftypes.UINT32)
@@ -341,8 +339,6 @@ show.stream_complete_message = true
 show.stream_rejected_message = true
 show.stream_request_message = true
 show.unsequenced_message = true
-show.data = false
-show.payload = false
 
 -- Register Memx Options RiskControl Sbe 1.7 Show Options
 omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_active_risk_acknowledge_all_request_message = Pref.bool("Show Active Risk Acknowledge All Request Message", show.active_risk_acknowledge_all_request_message, "Parse and add Active Risk Acknowledge All Request Message to protocol tree")
@@ -424,8 +420,6 @@ omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_stream_complete_message = Pref.
 omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
 omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
 omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
-omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_options_riskcontrol_sbe_v1_7.prefs_changed()
@@ -746,14 +740,6 @@ function omi_memx_options_riskcontrol_sbe_v1_7.prefs_changed()
   end
   if show.unsequenced_message ~= omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_unsequenced_message then
     show.unsequenced_message = omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_unsequenced_message
-    changed = true
-  end
-  if show.data ~= omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_data then
-    show.data = omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_data
-    changed = true
-  end
-  if show.payload ~= omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_payload then
-    show.payload = omi_memx_options_riskcontrol_sbe_v1_7.prefs.show_payload
     changed = true
   end
 
@@ -9469,11 +9455,6 @@ memx_options_riskcontrol_sbe_v1_7.payload.size = function(buffer, offset, templa
   return 0
 end
 
--- Display: Payload
-memx_options_riskcontrol_sbe_v1_7.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 memx_options_riskcontrol_sbe_v1_7.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Risk Settings Query Message
@@ -9722,20 +9703,11 @@ end
 
 -- Dissect: Payload
 memx_options_riskcontrol_sbe_v1_7.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return memx_options_riskcontrol_sbe_v1_7.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = memx_options_riskcontrol_sbe_v1_7.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = memx_options_riskcontrol_sbe_v1_7.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_memx_options_riskcontrol_sbe_v1_7.fields.payload, range, display)
 
   return memx_options_riskcontrol_sbe_v1_7.payload.branches(buffer, offset, packet, parent, template_id)
 end
@@ -11139,11 +11111,6 @@ memx_options_riskcontrol_sbe_v1_7.data.size = function(buffer, offset, message_t
   return 0
 end
 
--- Display: Data
-memx_options_riskcontrol_sbe_v1_7.data.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Data
 memx_options_riskcontrol_sbe_v1_7.data.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
@@ -11212,20 +11179,11 @@ end
 
 -- Dissect: Data
 memx_options_riskcontrol_sbe_v1_7.data.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.data then
-    return memx_options_riskcontrol_sbe_v1_7.data.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = memx_options_riskcontrol_sbe_v1_7.data.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = memx_options_riskcontrol_sbe_v1_7.data.display(buffer, packet, parent)
-  local element = parent:add(omi_memx_options_riskcontrol_sbe_v1_7.fields.data, range, display)
 
   return memx_options_riskcontrol_sbe_v1_7.data.branches(buffer, offset, packet, parent, message_type)
 end

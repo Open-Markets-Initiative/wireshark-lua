@@ -199,6 +199,16 @@ end
 -- Message
 iex_equities_udpheader_iextp_v1_0.message = {}
 
+-- Read runtime size of: Message
+iex_equities_udpheader_iextp_v1_0.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):le_uint()
+
+  return message_length + 2
+end
+
 -- Display: Message
 iex_equities_udpheader_iextp_v1_0.message.display = function(packet, parent, length)
   return ""
@@ -230,24 +240,20 @@ iex_equities_udpheader_iextp_v1_0.message.fields = function(buffer, offset, pack
 end
 
 -- Dissect: Message
-iex_equities_udpheader_iextp_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
+iex_equities_udpheader_iextp_v1_0.message.dissect = function(buffer, offset, packet, parent)
+  -- Parse runtime size
+  local size_of_message = iex_equities_udpheader_iextp_v1_0.message.size(buffer, offset)
 
-  -- Optionally add group/struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.message then
-    parent = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message, buffer(offset, 0))
-    local current = iex_equities_udpheader_iextp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
+    local range = buffer(offset, size_of_message)
     local display = iex_equities_udpheader_iextp_v1_0.message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    iex_equities_udpheader_iextp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-
-    return index
+    parent = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message, range, display)
   end
+
+  iex_equities_udpheader_iextp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+  return offset + size_of_message
 end
 
 -- Send Time
@@ -570,9 +576,6 @@ iex_equities_udpheader_iextp_v1_0.packet.dissect = function(buffer, packet, pare
   -- Iextp Header: Struct of 10 fields
   index, iextp_header = iex_equities_udpheader_iextp_v1_0.iextp_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 26, 2):le_uint()
-
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -582,7 +585,7 @@ iex_equities_udpheader_iextp_v1_0.packet.dissect = function(buffer, packet, pare
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
 
-    -- Message: Struct of 2 fields
+    -- Message: Runtime Type with 2 branches
     index, message = iex_equities_udpheader_iextp_v1_0.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 

@@ -26,7 +26,6 @@ omi_bruceats_equities_lastsale_itch_v1_0.fields.message_length = ProtoField.new(
 omi_bruceats_equities_lastsale_itch_v1_0.fields.message_type = ProtoField.new("Message Type", "bruceats.equities.lastsale.itch.v1.0.messagetype", ftypes.STRING)
 omi_bruceats_equities_lastsale_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.equities.lastsale.itch.v1.0.packet", ftypes.STRING)
 omi_bruceats_equities_lastsale_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.equities.lastsale.itch.v1.0.packetheader", ftypes.STRING)
-omi_bruceats_equities_lastsale_itch_v1_0.fields.payload = ProtoField.new("Payload", "bruceats.equities.lastsale.itch.v1.0.payload", ftypes.STRING)
 omi_bruceats_equities_lastsale_itch_v1_0.fields.price = ProtoField.new("Price", "bruceats.equities.lastsale.itch.v1.0.price", ftypes.DOUBLE)
 omi_bruceats_equities_lastsale_itch_v1_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "bruceats.equities.lastsale.itch.v1.0.regshoaction", ftypes.STRING)
 omi_bruceats_equities_lastsale_itch_v1_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "bruceats.equities.lastsale.itch.v1.0.roundlotsize", ftypes.UINT32)
@@ -66,7 +65,6 @@ show.stock_trading_action = true
 show.system_event_message = true
 show.trade_cancel_message = true
 show.trade_report_message = true
-show.payload = false
 
 -- Register BruceAts Equities LastSale Itch 1.0 Show Options
 omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -79,7 +77,6 @@ omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_stock_trading_action = Pref.
 omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
 omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
-omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_bruceats_equities_lastsale_itch_v1_0.prefs_changed()
@@ -124,10 +121,6 @@ function omi_bruceats_equities_lastsale_itch_v1_0.prefs_changed()
   end
   if show.trade_report_message ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_trade_report_message then
     show.trade_report_message = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_trade_report_message
-    changed = true
-  end
-  if show.payload ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_payload then
-    show.payload = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_payload
     changed = true
   end
 
@@ -876,11 +869,6 @@ bruceats_equities_lastsale_itch_v1_0.payload.size = function(buffer, offset, mes
   return 0
 end
 
--- Display: Payload
-bruceats_equities_lastsale_itch_v1_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 bruceats_equities_lastsale_itch_v1_0.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
@@ -913,20 +901,11 @@ end
 
 -- Dissect: Payload
 bruceats_equities_lastsale_itch_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return bruceats_equities_lastsale_itch_v1_0.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = bruceats_equities_lastsale_itch_v1_0.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = bruceats_equities_lastsale_itch_v1_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_bruceats_equities_lastsale_itch_v1_0.fields.payload, range, display)
 
   return bruceats_equities_lastsale_itch_v1_0.payload.branches(buffer, offset, packet, parent, message_type)
 end
@@ -1043,6 +1022,16 @@ end
 -- Message
 bruceats_equities_lastsale_itch_v1_0.message = {}
 
+-- Read runtime size of: Message
+bruceats_equities_lastsale_itch_v1_0.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
+
+  return message_length + 2
+end
+
 -- Display: Message
 bruceats_equities_lastsale_itch_v1_0.message.display = function(packet, parent, length)
   return ""
@@ -1071,24 +1060,20 @@ bruceats_equities_lastsale_itch_v1_0.message.fields = function(buffer, offset, p
 end
 
 -- Dissect: Message
-bruceats_equities_lastsale_itch_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
+bruceats_equities_lastsale_itch_v1_0.message.dissect = function(buffer, offset, packet, parent)
+  -- Parse runtime size
+  local size_of_message = bruceats_equities_lastsale_itch_v1_0.message.size(buffer, offset)
 
-  -- Optionally add group/struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.message then
-    parent = parent:add(omi_bruceats_equities_lastsale_itch_v1_0.fields.message, buffer(offset, 0))
-    local current = bruceats_equities_lastsale_itch_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
+    local range = buffer(offset, size_of_message)
     local display = bruceats_equities_lastsale_itch_v1_0.message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    bruceats_equities_lastsale_itch_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-
-    return index
+    parent = parent:add(omi_bruceats_equities_lastsale_itch_v1_0.fields.message, range, display)
   end
+
+  bruceats_equities_lastsale_itch_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+  return offset + size_of_message
 end
 
 -- Message Count
@@ -1234,9 +1219,6 @@ bruceats_equities_lastsale_itch_v1_0.packet.dissect = function(buffer, packet, p
   -- Packet Header: Struct of 3 fields
   index, packet_header = bruceats_equities_lastsale_itch_v1_0.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 2, 2):uint()
-
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -1246,7 +1228,7 @@ bruceats_equities_lastsale_itch_v1_0.packet.dissect = function(buffer, packet, p
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
 
-    -- Message: Struct of 2 fields
+    -- Message: Runtime Type with 3 branches
     index, message = bruceats_equities_lastsale_itch_v1_0.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 

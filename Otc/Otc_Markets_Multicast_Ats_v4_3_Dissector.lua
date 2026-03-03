@@ -76,7 +76,6 @@ omi_otc_markets_multicast_ats_v4_3.fields.packet_header = ProtoField.new("Packet
 omi_otc_markets_multicast_ats_v4_3.fields.packet_milli = ProtoField.new("Packet Milli", "otc.markets.multicast.ats.v4.3.packetmilli", ftypes.UINT32)
 omi_otc_markets_multicast_ats_v4_3.fields.packet_size = ProtoField.new("Packet Size", "otc.markets.multicast.ats.v4.3.packetsize", ftypes.UINT16)
 omi_otc_markets_multicast_ats_v4_3.fields.par_value = ProtoField.new("Par Value", "otc.markets.multicast.ats.v4.3.parvalue", ftypes.UINT64)
-omi_otc_markets_multicast_ats_v4_3.fields.payload = ProtoField.new("Payload", "otc.markets.multicast.ats.v4.3.payload", ftypes.STRING)
 omi_otc_markets_multicast_ats_v4_3.fields.piggyback = ProtoField.new("Piggyback", "otc.markets.multicast.ats.v4.3.piggyback", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_otc_markets_multicast_ats_v4_3.fields.price = ProtoField.new("Price", "otc.markets.multicast.ats.v4.3.price", ftypes.UINT64)
 omi_otc_markets_multicast_ats_v4_3.fields.primary_market = ProtoField.new("Primary Market", "otc.markets.multicast.ats.v4.3.primarymarket", ftypes.STRING)
@@ -181,7 +180,6 @@ show.security_message = true
 show.start_of_spin_message = true
 show.trade_message = true
 show.trade_status = true
-show.payload = false
 
 -- Register Otc Markets Multicast Ats 4.3 Show Options
 omi_otc_markets_multicast_ats_v4_3.prefs.show_end_of_spin_message = Pref.bool("Show End Of Spin Message", show.end_of_spin_message, "Parse and add End Of Spin Message to protocol tree")
@@ -209,7 +207,6 @@ omi_otc_markets_multicast_ats_v4_3.prefs.show_security_message = Pref.bool("Show
 omi_otc_markets_multicast_ats_v4_3.prefs.show_start_of_spin_message = Pref.bool("Show Start Of Spin Message", show.start_of_spin_message, "Parse and add Start Of Spin Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_3.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_3.prefs.show_trade_status = Pref.bool("Show Trade Status", show.trade_status, "Parse and add Trade Status to protocol tree")
-omi_otc_markets_multicast_ats_v4_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_otc_markets_multicast_ats_v4_3.prefs_changed()
@@ -314,10 +311,6 @@ function omi_otc_markets_multicast_ats_v4_3.prefs_changed()
   end
   if show.trade_status ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_trade_status then
     show.trade_status = omi_otc_markets_multicast_ats_v4_3.prefs.show_trade_status
-    changed = true
-  end
-  if show.payload ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_payload then
-    show.payload = omi_otc_markets_multicast_ats_v4_3.prefs.show_payload
     changed = true
   end
 
@@ -3578,11 +3571,6 @@ otc_markets_multicast_ats_v4_3.payload.size = function(buffer, offset, message_t
   return 0
 end
 
--- Display: Payload
-otc_markets_multicast_ats_v4_3.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 otc_markets_multicast_ats_v4_3.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Start Of Spin Message
@@ -3647,20 +3635,11 @@ end
 
 -- Dissect: Payload
 otc_markets_multicast_ats_v4_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return otc_markets_multicast_ats_v4_3.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = otc_markets_multicast_ats_v4_3.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = otc_markets_multicast_ats_v4_3.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_otc_markets_multicast_ats_v4_3.fields.payload, range, display)
 
   return otc_markets_multicast_ats_v4_3.payload.branches(buffer, offset, packet, parent, message_type)
 end

@@ -74,7 +74,6 @@ omi_siac_opra_recipient_obi_v4_0.fields.open_interest_volume = ProtoField.new("O
 omi_siac_opra_recipient_obi_v4_0.fields.open_price = ProtoField.new("Open Price", "siac.opra.recipient.obi.v4.0.openprice", ftypes.INT32)
 omi_siac_opra_recipient_obi_v4_0.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v4.0.packet", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.participant_id = ProtoField.new("Participant Id", "siac.opra.recipient.obi.v4.0.participantid", ftypes.STRING)
-omi_siac_opra_recipient_obi_v4_0.fields.payload = ProtoField.new("Payload", "siac.opra.recipient.obi.v4.0.payload", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v4.0.premiumprice", ftypes.INT32)
 omi_siac_opra_recipient_obi_v4_0.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v4.0.premiumpricedenominatorcode", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v4.0.price", ftypes.INT32)
@@ -99,7 +98,6 @@ omi_siac_opra_recipient_obi_v4_0.fields.underlying_price_denominator_code = Prot
 omi_siac_opra_recipient_obi_v4_0.fields.underlying_value_bid_and_offer_message = ProtoField.new("Underlying Value Bid And Offer Message", "siac.opra.recipient.obi.v4.0.underlyingvaluebidandoffermessage", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.underlying_value_last_sale_message = ProtoField.new("Underlying Value Last Sale Message", "siac.opra.recipient.obi.v4.0.underlyingvaluelastsalemessage", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.underlying_value_message = ProtoField.new("Underlying Value Message", "siac.opra.recipient.obi.v4.0.underlyingvaluemessage", ftypes.STRING)
-omi_siac_opra_recipient_obi_v4_0.fields.underlying_value_message_payload = ProtoField.new("Underlying Value Message Payload", "siac.opra.recipient.obi.v4.0.underlyingvaluemessagepayload", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.underlying_value_message_type = ProtoField.new("Underlying Value Message Type", "siac.opra.recipient.obi.v4.0.underlyingvaluemessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.version = ProtoField.new("Version", "siac.opra.recipient.obi.v4.0.version", ftypes.UINT8)
 omi_siac_opra_recipient_obi_v4_0.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v4.0.volume", ftypes.UINT32)
@@ -132,8 +130,6 @@ show.short_equity_and_index_quote_message = true
 show.underlying_value_bid_and_offer_message = true
 show.underlying_value_last_sale_message = true
 show.underlying_value_message = true
-show.payload = false
-show.underlying_value_message_payload = false
 
 -- Register Siac Opra Recipient Obi 4.0 Show Options
 omi_siac_opra_recipient_obi_v4_0.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
@@ -154,8 +150,6 @@ omi_siac_opra_recipient_obi_v4_0.prefs.show_short_equity_and_index_quote_message
 omi_siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_bid_and_offer_message = Pref.bool("Show Underlying Value Bid And Offer Message", show.underlying_value_bid_and_offer_message, "Parse and add Underlying Value Bid And Offer Message to protocol tree")
 omi_siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_last_sale_message = Pref.bool("Show Underlying Value Last Sale Message", show.underlying_value_last_sale_message, "Parse and add Underlying Value Last Sale Message to protocol tree")
 omi_siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message = Pref.bool("Show Underlying Value Message", show.underlying_value_message, "Parse and add Underlying Value Message to protocol tree")
-omi_siac_opra_recipient_obi_v4_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message_payload = Pref.bool("Show Underlying Value Message Payload", show.underlying_value_message_payload, "Parse and add Underlying Value Message Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_siac_opra_recipient_obi_v4_0.prefs_changed()
@@ -232,14 +226,6 @@ function omi_siac_opra_recipient_obi_v4_0.prefs_changed()
   end
   if show.underlying_value_message ~= omi_siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message then
     show.underlying_value_message = omi_siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message
-    changed = true
-  end
-  if show.payload ~= omi_siac_opra_recipient_obi_v4_0.prefs.show_payload then
-    show.payload = omi_siac_opra_recipient_obi_v4_0.prefs.show_payload
-    changed = true
-  end
-  if show.underlying_value_message_payload ~= omi_siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message_payload then
-    show.underlying_value_message_payload = omi_siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message_payload
     changed = true
   end
 
@@ -664,11 +650,6 @@ siac_opra_recipient_obi_v4_0.underlying_value_message_payload.size = function(bu
   return 0
 end
 
--- Display: Underlying Value Message Payload
-siac_opra_recipient_obi_v4_0.underlying_value_message_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Underlying Value Message Payload
 siac_opra_recipient_obi_v4_0.underlying_value_message_payload.branches = function(buffer, offset, packet, parent, underlying_value_message_type)
   -- Dissect Underlying Value Last Sale Message
@@ -685,20 +666,11 @@ end
 
 -- Dissect: Underlying Value Message Payload
 siac_opra_recipient_obi_v4_0.underlying_value_message_payload.dissect = function(buffer, offset, packet, parent, underlying_value_message_type)
-  if not show.underlying_value_message_payload then
-    return siac_opra_recipient_obi_v4_0.underlying_value_message_payload.branches(buffer, offset, packet, parent, underlying_value_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_opra_recipient_obi_v4_0.underlying_value_message_payload.size(buffer, offset, underlying_value_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_opra_recipient_obi_v4_0.underlying_value_message_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_opra_recipient_obi_v4_0.fields.underlying_value_message_payload, range, display)
 
   return siac_opra_recipient_obi_v4_0.underlying_value_message_payload.branches(buffer, offset, packet, parent, underlying_value_message_type)
 end
@@ -3315,11 +3287,6 @@ siac_opra_recipient_obi_v4_0.payload.size = function(buffer, offset, message_cat
   return 0
 end
 
--- Display: Payload
-siac_opra_recipient_obi_v4_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 siac_opra_recipient_obi_v4_0.payload.branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Equity And Index Last Sale Message
@@ -3360,20 +3327,11 @@ end
 
 -- Dissect: Payload
 siac_opra_recipient_obi_v4_0.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  if not show.payload then
-    return siac_opra_recipient_obi_v4_0.payload.branches(buffer, offset, packet, parent, message_category)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_opra_recipient_obi_v4_0.payload.size(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_opra_recipient_obi_v4_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_opra_recipient_obi_v4_0.fields.payload, range, display)
 
   return siac_opra_recipient_obi_v4_0.payload.branches(buffer, offset, packet, parent, message_category)
 end

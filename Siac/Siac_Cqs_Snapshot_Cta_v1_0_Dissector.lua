@@ -68,7 +68,6 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.offer_price = ProtoField.new("Offer Price"
 omi_siac_cqs_snapshot_cta_v1_0.fields.offer_size = ProtoField.new("Offer Size", "siac.cqs.snapshot.cta.v1.0.offersize", ftypes.UINT32)
 omi_siac_cqs_snapshot_cta_v1_0.fields.packet = ProtoField.new("Packet", "siac.cqs.snapshot.cta.v1.0.packet", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.participant_id = ProtoField.new("Participant Id", "siac.cqs.snapshot.cta.v1.0.participantid", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v1_0.fields.payload = ProtoField.new("Payload", "siac.cqs.snapshot.cta.v1.0.payload", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cqs.snapshot.cta.v1.0.primarylistingmarketparticipantid", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.snapshot.cta.v1.0.quotecondition", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.reserved = ProtoField.new("Reserved", "siac.cqs.snapshot.cta.v1.0.reserved", ftypes.UINT8)
@@ -80,7 +79,6 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.short_sale_restriction_indicator = ProtoFi
 omi_siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v1.0.sipblocktimestamp", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot = ProtoField.new("Snapshot", "siac.cqs.snapshot.cta.v1.0.snapshot", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_message_type = ProtoField.new("Snapshot Message Type", "siac.cqs.snapshot.cta.v1.0.snapshotmessagetype", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_payload = ProtoField.new("Snapshot Payload", "siac.cqs.snapshot.cta.v1.0.snapshotpayload", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover = ProtoField.new("Tot Pub Seq Rollover", "siac.cqs.snapshot.cta.v1.0.totpubseqrollover", ftypes.UINT8)
 omi_siac_cqs_snapshot_cta_v1_0.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v1.0.upperlimitpriceband", ftypes.DOUBLE)
 omi_siac_cqs_snapshot_cta_v1_0.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v1.0.version", ftypes.UINT8)
@@ -113,8 +111,6 @@ show.packet = true
 show.participant_snapshot_message = true
 show.sip_block_timestamp = true
 show.snapshot = true
-show.payload = false
-show.snapshot_payload = false
 
 -- Register Siac Cqs Snapshot Cta 1.0 Show Options
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
@@ -128,8 +124,6 @@ omi_siac_cqs_snapshot_cta_v1_0.prefs.show_packet = Pref.bool("Show Packet", show
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_participant_snapshot_message = Pref.bool("Show Participant Snapshot Message", show.participant_snapshot_message, "Parse and add Participant Snapshot Message to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot = Pref.bool("Show Snapshot", show.snapshot, "Parse and add Snapshot to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_payload = Pref.bool("Show Snapshot Payload", show.snapshot_payload, "Parse and add Snapshot Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_siac_cqs_snapshot_cta_v1_0.prefs_changed()
@@ -178,14 +172,6 @@ function omi_siac_cqs_snapshot_cta_v1_0.prefs_changed()
   end
   if show.snapshot ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot then
     show.snapshot = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot
-    changed = true
-  end
-  if show.payload ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_payload then
-    show.payload = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_payload
-    changed = true
-  end
-  if show.snapshot_payload ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_payload then
-    show.snapshot_payload = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_payload
     changed = true
   end
 
@@ -2472,11 +2458,6 @@ siac_cqs_snapshot_cta_v1_0.snapshot_payload.size = function(buffer, offset, snap
   return 0
 end
 
--- Display: Snapshot Payload
-siac_cqs_snapshot_cta_v1_0.snapshot_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Snapshot Payload
 siac_cqs_snapshot_cta_v1_0.snapshot_payload.branches = function(buffer, offset, packet, parent, snapshot_message_type)
   -- Dissect Line Integrity Message
@@ -2505,20 +2486,11 @@ end
 
 -- Dissect: Snapshot Payload
 siac_cqs_snapshot_cta_v1_0.snapshot_payload.dissect = function(buffer, offset, packet, parent, snapshot_message_type)
-  if not show.snapshot_payload then
-    return siac_cqs_snapshot_cta_v1_0.snapshot_payload.branches(buffer, offset, packet, parent, snapshot_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cqs_snapshot_cta_v1_0.snapshot_payload.size(buffer, offset, snapshot_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cqs_snapshot_cta_v1_0.snapshot_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_payload, range, display)
 
   return siac_cqs_snapshot_cta_v1_0.snapshot_payload.branches(buffer, offset, packet, parent, snapshot_message_type)
 end
@@ -2623,11 +2595,6 @@ siac_cqs_snapshot_cta_v1_0.payload.size = function(buffer, offset, message_categ
   return 0
 end
 
--- Display: Payload
-siac_cqs_snapshot_cta_v1_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 siac_cqs_snapshot_cta_v1_0.payload.branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Snapshot
@@ -2640,20 +2607,11 @@ end
 
 -- Dissect: Payload
 siac_cqs_snapshot_cta_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  if not show.payload then
-    return siac_cqs_snapshot_cta_v1_0.payload.branches(buffer, offset, packet, parent, message_category)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cqs_snapshot_cta_v1_0.payload.size(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cqs_snapshot_cta_v1_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.payload, range, display)
 
   return siac_cqs_snapshot_cta_v1_0.payload.branches(buffer, offset, packet, parent, message_category)
 end

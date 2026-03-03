@@ -37,7 +37,6 @@ omi_memx_options_memo_sbe_v1_5_b.fields.count = ProtoField.new("Count", "memx.op
 omi_memx_options_memo_sbe_v1_5_b.fields.cum_qty = ProtoField.new("Cum Qty", "memx.options.memo.sbe.v1.5.b.cumqty", ftypes.UINT32)
 omi_memx_options_memo_sbe_v1_5_b.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "memx.options.memo.sbe.v1.5.b.cxlrejreason", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_5_b.fields.cxl_rej_response_to = ProtoField.new("Cxl Rej Response To", "memx.options.memo.sbe.v1.5.b.cxlrejresponseto", ftypes.STRING)
-omi_memx_options_memo_sbe_v1_5_b.fields.data = ProtoField.new("Data", "memx.options.memo.sbe.v1.5.b.data", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_5_b.fields.efid_optional = ProtoField.new("Efid Optional", "memx.options.memo.sbe.v1.5.b.efidoptional", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_5_b.fields.exec_id = ProtoField.new("Exec Id", "memx.options.memo.sbe.v1.5.b.execid", ftypes.UINT64)
 omi_memx_options_memo_sbe_v1_5_b.fields.exec_inst = ProtoField.new("Exec Inst", "memx.options.memo.sbe.v1.5.b.execinst", ftypes.STRING)
@@ -98,7 +97,6 @@ omi_memx_options_memo_sbe_v1_5_b.fields.parties_groups = ProtoField.new("Parties
 omi_memx_options_memo_sbe_v1_5_b.fields.party_id = ProtoField.new("Party Id", "memx.options.memo.sbe.v1.5.b.partyid", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_5_b.fields.party_id_source = ProtoField.new("Party Id Source", "memx.options.memo.sbe.v1.5.b.partyidsource", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_5_b.fields.party_role = ProtoField.new("Party Role", "memx.options.memo.sbe.v1.5.b.partyrole", ftypes.UINT8)
-omi_memx_options_memo_sbe_v1_5_b.fields.payload = ProtoField.new("Payload", "memx.options.memo.sbe.v1.5.b.payload", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_5_b.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.options.memo.sbe.v1.5.b.pendingmessagecount", ftypes.UINT32)
 omi_memx_options_memo_sbe_v1_5_b.fields.position_effect = ProtoField.new("Position Effect", "memx.options.memo.sbe.v1.5.b.positioneffect", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_5_b.fields.position_effect_optional = ProtoField.new("Position Effect Optional", "memx.options.memo.sbe.v1.5.b.positioneffectoptional", ftypes.STRING)
@@ -279,8 +277,6 @@ show.two_sided_quotes_group = true
 show.two_sided_quotes_groups = true
 show.unsequenced_message = true
 show.user_notification_message = true
-show.data = false
-show.payload = false
 
 -- Register Memx Options Memo Sbe 1.5.b Show Options
 omi_memx_options_memo_sbe_v1_5_b.prefs.show_allocation_instruction_ack_message = Pref.bool("Show Allocation Instruction Ack Message", show.allocation_instruction_ack_message, "Parse and add Allocation Instruction Ack Message to protocol tree")
@@ -350,8 +346,6 @@ omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_group = Pref.bool("
 omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_groups = Pref.bool("Show Two Sided Quotes Groups", show.two_sided_quotes_groups, "Parse and add Two Sided Quotes Groups to protocol tree")
 omi_memx_options_memo_sbe_v1_5_b.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 omi_memx_options_memo_sbe_v1_5_b.prefs.show_user_notification_message = Pref.bool("Show User Notification Message", show.user_notification_message, "Parse and add User Notification Message to protocol tree")
-omi_memx_options_memo_sbe_v1_5_b.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-omi_memx_options_memo_sbe_v1_5_b.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_options_memo_sbe_v1_5_b.prefs_changed()
@@ -624,14 +618,6 @@ function omi_memx_options_memo_sbe_v1_5_b.prefs_changed()
   end
   if show.user_notification_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_user_notification_message then
     show.user_notification_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_user_notification_message
-    changed = true
-  end
-  if show.data ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_data then
-    show.data = omi_memx_options_memo_sbe_v1_5_b.prefs.show_data
-    changed = true
-  end
-  if show.payload ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_payload then
-    show.payload = omi_memx_options_memo_sbe_v1_5_b.prefs.show_payload
     changed = true
   end
 
@@ -7742,11 +7728,6 @@ memx_options_memo_sbe_v1_5_b.payload.size = function(buffer, offset, template_id
   return 0
 end
 
--- Display: Payload
-memx_options_memo_sbe_v1_5_b.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 memx_options_memo_sbe_v1_5_b.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect New Order Single Message
@@ -7879,20 +7860,11 @@ end
 
 -- Dissect: Payload
 memx_options_memo_sbe_v1_5_b.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return memx_options_memo_sbe_v1_5_b.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = memx_options_memo_sbe_v1_5_b.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = memx_options_memo_sbe_v1_5_b.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.payload, range, display)
 
   return memx_options_memo_sbe_v1_5_b.payload.branches(buffer, offset, packet, parent, template_id)
 end
@@ -9232,11 +9204,6 @@ memx_options_memo_sbe_v1_5_b.data.size = function(buffer, offset, message_type)
   return 0
 end
 
--- Display: Data
-memx_options_memo_sbe_v1_5_b.data.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Data
 memx_options_memo_sbe_v1_5_b.data.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
@@ -9305,20 +9272,11 @@ end
 
 -- Dissect: Data
 memx_options_memo_sbe_v1_5_b.data.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.data then
-    return memx_options_memo_sbe_v1_5_b.data.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = memx_options_memo_sbe_v1_5_b.data.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = memx_options_memo_sbe_v1_5_b.data.display(buffer, packet, parent)
-  local element = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.data, range, display)
 
   return memx_options_memo_sbe_v1_5_b.data.branches(buffer, offset, packet, parent, message_type)
 end

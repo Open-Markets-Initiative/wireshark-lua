@@ -54,7 +54,6 @@ omi_cme_futures_settlements_sbe_v7_0.fields.open_close_settl_flag = ProtoField.n
 omi_cme_futures_settlements_sbe_v7_0.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.futures.settlements.sbe.v7.0.openinterestqty", ftypes.UINT32)
 omi_cme_futures_settlements_sbe_v7_0.fields.packet = ProtoField.new("Packet", "cme.futures.settlements.sbe.v7.0.packet", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.futures.settlements.sbe.v7.0.packetsequencenumber", ftypes.UINT32)
-omi_cme_futures_settlements_sbe_v7_0.fields.payload = ProtoField.new("Payload", "cme.futures.settlements.sbe.v7.0.payload", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.product_guid = ProtoField.new("Product Guid", "cme.futures.settlements.sbe.v7.0.productguid", ftypes.UINT64)
 omi_cme_futures_settlements_sbe_v7_0.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.settlements.sbe.v7.0.putorcall", ftypes.UINT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.settlements.sbe.v7.0.reservedbits", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
@@ -118,7 +117,6 @@ show.packet = true
 show.settl_price_type = true
 show.strike_price = true
 show.underlying_maturity_month_year = true
-show.payload = false
 
 -- Register Cme Futures Settlements Sbe 7.0 Show Options
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
@@ -142,7 +140,6 @@ omi_cme_futures_settlements_sbe_v7_0.prefs.show_packet = Pref.bool("Show Packet"
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year = Pref.bool("Show Underlying Maturity Month Year", show.underlying_maturity_month_year, "Parse and add Underlying Maturity Month Year to protocol tree")
-omi_cme_futures_settlements_sbe_v7_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_cme_futures_settlements_sbe_v7_0.prefs_changed()
@@ -231,10 +228,6 @@ function omi_cme_futures_settlements_sbe_v7_0.prefs_changed()
   end
   if show.underlying_maturity_month_year ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year then
     show.underlying_maturity_month_year = omi_cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year
-    changed = true
-  end
-  if show.payload ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_payload then
-    show.payload = omi_cme_futures_settlements_sbe_v7_0.prefs.show_payload
     changed = true
   end
 
@@ -2420,11 +2413,6 @@ cme_futures_settlements_sbe_v7_0.payload.size = function(buffer, offset, templat
   return 0
 end
 
--- Display: Payload
-cme_futures_settlements_sbe_v7_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 cme_futures_settlements_sbe_v7_0.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Md Incremental Refresh Settle
@@ -2448,20 +2436,11 @@ end
 
 -- Dissect: Payload
 cme_futures_settlements_sbe_v7_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return cme_futures_settlements_sbe_v7_0.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = cme_futures_settlements_sbe_v7_0.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cme_futures_settlements_sbe_v7_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.payload, range, display)
 
   return cme_futures_settlements_sbe_v7_0.payload.branches(buffer, offset, packet, parent, template_id)
 end

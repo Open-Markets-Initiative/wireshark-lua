@@ -21,7 +21,6 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.application_message = Prot
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.buy_order_id = ProtoField.new("Buy Order Id", "miax.onyxfutures.depthofmarket.mach.v1.0.b.buyorderid", ftypes.UINT64)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.correction_number = ProtoField.new("Correction Number", "miax.onyxfutures.depthofmarket.mach.v1.0.b.correctionnumber", ftypes.UINT8)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.currency = ProtoField.new("Currency", "miax.onyxfutures.depthofmarket.mach.v1.0.b.currency", ftypes.STRING)
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.data = ProtoField.new("Data", "miax.onyxfutures.depthofmarket.mach.v1.0.b.data", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.dom_version = ProtoField.new("Dom Version", "miax.onyxfutures.depthofmarket.mach.v1.0.b.domversion", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.exchange = ProtoField.new("Exchange", "miax.onyxfutures.depthofmarket.mach.v1.0.b.exchange", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.high_limit_price = ProtoField.new("High Limit Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.highlimitprice", ftypes.DOUBLE)
@@ -49,7 +48,6 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_type = ProtoField.ne
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packet", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packetlength", ftypes.UINT16)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packettype", ftypes.UINT8)
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.payload = ProtoField.new("Payload", "miax.onyxfutures.depthofmarket.mach.v1.0.b.payload", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.price = ProtoField.new("Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.price", ftypes.DOUBLE)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.depthofmarket.mach.v1.0.b.productgroupcode", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.onyxfutures.depthofmarket.mach.v1.0.b.reserved16", ftypes.STRING)
@@ -124,8 +122,6 @@ show.simple_instrument_definition_message = true
 show.system_state_message = true
 show.total_volume_update_message = true
 show.trade_cancel_message = true
-show.data = false
-show.payload = false
 
 -- Register Miax OnyxFutures DepthOfMarket Mach 1.0.b Show Options
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
@@ -147,8 +143,6 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_simple_instrument_defi
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_total_volume_update_message = Pref.bool("Show Total Volume Update Message", show.total_volume_update_message, "Parse and add Total Volume Update Message to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs_changed()
@@ -229,14 +223,6 @@ function omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs_changed()
   end
   if show.trade_cancel_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_trade_cancel_message then
     show.trade_cancel_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_trade_cancel_message
-    changed = true
-  end
-  if show.data ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_data then
-    show.data = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_data
-    changed = true
-  end
-  if show.payload ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_payload then
-    show.payload = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_payload
     changed = true
   end
 
@@ -2713,11 +2699,6 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.data.size = function(buffer, offset, 
   return 0
 end
 
--- Display: Data
-miax_onyxfutures_depthofmarket_mach_v1_0_b.data.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Data
 miax_onyxfutures_depthofmarket_mach_v1_0_b.data.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Simple Instrument Definition Message
@@ -2782,20 +2763,11 @@ end
 
 -- Dissect: Data
 miax_onyxfutures_depthofmarket_mach_v1_0_b.data.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.data then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b.data.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_onyxfutures_depthofmarket_mach_v1_0_b.data.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.data.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.data, range, display)
 
   return miax_onyxfutures_depthofmarket_mach_v1_0_b.data.branches(buffer, offset, packet, parent, message_type)
 end
@@ -2927,11 +2899,6 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.size = function(buffer, offse
   return 0
 end
 
--- Display: Payload
-miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
@@ -2944,20 +2911,11 @@ end
 
 -- Dissect: Payload
 miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.payload, range, display)
 
   return miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.branches(buffer, offset, packet, parent, packet_type)
 end

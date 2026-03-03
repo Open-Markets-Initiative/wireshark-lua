@@ -70,7 +70,6 @@ omi_eurex_derivatives_eobi_t7_v6_0.fields.pad_5 = ProtoField.new("Pad 5", "eurex
 omi_eurex_derivatives_eobi_t7_v6_0.fields.pad_6 = ProtoField.new("Pad 6", "eurex.derivatives.eobi.t7.v6.0.pad6", ftypes.BYTES)
 omi_eurex_derivatives_eobi_t7_v6_0.fields.pad_7 = ProtoField.new("Pad 7", "eurex.derivatives.eobi.t7.v6.0.pad7", ftypes.BYTES)
 omi_eurex_derivatives_eobi_t7_v6_0.fields.partition_id = ProtoField.new("Partition Id", "eurex.derivatives.eobi.t7.v6.0.partitionid", ftypes.UINT8)
-omi_eurex_derivatives_eobi_t7_v6_0.fields.payload = ProtoField.new("Payload", "eurex.derivatives.eobi.t7.v6.0.payload", ftypes.STRING)
 omi_eurex_derivatives_eobi_t7_v6_0.fields.potential_security_trading_event = ProtoField.new("Potential Security Trading Event", "eurex.derivatives.eobi.t7.v6.0.potentialsecuritytradingevent", ftypes.UINT8)
 omi_eurex_derivatives_eobi_t7_v6_0.fields.prev_display_qty = ProtoField.new("Prev Display Qty", "eurex.derivatives.eobi.t7.v6.0.prevdisplayqty", ftypes.INT32)
 omi_eurex_derivatives_eobi_t7_v6_0.fields.prev_price = ProtoField.new("Prev Price", "eurex.derivatives.eobi.t7.v6.0.prevprice", ftypes.DOUBLE)
@@ -165,7 +164,6 @@ show.snapshot_order = true
 show.top_of_book = true
 show.trade_report = true
 show.trade_reversal = true
-show.payload = false
 
 -- Register Eurex Derivatives Eobi T7 6.0 Show Options
 omi_eurex_derivatives_eobi_t7_v6_0.prefs.show_add_complex_instrument = Pref.bool("Show Add Complex Instrument", show.add_complex_instrument, "Parse and add Add Complex Instrument to protocol tree")
@@ -199,7 +197,6 @@ omi_eurex_derivatives_eobi_t7_v6_0.prefs.show_snapshot_order = Pref.bool("Show S
 omi_eurex_derivatives_eobi_t7_v6_0.prefs.show_top_of_book = Pref.bool("Show Top Of Book", show.top_of_book, "Parse and add Top Of Book to protocol tree")
 omi_eurex_derivatives_eobi_t7_v6_0.prefs.show_trade_report = Pref.bool("Show Trade Report", show.trade_report, "Parse and add Trade Report to protocol tree")
 omi_eurex_derivatives_eobi_t7_v6_0.prefs.show_trade_reversal = Pref.bool("Show Trade Reversal", show.trade_reversal, "Parse and add Trade Reversal to protocol tree")
-omi_eurex_derivatives_eobi_t7_v6_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_derivatives_eobi_t7_v6_0.prefs_changed()
@@ -328,10 +325,6 @@ function omi_eurex_derivatives_eobi_t7_v6_0.prefs_changed()
   end
   if show.trade_reversal ~= omi_eurex_derivatives_eobi_t7_v6_0.prefs.show_trade_reversal then
     show.trade_reversal = omi_eurex_derivatives_eobi_t7_v6_0.prefs.show_trade_reversal
-    changed = true
-  end
-  if show.payload ~= omi_eurex_derivatives_eobi_t7_v6_0.prefs.show_payload then
-    show.payload = omi_eurex_derivatives_eobi_t7_v6_0.prefs.show_payload
     changed = true
   end
 
@@ -4116,11 +4109,6 @@ eurex_derivatives_eobi_t7_v6_0.payload.size = function(buffer, offset, template_
   return 0
 end
 
--- Display: Payload
-eurex_derivatives_eobi_t7_v6_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 eurex_derivatives_eobi_t7_v6_0.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Add Complex Instrument
@@ -4217,20 +4205,11 @@ end
 
 -- Dissect: Payload
 eurex_derivatives_eobi_t7_v6_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return eurex_derivatives_eobi_t7_v6_0.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = eurex_derivatives_eobi_t7_v6_0.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = eurex_derivatives_eobi_t7_v6_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_eurex_derivatives_eobi_t7_v6_0.fields.payload, range, display)
 
   return eurex_derivatives_eobi_t7_v6_0.payload.branches(buffer, offset, packet, parent, template_id)
 end

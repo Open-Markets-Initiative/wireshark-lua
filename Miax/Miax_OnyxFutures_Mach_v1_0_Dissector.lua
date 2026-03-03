@@ -22,7 +22,6 @@ omi_miax_onyxfutures_mach_v1_0.fields.message_type = ProtoField.new("Message Typ
 omi_miax_onyxfutures_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.mach.v1.0.packet", ftypes.STRING)
 omi_miax_onyxfutures_mach_v1_0.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.mach.v1.0.packetlength", ftypes.UINT16)
 omi_miax_onyxfutures_mach_v1_0.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.mach.v1.0.packettype", ftypes.UINT8)
-omi_miax_onyxfutures_mach_v1_0.fields.payload = ProtoField.new("Payload", "miax.onyxfutures.mach.v1.0.payload", ftypes.STRING)
 omi_miax_onyxfutures_mach_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.mach.v1.0.sequencenumber", ftypes.UINT64)
 omi_miax_onyxfutures_mach_v1_0.fields.session_number = ProtoField.new("Session Number", "miax.onyxfutures.mach.v1.0.sessionnumber", ftypes.UINT8)
 
@@ -36,13 +35,11 @@ local show = {}
 show.application_message = true
 show.message = true
 show.packet = true
-show.payload = false
 
 -- Register Miax OnyxFutures HeaderOnly Mach 1.0 Show Options
 omi_miax_onyxfutures_mach_v1_0.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
 omi_miax_onyxfutures_mach_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_miax_onyxfutures_mach_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_onyxfutures_mach_v1_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_mach_v1_0.prefs_changed()
@@ -59,10 +56,6 @@ function omi_miax_onyxfutures_mach_v1_0.prefs_changed()
   end
   if show.packet ~= omi_miax_onyxfutures_mach_v1_0.prefs.show_packet then
     show.packet = omi_miax_onyxfutures_mach_v1_0.prefs.show_packet
-    changed = true
-  end
-  if show.payload ~= omi_miax_onyxfutures_mach_v1_0.prefs.show_payload then
-    show.payload = omi_miax_onyxfutures_mach_v1_0.prefs.show_payload
     changed = true
   end
 
@@ -186,11 +179,6 @@ miax_onyxfutures_mach_v1_0.payload.size = function(buffer, offset, packet_type)
   return 0
 end
 
--- Display: Payload
-miax_onyxfutures_mach_v1_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 miax_onyxfutures_mach_v1_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
@@ -203,20 +191,11 @@ end
 
 -- Dissect: Payload
 miax_onyxfutures_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return miax_onyxfutures_mach_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_onyxfutures_mach_v1_0.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_onyxfutures_mach_v1_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_onyxfutures_mach_v1_0.fields.payload, range, display)
 
   return miax_onyxfutures_mach_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end

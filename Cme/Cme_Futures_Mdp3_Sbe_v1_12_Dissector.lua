@@ -214,7 +214,6 @@ omi_cme_futures_mdp3_sbe_v1_12.fields.padding_6 = ProtoField.new("Padding 6", "c
 omi_cme_futures_mdp3_sbe_v1_12.fields.padding_7 = ProtoField.new("Padding 7", "cme.futures.mdp3.sbe.v1.12.padding7", ftypes.BYTES)
 omi_cme_futures_mdp3_sbe_v1_12.fields.par_value = ProtoField.new("Par Value", "cme.futures.mdp3.sbe.v1.12.parvalue", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_12.fields.party_role_clearing_org = ProtoField.new("Party Role Clearing Org", "cme.futures.mdp3.sbe.v1.12.partyroleclearingorg", ftypes.STRING)
-omi_cme_futures_mdp3_sbe_v1_12.fields.payload = ProtoField.new("Payload", "cme.futures.mdp3.sbe.v1.12.payload", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_12.fields.price_display_format = ProtoField.new("Price Display Format", "cme.futures.mdp3.sbe.v1.12.pricedisplayformat", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_12.fields.price_precision = ProtoField.new("Price Precision", "cme.futures.mdp3.sbe.v1.12.priceprecision", ftypes.UINT8)
 omi_cme_futures_mdp3_sbe_v1_12.fields.price_quote_currency = ProtoField.new("Price Quote Currency", "cme.futures.mdp3.sbe.v1.12.pricequotecurrency", ftypes.STRING)
@@ -513,7 +512,6 @@ show.snapshotfull_refresh_tcp_long_group = true
 show.snapshotfull_refresh_tcp_long_groups = true
 show.trading_sessions_group = true
 show.trading_sessions_groups = true
-show.payload = false
 
 -- Register Cme Futures Mdp3 Sbe 1.12 Show Options
 omi_cme_futures_mdp3_sbe_v1_12.prefs.show_admin_login = Pref.bool("Show Admin Login", show.admin_login, "Parse and add Admin Login to protocol tree")
@@ -624,7 +622,6 @@ omi_cme_futures_mdp3_sbe_v1_12.prefs.show_snapshotfull_refresh_tcp_long_group = 
 omi_cme_futures_mdp3_sbe_v1_12.prefs.show_snapshotfull_refresh_tcp_long_groups = Pref.bool("Show Snapshotfull Refresh Tcp Long Groups", show.snapshotfull_refresh_tcp_long_groups, "Parse and add Snapshotfull Refresh Tcp Long Groups to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_12.prefs.show_trading_sessions_group = Pref.bool("Show Trading Sessions Group", show.trading_sessions_group, "Parse and add Trading Sessions Group to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_12.prefs.show_trading_sessions_groups = Pref.bool("Show Trading Sessions Groups", show.trading_sessions_groups, "Parse and add Trading Sessions Groups to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_12.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_cme_futures_mdp3_sbe_v1_12.prefs_changed()
@@ -1061,10 +1058,6 @@ function omi_cme_futures_mdp3_sbe_v1_12.prefs_changed()
   end
   if show.trading_sessions_groups ~= omi_cme_futures_mdp3_sbe_v1_12.prefs.show_trading_sessions_groups then
     show.trading_sessions_groups = omi_cme_futures_mdp3_sbe_v1_12.prefs.show_trading_sessions_groups
-    changed = true
-  end
-  if show.payload ~= omi_cme_futures_mdp3_sbe_v1_12.prefs.show_payload then
-    show.payload = omi_cme_futures_mdp3_sbe_v1_12.prefs.show_payload
     changed = true
   end
 
@@ -14890,11 +14883,6 @@ cme_futures_mdp3_sbe_v1_12.payload.size = function(buffer, offset, template_id)
   return 0
 end
 
--- Display: Payload
-cme_futures_mdp3_sbe_v1_12.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 cme_futures_mdp3_sbe_v1_12.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Channel Reset
@@ -15026,20 +15014,11 @@ end
 
 -- Dissect: Payload
 cme_futures_mdp3_sbe_v1_12.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return cme_futures_mdp3_sbe_v1_12.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = cme_futures_mdp3_sbe_v1_12.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cme_futures_mdp3_sbe_v1_12.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cme_futures_mdp3_sbe_v1_12.fields.payload, range, display)
 
   return cme_futures_mdp3_sbe_v1_12.payload.branches(buffer, offset, packet, parent, template_id)
 end

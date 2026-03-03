@@ -20,7 +20,6 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.bid_price = ProtoField.new
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.bid_size = ProtoField.new("Bid Size", "miax.pearlequities.topofmarket.mach.v1.1.a.bidsize", ftypes.UINT16)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.closing_time = ProtoField.new("Closing Time", "miax.pearlequities.topofmarket.mach.v1.1.a.closingtime", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.correction_number = ProtoField.new("Correction Number", "miax.pearlequities.topofmarket.mach.v1.1.a.correctionnumber", ftypes.UINT8)
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.data = ProtoField.new("Data", "miax.pearlequities.topofmarket.mach.v1.1.a.data", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.flags = ProtoField.new("Flags", "miax.pearlequities.topofmarket.mach.v1.1.a.flags", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.topofmarket.mach.v1.1.a.lotsize", ftypes.UINT16)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.topofmarket.mach.v1.1.a.marketstate", ftypes.UINT8)
@@ -32,7 +31,6 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.opening_time = ProtoField.
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.topofmarket.mach.v1.1.a.packet", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet_length = ProtoField.new("Packet Length", "miax.pearlequities.topofmarket.mach.v1.1.a.packetlength", ftypes.UINT16)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet_type = ProtoField.new("Packet Type", "miax.pearlequities.topofmarket.mach.v1.1.a.packettype", ftypes.UINT8)
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.payload = ProtoField.new("Payload", "miax.pearlequities.topofmarket.mach.v1.1.a.payload", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.price = ProtoField.new("Price", "miax.pearlequities.topofmarket.mach.v1.1.a.price", ftypes.DOUBLE)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.topofmarket.mach.v1.1.a.primarymarketcode", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.a.reserved1", ftypes.STRING)
@@ -78,8 +76,6 @@ show.system_state_message = true
 show.system_time_message = true
 show.trade_cancel_message = true
 show.wide_top_of_market_best_bid_and_offer_message = true
-show.data = false
-show.payload = false
 
 -- Register Miax PearlEquities TopOfMarket Mach 1.1.a Show Options
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
@@ -93,8 +89,6 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_system_state_message =
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_wide_top_of_market_best_bid_and_offer_message = Pref.bool("Show Wide Top Of Market Best Bid And Offer Message", show.wide_top_of_market_best_bid_and_offer_message, "Parse and add Wide Top Of Market Best Bid And Offer Message to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
@@ -143,14 +137,6 @@ function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
   end
   if show.wide_top_of_market_best_bid_and_offer_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_wide_top_of_market_best_bid_and_offer_message then
     show.wide_top_of_market_best_bid_and_offer_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_wide_top_of_market_best_bid_and_offer_message
-    changed = true
-  end
-  if show.data ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_data then
-    show.data = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_data
-    changed = true
-  end
-  if show.payload ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_payload then
-    show.payload = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_payload
     changed = true
   end
 
@@ -1373,11 +1359,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.data.size = function(buffer, offset, 
   return 0
 end
 
--- Display: Data
-miax_pearlequities_topofmarket_mach_v1_1_a.data.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Data
 miax_pearlequities_topofmarket_mach_v1_1_a.data.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
@@ -1418,20 +1399,11 @@ end
 
 -- Dissect: Data
 miax_pearlequities_topofmarket_mach_v1_1_a.data.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.data then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.data.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_pearlequities_topofmarket_mach_v1_1_a.data.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.data.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.data, range, display)
 
   return miax_pearlequities_topofmarket_mach_v1_1_a.data.branches(buffer, offset, packet, parent, message_type)
 end
@@ -1545,11 +1517,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.payload.size = function(buffer, offse
   return 0
 end
 
--- Display: Payload
-miax_pearlequities_topofmarket_mach_v1_1_a.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 miax_pearlequities_topofmarket_mach_v1_1_a.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
@@ -1562,20 +1529,11 @@ end
 
 -- Dissect: Payload
 miax_pearlequities_topofmarket_mach_v1_1_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_pearlequities_topofmarket_mach_v1_1_a.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.payload, range, display)
 
   return miax_pearlequities_topofmarket_mach_v1_1_a.payload.branches(buffer, offset, packet, parent, packet_type)
 end

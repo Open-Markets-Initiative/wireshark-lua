@@ -34,7 +34,6 @@ omi_jnx_equities_pts_itch_v1_6.fields.orderbook_id = ProtoField.new("Orderbook I
 omi_jnx_equities_pts_itch_v1_6.fields.original_order_number = ProtoField.new("Original Order Number", "jnx.equities.pts.itch.v1.6.originalordernumber", ftypes.UINT64)
 omi_jnx_equities_pts_itch_v1_6.fields.packet = ProtoField.new("Packet", "jnx.equities.pts.itch.v1.6.packet", ftypes.STRING)
 omi_jnx_equities_pts_itch_v1_6.fields.packet_header = ProtoField.new("Packet Header", "jnx.equities.pts.itch.v1.6.packetheader", ftypes.STRING)
-omi_jnx_equities_pts_itch_v1_6.fields.payload = ProtoField.new("Payload", "jnx.equities.pts.itch.v1.6.payload", ftypes.STRING)
 omi_jnx_equities_pts_itch_v1_6.fields.price = ProtoField.new("Price", "jnx.equities.pts.itch.v1.6.price", ftypes.DOUBLE)
 omi_jnx_equities_pts_itch_v1_6.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.equities.pts.itch.v1.6.pricedecimals", ftypes.DOUBLE)
 omi_jnx_equities_pts_itch_v1_6.fields.price_start = ProtoField.new("Price Start", "jnx.equities.pts.itch.v1.6.pricestart", ftypes.DOUBLE)
@@ -89,7 +88,6 @@ show.short_selling_price_restriction_state_message = true
 show.system_event_message = true
 show.timestamp_seconds_message = true
 show.trading_state_message = true
-show.payload = false
 
 -- Register Jnx Equities Pts Itch 1.6 Show Options
 omi_jnx_equities_pts_itch_v1_6.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -107,7 +105,6 @@ omi_jnx_equities_pts_itch_v1_6.prefs.show_short_selling_price_restriction_state_
 omi_jnx_equities_pts_itch_v1_6.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 omi_jnx_equities_pts_itch_v1_6.prefs.show_timestamp_seconds_message = Pref.bool("Show Timestamp Seconds Message", show.timestamp_seconds_message, "Parse and add Timestamp Seconds Message to protocol tree")
 omi_jnx_equities_pts_itch_v1_6.prefs.show_trading_state_message = Pref.bool("Show Trading State Message", show.trading_state_message, "Parse and add Trading State Message to protocol tree")
-omi_jnx_equities_pts_itch_v1_6.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_jnx_equities_pts_itch_v1_6.prefs_changed()
@@ -172,10 +169,6 @@ function omi_jnx_equities_pts_itch_v1_6.prefs_changed()
   end
   if show.trading_state_message ~= omi_jnx_equities_pts_itch_v1_6.prefs.show_trading_state_message then
     show.trading_state_message = omi_jnx_equities_pts_itch_v1_6.prefs.show_trading_state_message
-    changed = true
-  end
-  if show.payload ~= omi_jnx_equities_pts_itch_v1_6.prefs.show_payload then
-    show.payload = omi_jnx_equities_pts_itch_v1_6.prefs.show_payload
     changed = true
   end
 
@@ -1520,11 +1513,6 @@ jnx_equities_pts_itch_v1_6.payload.size = function(buffer, offset, message_type)
   return 0
 end
 
--- Display: Payload
-jnx_equities_pts_itch_v1_6.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 jnx_equities_pts_itch_v1_6.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Timestamp Seconds Message
@@ -1577,20 +1565,11 @@ end
 
 -- Dissect: Payload
 jnx_equities_pts_itch_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return jnx_equities_pts_itch_v1_6.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = jnx_equities_pts_itch_v1_6.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = jnx_equities_pts_itch_v1_6.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_jnx_equities_pts_itch_v1_6.fields.payload, range, display)
 
   return jnx_equities_pts_itch_v1_6.payload.branches(buffer, offset, packet, parent, message_type)
 end
@@ -1722,6 +1701,16 @@ end
 -- Message
 jnx_equities_pts_itch_v1_6.message = {}
 
+-- Read runtime size of: Message
+jnx_equities_pts_itch_v1_6.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
+
+  return message_length + 2
+end
+
 -- Display: Message
 jnx_equities_pts_itch_v1_6.message.display = function(packet, parent, length)
   return ""
@@ -1750,24 +1739,20 @@ jnx_equities_pts_itch_v1_6.message.fields = function(buffer, offset, packet, par
 end
 
 -- Dissect: Message
-jnx_equities_pts_itch_v1_6.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
+jnx_equities_pts_itch_v1_6.message.dissect = function(buffer, offset, packet, parent)
+  -- Parse runtime size
+  local size_of_message = jnx_equities_pts_itch_v1_6.message.size(buffer, offset)
 
-  -- Optionally add group/struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.message then
-    parent = parent:add(omi_jnx_equities_pts_itch_v1_6.fields.message, buffer(offset, 0))
-    local current = jnx_equities_pts_itch_v1_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
+    local range = buffer(offset, size_of_message)
     local display = jnx_equities_pts_itch_v1_6.message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    jnx_equities_pts_itch_v1_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-
-    return index
+    parent = parent:add(omi_jnx_equities_pts_itch_v1_6.fields.message, range, display)
   end
+
+  jnx_equities_pts_itch_v1_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+  return offset + size_of_message
 end
 
 -- Message Count
@@ -1913,9 +1898,6 @@ jnx_equities_pts_itch_v1_6.packet.dissect = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = jnx_equities_pts_itch_v1_6.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 2, 2):uint()
-
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -1925,7 +1907,7 @@ jnx_equities_pts_itch_v1_6.packet.dissect = function(buffer, packet, parent)
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
 
-    -- Message: Struct of 2 fields
+    -- Message: Runtime Type with 3 branches
     index, message = jnx_equities_pts_itch_v1_6.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 

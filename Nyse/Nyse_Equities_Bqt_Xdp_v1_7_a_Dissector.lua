@@ -69,7 +69,6 @@ omi_nyse_equities_bqt_xdp_v1_7_a.fields.original_trade_id = ProtoField.new("Orig
 omi_nyse_equities_bqt_xdp_v1_7_a.fields.packet = ProtoField.new("Packet", "nyse.equities.bqt.xdp.v1.7.a.packet", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v1_7_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.bqt.xdp.v1.7.a.packetheader", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v1_7_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.bqt.xdp.v1.7.a.packetsize", ftypes.UINT16)
-omi_nyse_equities_bqt_xdp_v1_7_a.fields.payload = ProtoField.new("Payload", "nyse.equities.bqt.xdp.v1.7.a.payload", ftypes.STRING)
 omi_nyse_equities_bqt_xdp_v1_7_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.bqt.xdp.v1.7.a.prevcloseprice", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v1_7_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.bqt.xdp.v1.7.a.prevclosevolume", ftypes.UINT32)
 omi_nyse_equities_bqt_xdp_v1_7_a.fields.price = ProtoField.new("Price", "nyse.equities.bqt.xdp.v1.7.a.price", ftypes.UINT32)
@@ -157,7 +156,6 @@ show.retransmission_request_message = true
 show.sequence_number_reset_message = true
 show.symbol_index_mapping_message = true
 show.symbol_index_mapping_request_message = true
-show.payload = false
 
 -- Register Nyse Equities Bqt Xdp 1.7.a Show Options
 omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_bqt_message = Pref.bool("Show Bqt Message", show.bqt_message, "Parse and add Bqt Message to protocol tree")
@@ -183,7 +181,6 @@ omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message = Pre
 omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
 omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
 omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_equities_bqt_xdp_v1_7_a.prefs_changed()
@@ -280,10 +277,6 @@ function omi_nyse_equities_bqt_xdp_v1_7_a.prefs_changed()
   end
   if show.symbol_index_mapping_request_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message then
     show.symbol_index_mapping_request_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message
-    changed = true
-  end
-  if show.payload ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_payload then
-    show.payload = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_payload
     changed = true
   end
 
@@ -3984,11 +3977,6 @@ nyse_equities_bqt_xdp_v1_7_a.payload.size = function(buffer, offset, message_typ
   return 0
 end
 
--- Display: Payload
-nyse_equities_bqt_xdp_v1_7_a.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nyse_equities_bqt_xdp_v1_7_a.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequence Number Reset Message
@@ -4073,20 +4061,11 @@ end
 
 -- Dissect: Payload
 nyse_equities_bqt_xdp_v1_7_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nyse_equities_bqt_xdp_v1_7_a.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nyse_equities_bqt_xdp_v1_7_a.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nyse_equities_bqt_xdp_v1_7_a.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.payload, range, display)
 
   return nyse_equities_bqt_xdp_v1_7_a.payload.branches(buffer, offset, packet, parent, message_type)
 end

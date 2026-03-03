@@ -65,7 +65,6 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet = ProtoField.new(
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_header = ProtoField.new("Packet Header", "miax.onyxfutures.expressinterface.fei.v1.0.c.packetheader", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.expressinterface.fei.v1.0.c.packetlength", ftypes.UINT16)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.packettype", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.payload = ProtoField.new("Payload", "miax.onyxfutures.expressinterface.fei.v1.0.c.payload", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.price = ProtoField.new("Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.price", ftypes.DOUBLE)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.productgroupcode", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_type = ProtoField.new("Product Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.producttype", ftypes.STRING)
@@ -85,7 +84,6 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_in
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level = ProtoField.new("Self Trade Protection Level", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectionlevel", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencenumber", ftypes.UINT64)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequenceddatapacket", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message = ProtoField.new("Sequenced Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencedmessage", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencedmessagetype", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmtcppacket", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_version = ProtoField.new("Sesm Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmversion", ftypes.STRING)
@@ -105,7 +103,6 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trade_date = ProtoField.
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trade_status = ProtoField.new("Trade Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.tradestatus", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trading_collar_dollar_value = ProtoField.new("Trading Collar Dollar Value", "miax.onyxfutures.expressinterface.fei.v1.0.c.tradingcollardollarvalue", ftypes.DOUBLE)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.unsequenceddatapacket", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.unsequencedmessage", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.unsequencedmessagetype", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_15 = ProtoField.new("Unused 15", "miax.onyxfutures.expressinterface.fei.v1.0.c.unused15", ftypes.UINT16, nil, base.DEC, 0xFFFE)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_2 = ProtoField.new("Unused 2", "miax.onyxfutures.expressinterface.fei.v1.0.c.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
@@ -174,9 +171,6 @@ show.strategy_creation_response_message = true
 show.strategy_leg = true
 show.system_state_notification_message = true
 show.unsequenced_data_packet = true
-show.payload = false
-show.sequenced_message = false
-show.unsequenced_message = false
 
 -- Register Miax OnyxFutures ExpressInterface Fei 1.0.c Show Options
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators = Pref.bool("Show Additional Order Indicators", show.additional_order_indicators, "Parse and add Additional Order Indicators to protocol tree")
@@ -210,9 +204,6 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_re
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg = Pref.bool("Show Strategy Leg", show.strategy_leg, "Parse and add Strategy Leg to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_system_state_notification_message = Pref.bool("Show System State Notification Message", show.system_state_notification_message, "Parse and add System State Notification Message to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
@@ -341,18 +332,6 @@ function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
   end
   if show.unsequenced_data_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet
-    changed = true
-  end
-  if show.payload ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_payload then
-    show.payload = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_payload
-    changed = true
-  end
-  if show.sequenced_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_message then
-    show.sequenced_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_message
-    changed = true
-  end
-  if show.unsequenced_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_message then
-    show.unsequenced_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -3125,11 +3104,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.size = function
   return 0
 end
 
--- Display: Unsequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Unsequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect New Order Request Message
@@ -3178,20 +3152,11 @@ end
 
 -- Dissect: Unsequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  if not show.unsequenced_message then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.size(buffer, offset, unsequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message, range, display)
 
   return miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -4349,11 +4314,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.size = function(b
   return 0
 end
 
--- Display: Sequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Sequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect New Order Response Message
@@ -4410,20 +4370,11 @@ end
 
 -- Dissect: Sequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  if not show.sequenced_message then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.size(buffer, offset, sequenced_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message, range, display)
 
   return miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -4615,11 +4566,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.payload.size = function(buffer, off
   return 0
 end
 
--- Display: Payload
-miax_onyxfutures_expressinterface_fei_v1_0_c.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 miax_onyxfutures_expressinterface_fei_v1_0_c.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Sequenced Data Packet
@@ -4668,20 +4614,11 @@ end
 
 -- Dissect: Payload
 miax_onyxfutures_expressinterface_fei_v1_0_c.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = miax_onyxfutures_expressinterface_fei_v1_0_c.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.payload, range, display)
 
   return miax_onyxfutures_expressinterface_fei_v1_0_c.payload.branches(buffer, offset, packet, parent, packet_type)
 end

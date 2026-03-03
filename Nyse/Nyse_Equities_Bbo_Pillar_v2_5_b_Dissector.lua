@@ -42,7 +42,6 @@ omi_nyse_equities_bbo_pillar_v2_5_b.fields.next_source_seq_num = ProtoField.new(
 omi_nyse_equities_bbo_pillar_v2_5_b.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.equities.bbo.pillar.v2.5.b.numbermsgs", ftypes.UINT8)
 omi_nyse_equities_bbo_pillar_v2_5_b.fields.packet = ProtoField.new("Packet", "nyse.equities.bbo.pillar.v2.5.b.packet", ftypes.STRING)
 omi_nyse_equities_bbo_pillar_v2_5_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.bbo.pillar.v2.5.b.packetheader", ftypes.STRING)
-omi_nyse_equities_bbo_pillar_v2_5_b.fields.payload = ProtoField.new("Payload", "nyse.equities.bbo.pillar.v2.5.b.payload", ftypes.STRING)
 omi_nyse_equities_bbo_pillar_v2_5_b.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.equities.bbo.pillar.v2.5.b.pktsize", ftypes.UINT16)
 omi_nyse_equities_bbo_pillar_v2_5_b.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.bbo.pillar.v2.5.b.prevcloseprice", ftypes.UINT32)
 omi_nyse_equities_bbo_pillar_v2_5_b.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.bbo.pillar.v2.5.b.prevclosevolume", ftypes.UINT32)
@@ -123,7 +122,6 @@ show.source_time_reference_message = true
 show.symbol_clear_message = true
 show.symbol_index_mapping_message = true
 show.symbol_index_mapping_request_message = true
-show.payload = false
 
 -- Register Nyse Equities Bbo Pillar 2.5.b Show Options
 omi_nyse_equities_bbo_pillar_v2_5_b.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
@@ -144,7 +142,6 @@ omi_nyse_equities_bbo_pillar_v2_5_b.prefs.show_source_time_reference_message = P
 omi_nyse_equities_bbo_pillar_v2_5_b.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
 omi_nyse_equities_bbo_pillar_v2_5_b.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
 omi_nyse_equities_bbo_pillar_v2_5_b.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-omi_nyse_equities_bbo_pillar_v2_5_b.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_equities_bbo_pillar_v2_5_b.prefs_changed()
@@ -221,10 +218,6 @@ function omi_nyse_equities_bbo_pillar_v2_5_b.prefs_changed()
   end
   if show.symbol_index_mapping_request_message ~= omi_nyse_equities_bbo_pillar_v2_5_b.prefs.show_symbol_index_mapping_request_message then
     show.symbol_index_mapping_request_message = omi_nyse_equities_bbo_pillar_v2_5_b.prefs.show_symbol_index_mapping_request_message
-    changed = true
-  end
-  if show.payload ~= omi_nyse_equities_bbo_pillar_v2_5_b.prefs.show_payload then
-    show.payload = omi_nyse_equities_bbo_pillar_v2_5_b.prefs.show_payload
     changed = true
   end
 
@@ -2512,11 +2505,6 @@ nyse_equities_bbo_pillar_v2_5_b.payload.size = function(buffer, offset, message_
   return 0
 end
 
--- Display: Payload
-nyse_equities_bbo_pillar_v2_5_b.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nyse_equities_bbo_pillar_v2_5_b.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequence Number Reset Message
@@ -2577,20 +2565,11 @@ end
 
 -- Dissect: Payload
 nyse_equities_bbo_pillar_v2_5_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nyse_equities_bbo_pillar_v2_5_b.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nyse_equities_bbo_pillar_v2_5_b.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nyse_equities_bbo_pillar_v2_5_b.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.payload, range, display)
 
   return nyse_equities_bbo_pillar_v2_5_b.payload.branches(buffer, offset, packet, parent, message_type)
 end

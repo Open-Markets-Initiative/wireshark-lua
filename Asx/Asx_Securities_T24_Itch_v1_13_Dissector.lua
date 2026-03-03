@@ -75,7 +75,6 @@ omi_asx_securities_t24_itch_v1_13.fields.order_book_priority = ProtoField.new("O
 omi_asx_securities_t24_itch_v1_13.fields.order_number = ProtoField.new("Order Number", "asx.securities.t24.itch.v1.13.ordernumber", ftypes.UINT64)
 omi_asx_securities_t24_itch_v1_13.fields.packet = ProtoField.new("Packet", "asx.securities.t24.itch.v1.13.packet", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.packet_header = ProtoField.new("Packet Header", "asx.securities.t24.itch.v1.13.packetheader", ftypes.STRING)
-omi_asx_securities_t24_itch_v1_13.fields.payload = ProtoField.new("Payload", "asx.securities.t24.itch.v1.13.payload", ftypes.STRING)
 omi_asx_securities_t24_itch_v1_13.fields.payments_per_year = ProtoField.new("Payments Per Year", "asx.securities.t24.itch.v1.13.paymentsperyear", ftypes.UINT8)
 omi_asx_securities_t24_itch_v1_13.fields.price = ProtoField.new("Price", "asx.securities.t24.itch.v1.13.price", ftypes.DOUBLE)
 omi_asx_securities_t24_itch_v1_13.fields.price_decimal_position = ProtoField.new("Price Decimal Position", "asx.securities.t24.itch.v1.13.pricedecimalposition", ftypes.UINT8)
@@ -206,7 +205,6 @@ show.time_message = true
 show.trade_cancellation_message = true
 show.trade_spread_execution_chain_message = true
 show.volume_and_open_interest_message = true
-show.payload = false
 
 -- Register Asx Securities T24 Itch 1.13 Show Options
 omi_asx_securities_t24_itch_v1_13.prefs.show_ad_hoc_text_message = Pref.bool("Show Ad Hoc Text Message", show.ad_hoc_text_message, "Parse and add Ad Hoc Text Message to protocol tree")
@@ -246,7 +244,6 @@ omi_asx_securities_t24_itch_v1_13.prefs.show_time_message = Pref.bool("Show Time
 omi_asx_securities_t24_itch_v1_13.prefs.show_trade_cancellation_message = Pref.bool("Show Trade Cancellation Message", show.trade_cancellation_message, "Parse and add Trade Cancellation Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_trade_spread_execution_chain_message = Pref.bool("Show Trade Spread Execution Chain Message", show.trade_spread_execution_chain_message, "Parse and add Trade Spread Execution Chain Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest_message = Pref.bool("Show Volume And Open Interest Message", show.volume_and_open_interest_message, "Parse and add Volume And Open Interest Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_asx_securities_t24_itch_v1_13.prefs_changed()
@@ -399,10 +396,6 @@ function omi_asx_securities_t24_itch_v1_13.prefs_changed()
   end
   if show.volume_and_open_interest_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest_message then
     show.volume_and_open_interest_message = omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest_message
-    changed = true
-  end
-  if show.payload ~= omi_asx_securities_t24_itch_v1_13.prefs.show_payload then
-    show.payload = omi_asx_securities_t24_itch_v1_13.prefs.show_payload
     changed = true
   end
 
@@ -5092,11 +5085,6 @@ asx_securities_t24_itch_v1_13.payload.size = function(buffer, offset, message_ty
   return 0
 end
 
--- Display: Payload
-asx_securities_t24_itch_v1_13.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 asx_securities_t24_itch_v1_13.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
@@ -5225,20 +5213,11 @@ end
 
 -- Dissect: Payload
 asx_securities_t24_itch_v1_13.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return asx_securities_t24_itch_v1_13.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = asx_securities_t24_itch_v1_13.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = asx_securities_t24_itch_v1_13.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_asx_securities_t24_itch_v1_13.fields.payload, range, display)
 
   return asx_securities_t24_itch_v1_13.payload.branches(buffer, offset, packet, parent, message_type)
 end
@@ -5427,6 +5406,16 @@ end
 -- Message
 asx_securities_t24_itch_v1_13.message = {}
 
+-- Read runtime size of: Message
+asx_securities_t24_itch_v1_13.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
+
+  return message_length + 2
+end
+
 -- Display: Message
 asx_securities_t24_itch_v1_13.message.display = function(packet, parent, length)
   return ""
@@ -5455,24 +5444,20 @@ asx_securities_t24_itch_v1_13.message.fields = function(buffer, offset, packet, 
 end
 
 -- Dissect: Message
-asx_securities_t24_itch_v1_13.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
+asx_securities_t24_itch_v1_13.message.dissect = function(buffer, offset, packet, parent)
+  -- Parse runtime size
+  local size_of_message = asx_securities_t24_itch_v1_13.message.size(buffer, offset)
 
-  -- Optionally add group/struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.message then
-    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.message, buffer(offset, 0))
-    local current = asx_securities_t24_itch_v1_13.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
+    local range = buffer(offset, size_of_message)
     local display = asx_securities_t24_itch_v1_13.message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    asx_securities_t24_itch_v1_13.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-
-    return index
+    parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.message, range, display)
   end
+
+  asx_securities_t24_itch_v1_13.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+  return offset + size_of_message
 end
 
 -- Message Count
@@ -5723,9 +5708,6 @@ asx_securities_t24_itch_v1_13.packet.dissect = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = asx_securities_t24_itch_v1_13.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 2, 2):uint()
-
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -5735,7 +5717,7 @@ asx_securities_t24_itch_v1_13.packet.dissect = function(buffer, packet, parent)
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
 
-    -- Message: Struct of 2 fields
+    -- Message: Runtime Type with 3 branches
     index, message = asx_securities_t24_itch_v1_13.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 

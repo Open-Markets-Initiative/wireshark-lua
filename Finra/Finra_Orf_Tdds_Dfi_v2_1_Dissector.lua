@@ -19,14 +19,12 @@ omi_finra_orf_tdds_dfi_v2_1.fields.action = ProtoField.new("Action", "finra.orf.
 omi_finra_orf_tdds_dfi_v2_1.fields.action_datetime = ProtoField.new("Action Datetime", "finra.orf.tdds.dfi.v2.1.actiondatetime", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.administrative = ProtoField.new("Administrative", "finra.orf.tdds.dfi.v2.1.administrative", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.orf.tdds.dfi.v2.1.administrativemessagetype", ftypes.STRING)
-omi_finra_orf_tdds_dfi_v2_1.fields.administrative_payload = ProtoField.new("Administrative Payload", "finra.orf.tdds.dfi.v2.1.administrativepayload", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.orf.tdds.dfi.v2.1.asofindicator", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.closing_price = ProtoField.new("Closing Price", "finra.orf.tdds.dfi.v2.1.closingprice", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.closing_price_denominator = ProtoField.new("Closing Price Denominator", "finra.orf.tdds.dfi.v2.1.closingpricedenominator", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.closing_price_market_center = ProtoField.new("Closing Price Market Center", "finra.orf.tdds.dfi.v2.1.closingpricemarketcenter", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.control = ProtoField.new("Control", "finra.orf.tdds.dfi.v2.1.control", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.control_message_type = ProtoField.new("Control Message Type", "finra.orf.tdds.dfi.v2.1.controlmessagetype", ftypes.STRING)
-omi_finra_orf_tdds_dfi_v2_1.fields.control_payload = ProtoField.new("Control Payload", "finra.orf.tdds.dfi.v2.1.controlpayload", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.corrected_trade_information = ProtoField.new("Corrected Trade Information", "finra.orf.tdds.dfi.v2.1.correctedtradeinformation", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.count = ProtoField.new("Count", "finra.orf.tdds.dfi.v2.1.count", ftypes.UINT16)
 omi_finra_orf_tdds_dfi_v2_1.fields.currency = ProtoField.new("Currency", "finra.orf.tdds.dfi.v2.1.currency", ftypes.STRING)
@@ -61,7 +59,6 @@ omi_finra_orf_tdds_dfi_v2_1.fields.original_dissemination_date = ProtoField.new(
 omi_finra_orf_tdds_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.orf.tdds.dfi.v2.1.originaltradeinformation", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.packet = ProtoField.new("Packet", "finra.orf.tdds.dfi.v2.1.packet", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.packet_header = ProtoField.new("Packet Header", "finra.orf.tdds.dfi.v2.1.packetheader", ftypes.STRING)
-omi_finra_orf_tdds_dfi_v2_1.fields.payload = ProtoField.new("Payload", "finra.orf.tdds.dfi.v2.1.payload", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.price_change_indicator = ProtoField.new("Price Change Indicator", "finra.orf.tdds.dfi.v2.1.pricechangeindicator", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.reason_code = ProtoField.new("Reason Code", "finra.orf.tdds.dfi.v2.1.reasoncode", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.report_function = ProtoField.new("Report Function", "finra.orf.tdds.dfi.v2.1.reportfunction", ftypes.STRING)
@@ -84,7 +81,6 @@ omi_finra_orf_tdds_dfi_v2_1.fields.trade = ProtoField.new("Trade", "finra.orf.td
 omi_finra_orf_tdds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.orf.tdds.dfi.v2.1.tradeidentifier", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.trade_information = ProtoField.new("Trade Information", "finra.orf.tdds.dfi.v2.1.tradeinformation", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.trade_message_type = ProtoField.new("Trade Message Type", "finra.orf.tdds.dfi.v2.1.trademessagetype", ftypes.STRING)
-omi_finra_orf_tdds_dfi_v2_1.fields.trade_payload = ProtoField.new("Trade Payload", "finra.orf.tdds.dfi.v2.1.tradepayload", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.trade_price = ProtoField.new("Trade Price", "finra.orf.tdds.dfi.v2.1.tradeprice", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.trade_price_denominator = ProtoField.new("Trade Price Denominator", "finra.orf.tdds.dfi.v2.1.tradepricedenominator", ftypes.STRING)
 omi_finra_orf_tdds_dfi_v2_1.fields.trade_price_short = ProtoField.new("Trade Price Short", "finra.orf.tdds.dfi.v2.1.tradepriceshort", ftypes.STRING)
@@ -153,10 +149,6 @@ show.trade_report_long_form_message = true
 show.trade_report_short_form_message = true
 show.trade_summary_information = true
 show.trading_action_message = true
-show.administrative_payload = false
-show.control_payload = false
-show.payload = false
-show.trade_payload = false
 
 -- Register Finra Orf Tdds Dfi 2.1 Show Options
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_action_datetime = Pref.bool("Show Action Datetime", show.action_datetime, "Parse and add Action Datetime to protocol tree")
@@ -192,10 +184,6 @@ omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_long_form_message = Pref.boo
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_short_form_message = Pref.bool("Show Trade Report Short Form Message", show.trade_report_short_form_message, "Parse and add Trade Report Short Form Message to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_summary_information = Pref.bool("Show Trade Summary Information", show.trade_summary_information, "Parse and add Trade Summary Information to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_payload = Pref.bool("Show Trade Payload", show.trade_payload, "Parse and add Trade Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_finra_orf_tdds_dfi_v2_1.prefs_changed()
@@ -332,22 +320,6 @@ function omi_finra_orf_tdds_dfi_v2_1.prefs_changed()
   end
   if show.trading_action_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message then
     show.trading_action_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message
-    changed = true
-  end
-  if show.administrative_payload ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative_payload then
-    show.administrative_payload = omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative_payload
-    changed = true
-  end
-  if show.control_payload ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_control_payload then
-    show.control_payload = omi_finra_orf_tdds_dfi_v2_1.prefs.show_control_payload
-    changed = true
-  end
-  if show.payload ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_payload then
-    show.payload = omi_finra_orf_tdds_dfi_v2_1.prefs.show_payload
-    changed = true
-  end
-  if show.trade_payload ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_payload then
-    show.trade_payload = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_payload
     changed = true
   end
 
@@ -1128,11 +1100,6 @@ finra_orf_tdds_dfi_v2_1.control_payload.size = function(buffer, offset, control_
   return 0
 end
 
--- Display: Control Payload
-finra_orf_tdds_dfi_v2_1.control_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Control Payload
 finra_orf_tdds_dfi_v2_1.control_payload.branches = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
@@ -1177,20 +1144,11 @@ end
 
 -- Dissect: Control Payload
 finra_orf_tdds_dfi_v2_1.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  if not show.control_payload then
-    return finra_orf_tdds_dfi_v2_1.control_payload.branches(buffer, offset, packet, parent, control_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = finra_orf_tdds_dfi_v2_1.control_payload.size(buffer, offset, control_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = finra_orf_tdds_dfi_v2_1.control_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.control_payload, range, display)
 
   return finra_orf_tdds_dfi_v2_1.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
@@ -2077,11 +2035,6 @@ finra_orf_tdds_dfi_v2_1.administrative_payload.size = function(buffer, offset, a
   return 0
 end
 
--- Display: Administrative Payload
-finra_orf_tdds_dfi_v2_1.administrative_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Administrative Payload
 finra_orf_tdds_dfi_v2_1.administrative_payload.branches = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect General Administrative Message
@@ -2106,20 +2059,11 @@ end
 
 -- Dissect: Administrative Payload
 finra_orf_tdds_dfi_v2_1.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  if not show.administrative_payload then
-    return finra_orf_tdds_dfi_v2_1.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = finra_orf_tdds_dfi_v2_1.administrative_payload.size(buffer, offset, administrative_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = finra_orf_tdds_dfi_v2_1.administrative_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.administrative_payload, range, display)
 
   return finra_orf_tdds_dfi_v2_1.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
@@ -3510,11 +3454,6 @@ finra_orf_tdds_dfi_v2_1.trade_payload.size = function(buffer, offset, trade_mess
   return 0
 end
 
--- Display: Trade Payload
-finra_orf_tdds_dfi_v2_1.trade_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Trade Payload
 finra_orf_tdds_dfi_v2_1.trade_payload.branches = function(buffer, offset, packet, parent, trade_message_type)
   -- Dissect Trade Report Short Form Message
@@ -3539,20 +3478,11 @@ end
 
 -- Dissect: Trade Payload
 finra_orf_tdds_dfi_v2_1.trade_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  if not show.trade_payload then
-    return finra_orf_tdds_dfi_v2_1.trade_payload.branches(buffer, offset, packet, parent, trade_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = finra_orf_tdds_dfi_v2_1.trade_payload.size(buffer, offset, trade_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = finra_orf_tdds_dfi_v2_1.trade_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_payload, range, display)
 
   return finra_orf_tdds_dfi_v2_1.trade_payload.branches(buffer, offset, packet, parent, trade_message_type)
 end
@@ -3662,11 +3592,6 @@ finra_orf_tdds_dfi_v2_1.payload.size = function(buffer, offset, message_category
   return 0
 end
 
--- Display: Payload
-finra_orf_tdds_dfi_v2_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 finra_orf_tdds_dfi_v2_1.payload.branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Trade
@@ -3687,20 +3612,11 @@ end
 
 -- Dissect: Payload
 finra_orf_tdds_dfi_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  if not show.payload then
-    return finra_orf_tdds_dfi_v2_1.payload.branches(buffer, offset, packet, parent, message_category)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = finra_orf_tdds_dfi_v2_1.payload.size(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = finra_orf_tdds_dfi_v2_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.payload, range, display)
 
   return finra_orf_tdds_dfi_v2_1.payload.branches(buffer, offset, packet, parent, message_category)
 end

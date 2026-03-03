@@ -205,7 +205,6 @@ omi_cme_futures_ilink3_sbe_v8_8.fields.party_id_source = ProtoField.new("Party I
 omi_cme_futures_ilink3_sbe_v8_8.fields.party_ids_group = ProtoField.new("Party Ids Group", "cme.futures.ilink3.sbe.v8.8.partyidsgroup", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_8.fields.party_ids_groups = ProtoField.new("Party Ids Groups", "cme.futures.ilink3.sbe.v8.8.partyidsgroups", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_8.fields.party_role = ProtoField.new("Party Role", "cme.futures.ilink3.sbe.v8.8.partyrole", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_8.fields.payload = ProtoField.new("Payload", "cme.futures.ilink3.sbe.v8.8.payload", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_8.fields.poss_retrans_flag = ProtoField.new("Poss Retrans Flag", "cme.futures.ilink3.sbe.v8.8.possretransflag", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_8.fields.previous_seq_no = ProtoField.new("Previous Seq No", "cme.futures.ilink3.sbe.v8.8.previousseqno", ftypes.UINT32)
 omi_cme_futures_ilink3_sbe_v8_8.fields.previous_uuid = ProtoField.new("Previous Uuid", "cme.futures.ilink3.sbe.v8.8.previousuuid", ftypes.UINT64)
@@ -537,7 +536,6 @@ show.trade_legs_groups = true
 show.trd_reg_publications_group = true
 show.trd_reg_publications_groups = true
 show.volatility = true
-show.payload = false
 
 -- Register Cme Futures iLink3 Sbe 8.8 Show Options
 omi_cme_futures_ilink3_sbe_v8_8.prefs.show_affected_orders_group = Pref.bool("Show Affected Orders Group", show.affected_orders_group, "Parse and add Affected Orders Group to protocol tree")
@@ -655,7 +653,6 @@ omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_legs_groups = Pref.bool("Show T
 omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_group = Pref.bool("Show Trd Reg Publications Group", show.trd_reg_publications_group, "Parse and add Trd Reg Publications Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_groups = Pref.bool("Show Trd Reg Publications Groups", show.trd_reg_publications_groups, "Parse and add Trd Reg Publications Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_8.prefs.show_volatility = Pref.bool("Show Volatility", show.volatility, "Parse and add Volatility to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_8.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_cme_futures_ilink3_sbe_v8_8.prefs_changed()
@@ -1120,10 +1117,6 @@ function omi_cme_futures_ilink3_sbe_v8_8.prefs_changed()
   end
   if show.volatility ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_volatility then
     show.volatility = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_volatility
-    changed = true
-  end
-  if show.payload ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_payload then
-    show.payload = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_payload
     changed = true
   end
 
@@ -18683,11 +18676,6 @@ cme_futures_ilink3_sbe_v8_8.payload.size = function(buffer, offset, template_id)
   return 0
 end
 
--- Display: Payload
-cme_futures_ilink3_sbe_v8_8.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 cme_futures_ilink3_sbe_v8_8.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Negotiate
@@ -18896,20 +18884,11 @@ end
 
 -- Dissect: Payload
 cme_futures_ilink3_sbe_v8_8.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return cme_futures_ilink3_sbe_v8_8.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = cme_futures_ilink3_sbe_v8_8.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cme_futures_ilink3_sbe_v8_8.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.payload, range, display)
 
   return cme_futures_ilink3_sbe_v8_8.payload.branches(buffer, offset, packet, parent, template_id)
 end

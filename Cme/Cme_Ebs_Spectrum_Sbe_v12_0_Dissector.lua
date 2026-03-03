@@ -37,7 +37,6 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.num_in_group = ProtoField.new("Num In Grou
 omi_cme_ebs_spectrum_sbe_v12_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.ebs.spectrum.sbe.v12.0.openclosesettlflag", ftypes.UINT8)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.packet = ProtoField.new("Packet", "cme.ebs.spectrum.sbe.v12.0.packet", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.ebs.spectrum.sbe.v12.0.packetsequencenumber", ftypes.UINT32)
-omi_cme_ebs_spectrum_sbe_v12_0.fields.payload = ProtoField.new("Payload", "cme.ebs.spectrum.sbe.v12.0.payload", ftypes.STRING)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.schema_id = ProtoField.new("Schema Id", "cme.ebs.spectrum.sbe.v12.0.schemaid", ftypes.UINT16)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.security_id = ProtoField.new("Security Id", "cme.ebs.spectrum.sbe.v12.0.securityid", ftypes.INT32)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.ebs.spectrum.sbe.v12.0.securitytradingevent", ftypes.UINT8)
@@ -90,7 +89,6 @@ show.snapshot_refresh_spectrum_group = true
 show.snapshot_refresh_spectrum_groups = true
 show.snapshot_refresh_ticker_group = true
 show.snapshot_refresh_ticker_groups = true
-show.payload = false
 
 -- Register Cme Ebs Spectrum Sbe 12.0 Show Options
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
@@ -111,7 +109,6 @@ omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group = Pref
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_groups = Pref.bool("Show Snapshot Refresh Spectrum Groups", show.snapshot_refresh_spectrum_groups, "Parse and add Snapshot Refresh Spectrum Groups to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group = Pref.bool("Show Snapshot Refresh Ticker Group", show.snapshot_refresh_ticker_group, "Parse and add Snapshot Refresh Ticker Group to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_groups = Pref.bool("Show Snapshot Refresh Ticker Groups", show.snapshot_refresh_ticker_groups, "Parse and add Snapshot Refresh Ticker Groups to protocol tree")
-omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_cme_ebs_spectrum_sbe_v12_0.prefs_changed()
@@ -188,10 +185,6 @@ function omi_cme_ebs_spectrum_sbe_v12_0.prefs_changed()
   end
   if show.snapshot_refresh_ticker_groups ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_groups then
     show.snapshot_refresh_ticker_groups = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_groups
-    changed = true
-  end
-  if show.payload ~= omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_payload then
-    show.payload = omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_payload
     changed = true
   end
 
@@ -1605,11 +1598,6 @@ cme_ebs_spectrum_sbe_v12_0.payload.size = function(buffer, offset, template_id)
   return 0
 end
 
--- Display: Payload
-cme_ebs_spectrum_sbe_v12_0.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 cme_ebs_spectrum_sbe_v12_0.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Admin Heartbeat
@@ -1641,20 +1629,11 @@ end
 
 -- Dissect: Payload
 cme_ebs_spectrum_sbe_v12_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return cme_ebs_spectrum_sbe_v12_0.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = cme_ebs_spectrum_sbe_v12_0.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cme_ebs_spectrum_sbe_v12_0.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.payload, range, display)
 
   return cme_ebs_spectrum_sbe_v12_0.payload.branches(buffer, offset, packet, parent, template_id)
 end

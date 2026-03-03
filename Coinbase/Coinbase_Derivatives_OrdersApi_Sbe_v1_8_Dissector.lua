@@ -69,7 +69,6 @@ omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.order_reject_reason = ProtoFi
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.packet = ProtoField.new("Packet", "coinbase.derivatives.ordersapi.sbe.v1.8.packet", ftypes.STRING)
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.ordersapi.sbe.v1.8.padding", ftypes.BYTES)
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.password = ProtoField.new("Password", "coinbase.derivatives.ordersapi.sbe.v1.8.password", ftypes.STRING)
-omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.ordersapi.sbe.v1.8.payload", ftypes.STRING)
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.post_only = ProtoField.new("Post Only", "coinbase.derivatives.ordersapi.sbe.v1.8.postonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.product_id = ProtoField.new("Product Id", "coinbase.derivatives.ordersapi.sbe.v1.8.productid", ftypes.INT32)
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.derivatives.ordersapi.sbe.v1.8.protocolid", ftypes.UINT8)
@@ -203,7 +202,6 @@ show.test_request_message = true
 show.unlock_trading_ack_message = true
 show.unlock_trading_message = true
 show.unlock_trading_reject_message = true
-show.payload = false
 
 -- Register Coinbase Derivatives OrdersApi Sbe 1.8 Show Options
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
@@ -253,7 +251,6 @@ omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs.show_test_request_message = Pr
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs.show_unlock_trading_ack_message = Pref.bool("Show Unlock Trading Ack Message", show.unlock_trading_ack_message, "Parse and add Unlock Trading Ack Message to protocol tree")
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs.show_unlock_trading_message = Pref.bool("Show Unlock Trading Message", show.unlock_trading_message, "Parse and add Unlock Trading Message to protocol tree")
 omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs.show_unlock_trading_reject_message = Pref.bool("Show Unlock Trading Reject Message", show.unlock_trading_reject_message, "Parse and add Unlock Trading Reject Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs_changed()
@@ -446,10 +443,6 @@ function omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs_changed()
   end
   if show.unlock_trading_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs.show_unlock_trading_reject_message then
     show.unlock_trading_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs.show_unlock_trading_reject_message
-    changed = true
-  end
-  if show.payload ~= omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs.show_payload then
-    show.payload = omi_coinbase_derivatives_ordersapi_sbe_v1_8.prefs.show_payload
     changed = true
   end
 
@@ -5016,11 +5009,6 @@ coinbase_derivatives_ordersapi_sbe_v1_8.payload.size = function(buffer, offset, 
   return 0
 end
 
--- Display: Payload
-coinbase_derivatives_ordersapi_sbe_v1_8.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 coinbase_derivatives_ordersapi_sbe_v1_8.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Logon Message
@@ -5197,20 +5185,11 @@ end
 
 -- Dissect: Payload
 coinbase_derivatives_ordersapi_sbe_v1_8.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  if not show.payload then
-    return coinbase_derivatives_ordersapi_sbe_v1_8.payload.branches(buffer, offset, packet, parent, template_id)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = coinbase_derivatives_ordersapi_sbe_v1_8.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = coinbase_derivatives_ordersapi_sbe_v1_8.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.payload, range, display)
 
   return coinbase_derivatives_ordersapi_sbe_v1_8.payload.branches(buffer, offset, packet, parent, template_id)
 end

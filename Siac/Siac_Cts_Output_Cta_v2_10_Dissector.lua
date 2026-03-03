@@ -17,7 +17,6 @@ local siac_cts_output_cta_v2_10 = {}
 -- Siac Cts Output Cta 2.10 Fields
 omi_siac_cts_output_cta_v2_10.fields.administrative = ProtoField.new("Administrative", "siac.cts.output.cta.v2.10.administrative", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cts.output.cta.v2.10.administrativemessagetype", ftypes.STRING)
-omi_siac_cts_output_cta_v2_10.fields.administrative_payload = ProtoField.new("Administrative Payload", "siac.cts.output.cta.v2.10.administrativepayload", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cts.output.cta.v2.10.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_10.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cts.output.cta.v2.10.auctioncollarreferenceprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_10.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.output.cta.v2.10.auctioncollarupperthresholdprice", ftypes.DOUBLE)
@@ -33,7 +32,6 @@ omi_siac_cts_output_cta_v2_10.fields.consolidated_data = ProtoField.new("Consoli
 omi_siac_cts_output_cta_v2_10.fields.consolidated_high_low_last_indicator = ProtoField.new("Consolidated High Low Last Indicator", "siac.cts.output.cta.v2.10.consolidatedhighlowlastindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.control = ProtoField.new("Control", "siac.cts.output.cta.v2.10.control", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cts.output.cta.v2.10.controlmessagetype", ftypes.STRING)
-omi_siac_cts_output_cta_v2_10.fields.control_payload = ProtoField.new("Control Payload", "siac.cts.output.cta.v2.10.controlpayload", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.corrected_trade = ProtoField.new("Corrected Trade", "siac.cts.output.cta.v2.10.correctedtrade", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.crossing_session_1_total_trades_volume = ProtoField.new("Crossing Session 1 Total Trades Volume", "siac.cts.output.cta.v2.10.crossingsession1totaltradesvolume", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_10.fields.crossing_session_2_dollar_value = ProtoField.new("Crossing Session 2 Dollar Value", "siac.cts.output.cta.v2.10.crossingsession2dollarvalue", ftypes.UINT64)
@@ -60,7 +58,6 @@ omi_siac_cts_output_cta_v2_10.fields.high_indication_price_upper_limit_price_ban
 omi_siac_cts_output_cta_v2_10.fields.high_price = ProtoField.new("High Price", "siac.cts.output.cta.v2.10.highprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_10.fields.index = ProtoField.new("Index", "siac.cts.output.cta.v2.10.index", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.index_message_type = ProtoField.new("Index Message Type", "siac.cts.output.cta.v2.10.indexmessagetype", ftypes.STRING)
-omi_siac_cts_output_cta_v2_10.fields.index_payload = ProtoField.new("Index Payload", "siac.cts.output.cta.v2.10.indexpayload", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.index_symbol = ProtoField.new("Index Symbol", "siac.cts.output.cta.v2.10.indexsymbol", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.index_value = ProtoField.new("Index Value", "siac.cts.output.cta.v2.10.indexvalue", ftypes.INT64)
 omi_siac_cts_output_cta_v2_10.fields.initiating_participant_id = ProtoField.new("Initiating Participant Id", "siac.cts.output.cta.v2.10.initiatingparticipantid", ftypes.STRING)
@@ -72,7 +69,6 @@ omi_siac_cts_output_cta_v2_10.fields.low_indication_price_lower_limit_price_band
 omi_siac_cts_output_cta_v2_10.fields.low_price = ProtoField.new("Low Price", "siac.cts.output.cta.v2.10.lowprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_10.fields.market_status = ProtoField.new("Market Status", "siac.cts.output.cta.v2.10.marketstatus", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v2.10.marketstatusmessagetype", ftypes.STRING)
-omi_siac_cts_output_cta_v2_10.fields.market_status_payload = ProtoField.new("Market Status Payload", "siac.cts.output.cta.v2.10.marketstatuspayload", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_level_indicator = ProtoField.new("Market Wide Circuit Breaker Level Indicator", "siac.cts.output.cta.v2.10.marketwidecircuitbreakerlevelindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.10.message", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.message_category = ProtoField.new("Message Category", "siac.cts.output.cta.v2.10.messagecategory", ftypes.STRING)
@@ -96,7 +92,6 @@ omi_siac_cts_output_cta_v2_10.fields.participant_id = ProtoField.new("Participan
 omi_siac_cts_output_cta_v2_10.fields.participant_open_high_low_last_indicator = ProtoField.new("Participant Open High Low Last Indicator", "siac.cts.output.cta.v2.10.participantopenhighlowlastindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.cts.output.cta.v2.10.participantreferencenumber", ftypes.INT64)
 omi_siac_cts_output_cta_v2_10.fields.participants = ProtoField.new("Participants", "siac.cts.output.cta.v2.10.participants", ftypes.STRING)
-omi_siac_cts_output_cta_v2_10.fields.payload = ProtoField.new("Payload", "siac.cts.output.cta.v2.10.payload", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.previous_close_price = ProtoField.new("Previous Close Price", "siac.cts.output.cta.v2.10.previouscloseprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_10.fields.previous_close_price_date = ProtoField.new("Previous Close Price Date", "siac.cts.output.cta.v2.10.previousclosepricedate", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_10.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cts.output.cta.v2.10.primarylistingmarketparticipantid", ftypes.STRING)
@@ -104,7 +99,6 @@ omi_siac_cts_output_cta_v2_10.fields.prior_day = ProtoField.new("Prior Day", "si
 omi_siac_cts_output_cta_v2_10.fields.prior_day_corrected_trade = ProtoField.new("Prior Day Corrected Trade", "siac.cts.output.cta.v2.10.priordaycorrectedtrade", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.prior_day_message_type = ProtoField.new("Prior Day Message Type", "siac.cts.output.cta.v2.10.priordaymessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.prior_day_original_trade = ProtoField.new("Prior Day Original Trade", "siac.cts.output.cta.v2.10.priordayoriginaltrade", ftypes.STRING)
-omi_siac_cts_output_cta_v2_10.fields.prior_day_payload = ProtoField.new("Prior Day Payload", "siac.cts.output.cta.v2.10.priordaypayload", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.output.cta.v2.10.priordaytradedateandtime", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.10.reserved", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_10.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cts.output.cta.v2.10.retransmissionindicator", ftypes.STRING)
@@ -124,7 +118,6 @@ omi_siac_cts_output_cta_v2_10.fields.sro_trade_detail = ProtoField.new("Sro Trad
 omi_siac_cts_output_cta_v2_10.fields.stop_stock_indicator = ProtoField.new("Stop Stock Indicator", "siac.cts.output.cta.v2.10.stopstockindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.summary = ProtoField.new("Summary", "siac.cts.output.cta.v2.10.summary", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.summary_message_type = ProtoField.new("Summary Message Type", "siac.cts.output.cta.v2.10.summarymessagetype", ftypes.STRING)
-omi_siac_cts_output_cta_v2_10.fields.summary_payload = ProtoField.new("Summary Payload", "siac.cts.output.cta.v2.10.summarypayload", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.tick = ProtoField.new("Tick", "siac.cts.output.cta.v2.10.tick", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.output.cta.v2.10.timestamp1", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v2.10.timestamp2", ftypes.STRING)
@@ -133,7 +126,6 @@ omi_siac_cts_output_cta_v2_10.fields.total_volume = ProtoField.new("Total Volume
 omi_siac_cts_output_cta_v2_10.fields.total_volume_short = ProtoField.new("Total Volume Short", "siac.cts.output.cta.v2.10.totalvolumeshort", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_10.fields.trade = ProtoField.new("Trade", "siac.cts.output.cta.v2.10.trade", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.cts.output.cta.v2.10.trademessagetype", ftypes.STRING)
-omi_siac_cts_output_cta_v2_10.fields.trade_payload = ProtoField.new("Trade Payload", "siac.cts.output.cta.v2.10.tradepayload", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.trade_price = ProtoField.new("Trade Price", "siac.cts.output.cta.v2.10.tradeprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_10.fields.trade_price_short = ProtoField.new("Trade Price Short", "siac.cts.output.cta.v2.10.tradepriceshort", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_10.fields.trade_reporting_facility_id = ProtoField.new("Trade Reporting Facility Id", "siac.cts.output.cta.v2.10.tradereportingfacilityid", ftypes.STRING)
@@ -263,14 +255,6 @@ show.trade = true
 show.trade_cancel_error_message = true
 show.trade_correction_message = true
 show.trading_status_message = true
-show.administrative_payload = false
-show.control_payload = false
-show.index_payload = false
-show.market_status_payload = false
-show.payload = false
-show.prior_day_payload = false
-show.summary_payload = false
-show.trade_payload = false
 
 -- Register Siac Cts Output Cta 2.10 Show Options
 omi_siac_cts_output_cta_v2_10.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
@@ -340,14 +324,6 @@ omi_siac_cts_output_cta_v2_10.prefs.show_trade = Pref.bool("Show Trade", show.tr
 omi_siac_cts_output_cta_v2_10.prefs.show_trade_cancel_error_message = Pref.bool("Show Trade Cancel Error Message", show.trade_cancel_error_message, "Parse and add Trade Cancel Error Message to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
-omi_siac_cts_output_cta_v2_10.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
-omi_siac_cts_output_cta_v2_10.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
-omi_siac_cts_output_cta_v2_10.prefs.show_index_payload = Pref.bool("Show Index Payload", show.index_payload, "Parse and add Index Payload to protocol tree")
-omi_siac_cts_output_cta_v2_10.prefs.show_market_status_payload = Pref.bool("Show Market Status Payload", show.market_status_payload, "Parse and add Market Status Payload to protocol tree")
-omi_siac_cts_output_cta_v2_10.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_payload = Pref.bool("Show Prior Day Payload", show.prior_day_payload, "Parse and add Prior Day Payload to protocol tree")
-omi_siac_cts_output_cta_v2_10.prefs.show_summary_payload = Pref.bool("Show Summary Payload", show.summary_payload, "Parse and add Summary Payload to protocol tree")
-omi_siac_cts_output_cta_v2_10.prefs.show_trade_payload = Pref.bool("Show Trade Payload", show.trade_payload, "Parse and add Trade Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v2_10.prefs_changed()
@@ -620,38 +596,6 @@ function omi_siac_cts_output_cta_v2_10.prefs_changed()
   end
   if show.trading_status_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_trading_status_message then
     show.trading_status_message = omi_siac_cts_output_cta_v2_10.prefs.show_trading_status_message
-    changed = true
-  end
-  if show.administrative_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_administrative_payload then
-    show.administrative_payload = omi_siac_cts_output_cta_v2_10.prefs.show_administrative_payload
-    changed = true
-  end
-  if show.control_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_control_payload then
-    show.control_payload = omi_siac_cts_output_cta_v2_10.prefs.show_control_payload
-    changed = true
-  end
-  if show.index_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_index_payload then
-    show.index_payload = omi_siac_cts_output_cta_v2_10.prefs.show_index_payload
-    changed = true
-  end
-  if show.market_status_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_market_status_payload then
-    show.market_status_payload = omi_siac_cts_output_cta_v2_10.prefs.show_market_status_payload
-    changed = true
-  end
-  if show.payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_payload then
-    show.payload = omi_siac_cts_output_cta_v2_10.prefs.show_payload
-    changed = true
-  end
-  if show.prior_day_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_payload then
-    show.prior_day_payload = omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_payload
-    changed = true
-  end
-  if show.summary_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_summary_payload then
-    show.summary_payload = omi_siac_cts_output_cta_v2_10.prefs.show_summary_payload
-    changed = true
-  end
-  if show.trade_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_trade_payload then
-    show.trade_payload = omi_siac_cts_output_cta_v2_10.prefs.show_trade_payload
     changed = true
   end
 
@@ -4339,11 +4283,6 @@ siac_cts_output_cta_v2_10.trade_payload.size = function(buffer, offset, trade_me
   return 0
 end
 
--- Display: Trade Payload
-siac_cts_output_cta_v2_10.trade_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Trade Payload
 siac_cts_output_cta_v2_10.trade_payload.branches = function(buffer, offset, packet, parent, trade_message_type)
   -- Dissect Auction Status Message
@@ -4392,20 +4331,11 @@ end
 
 -- Dissect: Trade Payload
 siac_cts_output_cta_v2_10.trade_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  if not show.trade_payload then
-    return siac_cts_output_cta_v2_10.trade_payload.branches(buffer, offset, packet, parent, trade_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cts_output_cta_v2_10.trade_payload.size(buffer, offset, trade_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cts_output_cta_v2_10.trade_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_payload, range, display)
 
   return siac_cts_output_cta_v2_10.trade_payload.branches(buffer, offset, packet, parent, trade_message_type)
 end
@@ -5220,11 +5150,6 @@ siac_cts_output_cta_v2_10.summary_payload.size = function(buffer, offset, summar
   return 0
 end
 
--- Display: Summary Payload
-siac_cts_output_cta_v2_10.summary_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Summary Payload
 siac_cts_output_cta_v2_10.summary_payload.branches = function(buffer, offset, packet, parent, summary_message_type)
   -- Dissect Consolidated Start Of Day Summary Message
@@ -5257,20 +5182,11 @@ end
 
 -- Dissect: Summary Payload
 siac_cts_output_cta_v2_10.summary_payload.dissect = function(buffer, offset, packet, parent, summary_message_type)
-  if not show.summary_payload then
-    return siac_cts_output_cta_v2_10.summary_payload.branches(buffer, offset, packet, parent, summary_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cts_output_cta_v2_10.summary_payload.size(buffer, offset, summary_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cts_output_cta_v2_10.summary_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.summary_payload, range, display)
 
   return siac_cts_output_cta_v2_10.summary_payload.branches(buffer, offset, packet, parent, summary_message_type)
 end
@@ -6038,11 +5954,6 @@ siac_cts_output_cta_v2_10.prior_day_payload.size = function(buffer, offset, prio
   return 0
 end
 
--- Display: Prior Day Payload
-siac_cts_output_cta_v2_10.prior_day_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Prior Day Payload
 siac_cts_output_cta_v2_10.prior_day_payload.branches = function(buffer, offset, packet, parent, prior_day_message_type)
   -- Dissect Prior Day Trade Correction Message
@@ -6075,20 +5986,11 @@ end
 
 -- Dissect: Prior Day Payload
 siac_cts_output_cta_v2_10.prior_day_payload.dissect = function(buffer, offset, packet, parent, prior_day_message_type)
-  if not show.prior_day_payload then
-    return siac_cts_output_cta_v2_10.prior_day_payload.branches(buffer, offset, packet, parent, prior_day_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cts_output_cta_v2_10.prior_day_payload.size(buffer, offset, prior_day_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cts_output_cta_v2_10.prior_day_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day_payload, range, display)
 
   return siac_cts_output_cta_v2_10.prior_day_payload.branches(buffer, offset, packet, parent, prior_day_message_type)
 end
@@ -6996,11 +6898,6 @@ siac_cts_output_cta_v2_10.market_status_payload.size = function(buffer, offset, 
   return 0
 end
 
--- Display: Market Status Payload
-siac_cts_output_cta_v2_10.market_status_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Market Status Payload
 siac_cts_output_cta_v2_10.market_status_payload.branches = function(buffer, offset, packet, parent, market_status_message_type)
   -- Dissect Market Wide Circuit Breaker Decline Level Status Message
@@ -7033,20 +6930,11 @@ end
 
 -- Dissect: Market Status Payload
 siac_cts_output_cta_v2_10.market_status_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
-  if not show.market_status_payload then
-    return siac_cts_output_cta_v2_10.market_status_payload.branches(buffer, offset, packet, parent, market_status_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cts_output_cta_v2_10.market_status_payload.size(buffer, offset, market_status_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cts_output_cta_v2_10.market_status_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.market_status_payload, range, display)
 
   return siac_cts_output_cta_v2_10.market_status_payload.branches(buffer, offset, packet, parent, market_status_message_type)
 end
@@ -7379,11 +7267,6 @@ siac_cts_output_cta_v2_10.index_payload.size = function(buffer, offset, index_me
   return 0
 end
 
--- Display: Index Payload
-siac_cts_output_cta_v2_10.index_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Index Payload
 siac_cts_output_cta_v2_10.index_payload.branches = function(buffer, offset, packet, parent, index_message_type)
   -- Dissect Index Message
@@ -7400,20 +7283,11 @@ end
 
 -- Dissect: Index Payload
 siac_cts_output_cta_v2_10.index_payload.dissect = function(buffer, offset, packet, parent, index_message_type)
-  if not show.index_payload then
-    return siac_cts_output_cta_v2_10.index_payload.branches(buffer, offset, packet, parent, index_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cts_output_cta_v2_10.index_payload.size(buffer, offset, index_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cts_output_cta_v2_10.index_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.index_payload, range, display)
 
   return siac_cts_output_cta_v2_10.index_payload.branches(buffer, offset, packet, parent, index_message_type)
 end
@@ -7810,11 +7684,6 @@ siac_cts_output_cta_v2_10.control_payload.size = function(buffer, offset, contro
   return 0
 end
 
--- Display: Control Payload
-siac_cts_output_cta_v2_10.control_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Control Payload
 siac_cts_output_cta_v2_10.control_payload.branches = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
@@ -7843,20 +7712,11 @@ end
 
 -- Dissect: Control Payload
 siac_cts_output_cta_v2_10.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  if not show.control_payload then
-    return siac_cts_output_cta_v2_10.control_payload.branches(buffer, offset, packet, parent, control_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cts_output_cta_v2_10.control_payload.size(buffer, offset, control_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cts_output_cta_v2_10.control_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.control_payload, range, display)
 
   return siac_cts_output_cta_v2_10.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
@@ -8201,11 +8061,6 @@ siac_cts_output_cta_v2_10.administrative_payload.size = function(buffer, offset,
   return 0
 end
 
--- Display: Administrative Payload
-siac_cts_output_cta_v2_10.administrative_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Administrative Payload
 siac_cts_output_cta_v2_10.administrative_payload.branches = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect Start Of End Of Day Message
@@ -8230,20 +8085,11 @@ end
 
 -- Dissect: Administrative Payload
 siac_cts_output_cta_v2_10.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  if not show.administrative_payload then
-    return siac_cts_output_cta_v2_10.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cts_output_cta_v2_10.administrative_payload.size(buffer, offset, administrative_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cts_output_cta_v2_10.administrative_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.administrative_payload, range, display)
 
   return siac_cts_output_cta_v2_10.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
@@ -8369,11 +8215,6 @@ siac_cts_output_cta_v2_10.payload.size = function(buffer, offset, message_catego
   return 0
 end
 
--- Display: Payload
-siac_cts_output_cta_v2_10.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 siac_cts_output_cta_v2_10.payload.branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Administrative
@@ -8410,20 +8251,11 @@ end
 
 -- Dissect: Payload
 siac_cts_output_cta_v2_10.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  if not show.payload then
-    return siac_cts_output_cta_v2_10.payload.branches(buffer, offset, packet, parent, message_category)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cts_output_cta_v2_10.payload.size(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cts_output_cta_v2_10.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.payload, range, display)
 
   return siac_cts_output_cta_v2_10.payload.branches(buffer, offset, packet, parent, message_category)
 end

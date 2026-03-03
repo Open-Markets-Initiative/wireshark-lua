@@ -147,7 +147,6 @@ omi_ice_futures_mdf_impact_v1_1_24.fields.order_price_denominator = ProtoField.n
 omi_ice_futures_mdf_impact_v1_1_24.fields.order_sequence_id = ProtoField.new("Order Sequence Id", "ice.futures.mdf.impact.v1.1.24.ordersequenceid", ftypes.INT16)
 omi_ice_futures_mdf_impact_v1_1_24.fields.packet = ProtoField.new("Packet", "ice.futures.mdf.impact.v1.1.24.packet", ftypes.STRING)
 omi_ice_futures_mdf_impact_v1_1_24.fields.packet_header = ProtoField.new("Packet Header", "ice.futures.mdf.impact.v1.1.24.packetheader", ftypes.STRING)
-omi_ice_futures_mdf_impact_v1_1_24.fields.payload = ProtoField.new("Payload", "ice.futures.mdf.impact.v1.1.24.payload", ftypes.STRING)
 omi_ice_futures_mdf_impact_v1_1_24.fields.pre_open_price = ProtoField.new("Pre Open Price", "ice.futures.mdf.impact.v1.1.24.preopenprice", ftypes.INT64)
 omi_ice_futures_mdf_impact_v1_1_24.fields.pre_open_volume = ProtoField.new("Pre Open Volume", "ice.futures.mdf.impact.v1.1.24.preopenvolume", ftypes.INT32)
 omi_ice_futures_mdf_impact_v1_1_24.fields.previous_day_settlement_price = ProtoField.new("Previous Day Settlement Price", "ice.futures.mdf.impact.v1.1.24.previousdaysettlementprice", ftypes.INT64)
@@ -303,7 +302,6 @@ show.strategy_leg_definition = true
 show.strip_info_message = true
 show.system_text_message = true
 show.trade_message = true
-show.payload = false
 
 -- Register Ice Futures Mdf iMpact 1.1.24 Show Options
 omi_ice_futures_mdf_impact_v1_1_24.prefs.show_add_or_modify_order_message = Pref.bool("Show Add Or Modify Order Message", show.add_or_modify_order_message, "Parse and add Add Or Modify Order Message to protocol tree")
@@ -351,7 +349,6 @@ omi_ice_futures_mdf_impact_v1_1_24.prefs.show_strategy_leg_definition = Pref.boo
 omi_ice_futures_mdf_impact_v1_1_24.prefs.show_strip_info_message = Pref.bool("Show Strip Info Message", show.strip_info_message, "Parse and add Strip Info Message to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_24.prefs.show_system_text_message = Pref.bool("Show System Text Message", show.system_text_message, "Parse and add System Text Message to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_24.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_24.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_ice_futures_mdf_impact_v1_1_24.prefs_changed()
@@ -536,10 +533,6 @@ function omi_ice_futures_mdf_impact_v1_1_24.prefs_changed()
   end
   if show.trade_message ~= omi_ice_futures_mdf_impact_v1_1_24.prefs.show_trade_message then
     show.trade_message = omi_ice_futures_mdf_impact_v1_1_24.prefs.show_trade_message
-    changed = true
-  end
-  if show.payload ~= omi_ice_futures_mdf_impact_v1_1_24.prefs.show_payload then
-    show.payload = omi_ice_futures_mdf_impact_v1_1_24.prefs.show_payload
     changed = true
   end
 
@@ -9656,11 +9649,6 @@ ice_futures_mdf_impact_v1_1_24.payload.size = function(buffer, offset, message_t
   return 0
 end
 
--- Display: Payload
-ice_futures_mdf_impact_v1_1_24.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 ice_futures_mdf_impact_v1_1_24.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Market Snapshot Message
@@ -9817,20 +9805,11 @@ end
 
 -- Dissect: Payload
 ice_futures_mdf_impact_v1_1_24.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return ice_futures_mdf_impact_v1_1_24.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = ice_futures_mdf_impact_v1_1_24.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = ice_futures_mdf_impact_v1_1_24.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_ice_futures_mdf_impact_v1_1_24.fields.payload, range, display)
 
   return ice_futures_mdf_impact_v1_1_24.payload.branches(buffer, offset, packet, parent, message_type)
 end

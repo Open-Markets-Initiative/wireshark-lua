@@ -29,7 +29,6 @@ omi_boats_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message
 omi_boats_commonheader_udp_v1_1.fields.schema_id = ProtoField.new("Schema Id", "boats.commonheader.udp.v1.1.schemaid", ftypes.UINT8)
 omi_boats_commonheader_udp_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "boats.commonheader.udp.v1.1.sequencenumber", ftypes.UINT64)
 omi_boats_commonheader_udp_v1_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "boats.commonheader.udp.v1.1.sequencedmessage", ftypes.STRING)
-omi_boats_commonheader_udp_v1_1.fields.sequenced_messages = ProtoField.new("Sequenced Messages", "boats.commonheader.udp.v1.1.sequencedmessages", ftypes.STRING)
 omi_boats_commonheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", "boats.commonheader.udp.v1.1.sessionid", ftypes.UINT64)
 omi_boats_commonheader_udp_v1_1.fields.template_id = ProtoField.new("Template Id", "boats.commonheader.udp.v1.1.templateid", ftypes.UINT8)
 omi_boats_commonheader_udp_v1_1.fields.version = ProtoField.new("Version", "boats.commonheader.udp.v1.1.version", ftypes.UINT16)
@@ -50,7 +49,6 @@ show.packet = true
 show.sbe_header = true
 show.sbe_message = true
 show.sequenced_message = true
-show.sequenced_messages = false
 
 -- Register Boats CommonHeader Udp 1.1 Show Options
 omi_boats_commonheader_udp_v1_1.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
@@ -59,7 +57,6 @@ omi_boats_commonheader_udp_v1_1.prefs.show_packet = Pref.bool("Show Packet", sho
 omi_boats_commonheader_udp_v1_1.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
 omi_boats_commonheader_udp_v1_1.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 omi_boats_commonheader_udp_v1_1.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_boats_commonheader_udp_v1_1.prefs.show_sequenced_messages = Pref.bool("Show Sequenced Messages", show.sequenced_messages, "Parse and add Sequenced Messages to protocol tree")
 
 -- Handle changed preferences
 function omi_boats_commonheader_udp_v1_1.prefs_changed()
@@ -88,10 +85,6 @@ function omi_boats_commonheader_udp_v1_1.prefs_changed()
   end
   if show.sequenced_message ~= omi_boats_commonheader_udp_v1_1.prefs.show_sequenced_message then
     show.sequenced_message = omi_boats_commonheader_udp_v1_1.prefs.show_sequenced_message
-    changed = true
-  end
-  if show.sequenced_messages ~= omi_boats_commonheader_udp_v1_1.prefs.show_sequenced_messages then
-    show.sequenced_messages = omi_boats_commonheader_udp_v1_1.prefs.show_sequenced_messages
     changed = true
   end
 
@@ -483,11 +476,6 @@ boats_commonheader_udp_v1_1.sequenced_messages.size = function(buffer, offset, m
   return 0
 end
 
--- Display: Sequenced Messages
-boats_commonheader_udp_v1_1.sequenced_messages.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Sequenced Messages
 boats_commonheader_udp_v1_1.sequenced_messages.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequenced Message
@@ -500,20 +488,11 @@ end
 
 -- Dissect: Sequenced Messages
 boats_commonheader_udp_v1_1.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.sequenced_messages then
-    return boats_commonheader_udp_v1_1.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = boats_commonheader_udp_v1_1.sequenced_messages.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = boats_commonheader_udp_v1_1.sequenced_messages.display(buffer, packet, parent)
-  local element = parent:add(omi_boats_commonheader_udp_v1_1.fields.sequenced_messages, range, display)
 
   return boats_commonheader_udp_v1_1.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
 end

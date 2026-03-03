@@ -61,7 +61,6 @@ omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.original_reference_number_de
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.marketdepth.itch.v1.6.packet", ftypes.STRING)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.marketdepth.itch.v1.6.packetheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.phlxoptions.marketdepth.itch.v1.6.pairedcontracts", ftypes.UINT32)
-omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.payload = ProtoField.new("Payload", "nasdaq.phlxoptions.marketdepth.itch.v1.6.payload", ftypes.STRING)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.price = ProtoField.new("Price", "nasdaq.phlxoptions.marketdepth.itch.v1.6.price", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.printable = ProtoField.new("Printable", "nasdaq.phlxoptions.marketdepth.itch.v1.6.printable", ftypes.STRING)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "nasdaq.phlxoptions.marketdepth.itch.v1.6.referencenumberdelta", ftypes.UINT32)
@@ -153,7 +152,6 @@ show.single_side_replace_short_message = true
 show.single_side_update_message = true
 show.system_event_message = true
 show.trading_action_message = true
-show.payload = false
 
 -- Register Nasdaq PhlxOptions MarketDepth Itch 1.6 Show Options
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_add_order_long_message = Pref.bool("Show Add Order Long Message", show.add_order_long_message, "Parse and add Add Order Long Message to protocol tree")
@@ -187,7 +185,6 @@ omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_single_side_replace_shor
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_single_side_update_message = Pref.bool("Show Single Side Update Message", show.single_side_update_message, "Parse and add Single Side Update Message to protocol tree")
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs_changed()
@@ -316,10 +313,6 @@ function omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs_changed()
   end
   if show.trading_action_message ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_trading_action_message then
     show.trading_action_message = omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_trading_action_message
-    changed = true
-  end
-  if show.payload ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_payload then
-    show.payload = omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_payload
     changed = true
   end
 
@@ -3561,11 +3554,6 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.size = function(buffer, offset,
   return 0
 end
 
--- Display: Payload
-nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Seconds Message
@@ -3682,20 +3670,11 @@ end
 
 -- Dissect: Payload
 nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.payload, range, display)
 
   return nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.branches(buffer, offset, packet, parent, message_type)
 end
@@ -3875,6 +3854,16 @@ end
 -- Message
 nasdaq_phlxoptions_marketdepth_itch_v1_6.message = {}
 
+-- Read runtime size of: Message
+nasdaq_phlxoptions_marketdepth_itch_v1_6.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
+
+  return message_length + 2
+end
+
 -- Display: Message
 nasdaq_phlxoptions_marketdepth_itch_v1_6.message.display = function(packet, parent, length)
   return ""
@@ -3903,24 +3892,20 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.message.fields = function(buffer, offse
 end
 
 -- Dissect: Message
-nasdaq_phlxoptions_marketdepth_itch_v1_6.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
+nasdaq_phlxoptions_marketdepth_itch_v1_6.message.dissect = function(buffer, offset, packet, parent)
+  -- Parse runtime size
+  local size_of_message = nasdaq_phlxoptions_marketdepth_itch_v1_6.message.size(buffer, offset)
 
-  -- Optionally add group/struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.message then
-    parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.message, buffer(offset, 0))
-    local current = nasdaq_phlxoptions_marketdepth_itch_v1_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
+    local range = buffer(offset, size_of_message)
     local display = nasdaq_phlxoptions_marketdepth_itch_v1_6.message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nasdaq_phlxoptions_marketdepth_itch_v1_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-
-    return index
+    parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.message, range, display)
   end
+
+  nasdaq_phlxoptions_marketdepth_itch_v1_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+  return offset + size_of_message
 end
 
 -- Message Count
@@ -4066,9 +4051,6 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.packet.dissect = function(buffer, packe
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_phlxoptions_marketdepth_itch_v1_6.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 2, 2):uint()
-
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -4078,7 +4060,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.packet.dissect = function(buffer, packe
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
 
-    -- Message: Struct of 2 fields
+    -- Message: Runtime Type with 3 branches
     index, message = nasdaq_phlxoptions_marketdepth_itch_v1_6.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 

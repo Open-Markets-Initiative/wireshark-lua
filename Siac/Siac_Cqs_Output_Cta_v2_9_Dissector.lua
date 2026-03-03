@@ -43,7 +43,6 @@ omi_siac_cqs_output_cta_v2_9.fields.block_sequence_number = ProtoField.new("Bloc
 omi_siac_cqs_output_cta_v2_9.fields.block_size = ProtoField.new("Block Size", "siac.cqs.output.cta.v2.9.blocksize", ftypes.UINT16)
 omi_siac_cqs_output_cta_v2_9.fields.control = ProtoField.new("Control", "siac.cqs.output.cta.v2.9.control", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cqs.output.cta.v2.9.controlmessagetype", ftypes.STRING)
-omi_siac_cqs_output_cta_v2_9.fields.control_payload = ProtoField.new("Control Payload", "siac.cqs.output.cta.v2.9.controlpayload", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cqs.output.cta.v2.9.datafeedindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cqs.output.cta.v2.9.financialstatusindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.finra_bbo_indicator = ProtoField.new("Finra Bbo Indicator", "siac.cqs.output.cta.v2.9.finrabboindicator", ftypes.STRING)
@@ -63,7 +62,6 @@ omi_siac_cqs_output_cta_v2_9.fields.luld_indicator = ProtoField.new("Luld Indica
 omi_siac_cqs_output_cta_v2_9.fields.market_condition = ProtoField.new("Market Condition", "siac.cqs.output.cta.v2.9.marketcondition", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.market_status = ProtoField.new("Market Status", "siac.cqs.output.cta.v2.9.marketstatus", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cqs.output.cta.v2.9.marketstatusmessagetype", ftypes.STRING)
-omi_siac_cqs_output_cta_v2_9.fields.market_status_payload = ProtoField.new("Market Status Payload", "siac.cqs.output.cta.v2.9.marketstatuspayload", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.message = ProtoField.new("Message", "siac.cqs.output.cta.v2.9.message", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.message_category = ProtoField.new("Message Category", "siac.cqs.output.cta.v2.9.messagecategory", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.message_header = ProtoField.new("Message Header", "siac.cqs.output.cta.v2.9.messageheader", ftypes.STRING)
@@ -91,12 +89,10 @@ omi_siac_cqs_output_cta_v2_9.fields.packet = ProtoField.new("Packet", "siac.cqs.
 omi_siac_cqs_output_cta_v2_9.fields.participant_id = ProtoField.new("Participant Id", "siac.cqs.output.cta.v2.9.participantid", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.cqs.output.cta.v2.9.participantreferencenumber", ftypes.INT64)
 omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "siac.cqs.output.cta.v2.9.participanttimestamp", ftypes.STRING)
-omi_siac_cqs_output_cta_v2_9.fields.payload = ProtoField.new("Payload", "siac.cqs.output.cta.v2.9.payload", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cqs.output.cta.v2.9.primarylistingmarketparticipantid", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.quote = ProtoField.new("Quote", "siac.cqs.output.cta.v2.9.quote", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.output.cta.v2.9.quotecondition", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.quote_message_type = ProtoField.new("Quote Message Type", "siac.cqs.output.cta.v2.9.quotemessagetype", ftypes.STRING)
-omi_siac_cqs_output_cta_v2_9.fields.quote_payload = ProtoField.new("Quote Payload", "siac.cqs.output.cta.v2.9.quotepayload", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.reserved = ProtoField.new("Reserved", "siac.cqs.output.cta.v2.9.reserved", ftypes.UINT8)
 omi_siac_cqs_output_cta_v2_9.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.output.cta.v2.9.retailinterestindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cqs.output.cta.v2.9.retransmissionindicator", ftypes.STRING)
@@ -167,10 +163,6 @@ show.sip_block_timestamp = true
 show.special_long_quote_message = true
 show.start_of_day_message = true
 show.start_of_test_cycle_message = true
-show.control_payload = false
-show.market_status_payload = false
-show.payload = false
-show.quote_payload = false
 
 -- Register Siac Cqs Output Cta 2.9 Show Options
 omi_siac_cqs_output_cta_v2_9.prefs.show_adf_timestamp = Pref.bool("Show Adf Timestamp", show.adf_timestamp, "Parse and add Adf Timestamp to protocol tree")
@@ -202,10 +194,6 @@ omi_siac_cqs_output_cta_v2_9.prefs.show_sip_block_timestamp = Pref.bool("Show Si
 omi_siac_cqs_output_cta_v2_9.prefs.show_special_long_quote_message = Pref.bool("Show Special Long Quote Message", show.special_long_quote_message, "Parse and add Special Long Quote Message to protocol tree")
 omi_siac_cqs_output_cta_v2_9.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
 omi_siac_cqs_output_cta_v2_9.prefs.show_start_of_test_cycle_message = Pref.bool("Show Start Of Test Cycle Message", show.start_of_test_cycle_message, "Parse and add Start Of Test Cycle Message to protocol tree")
-omi_siac_cqs_output_cta_v2_9.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
-omi_siac_cqs_output_cta_v2_9.prefs.show_market_status_payload = Pref.bool("Show Market Status Payload", show.market_status_payload, "Parse and add Market Status Payload to protocol tree")
-omi_siac_cqs_output_cta_v2_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_siac_cqs_output_cta_v2_9.prefs.show_quote_payload = Pref.bool("Show Quote Payload", show.quote_payload, "Parse and add Quote Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_siac_cqs_output_cta_v2_9.prefs_changed()
@@ -326,22 +314,6 @@ function omi_siac_cqs_output_cta_v2_9.prefs_changed()
   end
   if show.start_of_test_cycle_message ~= omi_siac_cqs_output_cta_v2_9.prefs.show_start_of_test_cycle_message then
     show.start_of_test_cycle_message = omi_siac_cqs_output_cta_v2_9.prefs.show_start_of_test_cycle_message
-    changed = true
-  end
-  if show.control_payload ~= omi_siac_cqs_output_cta_v2_9.prefs.show_control_payload then
-    show.control_payload = omi_siac_cqs_output_cta_v2_9.prefs.show_control_payload
-    changed = true
-  end
-  if show.market_status_payload ~= omi_siac_cqs_output_cta_v2_9.prefs.show_market_status_payload then
-    show.market_status_payload = omi_siac_cqs_output_cta_v2_9.prefs.show_market_status_payload
-    changed = true
-  end
-  if show.payload ~= omi_siac_cqs_output_cta_v2_9.prefs.show_payload then
-    show.payload = omi_siac_cqs_output_cta_v2_9.prefs.show_payload
-    changed = true
-  end
-  if show.quote_payload ~= omi_siac_cqs_output_cta_v2_9.prefs.show_quote_payload then
-    show.quote_payload = omi_siac_cqs_output_cta_v2_9.prefs.show_quote_payload
     changed = true
   end
 
@@ -3460,11 +3432,6 @@ siac_cqs_output_cta_v2_9.quote_payload.size = function(buffer, offset, quote_mes
   return 0
 end
 
--- Display: Quote Payload
-siac_cqs_output_cta_v2_9.quote_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Quote Payload
 siac_cqs_output_cta_v2_9.quote_payload.branches = function(buffer, offset, packet, parent, quote_message_type)
   -- Dissect Auction Status Message
@@ -3489,20 +3456,11 @@ end
 
 -- Dissect: Quote Payload
 siac_cqs_output_cta_v2_9.quote_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
-  if not show.quote_payload then
-    return siac_cqs_output_cta_v2_9.quote_payload.branches(buffer, offset, packet, parent, quote_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cqs_output_cta_v2_9.quote_payload.size(buffer, offset, quote_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cqs_output_cta_v2_9.quote_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cqs_output_cta_v2_9.fields.quote_payload, range, display)
 
   return siac_cqs_output_cta_v2_9.quote_payload.branches(buffer, offset, packet, parent, quote_message_type)
 end
@@ -3868,11 +3826,6 @@ siac_cqs_output_cta_v2_9.market_status_payload.size = function(buffer, offset, m
   return 0
 end
 
--- Display: Market Status Payload
-siac_cqs_output_cta_v2_9.market_status_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Market Status Payload
 siac_cqs_output_cta_v2_9.market_status_payload.branches = function(buffer, offset, packet, parent, market_status_message_type)
   -- Dissect Market Wide Circuit Breaker Decline Level Status Message
@@ -3889,20 +3842,11 @@ end
 
 -- Dissect: Market Status Payload
 siac_cqs_output_cta_v2_9.market_status_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
-  if not show.market_status_payload then
-    return siac_cqs_output_cta_v2_9.market_status_payload.branches(buffer, offset, packet, parent, market_status_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cqs_output_cta_v2_9.market_status_payload.size(buffer, offset, market_status_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cqs_output_cta_v2_9.market_status_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cqs_output_cta_v2_9.fields.market_status_payload, range, display)
 
   return siac_cqs_output_cta_v2_9.market_status_payload.branches(buffer, offset, packet, parent, market_status_message_type)
 end
@@ -4543,11 +4487,6 @@ siac_cqs_output_cta_v2_9.control_payload.size = function(buffer, offset, control
   return 0
 end
 
--- Display: Control Payload
-siac_cqs_output_cta_v2_9.control_payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Control Payload
 siac_cqs_output_cta_v2_9.control_payload.branches = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
@@ -4592,20 +4531,11 @@ end
 
 -- Dissect: Control Payload
 siac_cqs_output_cta_v2_9.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  if not show.control_payload then
-    return siac_cqs_output_cta_v2_9.control_payload.branches(buffer, offset, packet, parent, control_message_type)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cqs_output_cta_v2_9.control_payload.size(buffer, offset, control_message_type)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cqs_output_cta_v2_9.control_payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cqs_output_cta_v2_9.fields.control_payload, range, display)
 
   return siac_cqs_output_cta_v2_9.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
@@ -4730,11 +4660,6 @@ siac_cqs_output_cta_v2_9.payload.size = function(buffer, offset, message_categor
   return 0
 end
 
--- Display: Payload
-siac_cqs_output_cta_v2_9.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 siac_cqs_output_cta_v2_9.payload.branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Control
@@ -4755,20 +4680,11 @@ end
 
 -- Dissect: Payload
 siac_cqs_output_cta_v2_9.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  if not show.payload then
-    return siac_cqs_output_cta_v2_9.payload.branches(buffer, offset, packet, parent, message_category)
-  end
-
   -- Calculate size and check that branch is not empty
   local size = siac_cqs_output_cta_v2_9.payload.size(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = siac_cqs_output_cta_v2_9.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_siac_cqs_output_cta_v2_9.fields.payload, range, display)
 
   return siac_cqs_output_cta_v2_9.payload.branches(buffer, offset, packet, parent, message_category)
 end
