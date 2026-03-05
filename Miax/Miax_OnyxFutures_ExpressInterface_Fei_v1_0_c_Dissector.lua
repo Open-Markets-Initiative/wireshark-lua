@@ -460,15 +460,20 @@ end
 
 -- Dissect: Goodbye Packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.goodbye_packet then
-    local length = miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.goodbye_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.goodbye_packet, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.display(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Logout Request
@@ -512,15 +517,20 @@ end
 
 -- Dissect: Logout Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.logout_request then
-    local length = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.display(buffer, packet, parent)
-    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_request, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.display(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- End Sequence Number
@@ -1503,15 +1513,20 @@ end
 
 -- Dissect: Strategy Creation Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.strategy_creation_request then
-    local length = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.display(buffer, packet, parent)
-    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_request, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.display(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Reserved 10
@@ -3152,12 +3167,6 @@ end
 
 -- Dissect: Unsequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.size(buffer, offset, unsequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
@@ -3247,20 +3256,24 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.fields = fu
 end
 
 -- Dissect: Unsequenced Data Packet
-miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_unsequenced_data_packet = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.size(buffer, offset)
+miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset + size_of_unsequenced_data_packet
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.unsequenced_data_packet then
-    local range = buffer(offset, size_of_unsequenced_data_packet)
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_data_packet, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
   end
-
-  miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-  return offset + size_of_unsequenced_data_packet
 end
 
 -- Last Size
@@ -4370,12 +4383,6 @@ end
 
 -- Dissect: Sequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.size(buffer, offset, sequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
@@ -4497,20 +4504,24 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.fields = func
 end
 
 -- Dissect: Sequenced Data Packet
-miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_sequenced_data_packet = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.size(buffer, offset)
+miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+  local index = offset + size_of_sequenced_data_packet
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.sequenced_data_packet then
-    local range = buffer(offset, size_of_sequenced_data_packet)
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet, buffer(offset, 0))
+    local current = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+    parent:set_len(size_of_sequenced_data_packet)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+
+    return index
   end
-
-  miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
-
-  return offset + size_of_sequenced_data_packet
 end
 
 -- Payload
@@ -4614,12 +4625,6 @@ end
 
 -- Dissect: Payload
 miax_onyxfutures_expressinterface_fei_v1_0_c.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Calculate size and check that branch is not empty
-  local size = miax_onyxfutures_expressinterface_fei_v1_0_c.payload.size(buffer, offset, packet_type)
-  if size == 0 then
-    return offset
-  end
-
   return miax_onyxfutures_expressinterface_fei_v1_0_c.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 

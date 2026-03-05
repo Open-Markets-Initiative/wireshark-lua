@@ -745,15 +745,20 @@ end
 
 -- Dissect: Issuer
 otc_markets_multicast_ats_v4_3.issuer.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.issuer then
-    local length = otc_markets_multicast_ats_v4_3.issuer.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_3.issuer.display(buffer, packet, parent)
-    parent = parent:add(omi_otc_markets_multicast_ats_v4_3.fields.issuer, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_3.fields.issuer, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_3.issuer.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_3.issuer.display(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_3.issuer.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_3.issuer.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Detail Name
@@ -846,15 +851,20 @@ end
 
 -- Dissect: Security Detail
 otc_markets_multicast_ats_v4_3.security_detail.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.security_detail then
-    local length = otc_markets_multicast_ats_v4_3.security_detail.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_3.security_detail.display(buffer, packet, parent)
-    parent = parent:add(omi_otc_markets_multicast_ats_v4_3.fields.security_detail, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_3.fields.security_detail, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_3.security_detail.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_3.security_detail.display(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_3.security_detail.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_3.security_detail.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Adr Level
@@ -1653,15 +1663,20 @@ end
 
 -- Dissect: Extended Security No Cusip Message
 otc_markets_multicast_ats_v4_3.extended_security_no_cusip_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.extended_security_no_cusip_message then
-    local length = otc_markets_multicast_ats_v4_3.extended_security_no_cusip_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_3.extended_security_no_cusip_message.display(buffer, packet, parent)
-    parent = parent:add(omi_otc_markets_multicast_ats_v4_3.fields.extended_security_no_cusip_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_3.fields.extended_security_no_cusip_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_3.extended_security_no_cusip_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_3.extended_security_no_cusip_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_3.extended_security_no_cusip_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_3.extended_security_no_cusip_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Cusip
@@ -1949,15 +1964,20 @@ end
 
 -- Dissect: Extended Security Message
 otc_markets_multicast_ats_v4_3.extended_security_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.extended_security_message then
-    local length = otc_markets_multicast_ats_v4_3.extended_security_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_3.extended_security_message.display(buffer, packet, parent)
-    parent = parent:add(omi_otc_markets_multicast_ats_v4_3.fields.extended_security_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_3.fields.extended_security_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_3.extended_security_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_3.extended_security_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_3.extended_security_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_3.extended_security_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Time Milli
@@ -3635,12 +3655,6 @@ end
 
 -- Dissect: Payload
 otc_markets_multicast_ats_v4_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = otc_markets_multicast_ats_v4_3.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return otc_markets_multicast_ats_v4_3.payload.branches(buffer, offset, packet, parent, message_type)
 end
 

@@ -1223,12 +1223,6 @@ end
 
 -- Dissect: Control Payload
 finra_orf_tdds_dfi_v2_0.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = finra_orf_tdds_dfi_v2_0.control_payload.size(buffer, offset, control_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return finra_orf_tdds_dfi_v2_0.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
 
@@ -1320,15 +1314,20 @@ end
 
 -- Dissect: Control
 finra_orf_tdds_dfi_v2_0.control.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.control then
-    local length = finra_orf_tdds_dfi_v2_0.control.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0.control.display(buffer, packet, parent)
-    parent = parent:add(omi_finra_orf_tdds_dfi_v2_0.fields.control, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_0.fields.control, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0.control.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0.control.display(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0.control.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0.control.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Reason Code
@@ -2141,12 +2140,6 @@ end
 
 -- Dissect: Administrative Payload
 finra_orf_tdds_dfi_v2_0.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = finra_orf_tdds_dfi_v2_0.administrative_payload.size(buffer, offset, administrative_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return finra_orf_tdds_dfi_v2_0.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
 
@@ -2223,15 +2216,20 @@ end
 
 -- Dissect: Administrative
 finra_orf_tdds_dfi_v2_0.administrative.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.administrative then
-    local length = finra_orf_tdds_dfi_v2_0.administrative.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0.administrative.display(buffer, packet, parent)
-    parent = parent:add(omi_finra_orf_tdds_dfi_v2_0.fields.administrative, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_0.fields.administrative, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0.administrative.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0.administrative.display(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0.administrative.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0.administrative.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Price Change Indicator
@@ -3599,12 +3597,6 @@ end
 
 -- Dissect: Trade Payload
 finra_orf_tdds_dfi_v2_0.trade_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = finra_orf_tdds_dfi_v2_0.trade_payload.size(buffer, offset, trade_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return finra_orf_tdds_dfi_v2_0.trade_payload.branches(buffer, offset, packet, parent, trade_message_type)
 end
 
@@ -3681,15 +3673,20 @@ end
 
 -- Dissect: Trade
 finra_orf_tdds_dfi_v2_0.trade.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade then
-    local length = finra_orf_tdds_dfi_v2_0.trade.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0.trade.display(buffer, packet, parent)
-    parent = parent:add(omi_finra_orf_tdds_dfi_v2_0.fields.trade, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_0.fields.trade, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0.trade.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0.trade.display(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0.trade.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0.trade.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -3733,12 +3730,6 @@ end
 
 -- Dissect: Payload
 finra_orf_tdds_dfi_v2_0.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Calculate size and check that branch is not empty
-  local size = finra_orf_tdds_dfi_v2_0.payload.size(buffer, offset, message_category)
-  if size == 0 then
-    return offset
-  end
-
   return finra_orf_tdds_dfi_v2_0.payload.branches(buffer, offset, packet, parent, message_category)
 end
 
@@ -3817,15 +3808,20 @@ end
 
 -- Dissect: Message
 finra_orf_tdds_dfi_v2_0.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = finra_orf_tdds_dfi_v2_0.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0.message.display(buffer, packet, parent)
-    parent = parent:add(omi_finra_orf_tdds_dfi_v2_0.fields.message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_0.fields.message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0.message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0.message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0.message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0.message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Block Soh

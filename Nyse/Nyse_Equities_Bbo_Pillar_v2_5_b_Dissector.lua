@@ -2565,12 +2565,6 @@ end
 
 -- Dissect: Payload
 nyse_equities_bbo_pillar_v2_5_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = nyse_equities_bbo_pillar_v2_5_b.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return nyse_equities_bbo_pillar_v2_5_b.payload.branches(buffer, offset, packet, parent, message_type)
 end
 

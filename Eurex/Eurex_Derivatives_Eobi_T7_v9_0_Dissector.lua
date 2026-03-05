@@ -973,15 +973,20 @@ end
 
 -- Dissect: Trade Reversal
 eurex_derivatives_eobi_t7_v9_0.trade_reversal.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade_reversal then
-    local length = eurex_derivatives_eobi_t7_v9_0.trade_reversal.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_derivatives_eobi_t7_v9_0.trade_reversal.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_0.fields.trade_reversal, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_0.fields.trade_reversal, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v9_0.trade_reversal.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_derivatives_eobi_t7_v9_0.trade_reversal.display(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_derivatives_eobi_t7_v9_0.trade_reversal.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_derivatives_eobi_t7_v9_0.trade_reversal.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Pad 6
@@ -3425,15 +3430,20 @@ end
 
 -- Dissect: Mass Instrument State Change
 eurex_derivatives_eobi_t7_v9_0.mass_instrument_state_change.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.mass_instrument_state_change then
-    local length = eurex_derivatives_eobi_t7_v9_0.mass_instrument_state_change.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_derivatives_eobi_t7_v9_0.mass_instrument_state_change.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_0.fields.mass_instrument_state_change, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_0.fields.mass_instrument_state_change, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v9_0.mass_instrument_state_change.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_derivatives_eobi_t7_v9_0.mass_instrument_state_change.display(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_derivatives_eobi_t7_v9_0.mass_instrument_state_change.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_derivatives_eobi_t7_v9_0.mass_instrument_state_change.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Instrument Entry Grp Comp
@@ -3715,15 +3725,20 @@ end
 
 -- Dissect: Instrument Summary
 eurex_derivatives_eobi_t7_v9_0.instrument_summary.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.instrument_summary then
-    local length = eurex_derivatives_eobi_t7_v9_0.instrument_summary.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_derivatives_eobi_t7_v9_0.instrument_summary.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_0.fields.instrument_summary, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_0.fields.instrument_summary, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v9_0.instrument_summary.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_derivatives_eobi_t7_v9_0.instrument_summary.display(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_derivatives_eobi_t7_v9_0.instrument_summary.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_derivatives_eobi_t7_v9_0.instrument_summary.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Instrument State Change
@@ -5100,15 +5115,20 @@ end
 
 -- Dissect: Add Complex Instrument
 eurex_derivatives_eobi_t7_v9_0.add_complex_instrument.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.add_complex_instrument then
-    local length = eurex_derivatives_eobi_t7_v9_0.add_complex_instrument.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_derivatives_eobi_t7_v9_0.add_complex_instrument.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_0.fields.add_complex_instrument, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_0.fields.add_complex_instrument, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v9_0.add_complex_instrument.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_derivatives_eobi_t7_v9_0.add_complex_instrument.display(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_derivatives_eobi_t7_v9_0.add_complex_instrument.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_derivatives_eobi_t7_v9_0.add_complex_instrument.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -5312,12 +5332,6 @@ end
 
 -- Dissect: Payload
 eurex_derivatives_eobi_t7_v9_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = eurex_derivatives_eobi_t7_v9_0.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return eurex_derivatives_eobi_t7_v9_0.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

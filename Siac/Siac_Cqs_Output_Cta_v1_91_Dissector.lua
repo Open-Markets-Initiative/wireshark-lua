@@ -2440,20 +2440,24 @@ siac_cqs_output_cta_v1_91.special_long_quote_message.fields = function(buffer, o
 end
 
 -- Dissect: Special Long Quote Message
-siac_cqs_output_cta_v1_91.special_long_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_special_long_quote_message = siac_cqs_output_cta_v1_91.special_long_quote_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.special_long_quote_message.dissect = function(buffer, offset, packet, parent, size_of_special_long_quote_message)
+  local index = offset + size_of_special_long_quote_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.special_long_quote_message then
-    local range = buffer(offset, size_of_special_long_quote_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.special_long_quote_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.special_long_quote_message.fields(buffer, offset, packet, parent, size_of_special_long_quote_message)
+    parent:set_len(size_of_special_long_quote_message)
     local display = siac_cqs_output_cta_v1_91.special_long_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.special_long_quote_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.special_long_quote_message.fields(buffer, offset, packet, parent, size_of_special_long_quote_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.special_long_quote_message.fields(buffer, offset, packet, parent, size_of_special_long_quote_message)
-
-  return offset + size_of_special_long_quote_message
 end
 
 -- Offer Size Short
@@ -2681,20 +2685,24 @@ siac_cqs_output_cta_v1_91.short_quote_message.fields = function(buffer, offset, 
 end
 
 -- Dissect: Short Quote Message
-siac_cqs_output_cta_v1_91.short_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_short_quote_message = siac_cqs_output_cta_v1_91.short_quote_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.short_quote_message.dissect = function(buffer, offset, packet, parent, size_of_short_quote_message)
+  local index = offset + size_of_short_quote_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.short_quote_message then
-    local range = buffer(offset, size_of_short_quote_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.short_quote_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.short_quote_message.fields(buffer, offset, packet, parent, size_of_short_quote_message)
+    parent:set_len(size_of_short_quote_message)
     local display = siac_cqs_output_cta_v1_91.short_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.short_quote_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.short_quote_message.fields(buffer, offset, packet, parent, size_of_short_quote_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.short_quote_message.fields(buffer, offset, packet, parent, size_of_short_quote_message)
-
-  return offset + size_of_short_quote_message
 end
 
 -- Luld Indicator
@@ -2951,20 +2959,24 @@ siac_cqs_output_cta_v1_91.long_quote_message.fields = function(buffer, offset, p
 end
 
 -- Dissect: Long Quote Message
-siac_cqs_output_cta_v1_91.long_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_long_quote_message = siac_cqs_output_cta_v1_91.long_quote_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.long_quote_message.dissect = function(buffer, offset, packet, parent, size_of_long_quote_message)
+  local index = offset + size_of_long_quote_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.long_quote_message then
-    local range = buffer(offset, size_of_long_quote_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.long_quote_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.long_quote_message.fields(buffer, offset, packet, parent, size_of_long_quote_message)
+    parent:set_len(size_of_long_quote_message)
     local display = siac_cqs_output_cta_v1_91.long_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.long_quote_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.long_quote_message.fields(buffer, offset, packet, parent, size_of_long_quote_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.long_quote_message.fields(buffer, offset, packet, parent, size_of_long_quote_message)
-
-  return offset + size_of_long_quote_message
 end
 
 -- Future
@@ -3084,20 +3096,24 @@ siac_cqs_output_cta_v1_91.auction_status_message.fields = function(buffer, offse
 end
 
 -- Dissect: Auction Status Message
-siac_cqs_output_cta_v1_91.auction_status_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_auction_status_message = siac_cqs_output_cta_v1_91.auction_status_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.auction_status_message.dissect = function(buffer, offset, packet, parent, size_of_auction_status_message)
+  local index = offset + size_of_auction_status_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.auction_status_message then
-    local range = buffer(offset, size_of_auction_status_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.auction_status_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.auction_status_message.fields(buffer, offset, packet, parent, size_of_auction_status_message)
+    parent:set_len(size_of_auction_status_message)
     local display = siac_cqs_output_cta_v1_91.auction_status_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.auction_status_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.auction_status_message.fields(buffer, offset, packet, parent, size_of_auction_status_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.auction_status_message.fields(buffer, offset, packet, parent, size_of_auction_status_message)
-
-  return offset + size_of_auction_status_message
 end
 
 -- Quote Payload
@@ -3149,12 +3165,6 @@ end
 
 -- Dissect: Quote Payload
 siac_cqs_output_cta_v1_91.quote_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = siac_cqs_output_cta_v1_91.quote_payload.size(buffer, offset, quote_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return siac_cqs_output_cta_v1_91.quote_payload.branches(buffer, offset, packet, parent, quote_message_type)
 end
 
@@ -3226,20 +3236,24 @@ siac_cqs_output_cta_v1_91.quote.fields = function(buffer, offset, packet, parent
 end
 
 -- Dissect: Quote
-siac_cqs_output_cta_v1_91.quote.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_quote = siac_cqs_output_cta_v1_91.quote.size(buffer, offset)
+siac_cqs_output_cta_v1_91.quote.dissect = function(buffer, offset, packet, parent, size_of_quote)
+  local index = offset + size_of_quote
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.quote then
-    local range = buffer(offset, size_of_quote)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.quote, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.quote.fields(buffer, offset, packet, parent, size_of_quote)
+    parent:set_len(size_of_quote)
     local display = siac_cqs_output_cta_v1_91.quote.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.quote, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.quote.fields(buffer, offset, packet, parent, size_of_quote)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.quote.fields(buffer, offset, packet, parent, size_of_quote)
-
-  return offset + size_of_quote
 end
 
 -- Reserved
@@ -3312,20 +3326,24 @@ siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields = fu
 end
 
 -- Dissect: Market Wide Circuit Breaker Status Message
-siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_market_wide_circuit_breaker_status_message = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.dissect = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+  local index = offset + size_of_market_wide_circuit_breaker_status_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.market_wide_circuit_breaker_status_message then
-    local range = buffer(offset, size_of_market_wide_circuit_breaker_status_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_status_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+    parent:set_len(size_of_market_wide_circuit_breaker_status_message)
     local display = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_status_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
-
-  return offset + size_of_market_wide_circuit_breaker_status_message
 end
 
 -- Mwcb Level 3
@@ -3427,20 +3445,24 @@ siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_messa
 end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Status Message
-siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_market_wide_circuit_breaker_decline_level_status_message = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.dissect = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
+  local index = offset + size_of_market_wide_circuit_breaker_decline_level_status_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.market_wide_circuit_breaker_decline_level_status_message then
-    local range = buffer(offset, size_of_market_wide_circuit_breaker_decline_level_status_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
+    parent:set_len(size_of_market_wide_circuit_breaker_decline_level_status_message)
     local display = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
-
-  return offset + size_of_market_wide_circuit_breaker_decline_level_status_message
 end
 
 -- Market Status Payload
@@ -3476,12 +3498,6 @@ end
 
 -- Dissect: Market Status Payload
 siac_cqs_output_cta_v1_91.market_status_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = siac_cqs_output_cta_v1_91.market_status_payload.size(buffer, offset, market_status_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return siac_cqs_output_cta_v1_91.market_status_payload.branches(buffer, offset, packet, parent, market_status_message_type)
 end
 
@@ -3547,20 +3563,24 @@ siac_cqs_output_cta_v1_91.market_status.fields = function(buffer, offset, packet
 end
 
 -- Dissect: Market Status
-siac_cqs_output_cta_v1_91.market_status.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_market_status = siac_cqs_output_cta_v1_91.market_status.size(buffer, offset)
+siac_cqs_output_cta_v1_91.market_status.dissect = function(buffer, offset, packet, parent, size_of_market_status)
+  local index = offset + size_of_market_status
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.market_status then
-    local range = buffer(offset, size_of_market_status)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_status, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.market_status.fields(buffer, offset, packet, parent, size_of_market_status)
+    parent:set_len(size_of_market_status)
     local display = siac_cqs_output_cta_v1_91.market_status.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_status, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.market_status.fields(buffer, offset, packet, parent, size_of_market_status)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.market_status.fields(buffer, offset, packet, parent, size_of_market_status)
-
-  return offset + size_of_market_status
 end
 
 -- End Of Day Message
@@ -3604,20 +3624,24 @@ siac_cqs_output_cta_v1_91.end_of_day_message.fields = function(buffer, offset, p
 end
 
 -- Dissect: End Of Day Message
-siac_cqs_output_cta_v1_91.end_of_day_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_end_of_day_message = siac_cqs_output_cta_v1_91.end_of_day_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.end_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_end_of_day_message)
+  local index = offset + size_of_end_of_day_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.end_of_day_message then
-    local range = buffer(offset, size_of_end_of_day_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.end_of_day_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_day_message)
+    parent:set_len(size_of_end_of_day_message)
     local display = siac_cqs_output_cta_v1_91.end_of_day_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.end_of_day_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_day_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_day_message)
-
-  return offset + size_of_end_of_day_message
 end
 
 -- Line Integrity Message
@@ -3661,20 +3685,24 @@ siac_cqs_output_cta_v1_91.line_integrity_message.fields = function(buffer, offse
 end
 
 -- Dissect: Line Integrity Message
-siac_cqs_output_cta_v1_91.line_integrity_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_line_integrity_message = siac_cqs_output_cta_v1_91.line_integrity_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.line_integrity_message.dissect = function(buffer, offset, packet, parent, size_of_line_integrity_message)
+  local index = offset + size_of_line_integrity_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.line_integrity_message then
-    local range = buffer(offset, size_of_line_integrity_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.line_integrity_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.line_integrity_message.fields(buffer, offset, packet, parent, size_of_line_integrity_message)
+    parent:set_len(size_of_line_integrity_message)
     local display = siac_cqs_output_cta_v1_91.line_integrity_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.line_integrity_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.line_integrity_message.fields(buffer, offset, packet, parent, size_of_line_integrity_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.line_integrity_message.fields(buffer, offset, packet, parent, size_of_line_integrity_message)
-
-  return offset + size_of_line_integrity_message
 end
 
 -- Disaster Recovery Data Center Activation Message
@@ -3718,20 +3746,24 @@ siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.field
 end
 
 -- Dissect: Disaster Recovery Data Center Activation Message
-siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_disaster_recovery_data_center_activation_message = siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.dissect = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+  local index = offset + size_of_disaster_recovery_data_center_activation_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.disaster_recovery_data_center_activation_message then
-    local range = buffer(offset, size_of_disaster_recovery_data_center_activation_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.disaster_recovery_data_center_activation_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+    parent:set_len(size_of_disaster_recovery_data_center_activation_message)
     local display = siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.disaster_recovery_data_center_activation_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
-
-  return offset + size_of_disaster_recovery_data_center_activation_message
 end
 
 -- Finra Open Message
@@ -3775,20 +3807,24 @@ siac_cqs_output_cta_v1_91.finra_open_message.fields = function(buffer, offset, p
 end
 
 -- Dissect: Finra Open Message
-siac_cqs_output_cta_v1_91.finra_open_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_finra_open_message = siac_cqs_output_cta_v1_91.finra_open_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.finra_open_message.dissect = function(buffer, offset, packet, parent, size_of_finra_open_message)
+  local index = offset + size_of_finra_open_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.finra_open_message then
-    local range = buffer(offset, size_of_finra_open_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_open_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.finra_open_message.fields(buffer, offset, packet, parent, size_of_finra_open_message)
+    parent:set_len(size_of_finra_open_message)
     local display = siac_cqs_output_cta_v1_91.finra_open_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_open_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.finra_open_message.fields(buffer, offset, packet, parent, size_of_finra_open_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.finra_open_message.fields(buffer, offset, packet, parent, size_of_finra_open_message)
-
-  return offset + size_of_finra_open_message
 end
 
 -- End Of Test Cycle Message
@@ -3832,20 +3868,24 @@ siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields = function(buffer, of
 end
 
 -- Dissect: End Of Test Cycle Message
-siac_cqs_output_cta_v1_91.end_of_test_cycle_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_end_of_test_cycle_message = siac_cqs_output_cta_v1_91.end_of_test_cycle_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.end_of_test_cycle_message.dissect = function(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
+  local index = offset + size_of_end_of_test_cycle_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.end_of_test_cycle_message then
-    local range = buffer(offset, size_of_end_of_test_cycle_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.end_of_test_cycle_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
+    parent:set_len(size_of_end_of_test_cycle_message)
     local display = siac_cqs_output_cta_v1_91.end_of_test_cycle_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.end_of_test_cycle_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
-
-  return offset + size_of_end_of_test_cycle_message
 end
 
 -- Start Of Test Cycle Message
@@ -3889,20 +3929,24 @@ siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields = function(buffer, 
 end
 
 -- Dissect: Start Of Test Cycle Message
-siac_cqs_output_cta_v1_91.start_of_test_cycle_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_start_of_test_cycle_message = siac_cqs_output_cta_v1_91.start_of_test_cycle_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.start_of_test_cycle_message.dissect = function(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
+  local index = offset + size_of_start_of_test_cycle_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.start_of_test_cycle_message then
-    local range = buffer(offset, size_of_start_of_test_cycle_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.start_of_test_cycle_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
+    parent:set_len(size_of_start_of_test_cycle_message)
     local display = siac_cqs_output_cta_v1_91.start_of_test_cycle_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.start_of_test_cycle_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
-
-  return offset + size_of_start_of_test_cycle_message
 end
 
 -- Reset Block Sequence Number Message
@@ -3946,20 +3990,24 @@ siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields = function(
 end
 
 -- Dissect: Reset Block Sequence Number Message
-siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_reset_block_sequence_number_message = siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.dissect = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+  local index = offset + size_of_reset_block_sequence_number_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.reset_block_sequence_number_message then
-    local range = buffer(offset, size_of_reset_block_sequence_number_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.reset_block_sequence_number_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+    parent:set_len(size_of_reset_block_sequence_number_message)
     local display = siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.reset_block_sequence_number_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
-
-  return offset + size_of_reset_block_sequence_number_message
 end
 
 -- Finra Close Message
@@ -4003,20 +4051,24 @@ siac_cqs_output_cta_v1_91.finra_close_message.fields = function(buffer, offset, 
 end
 
 -- Dissect: Finra Close Message
-siac_cqs_output_cta_v1_91.finra_close_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_finra_close_message = siac_cqs_output_cta_v1_91.finra_close_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.finra_close_message.dissect = function(buffer, offset, packet, parent, size_of_finra_close_message)
+  local index = offset + size_of_finra_close_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.finra_close_message then
-    local range = buffer(offset, size_of_finra_close_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_close_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.finra_close_message.fields(buffer, offset, packet, parent, size_of_finra_close_message)
+    parent:set_len(size_of_finra_close_message)
     local display = siac_cqs_output_cta_v1_91.finra_close_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_close_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.finra_close_message.fields(buffer, offset, packet, parent, size_of_finra_close_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.finra_close_message.fields(buffer, offset, packet, parent, size_of_finra_close_message)
-
-  return offset + size_of_finra_close_message
 end
 
 -- Start Of Day Message
@@ -4060,20 +4112,24 @@ siac_cqs_output_cta_v1_91.start_of_day_message.fields = function(buffer, offset,
 end
 
 -- Dissect: Start Of Day Message
-siac_cqs_output_cta_v1_91.start_of_day_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_start_of_day_message = siac_cqs_output_cta_v1_91.start_of_day_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.start_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_start_of_day_message)
+  local index = offset + size_of_start_of_day_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.start_of_day_message then
-    local range = buffer(offset, size_of_start_of_day_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.start_of_day_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_day_message)
+    parent:set_len(size_of_start_of_day_message)
     local display = siac_cqs_output_cta_v1_91.start_of_day_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.start_of_day_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_day_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_day_message)
-
-  return offset + size_of_start_of_day_message
 end
 
 -- Control Payload
@@ -4165,12 +4221,6 @@ end
 
 -- Dissect: Control Payload
 siac_cqs_output_cta_v1_91.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = siac_cqs_output_cta_v1_91.control_payload.size(buffer, offset, control_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return siac_cqs_output_cta_v1_91.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
 
@@ -4257,20 +4307,24 @@ siac_cqs_output_cta_v1_91.control.fields = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Control
-siac_cqs_output_cta_v1_91.control.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_control = siac_cqs_output_cta_v1_91.control.size(buffer, offset)
+siac_cqs_output_cta_v1_91.control.dissect = function(buffer, offset, packet, parent, size_of_control)
+  local index = offset + size_of_control
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.control then
-    local range = buffer(offset, size_of_control)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.control, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.control.fields(buffer, offset, packet, parent, size_of_control)
+    parent:set_len(size_of_control)
     local display = siac_cqs_output_cta_v1_91.control.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.control, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.control.fields(buffer, offset, packet, parent, size_of_control)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.control.fields(buffer, offset, packet, parent, size_of_control)
-
-  return offset + size_of_control
 end
 
 -- Administrative Unformatted Message
@@ -4317,20 +4371,24 @@ siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields = function(b
 end
 
 -- Dissect: Administrative Unformatted Message
-siac_cqs_output_cta_v1_91.administrative_unformatted_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_administrative_unformatted_message = siac_cqs_output_cta_v1_91.administrative_unformatted_message.size(buffer, offset)
+siac_cqs_output_cta_v1_91.administrative_unformatted_message.dissect = function(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
+  local index = offset + size_of_administrative_unformatted_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.administrative_unformatted_message then
-    local range = buffer(offset, size_of_administrative_unformatted_message)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
+    parent:set_len(size_of_administrative_unformatted_message)
     local display = siac_cqs_output_cta_v1_91.administrative_unformatted_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
-
-  return offset + size_of_administrative_unformatted_message
 end
 
 -- Administrative Payload
@@ -4358,12 +4416,6 @@ end
 
 -- Dissect: Administrative Payload
 siac_cqs_output_cta_v1_91.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = siac_cqs_output_cta_v1_91.administrative_payload.size(buffer, offset, administrative_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return siac_cqs_output_cta_v1_91.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
 
@@ -4426,20 +4478,24 @@ siac_cqs_output_cta_v1_91.administrative.fields = function(buffer, offset, packe
 end
 
 -- Dissect: Administrative
-siac_cqs_output_cta_v1_91.administrative.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_administrative = siac_cqs_output_cta_v1_91.administrative.size(buffer, offset)
+siac_cqs_output_cta_v1_91.administrative.dissect = function(buffer, offset, packet, parent, size_of_administrative)
+  local index = offset + size_of_administrative
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.administrative then
-    local range = buffer(offset, size_of_administrative)
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91.administrative.fields(buffer, offset, packet, parent, size_of_administrative)
+    parent:set_len(size_of_administrative)
     local display = siac_cqs_output_cta_v1_91.administrative.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91.administrative.fields(buffer, offset, packet, parent, size_of_administrative)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91.administrative.fields(buffer, offset, packet, parent, size_of_administrative)
-
-  return offset + size_of_administrative
 end
 
 -- Payload
@@ -4491,12 +4547,6 @@ end
 
 -- Dissect: Payload
 siac_cqs_output_cta_v1_91.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Calculate size and check that branch is not empty
-  local size = siac_cqs_output_cta_v1_91.payload.size(buffer, offset, message_category)
-  if size == 0 then
-    return offset
-  end
-
   return siac_cqs_output_cta_v1_91.payload.branches(buffer, offset, packet, parent, message_category)
 end
 

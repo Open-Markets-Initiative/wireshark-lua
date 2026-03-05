@@ -4658,12 +4658,6 @@ end
 
 -- Dissect: Payload
 coinbase_derivatives_marketdataapi_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = coinbase_derivatives_marketdataapi_sbe_v1_3.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return coinbase_derivatives_marketdataapi_sbe_v1_3.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

@@ -1432,15 +1432,20 @@ end
 
 -- Dissect: Parties Groups
 n24x_equities_memo_sbe_v1_13.parties_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.parties_groups then
-    local length = n24x_equities_memo_sbe_v1_13.parties_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.parties_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.parties_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.parties_groups, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.parties_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.parties_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.parties_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.parties_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Extended Restatement Reason
@@ -1873,15 +1878,20 @@ end
 
 -- Dissect: Execution Report Restatement Message
 n24x_equities_memo_sbe_v1_13.execution_report_restatement_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_restatement_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_restatement_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_restatement_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_restatement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_restatement_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_restatement_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_restatement_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_restatement_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_restatement_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Group
@@ -2050,15 +2060,20 @@ end
 
 -- Dissect: Execution Report Trade Break Message
 n24x_equities_memo_sbe_v1_13.execution_report_trade_break_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_break_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_trade_break_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_trade_break_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_break_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_break_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_trade_break_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_trade_break_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_trade_break_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_trade_break_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Last Qty Optional
@@ -2212,15 +2227,20 @@ end
 
 -- Dissect: Execution Report Trade Correction Message
 n24x_equities_memo_sbe_v1_13.execution_report_trade_correction_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_correction_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_trade_correction_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_trade_correction_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_correction_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_correction_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_trade_correction_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_trade_correction_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_trade_correction_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_trade_correction_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Locate Broker Optional
@@ -2646,15 +2666,20 @@ end
 
 -- Dissect: Execution Report Replaced Message
 n24x_equities_memo_sbe_v1_13.execution_report_replaced_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_replaced_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_replaced_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_replaced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_replaced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_replaced_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_replaced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_replaced_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_replaced_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_replaced_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Execution Report Pending Replace Message
@@ -2776,15 +2801,20 @@ end
 
 -- Dissect: Execution Report Pending Replace Message
 n24x_equities_memo_sbe_v1_13.execution_report_pending_replace_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_pending_replace_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_pending_replace_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_pending_replace_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_replace_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_replace_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_pending_replace_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_pending_replace_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_pending_replace_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_pending_replace_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Mass Cancel Done Message
@@ -3002,15 +3032,20 @@ end
 
 -- Dissect: Execution Report Canceled Message
 n24x_equities_memo_sbe_v1_13.execution_report_canceled_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_canceled_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_canceled_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_canceled_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_canceled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_canceled_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_canceled_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_canceled_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_canceled_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_canceled_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Pending Mass Cancel Message
@@ -3165,15 +3200,20 @@ end
 
 -- Dissect: Execution Report Pending Cancel Message
 n24x_equities_memo_sbe_v1_13.execution_report_pending_cancel_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_pending_cancel_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_pending_cancel_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_pending_cancel_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_cancel_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_pending_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_pending_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_pending_cancel_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_pending_cancel_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trd Matching Id
@@ -3461,15 +3501,20 @@ end
 
 -- Dissect: Execution Report Trade Message
 n24x_equities_memo_sbe_v1_13.execution_report_trade_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_trade_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_trade_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_trade_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_trade_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_trade_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Order Reject Reason
@@ -3860,15 +3905,20 @@ end
 
 -- Dissect: Execution Report Rejected Message
 n24x_equities_memo_sbe_v1_13.execution_report_rejected_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_rejected_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_rejected_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_rejected_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_rejected_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_rejected_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_rejected_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_rejected_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_rejected_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Risk Group Id
@@ -4683,15 +4733,20 @@ end
 
 -- Dissect: Execution Report New Message
 n24x_equities_memo_sbe_v1_13.execution_report_new_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_new_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_new_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_new_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_new_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_new_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_new_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_new_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_new_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_new_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Execution Report Pending New Message
@@ -4893,15 +4948,20 @@ end
 
 -- Dissect: Execution Report Pending New Message
 n24x_equities_memo_sbe_v1_13.execution_report_pending_new_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_pending_new_message then
-    local length = n24x_equities_memo_sbe_v1_13.execution_report_pending_new_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.execution_report_pending_new_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_new_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_new_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.execution_report_pending_new_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.execution_report_pending_new_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.execution_report_pending_new_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.execution_report_pending_new_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Mass Cancel Request Message
@@ -5380,15 +5440,20 @@ end
 
 -- Dissect: New Order Single Message
 n24x_equities_memo_sbe_v1_13.new_order_single_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_order_single_message then
-    local length = n24x_equities_memo_sbe_v1_13.new_order_single_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.new_order_single_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.new_order_single_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.new_order_single_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.new_order_single_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.new_order_single_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.new_order_single_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.new_order_single_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -5560,12 +5625,6 @@ end
 
 -- Dissect: Payload
 n24x_equities_memo_sbe_v1_13.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = n24x_equities_memo_sbe_v1_13.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return n24x_equities_memo_sbe_v1_13.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
@@ -5860,15 +5919,20 @@ end
 
 -- Dissect: Sequenced Message
 n24x_equities_memo_sbe_v1_13.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.sequenced_message then
-    local length = n24x_equities_memo_sbe_v1_13.sequenced_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.sequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.sequenced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.sequenced_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.sequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.sequenced_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.sequenced_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.sequenced_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Total Sequence Count
@@ -6551,15 +6615,20 @@ end
 
 -- Dissect: Unsequenced Message
 n24x_equities_memo_sbe_v1_13.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.unsequenced_message then
-    local length = n24x_equities_memo_sbe_v1_13.unsequenced_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memo_sbe_v1_13.unsequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.unsequenced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.unsequenced_message, buffer(offset, 0))
+    local index = n24x_equities_memo_sbe_v1_13.unsequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memo_sbe_v1_13.unsequenced_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memo_sbe_v1_13.unsequenced_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memo_sbe_v1_13.unsequenced_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Stream Request Message
@@ -6944,12 +7013,6 @@ end
 
 -- Dissect: Data
 n24x_equities_memo_sbe_v1_13.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = n24x_equities_memo_sbe_v1_13.data.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return n24x_equities_memo_sbe_v1_13.data.branches(buffer, offset, packet, parent, message_type)
 end
 

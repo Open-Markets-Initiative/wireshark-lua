@@ -1106,12 +1106,6 @@ end
 
 -- Dissect: Control Payload
 finra_otc_bbds_dfi_v2018_1a.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = finra_otc_bbds_dfi_v2018_1a.control_payload.size(buffer, offset, control_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return finra_otc_bbds_dfi_v2018_1a.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
 
@@ -1203,15 +1197,20 @@ end
 
 -- Dissect: Control
 finra_otc_bbds_dfi_v2018_1a.control.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.control then
-    local length = finra_otc_bbds_dfi_v2018_1a.control.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_otc_bbds_dfi_v2018_1a.control.display(buffer, packet, parent)
-    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.control, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.control, buffer(offset, 0))
+    local index = finra_otc_bbds_dfi_v2018_1a.control.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_otc_bbds_dfi_v2018_1a.control.display(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_otc_bbds_dfi_v2018_1a.control.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return finra_otc_bbds_dfi_v2018_1a.control.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Reason Code
@@ -1509,12 +1508,6 @@ end
 
 -- Dissect: Administrative Payload
 finra_otc_bbds_dfi_v2018_1a.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = finra_otc_bbds_dfi_v2018_1a.administrative_payload.size(buffer, offset, administrative_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return finra_otc_bbds_dfi_v2018_1a.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
 
@@ -1585,15 +1578,20 @@ end
 
 -- Dissect: Administrative
 finra_otc_bbds_dfi_v2018_1a.administrative.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.administrative then
-    local length = finra_otc_bbds_dfi_v2018_1a.administrative.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_otc_bbds_dfi_v2018_1a.administrative.display(buffer, packet, parent)
-    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative, buffer(offset, 0))
+    local index = finra_otc_bbds_dfi_v2018_1a.administrative.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_otc_bbds_dfi_v2018_1a.administrative.display(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_otc_bbds_dfi_v2018_1a.administrative.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return finra_otc_bbds_dfi_v2018_1a.administrative.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Inside Ask Size
@@ -2433,15 +2431,20 @@ end
 
 -- Dissect: Market Participant Quote Update Message
 finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.market_participant_quote_update_message then
-    local length = finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.display(buffer, packet, parent)
-    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_update_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_update_message, buffer(offset, 0))
+    local index = finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quotation Payload
@@ -2469,12 +2472,6 @@ end
 
 -- Dissect: Quotation Payload
 finra_otc_bbds_dfi_v2018_1a.quotation_payload.dissect = function(buffer, offset, packet, parent, quotation_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = finra_otc_bbds_dfi_v2018_1a.quotation_payload.size(buffer, offset, quotation_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return finra_otc_bbds_dfi_v2018_1a.quotation_payload.branches(buffer, offset, packet, parent, quotation_message_type)
 end
 
@@ -2542,15 +2539,20 @@ end
 
 -- Dissect: Quotation
 finra_otc_bbds_dfi_v2018_1a.quotation.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quotation then
-    local length = finra_otc_bbds_dfi_v2018_1a.quotation.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_otc_bbds_dfi_v2018_1a.quotation.display(buffer, packet, parent)
-    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation, buffer(offset, 0))
+    local index = finra_otc_bbds_dfi_v2018_1a.quotation.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_otc_bbds_dfi_v2018_1a.quotation.display(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_otc_bbds_dfi_v2018_1a.quotation.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return finra_otc_bbds_dfi_v2018_1a.quotation.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -2594,12 +2596,6 @@ end
 
 -- Dissect: Payload
 finra_otc_bbds_dfi_v2018_1a.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Calculate size and check that branch is not empty
-  local size = finra_otc_bbds_dfi_v2018_1a.payload.size(buffer, offset, message_category)
-  if size == 0 then
-    return offset
-  end
-
   return finra_otc_bbds_dfi_v2018_1a.payload.branches(buffer, offset, packet, parent, message_category)
 end
 
@@ -2678,15 +2674,20 @@ end
 
 -- Dissect: Message
 finra_otc_bbds_dfi_v2018_1a.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = finra_otc_bbds_dfi_v2018_1a.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_otc_bbds_dfi_v2018_1a.message.display(buffer, packet, parent)
-    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message, buffer(offset, 0))
+    local index = finra_otc_bbds_dfi_v2018_1a.message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_otc_bbds_dfi_v2018_1a.message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_otc_bbds_dfi_v2018_1a.message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return finra_otc_bbds_dfi_v2018_1a.message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Block Soh

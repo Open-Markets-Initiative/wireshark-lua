@@ -684,15 +684,20 @@ end
 
 -- Dissect: Market Alert Message
 hkex_derivatives_fulltick_omd_v1_47.market_alert_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.market_alert_message then
-    local length = hkex_derivatives_fulltick_omd_v1_47.market_alert_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = hkex_derivatives_fulltick_omd_v1_47.market_alert_message.display(buffer, packet, parent)
-    parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_alert_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_alert_message, buffer(offset, 0))
+    local index = hkex_derivatives_fulltick_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_fulltick_omd_v1_47.market_alert_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return hkex_derivatives_fulltick_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_fulltick_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculated Opening Quantity
@@ -4851,12 +4856,6 @@ end
 
 -- Dissect: Payload
 hkex_derivatives_fulltick_omd_v1_47.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Calculate size and check that branch is not empty
-  local size = hkex_derivatives_fulltick_omd_v1_47.payload.size(buffer, offset, msg_type)
-  if size == 0 then
-    return offset
-  end
-
   return hkex_derivatives_fulltick_omd_v1_47.payload.branches(buffer, offset, packet, parent, msg_type)
 end
 

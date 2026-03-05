@@ -1490,15 +1490,20 @@ end
 
 -- Dissect: Response Legs Groups
 cme_futures_ilink3_sbe_v8_4.response_legs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.response_legs_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.response_legs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.response_legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.response_legs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.response_legs_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.response_legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.response_legs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.response_legs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.response_legs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Poss Retrans Flag
@@ -2687,15 +2692,20 @@ end
 
 -- Dissect: Security Definition Response
 cme_futures_ilink3_sbe_v8_4.security_definition_response.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.security_definition_response then
-    local length = cme_futures_ilink3_sbe_v8_4.security_definition_response.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.security_definition_response.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.security_definition_response, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.security_definition_response, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.security_definition_response.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.security_definition_response.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.security_definition_response.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.security_definition_response.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Request Legs Group
@@ -2801,15 +2811,20 @@ end
 
 -- Dissect: Request Legs Groups
 cme_futures_ilink3_sbe_v8_4.request_legs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.request_legs_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.request_legs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.request_legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.request_legs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.request_legs_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.request_legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.request_legs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.request_legs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.request_legs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Sub Type
@@ -2979,15 +2994,20 @@ end
 
 -- Dissect: Security Definition Request
 cme_futures_ilink3_sbe_v8_4.security_definition_request.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.security_definition_request then
-    local length = cme_futures_ilink3_sbe_v8_4.security_definition_request.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.security_definition_request.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.security_definition_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.security_definition_request, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.security_definition_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.security_definition_request.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.security_definition_request.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.security_definition_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Cxl Quantity
@@ -3170,15 +3190,20 @@ end
 
 -- Dissect: Order Mass Action Report 558 No Affected Orders Groups
 cme_futures_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_mass_action_report_558_no_affected_orders_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.order_mass_action_report_558_no_affected_orders_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.order_mass_action_report_558_no_affected_orders_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Delay To Time
@@ -3802,15 +3827,20 @@ end
 
 -- Dissect: Order Mass Action Report
 cme_futures_ilink3_sbe_v8_4.order_mass_action_report.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_mass_action_report then
-    local length = cme_futures_ilink3_sbe_v8_4.order_mass_action_report.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.order_mass_action_report.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.order_mass_action_report, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.order_mass_action_report, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.order_mass_action_report.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.order_mass_action_report.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.order_mass_action_report.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.order_mass_action_report.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Original Order Event Exec Id
@@ -4125,15 +4155,20 @@ end
 
 -- Dissect: Spread Trade Events Groups
 cme_futures_ilink3_sbe_v8_4.spread_trade_events_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.spread_trade_events_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.spread_trade_events_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.spread_trade_events_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.spread_trade_events_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.spread_trade_events_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.spread_trade_events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.spread_trade_events_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.spread_trade_events_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.spread_trade_events_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Fill Yield Type
@@ -4349,15 +4384,20 @@ end
 
 -- Dissect: Fills Groups
 cme_futures_ilink3_sbe_v8_4.fills_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.fills_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.fills_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.fills_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.fills_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.fills_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.fills_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.fills_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.fills_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.fills_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Exec Type
@@ -4896,15 +4936,20 @@ end
 
 -- Dissect: Execution Report Trade Addendum Spread Leg
 cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread_leg.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_addendum_spread_leg then
-    local length = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread_leg.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread_leg.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_addendum_spread_leg, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_addendum_spread_leg, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread_leg.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread_leg.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread_leg.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread_leg.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Leg Last Qty
@@ -5176,15 +5221,20 @@ end
 
 -- Dissect: Trade Addendum Legs Groups
 cme_futures_ilink3_sbe_v8_4.trade_addendum_legs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade_addendum_legs_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.trade_addendum_legs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.trade_addendum_legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.trade_addendum_legs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.trade_addendum_legs_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.trade_addendum_legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.trade_addendum_legs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.trade_addendum_legs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.trade_addendum_legs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Short Sale Type
@@ -5710,15 +5760,20 @@ end
 
 -- Dissect: Execution Report Trade Addendum Spread
 cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_addendum_spread then
-    local length = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_addendum_spread, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_addendum_spread, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_spread.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Outright Trade Events Group
@@ -5832,15 +5887,20 @@ end
 
 -- Dissect: Outright Trade Events Groups
 cme_futures_ilink3_sbe_v8_4.outright_trade_events_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.outright_trade_events_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.outright_trade_events_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.outright_trade_events_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.outright_trade_events_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.outright_trade_events_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.outright_trade_events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.outright_trade_events_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.outright_trade_events_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.outright_trade_events_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Execution Report Trade Addendum Outright
@@ -6017,15 +6077,20 @@ end
 
 -- Dissect: Execution Report Trade Addendum Outright
 cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_outright.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_addendum_outright then
-    local length = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_outright.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_outright.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_addendum_outright, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_addendum_outright, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_outright.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_outright.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_outright.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.execution_report_trade_addendum_outright.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Error Code
@@ -6165,15 +6230,20 @@ end
 
 -- Dissect: Quote Cancel Ack 547 No Quote Sets Groups
 cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_cancel_ack_547_no_quote_sets_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_sets_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_sets_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Entry Reject Reason
@@ -6317,15 +6387,20 @@ end
 
 -- Dissect: Quote Cancel Ack 547 No Quote Entries Groups
 cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_cancel_ack_547_no_quote_entries_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_entries_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Tot No Quote Entries Optional
@@ -6741,15 +6816,20 @@ end
 
 -- Dissect: Quote Cancel Ack
 cme_futures_ilink3_sbe_v8_4.quote_cancel_ack.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_cancel_ack then
-    local length = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_ack, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_ack, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel_ack.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.quote_cancel_ack.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.quote_cancel_ack.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Ack Status
@@ -7047,15 +7127,20 @@ end
 
 -- Dissect: Quote Ack Entries Groups
 cme_futures_ilink3_sbe_v8_4.quote_ack_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_ack_entries_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.quote_ack_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.quote_ack_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_ack_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_ack_entries_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.quote_ack_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.quote_ack_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.quote_ack_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.quote_ack_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Req Id Optional
@@ -7225,15 +7310,20 @@ end
 
 -- Dissect: Mass Quote Ack
 cme_futures_ilink3_sbe_v8_4.mass_quote_ack.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.mass_quote_ack then
-    local length = cme_futures_ilink3_sbe_v8_4.mass_quote_ack.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.mass_quote_ack.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.mass_quote_ack, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.mass_quote_ack, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.mass_quote_ack.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.mass_quote_ack.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.mass_quote_ack.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.mass_quote_ack.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Side Time In Force
@@ -7392,15 +7482,20 @@ end
 
 -- Dissect: Sides Groups
 cme_futures_ilink3_sbe_v8_4.sides_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.sides_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.sides_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.sides_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.sides_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.sides_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.sides_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.sides_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.sides_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.sides_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trans Bkd Time
@@ -7557,15 +7652,20 @@ end
 
 -- Dissect: New Order Cross
 cme_futures_ilink3_sbe_v8_4.new_order_cross.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_order_cross then
-    local length = cme_futures_ilink3_sbe_v8_4.new_order_cross.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.new_order_cross.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.new_order_cross, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.new_order_cross, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.new_order_cross.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.new_order_cross.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.new_order_cross.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.new_order_cross.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Rfq Side
@@ -7727,15 +7827,20 @@ end
 
 -- Dissect: Related Sym Groups
 cme_futures_ilink3_sbe_v8_4.related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.related_sym_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.related_sym_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.related_sym_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.related_sym_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.related_sym_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.related_sym_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.related_sym_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.related_sym_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.related_sym_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Type
@@ -7837,15 +7942,20 @@ end
 
 -- Dissect: Request For Quote
 cme_futures_ilink3_sbe_v8_4.request_for_quote.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.request_for_quote then
-    local length = cme_futures_ilink3_sbe_v8_4.request_for_quote.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.request_for_quote.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.request_for_quote, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.request_for_quote, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.request_for_quote.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.request_for_quote.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.request_for_quote.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.request_for_quote.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dk Reason
@@ -8160,15 +8270,20 @@ end
 
 -- Dissect: Trd Reg Publications Groups
 cme_futures_ilink3_sbe_v8_4.trd_reg_publications_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trd_reg_publications_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.trd_reg_publications_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.trd_reg_publications_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.trd_reg_publications_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.trd_reg_publications_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.trd_reg_publications_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.trd_reg_publications_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.trd_reg_publications_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.trd_reg_publications_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Party Detail Role
@@ -8340,15 +8455,20 @@ end
 
 -- Dissect: Party Details Groups
 cme_futures_ilink3_sbe_v8_4.party_details_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.party_details_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.party_details_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.party_details_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_details_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_details_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.party_details_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.party_details_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.party_details_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.party_details_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Idm Short Code
@@ -8977,15 +9097,20 @@ end
 
 -- Dissect: Party Details List Report
 cme_futures_ilink3_sbe_v8_4.party_details_list_report.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.party_details_list_report then
-    local length = cme_futures_ilink3_sbe_v8_4.party_details_list_report.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.party_details_list_report.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_details_list_report, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_details_list_report, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.party_details_list_report.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.party_details_list_report.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.party_details_list_report.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.party_details_list_report.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Party Role
@@ -9165,15 +9290,20 @@ end
 
 -- Dissect: Party Ids Groups
 cme_futures_ilink3_sbe_v8_4.party_ids_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.party_ids_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.party_ids_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.party_ids_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_ids_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_ids_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.party_ids_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.party_ids_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.party_ids_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.party_ids_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Requesting Party Role
@@ -9382,15 +9512,20 @@ end
 
 -- Dissect: Requesting Party Ids Groups
 cme_futures_ilink3_sbe_v8_4.requesting_party_ids_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.requesting_party_ids_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.requesting_party_ids_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.requesting_party_ids_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.requesting_party_ids_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.requesting_party_ids_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.requesting_party_ids_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.requesting_party_ids_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.requesting_party_ids_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.requesting_party_ids_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Party Details List Request
@@ -9442,15 +9577,20 @@ end
 
 -- Dissect: Party Details List Request
 cme_futures_ilink3_sbe_v8_4.party_details_list_request.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.party_details_list_request then
-    local length = cme_futures_ilink3_sbe_v8_4.party_details_list_request.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.party_details_list_request.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_details_list_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_details_list_request, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.party_details_list_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.party_details_list_request.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.party_details_list_request.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.party_details_list_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Cxl Rej Reason
@@ -11338,15 +11478,20 @@ end
 
 -- Dissect: Quote Cancel Sets Groups
 cme_futures_ilink3_sbe_v8_4.quote_cancel_sets_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_cancel_sets_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.quote_cancel_sets_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel_sets_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_sets_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_sets_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.quote_cancel_sets_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel_sets_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.quote_cancel_sets_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.quote_cancel_sets_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Cancel Entries Group
@@ -11440,15 +11585,20 @@ end
 
 -- Dissect: Quote Cancel Entries Groups
 cme_futures_ilink3_sbe_v8_4.quote_cancel_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_cancel_entries_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.quote_cancel_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_entries_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.quote_cancel_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.quote_cancel_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.quote_cancel_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Cancel Type
@@ -11566,15 +11716,20 @@ end
 
 -- Dissect: Quote Cancel
 cme_futures_ilink3_sbe_v8_4.quote_cancel.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_cancel then
-    local length = cme_futures_ilink3_sbe_v8_4.quote_cancel.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_cancel, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.quote_cancel.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.quote_cancel.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.quote_cancel.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.quote_cancel.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Order Event Type
@@ -11717,15 +11872,20 @@ end
 
 -- Dissect: Spread Order Events Groups
 cme_futures_ilink3_sbe_v8_4.spread_order_events_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.spread_order_events_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.spread_order_events_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.spread_order_events_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.spread_order_events_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.spread_order_events_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.spread_order_events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.spread_order_events_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.spread_order_events_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.spread_order_events_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Ord Status Trd
@@ -12193,15 +12353,20 @@ end
 
 -- Dissect: Execution Report Trade Spread Leg
 cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread_leg.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_spread_leg then
-    local length = cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread_leg.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread_leg.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_spread_leg, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_spread_leg, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread_leg.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread_leg.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread_leg.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread_leg.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trade Legs Group
@@ -12311,15 +12476,20 @@ end
 
 -- Dissect: Trade Legs Groups
 cme_futures_ilink3_sbe_v8_4.trade_legs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade_legs_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.trade_legs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.trade_legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.trade_legs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.trade_legs_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.trade_legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.trade_legs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.trade_legs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.trade_legs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Aggressor Indicator
@@ -12586,15 +12756,20 @@ end
 
 -- Dissect: Execution Report Trade Spread
 cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_spread then
-    local length = cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_spread, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_spread, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.execution_report_trade_spread.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Outright Order Events Group
@@ -12704,15 +12879,20 @@ end
 
 -- Dissect: Outright Order Events Groups
 cme_futures_ilink3_sbe_v8_4.outright_order_events_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.outright_order_events_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.outright_order_events_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.outright_order_events_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.outright_order_events_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.outright_order_events_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.outright_order_events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.outright_order_events_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.outright_order_events_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.outright_order_events_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Ownership
@@ -13005,15 +13185,20 @@ end
 
 -- Dissect: Execution Report Trade Outright
 cme_futures_ilink3_sbe_v8_4.execution_report_trade_outright.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_outright then
-    local length = cme_futures_ilink3_sbe_v8_4.execution_report_trade_outright.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_outright.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_outright, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.execution_report_trade_outright, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.execution_report_trade_outright.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.execution_report_trade_outright.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.execution_report_trade_outright.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.execution_report_trade_outright.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Execution Report Elimination
@@ -14164,15 +14349,20 @@ end
 
 -- Dissect: Party Details Definition Request Ack
 cme_futures_ilink3_sbe_v8_4.party_details_definition_request_ack.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.party_details_definition_request_ack then
-    local length = cme_futures_ilink3_sbe_v8_4.party_details_definition_request_ack.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.party_details_definition_request_ack.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_details_definition_request_ack, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_details_definition_request_ack, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.party_details_definition_request_ack.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.party_details_definition_request_ack.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.party_details_definition_request_ack.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.party_details_definition_request_ack.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Party Details Definition Request
@@ -14289,15 +14479,20 @@ end
 
 -- Dissect: Party Details Definition Request
 cme_futures_ilink3_sbe_v8_4.party_details_definition_request.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.party_details_definition_request then
-    local length = cme_futures_ilink3_sbe_v8_4.party_details_definition_request.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.party_details_definition_request.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_details_definition_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.party_details_definition_request, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.party_details_definition_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.party_details_definition_request.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.party_details_definition_request.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.party_details_definition_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Underlying Security Id
@@ -14521,15 +14716,20 @@ end
 
 -- Dissect: Quote Entries Groups
 cme_futures_ilink3_sbe_v8_4.quote_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_entries_groups then
-    local length = cme_futures_ilink3_sbe_v8_4.quote_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.quote_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.quote_entries_groups, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.quote_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.quote_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.quote_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.quote_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Tot No Quote Entries
@@ -14644,15 +14844,20 @@ end
 
 -- Dissect: Mass Quote
 cme_futures_ilink3_sbe_v8_4.mass_quote.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.mass_quote then
-    local length = cme_futures_ilink3_sbe_v8_4.mass_quote.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.mass_quote.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.mass_quote, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.mass_quote, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.mass_quote.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.mass_quote.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.mass_quote.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.mass_quote.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Order Cancel Request
@@ -16380,15 +16585,20 @@ end
 
 -- Dissect: Establish
 cme_futures_ilink3_sbe_v8_4.establish.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.establish then
-    local length = cme_futures_ilink3_sbe_v8_4.establish.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.establish.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.establish, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.establish, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.establish.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.establish.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.establish.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.establish.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Negotiation Reject
@@ -16515,15 +16725,20 @@ end
 
 -- Dissect: Negotiation Response
 cme_futures_ilink3_sbe_v8_4.negotiation_response.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.negotiation_response then
-    local length = cme_futures_ilink3_sbe_v8_4.negotiation_response.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.negotiation_response.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.negotiation_response, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.negotiation_response, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.negotiation_response.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.negotiation_response.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.negotiation_response.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.negotiation_response.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Negotiate
@@ -16585,15 +16800,20 @@ end
 
 -- Dissect: Negotiate
 cme_futures_ilink3_sbe_v8_4.negotiate.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.negotiate then
-    local length = cme_futures_ilink3_sbe_v8_4.negotiate.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_4.negotiate.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.negotiate, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.negotiate, buffer(offset, 0))
+    local index = cme_futures_ilink3_sbe_v8_4.negotiate.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_4.negotiate.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_4.negotiate.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_4.negotiate.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -16997,12 +17217,6 @@ end
 
 -- Dissect: Payload
 cme_futures_ilink3_sbe_v8_4.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = cme_futures_ilink3_sbe_v8_4.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return cme_futures_ilink3_sbe_v8_4.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

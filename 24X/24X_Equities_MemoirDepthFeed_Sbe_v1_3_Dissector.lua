@@ -1705,12 +1705,6 @@ end
 
 -- Dissect: Payload
 n24x_equities_memoirdepthfeed_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = n24x_equities_memoirdepthfeed_sbe_v1_3.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return n24x_equities_memoirdepthfeed_sbe_v1_3.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
@@ -2096,15 +2090,20 @@ end
 
 -- Dissect: Sequenced Message
 n24x_equities_memoirdepthfeed_sbe_v1_3.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.sequenced_message then
-    local length = n24x_equities_memoirdepthfeed_sbe_v1_3.sequenced_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = n24x_equities_memoirdepthfeed_sbe_v1_3.sequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_n24x_equities_memoirdepthfeed_sbe_v1_3.fields.sequenced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_n24x_equities_memoirdepthfeed_sbe_v1_3.fields.sequenced_message, buffer(offset, 0))
+    local index = n24x_equities_memoirdepthfeed_sbe_v1_3.sequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = n24x_equities_memoirdepthfeed_sbe_v1_3.sequenced_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return n24x_equities_memoirdepthfeed_sbe_v1_3.sequenced_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return n24x_equities_memoirdepthfeed_sbe_v1_3.sequenced_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Sequenced Messages
@@ -2132,12 +2131,6 @@ end
 
 -- Dissect: Sequenced Messages
 n24x_equities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = n24x_equities_memoirdepthfeed_sbe_v1_3.sequenced_messages.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return n24x_equities_memoirdepthfeed_sbe_v1_3.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
 end
 

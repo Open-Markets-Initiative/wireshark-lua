@@ -1510,20 +1510,24 @@ eurex_derivatives_eti_t7_v5_0.user_logout_response.fields = function(buffer, off
 end
 
 -- Dissect: User Logout Response
-eurex_derivatives_eti_t7_v5_0.user_logout_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_user_logout_response = eurex_derivatives_eti_t7_v5_0.user_logout_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.user_logout_response.dissect = function(buffer, offset, packet, parent, size_of_user_logout_response)
+  local index = offset + size_of_user_logout_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.user_logout_response then
-    local range = buffer(offset, size_of_user_logout_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.user_logout_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.user_logout_response.fields(buffer, offset, packet, parent, size_of_user_logout_response)
+    parent:set_len(size_of_user_logout_response)
     local display = eurex_derivatives_eti_t7_v5_0.user_logout_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.user_logout_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.user_logout_response.fields(buffer, offset, packet, parent, size_of_user_logout_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.user_logout_response.fields(buffer, offset, packet, parent, size_of_user_logout_response)
-
-  return offset + size_of_user_logout_response
 end
 
 -- Username
@@ -1695,20 +1699,24 @@ eurex_derivatives_eti_t7_v5_0.user_logout_request.fields = function(buffer, offs
 end
 
 -- Dissect: User Logout Request
-eurex_derivatives_eti_t7_v5_0.user_logout_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_user_logout_request = eurex_derivatives_eti_t7_v5_0.user_logout_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.user_logout_request.dissect = function(buffer, offset, packet, parent, size_of_user_logout_request)
+  local index = offset + size_of_user_logout_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.user_logout_request then
-    local range = buffer(offset, size_of_user_logout_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.user_logout_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
+    parent:set_len(size_of_user_logout_request)
     local display = eurex_derivatives_eti_t7_v5_0.user_logout_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.user_logout_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
-
-  return offset + size_of_user_logout_request
 end
 
 -- User Login Response
@@ -1743,20 +1751,24 @@ eurex_derivatives_eti_t7_v5_0.user_login_response.fields = function(buffer, offs
 end
 
 -- Dissect: User Login Response
-eurex_derivatives_eti_t7_v5_0.user_login_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_user_login_response = eurex_derivatives_eti_t7_v5_0.user_login_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.user_login_response.dissect = function(buffer, offset, packet, parent, size_of_user_login_response)
+  local index = offset + size_of_user_login_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.user_login_response then
-    local range = buffer(offset, size_of_user_login_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.user_login_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.user_login_response.fields(buffer, offset, packet, parent, size_of_user_login_response)
+    parent:set_len(size_of_user_login_response)
     local display = eurex_derivatives_eti_t7_v5_0.user_login_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.user_login_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.user_login_response.fields(buffer, offset, packet, parent, size_of_user_login_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.user_login_response.fields(buffer, offset, packet, parent, size_of_user_login_response)
-
-  return offset + size_of_user_login_response
 end
 
 -- Password
@@ -1842,20 +1854,24 @@ eurex_derivatives_eti_t7_v5_0.user_login_request.fields = function(buffer, offse
 end
 
 -- Dissect: User Login Request
-eurex_derivatives_eti_t7_v5_0.user_login_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_user_login_request = eurex_derivatives_eti_t7_v5_0.user_login_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.user_login_request.dissect = function(buffer, offset, packet, parent, size_of_user_login_request)
+  local index = offset + size_of_user_login_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.user_login_request then
-    local range = buffer(offset, size_of_user_login_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.user_login_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
+    parent:set_len(size_of_user_login_request)
     local display = eurex_derivatives_eti_t7_v5_0.user_login_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.user_login_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
-
-  return offset + size_of_user_login_request
 end
 
 -- Pad 1
@@ -4121,20 +4137,24 @@ eurex_derivatives_eti_t7_v5_0.upload_tes_trade_request.fields = function(buffer,
 end
 
 -- Dissect: Upload Tes Trade Request
-eurex_derivatives_eti_t7_v5_0.upload_tes_trade_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_upload_tes_trade_request = eurex_derivatives_eti_t7_v5_0.upload_tes_trade_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.upload_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
+  local index = offset + size_of_upload_tes_trade_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.upload_tes_trade_request then
-    local range = buffer(offset, size_of_upload_tes_trade_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.upload_tes_trade_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.upload_tes_trade_request.fields(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
+    parent:set_len(size_of_upload_tes_trade_request)
     local display = eurex_derivatives_eti_t7_v5_0.upload_tes_trade_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.upload_tes_trade_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.upload_tes_trade_request.fields(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.upload_tes_trade_request.fields(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
-
-  return offset + size_of_upload_tes_trade_request
 end
 
 -- Unsubscribe Response
@@ -4169,20 +4189,24 @@ eurex_derivatives_eti_t7_v5_0.unsubscribe_response.fields = function(buffer, off
 end
 
 -- Dissect: Unsubscribe Response
-eurex_derivatives_eti_t7_v5_0.unsubscribe_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_unsubscribe_response = eurex_derivatives_eti_t7_v5_0.unsubscribe_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.unsubscribe_response.dissect = function(buffer, offset, packet, parent, size_of_unsubscribe_response)
+  local index = offset + size_of_unsubscribe_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.unsubscribe_response then
-    local range = buffer(offset, size_of_unsubscribe_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.unsubscribe_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.unsubscribe_response.fields(buffer, offset, packet, parent, size_of_unsubscribe_response)
+    parent:set_len(size_of_unsubscribe_response)
     local display = eurex_derivatives_eti_t7_v5_0.unsubscribe_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.unsubscribe_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.unsubscribe_response.fields(buffer, offset, packet, parent, size_of_unsubscribe_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.unsubscribe_response.fields(buffer, offset, packet, parent, size_of_unsubscribe_response)
-
-  return offset + size_of_unsubscribe_response
 end
 
 -- Ref Appl Sub Id
@@ -4254,20 +4278,24 @@ eurex_derivatives_eti_t7_v5_0.unsubscribe_request.fields = function(buffer, offs
 end
 
 -- Dissect: Unsubscribe Request
-eurex_derivatives_eti_t7_v5_0.unsubscribe_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_unsubscribe_request = eurex_derivatives_eti_t7_v5_0.unsubscribe_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.unsubscribe_request.dissect = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
+  local index = offset + size_of_unsubscribe_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.unsubscribe_request then
-    local range = buffer(offset, size_of_unsubscribe_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.unsubscribe_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
+    parent:set_len(size_of_unsubscribe_request)
     local display = eurex_derivatives_eti_t7_v5_0.unsubscribe_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.unsubscribe_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
-
-  return offset + size_of_unsubscribe_request
 end
 
 -- Ref Appl Last Msg Id
@@ -4748,20 +4776,24 @@ eurex_derivatives_eti_t7_v5_0.trading_session_status_broadcast.fields = function
 end
 
 -- Dissect: Trading Session Status Broadcast
-eurex_derivatives_eti_t7_v5_0.trading_session_status_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_trading_session_status_broadcast = eurex_derivatives_eti_t7_v5_0.trading_session_status_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.trading_session_status_broadcast.dissect = function(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
+  local index = offset + size_of_trading_session_status_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.trading_session_status_broadcast then
-    local range = buffer(offset, size_of_trading_session_status_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.trading_session_status_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
+    parent:set_len(size_of_trading_session_status_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.trading_session_status_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.trading_session_status_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
-
-  return offset + size_of_trading_session_status_broadcast
 end
 
 -- Root Party Clearing Firm
@@ -6337,20 +6369,24 @@ eurex_derivatives_eti_t7_v5_0.trade_broadcast.fields = function(buffer, offset, 
 end
 
 -- Dissect: Trade Broadcast
-eurex_derivatives_eti_t7_v5_0.trade_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_trade_broadcast = eurex_derivatives_eti_t7_v5_0.trade_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.trade_broadcast.dissect = function(buffer, offset, packet, parent, size_of_trade_broadcast)
+  local index = offset + size_of_trade_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.trade_broadcast then
-    local range = buffer(offset, size_of_trade_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.trade_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.trade_broadcast.fields(buffer, offset, packet, parent, size_of_trade_broadcast)
+    parent:set_len(size_of_trade_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.trade_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.trade_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.trade_broadcast.fields(buffer, offset, packet, parent, size_of_trade_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.trade_broadcast.fields(buffer, offset, packet, parent, size_of_trade_broadcast)
-
-  return offset + size_of_trade_broadcast
 end
 
 -- Throttle Disconnect Limit
@@ -6518,20 +6554,24 @@ eurex_derivatives_eti_t7_v5_0.throttle_update_notification.fields = function(buf
 end
 
 -- Dissect: Throttle Update Notification
-eurex_derivatives_eti_t7_v5_0.throttle_update_notification.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_throttle_update_notification = eurex_derivatives_eti_t7_v5_0.throttle_update_notification.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.throttle_update_notification.dissect = function(buffer, offset, packet, parent, size_of_throttle_update_notification)
+  local index = offset + size_of_throttle_update_notification
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.throttle_update_notification then
-    local range = buffer(offset, size_of_throttle_update_notification)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.throttle_update_notification, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.throttle_update_notification.fields(buffer, offset, packet, parent, size_of_throttle_update_notification)
+    parent:set_len(size_of_throttle_update_notification)
     local display = eurex_derivatives_eti_t7_v5_0.throttle_update_notification.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.throttle_update_notification, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.throttle_update_notification.fields(buffer, offset, packet, parent, size_of_throttle_update_notification)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.throttle_update_notification.fields(buffer, offset, packet, parent, size_of_throttle_update_notification)
-
-  return offset + size_of_throttle_update_notification
 end
 
 -- Tm Trading Session Status Broadcast
@@ -6572,20 +6612,24 @@ eurex_derivatives_eti_t7_v5_0.tm_trading_session_status_broadcast.fields = funct
 end
 
 -- Dissect: Tm Trading Session Status Broadcast
-eurex_derivatives_eti_t7_v5_0.tm_trading_session_status_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tm_trading_session_status_broadcast = eurex_derivatives_eti_t7_v5_0.tm_trading_session_status_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.tm_trading_session_status_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
+  local index = offset + size_of_tm_trading_session_status_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tm_trading_session_status_broadcast then
-    local range = buffer(offset, size_of_tm_trading_session_status_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tm_trading_session_status_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.tm_trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
+    parent:set_len(size_of_tm_trading_session_status_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.tm_trading_session_status_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tm_trading_session_status_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.tm_trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.tm_trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
-
-  return offset + size_of_tm_trading_session_status_broadcast
 end
 
 -- Message Event Source
@@ -6841,20 +6885,24 @@ eurex_derivatives_eti_t7_v5_0.tes_upload_broadcast.fields = function(buffer, off
 end
 
 -- Dissect: Tes Upload Broadcast
-eurex_derivatives_eti_t7_v5_0.tes_upload_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tes_upload_broadcast = eurex_derivatives_eti_t7_v5_0.tes_upload_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.tes_upload_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_upload_broadcast)
+  local index = offset + size_of_tes_upload_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tes_upload_broadcast then
-    local range = buffer(offset, size_of_tes_upload_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_upload_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.tes_upload_broadcast.fields(buffer, offset, packet, parent, size_of_tes_upload_broadcast)
+    parent:set_len(size_of_tes_upload_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.tes_upload_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_upload_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.tes_upload_broadcast.fields(buffer, offset, packet, parent, size_of_tes_upload_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.tes_upload_broadcast.fields(buffer, offset, packet, parent, size_of_tes_upload_broadcast)
-
-  return offset + size_of_tes_upload_broadcast
 end
 
 -- Tes Trading Session Status Broadcast
@@ -6898,20 +6946,24 @@ eurex_derivatives_eti_t7_v5_0.tes_trading_session_status_broadcast.fields = func
 end
 
 -- Dissect: Tes Trading Session Status Broadcast
-eurex_derivatives_eti_t7_v5_0.tes_trading_session_status_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tes_trading_session_status_broadcast = eurex_derivatives_eti_t7_v5_0.tes_trading_session_status_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.tes_trading_session_status_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_trading_session_status_broadcast)
+  local index = offset + size_of_tes_trading_session_status_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tes_trading_session_status_broadcast then
-    local range = buffer(offset, size_of_tes_trading_session_status_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_trading_session_status_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.tes_trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_tes_trading_session_status_broadcast)
+    parent:set_len(size_of_tes_trading_session_status_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.tes_trading_session_status_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_trading_session_status_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.tes_trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_tes_trading_session_status_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.tes_trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_tes_trading_session_status_broadcast)
-
-  return offset + size_of_tes_trading_session_status_broadcast
 end
 
 -- Tes Trade Broadcast
@@ -7075,20 +7127,24 @@ eurex_derivatives_eti_t7_v5_0.tes_trade_broadcast.fields = function(buffer, offs
 end
 
 -- Dissect: Tes Trade Broadcast
-eurex_derivatives_eti_t7_v5_0.tes_trade_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tes_trade_broadcast = eurex_derivatives_eti_t7_v5_0.tes_trade_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.tes_trade_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_trade_broadcast)
+  local index = offset + size_of_tes_trade_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tes_trade_broadcast then
-    local range = buffer(offset, size_of_tes_trade_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_trade_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.tes_trade_broadcast.fields(buffer, offset, packet, parent, size_of_tes_trade_broadcast)
+    parent:set_len(size_of_tes_trade_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.tes_trade_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_trade_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.tes_trade_broadcast.fields(buffer, offset, packet, parent, size_of_tes_trade_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.tes_trade_broadcast.fields(buffer, offset, packet, parent, size_of_tes_trade_broadcast)
-
-  return offset + size_of_tes_trade_broadcast
 end
 
 -- Tes Response
@@ -7129,20 +7185,24 @@ eurex_derivatives_eti_t7_v5_0.tes_response.fields = function(buffer, offset, pac
 end
 
 -- Dissect: Tes Response
-eurex_derivatives_eti_t7_v5_0.tes_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tes_response = eurex_derivatives_eti_t7_v5_0.tes_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.tes_response.dissect = function(buffer, offset, packet, parent, size_of_tes_response)
+  local index = offset + size_of_tes_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tes_response then
-    local range = buffer(offset, size_of_tes_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.tes_response.fields(buffer, offset, packet, parent, size_of_tes_response)
+    parent:set_len(size_of_tes_response)
     local display = eurex_derivatives_eti_t7_v5_0.tes_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.tes_response.fields(buffer, offset, packet, parent, size_of_tes_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.tes_response.fields(buffer, offset, packet, parent, size_of_tes_response)
-
-  return offset + size_of_tes_response
 end
 
 -- Alloc Id
@@ -7232,20 +7292,24 @@ eurex_derivatives_eti_t7_v5_0.tes_execution_broadcast.fields = function(buffer, 
 end
 
 -- Dissect: Tes Execution Broadcast
-eurex_derivatives_eti_t7_v5_0.tes_execution_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tes_execution_broadcast = eurex_derivatives_eti_t7_v5_0.tes_execution_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.tes_execution_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_execution_broadcast)
+  local index = offset + size_of_tes_execution_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tes_execution_broadcast then
-    local range = buffer(offset, size_of_tes_execution_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_execution_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.tes_execution_broadcast.fields(buffer, offset, packet, parent, size_of_tes_execution_broadcast)
+    parent:set_len(size_of_tes_execution_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.tes_execution_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_execution_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.tes_execution_broadcast.fields(buffer, offset, packet, parent, size_of_tes_execution_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.tes_execution_broadcast.fields(buffer, offset, packet, parent, size_of_tes_execution_broadcast)
-
-  return offset + size_of_tes_execution_broadcast
 end
 
 -- Delete Reason
@@ -7358,20 +7422,24 @@ eurex_derivatives_eti_t7_v5_0.tes_delete_broadcast.fields = function(buffer, off
 end
 
 -- Dissect: Tes Delete Broadcast
-eurex_derivatives_eti_t7_v5_0.tes_delete_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tes_delete_broadcast = eurex_derivatives_eti_t7_v5_0.tes_delete_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.tes_delete_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_delete_broadcast)
+  local index = offset + size_of_tes_delete_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tes_delete_broadcast then
-    local range = buffer(offset, size_of_tes_delete_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_delete_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.tes_delete_broadcast.fields(buffer, offset, packet, parent, size_of_tes_delete_broadcast)
+    parent:set_len(size_of_tes_delete_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.tes_delete_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_delete_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.tes_delete_broadcast.fields(buffer, offset, packet, parent, size_of_tes_delete_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.tes_delete_broadcast.fields(buffer, offset, packet, parent, size_of_tes_delete_broadcast)
-
-  return offset + size_of_tes_delete_broadcast
 end
 
 -- Side Alloc Grp Bc Comp
@@ -7624,20 +7692,24 @@ eurex_derivatives_eti_t7_v5_0.tes_broadcast.fields = function(buffer, offset, pa
 end
 
 -- Dissect: Tes Broadcast
-eurex_derivatives_eti_t7_v5_0.tes_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tes_broadcast = eurex_derivatives_eti_t7_v5_0.tes_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.tes_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_broadcast)
+  local index = offset + size_of_tes_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tes_broadcast then
-    local range = buffer(offset, size_of_tes_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.tes_broadcast.fields(buffer, offset, packet, parent, size_of_tes_broadcast)
+    parent:set_len(size_of_tes_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.tes_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.tes_broadcast.fields(buffer, offset, packet, parent, size_of_tes_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.tes_broadcast.fields(buffer, offset, packet, parent, size_of_tes_broadcast)
-
-  return offset + size_of_tes_broadcast
 end
 
 -- Party Entering Trader
@@ -7910,20 +7982,24 @@ eurex_derivatives_eti_t7_v5_0.tes_approve_broadcast.fields = function(buffer, of
 end
 
 -- Dissect: Tes Approve Broadcast
-eurex_derivatives_eti_t7_v5_0.tes_approve_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tes_approve_broadcast = eurex_derivatives_eti_t7_v5_0.tes_approve_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.tes_approve_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_approve_broadcast)
+  local index = offset + size_of_tes_approve_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tes_approve_broadcast then
-    local range = buffer(offset, size_of_tes_approve_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_approve_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.tes_approve_broadcast.fields(buffer, offset, packet, parent, size_of_tes_approve_broadcast)
+    parent:set_len(size_of_tes_approve_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.tes_approve_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.tes_approve_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.tes_approve_broadcast.fields(buffer, offset, packet, parent, size_of_tes_approve_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.tes_approve_broadcast.fields(buffer, offset, packet, parent, size_of_tes_approve_broadcast)
-
-  return offset + size_of_tes_approve_broadcast
 end
 
 -- Subscribe Response
@@ -7964,20 +8040,24 @@ eurex_derivatives_eti_t7_v5_0.subscribe_response.fields = function(buffer, offse
 end
 
 -- Dissect: Subscribe Response
-eurex_derivatives_eti_t7_v5_0.subscribe_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_subscribe_response = eurex_derivatives_eti_t7_v5_0.subscribe_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.subscribe_response.dissect = function(buffer, offset, packet, parent, size_of_subscribe_response)
+  local index = offset + size_of_subscribe_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.subscribe_response then
-    local range = buffer(offset, size_of_subscribe_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.subscribe_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.subscribe_response.fields(buffer, offset, packet, parent, size_of_subscribe_response)
+    parent:set_len(size_of_subscribe_response)
     local display = eurex_derivatives_eti_t7_v5_0.subscribe_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.subscribe_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.subscribe_response.fields(buffer, offset, packet, parent, size_of_subscribe_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.subscribe_response.fields(buffer, offset, packet, parent, size_of_subscribe_response)
-
-  return offset + size_of_subscribe_response
 end
 
 -- Ref Appl Id
@@ -8103,20 +8183,24 @@ eurex_derivatives_eti_t7_v5_0.subscribe_request.fields = function(buffer, offset
 end
 
 -- Dissect: Subscribe Request
-eurex_derivatives_eti_t7_v5_0.subscribe_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_subscribe_request = eurex_derivatives_eti_t7_v5_0.subscribe_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.subscribe_request.dissect = function(buffer, offset, packet, parent, size_of_subscribe_request)
+  local index = offset + size_of_subscribe_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.subscribe_request then
-    local range = buffer(offset, size_of_subscribe_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.subscribe_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
+    parent:set_len(size_of_subscribe_request)
     local display = eurex_derivatives_eti_t7_v5_0.subscribe_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.subscribe_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
-
-  return offset + size_of_subscribe_request
 end
 
 -- Pad 5
@@ -8571,20 +8655,24 @@ eurex_derivatives_eti_t7_v5_0.service_availability_broadcast.fields = function(b
 end
 
 -- Dissect: Service Availability Broadcast
-eurex_derivatives_eti_t7_v5_0.service_availability_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_service_availability_broadcast = eurex_derivatives_eti_t7_v5_0.service_availability_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.service_availability_broadcast.dissect = function(buffer, offset, packet, parent, size_of_service_availability_broadcast)
+  local index = offset + size_of_service_availability_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.service_availability_broadcast then
-    local range = buffer(offset, size_of_service_availability_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.service_availability_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.service_availability_broadcast.fields(buffer, offset, packet, parent, size_of_service_availability_broadcast)
+    parent:set_len(size_of_service_availability_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.service_availability_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.service_availability_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.service_availability_broadcast.fields(buffer, offset, packet, parent, size_of_service_availability_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.service_availability_broadcast.fields(buffer, offset, packet, parent, size_of_service_availability_broadcast)
-
-  return offset + size_of_service_availability_broadcast
 end
 
 -- Requesting Party Clearing Firm
@@ -8878,20 +8966,24 @@ eurex_derivatives_eti_t7_v5_0.risk_notification_broadcast.fields = function(buff
 end
 
 -- Dissect: Risk Notification Broadcast
-eurex_derivatives_eti_t7_v5_0.risk_notification_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_risk_notification_broadcast = eurex_derivatives_eti_t7_v5_0.risk_notification_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.risk_notification_broadcast.dissect = function(buffer, offset, packet, parent, size_of_risk_notification_broadcast)
+  local index = offset + size_of_risk_notification_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.risk_notification_broadcast then
-    local range = buffer(offset, size_of_risk_notification_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.risk_notification_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.risk_notification_broadcast.fields(buffer, offset, packet, parent, size_of_risk_notification_broadcast)
+    parent:set_len(size_of_risk_notification_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.risk_notification_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.risk_notification_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.risk_notification_broadcast.fields(buffer, offset, packet, parent, size_of_risk_notification_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.risk_notification_broadcast.fields(buffer, offset, packet, parent, size_of_risk_notification_broadcast)
-
-  return offset + size_of_risk_notification_broadcast
 end
 
 -- Appl Total Message Count
@@ -9022,20 +9114,24 @@ eurex_derivatives_eti_t7_v5_0.retransmit_response.fields = function(buffer, offs
 end
 
 -- Dissect: Retransmit Response
-eurex_derivatives_eti_t7_v5_0.retransmit_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_retransmit_response = eurex_derivatives_eti_t7_v5_0.retransmit_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.retransmit_response.dissect = function(buffer, offset, packet, parent, size_of_retransmit_response)
+  local index = offset + size_of_retransmit_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.retransmit_response then
-    local range = buffer(offset, size_of_retransmit_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.retransmit_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.retransmit_response.fields(buffer, offset, packet, parent, size_of_retransmit_response)
+    parent:set_len(size_of_retransmit_response)
     local display = eurex_derivatives_eti_t7_v5_0.retransmit_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.retransmit_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.retransmit_response.fields(buffer, offset, packet, parent, size_of_retransmit_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.retransmit_response.fields(buffer, offset, packet, parent, size_of_retransmit_response)
-
-  return offset + size_of_retransmit_response
 end
 
 -- Appl Beg Seq Num
@@ -9116,20 +9212,24 @@ eurex_derivatives_eti_t7_v5_0.retransmit_request.fields = function(buffer, offse
 end
 
 -- Dissect: Retransmit Request
-eurex_derivatives_eti_t7_v5_0.retransmit_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_retransmit_request = eurex_derivatives_eti_t7_v5_0.retransmit_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.retransmit_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_request)
+  local index = offset + size_of_retransmit_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.retransmit_request then
-    local range = buffer(offset, size_of_retransmit_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.retransmit_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
+    parent:set_len(size_of_retransmit_request)
     local display = eurex_derivatives_eti_t7_v5_0.retransmit_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.retransmit_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
-
-  return offset + size_of_retransmit_request
 end
 
 -- Appl End Msg Id
@@ -9199,20 +9299,24 @@ eurex_derivatives_eti_t7_v5_0.retransmit_me_message_response.fields = function(b
 end
 
 -- Dissect: Retransmit Me Message Response
-eurex_derivatives_eti_t7_v5_0.retransmit_me_message_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_retransmit_me_message_response = eurex_derivatives_eti_t7_v5_0.retransmit_me_message_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.retransmit_me_message_response.dissect = function(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
+  local index = offset + size_of_retransmit_me_message_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.retransmit_me_message_response then
-    local range = buffer(offset, size_of_retransmit_me_message_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.retransmit_me_message_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.retransmit_me_message_response.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
+    parent:set_len(size_of_retransmit_me_message_response)
     local display = eurex_derivatives_eti_t7_v5_0.retransmit_me_message_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.retransmit_me_message_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.retransmit_me_message_response.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.retransmit_me_message_response.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
-
-  return offset + size_of_retransmit_me_message_response
 end
 
 -- Appl Beg Msg Id
@@ -9291,20 +9395,24 @@ eurex_derivatives_eti_t7_v5_0.retransmit_me_message_request.fields = function(bu
 end
 
 -- Dissect: Retransmit Me Message Request
-eurex_derivatives_eti_t7_v5_0.retransmit_me_message_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_retransmit_me_message_request = eurex_derivatives_eti_t7_v5_0.retransmit_me_message_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.retransmit_me_message_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+  local index = offset + size_of_retransmit_me_message_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.retransmit_me_message_request then
-    local range = buffer(offset, size_of_retransmit_me_message_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.retransmit_me_message_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+    parent:set_len(size_of_retransmit_me_message_request)
     local display = eurex_derivatives_eti_t7_v5_0.retransmit_me_message_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.retransmit_me_message_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
-
-  return offset + size_of_retransmit_me_message_request
 end
 
 -- Alignment Padding
@@ -9758,20 +9866,24 @@ eurex_derivatives_eti_t7_v5_0.reject.fields = function(buffer, offset, packet, p
 end
 
 -- Dissect: Reject
-eurex_derivatives_eti_t7_v5_0.reject.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_reject = eurex_derivatives_eti_t7_v5_0.reject.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.reject.dissect = function(buffer, offset, packet, parent, size_of_reject)
+  local index = offset + size_of_reject
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.reject then
-    local range = buffer(offset, size_of_reject)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.reject, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.reject.fields(buffer, offset, packet, parent, size_of_reject)
+    parent:set_len(size_of_reject)
     local display = eurex_derivatives_eti_t7_v5_0.reject.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.reject, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.reject.fields(buffer, offset, packet, parent, size_of_reject)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.reject.fields(buffer, offset, packet, parent, size_of_reject)
-
-  return offset + size_of_reject
 end
 
 -- Exec Id
@@ -9842,20 +9954,24 @@ eurex_derivatives_eti_t7_v5_0.rfq_response.fields = function(buffer, offset, pac
 end
 
 -- Dissect: Rfq Response
-eurex_derivatives_eti_t7_v5_0.rfq_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_rfq_response = eurex_derivatives_eti_t7_v5_0.rfq_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.rfq_response.dissect = function(buffer, offset, packet, parent, size_of_rfq_response)
+  local index = offset + size_of_rfq_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.rfq_response then
-    local range = buffer(offset, size_of_rfq_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.rfq_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.rfq_response.fields(buffer, offset, packet, parent, size_of_rfq_response)
+    parent:set_len(size_of_rfq_response)
     local display = eurex_derivatives_eti_t7_v5_0.rfq_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.rfq_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.rfq_response.fields(buffer, offset, packet, parent, size_of_rfq_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.rfq_response.fields(buffer, offset, packet, parent, size_of_rfq_response)
-
-  return offset + size_of_rfq_response
 end
 
 -- Order Qty
@@ -9942,20 +10058,24 @@ eurex_derivatives_eti_t7_v5_0.rfq_request.fields = function(buffer, offset, pack
 end
 
 -- Dissect: Rfq Request
-eurex_derivatives_eti_t7_v5_0.rfq_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_rfq_request = eurex_derivatives_eti_t7_v5_0.rfq_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.rfq_request.dissect = function(buffer, offset, packet, parent, size_of_rfq_request)
+  local index = offset + size_of_rfq_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.rfq_request then
-    local range = buffer(offset, size_of_rfq_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.rfq_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
+    parent:set_len(size_of_rfq_request)
     local display = eurex_derivatives_eti_t7_v5_0.rfq_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.rfq_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
-
-  return offset + size_of_rfq_request
 end
 
 -- No Quote Events Index
@@ -10699,20 +10819,24 @@ eurex_derivatives_eti_t7_v5_0.quote_execution_report.fields = function(buffer, o
 end
 
 -- Dissect: Quote Execution Report
-eurex_derivatives_eti_t7_v5_0.quote_execution_report.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_quote_execution_report = eurex_derivatives_eti_t7_v5_0.quote_execution_report.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.quote_execution_report.dissect = function(buffer, offset, packet, parent, size_of_quote_execution_report)
+  local index = offset + size_of_quote_execution_report
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.quote_execution_report then
-    local range = buffer(offset, size_of_quote_execution_report)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_execution_report, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.quote_execution_report.fields(buffer, offset, packet, parent, size_of_quote_execution_report)
+    parent:set_len(size_of_quote_execution_report)
     local display = eurex_derivatives_eti_t7_v5_0.quote_execution_report.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_execution_report, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.quote_execution_report.fields(buffer, offset, packet, parent, size_of_quote_execution_report)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.quote_execution_report.fields(buffer, offset, packet, parent, size_of_quote_execution_report)
-
-  return offset + size_of_quote_execution_report
 end
 
 -- Not Affected Security Id
@@ -10896,20 +11020,24 @@ eurex_derivatives_eti_t7_v5_0.quote_activation_response.fields = function(buffer
 end
 
 -- Dissect: Quote Activation Response
-eurex_derivatives_eti_t7_v5_0.quote_activation_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_quote_activation_response = eurex_derivatives_eti_t7_v5_0.quote_activation_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.quote_activation_response.dissect = function(buffer, offset, packet, parent, size_of_quote_activation_response)
+  local index = offset + size_of_quote_activation_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.quote_activation_response then
-    local range = buffer(offset, size_of_quote_activation_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_activation_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.quote_activation_response.fields(buffer, offset, packet, parent, size_of_quote_activation_response)
+    parent:set_len(size_of_quote_activation_response)
     local display = eurex_derivatives_eti_t7_v5_0.quote_activation_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_activation_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.quote_activation_response.fields(buffer, offset, packet, parent, size_of_quote_activation_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.quote_activation_response.fields(buffer, offset, packet, parent, size_of_quote_activation_response)
-
-  return offset + size_of_quote_activation_response
 end
 
 -- Mass Action Type
@@ -11026,20 +11154,24 @@ eurex_derivatives_eti_t7_v5_0.quote_activation_request.fields = function(buffer,
 end
 
 -- Dissect: Quote Activation Request
-eurex_derivatives_eti_t7_v5_0.quote_activation_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_quote_activation_request = eurex_derivatives_eti_t7_v5_0.quote_activation_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.quote_activation_request.dissect = function(buffer, offset, packet, parent, size_of_quote_activation_request)
+  local index = offset + size_of_quote_activation_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.quote_activation_request then
-    local range = buffer(offset, size_of_quote_activation_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_activation_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
+    parent:set_len(size_of_quote_activation_request)
     local display = eurex_derivatives_eti_t7_v5_0.quote_activation_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_activation_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
-
-  return offset + size_of_quote_activation_request
 end
 
 -- Mass Action Reason
@@ -11200,20 +11332,24 @@ eurex_derivatives_eti_t7_v5_0.quote_activation_notification.fields = function(bu
 end
 
 -- Dissect: Quote Activation Notification
-eurex_derivatives_eti_t7_v5_0.quote_activation_notification.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_quote_activation_notification = eurex_derivatives_eti_t7_v5_0.quote_activation_notification.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.quote_activation_notification.dissect = function(buffer, offset, packet, parent, size_of_quote_activation_notification)
+  local index = offset + size_of_quote_activation_notification
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.quote_activation_notification then
-    local range = buffer(offset, size_of_quote_activation_notification)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_activation_notification, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.quote_activation_notification.fields(buffer, offset, packet, parent, size_of_quote_activation_notification)
+    parent:set_len(size_of_quote_activation_notification)
     local display = eurex_derivatives_eti_t7_v5_0.quote_activation_notification.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_activation_notification, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.quote_activation_notification.fields(buffer, offset, packet, parent, size_of_quote_activation_notification)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.quote_activation_notification.fields(buffer, offset, packet, parent, size_of_quote_activation_notification)
-
-  return offset + size_of_quote_activation_notification
 end
 
 -- Party Detail Status
@@ -11311,20 +11447,24 @@ eurex_derivatives_eti_t7_v5_0.party_entitlements_update_report.fields = function
 end
 
 -- Dissect: Party Entitlements Update Report
-eurex_derivatives_eti_t7_v5_0.party_entitlements_update_report.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_party_entitlements_update_report = eurex_derivatives_eti_t7_v5_0.party_entitlements_update_report.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.party_entitlements_update_report.dissect = function(buffer, offset, packet, parent, size_of_party_entitlements_update_report)
+  local index = offset + size_of_party_entitlements_update_report
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.party_entitlements_update_report then
-    local range = buffer(offset, size_of_party_entitlements_update_report)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.party_entitlements_update_report, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.party_entitlements_update_report.fields(buffer, offset, packet, parent, size_of_party_entitlements_update_report)
+    parent:set_len(size_of_party_entitlements_update_report)
     local display = eurex_derivatives_eti_t7_v5_0.party_entitlements_update_report.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.party_entitlements_update_report, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.party_entitlements_update_report.fields(buffer, offset, packet, parent, size_of_party_entitlements_update_report)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.party_entitlements_update_report.fields(buffer, offset, packet, parent, size_of_party_entitlements_update_report)
-
-  return offset + size_of_party_entitlements_update_report
 end
 
 -- Requesting Party Id Entering Firm
@@ -11536,20 +11676,24 @@ eurex_derivatives_eti_t7_v5_0.party_action_report.fields = function(buffer, offs
 end
 
 -- Dissect: Party Action Report
-eurex_derivatives_eti_t7_v5_0.party_action_report.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_party_action_report = eurex_derivatives_eti_t7_v5_0.party_action_report.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.party_action_report.dissect = function(buffer, offset, packet, parent, size_of_party_action_report)
+  local index = offset + size_of_party_action_report
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.party_action_report then
-    local range = buffer(offset, size_of_party_action_report)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.party_action_report, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.party_action_report.fields(buffer, offset, packet, parent, size_of_party_action_report)
+    parent:set_len(size_of_party_action_report)
     local display = eurex_derivatives_eti_t7_v5_0.party_action_report.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.party_action_report, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.party_action_report.fields(buffer, offset, packet, parent, size_of_party_action_report)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.party_action_report.fields(buffer, offset, packet, parent, size_of_party_action_report)
-
-  return offset + size_of_party_action_report
 end
 
 -- Fill Ref Id
@@ -12473,20 +12617,24 @@ eurex_derivatives_eti_t7_v5_0.order_exec_response.fields = function(buffer, offs
 end
 
 -- Dissect: Order Exec Response
-eurex_derivatives_eti_t7_v5_0.order_exec_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_exec_response = eurex_derivatives_eti_t7_v5_0.order_exec_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.order_exec_response.dissect = function(buffer, offset, packet, parent, size_of_order_exec_response)
+  local index = offset + size_of_order_exec_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_exec_response then
-    local range = buffer(offset, size_of_order_exec_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.order_exec_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.order_exec_response.fields(buffer, offset, packet, parent, size_of_order_exec_response)
+    parent:set_len(size_of_order_exec_response)
     local display = eurex_derivatives_eti_t7_v5_0.order_exec_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.order_exec_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.order_exec_response.fields(buffer, offset, packet, parent, size_of_order_exec_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.order_exec_response.fields(buffer, offset, packet, parent, size_of_order_exec_response)
-
-  return offset + size_of_order_exec_response
 end
 
 -- Leg Position Effect
@@ -13106,20 +13254,24 @@ eurex_derivatives_eti_t7_v5_0.order_exec_report_broadcast.fields = function(buff
 end
 
 -- Dissect: Order Exec Report Broadcast
-eurex_derivatives_eti_t7_v5_0.order_exec_report_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_exec_report_broadcast = eurex_derivatives_eti_t7_v5_0.order_exec_report_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.order_exec_report_broadcast.dissect = function(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
+  local index = offset + size_of_order_exec_report_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_exec_report_broadcast then
-    local range = buffer(offset, size_of_order_exec_report_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.order_exec_report_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.order_exec_report_broadcast.fields(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
+    parent:set_len(size_of_order_exec_report_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.order_exec_report_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.order_exec_report_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.order_exec_report_broadcast.fields(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.order_exec_report_broadcast.fields(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
-
-  return offset + size_of_order_exec_report_broadcast
 end
 
 -- Order Exec Notification
@@ -13221,20 +13373,24 @@ eurex_derivatives_eti_t7_v5_0.order_exec_notification.fields = function(buffer, 
 end
 
 -- Dissect: Order Exec Notification
-eurex_derivatives_eti_t7_v5_0.order_exec_notification.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_exec_notification = eurex_derivatives_eti_t7_v5_0.order_exec_notification.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.order_exec_notification.dissect = function(buffer, offset, packet, parent, size_of_order_exec_notification)
+  local index = offset + size_of_order_exec_notification
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_exec_notification then
-    local range = buffer(offset, size_of_order_exec_notification)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.order_exec_notification, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.order_exec_notification.fields(buffer, offset, packet, parent, size_of_order_exec_notification)
+    parent:set_len(size_of_order_exec_notification)
     local display = eurex_derivatives_eti_t7_v5_0.order_exec_notification.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.order_exec_notification, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.order_exec_notification.fields(buffer, offset, packet, parent, size_of_order_exec_notification)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.order_exec_notification.fields(buffer, offset, packet, parent, size_of_order_exec_notification)
-
-  return offset + size_of_order_exec_notification
 end
 
 -- Headline
@@ -13362,20 +13518,24 @@ eurex_derivatives_eti_t7_v5_0.news_broadcast.fields = function(buffer, offset, p
 end
 
 -- Dissect: News Broadcast
-eurex_derivatives_eti_t7_v5_0.news_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_news_broadcast = eurex_derivatives_eti_t7_v5_0.news_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.news_broadcast.dissect = function(buffer, offset, packet, parent, size_of_news_broadcast)
+  local index = offset + size_of_news_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.news_broadcast then
-    local range = buffer(offset, size_of_news_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.news_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.news_broadcast.fields(buffer, offset, packet, parent, size_of_news_broadcast)
+    parent:set_len(size_of_news_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.news_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.news_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.news_broadcast.fields(buffer, offset, packet, parent, size_of_news_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.news_broadcast.fields(buffer, offset, packet, parent, size_of_news_broadcast)
-
-  return offset + size_of_news_broadcast
 end
 
 -- Price Validity Check Type
@@ -13544,20 +13704,24 @@ eurex_derivatives_eti_t7_v5_0.new_order_single_short_request.fields = function(b
 end
 
 -- Dissect: New Order Single Short Request
-eurex_derivatives_eti_t7_v5_0.new_order_single_short_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_new_order_single_short_request = eurex_derivatives_eti_t7_v5_0.new_order_single_short_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.new_order_single_short_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_single_short_request)
+  local index = offset + size_of_new_order_single_short_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.new_order_single_short_request then
-    local range = buffer(offset, size_of_new_order_single_short_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.new_order_single_short_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.new_order_single_short_request.fields(buffer, offset, packet, parent, size_of_new_order_single_short_request)
+    parent:set_len(size_of_new_order_single_short_request)
     local display = eurex_derivatives_eti_t7_v5_0.new_order_single_short_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.new_order_single_short_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.new_order_single_short_request.fields(buffer, offset, packet, parent, size_of_new_order_single_short_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.new_order_single_short_request.fields(buffer, offset, packet, parent, size_of_new_order_single_short_request)
-
-  return offset + size_of_new_order_single_short_request
 end
 
 -- New Order Single Request
@@ -13685,20 +13849,24 @@ eurex_derivatives_eti_t7_v5_0.new_order_single_request.fields = function(buffer,
 end
 
 -- Dissect: New Order Single Request
-eurex_derivatives_eti_t7_v5_0.new_order_single_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_new_order_single_request = eurex_derivatives_eti_t7_v5_0.new_order_single_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.new_order_single_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_single_request)
+  local index = offset + size_of_new_order_single_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.new_order_single_request then
-    local range = buffer(offset, size_of_new_order_single_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.new_order_single_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.new_order_single_request.fields(buffer, offset, packet, parent, size_of_new_order_single_request)
+    parent:set_len(size_of_new_order_single_request)
     local display = eurex_derivatives_eti_t7_v5_0.new_order_single_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.new_order_single_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.new_order_single_request.fields(buffer, offset, packet, parent, size_of_new_order_single_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.new_order_single_request.fields(buffer, offset, packet, parent, size_of_new_order_single_request)
-
-  return offset + size_of_new_order_single_request
 end
 
 -- New Order Response
@@ -13772,20 +13940,24 @@ eurex_derivatives_eti_t7_v5_0.new_order_response.fields = function(buffer, offse
 end
 
 -- Dissect: New Order Response
-eurex_derivatives_eti_t7_v5_0.new_order_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_new_order_response = eurex_derivatives_eti_t7_v5_0.new_order_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.new_order_response.dissect = function(buffer, offset, packet, parent, size_of_new_order_response)
+  local index = offset + size_of_new_order_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.new_order_response then
-    local range = buffer(offset, size_of_new_order_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.new_order_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.new_order_response.fields(buffer, offset, packet, parent, size_of_new_order_response)
+    parent:set_len(size_of_new_order_response)
     local display = eurex_derivatives_eti_t7_v5_0.new_order_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.new_order_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.new_order_response.fields(buffer, offset, packet, parent, size_of_new_order_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.new_order_response.fields(buffer, offset, packet, parent, size_of_new_order_response)
-
-  return offset + size_of_new_order_response
 end
 
 -- New Order Nr Response
@@ -13853,20 +14025,24 @@ eurex_derivatives_eti_t7_v5_0.new_order_nr_response.fields = function(buffer, of
 end
 
 -- Dissect: New Order Nr Response
-eurex_derivatives_eti_t7_v5_0.new_order_nr_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_new_order_nr_response = eurex_derivatives_eti_t7_v5_0.new_order_nr_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.new_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_new_order_nr_response)
+  local index = offset + size_of_new_order_nr_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.new_order_nr_response then
-    local range = buffer(offset, size_of_new_order_nr_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.new_order_nr_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.new_order_nr_response.fields(buffer, offset, packet, parent, size_of_new_order_nr_response)
+    parent:set_len(size_of_new_order_nr_response)
     local display = eurex_derivatives_eti_t7_v5_0.new_order_nr_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.new_order_nr_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.new_order_nr_response.fields(buffer, offset, packet, parent, size_of_new_order_nr_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.new_order_nr_response.fields(buffer, offset, packet, parent, size_of_new_order_nr_response)
-
-  return offset + size_of_new_order_nr_response
 end
 
 -- New Order Complex Request
@@ -13993,20 +14169,24 @@ eurex_derivatives_eti_t7_v5_0.new_order_complex_request.fields = function(buffer
 end
 
 -- Dissect: New Order Complex Request
-eurex_derivatives_eti_t7_v5_0.new_order_complex_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_new_order_complex_request = eurex_derivatives_eti_t7_v5_0.new_order_complex_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.new_order_complex_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_complex_request)
+  local index = offset + size_of_new_order_complex_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.new_order_complex_request then
-    local range = buffer(offset, size_of_new_order_complex_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.new_order_complex_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.new_order_complex_request.fields(buffer, offset, packet, parent, size_of_new_order_complex_request)
+    parent:set_len(size_of_new_order_complex_request)
     local display = eurex_derivatives_eti_t7_v5_0.new_order_complex_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.new_order_complex_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.new_order_complex_request.fields(buffer, offset, packet, parent, size_of_new_order_complex_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.new_order_complex_request.fields(buffer, offset, packet, parent, size_of_new_order_complex_request)
-
-  return offset + size_of_new_order_complex_request
 end
 
 -- Side Alloc Grp Comp
@@ -14154,20 +14334,24 @@ eurex_derivatives_eti_t7_v5_0.modify_tes_trade_request.fields = function(buffer,
 end
 
 -- Dissect: Modify Tes Trade Request
-eurex_derivatives_eti_t7_v5_0.modify_tes_trade_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_modify_tes_trade_request = eurex_derivatives_eti_t7_v5_0.modify_tes_trade_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.modify_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
+  local index = offset + size_of_modify_tes_trade_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.modify_tes_trade_request then
-    local range = buffer(offset, size_of_modify_tes_trade_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_tes_trade_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.modify_tes_trade_request.fields(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
+    parent:set_len(size_of_modify_tes_trade_request)
     local display = eurex_derivatives_eti_t7_v5_0.modify_tes_trade_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_tes_trade_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.modify_tes_trade_request.fields(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.modify_tes_trade_request.fields(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
-
-  return offset + size_of_modify_tes_trade_request
 end
 
 -- Modify Order Single Short Request
@@ -14247,20 +14431,24 @@ eurex_derivatives_eti_t7_v5_0.modify_order_single_short_request.fields = functio
 end
 
 -- Dissect: Modify Order Single Short Request
-eurex_derivatives_eti_t7_v5_0.modify_order_single_short_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_modify_order_single_short_request = eurex_derivatives_eti_t7_v5_0.modify_order_single_short_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.modify_order_single_short_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
+  local index = offset + size_of_modify_order_single_short_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.modify_order_single_short_request then
-    local range = buffer(offset, size_of_modify_order_single_short_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_order_single_short_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.modify_order_single_short_request.fields(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
+    parent:set_len(size_of_modify_order_single_short_request)
     local display = eurex_derivatives_eti_t7_v5_0.modify_order_single_short_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_order_single_short_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.modify_order_single_short_request.fields(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.modify_order_single_short_request.fields(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
-
-  return offset + size_of_modify_order_single_short_request
 end
 
 -- Ownership Indicator
@@ -14433,20 +14621,24 @@ eurex_derivatives_eti_t7_v5_0.modify_order_single_request.fields = function(buff
 end
 
 -- Dissect: Modify Order Single Request
-eurex_derivatives_eti_t7_v5_0.modify_order_single_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_modify_order_single_request = eurex_derivatives_eti_t7_v5_0.modify_order_single_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.modify_order_single_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_single_request)
+  local index = offset + size_of_modify_order_single_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.modify_order_single_request then
-    local range = buffer(offset, size_of_modify_order_single_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_order_single_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.modify_order_single_request.fields(buffer, offset, packet, parent, size_of_modify_order_single_request)
+    parent:set_len(size_of_modify_order_single_request)
     local display = eurex_derivatives_eti_t7_v5_0.modify_order_single_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_order_single_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.modify_order_single_request.fields(buffer, offset, packet, parent, size_of_modify_order_single_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.modify_order_single_request.fields(buffer, offset, packet, parent, size_of_modify_order_single_request)
-
-  return offset + size_of_modify_order_single_request
 end
 
 -- Modify Order Response
@@ -14529,20 +14721,24 @@ eurex_derivatives_eti_t7_v5_0.modify_order_response.fields = function(buffer, of
 end
 
 -- Dissect: Modify Order Response
-eurex_derivatives_eti_t7_v5_0.modify_order_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_modify_order_response = eurex_derivatives_eti_t7_v5_0.modify_order_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.modify_order_response.dissect = function(buffer, offset, packet, parent, size_of_modify_order_response)
+  local index = offset + size_of_modify_order_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.modify_order_response then
-    local range = buffer(offset, size_of_modify_order_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_order_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.modify_order_response.fields(buffer, offset, packet, parent, size_of_modify_order_response)
+    parent:set_len(size_of_modify_order_response)
     local display = eurex_derivatives_eti_t7_v5_0.modify_order_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_order_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.modify_order_response.fields(buffer, offset, packet, parent, size_of_modify_order_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.modify_order_response.fields(buffer, offset, packet, parent, size_of_modify_order_response)
-
-  return offset + size_of_modify_order_response
 end
 
 -- Modify Order Nr Response
@@ -14622,20 +14818,24 @@ eurex_derivatives_eti_t7_v5_0.modify_order_nr_response.fields = function(buffer,
 end
 
 -- Dissect: Modify Order Nr Response
-eurex_derivatives_eti_t7_v5_0.modify_order_nr_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_modify_order_nr_response = eurex_derivatives_eti_t7_v5_0.modify_order_nr_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.modify_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_modify_order_nr_response)
+  local index = offset + size_of_modify_order_nr_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.modify_order_nr_response then
-    local range = buffer(offset, size_of_modify_order_nr_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_order_nr_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.modify_order_nr_response.fields(buffer, offset, packet, parent, size_of_modify_order_nr_response)
+    parent:set_len(size_of_modify_order_nr_response)
     local display = eurex_derivatives_eti_t7_v5_0.modify_order_nr_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_order_nr_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.modify_order_nr_response.fields(buffer, offset, packet, parent, size_of_modify_order_nr_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.modify_order_nr_response.fields(buffer, offset, packet, parent, size_of_modify_order_nr_response)
-
-  return offset + size_of_modify_order_nr_response
 end
 
 -- Modify Order Complex Request
@@ -14774,20 +14974,24 @@ eurex_derivatives_eti_t7_v5_0.modify_order_complex_request.fields = function(buf
 end
 
 -- Dissect: Modify Order Complex Request
-eurex_derivatives_eti_t7_v5_0.modify_order_complex_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_modify_order_complex_request = eurex_derivatives_eti_t7_v5_0.modify_order_complex_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.modify_order_complex_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_complex_request)
+  local index = offset + size_of_modify_order_complex_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.modify_order_complex_request then
-    local range = buffer(offset, size_of_modify_order_complex_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_order_complex_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.modify_order_complex_request.fields(buffer, offset, packet, parent, size_of_modify_order_complex_request)
+    parent:set_len(size_of_modify_order_complex_request)
     local display = eurex_derivatives_eti_t7_v5_0.modify_order_complex_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.modify_order_complex_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.modify_order_complex_request.fields(buffer, offset, packet, parent, size_of_modify_order_complex_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.modify_order_complex_request.fields(buffer, offset, packet, parent, size_of_modify_order_complex_request)
-
-  return offset + size_of_modify_order_complex_request
 end
 
 -- Quote Entry Status
@@ -15176,20 +15380,24 @@ eurex_derivatives_eti_t7_v5_0.mass_quote_response.fields = function(buffer, offs
 end
 
 -- Dissect: Mass Quote Response
-eurex_derivatives_eti_t7_v5_0.mass_quote_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_mass_quote_response = eurex_derivatives_eti_t7_v5_0.mass_quote_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.mass_quote_response.dissect = function(buffer, offset, packet, parent, size_of_mass_quote_response)
+  local index = offset + size_of_mass_quote_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.mass_quote_response then
-    local range = buffer(offset, size_of_mass_quote_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.mass_quote_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.mass_quote_response.fields(buffer, offset, packet, parent, size_of_mass_quote_response)
+    parent:set_len(size_of_mass_quote_response)
     local display = eurex_derivatives_eti_t7_v5_0.mass_quote_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.mass_quote_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.mass_quote_response.fields(buffer, offset, packet, parent, size_of_mass_quote_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.mass_quote_response.fields(buffer, offset, packet, parent, size_of_mass_quote_response)
-
-  return offset + size_of_mass_quote_response
 end
 
 -- Offer Size
@@ -15488,20 +15696,24 @@ eurex_derivatives_eti_t7_v5_0.mass_quote_request.fields = function(buffer, offse
 end
 
 -- Dissect: Mass Quote Request
-eurex_derivatives_eti_t7_v5_0.mass_quote_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_mass_quote_request = eurex_derivatives_eti_t7_v5_0.mass_quote_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.mass_quote_request.dissect = function(buffer, offset, packet, parent, size_of_mass_quote_request)
+  local index = offset + size_of_mass_quote_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.mass_quote_request then
-    local range = buffer(offset, size_of_mass_quote_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.mass_quote_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.mass_quote_request.fields(buffer, offset, packet, parent, size_of_mass_quote_request)
+    parent:set_len(size_of_mass_quote_request)
     local display = eurex_derivatives_eti_t7_v5_0.mass_quote_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.mass_quote_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.mass_quote_request.fields(buffer, offset, packet, parent, size_of_mass_quote_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.mass_quote_request.fields(buffer, offset, packet, parent, size_of_mass_quote_request)
-
-  return offset + size_of_mass_quote_request
 end
 
 -- Mm Parameter Definition Response
@@ -15539,20 +15751,24 @@ eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_response.fields = function
 end
 
 -- Dissect: Mm Parameter Definition Response
-eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_mm_parameter_definition_response = eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_response.dissect = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
+  local index = offset + size_of_mm_parameter_definition_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.mm_parameter_definition_response then
-    local range = buffer(offset, size_of_mm_parameter_definition_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.mm_parameter_definition_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_response.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
+    parent:set_len(size_of_mm_parameter_definition_response)
     local display = eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.mm_parameter_definition_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_response.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_response.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
-
-  return offset + size_of_mm_parameter_definition_response
 end
 
 -- Vega
@@ -15729,20 +15945,24 @@ eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_request.fields = function(
 end
 
 -- Dissect: Mm Parameter Definition Request
-eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_mm_parameter_definition_request = eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_request.dissect = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
+  local index = offset + size_of_mm_parameter_definition_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.mm_parameter_definition_request then
-    local range = buffer(offset, size_of_mm_parameter_definition_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.mm_parameter_definition_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_request.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
+    parent:set_len(size_of_mm_parameter_definition_request)
     local display = eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.mm_parameter_definition_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_request.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.mm_parameter_definition_request.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
-
-  return offset + size_of_mm_parameter_definition_request
 end
 
 -- Logout Response
@@ -15777,20 +15997,24 @@ eurex_derivatives_eti_t7_v5_0.logout_response.fields = function(buffer, offset, 
 end
 
 -- Dissect: Logout Response
-eurex_derivatives_eti_t7_v5_0.logout_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_logout_response = eurex_derivatives_eti_t7_v5_0.logout_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.logout_response.dissect = function(buffer, offset, packet, parent, size_of_logout_response)
+  local index = offset + size_of_logout_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.logout_response then
-    local range = buffer(offset, size_of_logout_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.logout_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
+    parent:set_len(size_of_logout_response)
     local display = eurex_derivatives_eti_t7_v5_0.logout_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.logout_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
-
-  return offset + size_of_logout_response
 end
 
 -- Logout Request
@@ -15828,20 +16052,24 @@ eurex_derivatives_eti_t7_v5_0.logout_request.fields = function(buffer, offset, p
 end
 
 -- Dissect: Logout Request
-eurex_derivatives_eti_t7_v5_0.logout_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_logout_request = eurex_derivatives_eti_t7_v5_0.logout_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.logout_request.dissect = function(buffer, offset, packet, parent, size_of_logout_request)
+  local index = offset + size_of_logout_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.logout_request then
-    local range = buffer(offset, size_of_logout_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.logout_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
+    parent:set_len(size_of_logout_request)
     local display = eurex_derivatives_eti_t7_v5_0.logout_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.logout_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
-
-  return offset + size_of_logout_request
 end
 
 -- Default Cstm Appl Ver Id
@@ -16037,20 +16265,24 @@ eurex_derivatives_eti_t7_v5_0.logon_response.fields = function(buffer, offset, p
 end
 
 -- Dissect: Logon Response
-eurex_derivatives_eti_t7_v5_0.logon_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_logon_response = eurex_derivatives_eti_t7_v5_0.logon_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.logon_response.dissect = function(buffer, offset, packet, parent, size_of_logon_response)
+  local index = offset + size_of_logon_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.logon_response then
-    local range = buffer(offset, size_of_logon_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.logon_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
+    parent:set_len(size_of_logon_response)
     local display = eurex_derivatives_eti_t7_v5_0.logon_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.logon_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
-
-  return offset + size_of_logon_response
 end
 
 -- Application System Vendor
@@ -16505,20 +16737,24 @@ eurex_derivatives_eti_t7_v5_0.logon_request.fields = function(buffer, offset, pa
 end
 
 -- Dissect: Logon Request
-eurex_derivatives_eti_t7_v5_0.logon_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_logon_request = eurex_derivatives_eti_t7_v5_0.logon_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.logon_request.dissect = function(buffer, offset, packet, parent, size_of_logon_request)
+  local index = offset + size_of_logon_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.logon_request then
-    local range = buffer(offset, size_of_logon_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.logon_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
+    parent:set_len(size_of_logon_request)
     local display = eurex_derivatives_eti_t7_v5_0.logon_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.logon_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
-
-  return offset + size_of_logon_request
 end
 
 -- User Status
@@ -16621,20 +16857,24 @@ eurex_derivatives_eti_t7_v5_0.legal_notification_broadcast.fields = function(buf
 end
 
 -- Dissect: Legal Notification Broadcast
-eurex_derivatives_eti_t7_v5_0.legal_notification_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_legal_notification_broadcast = eurex_derivatives_eti_t7_v5_0.legal_notification_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.legal_notification_broadcast.dissect = function(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
+  local index = offset + size_of_legal_notification_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.legal_notification_broadcast then
-    local range = buffer(offset, size_of_legal_notification_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.legal_notification_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.legal_notification_broadcast.fields(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
+    parent:set_len(size_of_legal_notification_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.legal_notification_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.legal_notification_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.legal_notification_broadcast.fields(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.legal_notification_broadcast.fields(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
-
-  return offset + size_of_legal_notification_broadcast
 end
 
 -- Party Detail Desk Id
@@ -16920,20 +17160,24 @@ eurex_derivatives_eti_t7_v5_0.inquire_user_response.fields = function(buffer, of
 end
 
 -- Dissect: Inquire User Response
-eurex_derivatives_eti_t7_v5_0.inquire_user_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_inquire_user_response = eurex_derivatives_eti_t7_v5_0.inquire_user_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.inquire_user_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_user_response)
+  local index = offset + size_of_inquire_user_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.inquire_user_response then
-    local range = buffer(offset, size_of_inquire_user_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_user_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.inquire_user_response.fields(buffer, offset, packet, parent, size_of_inquire_user_response)
+    parent:set_len(size_of_inquire_user_response)
     local display = eurex_derivatives_eti_t7_v5_0.inquire_user_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_user_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.inquire_user_response.fields(buffer, offset, packet, parent, size_of_inquire_user_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.inquire_user_response.fields(buffer, offset, packet, parent, size_of_inquire_user_response)
-
-  return offset + size_of_inquire_user_response
 end
 
 -- Inquire User Request
@@ -16974,20 +17218,24 @@ eurex_derivatives_eti_t7_v5_0.inquire_user_request.fields = function(buffer, off
 end
 
 -- Dissect: Inquire User Request
-eurex_derivatives_eti_t7_v5_0.inquire_user_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_inquire_user_request = eurex_derivatives_eti_t7_v5_0.inquire_user_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.inquire_user_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_user_request)
+  local index = offset + size_of_inquire_user_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.inquire_user_request then
-    local range = buffer(offset, size_of_inquire_user_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_user_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.inquire_user_request.fields(buffer, offset, packet, parent, size_of_inquire_user_request)
+    parent:set_len(size_of_inquire_user_request)
     local display = eurex_derivatives_eti_t7_v5_0.inquire_user_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_user_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.inquire_user_request.fields(buffer, offset, packet, parent, size_of_inquire_user_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.inquire_user_request.fields(buffer, offset, packet, parent, size_of_inquire_user_request)
-
-  return offset + size_of_inquire_user_request
 end
 
 -- Session Sub Mode
@@ -17191,20 +17439,24 @@ eurex_derivatives_eti_t7_v5_0.inquire_session_list_response.fields = function(bu
 end
 
 -- Dissect: Inquire Session List Response
-eurex_derivatives_eti_t7_v5_0.inquire_session_list_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_inquire_session_list_response = eurex_derivatives_eti_t7_v5_0.inquire_session_list_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.inquire_session_list_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_session_list_response)
+  local index = offset + size_of_inquire_session_list_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.inquire_session_list_response then
-    local range = buffer(offset, size_of_inquire_session_list_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_session_list_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.inquire_session_list_response.fields(buffer, offset, packet, parent, size_of_inquire_session_list_response)
+    parent:set_len(size_of_inquire_session_list_response)
     local display = eurex_derivatives_eti_t7_v5_0.inquire_session_list_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_session_list_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.inquire_session_list_response.fields(buffer, offset, packet, parent, size_of_inquire_session_list_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.inquire_session_list_response.fields(buffer, offset, packet, parent, size_of_inquire_session_list_response)
-
-  return offset + size_of_inquire_session_list_response
 end
 
 -- Inquire Session List Request
@@ -17242,20 +17494,24 @@ eurex_derivatives_eti_t7_v5_0.inquire_session_list_request.fields = function(buf
 end
 
 -- Dissect: Inquire Session List Request
-eurex_derivatives_eti_t7_v5_0.inquire_session_list_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_inquire_session_list_request = eurex_derivatives_eti_t7_v5_0.inquire_session_list_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.inquire_session_list_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_session_list_request)
+  local index = offset + size_of_inquire_session_list_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.inquire_session_list_request then
-    local range = buffer(offset, size_of_inquire_session_list_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_session_list_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.inquire_session_list_request.fields(buffer, offset, packet, parent, size_of_inquire_session_list_request)
+    parent:set_len(size_of_inquire_session_list_request)
     local display = eurex_derivatives_eti_t7_v5_0.inquire_session_list_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_session_list_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.inquire_session_list_request.fields(buffer, offset, packet, parent, size_of_inquire_session_list_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.inquire_session_list_request.fields(buffer, offset, packet, parent, size_of_inquire_session_list_request)
-
-  return offset + size_of_inquire_session_list_request
 end
 
 -- Mm Parameter Grp Comp
@@ -17438,20 +17694,24 @@ eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_response.fields = function(bu
 end
 
 -- Dissect: Inquire Mm Parameter Response
-eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_inquire_mm_parameter_response = eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
+  local index = offset + size_of_inquire_mm_parameter_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.inquire_mm_parameter_response then
-    local range = buffer(offset, size_of_inquire_mm_parameter_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_mm_parameter_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_response.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
+    parent:set_len(size_of_inquire_mm_parameter_response)
     local display = eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_mm_parameter_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_response.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_response.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
-
-  return offset + size_of_inquire_mm_parameter_response
 end
 
 -- Inquire Mm Parameter Request
@@ -17495,20 +17755,24 @@ eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_request.fields = function(buf
 end
 
 -- Dissect: Inquire Mm Parameter Request
-eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_inquire_mm_parameter_request = eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
+  local index = offset + size_of_inquire_mm_parameter_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.inquire_mm_parameter_request then
-    local range = buffer(offset, size_of_inquire_mm_parameter_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_mm_parameter_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_request.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
+    parent:set_len(size_of_inquire_mm_parameter_request)
     local display = eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_mm_parameter_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_request.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.inquire_mm_parameter_request.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
-
-  return offset + size_of_inquire_mm_parameter_request
 end
 
 -- Party Id Origination Market
@@ -17704,20 +17968,24 @@ eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_response.fields = 
 end
 
 -- Dissect: Inquire Enrichment Rule Id List Response
-eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_inquire_enrichment_rule_id_list_response = eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
+  local index = offset + size_of_inquire_enrichment_rule_id_list_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.inquire_enrichment_rule_id_list_response then
-    local range = buffer(offset, size_of_inquire_enrichment_rule_id_list_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_enrichment_rule_id_list_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_response.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
+    parent:set_len(size_of_inquire_enrichment_rule_id_list_response)
     local display = eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_enrichment_rule_id_list_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_response.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_response.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
-
-  return offset + size_of_inquire_enrichment_rule_id_list_response
 end
 
 -- Inquire Enrichment Rule Id List Request
@@ -17758,20 +18026,24 @@ eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_request.fields = f
 end
 
 -- Dissect: Inquire Enrichment Rule Id List Request
-eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_inquire_enrichment_rule_id_list_request = eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
+  local index = offset + size_of_inquire_enrichment_rule_id_list_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.inquire_enrichment_rule_id_list_request then
-    local range = buffer(offset, size_of_inquire_enrichment_rule_id_list_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_enrichment_rule_id_list_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_request.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
+    parent:set_len(size_of_inquire_enrichment_rule_id_list_request)
     local display = eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.inquire_enrichment_rule_id_list_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_request.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.inquire_enrichment_rule_id_list_request.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
-
-  return offset + size_of_inquire_enrichment_rule_id_list_request
 end
 
 -- Heartbeat Notification
@@ -17806,20 +18078,24 @@ eurex_derivatives_eti_t7_v5_0.heartbeat_notification.fields = function(buffer, o
 end
 
 -- Dissect: Heartbeat Notification
-eurex_derivatives_eti_t7_v5_0.heartbeat_notification.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_heartbeat_notification = eurex_derivatives_eti_t7_v5_0.heartbeat_notification.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.heartbeat_notification.dissect = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
+  local index = offset + size_of_heartbeat_notification
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.heartbeat_notification then
-    local range = buffer(offset, size_of_heartbeat_notification)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.heartbeat_notification, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
+    parent:set_len(size_of_heartbeat_notification)
     local display = eurex_derivatives_eti_t7_v5_0.heartbeat_notification.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.heartbeat_notification, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
-
-  return offset + size_of_heartbeat_notification
 end
 
 -- Heartbeat
@@ -17854,20 +18130,24 @@ eurex_derivatives_eti_t7_v5_0.heartbeat.fields = function(buffer, offset, packet
 end
 
 -- Dissect: Heartbeat
-eurex_derivatives_eti_t7_v5_0.heartbeat.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_heartbeat = eurex_derivatives_eti_t7_v5_0.heartbeat.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local index = offset + size_of_heartbeat
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.heartbeat then
-    local range = buffer(offset, size_of_heartbeat)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.heartbeat, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+    parent:set_len(size_of_heartbeat)
     local display = eurex_derivatives_eti_t7_v5_0.heartbeat.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.heartbeat, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-
-  return offset + size_of_heartbeat
 end
 
 -- Secondary Gateway Sub Id
@@ -18035,20 +18315,24 @@ eurex_derivatives_eti_t7_v5_0.gateway_response.fields = function(buffer, offset,
 end
 
 -- Dissect: Gateway Response
-eurex_derivatives_eti_t7_v5_0.gateway_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_gateway_response = eurex_derivatives_eti_t7_v5_0.gateway_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.gateway_response.dissect = function(buffer, offset, packet, parent, size_of_gateway_response)
+  local index = offset + size_of_gateway_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.gateway_response then
-    local range = buffer(offset, size_of_gateway_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.gateway_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.gateway_response.fields(buffer, offset, packet, parent, size_of_gateway_response)
+    parent:set_len(size_of_gateway_response)
     local display = eurex_derivatives_eti_t7_v5_0.gateway_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.gateway_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.gateway_response.fields(buffer, offset, packet, parent, size_of_gateway_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.gateway_response.fields(buffer, offset, packet, parent, size_of_gateway_response)
-
-  return offset + size_of_gateway_response
 end
 
 -- Gateway Request
@@ -18098,20 +18382,24 @@ eurex_derivatives_eti_t7_v5_0.gateway_request.fields = function(buffer, offset, 
 end
 
 -- Dissect: Gateway Request
-eurex_derivatives_eti_t7_v5_0.gateway_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_gateway_request = eurex_derivatives_eti_t7_v5_0.gateway_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.gateway_request.dissect = function(buffer, offset, packet, parent, size_of_gateway_request)
+  local index = offset + size_of_gateway_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.gateway_request then
-    local range = buffer(offset, size_of_gateway_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.gateway_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.gateway_request.fields(buffer, offset, packet, parent, size_of_gateway_request)
+    parent:set_len(size_of_gateway_request)
     local display = eurex_derivatives_eti_t7_v5_0.gateway_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.gateway_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.gateway_request.fields(buffer, offset, packet, parent, size_of_gateway_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.gateway_request.fields(buffer, offset, packet, parent, size_of_gateway_request)
-
-  return offset + size_of_gateway_request
 end
 
 -- Forced User Logout Notification
@@ -18181,20 +18469,24 @@ eurex_derivatives_eti_t7_v5_0.forced_user_logout_notification.fields = function(
 end
 
 -- Dissect: Forced User Logout Notification
-eurex_derivatives_eti_t7_v5_0.forced_user_logout_notification.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_forced_user_logout_notification = eurex_derivatives_eti_t7_v5_0.forced_user_logout_notification.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.forced_user_logout_notification.dissect = function(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
+  local index = offset + size_of_forced_user_logout_notification
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.forced_user_logout_notification then
-    local range = buffer(offset, size_of_forced_user_logout_notification)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.forced_user_logout_notification, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.forced_user_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
+    parent:set_len(size_of_forced_user_logout_notification)
     local display = eurex_derivatives_eti_t7_v5_0.forced_user_logout_notification.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.forced_user_logout_notification, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.forced_user_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.forced_user_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
-
-  return offset + size_of_forced_user_logout_notification
 end
 
 -- Forced Logout Notification
@@ -18255,20 +18547,24 @@ eurex_derivatives_eti_t7_v5_0.forced_logout_notification.fields = function(buffe
 end
 
 -- Dissect: Forced Logout Notification
-eurex_derivatives_eti_t7_v5_0.forced_logout_notification.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_forced_logout_notification = eurex_derivatives_eti_t7_v5_0.forced_logout_notification.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.forced_logout_notification.dissect = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
+  local index = offset + size_of_forced_logout_notification
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.forced_logout_notification then
-    local range = buffer(offset, size_of_forced_logout_notification)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.forced_logout_notification, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.forced_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
+    parent:set_len(size_of_forced_logout_notification)
     local display = eurex_derivatives_eti_t7_v5_0.forced_logout_notification.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.forced_logout_notification, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.forced_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.forced_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
-
-  return offset + size_of_forced_logout_notification
 end
 
 -- Enter Tes Trade Request
@@ -18413,20 +18709,24 @@ eurex_derivatives_eti_t7_v5_0.enter_tes_trade_request.fields = function(buffer, 
 end
 
 -- Dissect: Enter Tes Trade Request
-eurex_derivatives_eti_t7_v5_0.enter_tes_trade_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_enter_tes_trade_request = eurex_derivatives_eti_t7_v5_0.enter_tes_trade_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.enter_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
+  local index = offset + size_of_enter_tes_trade_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.enter_tes_trade_request then
-    local range = buffer(offset, size_of_enter_tes_trade_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.enter_tes_trade_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.enter_tes_trade_request.fields(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
+    parent:set_len(size_of_enter_tes_trade_request)
     local display = eurex_derivatives_eti_t7_v5_0.enter_tes_trade_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.enter_tes_trade_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.enter_tes_trade_request.fields(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.enter_tes_trade_request.fields(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
-
-  return offset + size_of_enter_tes_trade_request
 end
 
 -- Delete Tes Trade Request
@@ -18488,20 +18788,24 @@ eurex_derivatives_eti_t7_v5_0.delete_tes_trade_request.fields = function(buffer,
 end
 
 -- Dissect: Delete Tes Trade Request
-eurex_derivatives_eti_t7_v5_0.delete_tes_trade_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_tes_trade_request = eurex_derivatives_eti_t7_v5_0.delete_tes_trade_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
+  local index = offset + size_of_delete_tes_trade_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_tes_trade_request then
-    local range = buffer(offset, size_of_delete_tes_trade_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_tes_trade_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_tes_trade_request.fields(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
+    parent:set_len(size_of_delete_tes_trade_request)
     local display = eurex_derivatives_eti_t7_v5_0.delete_tes_trade_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_tes_trade_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_tes_trade_request.fields(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_tes_trade_request.fields(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
-
-  return offset + size_of_delete_tes_trade_request
 end
 
 -- Delete Order Single Request
@@ -18563,20 +18867,24 @@ eurex_derivatives_eti_t7_v5_0.delete_order_single_request.fields = function(buff
 end
 
 -- Dissect: Delete Order Single Request
-eurex_derivatives_eti_t7_v5_0.delete_order_single_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_order_single_request = eurex_derivatives_eti_t7_v5_0.delete_order_single_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_order_single_request.dissect = function(buffer, offset, packet, parent, size_of_delete_order_single_request)
+  local index = offset + size_of_delete_order_single_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_order_single_request then
-    local range = buffer(offset, size_of_delete_order_single_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_order_single_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_order_single_request.fields(buffer, offset, packet, parent, size_of_delete_order_single_request)
+    parent:set_len(size_of_delete_order_single_request)
     local display = eurex_derivatives_eti_t7_v5_0.delete_order_single_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_order_single_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_order_single_request.fields(buffer, offset, packet, parent, size_of_delete_order_single_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_order_single_request.fields(buffer, offset, packet, parent, size_of_delete_order_single_request)
-
-  return offset + size_of_delete_order_single_request
 end
 
 -- Delete Order Response
@@ -18647,20 +18955,24 @@ eurex_derivatives_eti_t7_v5_0.delete_order_response.fields = function(buffer, of
 end
 
 -- Dissect: Delete Order Response
-eurex_derivatives_eti_t7_v5_0.delete_order_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_order_response = eurex_derivatives_eti_t7_v5_0.delete_order_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_order_response.dissect = function(buffer, offset, packet, parent, size_of_delete_order_response)
+  local index = offset + size_of_delete_order_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_order_response then
-    local range = buffer(offset, size_of_delete_order_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_order_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_order_response.fields(buffer, offset, packet, parent, size_of_delete_order_response)
+    parent:set_len(size_of_delete_order_response)
     local display = eurex_derivatives_eti_t7_v5_0.delete_order_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_order_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_order_response.fields(buffer, offset, packet, parent, size_of_delete_order_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_order_response.fields(buffer, offset, packet, parent, size_of_delete_order_response)
-
-  return offset + size_of_delete_order_response
 end
 
 -- Delete Order Nr Response
@@ -18731,20 +19043,24 @@ eurex_derivatives_eti_t7_v5_0.delete_order_nr_response.fields = function(buffer,
 end
 
 -- Dissect: Delete Order Nr Response
-eurex_derivatives_eti_t7_v5_0.delete_order_nr_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_order_nr_response = eurex_derivatives_eti_t7_v5_0.delete_order_nr_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_delete_order_nr_response)
+  local index = offset + size_of_delete_order_nr_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_order_nr_response then
-    local range = buffer(offset, size_of_delete_order_nr_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_order_nr_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_order_nr_response)
+    parent:set_len(size_of_delete_order_nr_response)
     local display = eurex_derivatives_eti_t7_v5_0.delete_order_nr_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_order_nr_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_order_nr_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_order_nr_response)
-
-  return offset + size_of_delete_order_nr_response
 end
 
 -- Delete Order Complex Request
@@ -18803,20 +19119,24 @@ eurex_derivatives_eti_t7_v5_0.delete_order_complex_request.fields = function(buf
 end
 
 -- Dissect: Delete Order Complex Request
-eurex_derivatives_eti_t7_v5_0.delete_order_complex_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_order_complex_request = eurex_derivatives_eti_t7_v5_0.delete_order_complex_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_order_complex_request.dissect = function(buffer, offset, packet, parent, size_of_delete_order_complex_request)
+  local index = offset + size_of_delete_order_complex_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_order_complex_request then
-    local range = buffer(offset, size_of_delete_order_complex_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_order_complex_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_order_complex_request.fields(buffer, offset, packet, parent, size_of_delete_order_complex_request)
+    parent:set_len(size_of_delete_order_complex_request)
     local display = eurex_derivatives_eti_t7_v5_0.delete_order_complex_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_order_complex_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_order_complex_request.fields(buffer, offset, packet, parent, size_of_delete_order_complex_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_order_complex_request.fields(buffer, offset, packet, parent, size_of_delete_order_complex_request)
-
-  return offset + size_of_delete_order_complex_request
 end
 
 -- Delete Order Broadcast
@@ -18899,20 +19219,24 @@ eurex_derivatives_eti_t7_v5_0.delete_order_broadcast.fields = function(buffer, o
 end
 
 -- Dissect: Delete Order Broadcast
-eurex_derivatives_eti_t7_v5_0.delete_order_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_order_broadcast = eurex_derivatives_eti_t7_v5_0.delete_order_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_order_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+  local index = offset + size_of_delete_order_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_order_broadcast then
-    local range = buffer(offset, size_of_delete_order_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_order_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+    parent:set_len(size_of_delete_order_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.delete_order_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_order_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
-
-  return offset + size_of_delete_order_broadcast
 end
 
 -- Delete All Quote Response
@@ -18961,20 +19285,24 @@ eurex_derivatives_eti_t7_v5_0.delete_all_quote_response.fields = function(buffer
 end
 
 -- Dissect: Delete All Quote Response
-eurex_derivatives_eti_t7_v5_0.delete_all_quote_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_all_quote_response = eurex_derivatives_eti_t7_v5_0.delete_all_quote_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_all_quote_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_response)
+  local index = offset + size_of_delete_all_quote_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_all_quote_response then
-    local range = buffer(offset, size_of_delete_all_quote_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_quote_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_all_quote_response.fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
+    parent:set_len(size_of_delete_all_quote_response)
     local display = eurex_derivatives_eti_t7_v5_0.delete_all_quote_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_quote_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_all_quote_response.fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_all_quote_response.fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
-
-  return offset + size_of_delete_all_quote_response
 end
 
 -- Delete All Quote Request
@@ -19021,20 +19349,24 @@ eurex_derivatives_eti_t7_v5_0.delete_all_quote_request.fields = function(buffer,
 end
 
 -- Dissect: Delete All Quote Request
-eurex_derivatives_eti_t7_v5_0.delete_all_quote_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_all_quote_request = eurex_derivatives_eti_t7_v5_0.delete_all_quote_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_all_quote_request.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_request)
+  local index = offset + size_of_delete_all_quote_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_all_quote_request then
-    local range = buffer(offset, size_of_delete_all_quote_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_quote_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_all_quote_request.fields(buffer, offset, packet, parent, size_of_delete_all_quote_request)
+    parent:set_len(size_of_delete_all_quote_request)
     local display = eurex_derivatives_eti_t7_v5_0.delete_all_quote_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_quote_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_all_quote_request.fields(buffer, offset, packet, parent, size_of_delete_all_quote_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_all_quote_request.fields(buffer, offset, packet, parent, size_of_delete_all_quote_request)
-
-  return offset + size_of_delete_all_quote_request
 end
 
 -- Target Party Id Desk Id
@@ -19163,20 +19495,24 @@ eurex_derivatives_eti_t7_v5_0.delete_all_quote_broadcast.fields = function(buffe
 end
 
 -- Dissect: Delete All Quote Broadcast
-eurex_derivatives_eti_t7_v5_0.delete_all_quote_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_all_quote_broadcast = eurex_derivatives_eti_t7_v5_0.delete_all_quote_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_all_quote_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
+  local index = offset + size_of_delete_all_quote_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_all_quote_broadcast then
-    local range = buffer(offset, size_of_delete_all_quote_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_quote_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_all_quote_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
+    parent:set_len(size_of_delete_all_quote_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.delete_all_quote_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_quote_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_all_quote_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_all_quote_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
-
-  return offset + size_of_delete_all_quote_broadcast
 end
 
 -- Not Aff Orig Cl Ord Id
@@ -19359,20 +19695,24 @@ eurex_derivatives_eti_t7_v5_0.delete_all_order_response.fields = function(buffer
 end
 
 -- Dissect: Delete All Order Response
-eurex_derivatives_eti_t7_v5_0.delete_all_order_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_all_order_response = eurex_derivatives_eti_t7_v5_0.delete_all_order_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_all_order_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_response)
+  local index = offset + size_of_delete_all_order_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_all_order_response then
-    local range = buffer(offset, size_of_delete_all_order_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_order_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_all_order_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
+    parent:set_len(size_of_delete_all_order_response)
     local display = eurex_derivatives_eti_t7_v5_0.delete_all_order_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_order_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_all_order_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_all_order_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
-
-  return offset + size_of_delete_all_order_response
 end
 
 -- Delete All Order Request
@@ -19434,20 +19774,24 @@ eurex_derivatives_eti_t7_v5_0.delete_all_order_request.fields = function(buffer,
 end
 
 -- Dissect: Delete All Order Request
-eurex_derivatives_eti_t7_v5_0.delete_all_order_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_all_order_request = eurex_derivatives_eti_t7_v5_0.delete_all_order_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_all_order_request.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_request)
+  local index = offset + size_of_delete_all_order_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_all_order_request then
-    local range = buffer(offset, size_of_delete_all_order_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_order_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_all_order_request.fields(buffer, offset, packet, parent, size_of_delete_all_order_request)
+    parent:set_len(size_of_delete_all_order_request)
     local display = eurex_derivatives_eti_t7_v5_0.delete_all_order_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_order_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_all_order_request.fields(buffer, offset, packet, parent, size_of_delete_all_order_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_all_order_request.fields(buffer, offset, packet, parent, size_of_delete_all_order_request)
-
-  return offset + size_of_delete_all_order_request
 end
 
 -- Delete All Order Quote Event Broadcast
@@ -19500,20 +19844,24 @@ eurex_derivatives_eti_t7_v5_0.delete_all_order_quote_event_broadcast.fields = fu
 end
 
 -- Dissect: Delete All Order Quote Event Broadcast
-eurex_derivatives_eti_t7_v5_0.delete_all_order_quote_event_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_all_order_quote_event_broadcast = eurex_derivatives_eti_t7_v5_0.delete_all_order_quote_event_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_all_order_quote_event_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
+  local index = offset + size_of_delete_all_order_quote_event_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_all_order_quote_event_broadcast then
-    local range = buffer(offset, size_of_delete_all_order_quote_event_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_order_quote_event_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_all_order_quote_event_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
+    parent:set_len(size_of_delete_all_order_quote_event_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.delete_all_order_quote_event_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_order_quote_event_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_all_order_quote_event_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_all_order_quote_event_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
-
-  return offset + size_of_delete_all_order_quote_event_broadcast
 end
 
 -- Delete All Order Nr Response
@@ -19551,20 +19899,24 @@ eurex_derivatives_eti_t7_v5_0.delete_all_order_nr_response.fields = function(buf
 end
 
 -- Dissect: Delete All Order Nr Response
-eurex_derivatives_eti_t7_v5_0.delete_all_order_nr_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_all_order_nr_response = eurex_derivatives_eti_t7_v5_0.delete_all_order_nr_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_all_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
+  local index = offset + size_of_delete_all_order_nr_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_all_order_nr_response then
-    local range = buffer(offset, size_of_delete_all_order_nr_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_order_nr_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_all_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
+    parent:set_len(size_of_delete_all_order_nr_response)
     local display = eurex_derivatives_eti_t7_v5_0.delete_all_order_nr_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_order_nr_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_all_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_all_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
-
-  return offset + size_of_delete_all_order_nr_response
 end
 
 -- Delete All Order Broadcast
@@ -19643,20 +19995,24 @@ eurex_derivatives_eti_t7_v5_0.delete_all_order_broadcast.fields = function(buffe
 end
 
 -- Dissect: Delete All Order Broadcast
-eurex_derivatives_eti_t7_v5_0.delete_all_order_broadcast.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_delete_all_order_broadcast = eurex_derivatives_eti_t7_v5_0.delete_all_order_broadcast.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.delete_all_order_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
+  local index = offset + size_of_delete_all_order_broadcast
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.delete_all_order_broadcast then
-    local range = buffer(offset, size_of_delete_all_order_broadcast)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_order_broadcast, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.delete_all_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
+    parent:set_len(size_of_delete_all_order_broadcast)
     local display = eurex_derivatives_eti_t7_v5_0.delete_all_order_broadcast.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.delete_all_order_broadcast, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.delete_all_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.delete_all_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
-
-  return offset + size_of_delete_all_order_broadcast
 end
 
 -- Cross Request Response
@@ -19694,20 +20050,24 @@ eurex_derivatives_eti_t7_v5_0.cross_request_response.fields = function(buffer, o
 end
 
 -- Dissect: Cross Request Response
-eurex_derivatives_eti_t7_v5_0.cross_request_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_cross_request_response = eurex_derivatives_eti_t7_v5_0.cross_request_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.cross_request_response.dissect = function(buffer, offset, packet, parent, size_of_cross_request_response)
+  local index = offset + size_of_cross_request_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.cross_request_response then
-    local range = buffer(offset, size_of_cross_request_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.cross_request_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.cross_request_response.fields(buffer, offset, packet, parent, size_of_cross_request_response)
+    parent:set_len(size_of_cross_request_response)
     local display = eurex_derivatives_eti_t7_v5_0.cross_request_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.cross_request_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.cross_request_response.fields(buffer, offset, packet, parent, size_of_cross_request_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.cross_request_response.fields(buffer, offset, packet, parent, size_of_cross_request_response)
-
-  return offset + size_of_cross_request_response
 end
 
 -- Cross Request
@@ -19763,20 +20123,24 @@ eurex_derivatives_eti_t7_v5_0.cross_request.fields = function(buffer, offset, pa
 end
 
 -- Dissect: Cross Request
-eurex_derivatives_eti_t7_v5_0.cross_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_cross_request = eurex_derivatives_eti_t7_v5_0.cross_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.cross_request.dissect = function(buffer, offset, packet, parent, size_of_cross_request)
+  local index = offset + size_of_cross_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.cross_request then
-    local range = buffer(offset, size_of_cross_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.cross_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.cross_request.fields(buffer, offset, packet, parent, size_of_cross_request)
+    parent:set_len(size_of_cross_request)
     local display = eurex_derivatives_eti_t7_v5_0.cross_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.cross_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.cross_request.fields(buffer, offset, packet, parent, size_of_cross_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.cross_request.fields(buffer, offset, packet, parent, size_of_cross_request)
-
-  return offset + size_of_cross_request
 end
 
 -- Appl Id Status
@@ -19879,20 +20243,24 @@ eurex_derivatives_eti_t7_v5_0.broadcast_error_notification.fields = function(buf
 end
 
 -- Dissect: Broadcast Error Notification
-eurex_derivatives_eti_t7_v5_0.broadcast_error_notification.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_broadcast_error_notification = eurex_derivatives_eti_t7_v5_0.broadcast_error_notification.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.broadcast_error_notification.dissect = function(buffer, offset, packet, parent, size_of_broadcast_error_notification)
+  local index = offset + size_of_broadcast_error_notification
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.broadcast_error_notification then
-    local range = buffer(offset, size_of_broadcast_error_notification)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.broadcast_error_notification, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.broadcast_error_notification.fields(buffer, offset, packet, parent, size_of_broadcast_error_notification)
+    parent:set_len(size_of_broadcast_error_notification)
     local display = eurex_derivatives_eti_t7_v5_0.broadcast_error_notification.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.broadcast_error_notification, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.broadcast_error_notification.fields(buffer, offset, packet, parent, size_of_broadcast_error_notification)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.broadcast_error_notification.fields(buffer, offset, packet, parent, size_of_broadcast_error_notification)
-
-  return offset + size_of_broadcast_error_notification
 end
 
 -- Approve Tes Trade Request
@@ -20011,20 +20379,24 @@ eurex_derivatives_eti_t7_v5_0.approve_tes_trade_request.fields = function(buffer
 end
 
 -- Dissect: Approve Tes Trade Request
-eurex_derivatives_eti_t7_v5_0.approve_tes_trade_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_approve_tes_trade_request = eurex_derivatives_eti_t7_v5_0.approve_tes_trade_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.approve_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_approve_tes_trade_request)
+  local index = offset + size_of_approve_tes_trade_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.approve_tes_trade_request then
-    local range = buffer(offset, size_of_approve_tes_trade_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.approve_tes_trade_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.approve_tes_trade_request.fields(buffer, offset, packet, parent, size_of_approve_tes_trade_request)
+    parent:set_len(size_of_approve_tes_trade_request)
     local display = eurex_derivatives_eti_t7_v5_0.approve_tes_trade_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.approve_tes_trade_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.approve_tes_trade_request.fields(buffer, offset, packet, parent, size_of_approve_tes_trade_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.approve_tes_trade_request.fields(buffer, offset, packet, parent, size_of_approve_tes_trade_request)
-
-  return offset + size_of_approve_tes_trade_request
 end
 
 -- Symbol
@@ -20360,20 +20732,24 @@ eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_response.fields = function
 end
 
 -- Dissect: Add Flexible Instrument Response
-eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_add_flexible_instrument_response = eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
+  local index = offset + size_of_add_flexible_instrument_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.add_flexible_instrument_response then
-    local range = buffer(offset, size_of_add_flexible_instrument_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.add_flexible_instrument_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_response.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
+    parent:set_len(size_of_add_flexible_instrument_response)
     local display = eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.add_flexible_instrument_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_response.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_response.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
-
-  return offset + size_of_add_flexible_instrument_response
 end
 
 -- Add Flexible Instrument Request
@@ -20438,20 +20814,24 @@ eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_request.fields = function(
 end
 
 -- Dissect: Add Flexible Instrument Request
-eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_add_flexible_instrument_request = eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_request.dissect = function(buffer, offset, packet, parent, size_of_add_flexible_instrument_request)
+  local index = offset + size_of_add_flexible_instrument_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.add_flexible_instrument_request then
-    local range = buffer(offset, size_of_add_flexible_instrument_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.add_flexible_instrument_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_request.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_request)
+    parent:set_len(size_of_add_flexible_instrument_request)
     local display = eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.add_flexible_instrument_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_request.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.add_flexible_instrument_request.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_request)
-
-  return offset + size_of_add_flexible_instrument_request
 end
 
 -- Leg Security Type
@@ -20958,20 +21338,24 @@ eurex_derivatives_eti_t7_v5_0.add_complex_instrument_response.fields = function(
 end
 
 -- Dissect: Add Complex Instrument Response
-eurex_derivatives_eti_t7_v5_0.add_complex_instrument_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_add_complex_instrument_response = eurex_derivatives_eti_t7_v5_0.add_complex_instrument_response.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.add_complex_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+  local index = offset + size_of_add_complex_instrument_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.add_complex_instrument_response then
-    local range = buffer(offset, size_of_add_complex_instrument_response)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.add_complex_instrument_response, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+    parent:set_len(size_of_add_complex_instrument_response)
     local display = eurex_derivatives_eti_t7_v5_0.add_complex_instrument_response.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.add_complex_instrument_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
-
-  return offset + size_of_add_complex_instrument_response
 end
 
 -- Add Complex Instrument Request
@@ -21035,20 +21419,24 @@ eurex_derivatives_eti_t7_v5_0.add_complex_instrument_request.fields = function(b
 end
 
 -- Dissect: Add Complex Instrument Request
-eurex_derivatives_eti_t7_v5_0.add_complex_instrument_request.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_add_complex_instrument_request = eurex_derivatives_eti_t7_v5_0.add_complex_instrument_request.size(buffer, offset)
+eurex_derivatives_eti_t7_v5_0.add_complex_instrument_request.dissect = function(buffer, offset, packet, parent, size_of_add_complex_instrument_request)
+  local index = offset + size_of_add_complex_instrument_request
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.add_complex_instrument_request then
-    local range = buffer(offset, size_of_add_complex_instrument_request)
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.add_complex_instrument_request, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v5_0.add_complex_instrument_request.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_request)
+    parent:set_len(size_of_add_complex_instrument_request)
     local display = eurex_derivatives_eti_t7_v5_0.add_complex_instrument_request.display(buffer, packet, parent)
-    parent = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.add_complex_instrument_request, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eti_t7_v5_0.add_complex_instrument_request.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_request)
+
+    return index
   end
-
-  eurex_derivatives_eti_t7_v5_0.add_complex_instrument_request.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_request)
-
-  return offset + size_of_add_complex_instrument_request
 end
 
 -- Payload
@@ -21844,12 +22232,6 @@ end
 
 -- Dissect: Payload
 eurex_derivatives_eti_t7_v5_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = eurex_derivatives_eti_t7_v5_0.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return eurex_derivatives_eti_t7_v5_0.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

@@ -1161,15 +1161,20 @@ end
 
 -- Dissect: Tick Table Message
 tmx_mx_sola_multicast_hsvf_v1_11.tick_table_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.tick_table_message then
-    local length = tmx_mx_sola_multicast_hsvf_v1_11.tick_table_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_mx_sola_multicast_hsvf_v1_11.tick_table_message.display(buffer, packet, parent)
-    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.tick_table_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.tick_table_message, buffer(offset, 0))
+    local index = tmx_mx_sola_multicast_hsvf_v1_11.tick_table_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_sola_multicast_hsvf_v1_11.tick_table_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_mx_sola_multicast_hsvf_v1_11.tick_table_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_sola_multicast_hsvf_v1_11.tick_table_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Reserved
@@ -1461,12 +1466,6 @@ end
 
 -- Dissect: Bulletin
 tmx_mx_sola_multicast_hsvf_v1_11.bulletin.dissect = function(buffer, offset, packet, parent, bulletin_type)
-  -- Calculate size and check that branch is not empty
-  local size = tmx_mx_sola_multicast_hsvf_v1_11.bulletin.size(buffer, offset, bulletin_type)
-  if size == 0 then
-    return offset
-  end
-
   return tmx_mx_sola_multicast_hsvf_v1_11.bulletin.branches(buffer, offset, packet, parent, bulletin_type)
 end
 
@@ -1542,15 +1541,20 @@ end
 
 -- Dissect: Bulletins Message
 tmx_mx_sola_multicast_hsvf_v1_11.bulletins_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.bulletins_message then
-    local length = tmx_mx_sola_multicast_hsvf_v1_11.bulletins_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_mx_sola_multicast_hsvf_v1_11.bulletins_message.display(buffer, packet, parent)
-    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletins_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletins_message, buffer(offset, 0))
+    local index = tmx_mx_sola_multicast_hsvf_v1_11.bulletins_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_sola_multicast_hsvf_v1_11.bulletins_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_mx_sola_multicast_hsvf_v1_11.bulletins_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_sola_multicast_hsvf_v1_11.bulletins_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Group Status
@@ -4661,15 +4665,20 @@ end
 
 -- Dissect: Strategy Summary Message
 tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.strategy_summary_message then
-    local length = tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.display(buffer, packet, parent)
-    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_summary_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_summary_message, buffer(offset, 0))
+    local index = tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- External Price Fraction Indicator
@@ -8092,15 +8101,20 @@ end
 
 -- Dissect: Swap Future Market Depth Message
 tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.swap_future_market_depth_message then
-    local length = tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_message.display(buffer, packet, parent)
-    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.swap_future_market_depth_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.swap_future_market_depth_message, buffer(offset, 0))
+    local index = tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Level Of Market Depth
@@ -8265,15 +8279,20 @@ end
 
 -- Dissect: Strategy Market Depth Message
 tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.strategy_market_depth_message then
-    local length = tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_message.display(buffer, packet, parent)
-    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_market_depth_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_market_depth_message, buffer(offset, 0))
+    local index = tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Futures Market Depth Trading Instrument
@@ -8422,15 +8441,20 @@ end
 
 -- Dissect: Futures Market Depth Message
 tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.futures_market_depth_message then
-    local length = tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_message.display(buffer, packet, parent)
-    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.futures_market_depth_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.futures_market_depth_message, buffer(offset, 0))
+    local index = tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Future Options Market Depth Trading Instrument
@@ -8594,15 +8618,20 @@ end
 
 -- Dissect: Future Options Market Depth Message
 tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.future_options_market_depth_message then
-    local length = tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.display(buffer, packet, parent)
-    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.future_options_market_depth_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.future_options_market_depth_message, buffer(offset, 0))
+    local index = tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Option Market Depth Trading Instrument
@@ -8766,15 +8795,20 @@ end
 
 -- Dissect: Option Market Depth Message
 tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.option_market_depth_message then
-    local length = tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_message.display(buffer, packet, parent)
-    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.option_market_depth_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.option_market_depth_message, buffer(offset, 0))
+    local index = tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Instrument Status Marker X 1
@@ -11079,12 +11113,6 @@ end
 
 -- Dissect: Message Body
 tmx_mx_sola_multicast_hsvf_v1_11.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = tmx_mx_sola_multicast_hsvf_v1_11.message_body.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return tmx_mx_sola_multicast_hsvf_v1_11.message_body.branches(buffer, offset, packet, parent, message_type)
 end
 

@@ -1304,15 +1304,20 @@ end
 
 -- Dissect: Otc Security Alt Id Groups
 cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.otc_security_alt_id_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_security_alt_id_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_security_alt_id_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Underlying Security Exchange Security Exchange
@@ -1695,15 +1700,20 @@ end
 
 -- Dissect: Otc Underlyings Groups
 cme_futures_streamlined_sbe_v5_9.otc_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.otc_underlyings_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.otc_underlyings_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.otc_underlyings_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_underlyings_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_underlyings_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.otc_underlyings_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.otc_underlyings_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.otc_underlyings_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.otc_underlyings_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Reference Id 100
@@ -3148,16 +3158,21 @@ cme_futures_streamlined_sbe_v5_9.otc_group.fields = function(buffer, offset, pac
 end
 
 -- Dissect: Otc Group
-cme_futures_streamlined_sbe_v5_9.otc_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+cme_futures_streamlined_sbe_v5_9.otc_group.dissect = function(buffer, offset, packet, parent, otc_group_index)
   if show.otc_group then
-    local length = cme_futures_streamlined_sbe_v5_9.otc_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.otc_group.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_group, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.otc_group.fields(buffer, offset, packet, parent, otc_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.otc_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.otc_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.otc_group.fields(buffer, offset, packet, parent, otc_group_index)
+  end
 end
 
 -- Otc Groups
@@ -3202,15 +3217,20 @@ end
 
 -- Dissect: Otc Groups
 cme_futures_streamlined_sbe_v5_9.otc_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.otc_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.otc_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.otc_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.otc_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.otc_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.otc_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.otc_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Batch Total Messages Optional
@@ -3434,15 +3454,20 @@ end
 
 -- Dissect: Md Incremental Refresh Ot C 366
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_ot_c_366 then
-    local length = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_ot_c_366, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_ot_c_366, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Leg Unit Of Measure Currency
@@ -4155,15 +4180,20 @@ end
 
 -- Dissect: Trade Blocks Legs Groups
 cme_futures_streamlined_sbe_v5_9.trade_blocks_legs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade_blocks_legs_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.trade_blocks_legs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_legs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_legs_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.trade_blocks_legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_legs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.trade_blocks_legs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.trade_blocks_legs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Party Role
@@ -4335,15 +4365,20 @@ end
 
 -- Dissect: Trade Blocks Party Ids Groups
 cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade_blocks_party_ids_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_party_ids_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_party_ids_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Underlying Security Exchange String 4
@@ -4484,15 +4519,20 @@ end
 
 -- Dissect: Trade Blocks Underlyings Groups
 cme_futures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade_blocks_underlyings_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_underlyings_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_underlyings_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Leg Ref Id
@@ -5064,16 +5104,21 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_group.fields = function(buffer, of
 end
 
 -- Dissect: Trade Blocks Group
-cme_futures_streamlined_sbe_v5_9.trade_blocks_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+cme_futures_streamlined_sbe_v5_9.trade_blocks_group.dissect = function(buffer, offset, packet, parent, trade_blocks_group_index)
   if show.trade_blocks_group then
-    local length = cme_futures_streamlined_sbe_v5_9.trade_blocks_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_group.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_group, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.trade_blocks_group.fields(buffer, offset, packet, parent, trade_blocks_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.trade_blocks_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.trade_blocks_group.fields(buffer, offset, packet, parent, trade_blocks_group_index)
+  end
 end
 
 -- Trade Blocks Groups
@@ -5118,15 +5163,20 @@ end
 
 -- Dissect: Trade Blocks Groups
 cme_futures_streamlined_sbe_v5_9.trade_blocks_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade_blocks_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.trade_blocks_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.trade_blocks_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.trade_blocks_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.trade_blocks_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Batch Total Messages
@@ -5228,15 +5278,20 @@ end
 
 -- Dissect: Md Incremental Refresh Trade Blocks 365
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_trade_blocks_365 then
-    local length = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_365, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_365, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Alt Id Source Optional
@@ -5405,15 +5460,20 @@ end
 
 -- Dissect: Eris Security Alt Id Groups
 cme_futures_streamlined_sbe_v5_9.eris_security_alt_id_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.eris_security_alt_id_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.eris_security_alt_id_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.eris_security_alt_id_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_security_alt_id_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_security_alt_id_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.eris_security_alt_id_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Interpolation Factor
@@ -5896,16 +5956,21 @@ cme_futures_streamlined_sbe_v5_9.eris_legs_group.fields = function(buffer, offse
 end
 
 -- Dissect: Eris Legs Group
-cme_futures_streamlined_sbe_v5_9.eris_legs_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+cme_futures_streamlined_sbe_v5_9.eris_legs_group.dissect = function(buffer, offset, packet, parent, eris_legs_group_index)
   if show.eris_legs_group then
-    local length = cme_futures_streamlined_sbe_v5_9.eris_legs_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.eris_legs_group.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_legs_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_legs_group, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.eris_legs_group.fields(buffer, offset, packet, parent, eris_legs_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.eris_legs_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.eris_legs_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.eris_legs_group.fields(buffer, offset, packet, parent, eris_legs_group_index)
+  end
 end
 
 -- Eris Legs Groups
@@ -5950,15 +6015,20 @@ end
 
 -- Dissect: Eris Legs Groups
 cme_futures_streamlined_sbe_v5_9.eris_legs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.eris_legs_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.eris_legs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.eris_legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_legs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_legs_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.eris_legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.eris_legs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.eris_legs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.eris_legs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Event Time Optional
@@ -6108,15 +6178,20 @@ end
 
 -- Dissect: Events Groups
 cme_futures_streamlined_sbe_v5_9.events_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.events_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.events_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.events_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.events_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.events_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.events_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.events_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.events_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Market Depth
@@ -6277,15 +6352,20 @@ end
 
 -- Dissect: Eris Feed Types Groups
 cme_futures_streamlined_sbe_v5_9.eris_feed_types_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.eris_feed_types_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.eris_feed_types_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.eris_feed_types_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_feed_types_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_feed_types_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.eris_feed_types_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.eris_feed_types_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.eris_feed_types_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.eris_feed_types_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Appl Id
@@ -6675,15 +6755,20 @@ end
 
 -- Dissect: Md Instrument Definition Eris
 cme_futures_streamlined_sbe_v5_9.md_instrument_definition_eris.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_instrument_definition_eris then
-    local length = cme_futures_streamlined_sbe_v5_9.md_instrument_definition_eris.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_instrument_definition_eris.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_instrument_definition_eris, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_instrument_definition_eris, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_instrument_definition_eris.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_instrument_definition_eris.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_instrument_definition_eris.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_instrument_definition_eris.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Unit Of Measure Qty Decimal
@@ -7026,16 +7111,21 @@ cme_futures_streamlined_sbe_v5_9.otc_original_group.fields = function(buffer, of
 end
 
 -- Dissect: Otc Original Group
-cme_futures_streamlined_sbe_v5_9.otc_original_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+cme_futures_streamlined_sbe_v5_9.otc_original_group.dissect = function(buffer, offset, packet, parent, otc_original_group_index)
   if show.otc_original_group then
-    local length = cme_futures_streamlined_sbe_v5_9.otc_original_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.otc_original_group.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_original_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_original_group, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.otc_original_group.fields(buffer, offset, packet, parent, otc_original_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.otc_original_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.otc_original_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.otc_original_group.fields(buffer, offset, packet, parent, otc_original_group_index)
+  end
 end
 
 -- Otc Original Groups
@@ -7080,15 +7170,20 @@ end
 
 -- Dissect: Otc Original Groups
 cme_futures_streamlined_sbe_v5_9.otc_original_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.otc_original_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.otc_original_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.otc_original_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_original_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_original_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.otc_original_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.otc_original_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.otc_original_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.otc_original_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Ot C 356
@@ -7140,15 +7235,20 @@ end
 
 -- Dissect: Md Incremental Refresh Ot C 356
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_ot_c_356 then
-    local length = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_ot_c_356, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_ot_c_356, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Quote Type
@@ -7580,16 +7680,21 @@ cme_futures_streamlined_sbe_v5_9.eris_group.fields = function(buffer, offset, pa
 end
 
 -- Dissect: Eris Group
-cme_futures_streamlined_sbe_v5_9.eris_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+cme_futures_streamlined_sbe_v5_9.eris_group.dissect = function(buffer, offset, packet, parent, eris_group_index)
   if show.eris_group then
-    local length = cme_futures_streamlined_sbe_v5_9.eris_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.eris_group.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_group, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.eris_group.fields(buffer, offset, packet, parent, eris_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.eris_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.eris_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.eris_group.fields(buffer, offset, packet, parent, eris_group_index)
+  end
 end
 
 -- Eris Groups
@@ -7634,15 +7739,20 @@ end
 
 -- Dissect: Eris Groups
 cme_futures_streamlined_sbe_v5_9.eris_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.eris_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.eris_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.eris_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.eris_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.eris_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.eris_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.eris_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Eris 353
@@ -7689,15 +7799,20 @@ end
 
 -- Dissect: Md Incremental Refresh Eris 353
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_353.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_eris_353 then
-    local length = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_353.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_353.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_eris_353, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_eris_353, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_353.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_353.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_353.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_353.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Eris Original Group
@@ -7824,16 +7939,21 @@ cme_futures_streamlined_sbe_v5_9.eris_original_group.fields = function(buffer, o
 end
 
 -- Dissect: Eris Original Group
-cme_futures_streamlined_sbe_v5_9.eris_original_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+cme_futures_streamlined_sbe_v5_9.eris_original_group.dissect = function(buffer, offset, packet, parent, eris_original_group_index)
   if show.eris_original_group then
-    local length = cme_futures_streamlined_sbe_v5_9.eris_original_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.eris_original_group.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_original_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_original_group, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.eris_original_group.fields(buffer, offset, packet, parent, eris_original_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.eris_original_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.eris_original_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.eris_original_group.fields(buffer, offset, packet, parent, eris_original_group_index)
+  end
 end
 
 -- Eris Original Groups
@@ -7878,15 +7998,20 @@ end
 
 -- Dissect: Eris Original Groups
 cme_futures_streamlined_sbe_v5_9.eris_original_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.eris_original_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.eris_original_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.eris_original_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_original_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_original_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.eris_original_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.eris_original_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.eris_original_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.eris_original_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Eris 351
@@ -7933,15 +8058,20 @@ end
 
 -- Dissect: Md Incremental Refresh Eris 351
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_eris_351 then
-    local length = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_eris_351, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_eris_351, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Leg Unit Of Measure Qty Pricenull
@@ -8165,15 +8295,20 @@ end
 
 -- Dissect: Trade Blocks Original Legs Groups
 cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade_blocks_original_legs_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_original_legs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_original_legs_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Strike Price
@@ -8443,16 +8578,21 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_group.fields = function(buf
 end
 
 -- Dissect: Trade Blocks Legacy Group
-cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_group.dissect = function(buffer, offset, packet, parent, trade_blocks_legacy_group_index)
   if show.trade_blocks_legacy_group then
-    local length = cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_group.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_legacy_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_legacy_group, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_group.fields(buffer, offset, packet, parent, trade_blocks_legacy_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_group.fields(buffer, offset, packet, parent, trade_blocks_legacy_group_index)
+  end
 end
 
 -- Trade Blocks Legacy Groups
@@ -8497,15 +8637,20 @@ end
 
 -- Dissect: Trade Blocks Legacy Groups
 cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade_blocks_legacy_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_legacy_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_legacy_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Trade Blocks 349
@@ -8557,15 +8702,20 @@ end
 
 -- Dissect: Md Incremental Refresh Trade Blocks 349
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_trade_blocks_349 then
-    local length = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_349, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_349, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Entry Time
@@ -9091,15 +9241,20 @@ end
 
 -- Dissect: Incremental Refresh Indices Groups
 cme_futures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.incremental_refresh_indices_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.incremental_refresh_indices_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.incremental_refresh_indices_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Feed Type
@@ -9190,15 +9345,20 @@ end
 
 -- Dissect: Md Incremental Refresh Indices
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_indices.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_indices then
-    local length = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_indices.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_indices.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_indices, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_indices, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_indices.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_indices.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_indices.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_indices.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Inst Attrib Value
@@ -9421,15 +9581,20 @@ end
 
 -- Dissect: Inst Attrib Groups
 cme_futures_streamlined_sbe_v5_9.inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.inst_attrib_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.inst_attrib_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.inst_attrib_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.inst_attrib_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.inst_attrib_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.inst_attrib_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.inst_attrib_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.inst_attrib_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.inst_attrib_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Product
@@ -9524,15 +9689,20 @@ end
 
 -- Dissect: Md Instrument Definition Indices
 cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_instrument_definition_indices then
-    local length = cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_instrument_definition_indices, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_instrument_definition_indices, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Type
@@ -9670,16 +9840,21 @@ cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_group.fields = functi
 end
 
 -- Dissect: Quote Request Related Sym Group
-cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_group.dissect = function(buffer, offset, packet, parent, quote_request_related_sym_group_index)
   if show.quote_request_related_sym_group then
-    local length = cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_group.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_request_related_sym_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_request_related_sym_group, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_group.fields(buffer, offset, packet, parent, quote_request_related_sym_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_group.fields(buffer, offset, packet, parent, quote_request_related_sym_group_index)
+  end
 end
 
 -- Quote Request Related Sym Groups
@@ -9724,15 +9899,20 @@ end
 
 -- Dissect: Quote Request Related Sym Groups
 cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_request_related_sym_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_request_related_sym_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_request_related_sym_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Req Id
@@ -9818,15 +9998,20 @@ end
 
 -- Dissect: Quote Request
 cme_futures_streamlined_sbe_v5_9.quote_request.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_request then
-    local length = cme_futures_streamlined_sbe_v5_9.quote_request.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.quote_request.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_request, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.quote_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.quote_request.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.quote_request.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.quote_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trade Blocks Original Group
@@ -10018,16 +10203,21 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_original_group.fields = function(b
 end
 
 -- Dissect: Trade Blocks Original Group
-cme_futures_streamlined_sbe_v5_9.trade_blocks_original_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+cme_futures_streamlined_sbe_v5_9.trade_blocks_original_group.dissect = function(buffer, offset, packet, parent, trade_blocks_original_group_index)
   if show.trade_blocks_original_group then
-    local length = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_group.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_original_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_original_group, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_group.fields(buffer, offset, packet, parent, trade_blocks_original_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.trade_blocks_original_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.trade_blocks_original_group.fields(buffer, offset, packet, parent, trade_blocks_original_group_index)
+  end
 end
 
 -- Trade Blocks Original Groups
@@ -10072,15 +10262,20 @@ end
 
 -- Dissect: Trade Blocks Original Groups
 cme_futures_streamlined_sbe_v5_9.trade_blocks_original_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.trade_blocks_original_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_original_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_original_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.trade_blocks_original_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.trade_blocks_original_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.trade_blocks_original_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Trade Blocks 340
@@ -10127,15 +10322,20 @@ end
 
 -- Dissect: Md Incremental Refresh Trade Blocks 340
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_trade_blocks_340 then
-    local length = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_340, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_340, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Text 500
@@ -10264,15 +10464,20 @@ end
 
 -- Dissect: Lines Of Text Groups
 cme_futures_streamlined_sbe_v5_9.lines_of_text_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.lines_of_text_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.lines_of_text_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.lines_of_text_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.lines_of_text_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.lines_of_text_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.lines_of_text_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.lines_of_text_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.lines_of_text_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.lines_of_text_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- News Indices Related Sym Group
@@ -10362,15 +10567,20 @@ end
 
 -- Dissect: News Indices Related Sym Groups
 cme_futures_streamlined_sbe_v5_9.news_indices_related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.news_indices_related_sym_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.news_indices_related_sym_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.news_indices_related_sym_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.news_indices_related_sym_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.news_indices_related_sym_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.news_indices_related_sym_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.news_indices_related_sym_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.news_indices_related_sym_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.news_indices_related_sym_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Orig Time
@@ -10488,15 +10698,20 @@ end
 
 -- Dissect: Md News Indices
 cme_futures_streamlined_sbe_v5_9.md_news_indices.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_news_indices then
-    local length = cme_futures_streamlined_sbe_v5_9.md_news_indices.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_news_indices.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_news_indices, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_news_indices, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_news_indices.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_news_indices.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_news_indices.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_news_indices.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Related Security Group
@@ -10700,15 +10915,20 @@ end
 
 -- Dissect: Incremental Refresh Eris Related Instruments Groups
 cme_futures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.incremental_refresh_eris_related_instruments_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.incremental_refresh_eris_related_instruments_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.incremental_refresh_eris_related_instruments_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Description
@@ -12516,16 +12736,21 @@ cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.fields = function(buf
 end
 
 -- Dissect: Eris Reference Data Group
-cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.dissect = function(buffer, offset, packet, parent, eris_reference_data_group_index)
   if show.eris_reference_data_group then
-    local length = cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_reference_data_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_reference_data_group, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.fields(buffer, offset, packet, parent, eris_reference_data_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.fields(buffer, offset, packet, parent, eris_reference_data_group_index)
+  end
 end
 
 -- Eris Reference Data Groups
@@ -12570,15 +12795,20 @@ end
 
 -- Dissect: Eris Reference Data Groups
 cme_futures_streamlined_sbe_v5_9.eris_reference_data_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.eris_reference_data_groups then
-    local length = cme_futures_streamlined_sbe_v5_9.eris_reference_data_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.eris_reference_data_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_reference_data_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_reference_data_groups, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.eris_reference_data_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.eris_reference_data_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.eris_reference_data_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.eris_reference_data_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Eris Reference Data And Daily Statistics
@@ -12625,15 +12855,20 @@ end
 
 -- Dissect: Md Incremental Refresh Eris Reference Data And Daily Statistics
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_daily_statistics.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_eris_reference_data_and_daily_statistics then
-    local length = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_daily_statistics.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_daily_statistics.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_eris_reference_data_and_daily_statistics, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_eris_reference_data_and_daily_statistics, buffer(offset, 0))
+    local index = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_daily_statistics.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_daily_statistics.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_daily_statistics.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_daily_statistics.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Text
@@ -12922,12 +13157,6 @@ end
 
 -- Dissect: Payload
 cme_futures_streamlined_sbe_v5_9.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = cme_futures_streamlined_sbe_v5_9.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return cme_futures_streamlined_sbe_v5_9.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

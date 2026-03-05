@@ -2617,12 +2617,6 @@ end
 
 -- Dissect: Data
 miax_pearloptions_topofmarket_mach_v1_0.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = miax_pearloptions_topofmarket_mach_v1_0.data.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return miax_pearloptions_topofmarket_mach_v1_0.data.branches(buffer, offset, packet, parent, message_type)
 end
 
@@ -2718,20 +2712,24 @@ miax_pearloptions_topofmarket_mach_v1_0.application_message.fields = function(bu
 end
 
 -- Dissect: Application Message
-miax_pearloptions_topofmarket_mach_v1_0.application_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_application_message = miax_pearloptions_topofmarket_mach_v1_0.application_message.size(buffer, offset)
+miax_pearloptions_topofmarket_mach_v1_0.application_message.dissect = function(buffer, offset, packet, parent, size_of_application_message)
+  local index = offset + size_of_application_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.application_message then
-    local range = buffer(offset, size_of_application_message)
+    parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.application_message, buffer(offset, 0))
+    local current = miax_pearloptions_topofmarket_mach_v1_0.application_message.fields(buffer, offset, packet, parent, size_of_application_message)
+    parent:set_len(size_of_application_message)
     local display = miax_pearloptions_topofmarket_mach_v1_0.application_message.display(buffer, packet, parent)
-    parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.application_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    miax_pearloptions_topofmarket_mach_v1_0.application_message.fields(buffer, offset, packet, parent, size_of_application_message)
+
+    return index
   end
-
-  miax_pearloptions_topofmarket_mach_v1_0.application_message.fields(buffer, offset, packet, parent, size_of_application_message)
-
-  return offset + size_of_application_message
 end
 
 -- Payload
@@ -2759,12 +2757,6 @@ end
 
 -- Dissect: Payload
 miax_pearloptions_topofmarket_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Calculate size and check that branch is not empty
-  local size = miax_pearloptions_topofmarket_mach_v1_0.payload.size(buffer, offset, packet_type)
-  if size == 0 then
-    return offset
-  end
-
   return miax_pearloptions_topofmarket_mach_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
@@ -2925,15 +2917,20 @@ end
 
 -- Dissect: Message
 miax_pearloptions_topofmarket_mach_v1_0.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = miax_pearloptions_topofmarket_mach_v1_0.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearloptions_topofmarket_mach_v1_0.message.display(buffer, packet, parent)
-    parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0.message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearloptions_topofmarket_mach_v1_0.message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearloptions_topofmarket_mach_v1_0.message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearloptions_topofmarket_mach_v1_0.message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Packet

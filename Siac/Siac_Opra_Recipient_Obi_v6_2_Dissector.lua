@@ -698,12 +698,6 @@ end
 
 -- Dissect: Underlying Value Message Payload
 siac_opra_recipient_obi_v6_2.underlying_value_message_payload.dissect = function(buffer, offset, packet, parent, underlying_value_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = siac_opra_recipient_obi_v6_2.underlying_value_message_payload.size(buffer, offset, underlying_value_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return siac_opra_recipient_obi_v6_2.underlying_value_message_payload.branches(buffer, offset, packet, parent, underlying_value_message_type)
 end
 
@@ -774,15 +768,20 @@ end
 
 -- Dissect: Underlying Value Message
 siac_opra_recipient_obi_v6_2.underlying_value_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.underlying_value_message then
-    local length = siac_opra_recipient_obi_v6_2.underlying_value_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_opra_recipient_obi_v6_2.underlying_value_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.underlying_value_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_opra_recipient_obi_v6_2.underlying_value_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_opra_recipient_obi_v6_2.underlying_value_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_opra_recipient_obi_v6_2.underlying_value_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Control Message Type
@@ -1023,20 +1022,24 @@ siac_opra_recipient_obi_v6_2.administrative_message.fields = function(buffer, of
 end
 
 -- Dissect: Administrative Message
-siac_opra_recipient_obi_v6_2.administrative_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_administrative_message = siac_opra_recipient_obi_v6_2.administrative_message.size(buffer, offset)
+siac_opra_recipient_obi_v6_2.administrative_message.dissect = function(buffer, offset, packet, parent, size_of_administrative_message)
+  local index = offset + size_of_administrative_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.administrative_message then
-    local range = buffer(offset, size_of_administrative_message)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.administrative_message, buffer(offset, 0))
+    local current = siac_opra_recipient_obi_v6_2.administrative_message.fields(buffer, offset, packet, parent, size_of_administrative_message)
+    parent:set_len(size_of_administrative_message)
     local display = siac_opra_recipient_obi_v6_2.administrative_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.administrative_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_opra_recipient_obi_v6_2.administrative_message.fields(buffer, offset, packet, parent, size_of_administrative_message)
+
+    return index
   end
-
-  siac_opra_recipient_obi_v6_2.administrative_message.fields(buffer, offset, packet, parent, size_of_administrative_message)
-
-  return offset + size_of_administrative_message
 end
 
 -- Size
@@ -1879,15 +1882,20 @@ end
 
 -- Dissect: Short Equity And Index Quote Message
 siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.short_equity_and_index_quote_message then
-    local length = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Best Offer Size
@@ -2649,15 +2657,20 @@ end
 
 -- Dissect: Long Equity And Index Quote Message
 siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.long_equity_and_index_quote_message then
-    local length = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote_message, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Underlying Price
@@ -3400,12 +3413,6 @@ end
 
 -- Dissect: Payload
 siac_opra_recipient_obi_v6_2.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Calculate size and check that branch is not empty
-  local size = siac_opra_recipient_obi_v6_2.payload.size(buffer, offset, message_category)
-  if size == 0 then
-    return offset
-  end
-
   return siac_opra_recipient_obi_v6_2.payload.branches(buffer, offset, packet, parent, message_category)
 end
 
@@ -3504,16 +3511,21 @@ siac_opra_recipient_obi_v6_2.message.fields = function(buffer, offset, packet, p
 end
 
 -- Dissect: Message
-siac_opra_recipient_obi_v6_2.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+siac_opra_recipient_obi_v6_2.message.dissect = function(buffer, offset, packet, parent, message_index)
   if show.message then
-    local length = siac_opra_recipient_obi_v6_2.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_opra_recipient_obi_v6_2.message.display(buffer, packet, parent)
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.message.fields(buffer, offset, packet, parent, message_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_opra_recipient_obi_v6_2.message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_opra_recipient_obi_v6_2.message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_opra_recipient_obi_v6_2.message.fields(buffer, offset, packet, parent, message_index)
+  end
 end
 
 -- Block Checksum

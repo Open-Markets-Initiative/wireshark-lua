@@ -222,20 +222,24 @@ txse_headers_rake_tcp_v1_0.tcp_sequenced_message.fields = function(buffer, offse
 end
 
 -- Dissect: Tcp Sequenced Message
-txse_headers_rake_tcp_v1_0.tcp_sequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tcp_sequenced_message = txse_headers_rake_tcp_v1_0.tcp_sequenced_message.size(buffer, offset)
+txse_headers_rake_tcp_v1_0.tcp_sequenced_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
+  local index = offset + size_of_tcp_sequenced_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tcp_sequenced_message then
-    local range = buffer(offset, size_of_tcp_sequenced_message)
+    parent = parent:add(omi_txse_headers_rake_tcp_v1_0.fields.tcp_sequenced_message, buffer(offset, 0))
+    local current = txse_headers_rake_tcp_v1_0.tcp_sequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
+    parent:set_len(size_of_tcp_sequenced_message)
     local display = txse_headers_rake_tcp_v1_0.tcp_sequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_headers_rake_tcp_v1_0.fields.tcp_sequenced_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_headers_rake_tcp_v1_0.tcp_sequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
+
+    return index
   end
-
-  txse_headers_rake_tcp_v1_0.tcp_sequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
-
-  return offset + size_of_tcp_sequenced_message
 end
 
 -- Rake Instance
@@ -510,15 +514,20 @@ end
 
 -- Dissect: Debug Message
 txse_headers_rake_tcp_v1_0.debug_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.debug_message then
-    local length = txse_headers_rake_tcp_v1_0.debug_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = txse_headers_rake_tcp_v1_0.debug_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_headers_rake_tcp_v1_0.fields.debug_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_txse_headers_rake_tcp_v1_0.fields.debug_message, buffer(offset, 0))
+    local index = txse_headers_rake_tcp_v1_0.debug_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = txse_headers_rake_tcp_v1_0.debug_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return txse_headers_rake_tcp_v1_0.debug_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return txse_headers_rake_tcp_v1_0.debug_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Unsequenced Message
@@ -601,20 +610,24 @@ txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.fields = function(buffer, off
 end
 
 -- Dissect: Tcp Unsequenced Message
-txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tcp_unsequenced_message = txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.size(buffer, offset)
+txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
+  local index = offset + size_of_tcp_unsequenced_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tcp_unsequenced_message then
-    local range = buffer(offset, size_of_tcp_unsequenced_message)
+    parent = parent:add(omi_txse_headers_rake_tcp_v1_0.fields.tcp_unsequenced_message, buffer(offset, 0))
+    local current = txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
+    parent:set_len(size_of_tcp_unsequenced_message)
     local display = txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_headers_rake_tcp_v1_0.fields.tcp_unsequenced_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
+
+    return index
   end
-
-  txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
-
-  return offset + size_of_tcp_unsequenced_message
 end
 
 -- Requested Sequence Number
@@ -802,12 +815,6 @@ end
 
 -- Dissect: Payload
 txse_headers_rake_tcp_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Calculate size and check that branch is not empty
-  local size = txse_headers_rake_tcp_v1_0.payload.size(buffer, offset, packet_type)
-  if size == 0 then
-    return offset
-  end
-
   return txse_headers_rake_tcp_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 

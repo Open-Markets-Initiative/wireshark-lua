@@ -978,15 +978,20 @@ end
 
 -- Dissect: Incremental Refresh Btec Groups
 cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.incremental_refresh_btec_groups then
-    local length = cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.incremental_refresh_btec_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.incremental_refresh_btec_groups, buffer(offset, 0))
+    local index = cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Transact Time
@@ -1083,15 +1088,20 @@ end
 
 -- Dissect: Md Incremental Refresh Btec
 cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_btec then
-    local length = cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_incremental_refresh_btec, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_incremental_refresh_btec, buffer(offset, 0))
+    local index = cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -1126,12 +1136,6 @@ end
 
 -- Dissect: Payload
 cme_brokertec_ust_sbe_v10_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = cme_brokertec_ust_sbe_v10_1.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return cme_brokertec_ust_sbe_v10_1.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

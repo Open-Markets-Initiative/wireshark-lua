@@ -949,20 +949,24 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.fields = function(
 end
 
 -- Dissect: Mass Cancel Result Message
-txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_mass_cancel_result_message = txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_result_message)
+  local index = offset + size_of_mass_cancel_result_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.mass_cancel_result_message then
-    local range = buffer(offset, size_of_mass_cancel_result_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_result_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_result_message)
+    parent:set_len(size_of_mass_cancel_result_message)
     local display = txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_result_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_result_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_result_message)
-
-  return offset + size_of_mass_cancel_result_message
 end
 
 -- Reject Reason
@@ -1220,20 +1224,24 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.fields = functio
 end
 
 -- Dissect: Mass Cancel Rejected Message
-txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_mass_cancel_rejected_message = txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_rejected_message)
+  local index = offset + size_of_mass_cancel_rejected_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.mass_cancel_rejected_message then
-    local range = buffer(offset, size_of_mass_cancel_rejected_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_rejected_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_rejected_message)
+    parent:set_len(size_of_mass_cancel_rejected_message)
     local display = txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_rejected_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_rejected_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_rejected_message)
-
-  return offset + size_of_mass_cancel_rejected_message
 end
 
 -- Mass Cancel Accepted Presence Bits
@@ -1377,20 +1385,24 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.fields = functio
 end
 
 -- Dissect: Mass Cancel Accepted Message
-txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_mass_cancel_accepted_message = txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_accepted_message)
+  local index = offset + size_of_mass_cancel_accepted_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.mass_cancel_accepted_message then
-    local range = buffer(offset, size_of_mass_cancel_accepted_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_accepted_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_accepted_message)
+    parent:set_len(size_of_mass_cancel_accepted_message)
     local display = txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_accepted_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_accepted_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_accepted_message)
-
-  return offset + size_of_mass_cancel_accepted_message
 end
 
 -- Order Qty
@@ -1640,20 +1652,24 @@ txse_equities_orderentry_seed_v0_1.order_restated_message.fields = function(buff
 end
 
 -- Dissect: Order Restated Message
-txse_equities_orderentry_seed_v0_1.order_restated_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_restated_message = txse_equities_orderentry_seed_v0_1.order_restated_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.order_restated_message.dissect = function(buffer, offset, packet, parent, size_of_order_restated_message)
+  local index = offset + size_of_order_restated_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_restated_message then
-    local range = buffer(offset, size_of_order_restated_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_restated_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.order_restated_message.fields(buffer, offset, packet, parent, size_of_order_restated_message)
+    parent:set_len(size_of_order_restated_message)
     local display = txse_equities_orderentry_seed_v0_1.order_restated_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_restated_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.order_restated_message.fields(buffer, offset, packet, parent, size_of_order_restated_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.order_restated_message.fields(buffer, offset, packet, parent, size_of_order_restated_message)
-
-  return offset + size_of_order_restated_message
 end
 
 -- Leaves Qty
@@ -1795,20 +1811,24 @@ txse_equities_orderentry_seed_v0_1.order_executed_message.fields = function(buff
 end
 
 -- Dissect: Order Executed Message
-txse_equities_orderentry_seed_v0_1.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_executed_message = txse_equities_orderentry_seed_v0_1.order_executed_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.order_executed_message.dissect = function(buffer, offset, packet, parent, size_of_order_executed_message)
+  local index = offset + size_of_order_executed_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_executed_message then
-    local range = buffer(offset, size_of_order_executed_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_executed_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.order_executed_message.fields(buffer, offset, packet, parent, size_of_order_executed_message)
+    parent:set_len(size_of_order_executed_message)
     local display = txse_equities_orderentry_seed_v0_1.order_executed_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_executed_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.order_executed_message.fields(buffer, offset, packet, parent, size_of_order_executed_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.order_executed_message.fields(buffer, offset, packet, parent, size_of_order_executed_message)
-
-  return offset + size_of_order_executed_message
 end
 
 -- Locate Broker
@@ -2084,20 +2104,24 @@ txse_equities_orderentry_seed_v0_1.replace_rejected_message.fields = function(bu
 end
 
 -- Dissect: Replace Rejected Message
-txse_equities_orderentry_seed_v0_1.replace_rejected_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_replace_rejected_message = txse_equities_orderentry_seed_v0_1.replace_rejected_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.replace_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_replace_rejected_message)
+  local index = offset + size_of_replace_rejected_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.replace_rejected_message then
-    local range = buffer(offset, size_of_replace_rejected_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.replace_rejected_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.replace_rejected_message.fields(buffer, offset, packet, parent, size_of_replace_rejected_message)
+    parent:set_len(size_of_replace_rejected_message)
     local display = txse_equities_orderentry_seed_v0_1.replace_rejected_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.replace_rejected_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.replace_rejected_message.fields(buffer, offset, packet, parent, size_of_replace_rejected_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.replace_rejected_message.fields(buffer, offset, packet, parent, size_of_replace_rejected_message)
-
-  return offset + size_of_replace_rejected_message
 end
 
 -- Order Replaced Presence Bits
@@ -2279,20 +2303,24 @@ txse_equities_orderentry_seed_v0_1.order_replaced_message.fields = function(buff
 end
 
 -- Dissect: Order Replaced Message
-txse_equities_orderentry_seed_v0_1.order_replaced_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_replaced_message = txse_equities_orderentry_seed_v0_1.order_replaced_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.order_replaced_message.dissect = function(buffer, offset, packet, parent, size_of_order_replaced_message)
+  local index = offset + size_of_order_replaced_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_replaced_message then
-    local range = buffer(offset, size_of_order_replaced_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_replaced_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.order_replaced_message.fields(buffer, offset, packet, parent, size_of_order_replaced_message)
+    parent:set_len(size_of_order_replaced_message)
     local display = txse_equities_orderentry_seed_v0_1.order_replaced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_replaced_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.order_replaced_message.fields(buffer, offset, packet, parent, size_of_order_replaced_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.order_replaced_message.fields(buffer, offset, packet, parent, size_of_order_replaced_message)
-
-  return offset + size_of_order_replaced_message
 end
 
 -- Modify Bitfields
@@ -2468,20 +2496,24 @@ txse_equities_orderentry_seed_v0_1.modify_rejected_message.fields = function(buf
 end
 
 -- Dissect: Modify Rejected Message
-txse_equities_orderentry_seed_v0_1.modify_rejected_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_modify_rejected_message = txse_equities_orderentry_seed_v0_1.modify_rejected_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.modify_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_modify_rejected_message)
+  local index = offset + size_of_modify_rejected_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.modify_rejected_message then
-    local range = buffer(offset, size_of_modify_rejected_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.modify_rejected_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.modify_rejected_message.fields(buffer, offset, packet, parent, size_of_modify_rejected_message)
+    parent:set_len(size_of_modify_rejected_message)
     local display = txse_equities_orderentry_seed_v0_1.modify_rejected_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.modify_rejected_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.modify_rejected_message.fields(buffer, offset, packet, parent, size_of_modify_rejected_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.modify_rejected_message.fields(buffer, offset, packet, parent, size_of_modify_rejected_message)
-
-  return offset + size_of_modify_rejected_message
 end
 
 -- Order Modified Presence Bits
@@ -2614,20 +2646,24 @@ txse_equities_orderentry_seed_v0_1.order_modified_message.fields = function(buff
 end
 
 -- Dissect: Order Modified Message
-txse_equities_orderentry_seed_v0_1.order_modified_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_modified_message = txse_equities_orderentry_seed_v0_1.order_modified_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.order_modified_message.dissect = function(buffer, offset, packet, parent, size_of_order_modified_message)
+  local index = offset + size_of_order_modified_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_modified_message then
-    local range = buffer(offset, size_of_order_modified_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_modified_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.order_modified_message.fields(buffer, offset, packet, parent, size_of_order_modified_message)
+    parent:set_len(size_of_order_modified_message)
     local display = txse_equities_orderentry_seed_v0_1.order_modified_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_modified_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.order_modified_message.fields(buffer, offset, packet, parent, size_of_order_modified_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.order_modified_message.fields(buffer, offset, packet, parent, size_of_order_modified_message)
-
-  return offset + size_of_order_modified_message
 end
 
 -- Cancel Rejected Message
@@ -2665,20 +2701,24 @@ txse_equities_orderentry_seed_v0_1.cancel_rejected_message.fields = function(buf
 end
 
 -- Dissect: Cancel Rejected Message
-txse_equities_orderentry_seed_v0_1.cancel_rejected_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_cancel_rejected_message = txse_equities_orderentry_seed_v0_1.cancel_rejected_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.cancel_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_cancel_rejected_message)
+  local index = offset + size_of_cancel_rejected_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.cancel_rejected_message then
-    local range = buffer(offset, size_of_cancel_rejected_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.cancel_rejected_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.cancel_rejected_message.fields(buffer, offset, packet, parent, size_of_cancel_rejected_message)
+    parent:set_len(size_of_cancel_rejected_message)
     local display = txse_equities_orderentry_seed_v0_1.cancel_rejected_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.cancel_rejected_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.cancel_rejected_message.fields(buffer, offset, packet, parent, size_of_cancel_rejected_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.cancel_rejected_message.fields(buffer, offset, packet, parent, size_of_cancel_rejected_message)
-
-  return offset + size_of_cancel_rejected_message
 end
 
 -- Cancel Reason
@@ -2773,20 +2813,24 @@ txse_equities_orderentry_seed_v0_1.order_canceled_message.fields = function(buff
 end
 
 -- Dissect: Order Canceled Message
-txse_equities_orderentry_seed_v0_1.order_canceled_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_canceled_message = txse_equities_orderentry_seed_v0_1.order_canceled_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.order_canceled_message.dissect = function(buffer, offset, packet, parent, size_of_order_canceled_message)
+  local index = offset + size_of_order_canceled_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_canceled_message then
-    local range = buffer(offset, size_of_order_canceled_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_canceled_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.order_canceled_message.fields(buffer, offset, packet, parent, size_of_order_canceled_message)
+    parent:set_len(size_of_order_canceled_message)
     local display = txse_equities_orderentry_seed_v0_1.order_canceled_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_canceled_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.order_canceled_message.fields(buffer, offset, packet, parent, size_of_order_canceled_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.order_canceled_message.fields(buffer, offset, packet, parent, size_of_order_canceled_message)
-
-  return offset + size_of_order_canceled_message
 end
 
 -- User Data
@@ -3144,20 +3188,24 @@ txse_equities_orderentry_seed_v0_1.market_order_rejected_message.fields = functi
 end
 
 -- Dissect: Market Order Rejected Message
-txse_equities_orderentry_seed_v0_1.market_order_rejected_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_market_order_rejected_message = txse_equities_orderentry_seed_v0_1.market_order_rejected_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.market_order_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_market_order_rejected_message)
+  local index = offset + size_of_market_order_rejected_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.market_order_rejected_message then
-    local range = buffer(offset, size_of_market_order_rejected_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_order_rejected_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.market_order_rejected_message.fields(buffer, offset, packet, parent, size_of_market_order_rejected_message)
+    parent:set_len(size_of_market_order_rejected_message)
     local display = txse_equities_orderentry_seed_v0_1.market_order_rejected_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_order_rejected_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.market_order_rejected_message.fields(buffer, offset, packet, parent, size_of_market_order_rejected_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.market_order_rejected_message.fields(buffer, offset, packet, parent, size_of_market_order_rejected_message)
-
-  return offset + size_of_market_order_rejected_message
 end
 
 -- Market Order Accepted Presence Bits
@@ -3339,20 +3387,24 @@ txse_equities_orderentry_seed_v0_1.market_order_accepted_message.fields = functi
 end
 
 -- Dissect: Market Order Accepted Message
-txse_equities_orderentry_seed_v0_1.market_order_accepted_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_market_order_accepted_message = txse_equities_orderentry_seed_v0_1.market_order_accepted_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.market_order_accepted_message.dissect = function(buffer, offset, packet, parent, size_of_market_order_accepted_message)
+  local index = offset + size_of_market_order_accepted_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.market_order_accepted_message then
-    local range = buffer(offset, size_of_market_order_accepted_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_order_accepted_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.market_order_accepted_message.fields(buffer, offset, packet, parent, size_of_market_order_accepted_message)
+    parent:set_len(size_of_market_order_accepted_message)
     local display = txse_equities_orderentry_seed_v0_1.market_order_accepted_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_order_accepted_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.market_order_accepted_message.fields(buffer, offset, packet, parent, size_of_market_order_accepted_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.market_order_accepted_message.fields(buffer, offset, packet, parent, size_of_market_order_accepted_message)
-
-  return offset + size_of_market_order_accepted_message
 end
 
 -- Expire Time
@@ -3916,20 +3968,24 @@ txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.fields = functio
 end
 
 -- Dissect: Limit Order Rejected Message
-txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_limit_order_rejected_message = txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_limit_order_rejected_message)
+  local index = offset + size_of_limit_order_rejected_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.limit_order_rejected_message then
-    local range = buffer(offset, size_of_limit_order_rejected_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.limit_order_rejected_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.fields(buffer, offset, packet, parent, size_of_limit_order_rejected_message)
+    parent:set_len(size_of_limit_order_rejected_message)
     local display = txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.limit_order_rejected_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.fields(buffer, offset, packet, parent, size_of_limit_order_rejected_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.fields(buffer, offset, packet, parent, size_of_limit_order_rejected_message)
-
-  return offset + size_of_limit_order_rejected_message
 end
 
 -- Limit Order Accepted Presence Bits
@@ -4258,20 +4314,24 @@ txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.fields = functio
 end
 
 -- Dissect: Limit Order Accepted Message
-txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_limit_order_accepted_message = txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.dissect = function(buffer, offset, packet, parent, size_of_limit_order_accepted_message)
+  local index = offset + size_of_limit_order_accepted_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.limit_order_accepted_message then
-    local range = buffer(offset, size_of_limit_order_accepted_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.limit_order_accepted_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.fields(buffer, offset, packet, parent, size_of_limit_order_accepted_message)
+    parent:set_len(size_of_limit_order_accepted_message)
     local display = txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.limit_order_accepted_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.fields(buffer, offset, packet, parent, size_of_limit_order_accepted_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.fields(buffer, offset, packet, parent, size_of_limit_order_accepted_message)
-
-  return offset + size_of_limit_order_accepted_message
 end
 
 -- Regulatory Halt Reason
@@ -4544,20 +4604,24 @@ txse_equities_orderentry_seed_v0_1.symbol_status_message.fields = function(buffe
 end
 
 -- Dissect: Symbol Status Message
-txse_equities_orderentry_seed_v0_1.symbol_status_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_symbol_status_message = txse_equities_orderentry_seed_v0_1.symbol_status_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.symbol_status_message.dissect = function(buffer, offset, packet, parent, size_of_symbol_status_message)
+  local index = offset + size_of_symbol_status_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.symbol_status_message then
-    local range = buffer(offset, size_of_symbol_status_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.symbol_status_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.symbol_status_message.fields(buffer, offset, packet, parent, size_of_symbol_status_message)
+    parent:set_len(size_of_symbol_status_message)
     local display = txse_equities_orderentry_seed_v0_1.symbol_status_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.symbol_status_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.symbol_status_message.fields(buffer, offset, packet, parent, size_of_symbol_status_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.symbol_status_message.fields(buffer, offset, packet, parent, size_of_symbol_status_message)
-
-  return offset + size_of_symbol_status_message
 end
 
 -- Lot Size
@@ -4742,20 +4806,24 @@ txse_equities_orderentry_seed_v0_1.define_symbol_message.fields = function(buffe
 end
 
 -- Dissect: Define Symbol Message
-txse_equities_orderentry_seed_v0_1.define_symbol_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_define_symbol_message = txse_equities_orderentry_seed_v0_1.define_symbol_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.define_symbol_message.dissect = function(buffer, offset, packet, parent, size_of_define_symbol_message)
+  local index = offset + size_of_define_symbol_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.define_symbol_message then
-    local range = buffer(offset, size_of_define_symbol_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.define_symbol_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.define_symbol_message.fields(buffer, offset, packet, parent, size_of_define_symbol_message)
+    parent:set_len(size_of_define_symbol_message)
     local display = txse_equities_orderentry_seed_v0_1.define_symbol_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.define_symbol_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.define_symbol_message.fields(buffer, offset, packet, parent, size_of_define_symbol_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.define_symbol_message.fields(buffer, offset, packet, parent, size_of_define_symbol_message)
-
-  return offset + size_of_define_symbol_message
 end
 
 -- Market Hours State
@@ -4903,20 +4971,24 @@ txse_equities_orderentry_seed_v0_1.trading_session_status_message.fields = funct
 end
 
 -- Dissect: Trading Session Status Message
-txse_equities_orderentry_seed_v0_1.trading_session_status_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_trading_session_status_message = txse_equities_orderentry_seed_v0_1.trading_session_status_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.trading_session_status_message.dissect = function(buffer, offset, packet, parent, size_of_trading_session_status_message)
+  local index = offset + size_of_trading_session_status_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.trading_session_status_message then
-    local range = buffer(offset, size_of_trading_session_status_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.trading_session_status_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.trading_session_status_message.fields(buffer, offset, packet, parent, size_of_trading_session_status_message)
+    parent:set_len(size_of_trading_session_status_message)
     local display = txse_equities_orderentry_seed_v0_1.trading_session_status_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.trading_session_status_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.trading_session_status_message.fields(buffer, offset, packet, parent, size_of_trading_session_status_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.trading_session_status_message.fields(buffer, offset, packet, parent, size_of_trading_session_status_message)
-
-  return offset + size_of_trading_session_status_message
 end
 
 -- Sequenced Message
@@ -5080,12 +5152,6 @@ end
 
 -- Dissect: Sequenced Message
 txse_equities_orderentry_seed_v0_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = txse_equities_orderentry_seed_v0_1.sequenced_message.size(buffer, offset, sequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return txse_equities_orderentry_seed_v0_1.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
@@ -5225,20 +5291,24 @@ txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.fields = function(buffe
 end
 
 -- Dissect: Tcp Sequenced Message
-txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tcp_sequenced_message = txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
+  local index = offset + size_of_tcp_sequenced_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tcp_sequenced_message then
-    local range = buffer(offset, size_of_tcp_sequenced_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.tcp_sequenced_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
+    parent:set_len(size_of_tcp_sequenced_message)
     local display = txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.tcp_sequenced_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
-
-  return offset + size_of_tcp_sequenced_message
 end
 
 -- Rake Instance
@@ -5513,15 +5583,20 @@ end
 
 -- Dissect: Debug Message
 txse_equities_orderentry_seed_v0_1.debug_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.debug_message then
-    local length = txse_equities_orderentry_seed_v0_1.debug_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = txse_equities_orderentry_seed_v0_1.debug_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.debug_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.debug_message, buffer(offset, 0))
+    local index = txse_equities_orderentry_seed_v0_1.debug_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = txse_equities_orderentry_seed_v0_1.debug_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return txse_equities_orderentry_seed_v0_1.debug_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return txse_equities_orderentry_seed_v0_1.debug_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Mass Cancel Presence Bits
@@ -5659,20 +5734,24 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_message.fields = function(buffer,
 end
 
 -- Dissect: Mass Cancel Message
-txse_equities_orderentry_seed_v0_1.mass_cancel_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_mass_cancel_message = txse_equities_orderentry_seed_v0_1.mass_cancel_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.mass_cancel_message.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_message)
+  local index = offset + size_of_mass_cancel_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.mass_cancel_message then
-    local range = buffer(offset, size_of_mass_cancel_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.mass_cancel_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_message)
+    parent:set_len(size_of_mass_cancel_message)
     local display = txse_equities_orderentry_seed_v0_1.mass_cancel_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.mass_cancel_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.mass_cancel_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_message)
-
-  return offset + size_of_mass_cancel_message
 end
 
 -- Replace Order Presence Bits
@@ -5813,20 +5892,24 @@ txse_equities_orderentry_seed_v0_1.replace_order_message.fields = function(buffe
 end
 
 -- Dissect: Replace Order Message
-txse_equities_orderentry_seed_v0_1.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_replace_order_message = txse_equities_orderentry_seed_v0_1.replace_order_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.replace_order_message.dissect = function(buffer, offset, packet, parent, size_of_replace_order_message)
+  local index = offset + size_of_replace_order_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.replace_order_message then
-    local range = buffer(offset, size_of_replace_order_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.replace_order_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.replace_order_message.fields(buffer, offset, packet, parent, size_of_replace_order_message)
+    parent:set_len(size_of_replace_order_message)
     local display = txse_equities_orderentry_seed_v0_1.replace_order_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.replace_order_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.replace_order_message.fields(buffer, offset, packet, parent, size_of_replace_order_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.replace_order_message.fields(buffer, offset, packet, parent, size_of_replace_order_message)
-
-  return offset + size_of_replace_order_message
 end
 
 -- Cancel Order Message
@@ -5858,20 +5941,24 @@ txse_equities_orderentry_seed_v0_1.cancel_order_message.fields = function(buffer
 end
 
 -- Dissect: Cancel Order Message
-txse_equities_orderentry_seed_v0_1.cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_cancel_order_message = txse_equities_orderentry_seed_v0_1.cancel_order_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.cancel_order_message.dissect = function(buffer, offset, packet, parent, size_of_cancel_order_message)
+  local index = offset + size_of_cancel_order_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.cancel_order_message then
-    local range = buffer(offset, size_of_cancel_order_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.cancel_order_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.cancel_order_message.fields(buffer, offset, packet, parent, size_of_cancel_order_message)
+    parent:set_len(size_of_cancel_order_message)
     local display = txse_equities_orderentry_seed_v0_1.cancel_order_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.cancel_order_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.cancel_order_message.fields(buffer, offset, packet, parent, size_of_cancel_order_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.cancel_order_message.fields(buffer, offset, packet, parent, size_of_cancel_order_message)
-
-  return offset + size_of_cancel_order_message
 end
 
 -- Market Order Presence Bits
@@ -6047,20 +6134,24 @@ txse_equities_orderentry_seed_v0_1.market_order_message.fields = function(buffer
 end
 
 -- Dissect: Market Order Message
-txse_equities_orderentry_seed_v0_1.market_order_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_market_order_message = txse_equities_orderentry_seed_v0_1.market_order_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.market_order_message.dissect = function(buffer, offset, packet, parent, size_of_market_order_message)
+  local index = offset + size_of_market_order_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.market_order_message then
-    local range = buffer(offset, size_of_market_order_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_order_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.market_order_message.fields(buffer, offset, packet, parent, size_of_market_order_message)
+    parent:set_len(size_of_market_order_message)
     local display = txse_equities_orderentry_seed_v0_1.market_order_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_order_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.market_order_message.fields(buffer, offset, packet, parent, size_of_market_order_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.market_order_message.fields(buffer, offset, packet, parent, size_of_market_order_message)
-
-  return offset + size_of_market_order_message
 end
 
 -- Limit Order Presence Bits
@@ -6351,20 +6442,24 @@ txse_equities_orderentry_seed_v0_1.limit_order_message.fields = function(buffer,
 end
 
 -- Dissect: Limit Order Message
-txse_equities_orderentry_seed_v0_1.limit_order_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_limit_order_message = txse_equities_orderentry_seed_v0_1.limit_order_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.limit_order_message.dissect = function(buffer, offset, packet, parent, size_of_limit_order_message)
+  local index = offset + size_of_limit_order_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.limit_order_message then
-    local range = buffer(offset, size_of_limit_order_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.limit_order_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.limit_order_message.fields(buffer, offset, packet, parent, size_of_limit_order_message)
+    parent:set_len(size_of_limit_order_message)
     local display = txse_equities_orderentry_seed_v0_1.limit_order_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.limit_order_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.limit_order_message.fields(buffer, offset, packet, parent, size_of_limit_order_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.limit_order_message.fields(buffer, offset, packet, parent, size_of_limit_order_message)
-
-  return offset + size_of_limit_order_message
 end
 
 -- Unsequenced Message
@@ -6424,12 +6519,6 @@ end
 
 -- Dissect: Unsequenced Message
 txse_equities_orderentry_seed_v0_1.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = txse_equities_orderentry_seed_v0_1.unsequenced_message.size(buffer, offset, unsequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return txse_equities_orderentry_seed_v0_1.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
@@ -6507,20 +6596,24 @@ txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.fields = function(buf
 end
 
 -- Dissect: Tcp Unsequenced Message
-txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_tcp_unsequenced_message = txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.size(buffer, offset)
+txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
+  local index = offset + size_of_tcp_unsequenced_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.tcp_unsequenced_message then
-    local range = buffer(offset, size_of_tcp_unsequenced_message)
+    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.tcp_unsequenced_message, buffer(offset, 0))
+    local current = txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
+    parent:set_len(size_of_tcp_unsequenced_message)
     local display = txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.tcp_unsequenced_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
+
+    return index
   end
-
-  txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
-
-  return offset + size_of_tcp_unsequenced_message
 end
 
 -- Requested Sequence Number
@@ -6685,12 +6778,6 @@ end
 
 -- Dissect: Payload
 txse_equities_orderentry_seed_v0_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Calculate size and check that branch is not empty
-  local size = txse_equities_orderentry_seed_v0_1.payload.size(buffer, offset, packet_type)
-  if size == 0 then
-    return offset
-  end
-
   return txse_equities_orderentry_seed_v0_1.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 

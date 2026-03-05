@@ -4163,15 +4163,20 @@ end
 
 -- Dissect: Complex Order Instrument Keys Message
 box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.complex_order_instrument_keys_message then
-    local length = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.display(buffer, packet, parent)
-    parent = parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.complex_order_instrument_keys_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.complex_order_instrument_keys_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Underlying Symbol Root
@@ -5298,15 +5303,20 @@ end
 
 -- Dissect: Complex Order Market Depth Message
 box_options_sola_multicast_hsvf_v1_8.complex_order_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.complex_order_market_depth_message then
-    local length = box_options_sola_multicast_hsvf_v1_8.complex_order_market_depth_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = box_options_sola_multicast_hsvf_v1_8.complex_order_market_depth_message.display(buffer, packet, parent)
-    parent = parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.complex_order_market_depth_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.complex_order_market_depth_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_8.complex_order_market_depth_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = box_options_sola_multicast_hsvf_v1_8.complex_order_market_depth_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return box_options_sola_multicast_hsvf_v1_8.complex_order_market_depth_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return box_options_sola_multicast_hsvf_v1_8.complex_order_market_depth_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Market Depth Level
@@ -5440,15 +5450,20 @@ end
 
 -- Dissect: Option Market Depth Message
 box_options_sola_multicast_hsvf_v1_8.option_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.option_market_depth_message then
-    local length = box_options_sola_multicast_hsvf_v1_8.option_market_depth_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = box_options_sola_multicast_hsvf_v1_8.option_market_depth_message.display(buffer, packet, parent)
-    parent = parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.option_market_depth_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.option_market_depth_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_8.option_market_depth_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = box_options_sola_multicast_hsvf_v1_8.option_market_depth_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return box_options_sola_multicast_hsvf_v1_8.option_market_depth_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return box_options_sola_multicast_hsvf_v1_8.option_market_depth_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Group Status
@@ -6575,12 +6590,6 @@ end
 
 -- Dissect: Message Body
 box_options_sola_multicast_hsvf_v1_8.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = box_options_sola_multicast_hsvf_v1_8.message_body.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return box_options_sola_multicast_hsvf_v1_8.message_body.branches(buffer, offset, packet, parent, message_type)
 end
 

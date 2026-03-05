@@ -1839,12 +1839,6 @@ end
 
 -- Dissect: Payload
 aquis_equities_realtime_amd_v4_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Calculate size and check that branch is not empty
-  local size = aquis_equities_realtime_amd_v4_1.payload.size(buffer, offset, msg_type)
-  if size == 0 then
-    return offset
-  end
-
   return aquis_equities_realtime_amd_v4_1.payload.branches(buffer, offset, packet, parent, msg_type)
 end
 

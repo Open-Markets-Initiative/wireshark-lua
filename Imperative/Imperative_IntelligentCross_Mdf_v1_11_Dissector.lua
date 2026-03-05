@@ -1339,12 +1339,6 @@ end
 
 -- Dissect: Payload
 imperative_intelligentcross_mdf_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = imperative_intelligentcross_mdf_v1_11.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return imperative_intelligentcross_mdf_v1_11.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
@@ -1514,16 +1508,21 @@ imperative_intelligentcross_mdf_v1_11.message.fields = function(buffer, offset, 
 end
 
 -- Dissect: Message
-imperative_intelligentcross_mdf_v1_11.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+imperative_intelligentcross_mdf_v1_11.message.dissect = function(buffer, offset, packet, parent, message_index)
   if show.message then
-    local length = imperative_intelligentcross_mdf_v1_11.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = imperative_intelligentcross_mdf_v1_11.message.display(buffer, packet, parent)
-    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11.message.fields(buffer, offset, packet, parent, message_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = imperative_intelligentcross_mdf_v1_11.message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return imperative_intelligentcross_mdf_v1_11.message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return imperative_intelligentcross_mdf_v1_11.message.fields(buffer, offset, packet, parent, message_index)
+  end
 end
 
 -- Count

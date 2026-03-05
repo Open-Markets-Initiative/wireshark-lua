@@ -1887,20 +1887,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgem
 end
 
 -- Dissect: Complex Series Request Acknowledgement Message
-nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_complex_series_request_acknowledgement_message = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
+  local index = offset + size_of_complex_series_request_acknowledgement_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.complex_series_request_acknowledgement_message then
-    local range = buffer(offset, size_of_complex_series_request_acknowledgement_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.complex_series_request_acknowledgement_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
+    parent:set_len(size_of_complex_series_request_acknowledgement_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.complex_series_request_acknowledgement_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
-
-  return offset + size_of_complex_series_request_acknowledgement_message
 end
 
 -- Reserved 200
@@ -2806,20 +2810,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.fields =
 end
 
 -- Dissect: Risk Control Alert Message
-nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_risk_control_alert_message = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.dissect = function(buffer, offset, packet, parent, size_of_risk_control_alert_message)
+  local index = offset + size_of_risk_control_alert_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.risk_control_alert_message then
-    local range = buffer(offset, size_of_risk_control_alert_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_control_alert_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.fields(buffer, offset, packet, parent, size_of_risk_control_alert_message)
+    parent:set_len(size_of_risk_control_alert_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_control_alert_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.fields(buffer, offset, packet, parent, size_of_risk_control_alert_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.fields(buffer, offset, packet, parent, size_of_risk_control_alert_message)
-
-  return offset + size_of_risk_control_alert_message
 end
 
 -- Reserved 190
@@ -3119,20 +3127,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_messag
 end
 
 -- Dissect: Risk Control Acknowledgement Message
-nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_risk_control_acknowledgement_message = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_risk_control_acknowledgement_message)
+  local index = offset + size_of_risk_control_acknowledgement_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.risk_control_acknowledgement_message then
-    local range = buffer(offset, size_of_risk_control_acknowledgement_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_control_acknowledgement_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_risk_control_acknowledgement_message)
+    parent:set_len(size_of_risk_control_acknowledgement_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_control_acknowledgement_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_risk_control_acknowledgement_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_risk_control_acknowledgement_message)
-
-  return offset + size_of_risk_control_acknowledgement_message
 end
 
 -- User Data
@@ -3275,20 +3287,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.fi
 end
 
 -- Dissect: Application Layer Reject Message
-nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_application_layer_reject_message = nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.dissect = function(buffer, offset, packet, parent, size_of_application_layer_reject_message)
+  local index = offset + size_of_application_layer_reject_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.application_layer_reject_message then
-    local range = buffer(offset, size_of_application_layer_reject_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.application_layer_reject_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.fields(buffer, offset, packet, parent, size_of_application_layer_reject_message)
+    parent:set_len(size_of_application_layer_reject_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.application_layer_reject_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.fields(buffer, offset, packet, parent, size_of_application_layer_reject_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.fields(buffer, offset, packet, parent, size_of_application_layer_reject_message)
-
-  return offset + size_of_application_layer_reject_message
 end
 
 -- Bust Correct Indicator
@@ -3638,20 +3654,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.fields =
 end
 
 -- Dissect: Trade Bust Correct Message
-nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_trade_bust_correct_message = nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.dissect = function(buffer, offset, packet, parent, size_of_trade_bust_correct_message)
+  local index = offset + size_of_trade_bust_correct_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.trade_bust_correct_message then
-    local range = buffer(offset, size_of_trade_bust_correct_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.trade_bust_correct_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.fields(buffer, offset, packet, parent, size_of_trade_bust_correct_message)
+    parent:set_len(size_of_trade_bust_correct_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.trade_bust_correct_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.fields(buffer, offset, packet, parent, size_of_trade_bust_correct_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.fields(buffer, offset, packet, parent, size_of_trade_bust_correct_message)
-
-  return offset + size_of_trade_bust_correct_message
 end
 
 -- Clearing Account
@@ -4769,20 +4789,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.fields = f
 end
 
 -- Dissect: Execution Report Message
-nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_execution_report_message = nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.dissect = function(buffer, offset, packet, parent, size_of_execution_report_message)
+  local index = offset + size_of_execution_report_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.execution_report_message then
-    local range = buffer(offset, size_of_execution_report_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.execution_report_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.fields(buffer, offset, packet, parent, size_of_execution_report_message)
+    parent:set_len(size_of_execution_report_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.execution_report_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.fields(buffer, offset, packet, parent, size_of_execution_report_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.fields(buffer, offset, packet, parent, size_of_execution_report_message)
-
-  return offset + size_of_execution_report_message
 end
 
 -- Ack Type
@@ -5036,20 +5060,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgmen
 end
 
 -- Dissect: Order Priority Update Acknowledgment Message
-nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_priority_update_acknowledgment_message = nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message.dissect = function(buffer, offset, packet, parent, size_of_order_priority_update_acknowledgment_message)
+  local index = offset + size_of_order_priority_update_acknowledgment_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_priority_update_acknowledgment_message then
-    local range = buffer(offset, size_of_order_priority_update_acknowledgment_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_priority_update_acknowledgment_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_order_priority_update_acknowledgment_message)
+    parent:set_len(size_of_order_priority_update_acknowledgment_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_priority_update_acknowledgment_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_order_priority_update_acknowledgment_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_order_priority_update_acknowledgment_message)
-
-  return offset + size_of_order_priority_update_acknowledgment_message
 end
 
 -- Cancel Scope
@@ -5419,20 +5447,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_
 end
 
 -- Dissect: Order Single Complex Modify Cancel Request Acknowledgment And Urout Message
-nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.dissect = function(buffer, offset, packet, parent, size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message)
+  local index = offset + size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message then
-    local range = buffer(offset, size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.fields(buffer, offset, packet, parent, size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message)
+    parent:set_len(size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.fields(buffer, offset, packet, parent, size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.fields(buffer, offset, packet, parent, size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message)
-
-  return offset + size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message
 end
 
 -- Self Trade Type U 81
@@ -5553,20 +5585,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.f
 end
 
 -- Dissect: Bulk Quote Acknowledgment Message
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_bulk_quote_acknowledgment_message = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.dissect = function(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_message)
+  local index = offset + size_of_bulk_quote_acknowledgment_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.bulk_quote_acknowledgment_message then
-    local range = buffer(offset, size_of_bulk_quote_acknowledgment_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_quote_acknowledgment_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_message)
+    parent:set_len(size_of_bulk_quote_acknowledgment_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_quote_acknowledgment_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_message)
-
-  return offset + size_of_bulk_quote_acknowledgment_message
 end
 
 -- Bulk Quote Acknowledgment Type 294 Message
@@ -5625,20 +5661,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_
 end
 
 -- Dissect: Bulk Quote Acknowledgment Type 294 Message
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_bulk_quote_acknowledgment_type_294_message = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_message.dissect = function(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_type_294_message)
+  local index = offset + size_of_bulk_quote_acknowledgment_type_294_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.bulk_quote_acknowledgment_type_294_message then
-    local range = buffer(offset, size_of_bulk_quote_acknowledgment_type_294_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_quote_acknowledgment_type_294_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_message.fields(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_type_294_message)
+    parent:set_len(size_of_bulk_quote_acknowledgment_type_294_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_quote_acknowledgment_type_294_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_message.fields(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_type_294_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_message.fields(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_type_294_message)
-
-  return offset + size_of_bulk_quote_acknowledgment_type_294_message
 end
 
 -- Auction Id
@@ -5844,20 +5884,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledg
 end
 
 -- Dissect: Order And Cancel Replace Acknowledgement Message
-nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_and_cancel_replace_acknowledgement_message = nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_order_and_cancel_replace_acknowledgement_message)
+  local index = offset + size_of_order_and_cancel_replace_acknowledgement_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_and_cancel_replace_acknowledgement_message then
-    local range = buffer(offset, size_of_order_and_cancel_replace_acknowledgement_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_and_cancel_replace_acknowledgement_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_order_and_cancel_replace_acknowledgement_message)
+    parent:set_len(size_of_order_and_cancel_replace_acknowledgement_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_and_cancel_replace_acknowledgement_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_order_and_cancel_replace_acknowledgement_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_order_and_cancel_replace_acknowledgement_message)
-
-  return offset + size_of_order_and_cancel_replace_acknowledgement_message
 end
 
 -- Reserved 49
@@ -6379,20 +6423,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgeme
 end
 
 -- Dissect: Session Configuration Acknowledgement Message
-nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_session_configuration_acknowledgement_message = nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_session_configuration_acknowledgement_message)
+  local index = offset + size_of_session_configuration_acknowledgement_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.session_configuration_acknowledgement_message then
-    local range = buffer(offset, size_of_session_configuration_acknowledgement_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.session_configuration_acknowledgement_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_session_configuration_acknowledgement_message)
+    parent:set_len(size_of_session_configuration_acknowledgement_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.session_configuration_acknowledgement_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_session_configuration_acknowledgement_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_session_configuration_acknowledgement_message)
-
-  return offset + size_of_session_configuration_acknowledgement_message
 end
 
 -- Reserved 50
@@ -6569,20 +6617,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appoint
 end
 
 -- Dissect: Options Market Maker Symbol Appointment Reference Data Message
-nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_options_market_maker_symbol_appointment_reference_data_message = nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_options_market_maker_symbol_appointment_reference_data_message)
+  local index = offset + size_of_options_market_maker_symbol_appointment_reference_data_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.options_market_maker_symbol_appointment_reference_data_message then
-    local range = buffer(offset, size_of_options_market_maker_symbol_appointment_reference_data_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.options_market_maker_symbol_appointment_reference_data_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message.fields(buffer, offset, packet, parent, size_of_options_market_maker_symbol_appointment_reference_data_message)
+    parent:set_len(size_of_options_market_maker_symbol_appointment_reference_data_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.options_market_maker_symbol_appointment_reference_data_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message.fields(buffer, offset, packet, parent, size_of_options_market_maker_symbol_appointment_reference_data_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message.fields(buffer, offset, packet, parent, size_of_options_market_maker_symbol_appointment_reference_data_message)
-
-  return offset + size_of_options_market_maker_symbol_appointment_reference_data_message
 end
 
 -- Mpid Status
@@ -6659,20 +6711,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.fields =
 end
 
 -- Dissect: Mpid Configuration Message
-nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_mpid_configuration_message = nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.dissect = function(buffer, offset, packet, parent, size_of_mpid_configuration_message)
+  local index = offset + size_of_mpid_configuration_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.mpid_configuration_message then
-    local range = buffer(offset, size_of_mpid_configuration_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpid_configuration_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.fields(buffer, offset, packet, parent, size_of_mpid_configuration_message)
+    parent:set_len(size_of_mpid_configuration_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpid_configuration_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.fields(buffer, offset, packet, parent, size_of_mpid_configuration_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.fields(buffer, offset, packet, parent, size_of_mpid_configuration_message)
-
-  return offset + size_of_mpid_configuration_message
 end
 
 -- Mpv Class Id
@@ -6901,20 +6957,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_referen
 end
 
 -- Dissect: Minimum Price Variant Level Reference Data Message
-nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_reference_data_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_minimum_price_variant_level_reference_data_message = nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_reference_data_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_minimum_price_variant_level_reference_data_message)
+  local index = offset + size_of_minimum_price_variant_level_reference_data_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.minimum_price_variant_level_reference_data_message then
-    local range = buffer(offset, size_of_minimum_price_variant_level_reference_data_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.minimum_price_variant_level_reference_data_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_reference_data_message.fields(buffer, offset, packet, parent, size_of_minimum_price_variant_level_reference_data_message)
+    parent:set_len(size_of_minimum_price_variant_level_reference_data_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_reference_data_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.minimum_price_variant_level_reference_data_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_reference_data_message.fields(buffer, offset, packet, parent, size_of_minimum_price_variant_level_reference_data_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_reference_data_message.fields(buffer, offset, packet, parent, size_of_minimum_price_variant_level_reference_data_message)
-
-  return offset + size_of_minimum_price_variant_level_reference_data_message
 end
 
 -- Mpv Class Name
@@ -6991,20 +7051,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_referen
 end
 
 -- Dissect: Minimum Price Variant Class Reference Data Message
-nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_minimum_price_variant_class_reference_data_message = nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_minimum_price_variant_class_reference_data_message)
+  local index = offset + size_of_minimum_price_variant_class_reference_data_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.minimum_price_variant_class_reference_data_message then
-    local range = buffer(offset, size_of_minimum_price_variant_class_reference_data_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.minimum_price_variant_class_reference_data_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message.fields(buffer, offset, packet, parent, size_of_minimum_price_variant_class_reference_data_message)
+    parent:set_len(size_of_minimum_price_variant_class_reference_data_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.minimum_price_variant_class_reference_data_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message.fields(buffer, offset, packet, parent, size_of_minimum_price_variant_class_reference_data_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message.fields(buffer, offset, packet, parent, size_of_minimum_price_variant_class_reference_data_message)
-
-  return offset + size_of_minimum_price_variant_class_reference_data_message
 end
 
 -- Closing Only Indicator
@@ -7287,20 +7351,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.field
 end
 
 -- Dissect: Series Reference Data Message
-nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_series_reference_data_message = nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_series_reference_data_message)
+  local index = offset + size_of_series_reference_data_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.series_reference_data_message then
-    local range = buffer(offset, size_of_series_reference_data_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_reference_data_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.fields(buffer, offset, packet, parent, size_of_series_reference_data_message)
+    parent:set_len(size_of_series_reference_data_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_reference_data_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.fields(buffer, offset, packet, parent, size_of_series_reference_data_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.fields(buffer, offset, packet, parent, size_of_series_reference_data_message)
-
-  return offset + size_of_series_reference_data_message
 end
 
 -- Legal Width Multiplier
@@ -7584,20 +7652,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_me
 end
 
 -- Dissect: Underlying Symbol Reference Data Message
-nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_underlying_symbol_reference_data_message = nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_underlying_symbol_reference_data_message)
+  local index = offset + size_of_underlying_symbol_reference_data_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.underlying_symbol_reference_data_message then
-    local range = buffer(offset, size_of_underlying_symbol_reference_data_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.underlying_symbol_reference_data_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_message.fields(buffer, offset, packet, parent, size_of_underlying_symbol_reference_data_message)
+    parent:set_len(size_of_underlying_symbol_reference_data_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.underlying_symbol_reference_data_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_message.fields(buffer, offset, packet, parent, size_of_underlying_symbol_reference_data_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_message.fields(buffer, offset, packet, parent, size_of_underlying_symbol_reference_data_message)
-
-  return offset + size_of_underlying_symbol_reference_data_message
 end
 
 -- Complex Series Leg Group
@@ -7688,20 +7760,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.
 end
 
 -- Dissect: New Complex Series Request Message
-nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_new_complex_series_request_message = nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.dissect = function(buffer, offset, packet, parent, size_of_new_complex_series_request_message)
+  local index = offset + size_of_new_complex_series_request_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.new_complex_series_request_message then
-    local range = buffer(offset, size_of_new_complex_series_request_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_complex_series_request_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.fields(buffer, offset, packet, parent, size_of_new_complex_series_request_message)
+    parent:set_len(size_of_new_complex_series_request_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_complex_series_request_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.fields(buffer, offset, packet, parent, size_of_new_complex_series_request_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.fields(buffer, offset, packet, parent, size_of_new_complex_series_request_message)
-
-  return offset + size_of_new_complex_series_request_message
 end
 
 -- Reserved 199
@@ -7792,20 +7868,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.fields 
 end
 
 -- Dissect: Risk Action Request Message
-nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_risk_action_request_message = nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.dissect = function(buffer, offset, packet, parent, size_of_risk_action_request_message)
+  local index = offset + size_of_risk_action_request_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.risk_action_request_message then
-    local range = buffer(offset, size_of_risk_action_request_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_action_request_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.fields(buffer, offset, packet, parent, size_of_risk_action_request_message)
+    parent:set_len(size_of_risk_action_request_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_action_request_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.fields(buffer, offset, packet, parent, size_of_risk_action_request_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.fields(buffer, offset, packet, parent, size_of_risk_action_request_message)
-
-  return offset + size_of_risk_action_request_message
 end
 
 -- Breach Action Request
@@ -7933,20 +8013,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.f
 end
 
 -- Dissect: Risk Limit Update Request Message
-nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_risk_limit_update_request_message = nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.dissect = function(buffer, offset, packet, parent, size_of_risk_limit_update_request_message)
+  local index = offset + size_of_risk_limit_update_request_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.risk_limit_update_request_message then
-    local range = buffer(offset, size_of_risk_limit_update_request_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_limit_update_request_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.fields(buffer, offset, packet, parent, size_of_risk_limit_update_request_message)
+    parent:set_len(size_of_risk_limit_update_request_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_limit_update_request_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.fields(buffer, offset, packet, parent, size_of_risk_limit_update_request_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.fields(buffer, offset, packet, parent, size_of_risk_limit_update_request_message)
-
-  return offset + size_of_risk_limit_update_request_message
 end
 
 -- Reserved 20
@@ -8025,20 +8109,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_messag
 end
 
 -- Dissect: Bulk Cancel Request Type 224 Message
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_bulk_cancel_request_type_224_message = nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message.dissect = function(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_224_message)
+  local index = offset + size_of_bulk_cancel_request_type_224_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.bulk_cancel_request_type_224_message then
-    local range = buffer(offset, size_of_bulk_cancel_request_type_224_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_cancel_request_type_224_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message.fields(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_224_message)
+    parent:set_len(size_of_bulk_cancel_request_type_224_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_cancel_request_type_224_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message.fields(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_224_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message.fields(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_224_message)
-
-  return offset + size_of_bulk_cancel_request_type_224_message
 end
 
 -- Mm Sent Time
@@ -8127,20 +8215,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_messag
 end
 
 -- Dissect: Bulk Cancel Request Type 223 Message
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_bulk_cancel_request_type_223_message = nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_message.dissect = function(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_223_message)
+  local index = offset + size_of_bulk_cancel_request_type_223_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.bulk_cancel_request_type_223_message then
-    local range = buffer(offset, size_of_bulk_cancel_request_type_223_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_cancel_request_type_223_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_message.fields(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_223_message)
+    parent:set_len(size_of_bulk_cancel_request_type_223_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_cancel_request_type_223_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_message.fields(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_223_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_message.fields(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_223_message)
-
-  return offset + size_of_bulk_cancel_request_type_223_message
 end
 
 -- Covered
@@ -8256,15 +8348,20 @@ end
 
 -- Dissect: Covered
 nyse_amex_options_binarygateway_pillar_v3_25.covered.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.covered then
-    local length = nyse_amex_options_binarygateway_pillar_v3_25.covered.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_amex_options_binarygateway_pillar_v3_25.covered.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.covered, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.covered, buffer(offset, 0))
+    local index = nyse_amex_options_binarygateway_pillar_v3_25.covered.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amex_options_binarygateway_pillar_v3_25.covered.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_amex_options_binarygateway_pillar_v3_25.covered.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amex_options_binarygateway_pillar_v3_25.covered.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Exposed
@@ -8380,15 +8477,20 @@ end
 
 -- Dissect: Exposed
 nyse_amex_options_binarygateway_pillar_v3_25.exposed.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.exposed then
-    local length = nyse_amex_options_binarygateway_pillar_v3_25.exposed.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_amex_options_binarygateway_pillar_v3_25.exposed.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.exposed, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.exposed, buffer(offset, 0))
+    local index = nyse_amex_options_binarygateway_pillar_v3_25.exposed.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amex_options_binarygateway_pillar_v3_25.exposed.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_amex_options_binarygateway_pillar_v3_25.exposed.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amex_options_binarygateway_pillar_v3_25.exposed.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Reserved 16
@@ -8730,20 +8832,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.fields = fu
 end
 
 -- Dissect: New Order Cross Message
-nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_new_order_cross_message = nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.dissect = function(buffer, offset, packet, parent, size_of_new_order_cross_message)
+  local index = offset + size_of_new_order_cross_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.new_order_cross_message then
-    local range = buffer(offset, size_of_new_order_cross_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_order_cross_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.fields(buffer, offset, packet, parent, size_of_new_order_cross_message)
+    parent:set_len(size_of_new_order_cross_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_order_cross_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.fields(buffer, offset, packet, parent, size_of_new_order_cross_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.fields(buffer, offset, packet, parent, size_of_new_order_cross_message)
-
-  return offset + size_of_new_order_cross_message
 end
 
 -- New Bulk Quote Type 259 Message
@@ -8796,20 +8902,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.fie
 end
 
 -- Dissect: New Bulk Quote Type 259 Message
-nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_new_bulk_quote_type_259_message = nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.dissect = function(buffer, offset, packet, parent, size_of_new_bulk_quote_type_259_message)
+  local index = offset + size_of_new_bulk_quote_type_259_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.new_bulk_quote_type_259_message then
-    local range = buffer(offset, size_of_new_bulk_quote_type_259_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_bulk_quote_type_259_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.fields(buffer, offset, packet, parent, size_of_new_bulk_quote_type_259_message)
+    parent:set_len(size_of_new_bulk_quote_type_259_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_bulk_quote_type_259_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.fields(buffer, offset, packet, parent, size_of_new_bulk_quote_type_259_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.fields(buffer, offset, packet, parent, size_of_new_bulk_quote_type_259_message)
-
-  return offset + size_of_new_bulk_quote_type_259_message
 end
 
 -- New Bulk Quote Type 243 Message
@@ -8862,20 +8972,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.fie
 end
 
 -- Dissect: New Bulk Quote Type 243 Message
-nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_new_bulk_quote_type_243_message = nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.dissect = function(buffer, offset, packet, parent, size_of_new_bulk_quote_type_243_message)
+  local index = offset + size_of_new_bulk_quote_type_243_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.new_bulk_quote_type_243_message then
-    local range = buffer(offset, size_of_new_bulk_quote_type_243_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_bulk_quote_type_243_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.fields(buffer, offset, packet, parent, size_of_new_bulk_quote_type_243_message)
+    parent:set_len(size_of_new_bulk_quote_type_243_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_bulk_quote_type_243_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.fields(buffer, offset, packet, parent, size_of_new_bulk_quote_type_243_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.fields(buffer, offset, packet, parent, size_of_new_bulk_quote_type_243_message)
-
-  return offset + size_of_new_bulk_quote_type_243_message
 end
 
 -- Order Modify Request Message
@@ -8925,20 +9039,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.fields
 end
 
 -- Dissect: Order Modify Request Message
-nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_modify_request_message = nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.dissect = function(buffer, offset, packet, parent, size_of_order_modify_request_message)
+  local index = offset + size_of_order_modify_request_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_modify_request_message then
-    local range = buffer(offset, size_of_order_modify_request_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_modify_request_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.fields(buffer, offset, packet, parent, size_of_order_modify_request_message)
+    parent:set_len(size_of_order_modify_request_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_modify_request_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.fields(buffer, offset, packet, parent, size_of_order_modify_request_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.fields(buffer, offset, packet, parent, size_of_order_modify_request_message)
-
-  return offset + size_of_order_modify_request_message
 end
 
 -- Order Cancel Request Message
@@ -8979,20 +9097,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.fields
 end
 
 -- Dissect: Order Cancel Request Message
-nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_order_cancel_request_message = nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.dissect = function(buffer, offset, packet, parent, size_of_order_cancel_request_message)
+  local index = offset + size_of_order_cancel_request_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.order_cancel_request_message then
-    local range = buffer(offset, size_of_order_cancel_request_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_cancel_request_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.fields(buffer, offset, packet, parent, size_of_order_cancel_request_message)
+    parent:set_len(size_of_order_cancel_request_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_cancel_request_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.fields(buffer, offset, packet, parent, size_of_order_cancel_request_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.fields(buffer, offset, packet, parent, size_of_order_cancel_request_message)
-
-  return offset + size_of_order_cancel_request_message
 end
 
 -- New Order Message
@@ -9072,20 +9194,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.fields = function
 end
 
 -- Dissect: New Order Message
-nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_new_order_message = nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.dissect = function(buffer, offset, packet, parent, size_of_new_order_message)
+  local index = offset + size_of_new_order_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.new_order_message then
-    local range = buffer(offset, size_of_new_order_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_order_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.fields(buffer, offset, packet, parent, size_of_new_order_message)
+    parent:set_len(size_of_new_order_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_order_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.fields(buffer, offset, packet, parent, size_of_new_order_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.fields(buffer, offset, packet, parent, size_of_new_order_message)
-
-  return offset + size_of_new_order_message
 end
 
 -- Session Configuration Request Message
@@ -9135,20 +9261,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_messa
 end
 
 -- Dissect: Session Configuration Request Message
-nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_session_configuration_request_message = nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_message.dissect = function(buffer, offset, packet, parent, size_of_session_configuration_request_message)
+  local index = offset + size_of_session_configuration_request_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.session_configuration_request_message then
-    local range = buffer(offset, size_of_session_configuration_request_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.session_configuration_request_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_message.fields(buffer, offset, packet, parent, size_of_session_configuration_request_message)
+    parent:set_len(size_of_session_configuration_request_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.session_configuration_request_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_message.fields(buffer, offset, packet, parent, size_of_session_configuration_request_message)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_message.fields(buffer, offset, packet, parent, size_of_session_configuration_request_message)
-
-  return offset + size_of_session_configuration_request_message
 end
 
 -- Sequenced Message
@@ -9415,12 +9545,6 @@ end
 
 -- Dissect: Sequenced Message
 nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
-  -- Calculate size and check that branch is not empty
-  local size = nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.size(buffer, offset, seq_msg_type)
-  if size == 0 then
-    return offset
-  end
-
   return nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.branches(buffer, offset, packet, parent, seq_msg_type)
 end
 
@@ -9840,20 +9964,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.fields = function(buffer, o
 end
 
 -- Dissect: Seq Msg
-nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_seq_msg = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.dissect = function(buffer, offset, packet, parent, size_of_seq_msg)
+  local index = offset + size_of_seq_msg
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.seq_msg then
-    local range = buffer(offset, size_of_seq_msg)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
+    parent:set_len(size_of_seq_msg)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
-
-  return offset + size_of_seq_msg
 end
 
 -- Status
@@ -9921,20 +10049,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.close_response.fields = function(bu
 end
 
 -- Dissect: Close Response
-nyse_amex_options_binarygateway_pillar_v3_25.close_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_close_response = nyse_amex_options_binarygateway_pillar_v3_25.close_response.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
+  local index = offset + size_of_close_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.close_response then
-    local range = buffer(offset, size_of_close_response)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.close_response, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+    parent:set_len(size_of_close_response)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.close_response.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.close_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
-
-  return offset + size_of_close_response
 end
 
 -- Close
@@ -9969,20 +10101,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.close.fields = function(buffer, off
 end
 
 -- Dissect: Close
-nyse_amex_options_binarygateway_pillar_v3_25.close.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_close = nyse_amex_options_binarygateway_pillar_v3_25.close.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.close.dissect = function(buffer, offset, packet, parent, size_of_close)
+  local index = offset + size_of_close
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.close then
-    local range = buffer(offset, size_of_close)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.close, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.close.fields(buffer, offset, packet, parent, size_of_close)
+    parent:set_len(size_of_close)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.close.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.close, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.close.fields(buffer, offset, packet, parent, size_of_close)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.close.fields(buffer, offset, packet, parent, size_of_close)
-
-  return offset + size_of_close
 end
 
 -- Access
@@ -10046,20 +10182,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.open_response.fields = function(buf
 end
 
 -- Dissect: Open Response
-nyse_amex_options_binarygateway_pillar_v3_25.open_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_open_response = nyse_amex_options_binarygateway_pillar_v3_25.open_response.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
+  local index = offset + size_of_open_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.open_response then
-    local range = buffer(offset, size_of_open_response)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.open_response, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+    parent:set_len(size_of_open_response)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.open_response.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.open_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
-
-  return offset + size_of_open_response
 end
 
 -- Mode
@@ -10175,20 +10315,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.open.fields = function(buffer, offs
 end
 
 -- Dissect: Open
-nyse_amex_options_binarygateway_pillar_v3_25.open.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_open = nyse_amex_options_binarygateway_pillar_v3_25.open.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.open.dissect = function(buffer, offset, packet, parent, size_of_open)
+  local index = offset + size_of_open
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.open then
-    local range = buffer(offset, size_of_open)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.open, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.open.fields(buffer, offset, packet, parent, size_of_open)
+    parent:set_len(size_of_open)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.open.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.open, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.open.fields(buffer, offset, packet, parent, size_of_open)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.open.fields(buffer, offset, packet, parent, size_of_open)
-
-  return offset + size_of_open
 end
 
 -- Heartbeat
@@ -10220,20 +10364,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.fields = function(buffer,
 end
 
 -- Dissect: Heartbeat
-nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_heartbeat = nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local index = offset + size_of_heartbeat
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.heartbeat then
-    local range = buffer(offset, size_of_heartbeat)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.heartbeat, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+    parent:set_len(size_of_heartbeat)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.heartbeat, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-
-  return offset + size_of_heartbeat
 end
 
 -- Next Seq
@@ -10297,20 +10445,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.fields = function(buff
 end
 
 -- Dissect: Stream Avail
-nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_stream_avail = nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local index = offset + size_of_stream_avail
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.stream_avail then
-    local range = buffer(offset, size_of_stream_avail)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.stream_avail, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+    parent:set_len(size_of_stream_avail)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.stream_avail, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
-
-  return offset + size_of_stream_avail
 end
 
 -- Login Response
@@ -10348,20 +10500,24 @@ nyse_amex_options_binarygateway_pillar_v3_25.login_response.fields = function(bu
 end
 
 -- Dissect: Login Response
-nyse_amex_options_binarygateway_pillar_v3_25.login_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_login_response = nyse_amex_options_binarygateway_pillar_v3_25.login_response.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
+  local index = offset + size_of_login_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.login_response then
-    local range = buffer(offset, size_of_login_response)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.login_response, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+    parent:set_len(size_of_login_response)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.login_response.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.login_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+
+    return index
   end
-
-  nyse_amex_options_binarygateway_pillar_v3_25.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
-
-  return offset + size_of_login_response
 end
 
 -- Version
@@ -10483,20 +10639,74 @@ nyse_amex_options_binarygateway_pillar_v3_25.login_message.fields = function(buf
 end
 
 -- Dissect: Login Message
-nyse_amex_options_binarygateway_pillar_v3_25.login_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_login_message = nyse_amex_options_binarygateway_pillar_v3_25.login_message.size(buffer, offset)
+nyse_amex_options_binarygateway_pillar_v3_25.login_message.dissect = function(buffer, offset, packet, parent, size_of_login_message)
+  local index = offset + size_of_login_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.login_message then
-    local range = buffer(offset, size_of_login_message)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.login_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
+    parent:set_len(size_of_login_message)
     local display = nyse_amex_options_binarygateway_pillar_v3_25.login_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.login_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
+
+    return index
+  end
+end
+
+-- Pillar Stream Message Block
+nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message_block = {}
+
+-- Dissect Pillar Stream Message Block
+nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message_block.dissect = function(buffer, packet, parent)
+  local offset = 0
+
+  -- Dependency element: Msg Type
+  local msg_type = buffer(0, 2):le_uint()
+
+  -- Dissect Login Message
+  if msg_type == 0x0201 then
+    return nyse_amex_options_binarygateway_pillar_v3_25.login_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response
+  if msg_type == 0x0202 then
+    return nyse_amex_options_binarygateway_pillar_v3_25.login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Avail
+  if msg_type == 0x0203 then
+    return nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat
+  if msg_type == 0x0204 then
+    return nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open
+  if msg_type == 0x0205 then
+    return nyse_amex_options_binarygateway_pillar_v3_25.open.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Response
+  if msg_type == 0x0206 then
+    return nyse_amex_options_binarygateway_pillar_v3_25.open_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close
+  if msg_type == 0x0207 then
+    return nyse_amex_options_binarygateway_pillar_v3_25.close.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close Response
+  if msg_type == 0x0208 then
+    return nyse_amex_options_binarygateway_pillar_v3_25.close_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Seq Msg
+  if msg_type == 0x0905 then
+    return nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.dissect(buffer, offset, packet, parent)
   end
 
-  nyse_amex_options_binarygateway_pillar_v3_25.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
-
-  return offset + size_of_login_message
+  return offset
 end
 
 
@@ -10516,7 +10726,7 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.dissector(buffer, pack
 
   -- Dissect protocol
   local protocol = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25, buffer(), omi_nyse_amex_options_binarygateway_pillar_v3_25.description, "("..buffer:len().." Bytes)")
-  return nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.dissect(buffer, packet, protocol)
+  return nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message_block.dissect(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
@@ -10529,7 +10739,7 @@ tcp_table:add(65333, omi_nyse_amex_options_binarygateway_pillar_v3_25)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.requiredsize = function(buffer)
+nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message_block.requiredsize = function(buffer)
 
   return true
 end
@@ -10537,7 +10747,7 @@ end
 -- Dissector Heuristic for Nyse Amex Options BinaryGateway Pillar 3.25
 local function omi_nyse_amex_options_binarygateway_pillar_v3_25_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message.requiredsize(buffer) then return false end
+  if not nyse_amex_options_binarygateway_pillar_v3_25.pillar_stream_message_block.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_amex_options_binarygateway_pillar_v3_25

@@ -1257,15 +1257,20 @@ end
 
 -- Dissect: Nested Parties Groups
 memx_options_memo_sbe_v1_5_b.nested_parties_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.nested_parties_groups then
-    local length = memx_options_memo_sbe_v1_5_b.nested_parties_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.nested_parties_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.nested_parties_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.nested_parties_groups, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.nested_parties_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.nested_parties_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.nested_parties_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.nested_parties_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Alloc Id
@@ -1422,16 +1427,21 @@ memx_options_memo_sbe_v1_5_b.reported_allocations_group.fields = function(buffer
 end
 
 -- Dissect: Reported Allocations Group
-memx_options_memo_sbe_v1_5_b.reported_allocations_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+memx_options_memo_sbe_v1_5_b.reported_allocations_group.dissect = function(buffer, offset, packet, parent, reported_allocations_group_index)
   if show.reported_allocations_group then
-    local length = memx_options_memo_sbe_v1_5_b.reported_allocations_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.reported_allocations_group.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.reported_allocations_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.reported_allocations_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.reported_allocations_group.fields(buffer, offset, packet, parent, reported_allocations_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.reported_allocations_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.reported_allocations_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.reported_allocations_group.fields(buffer, offset, packet, parent, reported_allocations_group_index)
+  end
 end
 
 -- Reported Allocations Groups
@@ -1476,15 +1486,20 @@ end
 
 -- Dissect: Reported Allocations Groups
 memx_options_memo_sbe_v1_5_b.reported_allocations_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.reported_allocations_groups then
-    local length = memx_options_memo_sbe_v1_5_b.reported_allocations_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.reported_allocations_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.reported_allocations_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.reported_allocations_groups, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.reported_allocations_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.reported_allocations_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.reported_allocations_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.reported_allocations_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Last Px
@@ -1657,15 +1672,20 @@ end
 
 -- Dissect: Execution Allocations Groups
 memx_options_memo_sbe_v1_5_b.execution_allocations_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_allocations_groups then
-    local length = memx_options_memo_sbe_v1_5_b.execution_allocations_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.execution_allocations_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.execution_allocations_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.execution_allocations_groups, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.execution_allocations_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.execution_allocations_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.execution_allocations_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.execution_allocations_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trade Date
@@ -2009,15 +2029,20 @@ end
 
 -- Dissect: Allocation Instruction Alert Message
 memx_options_memo_sbe_v1_5_b.allocation_instruction_alert_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.allocation_instruction_alert_message then
-    local length = memx_options_memo_sbe_v1_5_b.allocation_instruction_alert_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.allocation_instruction_alert_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.allocation_instruction_alert_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.allocation_instruction_alert_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.allocation_instruction_alert_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.allocation_instruction_alert_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.allocation_instruction_alert_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.allocation_instruction_alert_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Alloc Rej Code
@@ -2239,15 +2264,20 @@ end
 
 -- Dissect: Allocation Instruction Ack Message
 memx_options_memo_sbe_v1_5_b.allocation_instruction_ack_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.allocation_instruction_ack_message then
-    local length = memx_options_memo_sbe_v1_5_b.allocation_instruction_ack_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.allocation_instruction_ack_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.allocation_instruction_ack_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.allocation_instruction_ack_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.allocation_instruction_ack_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.allocation_instruction_ack_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.allocation_instruction_ack_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.allocation_instruction_ack_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Side Optional
@@ -4754,15 +4784,20 @@ end
 
 -- Dissect: Parties Groups
 memx_options_memo_sbe_v1_5_b.parties_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.parties_groups then
-    local length = memx_options_memo_sbe_v1_5_b.parties_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.parties_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.parties_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.parties_groups, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.parties_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.parties_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.parties_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.parties_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Contra Trading Capacity
@@ -5100,15 +5135,20 @@ end
 
 -- Dissect: Execution Report Trade Message
 memx_options_memo_sbe_v1_5_b.execution_report_trade_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_message then
-    local length = memx_options_memo_sbe_v1_5_b.execution_report_trade_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.execution_report_trade_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.execution_report_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.execution_report_trade_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.execution_report_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.execution_report_trade_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.execution_report_trade_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.execution_report_trade_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Order Reject Reason
@@ -5957,15 +5997,20 @@ end
 
 -- Dissect: Execution Report Bulk Quote Pending New Message
 memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_pending_new_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_bulk_quote_pending_new_message then
-    local length = memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_pending_new_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_pending_new_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.execution_report_bulk_quote_pending_new_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.execution_report_bulk_quote_pending_new_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_pending_new_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_pending_new_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_pending_new_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_pending_new_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Reprice Behavior
@@ -6238,15 +6283,20 @@ end
 
 -- Dissect: Execution Report New Message
 memx_options_memo_sbe_v1_5_b.execution_report_new_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_new_message then
-    local length = memx_options_memo_sbe_v1_5_b.execution_report_new_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.execution_report_new_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.execution_report_new_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.execution_report_new_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.execution_report_new_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.execution_report_new_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.execution_report_new_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.execution_report_new_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Requested Allocations Group
@@ -6293,16 +6343,21 @@ memx_options_memo_sbe_v1_5_b.requested_allocations_group.fields = function(buffe
 end
 
 -- Dissect: Requested Allocations Group
-memx_options_memo_sbe_v1_5_b.requested_allocations_group.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+memx_options_memo_sbe_v1_5_b.requested_allocations_group.dissect = function(buffer, offset, packet, parent, requested_allocations_group_index)
   if show.requested_allocations_group then
-    local length = memx_options_memo_sbe_v1_5_b.requested_allocations_group.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.requested_allocations_group.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.requested_allocations_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.requested_allocations_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.requested_allocations_group.fields(buffer, offset, packet, parent, requested_allocations_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.requested_allocations_group.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.requested_allocations_group.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.requested_allocations_group.fields(buffer, offset, packet, parent, requested_allocations_group_index)
+  end
 end
 
 -- Requested Allocations Groups
@@ -6347,15 +6402,20 @@ end
 
 -- Dissect: Requested Allocations Groups
 memx_options_memo_sbe_v1_5_b.requested_allocations_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.requested_allocations_groups then
-    local length = memx_options_memo_sbe_v1_5_b.requested_allocations_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.requested_allocations_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.requested_allocations_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.requested_allocations_groups, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.requested_allocations_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.requested_allocations_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.requested_allocations_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.requested_allocations_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Allocation Instruction Message
@@ -6427,15 +6487,20 @@ end
 
 -- Dissect: Allocation Instruction Message
 memx_options_memo_sbe_v1_5_b.allocation_instruction_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.allocation_instruction_message then
-    local length = memx_options_memo_sbe_v1_5_b.allocation_instruction_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.allocation_instruction_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.allocation_instruction_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.allocation_instruction_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.allocation_instruction_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.allocation_instruction_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.allocation_instruction_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.allocation_instruction_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Mass Cancel Clear Lockout Request Message
@@ -6877,15 +6942,20 @@ end
 
 -- Dissect: One Sided Quotes Groups
 memx_options_memo_sbe_v1_5_b.one_sided_quotes_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.one_sided_quotes_groups then
-    local length = memx_options_memo_sbe_v1_5_b.one_sided_quotes_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.one_sided_quotes_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.one_sided_quotes_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.one_sided_quotes_groups, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.one_sided_quotes_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.one_sided_quotes_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.one_sided_quotes_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.one_sided_quotes_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Long One Sided Bulk Quote Message
@@ -6967,15 +7037,20 @@ end
 
 -- Dissect: Long One Sided Bulk Quote Message
 memx_options_memo_sbe_v1_5_b.long_one_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.long_one_sided_bulk_quote_message then
-    local length = memx_options_memo_sbe_v1_5_b.long_one_sided_bulk_quote_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.long_one_sided_bulk_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.long_one_sided_bulk_quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.long_one_sided_bulk_quote_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.long_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.long_one_sided_bulk_quote_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.long_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.long_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Short One Sided Bulk Quote Message
@@ -7057,15 +7132,20 @@ end
 
 -- Dissect: Short One Sided Bulk Quote Message
 memx_options_memo_sbe_v1_5_b.short_one_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.short_one_sided_bulk_quote_message then
-    local length = memx_options_memo_sbe_v1_5_b.short_one_sided_bulk_quote_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.short_one_sided_bulk_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.short_one_sided_bulk_quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.short_one_sided_bulk_quote_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.short_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.short_one_sided_bulk_quote_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.short_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.short_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Offer Px
@@ -7279,15 +7359,20 @@ end
 
 -- Dissect: Two Sided Quotes Groups
 memx_options_memo_sbe_v1_5_b.two_sided_quotes_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.two_sided_quotes_groups then
-    local length = memx_options_memo_sbe_v1_5_b.two_sided_quotes_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.two_sided_quotes_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.two_sided_quotes_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.two_sided_quotes_groups, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.two_sided_quotes_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.two_sided_quotes_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.two_sided_quotes_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.two_sided_quotes_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Long Two Sided Bulk Quote Message
@@ -7369,15 +7454,20 @@ end
 
 -- Dissect: Long Two Sided Bulk Quote Message
 memx_options_memo_sbe_v1_5_b.long_two_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.long_two_sided_bulk_quote_message then
-    local length = memx_options_memo_sbe_v1_5_b.long_two_sided_bulk_quote_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.long_two_sided_bulk_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.long_two_sided_bulk_quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.long_two_sided_bulk_quote_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.long_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.long_two_sided_bulk_quote_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.long_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.long_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Short Two Sided Bulk Quote Message
@@ -7459,15 +7549,20 @@ end
 
 -- Dissect: Short Two Sided Bulk Quote Message
 memx_options_memo_sbe_v1_5_b.short_two_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.short_two_sided_bulk_quote_message then
-    local length = memx_options_memo_sbe_v1_5_b.short_two_sided_bulk_quote_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.short_two_sided_bulk_quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.short_two_sided_bulk_quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.short_two_sided_bulk_quote_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.short_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.short_two_sided_bulk_quote_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.short_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.short_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- New Order Single Message
@@ -7584,15 +7679,20 @@ end
 
 -- Dissect: New Order Single Message
 memx_options_memo_sbe_v1_5_b.new_order_single_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_order_single_message then
-    local length = memx_options_memo_sbe_v1_5_b.new_order_single_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.new_order_single_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.new_order_single_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.new_order_single_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.new_order_single_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.new_order_single_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.new_order_single_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.new_order_single_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -7860,12 +7960,6 @@ end
 
 -- Dissect: Payload
 memx_options_memo_sbe_v1_5_b.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = memx_options_memo_sbe_v1_5_b.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return memx_options_memo_sbe_v1_5_b.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
@@ -8155,15 +8249,20 @@ end
 
 -- Dissect: Sbe Message
 memx_options_memo_sbe_v1_5_b.sbe_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.sbe_message then
-    local length = memx_options_memo_sbe_v1_5_b.sbe_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.sbe_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.sbe_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.sbe_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.sbe_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.sbe_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.sbe_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.sbe_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Sequenced Message
@@ -8195,15 +8294,20 @@ end
 
 -- Dissect: Sequenced Message
 memx_options_memo_sbe_v1_5_b.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.sequenced_message then
-    local length = memx_options_memo_sbe_v1_5_b.sequenced_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.sequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.sequenced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.sequenced_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.sequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.sequenced_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.sequenced_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.sequenced_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Total Sequence Count
@@ -8879,15 +8983,20 @@ end
 
 -- Dissect: Unsequenced Message
 memx_options_memo_sbe_v1_5_b.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.unsequenced_message then
-    local length = memx_options_memo_sbe_v1_5_b.unsequenced_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memo_sbe_v1_5_b.unsequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.unsequenced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.unsequenced_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_5_b.unsequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_5_b.unsequenced_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memo_sbe_v1_5_b.unsequenced_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_5_b.unsequenced_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Stream Request Message
@@ -9272,12 +9381,6 @@ end
 
 -- Dissect: Data
 memx_options_memo_sbe_v1_5_b.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = memx_options_memo_sbe_v1_5_b.data.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return memx_options_memo_sbe_v1_5_b.data.branches(buffer, offset, packet, parent, message_type)
 end
 

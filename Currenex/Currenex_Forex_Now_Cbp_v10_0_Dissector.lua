@@ -2162,12 +2162,6 @@ end
 
 -- Dissect: Message Body
 currenex_forex_now_cbp_v10_0.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = currenex_forex_now_cbp_v10_0.message_body.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return currenex_forex_now_cbp_v10_0.message_body.branches(buffer, offset, packet, parent, message_type)
 end
 

@@ -395,15 +395,20 @@ end
 
 -- Dissect: Gap Fill Message
 coinbase_derivatives_session_tcp_v1_2.gap_fill_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.gap_fill_message then
-    local length = coinbase_derivatives_session_tcp_v1_2.gap_fill_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_session_tcp_v1_2.gap_fill_message.display(buffer, packet, parent)
-    parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.gap_fill_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.gap_fill_message, buffer(offset, 0))
+    local index = coinbase_derivatives_session_tcp_v1_2.gap_fill_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_session_tcp_v1_2.gap_fill_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_session_tcp_v1_2.gap_fill_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_session_tcp_v1_2.gap_fill_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- To Sequence Number
@@ -1026,12 +1031,6 @@ end
 
 -- Dissect: Payload
 coinbase_derivatives_session_tcp_v1_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = coinbase_derivatives_session_tcp_v1_2.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return coinbase_derivatives_session_tcp_v1_2.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

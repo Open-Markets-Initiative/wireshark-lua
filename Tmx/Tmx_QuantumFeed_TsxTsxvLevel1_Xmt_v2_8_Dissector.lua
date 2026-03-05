@@ -2145,12 +2145,6 @@ end
 
 -- Dissect: Business Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Calculate size and check that branch is not empty
-  local size = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.business_message.size(buffer, offset, msg_type)
-  if size == 0 then
-    return offset
-  end
-
   return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.business_message.branches(buffer, offset, packet, parent, msg_type)
 end
 

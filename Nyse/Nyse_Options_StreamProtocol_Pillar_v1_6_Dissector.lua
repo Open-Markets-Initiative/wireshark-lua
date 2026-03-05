@@ -738,20 +738,24 @@ nyse_options_streamprotocol_pillar_v1_6.seq_msg.fields = function(buffer, offset
 end
 
 -- Dissect: Seq Msg
-nyse_options_streamprotocol_pillar_v1_6.seq_msg.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_seq_msg = nyse_options_streamprotocol_pillar_v1_6.seq_msg.size(buffer, offset)
+nyse_options_streamprotocol_pillar_v1_6.seq_msg.dissect = function(buffer, offset, packet, parent, size_of_seq_msg)
+  local index = offset + size_of_seq_msg
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.seq_msg then
-    local range = buffer(offset, size_of_seq_msg)
+    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg, buffer(offset, 0))
+    local current = nyse_options_streamprotocol_pillar_v1_6.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
+    parent:set_len(size_of_seq_msg)
     local display = nyse_options_streamprotocol_pillar_v1_6.seq_msg.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_options_streamprotocol_pillar_v1_6.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
+
+    return index
   end
-
-  nyse_options_streamprotocol_pillar_v1_6.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
-
-  return offset + size_of_seq_msg
 end
 
 -- Status
@@ -819,20 +823,24 @@ nyse_options_streamprotocol_pillar_v1_6.close_response.fields = function(buffer,
 end
 
 -- Dissect: Close Response
-nyse_options_streamprotocol_pillar_v1_6.close_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_close_response = nyse_options_streamprotocol_pillar_v1_6.close_response.size(buffer, offset)
+nyse_options_streamprotocol_pillar_v1_6.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
+  local index = offset + size_of_close_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.close_response then
-    local range = buffer(offset, size_of_close_response)
+    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.close_response, buffer(offset, 0))
+    local current = nyse_options_streamprotocol_pillar_v1_6.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+    parent:set_len(size_of_close_response)
     local display = nyse_options_streamprotocol_pillar_v1_6.close_response.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.close_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_options_streamprotocol_pillar_v1_6.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+
+    return index
   end
-
-  nyse_options_streamprotocol_pillar_v1_6.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
-
-  return offset + size_of_close_response
 end
 
 -- Close
@@ -867,20 +875,24 @@ nyse_options_streamprotocol_pillar_v1_6.close.fields = function(buffer, offset, 
 end
 
 -- Dissect: Close
-nyse_options_streamprotocol_pillar_v1_6.close.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_close = nyse_options_streamprotocol_pillar_v1_6.close.size(buffer, offset)
+nyse_options_streamprotocol_pillar_v1_6.close.dissect = function(buffer, offset, packet, parent, size_of_close)
+  local index = offset + size_of_close
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.close then
-    local range = buffer(offset, size_of_close)
+    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.close, buffer(offset, 0))
+    local current = nyse_options_streamprotocol_pillar_v1_6.close.fields(buffer, offset, packet, parent, size_of_close)
+    parent:set_len(size_of_close)
     local display = nyse_options_streamprotocol_pillar_v1_6.close.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.close, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_options_streamprotocol_pillar_v1_6.close.fields(buffer, offset, packet, parent, size_of_close)
+
+    return index
   end
-
-  nyse_options_streamprotocol_pillar_v1_6.close.fields(buffer, offset, packet, parent, size_of_close)
-
-  return offset + size_of_close
 end
 
 -- Access
@@ -944,20 +956,24 @@ nyse_options_streamprotocol_pillar_v1_6.open_response.fields = function(buffer, 
 end
 
 -- Dissect: Open Response
-nyse_options_streamprotocol_pillar_v1_6.open_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_open_response = nyse_options_streamprotocol_pillar_v1_6.open_response.size(buffer, offset)
+nyse_options_streamprotocol_pillar_v1_6.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
+  local index = offset + size_of_open_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.open_response then
-    local range = buffer(offset, size_of_open_response)
+    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.open_response, buffer(offset, 0))
+    local current = nyse_options_streamprotocol_pillar_v1_6.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+    parent:set_len(size_of_open_response)
     local display = nyse_options_streamprotocol_pillar_v1_6.open_response.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.open_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_options_streamprotocol_pillar_v1_6.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+
+    return index
   end
-
-  nyse_options_streamprotocol_pillar_v1_6.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
-
-  return offset + size_of_open_response
 end
 
 -- Mode
@@ -1073,20 +1089,24 @@ nyse_options_streamprotocol_pillar_v1_6.open.fields = function(buffer, offset, p
 end
 
 -- Dissect: Open
-nyse_options_streamprotocol_pillar_v1_6.open.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_open = nyse_options_streamprotocol_pillar_v1_6.open.size(buffer, offset)
+nyse_options_streamprotocol_pillar_v1_6.open.dissect = function(buffer, offset, packet, parent, size_of_open)
+  local index = offset + size_of_open
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.open then
-    local range = buffer(offset, size_of_open)
+    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.open, buffer(offset, 0))
+    local current = nyse_options_streamprotocol_pillar_v1_6.open.fields(buffer, offset, packet, parent, size_of_open)
+    parent:set_len(size_of_open)
     local display = nyse_options_streamprotocol_pillar_v1_6.open.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.open, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_options_streamprotocol_pillar_v1_6.open.fields(buffer, offset, packet, parent, size_of_open)
+
+    return index
   end
-
-  nyse_options_streamprotocol_pillar_v1_6.open.fields(buffer, offset, packet, parent, size_of_open)
-
-  return offset + size_of_open
 end
 
 -- Heartbeat
@@ -1118,20 +1138,24 @@ nyse_options_streamprotocol_pillar_v1_6.heartbeat.fields = function(buffer, offs
 end
 
 -- Dissect: Heartbeat
-nyse_options_streamprotocol_pillar_v1_6.heartbeat.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_heartbeat = nyse_options_streamprotocol_pillar_v1_6.heartbeat.size(buffer, offset)
+nyse_options_streamprotocol_pillar_v1_6.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local index = offset + size_of_heartbeat
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.heartbeat then
-    local range = buffer(offset, size_of_heartbeat)
+    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.heartbeat, buffer(offset, 0))
+    local current = nyse_options_streamprotocol_pillar_v1_6.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+    parent:set_len(size_of_heartbeat)
     local display = nyse_options_streamprotocol_pillar_v1_6.heartbeat.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.heartbeat, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_options_streamprotocol_pillar_v1_6.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+
+    return index
   end
-
-  nyse_options_streamprotocol_pillar_v1_6.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-
-  return offset + size_of_heartbeat
 end
 
 -- Next Seq
@@ -1195,20 +1219,24 @@ nyse_options_streamprotocol_pillar_v1_6.stream_avail.fields = function(buffer, o
 end
 
 -- Dissect: Stream Avail
-nyse_options_streamprotocol_pillar_v1_6.stream_avail.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_stream_avail = nyse_options_streamprotocol_pillar_v1_6.stream_avail.size(buffer, offset)
+nyse_options_streamprotocol_pillar_v1_6.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local index = offset + size_of_stream_avail
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.stream_avail then
-    local range = buffer(offset, size_of_stream_avail)
+    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.stream_avail, buffer(offset, 0))
+    local current = nyse_options_streamprotocol_pillar_v1_6.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+    parent:set_len(size_of_stream_avail)
     local display = nyse_options_streamprotocol_pillar_v1_6.stream_avail.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.stream_avail, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_options_streamprotocol_pillar_v1_6.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+
+    return index
   end
-
-  nyse_options_streamprotocol_pillar_v1_6.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
-
-  return offset + size_of_stream_avail
 end
 
 -- Username
@@ -1285,20 +1313,24 @@ nyse_options_streamprotocol_pillar_v1_6.login_response.fields = function(buffer,
 end
 
 -- Dissect: Login Response
-nyse_options_streamprotocol_pillar_v1_6.login_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_login_response = nyse_options_streamprotocol_pillar_v1_6.login_response.size(buffer, offset)
+nyse_options_streamprotocol_pillar_v1_6.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
+  local index = offset + size_of_login_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.login_response then
-    local range = buffer(offset, size_of_login_response)
+    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.login_response, buffer(offset, 0))
+    local current = nyse_options_streamprotocol_pillar_v1_6.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+    parent:set_len(size_of_login_response)
     local display = nyse_options_streamprotocol_pillar_v1_6.login_response.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.login_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_options_streamprotocol_pillar_v1_6.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+
+    return index
   end
-
-  nyse_options_streamprotocol_pillar_v1_6.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
-
-  return offset + size_of_login_response
 end
 
 -- Version
@@ -1459,20 +1491,74 @@ nyse_options_streamprotocol_pillar_v1_6.login_message.fields = function(buffer, 
 end
 
 -- Dissect: Login Message
-nyse_options_streamprotocol_pillar_v1_6.login_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_login_message = nyse_options_streamprotocol_pillar_v1_6.login_message.size(buffer, offset)
+nyse_options_streamprotocol_pillar_v1_6.login_message.dissect = function(buffer, offset, packet, parent, size_of_login_message)
+  local index = offset + size_of_login_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.login_message then
-    local range = buffer(offset, size_of_login_message)
+    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.login_message, buffer(offset, 0))
+    local current = nyse_options_streamprotocol_pillar_v1_6.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
+    parent:set_len(size_of_login_message)
     local display = nyse_options_streamprotocol_pillar_v1_6.login_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.login_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_options_streamprotocol_pillar_v1_6.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
+
+    return index
+  end
+end
+
+-- Pillar Stream Message Block
+nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message_block = {}
+
+-- Dissect Pillar Stream Message Block
+nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message_block.dissect = function(buffer, packet, parent)
+  local offset = 0
+
+  -- Dependency element: Msg Type
+  local msg_type = buffer(0, 2):le_uint()
+
+  -- Dissect Login Message
+  if msg_type == 0x0201 then
+    return nyse_options_streamprotocol_pillar_v1_6.login_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response
+  if msg_type == 0x0202 then
+    return nyse_options_streamprotocol_pillar_v1_6.login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Avail
+  if msg_type == 0x0203 then
+    return nyse_options_streamprotocol_pillar_v1_6.stream_avail.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat
+  if msg_type == 0x0204 then
+    return nyse_options_streamprotocol_pillar_v1_6.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open
+  if msg_type == 0x0205 then
+    return nyse_options_streamprotocol_pillar_v1_6.open.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Response
+  if msg_type == 0x0206 then
+    return nyse_options_streamprotocol_pillar_v1_6.open_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close
+  if msg_type == 0x0207 then
+    return nyse_options_streamprotocol_pillar_v1_6.close.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close Response
+  if msg_type == 0x0208 then
+    return nyse_options_streamprotocol_pillar_v1_6.close_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Seq Msg
+  if msg_type == 0x0905 then
+    return nyse_options_streamprotocol_pillar_v1_6.seq_msg.dissect(buffer, offset, packet, parent)
   end
 
-  nyse_options_streamprotocol_pillar_v1_6.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
-
-  return offset + size_of_login_message
+  return offset
 end
 
 
@@ -1492,7 +1578,7 @@ function omi_nyse_options_streamprotocol_pillar_v1_6.dissector(buffer, packet, p
 
   -- Dissect protocol
   local protocol = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6, buffer(), omi_nyse_options_streamprotocol_pillar_v1_6.description, "("..buffer:len().." Bytes)")
-  return nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.dissect(buffer, packet, protocol)
+  return nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message_block.dissect(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
@@ -1505,7 +1591,7 @@ tcp_table:add(65333, omi_nyse_options_streamprotocol_pillar_v1_6)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.requiredsize = function(buffer)
+nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message_block.requiredsize = function(buffer)
 
   return true
 end
@@ -1513,7 +1599,7 @@ end
 -- Dissector Heuristic for Nyse Options StreamProtocol Pillar 1.6
 local function omi_nyse_options_streamprotocol_pillar_v1_6_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.requiredsize(buffer) then return false end
+  if not nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message_block.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_options_streamprotocol_pillar_v1_6

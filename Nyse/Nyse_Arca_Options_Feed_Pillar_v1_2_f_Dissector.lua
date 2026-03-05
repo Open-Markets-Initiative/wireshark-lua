@@ -4793,12 +4793,6 @@ end
 
 -- Dissect: Payload
 nyse_arca_options_feed_pillar_v1_2_f.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = nyse_arca_options_feed_pillar_v1_2_f.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return nyse_arca_options_feed_pillar_v1_2_f.payload.branches(buffer, offset, packet, parent, message_type)
 end
 

@@ -3842,15 +3842,20 @@ end
 
 -- Dissect: Pong Message
 coinbase_derivatives_ordersapi_sbe_v1_7.pong_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.pong_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_7.pong_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_7.pong_message.display(buffer, packet, parent)
-    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_7.fields.pong_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_7.fields.pong_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_7.pong_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_7.pong_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_7.pong_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_7.pong_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Ping Message
@@ -3892,15 +3897,20 @@ end
 
 -- Dissect: Ping Message
 coinbase_derivatives_ordersapi_sbe_v1_7.ping_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.ping_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_7.ping_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_7.ping_message.display(buffer, packet, parent)
-    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_7.fields.ping_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_7.fields.ping_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_7.ping_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_7.ping_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_7.ping_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_7.ping_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Details
@@ -4976,12 +4986,6 @@ end
 
 -- Dissect: Payload
 coinbase_derivatives_ordersapi_sbe_v1_7.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = coinbase_derivatives_ordersapi_sbe_v1_7.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return coinbase_derivatives_ordersapi_sbe_v1_7.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

@@ -4761,15 +4761,20 @@ end
 
 -- Dissect: New Options Strategy Definition Message
 ice_futures_mdf_impact_v1_1_33.new_options_strategy_definition_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_options_strategy_definition_message then
-    local length = ice_futures_mdf_impact_v1_1_33.new_options_strategy_definition_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = ice_futures_mdf_impact_v1_1_33.new_options_strategy_definition_message.display(buffer, packet, parent)
-    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.new_options_strategy_definition_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.new_options_strategy_definition_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_33.new_options_strategy_definition_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_futures_mdf_impact_v1_1_33.new_options_strategy_definition_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return ice_futures_mdf_impact_v1_1_33.new_options_strategy_definition_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_futures_mdf_impact_v1_1_33.new_options_strategy_definition_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Timestamp
@@ -6586,12 +6591,6 @@ end
 
 -- Dissect: Variable Field
 ice_futures_mdf_impact_v1_1_33.variable_field.dissect = function(buffer, offset, packet, parent, special_field_id)
-  -- Calculate size and check that branch is not empty
-  local size = ice_futures_mdf_impact_v1_1_33.variable_field.size(buffer, offset, special_field_id)
-  if size == 0 then
-    return offset
-  end
-
   return ice_futures_mdf_impact_v1_1_33.variable_field.branches(buffer, offset, packet, parent, special_field_id)
 end
 
@@ -6705,16 +6704,21 @@ ice_futures_mdf_impact_v1_1_33.special_field.fields = function(buffer, offset, p
 end
 
 -- Dissect: Special Field
-ice_futures_mdf_impact_v1_1_33.special_field.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+ice_futures_mdf_impact_v1_1_33.special_field.dissect = function(buffer, offset, packet, parent, special_field_index)
   if show.special_field then
-    local length = ice_futures_mdf_impact_v1_1_33.special_field.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = ice_futures_mdf_impact_v1_1_33.special_field.display(buffer, packet, parent)
-    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.special_field, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.special_field, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_33.special_field.fields(buffer, offset, packet, parent, special_field_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_futures_mdf_impact_v1_1_33.special_field.display(packet, parent, length)
+    parent:append_text(display)
 
-  return ice_futures_mdf_impact_v1_1_33.special_field.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_futures_mdf_impact_v1_1_33.special_field.fields(buffer, offset, packet, parent, special_field_index)
+  end
 end
 
 -- Number Of Special Fields
@@ -6779,15 +6783,20 @@ end
 
 -- Dissect: Special Field Message
 ice_futures_mdf_impact_v1_1_33.special_field_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.special_field_message then
-    local length = ice_futures_mdf_impact_v1_1_33.special_field_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = ice_futures_mdf_impact_v1_1_33.special_field_message.display(buffer, packet, parent)
-    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.special_field_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.special_field_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_33.special_field_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_futures_mdf_impact_v1_1_33.special_field_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return ice_futures_mdf_impact_v1_1_33.special_field_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_futures_mdf_impact_v1_1_33.special_field_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Num Decimals Options Price
@@ -8203,15 +8212,20 @@ end
 
 -- Dissect: New Futures Strategy Definition Message
 ice_futures_mdf_impact_v1_1_33.new_futures_strategy_definition_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_futures_strategy_definition_message then
-    local length = ice_futures_mdf_impact_v1_1_33.new_futures_strategy_definition_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = ice_futures_mdf_impact_v1_1_33.new_futures_strategy_definition_message.display(buffer, packet, parent)
-    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.new_futures_strategy_definition_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.new_futures_strategy_definition_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_33.new_futures_strategy_definition_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_futures_mdf_impact_v1_1_33.new_futures_strategy_definition_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return ice_futures_mdf_impact_v1_1_33.new_futures_strategy_definition_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_futures_mdf_impact_v1_1_33.new_futures_strategy_definition_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Ipl Down
@@ -11249,12 +11263,6 @@ end
 
 -- Dissect: Payload
 ice_futures_mdf_impact_v1_1_33.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = ice_futures_mdf_impact_v1_1_33.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return ice_futures_mdf_impact_v1_1_33.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
@@ -11508,16 +11516,21 @@ ice_futures_mdf_impact_v1_1_33.message.fields = function(buffer, offset, packet,
 end
 
 -- Dissect: Message
-ice_futures_mdf_impact_v1_1_33.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+ice_futures_mdf_impact_v1_1_33.message.dissect = function(buffer, offset, packet, parent, message_index)
   if show.message then
-    local length = ice_futures_mdf_impact_v1_1_33.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = ice_futures_mdf_impact_v1_1_33.message.display(buffer, packet, parent)
-    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_33.message.fields(buffer, offset, packet, parent, message_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_futures_mdf_impact_v1_1_33.message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return ice_futures_mdf_impact_v1_1_33.message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_futures_mdf_impact_v1_1_33.message.fields(buffer, offset, packet, parent, message_index)
+  end
 end
 
 -- Sent Date Time

@@ -2051,15 +2051,20 @@ end
 
 -- Dissect: Complex Series Request Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.complex_series_request_acknowledgement then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_series_request_acknowledgement, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_series_request_acknowledgement, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Reserved 200
@@ -4984,15 +4989,20 @@ end
 
 -- Dissect: Execution Report
 nyse_arca_options_binarygateway_pillar_v3_15.execution_report.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.execution_report.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.execution_report.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.execution_report, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.execution_report, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.execution_report.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.execution_report.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.execution_report.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.execution_report.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Ack Type
@@ -5924,15 +5934,20 @@ end
 
 -- Dissect: Bulk Quote Acknowledgment
 nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.bulk_quote_acknowledgment then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote_acknowledgment, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote_acknowledgment, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Auction Id
@@ -6283,15 +6298,20 @@ end
 
 -- Dissect: Order Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_acknowledgement then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_acknowledgement, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_acknowledgement, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Reserved 49
@@ -7347,15 +7367,20 @@ end
 
 -- Dissect: Minimum Price Variant Level Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.minimum_price_variant_level_reference_data then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_level_reference_data, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_level_reference_data, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Luldmpv
@@ -7936,15 +7961,20 @@ end
 
 -- Dissect: New Complex Series Request
 nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_complex_series_request then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_complex_series_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_complex_series_request, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Risk Action Request
@@ -8407,15 +8437,20 @@ end
 
 -- Dissect: Covered
 nyse_arca_options_binarygateway_pillar_v3_15.covered.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.covered then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.covered.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.covered.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.covered, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.covered, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.covered.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.covered.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.covered.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.covered.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Exposed
@@ -8786,15 +8821,20 @@ end
 
 -- Dissect: New Order Cross
 nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_order_cross then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_order_cross, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_order_cross, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Bit Field Quote Inst
@@ -8931,15 +8971,20 @@ end
 
 -- Dissect: New Bulk Quote
 nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_bulk_quote then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_bulk_quote, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_bulk_quote, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Order Modify Request
@@ -9179,15 +9224,20 @@ end
 
 -- Dissect: Order Request
 nyse_arca_options_binarygateway_pillar_v3_15.order_request.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_request then
-    local length = nyse_arca_options_binarygateway_pillar_v3_15.order_request.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_binarygateway_pillar_v3_15.order_request.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request, buffer(offset, 0))
+    local index = nyse_arca_options_binarygateway_pillar_v3_15.order_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_binarygateway_pillar_v3_15.order_request.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_binarygateway_pillar_v3_15.order_request.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_binarygateway_pillar_v3_15.order_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Session Configuration Request Message
@@ -9499,12 +9549,6 @@ end
 
 -- Dissect: Sequenced Message
 nyse_arca_options_binarygateway_pillar_v3_15.sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
-  -- Calculate size and check that branch is not empty
-  local size = nyse_arca_options_binarygateway_pillar_v3_15.sequenced_message.size(buffer, offset, seq_msg_type)
-  if size == 0 then
-    return offset
-  end
-
   return nyse_arca_options_binarygateway_pillar_v3_15.sequenced_message.branches(buffer, offset, packet, parent, seq_msg_type)
 end
 
@@ -9740,20 +9784,24 @@ nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.fields = function(buffer, o
 end
 
 -- Dissect: Seq Msg
-nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_seq_msg = nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.size(buffer, offset)
+nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.dissect = function(buffer, offset, packet, parent, size_of_seq_msg)
+  local index = offset + size_of_seq_msg
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.seq_msg then
-    local range = buffer(offset, size_of_seq_msg)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg, buffer(offset, 0))
+    local current = nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
+    parent:set_len(size_of_seq_msg)
     local display = nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
+
+    return index
   end
-
-  nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
-
-  return offset + size_of_seq_msg
 end
 
 -- Status
@@ -9821,20 +9869,24 @@ nyse_arca_options_binarygateway_pillar_v3_15.close_response.fields = function(bu
 end
 
 -- Dissect: Close Response
-nyse_arca_options_binarygateway_pillar_v3_15.close_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_close_response = nyse_arca_options_binarygateway_pillar_v3_15.close_response.size(buffer, offset)
+nyse_arca_options_binarygateway_pillar_v3_15.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
+  local index = offset + size_of_close_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.close_response then
-    local range = buffer(offset, size_of_close_response)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close_response, buffer(offset, 0))
+    local current = nyse_arca_options_binarygateway_pillar_v3_15.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+    parent:set_len(size_of_close_response)
     local display = nyse_arca_options_binarygateway_pillar_v3_15.close_response.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arca_options_binarygateway_pillar_v3_15.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+
+    return index
   end
-
-  nyse_arca_options_binarygateway_pillar_v3_15.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
-
-  return offset + size_of_close_response
 end
 
 -- Close
@@ -9869,20 +9921,24 @@ nyse_arca_options_binarygateway_pillar_v3_15.close.fields = function(buffer, off
 end
 
 -- Dissect: Close
-nyse_arca_options_binarygateway_pillar_v3_15.close.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_close = nyse_arca_options_binarygateway_pillar_v3_15.close.size(buffer, offset)
+nyse_arca_options_binarygateway_pillar_v3_15.close.dissect = function(buffer, offset, packet, parent, size_of_close)
+  local index = offset + size_of_close
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.close then
-    local range = buffer(offset, size_of_close)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close, buffer(offset, 0))
+    local current = nyse_arca_options_binarygateway_pillar_v3_15.close.fields(buffer, offset, packet, parent, size_of_close)
+    parent:set_len(size_of_close)
     local display = nyse_arca_options_binarygateway_pillar_v3_15.close.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arca_options_binarygateway_pillar_v3_15.close.fields(buffer, offset, packet, parent, size_of_close)
+
+    return index
   end
-
-  nyse_arca_options_binarygateway_pillar_v3_15.close.fields(buffer, offset, packet, parent, size_of_close)
-
-  return offset + size_of_close
 end
 
 -- Access
@@ -9946,20 +10002,24 @@ nyse_arca_options_binarygateway_pillar_v3_15.open_response.fields = function(buf
 end
 
 -- Dissect: Open Response
-nyse_arca_options_binarygateway_pillar_v3_15.open_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_open_response = nyse_arca_options_binarygateway_pillar_v3_15.open_response.size(buffer, offset)
+nyse_arca_options_binarygateway_pillar_v3_15.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
+  local index = offset + size_of_open_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.open_response then
-    local range = buffer(offset, size_of_open_response)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_response, buffer(offset, 0))
+    local current = nyse_arca_options_binarygateway_pillar_v3_15.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+    parent:set_len(size_of_open_response)
     local display = nyse_arca_options_binarygateway_pillar_v3_15.open_response.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arca_options_binarygateway_pillar_v3_15.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+
+    return index
   end
-
-  nyse_arca_options_binarygateway_pillar_v3_15.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
-
-  return offset + size_of_open_response
 end
 
 -- Mode
@@ -10075,20 +10135,24 @@ nyse_arca_options_binarygateway_pillar_v3_15.open.fields = function(buffer, offs
 end
 
 -- Dissect: Open
-nyse_arca_options_binarygateway_pillar_v3_15.open.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_open = nyse_arca_options_binarygateway_pillar_v3_15.open.size(buffer, offset)
+nyse_arca_options_binarygateway_pillar_v3_15.open.dissect = function(buffer, offset, packet, parent, size_of_open)
+  local index = offset + size_of_open
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.open then
-    local range = buffer(offset, size_of_open)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open, buffer(offset, 0))
+    local current = nyse_arca_options_binarygateway_pillar_v3_15.open.fields(buffer, offset, packet, parent, size_of_open)
+    parent:set_len(size_of_open)
     local display = nyse_arca_options_binarygateway_pillar_v3_15.open.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arca_options_binarygateway_pillar_v3_15.open.fields(buffer, offset, packet, parent, size_of_open)
+
+    return index
   end
-
-  nyse_arca_options_binarygateway_pillar_v3_15.open.fields(buffer, offset, packet, parent, size_of_open)
-
-  return offset + size_of_open
 end
 
 -- Heartbeat
@@ -10120,20 +10184,24 @@ nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.fields = function(buffer,
 end
 
 -- Dissect: Heartbeat
-nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_heartbeat = nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.size(buffer, offset)
+nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local index = offset + size_of_heartbeat
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.heartbeat then
-    local range = buffer(offset, size_of_heartbeat)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.heartbeat, buffer(offset, 0))
+    local current = nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+    parent:set_len(size_of_heartbeat)
     local display = nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.heartbeat, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+
+    return index
   end
-
-  nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-
-  return offset + size_of_heartbeat
 end
 
 -- Next Seq
@@ -10197,20 +10265,24 @@ nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.fields = function(buff
 end
 
 -- Dissect: Stream Avail
-nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_stream_avail = nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.size(buffer, offset)
+nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local index = offset + size_of_stream_avail
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.stream_avail then
-    local range = buffer(offset, size_of_stream_avail)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_avail, buffer(offset, 0))
+    local current = nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+    parent:set_len(size_of_stream_avail)
     local display = nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_avail, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+
+    return index
   end
-
-  nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
-
-  return offset + size_of_stream_avail
 end
 
 -- Login Response
@@ -10248,20 +10320,24 @@ nyse_arca_options_binarygateway_pillar_v3_15.login_response.fields = function(bu
 end
 
 -- Dissect: Login Response
-nyse_arca_options_binarygateway_pillar_v3_15.login_response.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_login_response = nyse_arca_options_binarygateway_pillar_v3_15.login_response.size(buffer, offset)
+nyse_arca_options_binarygateway_pillar_v3_15.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
+  local index = offset + size_of_login_response
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.login_response then
-    local range = buffer(offset, size_of_login_response)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_response, buffer(offset, 0))
+    local current = nyse_arca_options_binarygateway_pillar_v3_15.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+    parent:set_len(size_of_login_response)
     local display = nyse_arca_options_binarygateway_pillar_v3_15.login_response.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_response, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arca_options_binarygateway_pillar_v3_15.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+
+    return index
   end
-
-  nyse_arca_options_binarygateway_pillar_v3_15.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
-
-  return offset + size_of_login_response
 end
 
 -- Version
@@ -10383,20 +10459,74 @@ nyse_arca_options_binarygateway_pillar_v3_15.login_message.fields = function(buf
 end
 
 -- Dissect: Login Message
-nyse_arca_options_binarygateway_pillar_v3_15.login_message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
-  local size_of_login_message = nyse_arca_options_binarygateway_pillar_v3_15.login_message.size(buffer, offset)
+nyse_arca_options_binarygateway_pillar_v3_15.login_message.dissect = function(buffer, offset, packet, parent, size_of_login_message)
+  local index = offset + size_of_login_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.login_message then
-    local range = buffer(offset, size_of_login_message)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_message, buffer(offset, 0))
+    local current = nyse_arca_options_binarygateway_pillar_v3_15.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
+    parent:set_len(size_of_login_message)
     local display = nyse_arca_options_binarygateway_pillar_v3_15.login_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arca_options_binarygateway_pillar_v3_15.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
+
+    return index
+  end
+end
+
+-- Pillar Stream Message Block
+nyse_arca_options_binarygateway_pillar_v3_15.pillar_stream_message_block = {}
+
+-- Dissect Pillar Stream Message Block
+nyse_arca_options_binarygateway_pillar_v3_15.pillar_stream_message_block.dissect = function(buffer, packet, parent)
+  local offset = 0
+
+  -- Dependency element: Msg Type
+  local msg_type = buffer(0, 2):le_uint()
+
+  -- Dissect Login Message
+  if msg_type == 0x0201 then
+    return nyse_arca_options_binarygateway_pillar_v3_15.login_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response
+  if msg_type == 0x0202 then
+    return nyse_arca_options_binarygateway_pillar_v3_15.login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Avail
+  if msg_type == 0x0203 then
+    return nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat
+  if msg_type == 0x0204 then
+    return nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open
+  if msg_type == 0x0205 then
+    return nyse_arca_options_binarygateway_pillar_v3_15.open.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Response
+  if msg_type == 0x0206 then
+    return nyse_arca_options_binarygateway_pillar_v3_15.open_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close
+  if msg_type == 0x0207 then
+    return nyse_arca_options_binarygateway_pillar_v3_15.close.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close Response
+  if msg_type == 0x0208 then
+    return nyse_arca_options_binarygateway_pillar_v3_15.close_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Seq Msg
+  if msg_type == 0x0905 then
+    return nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.dissect(buffer, offset, packet, parent)
   end
 
-  nyse_arca_options_binarygateway_pillar_v3_15.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
-
-  return offset + size_of_login_message
+  return offset
 end
 
 
@@ -10416,7 +10546,7 @@ function omi_nyse_arca_options_binarygateway_pillar_v3_15.dissector(buffer, pack
 
   -- Dissect protocol
   local protocol = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15, buffer(), omi_nyse_arca_options_binarygateway_pillar_v3_15.description, "("..buffer:len().." Bytes)")
-  return nyse_arca_options_binarygateway_pillar_v3_15.pillar_stream_message.dissect(buffer, packet, protocol)
+  return nyse_arca_options_binarygateway_pillar_v3_15.pillar_stream_message_block.dissect(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
@@ -10429,7 +10559,7 @@ tcp_table:add(65333, omi_nyse_arca_options_binarygateway_pillar_v3_15)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-nyse_arca_options_binarygateway_pillar_v3_15.pillar_stream_message.requiredsize = function(buffer)
+nyse_arca_options_binarygateway_pillar_v3_15.pillar_stream_message_block.requiredsize = function(buffer)
 
   return true
 end
@@ -10437,7 +10567,7 @@ end
 -- Dissector Heuristic for Nyse Arca Options BinaryGateway Pillar 3.15
 local function omi_nyse_arca_options_binarygateway_pillar_v3_15_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nyse_arca_options_binarygateway_pillar_v3_15.pillar_stream_message.requiredsize(buffer) then return false end
+  if not nyse_arca_options_binarygateway_pillar_v3_15.pillar_stream_message_block.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_arca_options_binarygateway_pillar_v3_15

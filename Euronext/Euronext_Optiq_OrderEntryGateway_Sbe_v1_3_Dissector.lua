@@ -1874,15 +1874,20 @@ end
 
 -- Dissect: Instrument Synchronization Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.instrument_synchronization_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Instrument Synchronization List Message
@@ -1929,15 +1934,20 @@ end
 
 -- Dissect: Instrument Synchronization List Message
 euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.instrument_synchronization_list_message then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_message.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_list_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_list_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Operation Type
@@ -7273,15 +7283,20 @@ end
 
 -- Dissect: Quote Acks Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.quote_acks_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_acks_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.quote_acks_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.quote_acks_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_acks_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_acks_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.quote_acks_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.quote_acks_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.quote_acks_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.quote_acks_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Lp Role
@@ -7403,15 +7418,20 @@ end
 
 -- Dissect: Quote Ack Message
 euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_ack_message then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_ack_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_ack_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Offer Px
@@ -7633,15 +7653,20 @@ end
 
 -- Dissect: Quotes Rep Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.quotes_rep_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quotes_rep_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.quotes_rep_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.quotes_rep_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quotes_rep_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quotes_rep_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.quotes_rep_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.quotes_rep_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.quotes_rep_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.quotes_rep_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Clearing Instruction
@@ -7990,15 +8015,20 @@ end
 
 -- Dissect: Clearing Dataset Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.clearing_dataset_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.clearing_dataset_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_dataset_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_dataset_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_dataset_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_dataset_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_dataset_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.clearing_dataset_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.clearing_dataset_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.clearing_dataset_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Non Executing Broker Short Code
@@ -8124,15 +8154,20 @@ end
 
 -- Dissect: Mifid Short Codes Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.mifid_short_codes_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.mifid_short_codes_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.mifid_short_codes_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.mifid_short_codes_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.mifid_short_codes_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.mifid_short_codes_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.mifid_short_codes_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.mifid_short_codes_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.mifid_short_codes_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.mifid_short_codes_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Rfe Answer
@@ -8247,15 +8282,20 @@ end
 
 -- Dissect: Quotes Message
 euronext_optiq_orderentrygateway_sbe_v1_3.quotes_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quotes_message then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.quotes_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.quotes_message.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quotes_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quotes_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.quotes_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.quotes_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.quotes_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.quotes_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Breached Collar Price
@@ -8410,15 +8450,20 @@ end
 
 -- Dissect: Collar Fields Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.collar_fields_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.collar_fields_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.collar_fields_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.collar_fields_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.collar_fields_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.collar_fields_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.collar_fields_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.collar_fields_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.collar_fields_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.collar_fields_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Book In Optional
@@ -8597,15 +8642,20 @@ end
 
 -- Dissect: Reject Message
 euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.reject_message then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reject_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Cancel Replace Clearing Fields Group
@@ -8715,15 +8765,20 @@ end
 
 -- Dissect: Cancel Replace Clearing Fields Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.cancel_replace_clearing_fields_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Undisclosed Iceberg Type
@@ -9152,15 +9207,20 @@ end
 
 -- Dissect: Cancel Replace Optional Field Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.cancel_replace_optional_field_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_optional_field_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_optional_field_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- New Order Message Free Text Section Group
@@ -9250,15 +9310,20 @@ end
 
 -- Dissect: Free Text Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.free_text_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.free_text_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Stpid
@@ -9661,15 +9726,20 @@ end
 
 -- Dissect: Cancel Replace Message
 euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.cancel_replace_message then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Kill Reason
@@ -10079,15 +10149,20 @@ end
 
 -- Dissect: Fill Strategy Field Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.fill_strategy_field_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_strategy_field_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_strategy_field_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Underlying Instrument Id
@@ -10284,15 +10359,20 @@ end
 
 -- Dissect: Fill Optional Field Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.fill_optional_field_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_optional_field_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_optional_field_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Execution Phase
@@ -10725,15 +10805,20 @@ end
 
 -- Dissect: Fill Message
 euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.fill_message then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Ack Qualifiers
@@ -11199,15 +11284,20 @@ end
 
 -- Dissect: Order Clearing Fields Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_clearing_fields_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_clearing_fields_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_clearing_fields_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Req Id Optional
@@ -11393,15 +11483,20 @@ end
 
 -- Dissect: Order Optional Fields Groups
 euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_optional_fields_groups then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- New Order Message
@@ -11543,15 +11638,20 @@ end
 
 -- Dissect: New Order Message
 euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_order_message then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.new_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.new_order_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -11889,12 +11989,6 @@ end
 
 -- Dissect: Payload
 euronext_optiq_orderentrygateway_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = euronext_optiq_orderentrygateway_sbe_v1_3.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return euronext_optiq_orderentrygateway_sbe_v1_3.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
@@ -12239,15 +12333,20 @@ end
 
 -- Dissect: Message
 euronext_optiq_orderentrygateway_sbe_v1_3.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = euronext_optiq_orderentrygateway_sbe_v1_3.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = euronext_optiq_orderentrygateway_sbe_v1_3.message.display(buffer, packet, parent)
-    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v1_3.message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v1_3.message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return euronext_optiq_orderentrygateway_sbe_v1_3.message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v1_3.message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Packet

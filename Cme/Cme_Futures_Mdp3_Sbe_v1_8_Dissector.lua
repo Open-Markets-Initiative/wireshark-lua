@@ -1188,15 +1188,20 @@ end
 
 -- Dissect: Snapshot Full Refresh Order Book 44 No M D Entries Groups
 cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.snapshot_full_refresh_order_book_44_no_m_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_44_no_m_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_44_no_m_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Transact Time
@@ -1400,15 +1405,20 @@ end
 
 -- Dissect: Snapshot Full Refresh Order Book
 cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.snapshot_full_refresh_order_book then
-    local length = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Padding 6
@@ -1686,15 +1696,20 @@ end
 
 -- Dissect: M D Incremental Refresh Order Book 43 No M D Entries Groups
 cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Padding 2
@@ -1853,15 +1868,20 @@ end
 
 -- Dissect: Md Incremental Refresh Order Book
 cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_order_book.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_order_book then
-    local length = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_order_book.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_order_book.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_order_book, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_order_book, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_order_book.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_order_book.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_order_book.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_order_book.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Padding 4
@@ -2076,15 +2096,20 @@ end
 
 -- Dissect: M D Incremental Refresh Trade Summary 42 No Order I D Entries Groups
 cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Trade Entry Id
@@ -2344,15 +2369,20 @@ end
 
 -- Dissect: M D Incremental Refresh Trade Summary 42 No M D Entries Groups
 cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Trade Summary
@@ -2404,15 +2434,20 @@ end
 
 -- Dissect: Md Incremental Refresh Trade Summary
 cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade_summary.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_trade_summary then
-    local length = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade_summary.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade_summary.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_trade_summary, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_trade_summary, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade_summary.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade_summary.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade_summary.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade_summary.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Related Symbol
@@ -2568,15 +2603,20 @@ end
 
 -- Dissect: M D Instrument Definition Option 41 No Related Instruments Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_option_41_no_related_instruments_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_related_instruments_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_related_instruments_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Underlying Symbol
@@ -2732,15 +2772,20 @@ end
 
 -- Dissect: M D Instrument Definition Option 41 No Underlyings Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_option_41_no_underlyings_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_underlyings_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_underlyings_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Min Lot Size
@@ -2896,15 +2941,20 @@ end
 
 -- Dissect: M D Instrument Definition Option 41 No Lot Type Rules Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_option_41_no_lot_type_rules_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_lot_type_rules_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_lot_type_rules_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Inst Attrib Value
@@ -3170,15 +3220,20 @@ end
 
 -- Dissect: M D Instrument Definition Option 41 No Inst Attrib Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_option_41_no_inst_attrib_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_inst_attrib_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_inst_attrib_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Market Depth
@@ -3334,15 +3389,20 @@ end
 
 -- Dissect: M D Instrument Definition Option 41 No M D Feed Types Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_option_41_no_m_d_feed_types_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_m_d_feed_types_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_m_d_feed_types_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Event Time
@@ -3493,15 +3553,20 @@ end
 
 -- Dissect: M D Instrument Definition Option 41 No Events Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_option_41_no_events_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_events_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_events_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trading Reference Date
@@ -5326,15 +5391,20 @@ end
 
 -- Dissect: Md Instrument Definition Option
 cme_futures_mdp3_sbe_v1_8.md_instrument_definition_option.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_instrument_definition_option then
-    local length = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_option.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_option.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_instrument_definition_option, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_instrument_definition_option, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_option.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_option.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_instrument_definition_option.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_instrument_definition_option.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Side
@@ -5523,15 +5593,20 @@ end
 
 -- Dissect: Related Sym Groups
 cme_futures_mdp3_sbe_v1_8.related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.related_sym_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.related_sym_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.related_sym_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.related_sym_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.related_sym_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.related_sym_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.related_sym_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.related_sym_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.related_sym_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Padding 3
@@ -5645,15 +5720,20 @@ end
 
 -- Dissect: Quote Request
 cme_futures_mdp3_sbe_v1_8.quote_request.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_request then
-    local length = cme_futures_mdp3_sbe_v1_8.quote_request.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.quote_request.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.quote_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.quote_request, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.quote_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.quote_request.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.quote_request.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.quote_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Entry Type
@@ -5948,15 +6028,20 @@ end
 
 -- Dissect: Snapshot Full Refresh 38 No M D Entries Groups
 cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.snapshot_full_refresh_38_no_m_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.snapshot_full_refresh_38_no_m_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.snapshot_full_refresh_38_no_m_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Max Price Variation
@@ -6110,15 +6195,20 @@ end
 
 -- Dissect: Snapshot Full Refresh
 cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.snapshot_full_refresh then
-    local length = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.snapshot_full_refresh, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.snapshot_full_refresh, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.snapshot_full_refresh.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Incremental Refresh Volume Group
@@ -6224,15 +6314,20 @@ end
 
 -- Dissect: Incremental Refresh Volume Groups
 cme_futures_mdp3_sbe_v1_8.incremental_refresh_volume_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.incremental_refresh_volume_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.incremental_refresh_volume_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.incremental_refresh_volume_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.incremental_refresh_volume_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.incremental_refresh_volume_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.incremental_refresh_volume_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.incremental_refresh_volume_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.incremental_refresh_volume_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.incremental_refresh_volume_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Volume
@@ -6279,15 +6374,20 @@ end
 
 -- Dissect: Md Incremental Refresh Volume
 cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_volume.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_volume then
-    local length = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_volume.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_volume.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_volume, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_volume, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_volume.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_volume.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_volume.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_volume.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trade Id
@@ -6432,15 +6532,20 @@ end
 
 -- Dissect: M D Incremental Refresh Trade 36 No M D Entries Groups
 cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_trade_36_no_m_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_36_no_m_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_36_no_m_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Trade
@@ -6487,15 +6592,20 @@ end
 
 -- Dissect: Md Incremental Refresh Trade
 cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_trade then
-    local length = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_trade, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_trade, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_trade.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Padding 1
@@ -6688,15 +6798,20 @@ end
 
 -- Dissect: M D Incremental Refresh Session Statistics 35 No M D Entries Groups
 cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Session Statistics
@@ -6743,15 +6858,20 @@ end
 
 -- Dissect: Md Incremental Refresh Session Statistics
 cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_session_statistics.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_session_statistics then
-    local length = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_session_statistics.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_session_statistics.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_session_statistics, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_session_statistics, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_session_statistics.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_session_statistics.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_session_statistics.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_session_statistics.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- M D Incremental Refresh Limits Banding 34 No M D Entries Group
@@ -6857,15 +6977,20 @@ end
 
 -- Dissect: M D Incremental Refresh Limits Banding 34 No M D Entries Groups
 cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Limits Banding
@@ -6912,15 +7037,20 @@ end
 
 -- Dissect: Md Incremental Refresh Limits Banding
 cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_limits_banding.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_limits_banding then
-    local length = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_limits_banding.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_limits_banding.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_limits_banding, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_limits_banding, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_limits_banding.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_limits_banding.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_limits_banding.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_limits_banding.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Padding 7
@@ -7114,15 +7244,20 @@ end
 
 -- Dissect: M D Incremental Refresh Daily Statistics 33 No M D Entries Groups
 cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Daily Statistics
@@ -7169,15 +7304,20 @@ end
 
 -- Dissect: Md Incremental Refresh Daily Statistics
 cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_daily_statistics.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_daily_statistics then
-    local length = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_daily_statistics.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_daily_statistics.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_daily_statistics, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_daily_statistics, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_daily_statistics.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_daily_statistics.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_daily_statistics.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_daily_statistics.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Order Update Action
@@ -7348,15 +7488,20 @@ end
 
 -- Dissect: M D Incremental Refresh Book 32 No Order I D Entries Groups
 cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Price Level
@@ -7501,15 +7646,20 @@ end
 
 -- Dissect: M D Incremental Refresh Book 32 No M D Entries Groups
 cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_book_32_no_m_d_entries_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_m_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_m_d_entries_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Book
@@ -7561,15 +7711,20 @@ end
 
 -- Dissect: Md Incremental Refresh Book
 cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_book.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_book then
-    local length = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_book.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_book.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_book, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_incremental_refresh_book, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_book.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_book.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_book.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_incremental_refresh_book.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Trading Event
@@ -8073,15 +8228,20 @@ end
 
 -- Dissect: M D Instrument Definition Spread 29 No Legs Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_spread_29_no_legs_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_legs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_legs_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- M D Instrument Definition Spread 29 No Lot Type Rules Group
@@ -8175,15 +8335,20 @@ end
 
 -- Dissect: M D Instrument Definition Spread 29 No Lot Type Rules Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_spread_29_no_lot_type_rules_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- M D Instrument Definition Spread 29 No Inst Attrib Group
@@ -8273,15 +8438,20 @@ end
 
 -- Dissect: M D Instrument Definition Spread 29 No Inst Attrib Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_spread_29_no_inst_attrib_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_inst_attrib_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_inst_attrib_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- M D Instrument Definition Spread 29 No M D Feed Types Group
@@ -8375,15 +8545,20 @@ end
 
 -- Dissect: M D Instrument Definition Spread 29 No M D Feed Types Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- M D Instrument Definition Spread 29 No Events Group
@@ -8477,15 +8652,20 @@ end
 
 -- Dissect: M D Instrument Definition Spread 29 No Events Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_spread_29_no_events_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_events_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_events_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Price Ratio
@@ -8862,15 +9042,20 @@ end
 
 -- Dissect: Md Instrument Definition Spread
 cme_futures_mdp3_sbe_v1_8.md_instrument_definition_spread.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_instrument_definition_spread then
-    local length = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_spread.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_spread.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_instrument_definition_spread, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_instrument_definition_spread, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_spread.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_spread.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_instrument_definition_spread.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_instrument_definition_spread.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- M D Instrument Definition Future 27 No Lot Type Rules Group
@@ -8964,15 +9149,20 @@ end
 
 -- Dissect: M D Instrument Definition Future 27 No Lot Type Rules Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_future_27_no_lot_type_rules_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_lot_type_rules_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_lot_type_rules_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- M D Instrument Definition Future 27 No Inst Attrib Group
@@ -9062,15 +9252,20 @@ end
 
 -- Dissect: M D Instrument Definition Future 27 No Inst Attrib Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_future_27_no_inst_attrib_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_inst_attrib_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_inst_attrib_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- M D Instrument Definition Future 27 No M D Feed Types Group
@@ -9164,15 +9359,20 @@ end
 
 -- Dissect: M D Instrument Definition Future 27 No M D Feed Types Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_future_27_no_m_d_feed_types_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_m_d_feed_types_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_m_d_feed_types_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- M D Instrument Definition Future 27 No Events Group
@@ -9266,15 +9466,20 @@ end
 
 -- Dissect: M D Instrument Definition Future 27 No Events Groups
 cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.m_d_instrument_definition_future_27_no_events_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_events_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_events_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Flow Schedule Type
@@ -9709,15 +9914,20 @@ end
 
 -- Dissect: Md Instrument Definition Future
 cme_futures_mdp3_sbe_v1_8.md_instrument_definition_future.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_instrument_definition_future then
-    local length = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_future.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_future.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_instrument_definition_future, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.md_instrument_definition_future, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_future.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.md_instrument_definition_future.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.md_instrument_definition_future.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.md_instrument_definition_future.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Text
@@ -9949,15 +10159,20 @@ end
 
 -- Dissect: Channel Reset Groups
 cme_futures_mdp3_sbe_v1_8.channel_reset_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.channel_reset_groups then
-    local length = cme_futures_mdp3_sbe_v1_8.channel_reset_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.channel_reset_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.channel_reset_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.channel_reset_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.channel_reset_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.channel_reset_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.channel_reset_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.channel_reset_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Channel Reset
@@ -9999,15 +10214,20 @@ end
 
 -- Dissect: Channel Reset
 cme_futures_mdp3_sbe_v1_8.channel_reset.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.channel_reset then
-    local length = cme_futures_mdp3_sbe_v1_8.channel_reset.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_8.channel_reset.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.channel_reset, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_8.fields.channel_reset, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_8.channel_reset.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_8.channel_reset.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_8.channel_reset.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_8.channel_reset.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -10178,12 +10398,6 @@ end
 
 -- Dissect: Payload
 cme_futures_mdp3_sbe_v1_8.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = cme_futures_mdp3_sbe_v1_8.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return cme_futures_mdp3_sbe_v1_8.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

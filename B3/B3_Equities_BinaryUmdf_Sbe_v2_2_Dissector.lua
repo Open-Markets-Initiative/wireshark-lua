@@ -1160,15 +1160,20 @@ end
 
 -- Dissect: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
 b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups then
-    local length = b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Id
@@ -1228,15 +1233,20 @@ end
 
 -- Dissect: Snapshot Full Refresh Orders Mb O 71 Message
 b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.snapshot_full_refresh_orders_mb_o_71_message then
-    local length = b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.snapshot_full_refresh_orders_mb_o_71_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.snapshot_full_refresh_orders_mb_o_71_message, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Rpt Seq
@@ -5287,15 +5297,20 @@ end
 
 -- Dissect: News 5 Message
 b3_equities_binaryumdf_sbe_v2_2.news_5_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.news_5_message then
-    local length = b3_equities_binaryumdf_sbe_v2_2.news_5_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v2_2.news_5_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.news_5_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.news_5_message, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v2_2.news_5_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v2_2.news_5_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v2_2.news_5_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v2_2.news_5_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Desc Data
@@ -5571,15 +5586,20 @@ end
 
 -- Dissect: Instr Attribs Groups
 b3_equities_binaryumdf_sbe_v2_2.instr_attribs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.instr_attribs_groups then
-    local length = b3_equities_binaryumdf_sbe_v2_2.instr_attribs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v2_2.instr_attribs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.instr_attribs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.instr_attribs_groups, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v2_2.instr_attribs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v2_2.instr_attribs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v2_2.instr_attribs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v2_2.instr_attribs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Leg Symbol
@@ -5881,15 +5901,20 @@ end
 
 -- Dissect: Legs Groups
 b3_equities_binaryumdf_sbe_v2_2.legs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.legs_groups then
-    local length = b3_equities_binaryumdf_sbe_v2_2.legs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v2_2.legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.legs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.legs_groups, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v2_2.legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v2_2.legs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v2_2.legs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v2_2.legs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Underlying Symbol
@@ -6045,15 +6070,20 @@ end
 
 -- Dissect: Underlyings Groups
 b3_equities_binaryumdf_sbe_v2_2.underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.underlyings_groups then
-    local length = b3_equities_binaryumdf_sbe_v2_2.underlyings_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v2_2.underlyings_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.underlyings_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.underlyings_groups, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v2_2.underlyings_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v2_2.underlyings_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v2_2.underlyings_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v2_2.underlyings_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Opt Payout Type
@@ -8249,15 +8279,20 @@ end
 
 -- Dissect: Security Definition Message
 b3_equities_binaryumdf_sbe_v2_2.security_definition_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.security_definition_message then
-    local length = b3_equities_binaryumdf_sbe_v2_2.security_definition_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v2_2.security_definition_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.security_definition_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_2.fields.security_definition_message, buffer(offset, 0))
+    local index = b3_equities_binaryumdf_sbe_v2_2.security_definition_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v2_2.security_definition_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v2_2.security_definition_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v2_2.security_definition_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trad Ses Open Time
@@ -9051,12 +9086,6 @@ end
 
 -- Dissect: Payload
 b3_equities_binaryumdf_sbe_v2_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = b3_equities_binaryumdf_sbe_v2_2.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return b3_equities_binaryumdf_sbe_v2_2.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

@@ -3265,12 +3265,6 @@ end
 
 -- Dissect: Payload
 nyse_options_topfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = nyse_options_topfeed_xdp_v1_3_a.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return nyse_options_topfeed_xdp_v1_3_a.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
@@ -3461,16 +3455,21 @@ nyse_options_topfeed_xdp_v1_3_a.message.fields = function(buffer, offset, packet
 end
 
 -- Dissect: Message
-nyse_options_topfeed_xdp_v1_3_a.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+nyse_options_topfeed_xdp_v1_3_a.message.dissect = function(buffer, offset, packet, parent, message_index)
   if show.message then
-    local length = nyse_options_topfeed_xdp_v1_3_a.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_topfeed_xdp_v1_3_a.message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_options_topfeed_xdp_v1_3_a.fields.message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_options_topfeed_xdp_v1_3_a.fields.message, buffer(offset, 0))
+    local index = nyse_options_topfeed_xdp_v1_3_a.message.fields(buffer, offset, packet, parent, message_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_topfeed_xdp_v1_3_a.message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_topfeed_xdp_v1_3_a.message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_options_topfeed_xdp_v1_3_a.message.fields(buffer, offset, packet, parent, message_index)
+  end
 end
 
 -- Nanoseconds

@@ -1535,15 +1535,20 @@ end
 
 -- Dissect: Complex Series Index Mapping Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.complex_series_index_mapping_message then
-    local length = nyse_arca_options_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_arca_options_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.complex_series_index_mapping_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.complex_series_index_mapping_message, buffer(offset, 0))
+    local index = nyse_arca_options_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arca_options_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_arca_options_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arca_options_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Halt Condition
@@ -3990,12 +3995,6 @@ end
 
 -- Dissect: Payload
 nyse_arca_options_complexfeed_pillar_v1_0_d.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = nyse_arca_options_complexfeed_pillar_v1_0_d.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return nyse_arca_options_complexfeed_pillar_v1_0_d.payload.branches(buffer, offset, packet, parent, message_type)
 end
 

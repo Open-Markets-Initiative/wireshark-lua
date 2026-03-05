@@ -1029,15 +1029,20 @@ end
 
 -- Dissect: Comp Ids Groups
 b3_equities_binaryentrypoint_sbe_v7_0.comp_ids_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.comp_ids_groups then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.comp_ids_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.comp_ids_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.comp_ids_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.comp_ids_groups, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.comp_ids_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.comp_ids_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.comp_ids_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.comp_ids_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Action Target Group Id
@@ -1799,15 +1804,20 @@ end
 
 -- Dissect: Order Mass Action Report Message
 b3_equities_binaryentrypoint_sbe_v7_0.order_mass_action_report_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_mass_action_report_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.order_mass_action_report_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.order_mass_action_report_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.order_mass_action_report_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.order_mass_action_report_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.order_mass_action_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.order_mass_action_report_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.order_mass_action_report_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.order_mass_action_report_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Offset 31 Padding 1
@@ -2979,15 +2989,20 @@ end
 
 -- Dissect: Allocation Instruction Message
 b3_equities_binaryentrypoint_sbe_v7_0.allocation_instruction_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.allocation_instruction_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.allocation_instruction_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.allocation_instruction_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.allocation_instruction_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.allocation_instruction_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.allocation_instruction_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.allocation_instruction_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.allocation_instruction_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.allocation_instruction_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Short Qty
@@ -3186,15 +3201,20 @@ end
 
 -- Dissect: Positions Groups
 b3_equities_binaryentrypoint_sbe_v7_0.positions_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.positions_groups then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.positions_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.positions_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.positions_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.positions_groups, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.positions_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.positions_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.positions_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.positions_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Contrary Instruction Indicator
@@ -3714,15 +3734,20 @@ end
 
 -- Dissect: Position Maintenance Report Message
 b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_report_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.position_maintenance_report_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_report_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_report_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.position_maintenance_report_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.position_maintenance_report_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_report_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_report_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_report_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Long Qty
@@ -3860,15 +3885,20 @@ end
 
 -- Dissect: Position Maintenance Request Message
 b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.position_maintenance_request_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_request_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.position_maintenance_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.position_maintenance_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_request_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_request_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.position_maintenance_request_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Pos Maint Rpt Ref Id
@@ -4155,15 +4185,20 @@ end
 
 -- Dissect: Sides Groups
 b3_equities_binaryentrypoint_sbe_v7_0.sides_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.sides_groups then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.sides_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.sides_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.sides_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.sides_groups, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.sides_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.sides_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.sides_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.sides_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Days To Settlement Optional
@@ -4654,15 +4689,20 @@ end
 
 -- Dissect: Quote Request Reject Message
 b3_equities_binaryentrypoint_sbe_v7_0.quote_request_reject_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_request_reject_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.quote_request_reject_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_request_reject_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_request_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_request_reject_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.quote_request_reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_request_reject_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.quote_request_reject_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.quote_request_reject_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Cancel Message
@@ -4739,15 +4779,20 @@ end
 
 -- Dissect: Quote Cancel Message
 b3_equities_binaryentrypoint_sbe_v7_0.quote_cancel_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_cancel_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.quote_cancel_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_cancel_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_cancel_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.quote_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.quote_cancel_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.quote_cancel_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Days To Settlement
@@ -5054,15 +5099,20 @@ end
 
 -- Dissect: Quote Message
 b3_equities_binaryentrypoint_sbe_v7_0.quote_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.quote_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.quote_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.quote_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Quote Status Response To
@@ -5417,15 +5467,20 @@ end
 
 -- Dissect: Quote Status Report Message
 b3_equities_binaryentrypoint_sbe_v7_0.quote_status_report_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_status_report_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.quote_status_report_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_status_report_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_status_report_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_status_report_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.quote_status_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_status_report_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.quote_status_report_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.quote_status_report_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Price
@@ -5576,15 +5631,20 @@ end
 
 -- Dissect: Quote Request Message
 b3_equities_binaryentrypoint_sbe_v7_0.quote_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_request_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.quote_request_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.quote_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.quote_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.quote_request_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.quote_request_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.quote_request_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Response Id
@@ -6079,15 +6139,20 @@ end
 
 -- Dissect: Legs Groups
 b3_equities_binaryentrypoint_sbe_v7_0.legs_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.legs_groups then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.legs_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.legs_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.legs_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.legs_groups, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.legs_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.legs_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.legs_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Definition Request Message
@@ -6139,15 +6204,20 @@ end
 
 -- Dissect: Security Definition Request Message
 b3_equities_binaryentrypoint_sbe_v7_0.security_definition_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.security_definition_request_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.security_definition_request_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.security_definition_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.security_definition_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.security_definition_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.security_definition_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.security_definition_request_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.security_definition_request_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.security_definition_request_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Business Reject Reason
@@ -6447,15 +6517,20 @@ end
 
 -- Dissect: Business Message Reject Message
 b3_equities_binaryentrypoint_sbe_v7_0.business_message_reject_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.business_message_reject_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.business_message_reject_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.business_message_reject_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.business_message_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.business_message_reject_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.business_message_reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.business_message_reject_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.business_message_reject_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.business_message_reject_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Exec Ref Id
@@ -6993,15 +7068,20 @@ end
 
 -- Dissect: Execution Report Forward Message
 b3_equities_binaryentrypoint_sbe_v7_0.execution_report_forward_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_forward_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_forward_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_forward_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_forward_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_forward_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_forward_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_forward_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_forward_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_forward_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Crossed Indicator
@@ -9041,15 +9121,20 @@ end
 
 -- Dissect: Execution Report Reject Message
 b3_equities_binaryentrypoint_sbe_v7_0.execution_report_reject_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_reject_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_reject_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_reject_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_reject_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_reject_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_reject_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_reject_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Offset 119 Padding 1
@@ -9425,15 +9510,20 @@ end
 
 -- Dissect: Execution Report Trade Message
 b3_equities_binaryentrypoint_sbe_v7_0.execution_report_trade_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_trade_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_trade_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_trade_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_trade_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_trade_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_trade_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_trade_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Mass Action Report Id Optional
@@ -9787,15 +9877,20 @@ end
 
 -- Dissect: Execution Report Cancel Message
 b3_equities_binaryentrypoint_sbe_v7_0.execution_report_cancel_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_cancel_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_cancel_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_cancel_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_cancel_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_cancel_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_cancel_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Protection Price
@@ -10001,15 +10096,20 @@ end
 
 -- Dissect: Execution Report Modify Message
 b3_equities_binaryentrypoint_sbe_v7_0.execution_report_modify_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_modify_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_modify_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_modify_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_modify_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_modify_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_modify_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_modify_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_modify_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_modify_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Execution Report New Message
@@ -10166,15 +10266,20 @@ end
 
 -- Dissect: Execution Report New Message
 b3_equities_binaryentrypoint_sbe_v7_0.execution_report_new_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report_new_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_new_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_new_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_new_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.execution_report_new_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_new_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.execution_report_new_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_new_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.execution_report_new_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Entering Firm Optional
@@ -10326,15 +10431,20 @@ end
 
 -- Dissect: Cross Sides Groups
 b3_equities_binaryentrypoint_sbe_v7_0.cross_sides_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.cross_sides_groups then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.cross_sides_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.cross_sides_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.cross_sides_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.cross_sides_groups, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.cross_sides_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.cross_sides_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.cross_sides_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.cross_sides_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Executing Trader Optional
@@ -10488,15 +10598,20 @@ end
 
 -- Dissect: New Order Cross Message
 b3_equities_binaryentrypoint_sbe_v7_0.new_order_cross_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_order_cross_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.new_order_cross_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.new_order_cross_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.new_order_cross_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.new_order_cross_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.new_order_cross_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.new_order_cross_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.new_order_cross_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.new_order_cross_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Offset 54 Padding 2
@@ -10646,15 +10761,20 @@ end
 
 -- Dissect: Order Cancel Request Message
 b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_cancel_request_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_request_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.order_cancel_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.order_cancel_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_request_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_request_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_request_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Investor Id Data
@@ -11205,15 +11325,20 @@ end
 
 -- Dissect: Order Cancel Replace Request Message
 b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_replace_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_cancel_replace_request_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_replace_request_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_replace_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.order_cancel_replace_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.order_cancel_replace_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_replace_request_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Offset 59 Padding 1
@@ -11388,15 +11513,20 @@ end
 
 -- Dissect: New Order Single Message
 b3_equities_binaryentrypoint_sbe_v7_0.new_order_single_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.new_order_single_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.new_order_single_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.new_order_single_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.new_order_single_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.new_order_single_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.new_order_single_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.new_order_single_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.new_order_single_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.new_order_single_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Time In Force Simple
@@ -11607,15 +11737,20 @@ end
 
 -- Dissect: Simple Modify Order Message
 b3_equities_binaryentrypoint_sbe_v7_0.simple_modify_order_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.simple_modify_order_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.simple_modify_order_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.simple_modify_order_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_modify_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_modify_order_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.simple_modify_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.simple_modify_order_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.simple_modify_order_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.simple_modify_order_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Simple New Order Message
@@ -11727,15 +11862,20 @@ end
 
 -- Dissect: Simple New Order Message
 b3_equities_binaryentrypoint_sbe_v7_0.simple_new_order_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.simple_new_order_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.simple_new_order_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.simple_new_order_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_new_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_new_order_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.simple_new_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.simple_new_order_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.simple_new_order_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.simple_new_order_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Retransmit Reject Code
@@ -12828,15 +12968,20 @@ end
 
 -- Dissect: Establish Message
 b3_equities_binaryentrypoint_sbe_v7_0.establish_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.establish_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.establish_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.establish_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.establish_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.establish_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.establish_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.establish_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.establish_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.establish_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Current Session Ver Id
@@ -13515,15 +13660,20 @@ end
 
 -- Dissect: Negotiate Message
 b3_equities_binaryentrypoint_sbe_v7_0.negotiate_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.negotiate_message then
-    local length = b3_equities_binaryentrypoint_sbe_v7_0.negotiate_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v7_0.negotiate_message.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.negotiate_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.negotiate_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v7_0.negotiate_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v7_0.negotiate_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v7_0.negotiate_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v7_0.negotiate_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -13855,12 +14005,6 @@ end
 
 -- Dissect: Payload
 b3_equities_binaryentrypoint_sbe_v7_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = b3_equities_binaryentrypoint_sbe_v7_0.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return b3_equities_binaryentrypoint_sbe_v7_0.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

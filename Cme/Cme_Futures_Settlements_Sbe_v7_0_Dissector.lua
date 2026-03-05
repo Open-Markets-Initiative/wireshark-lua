@@ -1490,15 +1490,20 @@ end
 
 -- Dissect: Incremental Refresh High Low Groups
 cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.incremental_refresh_high_low_groups then
-    local length = cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_groups, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Transact Time
@@ -1562,15 +1567,20 @@ end
 
 -- Dissect: Md Incremental Refresh High Low
 cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_high_low then
-    local length = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Open Close Settl Flag
@@ -1818,15 +1828,20 @@ end
 
 -- Dissect: Incremental Refresh Voi Groups
 cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.incremental_refresh_voi_groups then
-    local length = cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_voi_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_voi_groups, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Voi
@@ -1863,15 +1878,20 @@ end
 
 -- Dissect: Md Incremental Refresh Voi
 cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_voi then
-    local length = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Statistic Desc
@@ -2332,15 +2352,20 @@ end
 
 -- Dissect: Incremental Refresh Settle Groups
 cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.incremental_refresh_settle_groups then
-    local length = cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_settle_groups, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_settle_groups, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_groups.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Md Incremental Refresh Settle
@@ -2377,15 +2402,20 @@ end
 
 -- Dissect: Md Incremental Refresh Settle
 cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_settle then
-    local length = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Payload
@@ -2436,12 +2466,6 @@ end
 
 -- Dissect: Payload
 cme_futures_settlements_sbe_v7_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = cme_futures_settlements_sbe_v7_0.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return cme_futures_settlements_sbe_v7_0.payload.branches(buffer, offset, packet, parent, template_id)
 end
 

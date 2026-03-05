@@ -729,12 +729,6 @@ end
 
 -- Dissect: Payload
 a2x_equities_snapshot_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Calculate size and check that branch is not empty
-  local size = a2x_equities_snapshot_amd_v1_3_2.payload.size(buffer, offset, msg_type)
-  if size == 0 then
-    return offset
-  end
-
   return a2x_equities_snapshot_amd_v1_3_2.payload.branches(buffer, offset, packet, parent, msg_type)
 end
 

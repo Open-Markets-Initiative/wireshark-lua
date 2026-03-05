@@ -4429,12 +4429,6 @@ end
 
 -- Dissect: Payload
 memx_equities_memo_sbe_v1_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Calculate size and check that branch is not empty
-  local size = memx_equities_memo_sbe_v1_1.payload.size(buffer, offset, template_id)
-  if size == 0 then
-    return offset
-  end
-
   return memx_equities_memo_sbe_v1_1.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
@@ -4688,15 +4682,20 @@ end
 
 -- Dissect: Sbe Message
 memx_equities_memo_sbe_v1_1.sbe_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.sbe_message then
-    local length = memx_equities_memo_sbe_v1_1.sbe_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_1.sbe_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_equities_memo_sbe_v1_1.fields.sbe_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_equities_memo_sbe_v1_1.fields.sbe_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_1.sbe_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_1.sbe_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_1.sbe_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_1.sbe_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Sequenced Message
@@ -4728,15 +4727,20 @@ end
 
 -- Dissect: Sequenced Message
 memx_equities_memo_sbe_v1_1.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.sequenced_message then
-    local length = memx_equities_memo_sbe_v1_1.sequenced_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_1.sequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_equities_memo_sbe_v1_1.fields.sequenced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_equities_memo_sbe_v1_1.fields.sequenced_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_1.sequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_1.sequenced_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_1.sequenced_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_1.sequenced_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Total Sequence Count
@@ -5346,15 +5350,20 @@ end
 
 -- Dissect: Unsequenced Message
 memx_equities_memo_sbe_v1_1.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.unsequenced_message then
-    local length = memx_equities_memo_sbe_v1_1.unsequenced_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_1.unsequenced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_memx_equities_memo_sbe_v1_1.fields.unsequenced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_equities_memo_sbe_v1_1.fields.unsequenced_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_1.unsequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_1.unsequenced_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_1.unsequenced_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_1.unsequenced_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Session Id
@@ -5754,12 +5763,6 @@ end
 
 -- Dissect: Data
 memx_equities_memo_sbe_v1_1.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = memx_equities_memo_sbe_v1_1.data.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return memx_equities_memo_sbe_v1_1.data.branches(buffer, offset, packet, parent, message_type)
 end
 
