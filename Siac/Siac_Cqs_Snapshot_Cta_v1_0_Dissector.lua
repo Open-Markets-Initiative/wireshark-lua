@@ -849,6 +849,7 @@ end
 
 -- Dissect: Finra Snapshot Message
 siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.dissect = function(buffer, offset, packet, parent, size_of_finra_snapshot_message)
+  local size_of_finra_snapshot_message = siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.size(buffer, offset)
   local index = offset + size_of_finra_snapshot_message
 
   -- Optionally add group/struct element to protocol tree
@@ -1242,6 +1243,7 @@ end
 
 -- Dissect: Participant Snapshot Message
 siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.dissect = function(buffer, offset, packet, parent, size_of_participant_snapshot_message)
+  local size_of_participant_snapshot_message = siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.size(buffer, offset)
   local index = offset + size_of_participant_snapshot_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2228,6 +2230,7 @@ end
 
 -- Dissect: Consolidated Snapshot Message
 siac_cqs_snapshot_cta_v1_0.consolidated_snapshot_message.dissect = function(buffer, offset, packet, parent, size_of_consolidated_snapshot_message)
+  local size_of_consolidated_snapshot_message = siac_cqs_snapshot_cta_v1_0.consolidated_snapshot_message.size(buffer, offset)
   local index = offset + size_of_consolidated_snapshot_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2381,6 +2384,7 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Status Snapshot Message
 siac_cqs_snapshot_cta_v1_0.market_wide_circuit_breaker_decline_level_status_snapshot_message.dissect = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message)
+  local size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message = siac_cqs_snapshot_cta_v1_0.market_wide_circuit_breaker_decline_level_status_snapshot_message.size(buffer, offset)
   local index = offset + size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2430,6 +2434,7 @@ end
 
 -- Dissect: Line Integrity Message
 siac_cqs_snapshot_cta_v1_0.line_integrity_message.dissect = function(buffer, offset, packet, parent, size_of_line_integrity_message)
+  local size_of_line_integrity_message = siac_cqs_snapshot_cta_v1_0.line_integrity_message.size(buffer, offset)
   local index = offset + size_of_line_integrity_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2581,6 +2586,7 @@ end
 
 -- Dissect: Snapshot
 siac_cqs_snapshot_cta_v1_0.snapshot.dissect = function(buffer, offset, packet, parent, size_of_snapshot)
+  local size_of_snapshot = siac_cqs_snapshot_cta_v1_0.snapshot.size(buffer, offset)
   local index = offset + size_of_snapshot
 
   -- Optionally add group/struct element to protocol tree

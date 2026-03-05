@@ -780,12 +780,6 @@ end
 
 -- Dissect: Replace Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dissect = function(buffer, offset, packet, parent, replace_order_optional_field)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.size(buffer, offset, replace_order_optional_field)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.branches(buffer, offset, packet, parent, replace_order_optional_field)
 end
 
@@ -1202,15 +1196,20 @@ end
 
 -- Dissect: Replace Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.replace_order_message then
-    local length = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Customer Type
@@ -1308,12 +1307,6 @@ end
 
 -- Dissect: Enter Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dissect = function(buffer, offset, packet, parent, enter_order_optional_field)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.size(buffer, offset, enter_order_optional_field)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.branches(buffer, offset, packet, parent, enter_order_optional_field)
 end
 
@@ -1581,15 +1574,20 @@ end
 
 -- Dissect: Enter Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.enter_order_message then
-    local length = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Unsequenced Message
@@ -1648,12 +1646,6 @@ end
 
 -- Dissect: Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.size(buffer, offset, unsequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
@@ -1728,20 +1720,25 @@ nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.fields = function(bu
 end
 
 -- Dissect: Unsequenced Data Packet
-nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
+nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local size_of_unsequenced_data_packet = nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.unsequenced_data_packet then
-    local range = buffer(offset, size_of_unsequenced_data_packet)
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_data_packet, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
   end
-
-  nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-  return offset + size_of_unsequenced_data_packet
 end
 
 -- Requested Sequence Number
@@ -2098,12 +2095,6 @@ end
 
 -- Dissect: Order Restated Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dissect = function(buffer, offset, packet, parent, order_restated_optional_field)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.size(buffer, offset, order_restated_optional_field)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.branches(buffer, offset, packet, parent, order_restated_optional_field)
 end
 
@@ -2267,15 +2258,20 @@ end
 
 -- Dissect: Order Restated Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_restated_message then
-    local length = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Order Modified Message
@@ -3051,12 +3047,6 @@ end
 
 -- Dissect: Order Executed Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dissect = function(buffer, offset, packet, parent, order_executed_optional_field)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.size(buffer, offset, order_executed_optional_field)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.branches(buffer, offset, packet, parent, order_executed_optional_field)
 end
 
@@ -3196,15 +3186,20 @@ end
 
 -- Dissect: Order Executed Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_executed_message then
-    local length = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Execution Price
@@ -3599,12 +3594,6 @@ end
 
 -- Dissect: Replaced Message Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dissect = function(buffer, offset, packet, parent, replaced_message_optional_field)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.size(buffer, offset, replaced_message_optional_field)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.branches(buffer, offset, packet, parent, replaced_message_optional_field)
 end
 
@@ -3822,15 +3811,20 @@ end
 
 -- Dissect: Replaced Message
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.replaced_message then
-    local length = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Route
@@ -4134,12 +4128,6 @@ end
 
 -- Dissect: Order Accepted Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dissect = function(buffer, offset, packet, parent, order_accepted_optional_field)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.size(buffer, offset, order_accepted_optional_field)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.branches(buffer, offset, packet, parent, order_accepted_optional_field)
 end
 
@@ -4345,15 +4333,20 @@ end
 
 -- Dissect: Order Accepted Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.order_accepted_message then
-    local length = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.display(buffer, packet, parent)
-    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Event Code
@@ -4567,12 +4560,6 @@ end
 
 -- Dissect: Sequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.size(buffer, offset, sequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
@@ -4677,20 +4664,25 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.fields = function(buff
 end
 
 -- Dissect: Sequenced Data Packet
-nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
+nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local size_of_sequenced_data_packet = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_sequenced_data_packet
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.sequenced_data_packet then
-    local range = buffer(offset, size_of_sequenced_data_packet)
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_data_packet, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+    parent:set_len(size_of_sequenced_data_packet)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_data_packet, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+
+    return index
   end
-
-  nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
-
-  return offset + size_of_sequenced_data_packet
 end
 
 -- Reject Reason Code
@@ -4974,12 +4966,6 @@ end
 
 -- Dissect: Payload
 nasdaq_nsmequities_orders_ouch_v5_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_nsmequities_orders_ouch_v5_0.payload.size(buffer, offset, packet_type)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_nsmequities_orders_ouch_v5_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 

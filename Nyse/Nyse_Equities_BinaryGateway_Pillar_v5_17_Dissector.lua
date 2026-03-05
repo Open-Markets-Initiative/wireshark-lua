@@ -1621,6 +1621,7 @@ end
 
 -- Dissect: Risk Control Alert Message
 nyse_equities_binarygateway_pillar_v5_17.risk_control_alert_message.dissect = function(buffer, offset, packet, parent, size_of_risk_control_alert_message)
+  local size_of_risk_control_alert_message = nyse_equities_binarygateway_pillar_v5_17.risk_control_alert_message.size(buffer, offset)
   local index = offset + size_of_risk_control_alert_message
 
   -- Optionally add group/struct element to protocol tree
@@ -1968,6 +1969,7 @@ end
 
 -- Dissect: Risk Control Acknowledgement Message
 nyse_equities_binarygateway_pillar_v5_17.risk_control_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_risk_control_acknowledgement_message)
+  local size_of_risk_control_acknowledgement_message = nyse_equities_binarygateway_pillar_v5_17.risk_control_acknowledgement_message.size(buffer, offset)
   local index = offset + size_of_risk_control_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2556,6 +2558,7 @@ end
 
 -- Dissect: Manual Action Request Message
 nyse_equities_binarygateway_pillar_v5_17.manual_action_request_message.dissect = function(buffer, offset, packet, parent, size_of_manual_action_request_message)
+  local size_of_manual_action_request_message = nyse_equities_binarygateway_pillar_v5_17.manual_action_request_message.size(buffer, offset)
   local index = offset + size_of_manual_action_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2647,6 +2650,7 @@ end
 
 -- Dissect: Auction Request Message
 nyse_equities_binarygateway_pillar_v5_17.auction_request_message.dissect = function(buffer, offset, packet, parent, size_of_auction_request_message)
+  local size_of_auction_request_message = nyse_equities_binarygateway_pillar_v5_17.auction_request_message.size(buffer, offset)
   local index = offset + size_of_auction_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2904,6 +2908,7 @@ end
 
 -- Dissect: Auction Price Data Message
 nyse_equities_binarygateway_pillar_v5_17.auction_price_data_message.dissect = function(buffer, offset, packet, parent, size_of_auction_price_data_message)
+  local size_of_auction_price_data_message = nyse_equities_binarygateway_pillar_v5_17.auction_price_data_message.size(buffer, offset)
   local index = offset + size_of_auction_price_data_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2953,6 +2958,7 @@ end
 
 -- Dissect: Gt End Message
 nyse_equities_binarygateway_pillar_v5_17.gt_end_message.dissect = function(buffer, offset, packet, parent, size_of_gt_end_message)
+  local size_of_gt_end_message = nyse_equities_binarygateway_pillar_v5_17.gt_end_message.size(buffer, offset)
   local index = offset + size_of_gt_end_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3002,6 +3008,7 @@ end
 
 -- Dissect: Gt Begin Message
 nyse_equities_binarygateway_pillar_v5_17.gt_begin_message.dissect = function(buffer, offset, packet, parent, size_of_gt_begin_message)
+  local size_of_gt_begin_message = nyse_equities_binarygateway_pillar_v5_17.gt_begin_message.size(buffer, offset)
   local index = offset + size_of_gt_begin_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3113,6 +3120,7 @@ end
 
 -- Dissect: Symbol Subscription Acknowledgement Message
 nyse_equities_binarygateway_pillar_v5_17.symbol_subscription_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_symbol_subscription_acknowledgement_message)
+  local size_of_symbol_subscription_acknowledgement_message = nyse_equities_binarygateway_pillar_v5_17.symbol_subscription_acknowledgement_message.size(buffer, offset)
   local index = offset + size_of_symbol_subscription_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4224,6 +4232,7 @@ end
 
 -- Dissect: Application Layer Reject Message
 nyse_equities_binarygateway_pillar_v5_17.application_layer_reject_message.dissect = function(buffer, offset, packet, parent, size_of_application_layer_reject_message)
+  local size_of_application_layer_reject_message = nyse_equities_binarygateway_pillar_v5_17.application_layer_reject_message.size(buffer, offset)
   local index = offset + size_of_application_layer_reject_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4445,6 +4454,7 @@ end
 
 -- Dissect: Trade Bust Correct Message
 nyse_equities_binarygateway_pillar_v5_17.trade_bust_correct_message.dissect = function(buffer, offset, packet, parent, size_of_trade_bust_correct_message)
+  local size_of_trade_bust_correct_message = nyse_equities_binarygateway_pillar_v5_17.trade_bust_correct_message.size(buffer, offset)
   local index = offset + size_of_trade_bust_correct_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4905,6 +4915,7 @@ end
 
 -- Dissect: Execution Report Message
 nyse_equities_binarygateway_pillar_v5_17.execution_report_message.dissect = function(buffer, offset, packet, parent, size_of_execution_report_message)
+  local size_of_execution_report_message = nyse_equities_binarygateway_pillar_v5_17.execution_report_message.size(buffer, offset)
   local index = offset + size_of_execution_report_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5179,6 +5190,7 @@ end
 
 -- Dissect: Order Priority Update Acknowledgment Message
 nyse_equities_binarygateway_pillar_v5_17.order_priority_update_acknowledgment_message.dissect = function(buffer, offset, packet, parent, size_of_order_priority_update_acknowledgment_message)
+  local size_of_order_priority_update_acknowledgment_message = nyse_equities_binarygateway_pillar_v5_17.order_priority_update_acknowledgment_message.size(buffer, offset)
   local index = offset + size_of_order_priority_update_acknowledgment_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5382,6 +5394,7 @@ end
 
 -- Dissect: Order Modify Cancel Request Acknowledgment And Urout Message
 nyse_equities_binarygateway_pillar_v5_17.order_modify_cancel_request_acknowledgment_and_urout_message.dissect = function(buffer, offset, packet, parent, size_of_order_modify_cancel_request_acknowledgment_and_urout_message)
+  local size_of_order_modify_cancel_request_acknowledgment_and_urout_message = nyse_equities_binarygateway_pillar_v5_17.order_modify_cancel_request_acknowledgment_and_urout_message.size(buffer, offset)
   local index = offset + size_of_order_modify_cancel_request_acknowledgment_and_urout_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5922,6 +5935,7 @@ end
 
 -- Dissect: Order And Cancel Replace Acknowledgement Message
 nyse_equities_binarygateway_pillar_v5_17.order_and_cancel_replace_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_order_and_cancel_replace_acknowledgement_message)
+  local size_of_order_and_cancel_replace_acknowledgement_message = nyse_equities_binarygateway_pillar_v5_17.order_and_cancel_replace_acknowledgement_message.size(buffer, offset)
   local index = offset + size_of_order_and_cancel_replace_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6437,6 +6451,7 @@ end
 
 -- Dissect: Session Configuration Acknowledgement Message
 nyse_equities_binarygateway_pillar_v5_17.session_configuration_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_session_configuration_acknowledgement_message)
+  local size_of_session_configuration_acknowledgement_message = nyse_equities_binarygateway_pillar_v5_17.session_configuration_acknowledgement_message.size(buffer, offset)
   local index = offset + size_of_session_configuration_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6544,6 +6559,7 @@ end
 
 -- Dissect: Mmid Configuration Message
 nyse_equities_binarygateway_pillar_v5_17.mmid_configuration_message.dissect = function(buffer, offset, packet, parent, size_of_mmid_configuration_message)
+  local size_of_mmid_configuration_message = nyse_equities_binarygateway_pillar_v5_17.mmid_configuration_message.size(buffer, offset)
   local index = offset + size_of_mmid_configuration_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6661,6 +6677,7 @@ end
 
 -- Dissect: Mpid Configuration Message
 nyse_equities_binarygateway_pillar_v5_17.mpid_configuration_message.dissect = function(buffer, offset, packet, parent, size_of_mpid_configuration_message)
+  local size_of_mpid_configuration_message = nyse_equities_binarygateway_pillar_v5_17.mpid_configuration_message.size(buffer, offset)
   local index = offset + size_of_mpid_configuration_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6878,6 +6895,7 @@ end
 
 -- Dissect: Minimum Price Variant Level Reference Data Message
 nyse_equities_binarygateway_pillar_v5_17.minimum_price_variant_level_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_minimum_price_variant_level_reference_data_message)
+  local size_of_minimum_price_variant_level_reference_data_message = nyse_equities_binarygateway_pillar_v5_17.minimum_price_variant_level_reference_data_message.size(buffer, offset)
   local index = offset + size_of_minimum_price_variant_level_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
@@ -7020,6 +7038,7 @@ end
 
 -- Dissect: Minimum Price Variant Class Reference Data Message
 nyse_equities_binarygateway_pillar_v5_17.minimum_price_variant_class_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_minimum_price_variant_class_reference_data_message)
+  local size_of_minimum_price_variant_class_reference_data_message = nyse_equities_binarygateway_pillar_v5_17.minimum_price_variant_class_reference_data_message.size(buffer, offset)
   local index = offset + size_of_minimum_price_variant_class_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
@@ -7443,6 +7462,7 @@ end
 
 -- Dissect: Dmm Symbol Reference Data Message
 nyse_equities_binarygateway_pillar_v5_17.dmm_symbol_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_dmm_symbol_reference_data_message)
+  local size_of_dmm_symbol_reference_data_message = nyse_equities_binarygateway_pillar_v5_17.dmm_symbol_reference_data_message.size(buffer, offset)
   local index = offset + size_of_dmm_symbol_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
@@ -7615,6 +7635,7 @@ end
 
 -- Dissect: Equities Symbol Reference Data Message
 nyse_equities_binarygateway_pillar_v5_17.equities_symbol_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_equities_symbol_reference_data_message)
+  local size_of_equities_symbol_reference_data_message = nyse_equities_binarygateway_pillar_v5_17.equities_symbol_reference_data_message.size(buffer, offset)
   local index = offset + size_of_equities_symbol_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
@@ -7723,6 +7744,7 @@ end
 
 -- Dissect: Risk Action Request Message
 nyse_equities_binarygateway_pillar_v5_17.risk_action_request_message.dissect = function(buffer, offset, packet, parent, size_of_risk_action_request_message)
+  local size_of_risk_action_request_message = nyse_equities_binarygateway_pillar_v5_17.risk_action_request_message.size(buffer, offset)
   local index = offset + size_of_risk_action_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -7868,6 +7890,7 @@ end
 
 -- Dissect: Risk Limit Update Request Message
 nyse_equities_binarygateway_pillar_v5_17.risk_limit_update_request_message.dissect = function(buffer, offset, packet, parent, size_of_risk_limit_update_request_message)
+  local size_of_risk_limit_update_request_message = nyse_equities_binarygateway_pillar_v5_17.risk_limit_update_request_message.size(buffer, offset)
   local index = offset + size_of_risk_limit_update_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8069,6 +8092,7 @@ end
 
 -- Dissect: Manual Action Response Message
 nyse_equities_binarygateway_pillar_v5_17.manual_action_response_message.dissect = function(buffer, offset, packet, parent, size_of_manual_action_response_message)
+  local size_of_manual_action_response_message = nyse_equities_binarygateway_pillar_v5_17.manual_action_response_message.size(buffer, offset)
   local index = offset + size_of_manual_action_response_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8121,6 +8145,7 @@ end
 
 -- Dissect: Symbol Subscription Request Message
 nyse_equities_binarygateway_pillar_v5_17.symbol_subscription_request_message.dissect = function(buffer, offset, packet, parent, size_of_symbol_subscription_request_message)
+  local size_of_symbol_subscription_request_message = nyse_equities_binarygateway_pillar_v5_17.symbol_subscription_request_message.size(buffer, offset)
   local index = offset + size_of_symbol_subscription_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8251,6 +8276,7 @@ end
 
 -- Dissect: Bulk Cancel Request Message
 nyse_equities_binarygateway_pillar_v5_17.bulk_cancel_request_message.dissect = function(buffer, offset, packet, parent, size_of_bulk_cancel_request_message)
+  local size_of_bulk_cancel_request_message = nyse_equities_binarygateway_pillar_v5_17.bulk_cancel_request_message.size(buffer, offset)
   local index = offset + size_of_bulk_cancel_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8318,6 +8344,7 @@ end
 
 -- Dissect: Order Modify Request Message
 nyse_equities_binarygateway_pillar_v5_17.order_modify_request_message.dissect = function(buffer, offset, packet, parent, size_of_order_modify_request_message)
+  local size_of_order_modify_request_message = nyse_equities_binarygateway_pillar_v5_17.order_modify_request_message.size(buffer, offset)
   local index = offset + size_of_order_modify_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8376,6 +8403,7 @@ end
 
 -- Dissect: Order Cancel Request Message
 nyse_equities_binarygateway_pillar_v5_17.order_cancel_request_message.dissect = function(buffer, offset, packet, parent, size_of_order_cancel_request_message)
+  local size_of_order_cancel_request_message = nyse_equities_binarygateway_pillar_v5_17.order_cancel_request_message.size(buffer, offset)
   local index = offset + size_of_order_cancel_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8467,6 +8495,7 @@ end
 
 -- Dissect: New Order Single And Cancel Replace Request Message
 nyse_equities_binarygateway_pillar_v5_17.new_order_single_and_cancel_replace_request_message.dissect = function(buffer, offset, packet, parent, size_of_new_order_single_and_cancel_replace_request_message)
+  local size_of_new_order_single_and_cancel_replace_request_message = nyse_equities_binarygateway_pillar_v5_17.new_order_single_and_cancel_replace_request_message.size(buffer, offset)
   local index = offset + size_of_new_order_single_and_cancel_replace_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8534,6 +8563,7 @@ end
 
 -- Dissect: Session Configuration Request Message
 nyse_equities_binarygateway_pillar_v5_17.session_configuration_request_message.dissect = function(buffer, offset, packet, parent, size_of_session_configuration_request_message)
+  local size_of_session_configuration_request_message = nyse_equities_binarygateway_pillar_v5_17.session_configuration_request_message.size(buffer, offset)
   local index = offset + size_of_session_configuration_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -9257,6 +9287,7 @@ end
 
 -- Dissect: Seq Msg
 nyse_equities_binarygateway_pillar_v5_17.seq_msg.dissect = function(buffer, offset, packet, parent, size_of_seq_msg)
+  local size_of_seq_msg = nyse_equities_binarygateway_pillar_v5_17.seq_msg.size(buffer, offset)
   local index = offset + size_of_seq_msg
 
   -- Optionally add group/struct element to protocol tree
@@ -9342,6 +9373,7 @@ end
 
 -- Dissect: Close Response
 nyse_equities_binarygateway_pillar_v5_17.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
+  local size_of_close_response = nyse_equities_binarygateway_pillar_v5_17.close_response.size(buffer, offset)
   local index = offset + size_of_close_response
 
   -- Optionally add group/struct element to protocol tree
@@ -9394,6 +9426,7 @@ end
 
 -- Dissect: Close
 nyse_equities_binarygateway_pillar_v5_17.close.dissect = function(buffer, offset, packet, parent, size_of_close)
+  local size_of_close = nyse_equities_binarygateway_pillar_v5_17.close.size(buffer, offset)
   local index = offset + size_of_close
 
   -- Optionally add group/struct element to protocol tree
@@ -9475,6 +9508,7 @@ end
 
 -- Dissect: Open Response
 nyse_equities_binarygateway_pillar_v5_17.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
+  local size_of_open_response = nyse_equities_binarygateway_pillar_v5_17.open_response.size(buffer, offset)
   local index = offset + size_of_open_response
 
   -- Optionally add group/struct element to protocol tree
@@ -9608,6 +9642,7 @@ end
 
 -- Dissect: Open
 nyse_equities_binarygateway_pillar_v5_17.open.dissect = function(buffer, offset, packet, parent, size_of_open)
+  local size_of_open = nyse_equities_binarygateway_pillar_v5_17.open.size(buffer, offset)
   local index = offset + size_of_open
 
   -- Optionally add group/struct element to protocol tree
@@ -9657,6 +9692,7 @@ end
 
 -- Dissect: Heartbeat
 nyse_equities_binarygateway_pillar_v5_17.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local size_of_heartbeat = nyse_equities_binarygateway_pillar_v5_17.heartbeat.size(buffer, offset)
   local index = offset + size_of_heartbeat
 
   -- Optionally add group/struct element to protocol tree
@@ -9738,6 +9774,7 @@ end
 
 -- Dissect: Stream Avail
 nyse_equities_binarygateway_pillar_v5_17.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local size_of_stream_avail = nyse_equities_binarygateway_pillar_v5_17.stream_avail.size(buffer, offset)
   local index = offset + size_of_stream_avail
 
   -- Optionally add group/struct element to protocol tree
@@ -9793,6 +9830,7 @@ end
 
 -- Dissect: Login Response
 nyse_equities_binarygateway_pillar_v5_17.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
+  local size_of_login_response = nyse_equities_binarygateway_pillar_v5_17.login_response.size(buffer, offset)
   local index = offset + size_of_login_response
 
   -- Optionally add group/struct element to protocol tree
@@ -9932,6 +9970,7 @@ end
 
 -- Dissect: Login Message
 nyse_equities_binarygateway_pillar_v5_17.login_message.dissect = function(buffer, offset, packet, parent, size_of_login_message)
+  local size_of_login_message = nyse_equities_binarygateway_pillar_v5_17.login_message.size(buffer, offset)
   local index = offset + size_of_login_message
 
   -- Optionally add group/struct element to protocol tree

@@ -1023,6 +1023,7 @@ end
 
 -- Dissect: Administrative Message
 siac_opra_recipient_obi_v6_2.administrative_message.dissect = function(buffer, offset, packet, parent, size_of_administrative_message)
+  local size_of_administrative_message = siac_opra_recipient_obi_v6_2.administrative_message.size(buffer, offset)
   local index = offset + size_of_administrative_message
 
   -- Optionally add group/struct element to protocol tree

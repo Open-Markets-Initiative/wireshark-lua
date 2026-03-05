@@ -2679,12 +2679,6 @@ end
 
 -- Dissect: Payload
 jpx_osederivatives_geniuminet_itch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = jpx_osederivatives_geniuminet_itch_v1_1.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return jpx_osederivatives_geniuminet_itch_v1_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
@@ -2862,20 +2856,72 @@ jpx_osederivatives_geniuminet_itch_v1_1.message.fields = function(buffer, offset
 end
 
 -- Dissect: Message
-jpx_osederivatives_geniuminet_itch_v1_1.message.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
+jpx_osederivatives_geniuminet_itch_v1_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local size_of_message = jpx_osederivatives_geniuminet_itch_v1_1.message.size(buffer, offset)
+  local index = offset + size_of_message
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message, buffer(offset, 0))
+    local current = jpx_osederivatives_geniuminet_itch_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
     local display = jpx_osederivatives_geniuminet_itch_v1_1.message.display(buffer, packet, parent)
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jpx_osederivatives_geniuminet_itch_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- Message Block
+jpx_osederivatives_geniuminet_itch_v1_1.message_block = {}
+
+-- Size: Message Block
+jpx_osederivatives_geniuminet_itch_v1_1.message_block.size = function(buffer, offset, message_count)
+  -- Size of Heartbeat
+  if message_count == 0 then
+    return 0
+  end
+  -- Size of End Of Session
+  if message_count == 65535 then
+    return 0
   end
 
-  jpx_osederivatives_geniuminet_itch_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+  return 1
+end
 
-  return offset + size_of_message
+-- Dissect Branches: Message Block
+jpx_osederivatives_geniuminet_itch_v1_1.message_block.branches = function(buffer, offset, packet, parent, message_count)
+  -- Dissect Heartbeat
+  if message_count == 0 then
+  end
+  -- Dissect End Of Session
+  if message_count == 65535 then
+  end
+
+  -- Repeating: Message Block
+  for message_index = 1, message_count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_length + 2
+
+    -- Message: Struct of 2 fields
+    offset = jpx_osederivatives_geniuminet_itch_v1_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
+end
+
+-- Dissect: Message Block
+jpx_osederivatives_geniuminet_itch_v1_1.message_block.dissect = function(buffer, offset, packet, parent, message_count)
+  return jpx_osederivatives_geniuminet_itch_v1_1.message_block.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count
@@ -3021,18 +3067,11 @@ jpx_osederivatives_geniuminet_itch_v1_1.packet.dissect = function(buffer, packet
   -- Packet Header: Struct of 3 fields
   index, packet_header = jpx_osederivatives_geniuminet_itch_v1_1.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Message
-  for message_index = 1, message_count do
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):uint()
 
-    -- Dependency element: Message Length
-    local message_length = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = message_length + 2
-
-    -- Message: Runtime Type with 3 branches
-    index, message = jpx_osederivatives_geniuminet_itch_v1_1.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
-  end
+  -- Message Block: Runtime Type with 3 branches
+  index = jpx_osederivatives_geniuminet_itch_v1_1.message_block.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

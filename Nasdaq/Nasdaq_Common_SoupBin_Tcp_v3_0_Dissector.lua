@@ -202,20 +202,25 @@ nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.fields = function(buffer,
 end
 
 -- Dissect: Unsequenced Data Packet
-nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
+nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local size_of_unsequenced_data_packet = nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.unsequenced_data_packet then
-    local range = buffer(offset, size_of_unsequenced_data_packet)
+    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
     local display = nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
   end
-
-  nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-  return offset + size_of_unsequenced_data_packet
 end
 
 -- Requested Sequence Number
@@ -442,20 +447,25 @@ nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.fields = function(buffer, o
 end
 
 -- Dissect: Sequenced Data Packet
-nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
+nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local size_of_sequenced_data_packet = nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_sequenced_data_packet
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.sequenced_data_packet then
-    local range = buffer(offset, size_of_sequenced_data_packet)
+    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet, buffer(offset, 0))
+    local current = nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+    parent:set_len(size_of_sequenced_data_packet)
     local display = nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+
+    return index
   end
-
-  nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
-
-  return offset + size_of_sequenced_data_packet
 end
 
 -- Reject Reason Code
@@ -739,12 +749,6 @@ end
 
 -- Dissect: Payload
 nasdaq_common_soupbin_tcp_v3_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_common_soupbin_tcp_v3_0.payload.size(buffer, offset, packet_type)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_common_soupbin_tcp_v3_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 

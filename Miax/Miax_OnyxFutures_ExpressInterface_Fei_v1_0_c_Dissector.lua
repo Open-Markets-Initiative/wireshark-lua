@@ -3257,6 +3257,7 @@ end
 
 -- Dissect: Unsequenced Data Packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.size(buffer, offset)
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
@@ -4505,6 +4506,7 @@ end
 
 -- Dissect: Sequenced Data Packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+  local size_of_sequenced_data_packet = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.size(buffer, offset)
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree

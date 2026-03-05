@@ -950,6 +950,7 @@ end
 
 -- Dissect: Mass Cancel Result Message
 txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_result_message)
+  local size_of_mass_cancel_result_message = txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.size(buffer, offset)
   local index = offset + size_of_mass_cancel_result_message
 
   -- Optionally add group/struct element to protocol tree
@@ -1225,6 +1226,7 @@ end
 
 -- Dissect: Mass Cancel Rejected Message
 txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_rejected_message)
+  local size_of_mass_cancel_rejected_message = txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.size(buffer, offset)
   local index = offset + size_of_mass_cancel_rejected_message
 
   -- Optionally add group/struct element to protocol tree
@@ -1386,6 +1388,7 @@ end
 
 -- Dissect: Mass Cancel Accepted Message
 txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_accepted_message)
+  local size_of_mass_cancel_accepted_message = txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.size(buffer, offset)
   local index = offset + size_of_mass_cancel_accepted_message
 
   -- Optionally add group/struct element to protocol tree
@@ -1653,6 +1656,7 @@ end
 
 -- Dissect: Order Restated Message
 txse_equities_orderentry_seed_v0_1.order_restated_message.dissect = function(buffer, offset, packet, parent, size_of_order_restated_message)
+  local size_of_order_restated_message = txse_equities_orderentry_seed_v0_1.order_restated_message.size(buffer, offset)
   local index = offset + size_of_order_restated_message
 
   -- Optionally add group/struct element to protocol tree
@@ -1812,6 +1816,7 @@ end
 
 -- Dissect: Order Executed Message
 txse_equities_orderentry_seed_v0_1.order_executed_message.dissect = function(buffer, offset, packet, parent, size_of_order_executed_message)
+  local size_of_order_executed_message = txse_equities_orderentry_seed_v0_1.order_executed_message.size(buffer, offset)
   local index = offset + size_of_order_executed_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2105,6 +2110,7 @@ end
 
 -- Dissect: Replace Rejected Message
 txse_equities_orderentry_seed_v0_1.replace_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_replace_rejected_message)
+  local size_of_replace_rejected_message = txse_equities_orderentry_seed_v0_1.replace_rejected_message.size(buffer, offset)
   local index = offset + size_of_replace_rejected_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2304,6 +2310,7 @@ end
 
 -- Dissect: Order Replaced Message
 txse_equities_orderentry_seed_v0_1.order_replaced_message.dissect = function(buffer, offset, packet, parent, size_of_order_replaced_message)
+  local size_of_order_replaced_message = txse_equities_orderentry_seed_v0_1.order_replaced_message.size(buffer, offset)
   local index = offset + size_of_order_replaced_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2497,6 +2504,7 @@ end
 
 -- Dissect: Modify Rejected Message
 txse_equities_orderentry_seed_v0_1.modify_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_modify_rejected_message)
+  local size_of_modify_rejected_message = txse_equities_orderentry_seed_v0_1.modify_rejected_message.size(buffer, offset)
   local index = offset + size_of_modify_rejected_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2647,6 +2655,7 @@ end
 
 -- Dissect: Order Modified Message
 txse_equities_orderentry_seed_v0_1.order_modified_message.dissect = function(buffer, offset, packet, parent, size_of_order_modified_message)
+  local size_of_order_modified_message = txse_equities_orderentry_seed_v0_1.order_modified_message.size(buffer, offset)
   local index = offset + size_of_order_modified_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2702,6 +2711,7 @@ end
 
 -- Dissect: Cancel Rejected Message
 txse_equities_orderentry_seed_v0_1.cancel_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_cancel_rejected_message)
+  local size_of_cancel_rejected_message = txse_equities_orderentry_seed_v0_1.cancel_rejected_message.size(buffer, offset)
   local index = offset + size_of_cancel_rejected_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2814,6 +2824,7 @@ end
 
 -- Dissect: Order Canceled Message
 txse_equities_orderentry_seed_v0_1.order_canceled_message.dissect = function(buffer, offset, packet, parent, size_of_order_canceled_message)
+  local size_of_order_canceled_message = txse_equities_orderentry_seed_v0_1.order_canceled_message.size(buffer, offset)
   local index = offset + size_of_order_canceled_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3189,6 +3200,7 @@ end
 
 -- Dissect: Market Order Rejected Message
 txse_equities_orderentry_seed_v0_1.market_order_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_market_order_rejected_message)
+  local size_of_market_order_rejected_message = txse_equities_orderentry_seed_v0_1.market_order_rejected_message.size(buffer, offset)
   local index = offset + size_of_market_order_rejected_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3388,6 +3400,7 @@ end
 
 -- Dissect: Market Order Accepted Message
 txse_equities_orderentry_seed_v0_1.market_order_accepted_message.dissect = function(buffer, offset, packet, parent, size_of_market_order_accepted_message)
+  local size_of_market_order_accepted_message = txse_equities_orderentry_seed_v0_1.market_order_accepted_message.size(buffer, offset)
   local index = offset + size_of_market_order_accepted_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3969,6 +3982,7 @@ end
 
 -- Dissect: Limit Order Rejected Message
 txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.dissect = function(buffer, offset, packet, parent, size_of_limit_order_rejected_message)
+  local size_of_limit_order_rejected_message = txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.size(buffer, offset)
   local index = offset + size_of_limit_order_rejected_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4315,6 +4329,7 @@ end
 
 -- Dissect: Limit Order Accepted Message
 txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.dissect = function(buffer, offset, packet, parent, size_of_limit_order_accepted_message)
+  local size_of_limit_order_accepted_message = txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.size(buffer, offset)
   local index = offset + size_of_limit_order_accepted_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4605,6 +4620,7 @@ end
 
 -- Dissect: Symbol Status Message
 txse_equities_orderentry_seed_v0_1.symbol_status_message.dissect = function(buffer, offset, packet, parent, size_of_symbol_status_message)
+  local size_of_symbol_status_message = txse_equities_orderentry_seed_v0_1.symbol_status_message.size(buffer, offset)
   local index = offset + size_of_symbol_status_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4807,6 +4823,7 @@ end
 
 -- Dissect: Define Symbol Message
 txse_equities_orderentry_seed_v0_1.define_symbol_message.dissect = function(buffer, offset, packet, parent, size_of_define_symbol_message)
+  local size_of_define_symbol_message = txse_equities_orderentry_seed_v0_1.define_symbol_message.size(buffer, offset)
   local index = offset + size_of_define_symbol_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4972,6 +4989,7 @@ end
 
 -- Dissect: Trading Session Status Message
 txse_equities_orderentry_seed_v0_1.trading_session_status_message.dissect = function(buffer, offset, packet, parent, size_of_trading_session_status_message)
+  local size_of_trading_session_status_message = txse_equities_orderentry_seed_v0_1.trading_session_status_message.size(buffer, offset)
   local index = offset + size_of_trading_session_status_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5292,6 +5310,7 @@ end
 
 -- Dissect: Tcp Sequenced Message
 txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
+  local size_of_tcp_sequenced_message = txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.size(buffer, offset)
   local index = offset + size_of_tcp_sequenced_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5735,6 +5754,7 @@ end
 
 -- Dissect: Mass Cancel Message
 txse_equities_orderentry_seed_v0_1.mass_cancel_message.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_message)
+  local size_of_mass_cancel_message = txse_equities_orderentry_seed_v0_1.mass_cancel_message.size(buffer, offset)
   local index = offset + size_of_mass_cancel_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5893,6 +5913,7 @@ end
 
 -- Dissect: Replace Order Message
 txse_equities_orderentry_seed_v0_1.replace_order_message.dissect = function(buffer, offset, packet, parent, size_of_replace_order_message)
+  local size_of_replace_order_message = txse_equities_orderentry_seed_v0_1.replace_order_message.size(buffer, offset)
   local index = offset + size_of_replace_order_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5942,6 +5963,7 @@ end
 
 -- Dissect: Cancel Order Message
 txse_equities_orderentry_seed_v0_1.cancel_order_message.dissect = function(buffer, offset, packet, parent, size_of_cancel_order_message)
+  local size_of_cancel_order_message = txse_equities_orderentry_seed_v0_1.cancel_order_message.size(buffer, offset)
   local index = offset + size_of_cancel_order_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6135,6 +6157,7 @@ end
 
 -- Dissect: Market Order Message
 txse_equities_orderentry_seed_v0_1.market_order_message.dissect = function(buffer, offset, packet, parent, size_of_market_order_message)
+  local size_of_market_order_message = txse_equities_orderentry_seed_v0_1.market_order_message.size(buffer, offset)
   local index = offset + size_of_market_order_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6443,6 +6466,7 @@ end
 
 -- Dissect: Limit Order Message
 txse_equities_orderentry_seed_v0_1.limit_order_message.dissect = function(buffer, offset, packet, parent, size_of_limit_order_message)
+  local size_of_limit_order_message = txse_equities_orderentry_seed_v0_1.limit_order_message.size(buffer, offset)
   local index = offset + size_of_limit_order_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6597,6 +6621,7 @@ end
 
 -- Dissect: Tcp Unsequenced Message
 txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
+  local size_of_tcp_unsequenced_message = txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.size(buffer, offset)
   local index = offset + size_of_tcp_unsequenced_message
 
   -- Optionally add group/struct element to protocol tree

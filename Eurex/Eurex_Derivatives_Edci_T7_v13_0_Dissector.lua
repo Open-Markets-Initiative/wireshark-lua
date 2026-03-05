@@ -717,6 +717,7 @@ end
 
 -- Dissect: Session Status Broadcast
 eurex_derivatives_edci_t7_v13_0.session_status_broadcast.dissect = function(buffer, offset, packet, parent, size_of_session_status_broadcast)
+  local size_of_session_status_broadcast = eurex_derivatives_edci_t7_v13_0.session_status_broadcast.size(buffer, offset)
   local index = offset + size_of_session_status_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -1024,6 +1025,7 @@ end
 
 -- Dissect: Session List Notification
 eurex_derivatives_edci_t7_v13_0.session_list_notification.dissect = function(buffer, offset, packet, parent, size_of_session_list_notification)
+  local size_of_session_list_notification = eurex_derivatives_edci_t7_v13_0.session_list_notification.size(buffer, offset)
   local index = offset + size_of_session_list_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -1416,6 +1418,7 @@ end
 
 -- Dissect: Reject
 eurex_derivatives_edci_t7_v13_0.reject.dissect = function(buffer, offset, packet, parent, size_of_reject)
+  local size_of_reject = eurex_derivatives_edci_t7_v13_0.reject.size(buffer, offset)
   local index = offset + size_of_reject
 
   -- Optionally add group/struct element to protocol tree
@@ -1557,6 +1560,7 @@ end
 
 -- Dissect: Partition List Notification
 eurex_derivatives_edci_t7_v13_0.partition_list_notification.dissect = function(buffer, offset, packet, parent, size_of_partition_list_notification)
+  local size_of_partition_list_notification = eurex_derivatives_edci_t7_v13_0.partition_list_notification.size(buffer, offset)
   local index = offset + size_of_partition_list_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -3313,6 +3317,7 @@ end
 
 -- Dissect: Order Exec Report Broadcast
 eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.dissect = function(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
+  local size_of_order_exec_report_broadcast = eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.size(buffer, offset)
   local index = offset + size_of_order_exec_report_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -3365,6 +3370,7 @@ end
 
 -- Dissect: Logout Response
 eurex_derivatives_edci_t7_v13_0.logout_response.dissect = function(buffer, offset, packet, parent, size_of_logout_response)
+  local size_of_logout_response = eurex_derivatives_edci_t7_v13_0.logout_response.size(buffer, offset)
   local index = offset + size_of_logout_response
 
   -- Optionally add group/struct element to protocol tree
@@ -3484,6 +3490,7 @@ end
 
 -- Dissect: Logout Request
 eurex_derivatives_edci_t7_v13_0.logout_request.dissect = function(buffer, offset, packet, parent, size_of_logout_request)
+  local size_of_logout_request = eurex_derivatives_edci_t7_v13_0.logout_request.size(buffer, offset)
   local index = offset + size_of_logout_request
 
   -- Optionally add group/struct element to protocol tree
@@ -3754,6 +3761,7 @@ end
 
 -- Dissect: Logon Response
 eurex_derivatives_edci_t7_v13_0.logon_response.dissect = function(buffer, offset, packet, parent, size_of_logon_response)
+  local size_of_logon_response = eurex_derivatives_edci_t7_v13_0.logon_response.size(buffer, offset)
   local index = offset + size_of_logon_response
 
   -- Optionally add group/struct element to protocol tree
@@ -3860,6 +3868,7 @@ end
 
 -- Dissect: Logon Request
 eurex_derivatives_edci_t7_v13_0.logon_request.dissect = function(buffer, offset, packet, parent, size_of_logon_request)
+  local size_of_logon_request = eurex_derivatives_edci_t7_v13_0.logon_request.size(buffer, offset)
   local index = offset + size_of_logon_request
 
   -- Optionally add group/struct element to protocol tree
@@ -3912,6 +3921,7 @@ end
 
 -- Dissect: Heartbeat Notification
 eurex_derivatives_edci_t7_v13_0.heartbeat_notification.dissect = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
+  local size_of_heartbeat_notification = eurex_derivatives_edci_t7_v13_0.heartbeat_notification.size(buffer, offset)
   local index = offset + size_of_heartbeat_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -3961,6 +3971,7 @@ end
 
 -- Dissect: Heartbeat
 eurex_derivatives_edci_t7_v13_0.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local size_of_heartbeat = eurex_derivatives_edci_t7_v13_0.heartbeat.size(buffer, offset)
   local index = offset + size_of_heartbeat
 
   -- Optionally add group/struct element to protocol tree
@@ -4036,6 +4047,7 @@ end
 
 -- Dissect: Forced Logout Notification
 eurex_derivatives_edci_t7_v13_0.forced_logout_notification.dissect = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
+  local size_of_forced_logout_notification = eurex_derivatives_edci_t7_v13_0.forced_logout_notification.size(buffer, offset)
   local index = offset + size_of_forced_logout_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -4359,6 +4371,7 @@ end
 
 -- Dissect: Delete Order Broadcast
 eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+  local size_of_delete_order_broadcast = eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.size(buffer, offset)
   local index = offset + size_of_delete_order_broadcast
 
   -- Optionally add group/struct element to protocol tree

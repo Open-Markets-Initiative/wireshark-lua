@@ -2954,12 +2954,6 @@ end
 
 -- Dissect: Payload
 nasdaq_psxequities_lastsale_itch_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Calculate size and check that branch is not empty
-  local size = nasdaq_psxequities_lastsale_itch_v2_1.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
   return nasdaq_psxequities_lastsale_itch_v2_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
 

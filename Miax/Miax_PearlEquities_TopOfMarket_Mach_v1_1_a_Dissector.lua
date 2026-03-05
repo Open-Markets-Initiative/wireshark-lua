@@ -1483,6 +1483,7 @@ end
 
 -- Dissect: Application Message
 miax_pearlequities_topofmarket_mach_v1_1_a.application_message.dissect = function(buffer, offset, packet, parent, size_of_application_message)
+  local size_of_application_message = miax_pearlequities_topofmarket_mach_v1_1_a.application_message.size(buffer, offset)
   local index = offset + size_of_application_message
 
   -- Optionally add group/struct element to protocol tree

@@ -1051,12 +1051,6 @@ end
 
 -- Dissect: Unsequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.size(buffer, offset, unsequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
@@ -1134,20 +1128,25 @@ jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields = functio
 end
 
 -- Dissect: Unsequenced Data Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local size_of_unsequenced_data_packet = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.unsequenced_data_packet then
-    local range = buffer(offset, size_of_unsequenced_data_packet)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
     local display = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
   end
-
-  jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-  return offset + size_of_unsequenced_data_packet
 end
 
 -- Requested Sequence Number
@@ -2600,12 +2599,6 @@ end
 
 -- Dissect: Sequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.size(buffer, offset, sequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
@@ -2683,20 +2676,25 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.fields = function(
 end
 
 -- Dissect: Sequenced Data Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
+jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local size_of_sequenced_data_packet = jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_sequenced_data_packet
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.sequenced_data_packet then
-    local range = buffer(offset, size_of_sequenced_data_packet)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_data_packet, buffer(offset, 0))
+    local current = jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+    parent:set_len(size_of_sequenced_data_packet)
     local display = jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_data_packet, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+
+    return index
   end
-
-  jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
-
-  return offset + size_of_sequenced_data_packet
 end
 
 -- Reject Reason Code
@@ -2980,12 +2978,6 @@ end
 
 -- Dissect: Payload
 jpx_osederivatives_geniuminet_ouch_v5_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Calculate size and check that branch is not empty
-  local size = jpx_osederivatives_geniuminet_ouch_v5_0.payload.size(buffer, offset, packet_type)
-  if size == 0 then
-    return offset
-  end
-
   return jpx_osederivatives_geniuminet_ouch_v5_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 

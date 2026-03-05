@@ -223,6 +223,7 @@ end
 
 -- Dissect: Tcp Sequenced Message
 txse_headers_rake_tcp_v1_0.tcp_sequenced_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
+  local size_of_tcp_sequenced_message = txse_headers_rake_tcp_v1_0.tcp_sequenced_message.size(buffer, offset)
   local index = offset + size_of_tcp_sequenced_message
 
   -- Optionally add group/struct element to protocol tree
@@ -611,6 +612,7 @@ end
 
 -- Dissect: Tcp Unsequenced Message
 txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
+  local size_of_tcp_unsequenced_message = txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.size(buffer, offset)
   local index = offset + size_of_tcp_unsequenced_message
 
   -- Optionally add group/struct element to protocol tree

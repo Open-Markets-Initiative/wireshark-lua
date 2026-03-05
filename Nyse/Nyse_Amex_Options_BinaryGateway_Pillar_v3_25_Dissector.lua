@@ -1888,6 +1888,7 @@ end
 
 -- Dissect: Complex Series Request Acknowledgement Message
 nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
+  local size_of_complex_series_request_acknowledgement_message = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.size(buffer, offset)
   local index = offset + size_of_complex_series_request_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2811,6 +2812,7 @@ end
 
 -- Dissect: Risk Control Alert Message
 nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.dissect = function(buffer, offset, packet, parent, size_of_risk_control_alert_message)
+  local size_of_risk_control_alert_message = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.size(buffer, offset)
   local index = offset + size_of_risk_control_alert_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3128,6 +3130,7 @@ end
 
 -- Dissect: Risk Control Acknowledgement Message
 nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_risk_control_acknowledgement_message)
+  local size_of_risk_control_acknowledgement_message = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.size(buffer, offset)
   local index = offset + size_of_risk_control_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3288,6 +3291,7 @@ end
 
 -- Dissect: Application Layer Reject Message
 nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.dissect = function(buffer, offset, packet, parent, size_of_application_layer_reject_message)
+  local size_of_application_layer_reject_message = nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.size(buffer, offset)
   local index = offset + size_of_application_layer_reject_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3655,6 +3659,7 @@ end
 
 -- Dissect: Trade Bust Correct Message
 nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.dissect = function(buffer, offset, packet, parent, size_of_trade_bust_correct_message)
+  local size_of_trade_bust_correct_message = nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.size(buffer, offset)
   local index = offset + size_of_trade_bust_correct_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4790,6 +4795,7 @@ end
 
 -- Dissect: Execution Report Message
 nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.dissect = function(buffer, offset, packet, parent, size_of_execution_report_message)
+  local size_of_execution_report_message = nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.size(buffer, offset)
   local index = offset + size_of_execution_report_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5061,6 +5067,7 @@ end
 
 -- Dissect: Order Priority Update Acknowledgment Message
 nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message.dissect = function(buffer, offset, packet, parent, size_of_order_priority_update_acknowledgment_message)
+  local size_of_order_priority_update_acknowledgment_message = nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message.size(buffer, offset)
   local index = offset + size_of_order_priority_update_acknowledgment_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5448,6 +5455,7 @@ end
 
 -- Dissect: Order Single Complex Modify Cancel Request Acknowledgment And Urout Message
 nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.dissect = function(buffer, offset, packet, parent, size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message)
+  local size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.size(buffer, offset)
   local index = offset + size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5586,6 +5594,7 @@ end
 
 -- Dissect: Bulk Quote Acknowledgment Message
 nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.dissect = function(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_message)
+  local size_of_bulk_quote_acknowledgment_message = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.size(buffer, offset)
   local index = offset + size_of_bulk_quote_acknowledgment_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5662,6 +5671,7 @@ end
 
 -- Dissect: Bulk Quote Acknowledgment Type 294 Message
 nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_message.dissect = function(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_type_294_message)
+  local size_of_bulk_quote_acknowledgment_type_294_message = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_message.size(buffer, offset)
   local index = offset + size_of_bulk_quote_acknowledgment_type_294_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5885,6 +5895,7 @@ end
 
 -- Dissect: Order And Cancel Replace Acknowledgement Message
 nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_order_and_cancel_replace_acknowledgement_message)
+  local size_of_order_and_cancel_replace_acknowledgement_message = nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message.size(buffer, offset)
   local index = offset + size_of_order_and_cancel_replace_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6424,6 +6435,7 @@ end
 
 -- Dissect: Session Configuration Acknowledgement Message
 nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_session_configuration_acknowledgement_message)
+  local size_of_session_configuration_acknowledgement_message = nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message.size(buffer, offset)
   local index = offset + size_of_session_configuration_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6618,6 +6630,7 @@ end
 
 -- Dissect: Options Market Maker Symbol Appointment Reference Data Message
 nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_options_market_maker_symbol_appointment_reference_data_message)
+  local size_of_options_market_maker_symbol_appointment_reference_data_message = nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message.size(buffer, offset)
   local index = offset + size_of_options_market_maker_symbol_appointment_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6712,6 +6725,7 @@ end
 
 -- Dissect: Mpid Configuration Message
 nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.dissect = function(buffer, offset, packet, parent, size_of_mpid_configuration_message)
+  local size_of_mpid_configuration_message = nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.size(buffer, offset)
   local index = offset + size_of_mpid_configuration_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6958,6 +6972,7 @@ end
 
 -- Dissect: Minimum Price Variant Level Reference Data Message
 nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_minimum_price_variant_level_reference_data_message)
+  local size_of_minimum_price_variant_level_reference_data_message = nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_reference_data_message.size(buffer, offset)
   local index = offset + size_of_minimum_price_variant_level_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
@@ -7052,6 +7067,7 @@ end
 
 -- Dissect: Minimum Price Variant Class Reference Data Message
 nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_minimum_price_variant_class_reference_data_message)
+  local size_of_minimum_price_variant_class_reference_data_message = nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message.size(buffer, offset)
   local index = offset + size_of_minimum_price_variant_class_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
@@ -7352,6 +7368,7 @@ end
 
 -- Dissect: Series Reference Data Message
 nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_series_reference_data_message)
+  local size_of_series_reference_data_message = nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.size(buffer, offset)
   local index = offset + size_of_series_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
@@ -7653,6 +7670,7 @@ end
 
 -- Dissect: Underlying Symbol Reference Data Message
 nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_message.dissect = function(buffer, offset, packet, parent, size_of_underlying_symbol_reference_data_message)
+  local size_of_underlying_symbol_reference_data_message = nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_message.size(buffer, offset)
   local index = offset + size_of_underlying_symbol_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
@@ -7761,6 +7779,7 @@ end
 
 -- Dissect: New Complex Series Request Message
 nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.dissect = function(buffer, offset, packet, parent, size_of_new_complex_series_request_message)
+  local size_of_new_complex_series_request_message = nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.size(buffer, offset)
   local index = offset + size_of_new_complex_series_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -7869,6 +7888,7 @@ end
 
 -- Dissect: Risk Action Request Message
 nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.dissect = function(buffer, offset, packet, parent, size_of_risk_action_request_message)
+  local size_of_risk_action_request_message = nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.size(buffer, offset)
   local index = offset + size_of_risk_action_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8014,6 +8034,7 @@ end
 
 -- Dissect: Risk Limit Update Request Message
 nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.dissect = function(buffer, offset, packet, parent, size_of_risk_limit_update_request_message)
+  local size_of_risk_limit_update_request_message = nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.size(buffer, offset)
   local index = offset + size_of_risk_limit_update_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8110,6 +8131,7 @@ end
 
 -- Dissect: Bulk Cancel Request Type 224 Message
 nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message.dissect = function(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_224_message)
+  local size_of_bulk_cancel_request_type_224_message = nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message.size(buffer, offset)
   local index = offset + size_of_bulk_cancel_request_type_224_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8216,6 +8238,7 @@ end
 
 -- Dissect: Bulk Cancel Request Type 223 Message
 nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_message.dissect = function(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_223_message)
+  local size_of_bulk_cancel_request_type_223_message = nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_message.size(buffer, offset)
   local index = offset + size_of_bulk_cancel_request_type_223_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8833,6 +8856,7 @@ end
 
 -- Dissect: New Order Cross Message
 nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.dissect = function(buffer, offset, packet, parent, size_of_new_order_cross_message)
+  local size_of_new_order_cross_message = nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.size(buffer, offset)
   local index = offset + size_of_new_order_cross_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8903,6 +8927,7 @@ end
 
 -- Dissect: New Bulk Quote Type 259 Message
 nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.dissect = function(buffer, offset, packet, parent, size_of_new_bulk_quote_type_259_message)
+  local size_of_new_bulk_quote_type_259_message = nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.size(buffer, offset)
   local index = offset + size_of_new_bulk_quote_type_259_message
 
   -- Optionally add group/struct element to protocol tree
@@ -8973,6 +8998,7 @@ end
 
 -- Dissect: New Bulk Quote Type 243 Message
 nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.dissect = function(buffer, offset, packet, parent, size_of_new_bulk_quote_type_243_message)
+  local size_of_new_bulk_quote_type_243_message = nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.size(buffer, offset)
   local index = offset + size_of_new_bulk_quote_type_243_message
 
   -- Optionally add group/struct element to protocol tree
@@ -9040,6 +9066,7 @@ end
 
 -- Dissect: Order Modify Request Message
 nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.dissect = function(buffer, offset, packet, parent, size_of_order_modify_request_message)
+  local size_of_order_modify_request_message = nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.size(buffer, offset)
   local index = offset + size_of_order_modify_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -9098,6 +9125,7 @@ end
 
 -- Dissect: Order Cancel Request Message
 nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.dissect = function(buffer, offset, packet, parent, size_of_order_cancel_request_message)
+  local size_of_order_cancel_request_message = nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.size(buffer, offset)
   local index = offset + size_of_order_cancel_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -9195,6 +9223,7 @@ end
 
 -- Dissect: New Order Message
 nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.dissect = function(buffer, offset, packet, parent, size_of_new_order_message)
+  local size_of_new_order_message = nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.size(buffer, offset)
   local index = offset + size_of_new_order_message
 
   -- Optionally add group/struct element to protocol tree
@@ -9262,6 +9291,7 @@ end
 
 -- Dissect: Session Configuration Request Message
 nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_message.dissect = function(buffer, offset, packet, parent, size_of_session_configuration_request_message)
+  local size_of_session_configuration_request_message = nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_message.size(buffer, offset)
   local index = offset + size_of_session_configuration_request_message
 
   -- Optionally add group/struct element to protocol tree
@@ -9965,6 +9995,7 @@ end
 
 -- Dissect: Seq Msg
 nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.dissect = function(buffer, offset, packet, parent, size_of_seq_msg)
+  local size_of_seq_msg = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.size(buffer, offset)
   local index = offset + size_of_seq_msg
 
   -- Optionally add group/struct element to protocol tree
@@ -10050,6 +10081,7 @@ end
 
 -- Dissect: Close Response
 nyse_amex_options_binarygateway_pillar_v3_25.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
+  local size_of_close_response = nyse_amex_options_binarygateway_pillar_v3_25.close_response.size(buffer, offset)
   local index = offset + size_of_close_response
 
   -- Optionally add group/struct element to protocol tree
@@ -10102,6 +10134,7 @@ end
 
 -- Dissect: Close
 nyse_amex_options_binarygateway_pillar_v3_25.close.dissect = function(buffer, offset, packet, parent, size_of_close)
+  local size_of_close = nyse_amex_options_binarygateway_pillar_v3_25.close.size(buffer, offset)
   local index = offset + size_of_close
 
   -- Optionally add group/struct element to protocol tree
@@ -10183,6 +10216,7 @@ end
 
 -- Dissect: Open Response
 nyse_amex_options_binarygateway_pillar_v3_25.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
+  local size_of_open_response = nyse_amex_options_binarygateway_pillar_v3_25.open_response.size(buffer, offset)
   local index = offset + size_of_open_response
 
   -- Optionally add group/struct element to protocol tree
@@ -10316,6 +10350,7 @@ end
 
 -- Dissect: Open
 nyse_amex_options_binarygateway_pillar_v3_25.open.dissect = function(buffer, offset, packet, parent, size_of_open)
+  local size_of_open = nyse_amex_options_binarygateway_pillar_v3_25.open.size(buffer, offset)
   local index = offset + size_of_open
 
   -- Optionally add group/struct element to protocol tree
@@ -10365,6 +10400,7 @@ end
 
 -- Dissect: Heartbeat
 nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local size_of_heartbeat = nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.size(buffer, offset)
   local index = offset + size_of_heartbeat
 
   -- Optionally add group/struct element to protocol tree
@@ -10446,6 +10482,7 @@ end
 
 -- Dissect: Stream Avail
 nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local size_of_stream_avail = nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.size(buffer, offset)
   local index = offset + size_of_stream_avail
 
   -- Optionally add group/struct element to protocol tree
@@ -10501,6 +10538,7 @@ end
 
 -- Dissect: Login Response
 nyse_amex_options_binarygateway_pillar_v3_25.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
+  local size_of_login_response = nyse_amex_options_binarygateway_pillar_v3_25.login_response.size(buffer, offset)
   local index = offset + size_of_login_response
 
   -- Optionally add group/struct element to protocol tree
@@ -10640,6 +10678,7 @@ end
 
 -- Dissect: Login Message
 nyse_amex_options_binarygateway_pillar_v3_25.login_message.dissect = function(buffer, offset, packet, parent, size_of_login_message)
+  local size_of_login_message = nyse_amex_options_binarygateway_pillar_v3_25.login_message.size(buffer, offset)
   local index = offset + size_of_login_message
 
   -- Optionally add group/struct element to protocol tree

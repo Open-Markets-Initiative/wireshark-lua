@@ -2013,6 +2013,7 @@ end
 
 -- Dissect: User Logout Response
 eurex_derivatives_eti_t7_v8_0.user_logout_response.dissect = function(buffer, offset, packet, parent, size_of_user_logout_response)
+  local size_of_user_logout_response = eurex_derivatives_eti_t7_v8_0.user_logout_response.size(buffer, offset)
   local index = offset + size_of_user_logout_response
 
   -- Optionally add group/struct element to protocol tree
@@ -2202,6 +2203,7 @@ end
 
 -- Dissect: User Logout Request
 eurex_derivatives_eti_t7_v8_0.user_logout_request.dissect = function(buffer, offset, packet, parent, size_of_user_logout_request)
+  local size_of_user_logout_request = eurex_derivatives_eti_t7_v8_0.user_logout_request.size(buffer, offset)
   local index = offset + size_of_user_logout_request
 
   -- Optionally add group/struct element to protocol tree
@@ -2254,6 +2256,7 @@ end
 
 -- Dissect: User Login Response
 eurex_derivatives_eti_t7_v8_0.user_login_response.dissect = function(buffer, offset, packet, parent, size_of_user_login_response)
+  local size_of_user_login_response = eurex_derivatives_eti_t7_v8_0.user_login_response.size(buffer, offset)
   local index = offset + size_of_user_login_response
 
   -- Optionally add group/struct element to protocol tree
@@ -2357,6 +2360,7 @@ end
 
 -- Dissect: User Login Request
 eurex_derivatives_eti_t7_v8_0.user_login_request.dissect = function(buffer, offset, packet, parent, size_of_user_login_request)
+  local size_of_user_login_request = eurex_derivatives_eti_t7_v8_0.user_login_request.size(buffer, offset)
   local index = offset + size_of_user_login_request
 
   -- Optionally add group/struct element to protocol tree
@@ -5350,6 +5354,7 @@ end
 
 -- Dissect: Upload Tes Trade Request
 eurex_derivatives_eti_t7_v8_0.upload_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
+  local size_of_upload_tes_trade_request = eurex_derivatives_eti_t7_v8_0.upload_tes_trade_request.size(buffer, offset)
   local index = offset + size_of_upload_tes_trade_request
 
   -- Optionally add group/struct element to protocol tree
@@ -5402,6 +5407,7 @@ end
 
 -- Dissect: Unsubscribe Response
 eurex_derivatives_eti_t7_v8_0.unsubscribe_response.dissect = function(buffer, offset, packet, parent, size_of_unsubscribe_response)
+  local size_of_unsubscribe_response = eurex_derivatives_eti_t7_v8_0.unsubscribe_response.size(buffer, offset)
   local index = offset + size_of_unsubscribe_response
 
   -- Optionally add group/struct element to protocol tree
@@ -5491,6 +5497,7 @@ end
 
 -- Dissect: Unsubscribe Request
 eurex_derivatives_eti_t7_v8_0.unsubscribe_request.dissect = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
+  local size_of_unsubscribe_request = eurex_derivatives_eti_t7_v8_0.unsubscribe_request.size(buffer, offset)
   local index = offset + size_of_unsubscribe_request
 
   -- Optionally add group/struct element to protocol tree
@@ -5995,6 +6002,7 @@ end
 
 -- Dissect: Trading Session Status Broadcast
 eurex_derivatives_eti_t7_v8_0.trading_session_status_broadcast.dissect = function(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
+  local size_of_trading_session_status_broadcast = eurex_derivatives_eti_t7_v8_0.trading_session_status_broadcast.size(buffer, offset)
   local index = offset + size_of_trading_session_status_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -7854,6 +7862,7 @@ end
 
 -- Dissect: Trade Broadcast
 eurex_derivatives_eti_t7_v8_0.trade_broadcast.dissect = function(buffer, offset, packet, parent, size_of_trade_broadcast)
+  local size_of_trade_broadcast = eurex_derivatives_eti_t7_v8_0.trade_broadcast.size(buffer, offset)
   local index = offset + size_of_trade_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -8039,6 +8048,7 @@ end
 
 -- Dissect: Throttle Update Notification
 eurex_derivatives_eti_t7_v8_0.throttle_update_notification.dissect = function(buffer, offset, packet, parent, size_of_throttle_update_notification)
+  local size_of_throttle_update_notification = eurex_derivatives_eti_t7_v8_0.throttle_update_notification.size(buffer, offset)
   local index = offset + size_of_throttle_update_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -8097,6 +8107,7 @@ end
 
 -- Dissect: Tm Trading Session Status Broadcast
 eurex_derivatives_eti_t7_v8_0.tm_trading_session_status_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
+  local size_of_tm_trading_session_status_broadcast = eurex_derivatives_eti_t7_v8_0.tm_trading_session_status_broadcast.size(buffer, offset)
   local index = offset + size_of_tm_trading_session_status_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -8424,6 +8435,7 @@ end
 
 -- Dissect: Tes Upload Broadcast
 eurex_derivatives_eti_t7_v8_0.tes_upload_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_upload_broadcast)
+  local size_of_tes_upload_broadcast = eurex_derivatives_eti_t7_v8_0.tes_upload_broadcast.size(buffer, offset)
   local index = offset + size_of_tes_upload_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -8485,6 +8497,7 @@ end
 
 -- Dissect: Tes Trading Session Status Broadcast
 eurex_derivatives_eti_t7_v8_0.tes_trading_session_status_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_trading_session_status_broadcast)
+  local size_of_tes_trading_session_status_broadcast = eurex_derivatives_eti_t7_v8_0.tes_trading_session_status_broadcast.size(buffer, offset)
   local index = offset + size_of_tes_trading_session_status_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -8867,6 +8880,7 @@ end
 
 -- Dissect: Tes Trade Broadcast
 eurex_derivatives_eti_t7_v8_0.tes_trade_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_trade_broadcast)
+  local size_of_tes_trade_broadcast = eurex_derivatives_eti_t7_v8_0.tes_trade_broadcast.size(buffer, offset)
   local index = offset + size_of_tes_trade_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -8925,6 +8939,7 @@ end
 
 -- Dissect: Tes Response
 eurex_derivatives_eti_t7_v8_0.tes_response.dissect = function(buffer, offset, packet, parent, size_of_tes_response)
+  local size_of_tes_response = eurex_derivatives_eti_t7_v8_0.tes_response.size(buffer, offset)
   local index = offset + size_of_tes_response
 
   -- Optionally add group/struct element to protocol tree
@@ -9035,6 +9050,7 @@ end
 
 -- Dissect: Tes Execution Broadcast
 eurex_derivatives_eti_t7_v8_0.tes_execution_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_execution_broadcast)
+  local size_of_tes_execution_broadcast = eurex_derivatives_eti_t7_v8_0.tes_execution_broadcast.size(buffer, offset)
   local index = offset + size_of_tes_execution_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -9168,6 +9184,7 @@ end
 
 -- Dissect: Tes Delete Broadcast
 eurex_derivatives_eti_t7_v8_0.tes_delete_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_delete_broadcast)
+  local size_of_tes_delete_broadcast = eurex_derivatives_eti_t7_v8_0.tes_delete_broadcast.size(buffer, offset)
   local index = offset + size_of_tes_delete_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -9437,6 +9454,7 @@ end
 
 -- Dissect: Tes Broadcast
 eurex_derivatives_eti_t7_v8_0.tes_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_broadcast)
+  local size_of_tes_broadcast = eurex_derivatives_eti_t7_v8_0.tes_broadcast.size(buffer, offset)
   local index = offset + size_of_tes_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -9749,6 +9767,7 @@ end
 
 -- Dissect: Tes Approve Broadcast
 eurex_derivatives_eti_t7_v8_0.tes_approve_broadcast.dissect = function(buffer, offset, packet, parent, size_of_tes_approve_broadcast)
+  local size_of_tes_approve_broadcast = eurex_derivatives_eti_t7_v8_0.tes_approve_broadcast.size(buffer, offset)
   local index = offset + size_of_tes_approve_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -9807,6 +9826,7 @@ end
 
 -- Dissect: Subscribe Response
 eurex_derivatives_eti_t7_v8_0.subscribe_response.dissect = function(buffer, offset, packet, parent, size_of_subscribe_response)
+  local size_of_subscribe_response = eurex_derivatives_eti_t7_v8_0.subscribe_response.size(buffer, offset)
   local index = offset + size_of_subscribe_response
 
   -- Optionally add group/struct element to protocol tree
@@ -9956,6 +9976,7 @@ end
 
 -- Dissect: Subscribe Request
 eurex_derivatives_eti_t7_v8_0.subscribe_request.dissect = function(buffer, offset, packet, parent, size_of_subscribe_request)
+  local size_of_subscribe_request = eurex_derivatives_eti_t7_v8_0.subscribe_request.size(buffer, offset)
   local index = offset + size_of_subscribe_request
 
   -- Optionally add group/struct element to protocol tree
@@ -10134,6 +10155,7 @@ end
 
 -- Dissect: Service Availability Market Broadcast
 eurex_derivatives_eti_t7_v8_0.service_availability_market_broadcast.dissect = function(buffer, offset, packet, parent, size_of_service_availability_market_broadcast)
+  local size_of_service_availability_market_broadcast = eurex_derivatives_eti_t7_v8_0.service_availability_market_broadcast.size(buffer, offset)
   local index = offset + size_of_service_availability_market_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -10550,6 +10572,7 @@ end
 
 -- Dissect: Service Availability Broadcast
 eurex_derivatives_eti_t7_v8_0.service_availability_broadcast.dissect = function(buffer, offset, packet, parent, size_of_service_availability_broadcast)
+  local size_of_service_availability_broadcast = eurex_derivatives_eti_t7_v8_0.service_availability_broadcast.size(buffer, offset)
   local index = offset + size_of_service_availability_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -11377,6 +11400,7 @@ end
 
 -- Dissect: Srqs Update Negotiation Request
 eurex_derivatives_eti_t7_v8_0.srqs_update_negotiation_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_update_negotiation_request)
+  local size_of_srqs_update_negotiation_request = eurex_derivatives_eti_t7_v8_0.srqs_update_negotiation_request.size(buffer, offset)
   local index = offset + size_of_srqs_update_negotiation_request
 
   -- Optionally add group/struct element to protocol tree
@@ -11507,6 +11531,7 @@ end
 
 -- Dissect: Srqs Update Deal Status Request
 eurex_derivatives_eti_t7_v8_0.srqs_update_deal_status_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_update_deal_status_request)
+  local size_of_srqs_update_deal_status_request = eurex_derivatives_eti_t7_v8_0.srqs_update_deal_status_request.size(buffer, offset)
   local index = offset + size_of_srqs_update_deal_status_request
 
   -- Optionally add group/struct element to protocol tree
@@ -11568,6 +11593,7 @@ end
 
 -- Dissect: Srqs Status Broadcast
 eurex_derivatives_eti_t7_v8_0.srqs_status_broadcast.dissect = function(buffer, offset, packet, parent, size_of_srqs_status_broadcast)
+  local size_of_srqs_status_broadcast = eurex_derivatives_eti_t7_v8_0.srqs_status_broadcast.size(buffer, offset)
   local index = offset + size_of_srqs_status_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -11677,6 +11703,7 @@ end
 
 -- Dissect: Srqs Quoting Status Request
 eurex_derivatives_eti_t7_v8_0.srqs_quoting_status_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_quoting_status_request)
+  local size_of_srqs_quoting_status_request = eurex_derivatives_eti_t7_v8_0.srqs_quoting_status_request.size(buffer, offset)
   local index = offset + size_of_srqs_quoting_status_request
 
   -- Optionally add group/struct element to protocol tree
@@ -11794,6 +11821,7 @@ end
 
 -- Dissect: Srqs Quote Response
 eurex_derivatives_eti_t7_v8_0.srqs_quote_response.dissect = function(buffer, offset, packet, parent, size_of_srqs_quote_response)
+  local size_of_srqs_quote_response = eurex_derivatives_eti_t7_v8_0.srqs_quote_response.size(buffer, offset)
   local index = offset + size_of_srqs_quote_response
 
   -- Optionally add group/struct element to protocol tree
@@ -12042,6 +12070,7 @@ end
 
 -- Dissect: Srqs Quote Notification
 eurex_derivatives_eti_t7_v8_0.srqs_quote_notification.dissect = function(buffer, offset, packet, parent, size_of_srqs_quote_notification)
+  local size_of_srqs_quote_notification = eurex_derivatives_eti_t7_v8_0.srqs_quote_notification.size(buffer, offset)
   local index = offset + size_of_srqs_quote_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -12673,6 +12702,7 @@ end
 
 -- Dissect: Srqs Open Negotiation Requester Notification
 eurex_derivatives_eti_t7_v8_0.srqs_open_negotiation_requester_notification.dissect = function(buffer, offset, packet, parent, size_of_srqs_open_negotiation_requester_notification)
+  local size_of_srqs_open_negotiation_requester_notification = eurex_derivatives_eti_t7_v8_0.srqs_open_negotiation_requester_notification.size(buffer, offset)
   local index = offset + size_of_srqs_open_negotiation_requester_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -12846,6 +12876,7 @@ end
 
 -- Dissect: Srqs Open Negotiation Request
 eurex_derivatives_eti_t7_v8_0.srqs_open_negotiation_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_open_negotiation_request)
+  local size_of_srqs_open_negotiation_request = eurex_derivatives_eti_t7_v8_0.srqs_open_negotiation_request.size(buffer, offset)
   local index = offset + size_of_srqs_open_negotiation_request
 
   -- Optionally add group/struct element to protocol tree
@@ -13035,6 +13066,7 @@ end
 
 -- Dissect: Srqs Open Negotiation Notification
 eurex_derivatives_eti_t7_v8_0.srqs_open_negotiation_notification.dissect = function(buffer, offset, packet, parent, size_of_srqs_open_negotiation_notification)
+  local size_of_srqs_open_negotiation_notification = eurex_derivatives_eti_t7_v8_0.srqs_open_negotiation_notification.size(buffer, offset)
   local index = offset + size_of_srqs_open_negotiation_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -13138,6 +13170,7 @@ end
 
 -- Dissect: Srqs Negotiation Status Notification
 eurex_derivatives_eti_t7_v8_0.srqs_negotiation_status_notification.dissect = function(buffer, offset, packet, parent, size_of_srqs_negotiation_status_notification)
+  local size_of_srqs_negotiation_status_notification = eurex_derivatives_eti_t7_v8_0.srqs_negotiation_status_notification.size(buffer, offset)
   local index = offset + size_of_srqs_negotiation_status_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -13303,6 +13336,7 @@ end
 
 -- Dissect: Srqs Negotiation Requester Notification
 eurex_derivatives_eti_t7_v8_0.srqs_negotiation_requester_notification.dissect = function(buffer, offset, packet, parent, size_of_srqs_negotiation_requester_notification)
+  local size_of_srqs_negotiation_requester_notification = eurex_derivatives_eti_t7_v8_0.srqs_negotiation_requester_notification.size(buffer, offset)
   local index = offset + size_of_srqs_negotiation_requester_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -13430,6 +13464,7 @@ end
 
 -- Dissect: Srqs Negotiation Notification
 eurex_derivatives_eti_t7_v8_0.srqs_negotiation_notification.dissect = function(buffer, offset, packet, parent, size_of_srqs_negotiation_notification)
+  local size_of_srqs_negotiation_notification = eurex_derivatives_eti_t7_v8_0.srqs_negotiation_notification.size(buffer, offset)
   local index = offset + size_of_srqs_negotiation_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -13648,6 +13683,7 @@ end
 
 -- Dissect: Srqs Hit Quote Request
 eurex_derivatives_eti_t7_v8_0.srqs_hit_quote_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_hit_quote_request)
+  local size_of_srqs_hit_quote_request = eurex_derivatives_eti_t7_v8_0.srqs_hit_quote_request.size(buffer, offset)
   local index = offset + size_of_srqs_hit_quote_request
 
   -- Optionally add group/struct element to protocol tree
@@ -13799,6 +13835,7 @@ end
 
 -- Dissect: Srqs Enter Quote Request
 eurex_derivatives_eti_t7_v8_0.srqs_enter_quote_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_enter_quote_request)
+  local size_of_srqs_enter_quote_request = eurex_derivatives_eti_t7_v8_0.srqs_enter_quote_request.size(buffer, offset)
   local index = offset + size_of_srqs_enter_quote_request
 
   -- Optionally add group/struct element to protocol tree
@@ -13903,6 +13940,7 @@ end
 
 -- Dissect: Srqs Deal Response
 eurex_derivatives_eti_t7_v8_0.srqs_deal_response.dissect = function(buffer, offset, packet, parent, size_of_srqs_deal_response)
+  local size_of_srqs_deal_response = eurex_derivatives_eti_t7_v8_0.srqs_deal_response.size(buffer, offset)
   local index = offset + size_of_srqs_deal_response
 
   -- Optionally add group/struct element to protocol tree
@@ -14188,6 +14226,7 @@ end
 
 -- Dissect: Srqs Deal Notification
 eurex_derivatives_eti_t7_v8_0.srqs_deal_notification.dissect = function(buffer, offset, packet, parent, size_of_srqs_deal_notification)
+  local size_of_srqs_deal_notification = eurex_derivatives_eti_t7_v8_0.srqs_deal_notification.size(buffer, offset)
   local index = offset + size_of_srqs_deal_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -14734,6 +14773,7 @@ end
 
 -- Dissect: Srqs Create Deal Notification
 eurex_derivatives_eti_t7_v8_0.srqs_create_deal_notification.dissect = function(buffer, offset, packet, parent, size_of_srqs_create_deal_notification)
+  local size_of_srqs_create_deal_notification = eurex_derivatives_eti_t7_v8_0.srqs_create_deal_notification.size(buffer, offset)
   local index = offset + size_of_srqs_create_deal_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -15048,6 +15088,7 @@ end
 
 -- Dissect: Risk Notification Broadcast
 eurex_derivatives_eti_t7_v8_0.risk_notification_broadcast.dissect = function(buffer, offset, packet, parent, size_of_risk_notification_broadcast)
+  local size_of_risk_notification_broadcast = eurex_derivatives_eti_t7_v8_0.risk_notification_broadcast.size(buffer, offset)
   local index = offset + size_of_risk_notification_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -15196,6 +15237,7 @@ end
 
 -- Dissect: Retransmit Response
 eurex_derivatives_eti_t7_v8_0.retransmit_response.dissect = function(buffer, offset, packet, parent, size_of_retransmit_response)
+  local size_of_retransmit_response = eurex_derivatives_eti_t7_v8_0.retransmit_response.size(buffer, offset)
   local index = offset + size_of_retransmit_response
 
   -- Optionally add group/struct element to protocol tree
@@ -15294,6 +15336,7 @@ end
 
 -- Dissect: Retransmit Request
 eurex_derivatives_eti_t7_v8_0.retransmit_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_request)
+  local size_of_retransmit_request = eurex_derivatives_eti_t7_v8_0.retransmit_request.size(buffer, offset)
   local index = offset + size_of_retransmit_request
 
   -- Optionally add group/struct element to protocol tree
@@ -15381,6 +15424,7 @@ end
 
 -- Dissect: Retransmit Me Message Response
 eurex_derivatives_eti_t7_v8_0.retransmit_me_message_response.dissect = function(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
+  local size_of_retransmit_me_message_response = eurex_derivatives_eti_t7_v8_0.retransmit_me_message_response.size(buffer, offset)
   local index = offset + size_of_retransmit_me_message_response
 
   -- Optionally add group/struct element to protocol tree
@@ -15477,6 +15521,7 @@ end
 
 -- Dissect: Retransmit Me Message Request
 eurex_derivatives_eti_t7_v8_0.retransmit_me_message_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+  local size_of_retransmit_me_message_request = eurex_derivatives_eti_t7_v8_0.retransmit_me_message_request.size(buffer, offset)
   local index = offset + size_of_retransmit_me_message_request
 
   -- Optionally add group/struct element to protocol tree
@@ -15920,6 +15965,7 @@ end
 
 -- Dissect: Reject
 eurex_derivatives_eti_t7_v8_0.reject.dissect = function(buffer, offset, packet, parent, size_of_reject)
+  local size_of_reject = eurex_derivatives_eti_t7_v8_0.reject.size(buffer, offset)
   local index = offset + size_of_reject
 
   -- Optionally add group/struct element to protocol tree
@@ -16008,6 +16054,7 @@ end
 
 -- Dissect: Rfq Response
 eurex_derivatives_eti_t7_v8_0.rfq_response.dissect = function(buffer, offset, packet, parent, size_of_rfq_response)
+  local size_of_rfq_response = eurex_derivatives_eti_t7_v8_0.rfq_response.size(buffer, offset)
   local index = offset + size_of_rfq_response
 
   -- Optionally add group/struct element to protocol tree
@@ -16081,6 +16128,7 @@ end
 
 -- Dissect: Rfq Request
 eurex_derivatives_eti_t7_v8_0.rfq_request.dissect = function(buffer, offset, packet, parent, size_of_rfq_request)
+  local size_of_rfq_request = eurex_derivatives_eti_t7_v8_0.rfq_request.size(buffer, offset)
   local index = offset + size_of_rfq_request
 
   -- Optionally add group/struct element to protocol tree
@@ -16816,6 +16864,7 @@ end
 
 -- Dissect: Quote Execution Report
 eurex_derivatives_eti_t7_v8_0.quote_execution_report.dissect = function(buffer, offset, packet, parent, size_of_quote_execution_report)
+  local size_of_quote_execution_report = eurex_derivatives_eti_t7_v8_0.quote_execution_report.size(buffer, offset)
   local index = offset + size_of_quote_execution_report
 
   -- Optionally add group/struct element to protocol tree
@@ -17017,6 +17066,7 @@ end
 
 -- Dissect: Quote Activation Response
 eurex_derivatives_eti_t7_v8_0.quote_activation_response.dissect = function(buffer, offset, packet, parent, size_of_quote_activation_response)
+  local size_of_quote_activation_response = eurex_derivatives_eti_t7_v8_0.quote_activation_response.size(buffer, offset)
   local index = offset + size_of_quote_activation_response
 
   -- Optionally add group/struct element to protocol tree
@@ -17190,6 +17240,7 @@ end
 
 -- Dissect: Quote Activation Request
 eurex_derivatives_eti_t7_v8_0.quote_activation_request.dissect = function(buffer, offset, packet, parent, size_of_quote_activation_request)
+  local size_of_quote_activation_request = eurex_derivatives_eti_t7_v8_0.quote_activation_request.size(buffer, offset)
   local index = offset + size_of_quote_activation_request
 
   -- Optionally add group/struct element to protocol tree
@@ -17374,6 +17425,7 @@ end
 
 -- Dissect: Quote Activation Notification
 eurex_derivatives_eti_t7_v8_0.quote_activation_notification.dissect = function(buffer, offset, packet, parent, size_of_quote_activation_notification)
+  local size_of_quote_activation_notification = eurex_derivatives_eti_t7_v8_0.quote_activation_notification.size(buffer, offset)
   local index = offset + size_of_quote_activation_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -17731,6 +17783,7 @@ end
 
 -- Dissect: Pre Trade Risk Limits Definition Request
 eurex_derivatives_eti_t7_v8_0.pre_trade_risk_limits_definition_request.dissect = function(buffer, offset, packet, parent, size_of_pre_trade_risk_limits_definition_request)
+  local size_of_pre_trade_risk_limits_definition_request = eurex_derivatives_eti_t7_v8_0.pre_trade_risk_limits_definition_request.size(buffer, offset)
   local index = offset + size_of_pre_trade_risk_limits_definition_request
 
   -- Optionally add group/struct element to protocol tree
@@ -18086,6 +18139,7 @@ end
 
 -- Dissect: Pre Trade Risk Limit Response
 eurex_derivatives_eti_t7_v8_0.pre_trade_risk_limit_response.dissect = function(buffer, offset, packet, parent, size_of_pre_trade_risk_limit_response)
+  local size_of_pre_trade_risk_limit_response = eurex_derivatives_eti_t7_v8_0.pre_trade_risk_limit_response.size(buffer, offset)
   local index = offset + size_of_pre_trade_risk_limit_response
 
   -- Optionally add group/struct element to protocol tree
@@ -18168,6 +18222,7 @@ end
 
 -- Dissect: Party Entitlements Update Report
 eurex_derivatives_eti_t7_v8_0.party_entitlements_update_report.dissect = function(buffer, offset, packet, parent, size_of_party_entitlements_update_report)
+  local size_of_party_entitlements_update_report = eurex_derivatives_eti_t7_v8_0.party_entitlements_update_report.size(buffer, offset)
   local index = offset + size_of_party_entitlements_update_report
 
   -- Optionally add group/struct element to protocol tree
@@ -18397,6 +18452,7 @@ end
 
 -- Dissect: Party Action Report
 eurex_derivatives_eti_t7_v8_0.party_action_report.dissect = function(buffer, offset, packet, parent, size_of_party_action_report)
+  local size_of_party_action_report = eurex_derivatives_eti_t7_v8_0.party_action_report.size(buffer, offset)
   local index = offset + size_of_party_action_report
 
   -- Optionally add group/struct element to protocol tree
@@ -19410,6 +19466,7 @@ end
 
 -- Dissect: Order Exec Response
 eurex_derivatives_eti_t7_v8_0.order_exec_response.dissect = function(buffer, offset, packet, parent, size_of_order_exec_response)
+  local size_of_order_exec_response = eurex_derivatives_eti_t7_v8_0.order_exec_response.size(buffer, offset)
   local index = offset + size_of_order_exec_response
 
   -- Optionally add group/struct element to protocol tree
@@ -20050,6 +20107,7 @@ end
 
 -- Dissect: Order Exec Report Broadcast
 eurex_derivatives_eti_t7_v8_0.order_exec_report_broadcast.dissect = function(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
+  local size_of_order_exec_report_broadcast = eurex_derivatives_eti_t7_v8_0.order_exec_report_broadcast.size(buffer, offset)
   local index = offset + size_of_order_exec_report_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -20172,6 +20230,7 @@ end
 
 -- Dissect: Order Exec Notification
 eurex_derivatives_eti_t7_v8_0.order_exec_notification.dissect = function(buffer, offset, packet, parent, size_of_order_exec_notification)
+  local size_of_order_exec_notification = eurex_derivatives_eti_t7_v8_0.order_exec_notification.size(buffer, offset)
   local index = offset + size_of_order_exec_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -20317,6 +20376,7 @@ end
 
 -- Dissect: News Broadcast
 eurex_derivatives_eti_t7_v8_0.news_broadcast.dissect = function(buffer, offset, packet, parent, size_of_news_broadcast)
+  local size_of_news_broadcast = eurex_derivatives_eti_t7_v8_0.news_broadcast.size(buffer, offset)
   local index = offset + size_of_news_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -20560,6 +20620,7 @@ end
 
 -- Dissect: New Order Single Short Request
 eurex_derivatives_eti_t7_v8_0.new_order_single_short_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_single_short_request)
+  local size_of_new_order_single_short_request = eurex_derivatives_eti_t7_v8_0.new_order_single_short_request.size(buffer, offset)
   local index = offset + size_of_new_order_single_short_request
 
   -- Optionally add group/struct element to protocol tree
@@ -20732,6 +20793,7 @@ end
 
 -- Dissect: New Order Single Request
 eurex_derivatives_eti_t7_v8_0.new_order_single_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_single_request)
+  local size_of_new_order_single_request = eurex_derivatives_eti_t7_v8_0.new_order_single_request.size(buffer, offset)
   local index = offset + size_of_new_order_single_request
 
   -- Optionally add group/struct element to protocol tree
@@ -20823,6 +20885,7 @@ end
 
 -- Dissect: New Order Response
 eurex_derivatives_eti_t7_v8_0.new_order_response.dissect = function(buffer, offset, packet, parent, size_of_new_order_response)
+  local size_of_new_order_response = eurex_derivatives_eti_t7_v8_0.new_order_response.size(buffer, offset)
   local index = offset + size_of_new_order_response
 
   -- Optionally add group/struct element to protocol tree
@@ -20908,6 +20971,7 @@ end
 
 -- Dissect: New Order Nr Response
 eurex_derivatives_eti_t7_v8_0.new_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_new_order_nr_response)
+  local size_of_new_order_nr_response = eurex_derivatives_eti_t7_v8_0.new_order_nr_response.size(buffer, offset)
   local index = offset + size_of_new_order_nr_response
 
   -- Optionally add group/struct element to protocol tree
@@ -21032,6 +21096,7 @@ end
 
 -- Dissect: New Order Complex Short Request
 eurex_derivatives_eti_t7_v8_0.new_order_complex_short_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_complex_short_request)
+  local size_of_new_order_complex_short_request = eurex_derivatives_eti_t7_v8_0.new_order_complex_short_request.size(buffer, offset)
   local index = offset + size_of_new_order_complex_short_request
 
   -- Optionally add group/struct element to protocol tree
@@ -21203,6 +21268,7 @@ end
 
 -- Dissect: New Order Complex Request
 eurex_derivatives_eti_t7_v8_0.new_order_complex_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_complex_request)
+  local size_of_new_order_complex_request = eurex_derivatives_eti_t7_v8_0.new_order_complex_request.size(buffer, offset)
   local index = offset + size_of_new_order_complex_request
 
   -- Optionally add group/struct element to protocol tree
@@ -21386,6 +21452,7 @@ end
 
 -- Dissect: Modify Tes Trade Request
 eurex_derivatives_eti_t7_v8_0.modify_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
+  local size_of_modify_tes_trade_request = eurex_derivatives_eti_t7_v8_0.modify_tes_trade_request.size(buffer, offset)
   local index = offset + size_of_modify_tes_trade_request
 
   -- Optionally add group/struct element to protocol tree
@@ -21507,6 +21574,7 @@ end
 
 -- Dissect: Modify Order Single Short Request
 eurex_derivatives_eti_t7_v8_0.modify_order_single_short_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
+  local size_of_modify_order_single_short_request = eurex_derivatives_eti_t7_v8_0.modify_order_single_short_request.size(buffer, offset)
   local index = offset + size_of_modify_order_single_short_request
 
   -- Optionally add group/struct element to protocol tree
@@ -21721,6 +21789,7 @@ end
 
 -- Dissect: Modify Order Single Request
 eurex_derivatives_eti_t7_v8_0.modify_order_single_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_single_request)
+  local size_of_modify_order_single_request = eurex_derivatives_eti_t7_v8_0.modify_order_single_request.size(buffer, offset)
   local index = offset + size_of_modify_order_single_request
 
   -- Optionally add group/struct element to protocol tree
@@ -21821,6 +21890,7 @@ end
 
 -- Dissect: Modify Order Response
 eurex_derivatives_eti_t7_v8_0.modify_order_response.dissect = function(buffer, offset, packet, parent, size_of_modify_order_response)
+  local size_of_modify_order_response = eurex_derivatives_eti_t7_v8_0.modify_order_response.size(buffer, offset)
   local index = offset + size_of_modify_order_response
 
   -- Optionally add group/struct element to protocol tree
@@ -21918,6 +21988,7 @@ end
 
 -- Dissect: Modify Order Nr Response
 eurex_derivatives_eti_t7_v8_0.modify_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_modify_order_nr_response)
+  local size_of_modify_order_nr_response = eurex_derivatives_eti_t7_v8_0.modify_order_nr_response.size(buffer, offset)
   local index = offset + size_of_modify_order_nr_response
 
   -- Optionally add group/struct element to protocol tree
@@ -22045,6 +22116,7 @@ end
 
 -- Dissect: Modify Order Complex Short Request
 eurex_derivatives_eti_t7_v8_0.modify_order_complex_short_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_complex_short_request)
+  local size_of_modify_order_complex_short_request = eurex_derivatives_eti_t7_v8_0.modify_order_complex_short_request.size(buffer, offset)
   local index = offset + size_of_modify_order_complex_short_request
 
   -- Optionally add group/struct element to protocol tree
@@ -22225,6 +22297,7 @@ end
 
 -- Dissect: Modify Order Complex Request
 eurex_derivatives_eti_t7_v8_0.modify_order_complex_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_complex_request)
+  local size_of_modify_order_complex_request = eurex_derivatives_eti_t7_v8_0.modify_order_complex_request.size(buffer, offset)
   local index = offset + size_of_modify_order_complex_request
 
   -- Optionally add group/struct element to protocol tree
@@ -23019,6 +23092,7 @@ end
 
 -- Dissect: Modify Basket Trade Request
 eurex_derivatives_eti_t7_v8_0.modify_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_modify_basket_trade_request)
+  local size_of_modify_basket_trade_request = eurex_derivatives_eti_t7_v8_0.modify_basket_trade_request.size(buffer, offset)
   local index = offset + size_of_modify_basket_trade_request
 
   -- Optionally add group/struct element to protocol tree
@@ -23419,6 +23493,7 @@ end
 
 -- Dissect: Mass Quote Response
 eurex_derivatives_eti_t7_v8_0.mass_quote_response.dissect = function(buffer, offset, packet, parent, size_of_mass_quote_response)
+  local size_of_mass_quote_response = eurex_derivatives_eti_t7_v8_0.mass_quote_response.size(buffer, offset)
   local index = offset + size_of_mass_quote_response
 
   -- Optionally add group/struct element to protocol tree
@@ -23647,6 +23722,7 @@ end
 
 -- Dissect: Mass Quote Request
 eurex_derivatives_eti_t7_v8_0.mass_quote_request.dissect = function(buffer, offset, packet, parent, size_of_mass_quote_request)
+  local size_of_mass_quote_request = eurex_derivatives_eti_t7_v8_0.mass_quote_request.size(buffer, offset)
   local index = offset + size_of_mass_quote_request
 
   -- Optionally add group/struct element to protocol tree
@@ -23702,6 +23778,7 @@ end
 
 -- Dissect: Mm Parameter Definition Response
 eurex_derivatives_eti_t7_v8_0.mm_parameter_definition_response.dissect = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
+  local size_of_mm_parameter_definition_response = eurex_derivatives_eti_t7_v8_0.mm_parameter_definition_response.size(buffer, offset)
   local index = offset + size_of_mm_parameter_definition_response
 
   -- Optionally add group/struct element to protocol tree
@@ -23915,6 +23992,7 @@ end
 
 -- Dissect: Mm Parameter Definition Request
 eurex_derivatives_eti_t7_v8_0.mm_parameter_definition_request.dissect = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
+  local size_of_mm_parameter_definition_request = eurex_derivatives_eti_t7_v8_0.mm_parameter_definition_request.size(buffer, offset)
   local index = offset + size_of_mm_parameter_definition_request
 
   -- Optionally add group/struct element to protocol tree
@@ -23967,6 +24045,7 @@ end
 
 -- Dissect: Logout Response
 eurex_derivatives_eti_t7_v8_0.logout_response.dissect = function(buffer, offset, packet, parent, size_of_logout_response)
+  local size_of_logout_response = eurex_derivatives_eti_t7_v8_0.logout_response.size(buffer, offset)
   local index = offset + size_of_logout_response
 
   -- Optionally add group/struct element to protocol tree
@@ -24022,6 +24101,7 @@ end
 
 -- Dissect: Logout Request
 eurex_derivatives_eti_t7_v8_0.logout_request.dissect = function(buffer, offset, packet, parent, size_of_logout_request)
+  local size_of_logout_request = eurex_derivatives_eti_t7_v8_0.logout_request.size(buffer, offset)
   local index = offset + size_of_logout_request
 
   -- Optionally add group/struct element to protocol tree
@@ -24268,6 +24348,7 @@ end
 
 -- Dissect: Logon Response
 eurex_derivatives_eti_t7_v8_0.logon_response.dissect = function(buffer, offset, packet, parent, size_of_logon_response)
+  local size_of_logon_response = eurex_derivatives_eti_t7_v8_0.logon_response.size(buffer, offset)
   local index = offset + size_of_logon_response
 
   -- Optionally add group/struct element to protocol tree
@@ -24740,6 +24821,7 @@ end
 
 -- Dissect: Logon Request
 eurex_derivatives_eti_t7_v8_0.logon_request.dissect = function(buffer, offset, packet, parent, size_of_logon_request)
+  local size_of_logon_request = eurex_derivatives_eti_t7_v8_0.logon_request.size(buffer, offset)
   local index = offset + size_of_logon_request
 
   -- Optionally add group/struct element to protocol tree
@@ -24860,6 +24942,7 @@ end
 
 -- Dissect: Legal Notification Broadcast
 eurex_derivatives_eti_t7_v8_0.legal_notification_broadcast.dissect = function(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
+  local size_of_legal_notification_broadcast = eurex_derivatives_eti_t7_v8_0.legal_notification_broadcast.size(buffer, offset)
   local index = offset + size_of_legal_notification_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -25163,6 +25246,7 @@ end
 
 -- Dissect: Inquire User Response
 eurex_derivatives_eti_t7_v8_0.inquire_user_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_user_response)
+  local size_of_inquire_user_response = eurex_derivatives_eti_t7_v8_0.inquire_user_response.size(buffer, offset)
   local index = offset + size_of_inquire_user_response
 
   -- Optionally add group/struct element to protocol tree
@@ -25221,6 +25305,7 @@ end
 
 -- Dissect: Inquire User Request
 eurex_derivatives_eti_t7_v8_0.inquire_user_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_user_request)
+  local size_of_inquire_user_request = eurex_derivatives_eti_t7_v8_0.inquire_user_request.size(buffer, offset)
   local index = offset + size_of_inquire_user_request
 
   -- Optionally add group/struct element to protocol tree
@@ -25442,6 +25527,7 @@ end
 
 -- Dissect: Inquire Session List Response
 eurex_derivatives_eti_t7_v8_0.inquire_session_list_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_session_list_response)
+  local size_of_inquire_session_list_response = eurex_derivatives_eti_t7_v8_0.inquire_session_list_response.size(buffer, offset)
   local index = offset + size_of_inquire_session_list_response
 
   -- Optionally add group/struct element to protocol tree
@@ -25497,6 +25583,7 @@ end
 
 -- Dissect: Inquire Session List Request
 eurex_derivatives_eti_t7_v8_0.inquire_session_list_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_session_list_request)
+  local size_of_inquire_session_list_request = eurex_derivatives_eti_t7_v8_0.inquire_session_list_request.size(buffer, offset)
   local index = offset + size_of_inquire_session_list_request
 
   -- Optionally add group/struct element to protocol tree
@@ -25595,6 +25682,7 @@ end
 
 -- Dissect: Inquire Pre Trade Risk Limits Request
 eurex_derivatives_eti_t7_v8_0.inquire_pre_trade_risk_limits_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_pre_trade_risk_limits_request)
+  local size_of_inquire_pre_trade_risk_limits_request = eurex_derivatives_eti_t7_v8_0.inquire_pre_trade_risk_limits_request.size(buffer, offset)
   local index = offset + size_of_inquire_pre_trade_risk_limits_request
 
   -- Optionally add group/struct element to protocol tree
@@ -25791,6 +25879,7 @@ end
 
 -- Dissect: Inquire Mm Parameter Response
 eurex_derivatives_eti_t7_v8_0.inquire_mm_parameter_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
+  local size_of_inquire_mm_parameter_response = eurex_derivatives_eti_t7_v8_0.inquire_mm_parameter_response.size(buffer, offset)
   local index = offset + size_of_inquire_mm_parameter_response
 
   -- Optionally add group/struct element to protocol tree
@@ -25852,6 +25941,7 @@ end
 
 -- Dissect: Inquire Mm Parameter Request
 eurex_derivatives_eti_t7_v8_0.inquire_mm_parameter_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
+  local size_of_inquire_mm_parameter_request = eurex_derivatives_eti_t7_v8_0.inquire_mm_parameter_request.size(buffer, offset)
   local index = offset + size_of_inquire_mm_parameter_request
 
   -- Optionally add group/struct element to protocol tree
@@ -26062,6 +26152,7 @@ end
 
 -- Dissect: Inquire Enrichment Rule Id List Response
 eurex_derivatives_eti_t7_v8_0.inquire_enrichment_rule_id_list_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
+  local size_of_inquire_enrichment_rule_id_list_response = eurex_derivatives_eti_t7_v8_0.inquire_enrichment_rule_id_list_response.size(buffer, offset)
   local index = offset + size_of_inquire_enrichment_rule_id_list_response
 
   -- Optionally add group/struct element to protocol tree
@@ -26120,6 +26211,7 @@ end
 
 -- Dissect: Inquire Enrichment Rule Id List Request
 eurex_derivatives_eti_t7_v8_0.inquire_enrichment_rule_id_list_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
+  local size_of_inquire_enrichment_rule_id_list_request = eurex_derivatives_eti_t7_v8_0.inquire_enrichment_rule_id_list_request.size(buffer, offset)
   local index = offset + size_of_inquire_enrichment_rule_id_list_request
 
   -- Optionally add group/struct element to protocol tree
@@ -26172,6 +26264,7 @@ end
 
 -- Dissect: Heartbeat Notification
 eurex_derivatives_eti_t7_v8_0.heartbeat_notification.dissect = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
+  local size_of_heartbeat_notification = eurex_derivatives_eti_t7_v8_0.heartbeat_notification.size(buffer, offset)
   local index = offset + size_of_heartbeat_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -26224,6 +26317,7 @@ end
 
 -- Dissect: Heartbeat
 eurex_derivatives_eti_t7_v8_0.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local size_of_heartbeat = eurex_derivatives_eti_t7_v8_0.heartbeat.size(buffer, offset)
   local index = offset + size_of_heartbeat
 
   -- Optionally add group/struct element to protocol tree
@@ -26311,6 +26405,7 @@ end
 
 -- Dissect: Forced User Logout Notification
 eurex_derivatives_eti_t7_v8_0.forced_user_logout_notification.dissect = function(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
+  local size_of_forced_user_logout_notification = eurex_derivatives_eti_t7_v8_0.forced_user_logout_notification.size(buffer, offset)
   local index = offset + size_of_forced_user_logout_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -26389,6 +26484,7 @@ end
 
 -- Dissect: Forced Logout Notification
 eurex_derivatives_eti_t7_v8_0.forced_logout_notification.dissect = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
+  local size_of_forced_logout_notification = eurex_derivatives_eti_t7_v8_0.forced_logout_notification.size(buffer, offset)
   local index = offset + size_of_forced_logout_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -26573,6 +26669,7 @@ end
 
 -- Dissect: Enter Tes Trade Request
 eurex_derivatives_eti_t7_v8_0.enter_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
+  local size_of_enter_tes_trade_request = eurex_derivatives_eti_t7_v8_0.enter_tes_trade_request.size(buffer, offset)
   local index = offset + size_of_enter_tes_trade_request
 
   -- Optionally add group/struct element to protocol tree
@@ -27150,6 +27247,7 @@ end
 
 -- Dissect: Enter Clip Request
 eurex_derivatives_eti_t7_v8_0.enter_clip_request.dissect = function(buffer, offset, packet, parent, size_of_enter_clip_request)
+  local size_of_enter_clip_request = eurex_derivatives_eti_t7_v8_0.enter_clip_request.size(buffer, offset)
   local index = offset + size_of_enter_clip_request
 
   -- Optionally add group/struct element to protocol tree
@@ -27292,6 +27390,7 @@ end
 
 -- Dissect: Enter Basket Trade Request
 eurex_derivatives_eti_t7_v8_0.enter_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_enter_basket_trade_request)
+  local size_of_enter_basket_trade_request = eurex_derivatives_eti_t7_v8_0.enter_basket_trade_request.size(buffer, offset)
   local index = offset + size_of_enter_basket_trade_request
 
   -- Optionally add group/struct element to protocol tree
@@ -27371,6 +27470,7 @@ end
 
 -- Dissect: Delete Tes Trade Request
 eurex_derivatives_eti_t7_v8_0.delete_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
+  local size_of_delete_tes_trade_request = eurex_derivatives_eti_t7_v8_0.delete_tes_trade_request.size(buffer, offset)
   local index = offset + size_of_delete_tes_trade_request
 
   -- Optionally add group/struct element to protocol tree
@@ -27465,6 +27565,7 @@ end
 
 -- Dissect: Delete Order Single Request
 eurex_derivatives_eti_t7_v8_0.delete_order_single_request.dissect = function(buffer, offset, packet, parent, size_of_delete_order_single_request)
+  local size_of_delete_order_single_request = eurex_derivatives_eti_t7_v8_0.delete_order_single_request.size(buffer, offset)
   local index = offset + size_of_delete_order_single_request
 
   -- Optionally add group/struct element to protocol tree
@@ -27556,6 +27657,7 @@ end
 
 -- Dissect: Delete Order Response
 eurex_derivatives_eti_t7_v8_0.delete_order_response.dissect = function(buffer, offset, packet, parent, size_of_delete_order_response)
+  local size_of_delete_order_response = eurex_derivatives_eti_t7_v8_0.delete_order_response.size(buffer, offset)
   local index = offset + size_of_delete_order_response
 
   -- Optionally add group/struct element to protocol tree
@@ -27647,6 +27749,7 @@ end
 
 -- Dissect: Delete Order Nr Response
 eurex_derivatives_eti_t7_v8_0.delete_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_delete_order_nr_response)
+  local size_of_delete_order_nr_response = eurex_derivatives_eti_t7_v8_0.delete_order_nr_response.size(buffer, offset)
   local index = offset + size_of_delete_order_nr_response
 
   -- Optionally add group/struct element to protocol tree
@@ -27741,6 +27844,7 @@ end
 
 -- Dissect: Delete Order Complex Request
 eurex_derivatives_eti_t7_v8_0.delete_order_complex_request.dissect = function(buffer, offset, packet, parent, size_of_delete_order_complex_request)
+  local size_of_delete_order_complex_request = eurex_derivatives_eti_t7_v8_0.delete_order_complex_request.size(buffer, offset)
   local index = offset + size_of_delete_order_complex_request
 
   -- Optionally add group/struct element to protocol tree
@@ -27847,6 +27951,7 @@ end
 
 -- Dissect: Delete Order Broadcast
 eurex_derivatives_eti_t7_v8_0.delete_order_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+  local size_of_delete_order_broadcast = eurex_derivatives_eti_t7_v8_0.delete_order_broadcast.size(buffer, offset)
   local index = offset + size_of_delete_order_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -27932,6 +28037,7 @@ end
 
 -- Dissect: Delete Clip Request
 eurex_derivatives_eti_t7_v8_0.delete_clip_request.dissect = function(buffer, offset, packet, parent, size_of_delete_clip_request)
+  local size_of_delete_clip_request = eurex_derivatives_eti_t7_v8_0.delete_clip_request.size(buffer, offset)
   local index = offset + size_of_delete_clip_request
 
   -- Optionally add group/struct element to protocol tree
@@ -28011,6 +28117,7 @@ end
 
 -- Dissect: Delete Basket Trade Request
 eurex_derivatives_eti_t7_v8_0.delete_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_delete_basket_trade_request)
+  local size_of_delete_basket_trade_request = eurex_derivatives_eti_t7_v8_0.delete_basket_trade_request.size(buffer, offset)
   local index = offset + size_of_delete_basket_trade_request
 
   -- Optionally add group/struct element to protocol tree
@@ -28077,6 +28184,7 @@ end
 
 -- Dissect: Delete All Quote Response
 eurex_derivatives_eti_t7_v8_0.delete_all_quote_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_response)
+  local size_of_delete_all_quote_response = eurex_derivatives_eti_t7_v8_0.delete_all_quote_response.size(buffer, offset)
   local index = offset + size_of_delete_all_quote_response
 
   -- Optionally add group/struct element to protocol tree
@@ -28153,6 +28261,7 @@ end
 
 -- Dissect: Delete All Quote Request
 eurex_derivatives_eti_t7_v8_0.delete_all_quote_request.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_request)
+  local size_of_delete_all_quote_request = eurex_derivatives_eti_t7_v8_0.delete_all_quote_request.size(buffer, offset)
   local index = offset + size_of_delete_all_quote_request
 
   -- Optionally add group/struct element to protocol tree
@@ -28299,6 +28408,7 @@ end
 
 -- Dissect: Delete All Quote Broadcast
 eurex_derivatives_eti_t7_v8_0.delete_all_quote_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
+  local size_of_delete_all_quote_broadcast = eurex_derivatives_eti_t7_v8_0.delete_all_quote_broadcast.size(buffer, offset)
   local index = offset + size_of_delete_all_quote_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -28613,6 +28723,7 @@ end
 
 -- Dissect: Delete All Order Response
 eurex_derivatives_eti_t7_v8_0.delete_all_order_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_response)
+  local size_of_delete_all_order_response = eurex_derivatives_eti_t7_v8_0.delete_all_order_response.size(buffer, offset)
   local index = offset + size_of_delete_all_order_response
 
   -- Optionally add group/struct element to protocol tree
@@ -28701,6 +28812,7 @@ end
 
 -- Dissect: Delete All Order Request
 eurex_derivatives_eti_t7_v8_0.delete_all_order_request.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_request)
+  local size_of_delete_all_order_request = eurex_derivatives_eti_t7_v8_0.delete_all_order_request.size(buffer, offset)
   local index = offset + size_of_delete_all_order_request
 
   -- Optionally add group/struct element to protocol tree
@@ -28771,6 +28883,7 @@ end
 
 -- Dissect: Delete All Order Quote Event Broadcast
 eurex_derivatives_eti_t7_v8_0.delete_all_order_quote_event_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
+  local size_of_delete_all_order_quote_event_broadcast = eurex_derivatives_eti_t7_v8_0.delete_all_order_quote_event_broadcast.size(buffer, offset)
   local index = offset + size_of_delete_all_order_quote_event_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -28826,6 +28939,7 @@ end
 
 -- Dissect: Delete All Order Nr Response
 eurex_derivatives_eti_t7_v8_0.delete_all_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
+  local size_of_delete_all_order_nr_response = eurex_derivatives_eti_t7_v8_0.delete_all_order_nr_response.size(buffer, offset)
   local index = offset + size_of_delete_all_order_nr_response
 
   -- Optionally add group/struct element to protocol tree
@@ -28927,6 +29041,7 @@ end
 
 -- Dissect: Delete All Order Broadcast
 eurex_derivatives_eti_t7_v8_0.delete_all_order_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
+  local size_of_delete_all_order_broadcast = eurex_derivatives_eti_t7_v8_0.delete_all_order_broadcast.size(buffer, offset)
   local index = offset + size_of_delete_all_order_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -28982,6 +29097,7 @@ end
 
 -- Dissect: Cross Request Response
 eurex_derivatives_eti_t7_v8_0.cross_request_response.dissect = function(buffer, offset, packet, parent, size_of_cross_request_response)
+  local size_of_cross_request_response = eurex_derivatives_eti_t7_v8_0.cross_request_response.size(buffer, offset)
   local index = offset + size_of_cross_request_response
 
   -- Optionally add group/struct element to protocol tree
@@ -29049,6 +29165,7 @@ end
 
 -- Dissect: Cross Request
 eurex_derivatives_eti_t7_v8_0.cross_request.dissect = function(buffer, offset, packet, parent, size_of_cross_request)
+  local size_of_cross_request = eurex_derivatives_eti_t7_v8_0.cross_request.size(buffer, offset)
   local index = offset + size_of_cross_request
 
   -- Optionally add group/struct element to protocol tree
@@ -29185,6 +29302,7 @@ end
 
 -- Dissect: Clip Response
 eurex_derivatives_eti_t7_v8_0.clip_response.dissect = function(buffer, offset, packet, parent, size_of_clip_response)
+  local size_of_clip_response = eurex_derivatives_eti_t7_v8_0.clip_response.size(buffer, offset)
   local index = offset + size_of_clip_response
 
   -- Optionally add group/struct element to protocol tree
@@ -29295,6 +29413,7 @@ end
 
 -- Dissect: Clip Execution Notification
 eurex_derivatives_eti_t7_v8_0.clip_execution_notification.dissect = function(buffer, offset, packet, parent, size_of_clip_execution_notification)
+  local size_of_clip_execution_notification = eurex_derivatives_eti_t7_v8_0.clip_execution_notification.size(buffer, offset)
   local index = offset + size_of_clip_execution_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -29380,6 +29499,7 @@ end
 
 -- Dissect: Clip Deletion Notification
 eurex_derivatives_eti_t7_v8_0.clip_deletion_notification.dissect = function(buffer, offset, packet, parent, size_of_clip_deletion_notification)
+  local size_of_clip_deletion_notification = eurex_derivatives_eti_t7_v8_0.clip_deletion_notification.size(buffer, offset)
   local index = offset + size_of_clip_deletion_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -29500,6 +29620,7 @@ end
 
 -- Dissect: Broadcast Error Notification
 eurex_derivatives_eti_t7_v8_0.broadcast_error_notification.dissect = function(buffer, offset, packet, parent, size_of_broadcast_error_notification)
+  local size_of_broadcast_error_notification = eurex_derivatives_eti_t7_v8_0.broadcast_error_notification.size(buffer, offset)
   local index = offset + size_of_broadcast_error_notification
 
   -- Optionally add group/struct element to protocol tree
@@ -29558,6 +29679,7 @@ end
 
 -- Dissect: Basket Response
 eurex_derivatives_eti_t7_v8_0.basket_response.dissect = function(buffer, offset, packet, parent, size_of_basket_response)
+  local size_of_basket_response = eurex_derivatives_eti_t7_v8_0.basket_response.size(buffer, offset)
   local index = offset + size_of_basket_response
 
   -- Optionally add group/struct element to protocol tree
@@ -29710,6 +29832,7 @@ end
 
 -- Dissect: Basket Execution Broadcast
 eurex_derivatives_eti_t7_v8_0.basket_execution_broadcast.dissect = function(buffer, offset, packet, parent, size_of_basket_execution_broadcast)
+  local size_of_basket_execution_broadcast = eurex_derivatives_eti_t7_v8_0.basket_execution_broadcast.size(buffer, offset)
   local index = offset + size_of_basket_execution_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -29792,6 +29915,7 @@ end
 
 -- Dissect: Basket Delete Broadcast
 eurex_derivatives_eti_t7_v8_0.basket_delete_broadcast.dissect = function(buffer, offset, packet, parent, size_of_basket_delete_broadcast)
+  local size_of_basket_delete_broadcast = eurex_derivatives_eti_t7_v8_0.basket_delete_broadcast.size(buffer, offset)
   local index = offset + size_of_basket_delete_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -29932,6 +30056,7 @@ end
 
 -- Dissect: Basket Broadcast
 eurex_derivatives_eti_t7_v8_0.basket_broadcast.dissect = function(buffer, offset, packet, parent, size_of_basket_broadcast)
+  local size_of_basket_broadcast = eurex_derivatives_eti_t7_v8_0.basket_broadcast.size(buffer, offset)
   local index = offset + size_of_basket_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -30216,6 +30341,7 @@ end
 
 -- Dissect: Basket Approve Broadcast
 eurex_derivatives_eti_t7_v8_0.basket_approve_broadcast.dissect = function(buffer, offset, packet, parent, size_of_basket_approve_broadcast)
+  local size_of_basket_approve_broadcast = eurex_derivatives_eti_t7_v8_0.basket_approve_broadcast.size(buffer, offset)
   local index = offset + size_of_basket_approve_broadcast
 
   -- Optionally add group/struct element to protocol tree
@@ -30370,6 +30496,7 @@ end
 
 -- Dissect: Approve Tes Trade Request
 eurex_derivatives_eti_t7_v8_0.approve_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_approve_tes_trade_request)
+  local size_of_approve_tes_trade_request = eurex_derivatives_eti_t7_v8_0.approve_tes_trade_request.size(buffer, offset)
   local index = offset + size_of_approve_tes_trade_request
 
   -- Optionally add group/struct element to protocol tree
@@ -30616,6 +30743,7 @@ end
 
 -- Dissect: Approve Basket Trade Request
 eurex_derivatives_eti_t7_v8_0.approve_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_approve_basket_trade_request)
+  local size_of_approve_basket_trade_request = eurex_derivatives_eti_t7_v8_0.approve_basket_trade_request.size(buffer, offset)
   local index = offset + size_of_approve_basket_trade_request
 
   -- Optionally add group/struct element to protocol tree
@@ -30728,6 +30856,7 @@ end
 
 -- Dissect: Amend Basket Trade Request
 eurex_derivatives_eti_t7_v8_0.amend_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_amend_basket_trade_request)
+  local size_of_amend_basket_trade_request = eurex_derivatives_eti_t7_v8_0.amend_basket_trade_request.size(buffer, offset)
   local index = offset + size_of_amend_basket_trade_request
 
   -- Optionally add group/struct element to protocol tree
@@ -31081,6 +31210,7 @@ end
 
 -- Dissect: Add Flexible Instrument Response
 eurex_derivatives_eti_t7_v8_0.add_flexible_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
+  local size_of_add_flexible_instrument_response = eurex_derivatives_eti_t7_v8_0.add_flexible_instrument_response.size(buffer, offset)
   local index = offset + size_of_add_flexible_instrument_response
 
   -- Optionally add group/struct element to protocol tree
@@ -31160,6 +31290,7 @@ end
 
 -- Dissect: Add Flexible Instrument Request
 eurex_derivatives_eti_t7_v8_0.add_flexible_instrument_request.dissect = function(buffer, offset, packet, parent, size_of_add_flexible_instrument_request)
+  local size_of_add_flexible_instrument_request = eurex_derivatives_eti_t7_v8_0.add_flexible_instrument_request.size(buffer, offset)
   local index = offset + size_of_add_flexible_instrument_request
 
   -- Optionally add group/struct element to protocol tree
@@ -31528,6 +31659,7 @@ end
 
 -- Dissect: Add Complex Instrument Response
 eurex_derivatives_eti_t7_v8_0.add_complex_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+  local size_of_add_complex_instrument_response = eurex_derivatives_eti_t7_v8_0.add_complex_instrument_response.size(buffer, offset)
   local index = offset + size_of_add_complex_instrument_response
 
   -- Optionally add group/struct element to protocol tree
@@ -31606,6 +31738,7 @@ end
 
 -- Dissect: Add Complex Instrument Request
 eurex_derivatives_eti_t7_v8_0.add_complex_instrument_request.dissect = function(buffer, offset, packet, parent, size_of_add_complex_instrument_request)
+  local size_of_add_complex_instrument_request = eurex_derivatives_eti_t7_v8_0.add_complex_instrument_request.size(buffer, offset)
   local index = offset + size_of_add_complex_instrument_request
 
   -- Optionally add group/struct element to protocol tree

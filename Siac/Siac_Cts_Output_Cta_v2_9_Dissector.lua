@@ -1985,6 +1985,7 @@ end
 
 -- Dissect: Trade Cancel Error Message
 siac_cts_output_cta_v2_9.trade_cancel_error_message.dissect = function(buffer, offset, packet, parent, size_of_trade_cancel_error_message)
+  local size_of_trade_cancel_error_message = siac_cts_output_cta_v2_9.trade_cancel_error_message.size(buffer, offset)
   local index = offset + size_of_trade_cancel_error_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2409,6 +2410,7 @@ end
 
 -- Dissect: Short Trade Message
 siac_cts_output_cta_v2_9.short_trade_message.dissect = function(buffer, offset, packet, parent, size_of_short_trade_message)
+  local size_of_short_trade_message = siac_cts_output_cta_v2_9.short_trade_message.size(buffer, offset)
   local index = offset + size_of_short_trade_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2808,6 +2810,7 @@ end
 
 -- Dissect: Trading Status Message
 siac_cts_output_cta_v2_9.trading_status_message.dissect = function(buffer, offset, packet, parent, size_of_trading_status_message)
+  local size_of_trading_status_message = siac_cts_output_cta_v2_9.trading_status_message.size(buffer, offset)
   local index = offset + size_of_trading_status_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2953,6 +2956,7 @@ end
 
 -- Dissect: Long Trade Message
 siac_cts_output_cta_v2_9.long_trade_message.dissect = function(buffer, offset, packet, parent, size_of_long_trade_message)
+  local size_of_long_trade_message = siac_cts_output_cta_v2_9.long_trade_message.size(buffer, offset)
   local index = offset + size_of_long_trade_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3227,6 +3231,7 @@ end
 
 -- Dissect: Trade Correction Message
 siac_cts_output_cta_v2_9.trade_correction_message.dissect = function(buffer, offset, packet, parent, size_of_trade_correction_message)
+  local size_of_trade_correction_message = siac_cts_output_cta_v2_9.trade_correction_message.size(buffer, offset)
   local index = offset + size_of_trade_correction_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3451,6 +3456,7 @@ end
 
 -- Dissect: Auction Status Message
 siac_cts_output_cta_v2_9.auction_status_message.dissect = function(buffer, offset, packet, parent, size_of_auction_status_message)
+  local size_of_auction_status_message = siac_cts_output_cta_v2_9.auction_status_message.size(buffer, offset)
   local index = offset + size_of_auction_status_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3613,6 +3619,7 @@ end
 
 -- Dissect: Trade
 siac_cts_output_cta_v2_9.trade.dissect = function(buffer, offset, packet, parent, size_of_trade)
+  local size_of_trade = siac_cts_output_cta_v2_9.trade.size(buffer, offset)
   local index = offset + size_of_trade
 
   -- Optionally add group/struct element to protocol tree
@@ -3811,6 +3818,7 @@ end
 
 -- Dissect: Participant End Of Day Summary Message
 siac_cts_output_cta_v2_9.participant_end_of_day_summary_message.dissect = function(buffer, offset, packet, parent, size_of_participant_end_of_day_summary_message)
+  local size_of_participant_end_of_day_summary_message = siac_cts_output_cta_v2_9.participant_end_of_day_summary_message.size(buffer, offset)
   local index = offset + size_of_participant_end_of_day_summary_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3931,6 +3939,7 @@ end
 
 -- Dissect: Consolidated End Of Day Summary Message
 siac_cts_output_cta_v2_9.consolidated_end_of_day_summary_message.dissect = function(buffer, offset, packet, parent, size_of_consolidated_end_of_day_summary_message)
+  local size_of_consolidated_end_of_day_summary_message = siac_cts_output_cta_v2_9.consolidated_end_of_day_summary_message.size(buffer, offset)
   local index = offset + size_of_consolidated_end_of_day_summary_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4036,6 +4045,7 @@ end
 
 -- Dissect: Participant Start Of Day Summary Message
 siac_cts_output_cta_v2_9.participant_start_of_day_summary_message.dissect = function(buffer, offset, packet, parent, size_of_participant_start_of_day_summary_message)
+  local size_of_participant_start_of_day_summary_message = siac_cts_output_cta_v2_9.participant_start_of_day_summary_message.size(buffer, offset)
   local index = offset + size_of_participant_start_of_day_summary_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4124,6 +4134,7 @@ end
 
 -- Dissect: Consolidated Start Of Day Summary Message
 siac_cts_output_cta_v2_9.consolidated_start_of_day_summary_message.dissect = function(buffer, offset, packet, parent, size_of_consolidated_start_of_day_summary_message)
+  local size_of_consolidated_start_of_day_summary_message = siac_cts_output_cta_v2_9.consolidated_start_of_day_summary_message.size(buffer, offset)
   local index = offset + size_of_consolidated_start_of_day_summary_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4264,6 +4275,7 @@ end
 
 -- Dissect: Summary
 siac_cts_output_cta_v2_9.summary.dissect = function(buffer, offset, packet, parent, size_of_summary)
+  local size_of_summary = siac_cts_output_cta_v2_9.summary.size(buffer, offset)
   local index = offset + size_of_summary
 
   -- Optionally add group/struct element to protocol tree
@@ -4358,6 +4370,7 @@ end
 
 -- Dissect: Prior Day Trade Message
 siac_cts_output_cta_v2_9.prior_day_trade_message.dissect = function(buffer, offset, packet, parent, size_of_prior_day_trade_message)
+  local size_of_prior_day_trade_message = siac_cts_output_cta_v2_9.prior_day_trade_message.size(buffer, offset)
   local index = offset + size_of_prior_day_trade_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4434,6 +4447,7 @@ end
 
 -- Dissect: Prior Day Trade Correction Message
 siac_cts_output_cta_v2_9.prior_day_trade_correction_message.dissect = function(buffer, offset, packet, parent, size_of_prior_day_trade_correction_message)
+  local size_of_prior_day_trade_correction_message = siac_cts_output_cta_v2_9.prior_day_trade_correction_message.size(buffer, offset)
   local index = offset + size_of_prior_day_trade_correction_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4563,6 +4577,7 @@ end
 
 -- Dissect: Prior Day
 siac_cts_output_cta_v2_9.prior_day.dissect = function(buffer, offset, packet, parent, size_of_prior_day)
+  local size_of_prior_day = siac_cts_output_cta_v2_9.prior_day.size(buffer, offset)
   local index = offset + size_of_prior_day
 
   -- Optionally add group/struct element to protocol tree
@@ -4702,6 +4717,7 @@ end
 
 -- Dissect: Crossing Session Summary Message
 siac_cts_output_cta_v2_9.crossing_session_summary_message.dissect = function(buffer, offset, packet, parent, size_of_crossing_session_summary_message)
+  local size_of_crossing_session_summary_message = siac_cts_output_cta_v2_9.crossing_session_summary_message.size(buffer, offset)
   local index = offset + size_of_crossing_session_summary_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4815,6 +4831,7 @@ end
 
 -- Dissect: Approximate Trades And Total Dollar Value Message
 siac_cts_output_cta_v2_9.approximate_trades_and_total_dollar_value_message.dissect = function(buffer, offset, packet, parent, size_of_approximate_trades_and_total_dollar_value_message)
+  local size_of_approximate_trades_and_total_dollar_value_message = siac_cts_output_cta_v2_9.approximate_trades_and_total_dollar_value_message.size(buffer, offset)
   local index = offset + size_of_approximate_trades_and_total_dollar_value_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4957,6 +4974,7 @@ end
 
 -- Dissect: Approximate Adjusted Volume Market Center Message
 siac_cts_output_cta_v2_9.approximate_adjusted_volume_market_center_message.dissect = function(buffer, offset, packet, parent, size_of_approximate_adjusted_volume_market_center_message)
+  local size_of_approximate_adjusted_volume_market_center_message = siac_cts_output_cta_v2_9.approximate_adjusted_volume_market_center_message.size(buffer, offset)
   local index = offset + size_of_approximate_adjusted_volume_market_center_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5083,6 +5101,7 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Status Message
 siac_cts_output_cta_v2_9.market_wide_circuit_breaker_status_message.dissect = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+  local size_of_market_wide_circuit_breaker_status_message = siac_cts_output_cta_v2_9.market_wide_circuit_breaker_status_message.size(buffer, offset)
   local index = offset + size_of_market_wide_circuit_breaker_status_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5225,6 +5244,7 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Status Message
 siac_cts_output_cta_v2_9.market_wide_circuit_breaker_decline_level_status_message.dissect = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
+  local size_of_market_wide_circuit_breaker_decline_level_status_message = siac_cts_output_cta_v2_9.market_wide_circuit_breaker_decline_level_status_message.size(buffer, offset)
   local index = offset + size_of_market_wide_circuit_breaker_decline_level_status_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5376,6 +5396,7 @@ end
 
 -- Dissect: Market Status
 siac_cts_output_cta_v2_9.market_status.dissect = function(buffer, offset, packet, parent, size_of_market_status)
+  local size_of_market_status = siac_cts_output_cta_v2_9.market_status.size(buffer, offset)
   local index = offset + size_of_market_status
 
   -- Optionally add group/struct element to protocol tree
@@ -5515,6 +5536,7 @@ end
 
 -- Dissect: Bid And Offer Index Message
 siac_cts_output_cta_v2_9.bid_and_offer_index_message.dissect = function(buffer, offset, packet, parent, size_of_bid_and_offer_index_message)
+  local size_of_bid_and_offer_index_message = siac_cts_output_cta_v2_9.bid_and_offer_index_message.size(buffer, offset)
   local index = offset + size_of_bid_and_offer_index_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5605,6 +5627,7 @@ end
 
 -- Dissect: Index Message
 siac_cts_output_cta_v2_9.index_message.dissect = function(buffer, offset, packet, parent, size_of_index_message)
+  local size_of_index_message = siac_cts_output_cta_v2_9.index_message.size(buffer, offset)
   local index = offset + size_of_index_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5723,6 +5746,7 @@ end
 
 -- Dissect: Index
 siac_cts_output_cta_v2_9.index.dissect = function(buffer, offset, packet, parent, size_of_index)
+  local size_of_index = siac_cts_output_cta_v2_9.index.size(buffer, offset)
   local index = offset + size_of_index
 
   -- Optionally add group/struct element to protocol tree
@@ -5784,6 +5808,7 @@ end
 
 -- Dissect: End Of Day Message
 siac_cts_output_cta_v2_9.end_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_end_of_day_message)
+  local size_of_end_of_day_message = siac_cts_output_cta_v2_9.end_of_day_message.size(buffer, offset)
   local index = offset + size_of_end_of_day_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5845,6 +5870,7 @@ end
 
 -- Dissect: Line Integrity Message
 siac_cts_output_cta_v2_9.line_integrity_message.dissect = function(buffer, offset, packet, parent, size_of_line_integrity_message)
+  local size_of_line_integrity_message = siac_cts_output_cta_v2_9.line_integrity_message.size(buffer, offset)
   local index = offset + size_of_line_integrity_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5906,6 +5932,7 @@ end
 
 -- Dissect: Disaster Recovery Data Center Activation Message
 siac_cts_output_cta_v2_9.disaster_recovery_data_center_activation_message.dissect = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+  local size_of_disaster_recovery_data_center_activation_message = siac_cts_output_cta_v2_9.disaster_recovery_data_center_activation_message.size(buffer, offset)
   local index = offset + size_of_disaster_recovery_data_center_activation_message
 
   -- Optionally add group/struct element to protocol tree
@@ -5967,6 +5994,7 @@ end
 
 -- Dissect: Reset Block Sequence Number Message
 siac_cts_output_cta_v2_9.reset_block_sequence_number_message.dissect = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+  local size_of_reset_block_sequence_number_message = siac_cts_output_cta_v2_9.reset_block_sequence_number_message.size(buffer, offset)
   local index = offset + size_of_reset_block_sequence_number_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6028,6 +6056,7 @@ end
 
 -- Dissect: Start Of Day Message
 siac_cts_output_cta_v2_9.start_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_start_of_day_message)
+  local size_of_start_of_day_message = siac_cts_output_cta_v2_9.start_of_day_message.size(buffer, offset)
   local index = offset + size_of_start_of_day_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6179,6 +6208,7 @@ end
 
 -- Dissect: Control
 siac_cts_output_cta_v2_9.control.dissect = function(buffer, offset, packet, parent, size_of_control)
+  local size_of_control = siac_cts_output_cta_v2_9.control.size(buffer, offset)
   local index = offset + size_of_control
 
   -- Optionally add group/struct element to protocol tree
@@ -6240,6 +6270,7 @@ end
 
 -- Dissect: End Of Start Of Day Message
 siac_cts_output_cta_v2_9.end_of_start_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_end_of_start_of_day_message)
+  local size_of_end_of_start_of_day_message = siac_cts_output_cta_v2_9.end_of_start_of_day_message.size(buffer, offset)
   local index = offset + size_of_end_of_start_of_day_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6301,6 +6332,7 @@ end
 
 -- Dissect: Start Of Start Of Day Message
 siac_cts_output_cta_v2_9.start_of_start_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_start_of_start_of_day_message)
+  local size_of_start_of_start_of_day_message = siac_cts_output_cta_v2_9.start_of_start_of_day_message.size(buffer, offset)
   local index = offset + size_of_start_of_start_of_day_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6362,6 +6394,7 @@ end
 
 -- Dissect: End Of End Of Day Message
 siac_cts_output_cta_v2_9.end_of_end_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_end_of_end_of_day_message)
+  local size_of_end_of_end_of_day_message = siac_cts_output_cta_v2_9.end_of_end_of_day_message.size(buffer, offset)
   local index = offset + size_of_end_of_end_of_day_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6423,6 +6456,7 @@ end
 
 -- Dissect: Start Of End Of Day Message
 siac_cts_output_cta_v2_9.start_of_end_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_start_of_end_of_day_message)
+  local size_of_start_of_end_of_day_message = siac_cts_output_cta_v2_9.start_of_end_of_day_message.size(buffer, offset)
   local index = offset + size_of_start_of_end_of_day_message
 
   -- Optionally add group/struct element to protocol tree
@@ -6563,6 +6597,7 @@ end
 
 -- Dissect: Administrative
 siac_cts_output_cta_v2_9.administrative.dissect = function(buffer, offset, packet, parent, size_of_administrative)
+  local size_of_administrative = siac_cts_output_cta_v2_9.administrative.size(buffer, offset)
   local index = offset + size_of_administrative
 
   -- Optionally add group/struct element to protocol tree

@@ -933,12 +933,6 @@ end
 
 -- Dissect: Unsequenced Message
 jnx_equities_pts_ouch_v1_11.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = jnx_equities_pts_ouch_v1_11.unsequenced_message.size(buffer, offset, unsequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return jnx_equities_pts_ouch_v1_11.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
@@ -1007,20 +1001,25 @@ jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.fields = function(buffer, of
 end
 
 -- Dissect: Unsequenced Data Packet
-jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
+jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local size_of_unsequenced_data_packet = jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.unsequenced_data_packet then
-    local range = buffer(offset, size_of_unsequenced_data_packet)
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
     local display = jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_data_packet, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
   end
-
-  jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-  return offset + size_of_unsequenced_data_packet
 end
 
 -- Requested Sequence Number
@@ -2121,12 +2120,6 @@ end
 
 -- Dissect: Sequenced Message
 jnx_equities_pts_ouch_v1_11.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Calculate size and check that branch is not empty
-  local size = jnx_equities_pts_ouch_v1_11.sequenced_message.size(buffer, offset, sequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
   return jnx_equities_pts_ouch_v1_11.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
@@ -2207,20 +2200,25 @@ jnx_equities_pts_ouch_v1_11.sequenced_data_packet.fields = function(buffer, offs
 end
 
 -- Dissect: Sequenced Data Packet
-jnx_equities_pts_ouch_v1_11.sequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Parse runtime size
+jnx_equities_pts_ouch_v1_11.sequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local size_of_sequenced_data_packet = jnx_equities_pts_ouch_v1_11.sequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_sequenced_data_packet
 
-  -- Optionally add struct element to protocol tree
+  -- Optionally add group/struct element to protocol tree
   if show.sequenced_data_packet then
-    local range = buffer(offset, size_of_sequenced_data_packet)
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.sequenced_data_packet, buffer(offset, 0))
+    local current = jnx_equities_pts_ouch_v1_11.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+    parent:set_len(size_of_sequenced_data_packet)
     local display = jnx_equities_pts_ouch_v1_11.sequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.sequenced_data_packet, range, display)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jnx_equities_pts_ouch_v1_11.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+
+    return index
   end
-
-  jnx_equities_pts_ouch_v1_11.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
-
-  return offset + size_of_sequenced_data_packet
 end
 
 -- Reject Reason Code
@@ -2504,12 +2502,6 @@ end
 
 -- Dissect: Payload
 jnx_equities_pts_ouch_v1_11.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Calculate size and check that branch is not empty
-  local size = jnx_equities_pts_ouch_v1_11.payload.size(buffer, offset, packet_type)
-  if size == 0 then
-    return offset
-  end
-
   return jnx_equities_pts_ouch_v1_11.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 

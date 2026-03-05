@@ -739,6 +739,7 @@ end
 
 -- Dissect: Seq Msg
 nyse_options_streamprotocol_pillar_v1_6.seq_msg.dissect = function(buffer, offset, packet, parent, size_of_seq_msg)
+  local size_of_seq_msg = nyse_options_streamprotocol_pillar_v1_6.seq_msg.size(buffer, offset)
   local index = offset + size_of_seq_msg
 
   -- Optionally add group/struct element to protocol tree
@@ -824,6 +825,7 @@ end
 
 -- Dissect: Close Response
 nyse_options_streamprotocol_pillar_v1_6.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
+  local size_of_close_response = nyse_options_streamprotocol_pillar_v1_6.close_response.size(buffer, offset)
   local index = offset + size_of_close_response
 
   -- Optionally add group/struct element to protocol tree
@@ -876,6 +878,7 @@ end
 
 -- Dissect: Close
 nyse_options_streamprotocol_pillar_v1_6.close.dissect = function(buffer, offset, packet, parent, size_of_close)
+  local size_of_close = nyse_options_streamprotocol_pillar_v1_6.close.size(buffer, offset)
   local index = offset + size_of_close
 
   -- Optionally add group/struct element to protocol tree
@@ -957,6 +960,7 @@ end
 
 -- Dissect: Open Response
 nyse_options_streamprotocol_pillar_v1_6.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
+  local size_of_open_response = nyse_options_streamprotocol_pillar_v1_6.open_response.size(buffer, offset)
   local index = offset + size_of_open_response
 
   -- Optionally add group/struct element to protocol tree
@@ -1090,6 +1094,7 @@ end
 
 -- Dissect: Open
 nyse_options_streamprotocol_pillar_v1_6.open.dissect = function(buffer, offset, packet, parent, size_of_open)
+  local size_of_open = nyse_options_streamprotocol_pillar_v1_6.open.size(buffer, offset)
   local index = offset + size_of_open
 
   -- Optionally add group/struct element to protocol tree
@@ -1139,6 +1144,7 @@ end
 
 -- Dissect: Heartbeat
 nyse_options_streamprotocol_pillar_v1_6.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local size_of_heartbeat = nyse_options_streamprotocol_pillar_v1_6.heartbeat.size(buffer, offset)
   local index = offset + size_of_heartbeat
 
   -- Optionally add group/struct element to protocol tree
@@ -1220,6 +1226,7 @@ end
 
 -- Dissect: Stream Avail
 nyse_options_streamprotocol_pillar_v1_6.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local size_of_stream_avail = nyse_options_streamprotocol_pillar_v1_6.stream_avail.size(buffer, offset)
   local index = offset + size_of_stream_avail
 
   -- Optionally add group/struct element to protocol tree
@@ -1314,6 +1321,7 @@ end
 
 -- Dissect: Login Response
 nyse_options_streamprotocol_pillar_v1_6.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
+  local size_of_login_response = nyse_options_streamprotocol_pillar_v1_6.login_response.size(buffer, offset)
   local index = offset + size_of_login_response
 
   -- Optionally add group/struct element to protocol tree
@@ -1492,6 +1500,7 @@ end
 
 -- Dissect: Login Message
 nyse_options_streamprotocol_pillar_v1_6.login_message.dissect = function(buffer, offset, packet, parent, size_of_login_message)
+  local size_of_login_message = nyse_options_streamprotocol_pillar_v1_6.login_message.size(buffer, offset)
   local index = offset + size_of_login_message
 
   -- Optionally add group/struct element to protocol tree
