@@ -39,7 +39,6 @@ omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.osi_symbol = ProtoField.new(
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.packet = ProtoField.new("Packet", "cboe.c1.options.auctionfeed.pitch.v1.1.1.packet", ftypes.STRING)
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1.options.auctionfeed.pitch.v1.1.1.packetheader", ftypes.STRING)
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.participant_id = ProtoField.new("Participant Id", "cboe.c1.options.auctionfeed.pitch.v1.1.1.participantid", ftypes.STRING)
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.payload = ProtoField.new("Payload", "cboe.c1.options.auctionfeed.pitch.v1.1.1.payload", ftypes.STRING)
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.price = ProtoField.new("Price", "cboe.c1.options.auctionfeed.pitch.v1.1.1.price", ftypes.DOUBLE)
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.quantity = ProtoField.new("Quantity", "cboe.c1.options.auctionfeed.pitch.v1.1.1.quantity", ftypes.UINT32)
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.reference_price = ProtoField.new("Reference Price", "cboe.c1.options.auctionfeed.pitch.v1.1.1.referenceprice", ftypes.DOUBLE)
@@ -56,7 +55,7 @@ omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.underlying = ProtoField.new(
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.unit = ProtoField.new("Unit", "cboe.c1.options.auctionfeed.pitch.v1.1.1.unit", ftypes.UINT8)
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.width_type = ProtoField.new("Width Type", "cboe.c1.options.auctionfeed.pitch.v1.1.1.widthtype", ftypes.STRING)
 
--- Cboe C1 Options AuctionFeed Pitch 1.1.1 messages
+-- Cboe C1 Options Pitch AuctionFeed 1.1.1 Application Messages
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctioncancelmessage", ftypes.STRING)
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctionnotificationmessage", ftypes.STRING)
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctionsummarymessage", ftypes.STRING)
@@ -92,7 +91,6 @@ show.symbol_mapping_message = true
 show.time_message = true
 show.unit_clear_message = true
 show.width_update_message = true
-show.payload = false
 
 -- Register Cboe C1 Options AuctionFeed Pitch 1.1.1 Show Options
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_cancel_message = Pref.bool("Show Auction Cancel Message", show.auction_cancel_message, "Parse and add Auction Cancel Message to protocol tree")
@@ -109,7 +107,6 @@ omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_symbol_mapping_message =
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_unit_clear_message = Pref.bool("Show Unit Clear Message", show.unit_clear_message, "Parse and add Unit Clear Message to protocol tree")
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_width_update_message = Pref.bool("Show Width Update Message", show.width_update_message, "Parse and add Width Update Message to protocol tree")
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs_changed()
@@ -170,10 +167,6 @@ function omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs_changed()
   end
   if show.width_update_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_width_update_message then
     show.width_update_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_width_update_message
-    changed = true
-  end
-  if show.payload ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_payload then
-    show.payload = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_payload
     changed = true
   end
 
@@ -1520,11 +1513,6 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.size = function(buffer, offset,
   return 0
 end
 
--- Display: Payload
-cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
@@ -1573,21 +1561,6 @@ end
 
 -- Dissect: Payload
 cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.payload, range, display)
-
   return cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
