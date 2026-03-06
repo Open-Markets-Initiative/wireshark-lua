@@ -15,7 +15,8 @@ local siac_opra_recipient_obi_v6_2 = {}
 -----------------------------------------------------------------------
 
 -- Siac Opra Recipient Obi 6.2 Fields
-omi_siac_opra_recipient_obi_v6_2.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.recipient.obi.v6.2.administrativemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.administrative = ProtoField.new("Administrative", "siac.opra.recipient.obi.v6.2.administrative", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.opra.recipient.obi.v6.2.administrativemessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.bbo_indicator = ProtoField.new("Bbo Indicator", "siac.opra.recipient.obi.v6.2.bboindicator", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.best_bid_and_offer_appendage = ProtoField.new("Best Bid And Offer Appendage", "siac.opra.recipient.obi.v6.2.bestbidandofferappendage", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.best_bid_appendage = ProtoField.new("Best Bid Appendage", "siac.opra.recipient.obi.v6.2.bestbidappendage", ftypes.STRING)
@@ -39,12 +40,14 @@ omi_siac_opra_recipient_obi_v6_2.fields.block_pad_byte = ProtoField.new("Block P
 omi_siac_opra_recipient_obi_v6_2.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.recipient.obi.v6.2.blocksequencenumber", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_2.fields.block_size = ProtoField.new("Block Size", "siac.opra.recipient.obi.v6.2.blocksize", ftypes.UINT16)
 omi_siac_opra_recipient_obi_v6_2.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.recipient.obi.v6.2.blocktimestamp", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_2.fields.control_message = ProtoField.new("Control Message", "siac.opra.recipient.obi.v6.2.controlmessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.control = ProtoField.new("Control", "siac.opra.recipient.obi.v6.2.control", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.control_message_type = ProtoField.new("Control Message Type", "siac.opra.recipient.obi.v6.2.controlmessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.opra.recipient.obi.v6.2.datafeedindicator", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.denominator_code = ProtoField.new("Denominator Code", "siac.opra.recipient.obi.v6.2.denominatorcode", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary_message = ProtoField.new("Equity And Index End Of Day Summary Message", "siac.opra.recipient.obi.v6.2.equityandindexendofdaysummarymessage", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_last_sale_message = ProtoField.new("Equity And Index Last Sale Message", "siac.opra.recipient.obi.v6.2.equityandindexlastsalemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary = ProtoField.new("Equity And Index End Of Day Summary", "siac.opra.recipient.obi.v6.2.equityandindexendofdaysummary", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary_message_type = ProtoField.new("Equity And Index End Of Day Summary Message Type", "siac.opra.recipient.obi.v6.2.equityandindexendofdaysummarymessagetype", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_last_sale = ProtoField.new("Equity And Index Last Sale", "siac.opra.recipient.obi.v6.2.equityandindexlastsale", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_last_sale_message_type = ProtoField.new("Equity And Index Last Sale Message Type", "siac.opra.recipient.obi.v6.2.equityandindexlastsalemessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.expiration_block = ProtoField.new("Expiration Block", "siac.opra.recipient.obi.v6.2.expirationblock", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.expiration_day = ProtoField.new("Expiration Day", "siac.opra.recipient.obi.v6.2.expirationday", ftypes.UINT8)
 omi_siac_opra_recipient_obi_v6_2.fields.expiration_month = ProtoField.new("Expiration Month", "siac.opra.recipient.obi.v6.2.expirationmonth", ftypes.STRING)
@@ -53,14 +56,15 @@ omi_siac_opra_recipient_obi_v6_2.fields.high_price = ProtoField.new("High Price"
 omi_siac_opra_recipient_obi_v6_2.fields.index_value = ProtoField.new("Index Value", "siac.opra.recipient.obi.v6.2.indexvalue", ftypes.INT32)
 omi_siac_opra_recipient_obi_v6_2.fields.index_value_denominator_code = ProtoField.new("Index Value Denominator Code", "siac.opra.recipient.obi.v6.2.indexvaluedenominatorcode", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.last_price = ProtoField.new("Last Price", "siac.opra.recipient.obi.v6.2.lastprice", ftypes.INT32)
-omi_siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote_message = ProtoField.new("Long Equity And Index Quote Message", "siac.opra.recipient.obi.v6.2.longequityandindexquotemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote = ProtoField.new("Long Equity And Index Quote", "siac.opra.recipient.obi.v6.2.longequityandindexquote", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote_message_type = ProtoField.new("Long Equity And Index Quote Message Type", "siac.opra.recipient.obi.v6.2.longequityandindexquotemessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.low_price = ProtoField.new("Low Price", "siac.opra.recipient.obi.v6.2.lowprice", ftypes.INT32)
 omi_siac_opra_recipient_obi_v6_2.fields.message = ProtoField.new("Message", "siac.opra.recipient.obi.v6.2.message", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.message_category = ProtoField.new("Message Category", "siac.opra.recipient.obi.v6.2.messagecategory", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.message_data = ProtoField.new("Message Data", "siac.opra.recipient.obi.v6.2.messagedata", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.message_data_length = ProtoField.new("Message Data Length", "siac.opra.recipient.obi.v6.2.messagedatalength", ftypes.UINT16)
+omi_siac_opra_recipient_obi_v6_2.fields.message_header = ProtoField.new("Message Header", "siac.opra.recipient.obi.v6.2.messageheader", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.message_indicator = ProtoField.new("Message Indicator", "siac.opra.recipient.obi.v6.2.messageindicator", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_2.fields.message_type = ProtoField.new("Message Type", "siac.opra.recipient.obi.v6.2.messagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.opra.recipient.obi.v6.2.messagesinblock", ftypes.UINT8)
 omi_siac_opra_recipient_obi_v6_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.recipient.obi.v6.2.nanoseconds", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_2.fields.net_change = ProtoField.new("Net Change", "siac.opra.recipient.obi.v6.2.netchange", ftypes.INT32)
@@ -69,7 +73,8 @@ omi_siac_opra_recipient_obi_v6_2.fields.offer_price = ProtoField.new("Offer Pric
 omi_siac_opra_recipient_obi_v6_2.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.recipient.obi.v6.2.offerpriceshort", ftypes.DOUBLE)
 omi_siac_opra_recipient_obi_v6_2.fields.offer_size = ProtoField.new("Offer Size", "siac.opra.recipient.obi.v6.2.offersize", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_2.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.opra.recipient.obi.v6.2.offersizeshort", ftypes.UINT16)
-omi_siac_opra_recipient_obi_v6_2.fields.open_interest_message = ProtoField.new("Open Interest Message", "siac.opra.recipient.obi.v6.2.openinterestmessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.open_interest = ProtoField.new("Open Interest", "siac.opra.recipient.obi.v6.2.openinterest", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.open_interest_message_type = ProtoField.new("Open Interest Message Type", "siac.opra.recipient.obi.v6.2.openinterestmessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.recipient.obi.v6.2.openinterestvolume", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_2.fields.open_price = ProtoField.new("Open Price", "siac.opra.recipient.obi.v6.2.openprice", ftypes.INT32)
 omi_siac_opra_recipient_obi_v6_2.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v6.2.packet", ftypes.STRING)
@@ -78,30 +83,31 @@ omi_siac_opra_recipient_obi_v6_2.fields.participant_reference_number = ProtoFiel
 omi_siac_opra_recipient_obi_v6_2.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v6.2.premiumprice", ftypes.INT32)
 omi_siac_opra_recipient_obi_v6_2.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v6.2.premiumpricedenominatorcode", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v6.2.price", ftypes.INT32)
-omi_siac_opra_recipient_obi_v6_2.fields.quote_message_type = ProtoField.new("Quote Message Type", "siac.opra.recipient.obi.v6.2.quotemessagetype", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_2.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.recipient.obi.v6.2.reserved1", ftypes.BYTES)
-omi_siac_opra_recipient_obi_v6_2.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.recipient.obi.v6.2.reserved4", ftypes.BYTES)
+omi_siac_opra_recipient_obi_v6_2.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.recipient.obi.v6.2.reserved1", ftypes.UINT8)
+omi_siac_opra_recipient_obi_v6_2.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.recipient.obi.v6.2.reserved4", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_2.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.recipient.obi.v6.2.retransmissionindicator", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.seconds = ProtoField.new("Seconds", "siac.opra.recipient.obi.v6.2.seconds", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_2.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.recipient.obi.v6.2.securitysymbol", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.recipient.obi.v6.2.securitysymbolshort", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.session_indicator = ProtoField.new("Session Indicator", "siac.opra.recipient.obi.v6.2.sessionindicator", ftypes.UINT8)
-omi_siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message = ProtoField.new("Short Equity And Index Quote Message", "siac.opra.recipient.obi.v6.2.shortequityandindexquotemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote = ProtoField.new("Short Equity And Index Quote", "siac.opra.recipient.obi.v6.2.shortequityandindexquote", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message_type = ProtoField.new("Short Equity And Index Quote Message Type", "siac.opra.recipient.obi.v6.2.shortequityandindexquotemessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.size = ProtoField.new("Size", "siac.opra.recipient.obi.v6.2.size", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_2.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.recipient.obi.v6.2.strikeprice", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_2.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.recipient.obi.v6.2.strikepricedenominatorcode", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.recipient.obi.v6.2.strikepriceshort", ftypes.DOUBLE)
 omi_siac_opra_recipient_obi_v6_2.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.recipient.obi.v6.2.tradeidentifier", ftypes.UINT32)
-omi_siac_opra_recipient_obi_v6_2.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.opra.recipient.obi.v6.2.trademessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.transaction_id = ProtoField.new("Transaction Id", "siac.opra.recipient.obi.v6.2.transactionid", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_2.fields.underlying_price = ProtoField.new("Underlying Price", "siac.opra.recipient.obi.v6.2.underlyingprice", ftypes.INT64)
 omi_siac_opra_recipient_obi_v6_2.fields.underlying_price_denominator_code = ProtoField.new("Underlying Price Denominator Code", "siac.opra.recipient.obi.v6.2.underlyingpricedenominatorcode", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_bid_and_offer_message = ProtoField.new("Underlying Value Bid And Offer Message", "siac.opra.recipient.obi.v6.2.underlyingvaluebidandoffermessage", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_last_sale_message = ProtoField.new("Underlying Value Last Sale Message", "siac.opra.recipient.obi.v6.2.underlyingvaluelastsalemessage", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message = ProtoField.new("Underlying Value Message", "siac.opra.recipient.obi.v6.2.underlyingvaluemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.underlying_value = ProtoField.new("Underlying Value", "siac.opra.recipient.obi.v6.2.underlyingvalue", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message_type = ProtoField.new("Underlying Value Message Type", "siac.opra.recipient.obi.v6.2.underlyingvaluemessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.version = ProtoField.new("Version", "siac.opra.recipient.obi.v6.2.version", ftypes.UINT8)
 omi_siac_opra_recipient_obi_v6_2.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v6.2.volume", ftypes.UINT32)
+
+-- Siac Opra Obi Recipient 6.2 Application Messages
+omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_bid_and_offer_message = ProtoField.new("Underlying Value Bid And Offer Message", "siac.opra.recipient.obi.v6.2.underlyingvaluebidandoffermessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_last_sale_message = ProtoField.new("Underlying Value Last Sale Message", "siac.opra.recipient.obi.v6.2.underlyingvaluelastsalemessage", ftypes.STRING)
 
 -- Siac Opra Recipient Obi 6.2 generated fields
 omi_siac_opra_recipient_obi_v6_2.fields.message_index = ProtoField.new("Message Index", "siac.opra.recipient.obi.v6.2.messageindex", ftypes.UINT16)
@@ -113,52 +119,54 @@ omi_siac_opra_recipient_obi_v6_2.fields.message_index = ProtoField.new("Message 
 local show = {}
 
 -- Siac Opra Recipient Obi 6.2 Element Dissection Options
-show.administrative_message = true
+show.administrative = true
 show.best_bid_and_offer_appendage = true
 show.best_bid_appendage = true
 show.best_offer_appendage = true
 show.block_header = true
 show.block_timestamp = true
-show.control_message = true
-show.equity_and_index_end_of_day_summary_message = true
-show.equity_and_index_last_sale_message = true
+show.control = true
+show.equity_and_index_end_of_day_summary = true
+show.equity_and_index_last_sale = true
 show.expiration_block = true
-show.long_equity_and_index_quote_message = true
+show.long_equity_and_index_quote = true
 show.message = true
-show.open_interest_message = true
+show.message_header = true
+show.open_interest = true
 show.packet = true
-show.short_equity_and_index_quote_message = true
+show.short_equity_and_index_quote = true
+show.underlying_value = true
 show.underlying_value_bid_and_offer_message = true
 show.underlying_value_last_sale_message = true
-show.underlying_value_message = true
 
 -- Register Siac Opra Recipient Obi 6.2 Show Options
-omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_and_offer_appendage = Pref.bool("Show Best Bid And Offer Appendage", show.best_bid_and_offer_appendage, "Parse and add Best Bid And Offer Appendage to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_appendage = Pref.bool("Show Best Bid Appendage", show.best_bid_appendage, "Parse and add Best Bid Appendage to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_best_offer_appendage = Pref.bool("Show Best Offer Appendage", show.best_offer_appendage, "Parse and add Best Offer Appendage to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_block_timestamp = Pref.bool("Show Block Timestamp", show.block_timestamp, "Parse and add Block Timestamp to protocol tree")
-omi_siac_opra_recipient_obi_v6_2.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
-omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary_message = Pref.bool("Show Equity And Index End Of Day Summary Message", show.equity_and_index_end_of_day_summary_message, "Parse and add Equity And Index End Of Day Summary Message to protocol tree")
-omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale_message = Pref.bool("Show Equity And Index Last Sale Message", show.equity_and_index_last_sale_message, "Parse and add Equity And Index Last Sale Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary = Pref.bool("Show Equity And Index End Of Day Summary", show.equity_and_index_end_of_day_summary, "Parse and add Equity And Index End Of Day Summary to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale = Pref.bool("Show Equity And Index Last Sale", show.equity_and_index_last_sale, "Parse and add Equity And Index Last Sale to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_expiration_block = Pref.bool("Show Expiration Block", show.expiration_block, "Parse and add Expiration Block to protocol tree")
-omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote_message = Pref.bool("Show Long Equity And Index Quote Message", show.long_equity_and_index_quote_message, "Parse and add Long Equity And Index Quote Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote = Pref.bool("Show Long Equity And Index Quote", show.long_equity_and_index_quote, "Parse and add Long Equity And Index Quote to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest = Pref.bool("Show Open Interest", show.open_interest, "Parse and add Open Interest to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote_message = Pref.bool("Show Short Equity And Index Quote Message", show.short_equity_and_index_quote_message, "Parse and add Short Equity And Index Quote Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote = Pref.bool("Show Short Equity And Index Quote", show.short_equity_and_index_quote, "Parse and add Short Equity And Index Quote to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value = Pref.bool("Show Underlying Value", show.underlying_value, "Parse and add Underlying Value to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_bid_and_offer_message = Pref.bool("Show Underlying Value Bid And Offer Message", show.underlying_value_bid_and_offer_message, "Parse and add Underlying Value Bid And Offer Message to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_last_sale_message = Pref.bool("Show Underlying Value Last Sale Message", show.underlying_value_last_sale_message, "Parse and add Underlying Value Last Sale Message to protocol tree")
-omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message = Pref.bool("Show Underlying Value Message", show.underlying_value_message, "Parse and add Underlying Value Message to protocol tree")
 
 -- Handle changed preferences
 function omi_siac_opra_recipient_obi_v6_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.administrative_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative_message then
-    show.administrative_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative_message
+  if show.administrative ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative then
+    show.administrative = omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative
     changed = true
   end
   if show.best_bid_and_offer_appendage ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_and_offer_appendage then
@@ -181,40 +189,48 @@ function omi_siac_opra_recipient_obi_v6_2.prefs_changed()
     show.block_timestamp = omi_siac_opra_recipient_obi_v6_2.prefs.show_block_timestamp
     changed = true
   end
-  if show.control_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_control_message then
-    show.control_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_control_message
+  if show.control ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_control then
+    show.control = omi_siac_opra_recipient_obi_v6_2.prefs.show_control
     changed = true
   end
-  if show.equity_and_index_end_of_day_summary_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary_message then
-    show.equity_and_index_end_of_day_summary_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary_message
+  if show.equity_and_index_end_of_day_summary ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary then
+    show.equity_and_index_end_of_day_summary = omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary
     changed = true
   end
-  if show.equity_and_index_last_sale_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale_message then
-    show.equity_and_index_last_sale_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale_message
+  if show.equity_and_index_last_sale ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale then
+    show.equity_and_index_last_sale = omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale
     changed = true
   end
   if show.expiration_block ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_expiration_block then
     show.expiration_block = omi_siac_opra_recipient_obi_v6_2.prefs.show_expiration_block
     changed = true
   end
-  if show.long_equity_and_index_quote_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote_message then
-    show.long_equity_and_index_quote_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote_message
+  if show.long_equity_and_index_quote ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote then
+    show.long_equity_and_index_quote = omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote
     changed = true
   end
   if show.message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_message then
     show.message = omi_siac_opra_recipient_obi_v6_2.prefs.show_message
     changed = true
   end
-  if show.open_interest_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest_message then
-    show.open_interest_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest_message
+  if show.message_header ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_message_header then
+    show.message_header = omi_siac_opra_recipient_obi_v6_2.prefs.show_message_header
+    changed = true
+  end
+  if show.open_interest ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest then
+    show.open_interest = omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest
     changed = true
   end
   if show.packet ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_packet then
     show.packet = omi_siac_opra_recipient_obi_v6_2.prefs.show_packet
     changed = true
   end
-  if show.short_equity_and_index_quote_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote_message then
-    show.short_equity_and_index_quote_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote_message
+  if show.short_equity_and_index_quote ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote then
+    show.short_equity_and_index_quote = omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote
+    changed = true
+  end
+  if show.underlying_value ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value then
+    show.underlying_value = omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value
     changed = true
   end
   if show.underlying_value_bid_and_offer_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_bid_and_offer_message then
@@ -223,10 +239,6 @@ function omi_siac_opra_recipient_obi_v6_2.prefs_changed()
   end
   if show.underlying_value_last_sale_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_last_sale_message then
     show.underlying_value_last_sale_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_last_sale_message
-    changed = true
-  end
-  if show.underlying_value_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message then
-    show.underlying_value_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message
     changed = true
   end
 
@@ -383,7 +395,7 @@ end
 siac_opra_recipient_obi_v6_2.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_recipient_obi_v6_2.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_recipient_obi_v6_2.fields.reserved_1, range, value, display)
@@ -566,7 +578,7 @@ end
 siac_opra_recipient_obi_v6_2.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_recipient_obi_v6_2.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_recipient_obi_v6_2.fields.reserved_4, range, value, display)
@@ -665,13 +677,13 @@ siac_opra_recipient_obi_v6_2.underlying_value_last_sale_message.dissect = functi
   end
 end
 
--- Underlying Value Message Payload
-siac_opra_recipient_obi_v6_2.underlying_value_message_payload = {}
+-- Underlying Value Payload
+siac_opra_recipient_obi_v6_2.underlying_value_payload = {}
 
--- Size: Underlying Value Message Payload
-siac_opra_recipient_obi_v6_2.underlying_value_message_payload.size = function(buffer, offset, underlying_value_message_type)
+-- Size: Underlying Value Payload
+siac_opra_recipient_obi_v6_2.underlying_value_payload.size = function(buffer, offset, underlying_value_message_type)
   -- Size of Underlying Value Last Sale Message
-  if underlying_value_message_type == " " then
+  if underlying_value_message_type == "' '" then
     return siac_opra_recipient_obi_v6_2.underlying_value_last_sale_message.size
   end
   -- Size of Underlying Value Bid And Offer Message
@@ -682,10 +694,10 @@ siac_opra_recipient_obi_v6_2.underlying_value_message_payload.size = function(bu
   return 0
 end
 
--- Dissect Branches: Underlying Value Message Payload
-siac_opra_recipient_obi_v6_2.underlying_value_message_payload.branches = function(buffer, offset, packet, parent, underlying_value_message_type)
+-- Dissect Branches: Underlying Value Payload
+siac_opra_recipient_obi_v6_2.underlying_value_payload.branches = function(buffer, offset, packet, parent, underlying_value_message_type)
   -- Dissect Underlying Value Last Sale Message
-  if underlying_value_message_type == " " then
+  if underlying_value_message_type == "' '" then
     return siac_opra_recipient_obi_v6_2.underlying_value_last_sale_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Value Bid And Offer Message
@@ -696,9 +708,9 @@ siac_opra_recipient_obi_v6_2.underlying_value_message_payload.branches = functio
   return offset
 end
 
--- Dissect: Underlying Value Message Payload
-siac_opra_recipient_obi_v6_2.underlying_value_message_payload.dissect = function(buffer, offset, packet, parent, underlying_value_message_type)
-  return siac_opra_recipient_obi_v6_2.underlying_value_message_payload.branches(buffer, offset, packet, parent, underlying_value_message_type)
+-- Dissect: Underlying Value Payload
+siac_opra_recipient_obi_v6_2.underlying_value_payload.dissect = function(buffer, offset, packet, parent, underlying_value_message_type)
+  return siac_opra_recipient_obi_v6_2.underlying_value_payload.branches(buffer, offset, packet, parent, underlying_value_message_type)
 end
 
 -- Underlying Value Message Type
@@ -710,10 +722,10 @@ siac_opra_recipient_obi_v6_2.underlying_value_message_type.size = 1
 -- Display: Underlying Value Message Type
 siac_opra_recipient_obi_v6_2.underlying_value_message_type.display = function(value)
   if value == " " then
-    return "Underlying Value Message Type: Underlying Value Last Sale Message (<whitespace>)"
+    return "Underlying Value Message Type: Index Based On Last Sale (<whitespace>)"
   end
   if value == "I" then
-    return "Underlying Value Message Type: Underlying Value Bid And Offer Message (I)"
+    return "Underlying Value Message Type: Index Based On Bid And Offer (I)"
   end
 
   return "Underlying Value Message Type: Unknown("..value..")"
@@ -731,315 +743,56 @@ siac_opra_recipient_obi_v6_2.underlying_value_message_type.dissect = function(bu
   return offset + length, value
 end
 
--- Underlying Value Message
-siac_opra_recipient_obi_v6_2.underlying_value_message = {}
+-- Underlying Value
+siac_opra_recipient_obi_v6_2.underlying_value = {}
 
--- Calculate size of: Underlying Value Message
-siac_opra_recipient_obi_v6_2.underlying_value_message.size = function(buffer, offset)
+-- Calculate size of: Underlying Value
+siac_opra_recipient_obi_v6_2.underlying_value.size = function(buffer, offset)
   local index = 0
 
   index = index + siac_opra_recipient_obi_v6_2.underlying_value_message_type.size
 
-  -- Calculate runtime size of Underlying Value Message Payload field
-  local underlying_value_message_payload_offset = offset + index
-  local underlying_value_message_payload_type = buffer(underlying_value_message_payload_offset - 1, 1):string()
-  index = index + siac_opra_recipient_obi_v6_2.underlying_value_message_payload.size(buffer, underlying_value_message_payload_offset, underlying_value_message_payload_type)
+  -- Calculate runtime size of Underlying Value Payload field
+  local underlying_value_payload_offset = offset + index
+  local underlying_value_payload_type = buffer(underlying_value_payload_offset - 1, 1):string()
+  index = index + siac_opra_recipient_obi_v6_2.underlying_value_payload.size(buffer, underlying_value_payload_offset, underlying_value_payload_type)
 
   return index
 end
 
--- Display: Underlying Value Message
-siac_opra_recipient_obi_v6_2.underlying_value_message.display = function(packet, parent, length)
+-- Display: Underlying Value
+siac_opra_recipient_obi_v6_2.underlying_value.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Underlying Value Message
-siac_opra_recipient_obi_v6_2.underlying_value_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Underlying Value
+siac_opra_recipient_obi_v6_2.underlying_value.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Underlying Value Message Type: ASCII character
   index, underlying_value_message_type = siac_opra_recipient_obi_v6_2.underlying_value_message_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Value Message Payload: Runtime Type with 2 branches
-  index = siac_opra_recipient_obi_v6_2.underlying_value_message_payload.dissect(buffer, index, packet, parent, underlying_value_message_type)
+  -- Underlying Value Payload: Runtime Type with 2 branches
+  index = siac_opra_recipient_obi_v6_2.underlying_value_payload.dissect(buffer, index, packet, parent, underlying_value_message_type)
 
   return index
 end
 
--- Dissect: Underlying Value Message
-siac_opra_recipient_obi_v6_2.underlying_value_message.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_value_message then
+-- Dissect: Underlying Value
+siac_opra_recipient_obi_v6_2.underlying_value.dissect = function(buffer, offset, packet, parent)
+  if show.underlying_value then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_2.underlying_value_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_value, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.underlying_value.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_opra_recipient_obi_v6_2.underlying_value_message.display(packet, parent, length)
+    local display = siac_opra_recipient_obi_v6_2.underlying_value.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_2.underlying_value_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Control Message Type
-siac_opra_recipient_obi_v6_2.control_message_type = {}
-
--- Size: Control Message Type
-siac_opra_recipient_obi_v6_2.control_message_type.size = 1
-
--- Display: Control Message Type
-siac_opra_recipient_obi_v6_2.control_message_type.display = function(value)
-  if value == "A" then
-    return "Control Message Type: Start Of Test Cycle (A)"
-  end
-  if value == "B" then
-    return "Control Message Type: End Of Test Cycle (B)"
-  end
-  if value == "C" then
-    return "Control Message Type: Start Of Day (C)"
-  end
-  if value == "D" then
-    return "Control Message Type: Good Morning (D)"
-  end
-  if value == "E" then
-    return "Control Message Type: Start Of Summary (E)"
-  end
-  if value == "F" then
-    return "Control Message Type: End Of Summary (F)"
-  end
-  if value == "G" then
-    return "Control Message Type: Early Market Close (G)"
-  end
-  if value == "H" then
-    return "Control Message Type: End Of Transaction Reporting (H)"
-  end
-  if value == "I" then
-    return "Control Message Type: Good Night (I)"
-  end
-  if value == "J" then
-    return "Control Message Type: End Of Day (J)"
-  end
-  if value == "K" then
-    return "Control Message Type: Reset Block Sequence Number (K)"
-  end
-  if value == "L" then
-    return "Control Message Type: Start Of Open Interest (L)"
-  end
-  if value == "M" then
-    return "Control Message Type: End Of Open Interest (M)"
-  end
-  if value == "N" then
-    return "Control Message Type: Line Integrity (N)"
-  end
-  if value == "P" then
-    return "Control Message Type: Disaster Recovery Data Center Activation (P)"
-  end
-
-  return "Control Message Type: Unknown("..value..")"
-end
-
--- Dissect: Control Message Type
-siac_opra_recipient_obi_v6_2.control_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_opra_recipient_obi_v6_2.control_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_opra_recipient_obi_v6_2.control_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.control_message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Control Message
-siac_opra_recipient_obi_v6_2.control_message = {}
-
--- Size: Control Message
-siac_opra_recipient_obi_v6_2.control_message.size =
-  siac_opra_recipient_obi_v6_2.control_message_type.size + 
-  siac_opra_recipient_obi_v6_2.message_indicator.size + 
-  siac_opra_recipient_obi_v6_2.transaction_id.size + 
-  siac_opra_recipient_obi_v6_2.participant_reference_number.size
-
--- Display: Control Message
-siac_opra_recipient_obi_v6_2.control_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Control Message
-siac_opra_recipient_obi_v6_2.control_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Control Message Type: ASCII character
-  index, control_message_type = siac_opra_recipient_obi_v6_2.control_message_type.dissect(buffer, index, packet, parent)
-
-  -- Message Indicator: ASCII character
-  index, message_indicator = siac_opra_recipient_obi_v6_2.message_indicator.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: unsigned integer
-  index, transaction_id = siac_opra_recipient_obi_v6_2.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: unsigned integer
-  index, participant_reference_number = siac_opra_recipient_obi_v6_2.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Control Message
-siac_opra_recipient_obi_v6_2.control_message.dissect = function(buffer, offset, packet, parent)
-  if show.control_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.control_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_2.control_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_opra_recipient_obi_v6_2.control_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_2.control_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Message Data
-siac_opra_recipient_obi_v6_2.message_data = {}
-
--- Display: Message Data
-siac_opra_recipient_obi_v6_2.message_data.display = function(value)
-  return "Message Data: "..value
-end
-
--- Dissect runtime sized field: Message Data
-siac_opra_recipient_obi_v6_2.message_data.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = siac_opra_recipient_obi_v6_2.message_data.display(value, packet, parent, size)
-
-  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_data, range, value, display)
-
-  return offset + size, value
-end
-
--- Message Data Length
-siac_opra_recipient_obi_v6_2.message_data_length = {}
-
--- Size: Message Data Length
-siac_opra_recipient_obi_v6_2.message_data_length.size = 2
-
--- Display: Message Data Length
-siac_opra_recipient_obi_v6_2.message_data_length.display = function(value)
-  return "Message Data Length: "..value
-end
-
--- Dissect: Message Data Length
-siac_opra_recipient_obi_v6_2.message_data_length.dissect = function(buffer, offset, packet, parent)
-  local length = siac_opra_recipient_obi_v6_2.message_data_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_opra_recipient_obi_v6_2.message_data_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_data_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-siac_opra_recipient_obi_v6_2.message_type = {}
-
--- Size: Message Type
-siac_opra_recipient_obi_v6_2.message_type.size = 1
-
--- Display: Message Type
-siac_opra_recipient_obi_v6_2.message_type.display = function(value)
-  return "Message Type: "..value
-end
-
--- Dissect: Message Type
-siac_opra_recipient_obi_v6_2.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_opra_recipient_obi_v6_2.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_opra_recipient_obi_v6_2.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Administrative Message
-siac_opra_recipient_obi_v6_2.administrative_message = {}
-
--- Read runtime size of: Administrative Message
-siac_opra_recipient_obi_v6_2.administrative_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Data Length
-  local message_data_length = buffer(offset + 10, 2):uint()
-
-  return message_data_length + 12
-end
-
--- Display: Administrative Message
-siac_opra_recipient_obi_v6_2.administrative_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Administrative Message
-siac_opra_recipient_obi_v6_2.administrative_message.fields = function(buffer, offset, packet, parent, size_of_administrative_message)
-  local index = offset
-
-  -- Message Type: ASCII character
-  index, message_type = siac_opra_recipient_obi_v6_2.message_type.dissect(buffer, index, packet, parent)
-
-  -- Message Indicator: ASCII character
-  index, message_indicator = siac_opra_recipient_obi_v6_2.message_indicator.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: unsigned integer
-  index, transaction_id = siac_opra_recipient_obi_v6_2.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: unsigned integer
-  index, participant_reference_number = siac_opra_recipient_obi_v6_2.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  -- Message Data Length: unsigned integer
-  index, message_data_length = siac_opra_recipient_obi_v6_2.message_data_length.dissect(buffer, index, packet, parent)
-
-  -- Runtime optional field: Message Data
-  local message_data = nil
-
-  local message_data_exists = message_data_length > 0
-
-  if message_data_exists then
-
-    -- Runtime Size Of: Message Data
-    index, message_data = siac_opra_recipient_obi_v6_2.message_data.dissect(buffer, index, packet, parent, message_data_length)
-  end
-
-  return index
-end
-
--- Dissect: Administrative Message
-siac_opra_recipient_obi_v6_2.administrative_message.dissect = function(buffer, offset, packet, parent, size_of_administrative_message)
-  local size_of_administrative_message = siac_opra_recipient_obi_v6_2.administrative_message.size(buffer, offset)
-  local index = offset + size_of_administrative_message
-
-  -- Optionally add group/struct element to protocol tree
-  if show.administrative_message then
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.administrative_message, buffer(offset, 0))
-    local current = siac_opra_recipient_obi_v6_2.administrative_message.fields(buffer, offset, packet, parent, size_of_administrative_message)
-    parent:set_len(size_of_administrative_message)
-    local display = siac_opra_recipient_obi_v6_2.administrative_message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    siac_opra_recipient_obi_v6_2.administrative_message.fields(buffer, offset, packet, parent, size_of_administrative_message)
-
-    return index
+    return siac_opra_recipient_obi_v6_2.underlying_value.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1158,6 +911,9 @@ siac_opra_recipient_obi_v6_2.participant_id.display = function(value)
   end
   if value == "Q" then
     return "Participant Id: Nasd (Q)"
+  end
+  if value == "S" then
+    return "Participant Id: Sphr (S)"
   end
   if value == "T" then
     return "Participant Id: Bx (T)"
@@ -1715,71 +1471,71 @@ siac_opra_recipient_obi_v6_2.bbo_indicator.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Quote Message Type
-siac_opra_recipient_obi_v6_2.quote_message_type = {}
+-- Short Equity And Index Quote Message Type
+siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message_type = {}
 
--- Size: Quote Message Type
-siac_opra_recipient_obi_v6_2.quote_message_type.size = 1
+-- Size: Short Equity And Index Quote Message Type
+siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message_type.size = 1
 
--- Display: Quote Message Type
-siac_opra_recipient_obi_v6_2.quote_message_type.display = function(value)
+-- Display: Short Equity And Index Quote Message Type
+siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message_type.display = function(value)
   if value == " " then
-    return "Quote Message Type: Regular Trading (<whitespace>)"
+    return "Short Equity And Index Quote Message Type: Regular Trading (<whitespace>)"
   end
   if value == "F" then
-    return "Quote Message Type: Non Firm Quote (F)"
+    return "Short Equity And Index Quote Message Type: Non Firm Quote (F)"
   end
   if value == "I" then
-    return "Quote Message Type: Indicative Value (I)"
+    return "Short Equity And Index Quote Message Type: Indicative Value (I)"
   end
   if value == "R" then
-    return "Quote Message Type: Rotation (R)"
+    return "Short Equity And Index Quote Message Type: Rotation (R)"
   end
   if value == "T" then
-    return "Quote Message Type: Trading Halted (T)"
+    return "Short Equity And Index Quote Message Type: Trading Halted (T)"
   end
   if value == "A" then
-    return "Quote Message Type: Eligible For Automatic Execution (A)"
+    return "Short Equity And Index Quote Message Type: Eligible For Automatic Execution (A)"
   end
   if value == "B" then
-    return "Quote Message Type: Bid Contains Customer Trading Interest (B)"
+    return "Short Equity And Index Quote Message Type: Bid Contains Customer Trading Interest (B)"
   end
   if value == "O" then
-    return "Quote Message Type: Offer Contains Customer Trading Interest (O)"
+    return "Short Equity And Index Quote Message Type: Offer Contains Customer Trading Interest (O)"
   end
   if value == "C" then
-    return "Quote Message Type: Both Bid And Offer Contain Customer Trading Interest (C)"
+    return "Short Equity And Index Quote Message Type: Both Bid And Offer Contain Customer Trading Interest (C)"
   end
   if value == "X" then
-    return "Quote Message Type: Offer Side Of Quote Not Firm Bid Side Firm (X)"
+    return "Short Equity And Index Quote Message Type: Offer Side Of Quote Not Firm Bid Side Firm (X)"
   end
   if value == "Y" then
-    return "Quote Message Type: Bid Side Of Quote Not Firm Offer Side Firm (Y)"
+    return "Short Equity And Index Quote Message Type: Bid Side Of Quote Not Firm Offer Side Firm (Y)"
   end
 
-  return "Quote Message Type: Unknown("..value..")"
+  return "Short Equity And Index Quote Message Type: Unknown("..value..")"
 end
 
--- Dissect: Quote Message Type
-siac_opra_recipient_obi_v6_2.quote_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_opra_recipient_obi_v6_2.quote_message_type.size
+-- Dissect: Short Equity And Index Quote Message Type
+siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_opra_recipient_obi_v6_2.quote_message_type.display(value, buffer, offset, packet, parent)
+  local display = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.quote_message_type, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message_type, range, value, display)
 
   return offset + length, value
 end
 
--- Short Equity And Index Quote Message
-siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message = {}
+-- Short Equity And Index Quote
+siac_opra_recipient_obi_v6_2.short_equity_and_index_quote = {}
 
--- Calculate size of: Short Equity And Index Quote Message
-siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.size = function(buffer, offset)
+-- Calculate size of: Short Equity And Index Quote
+siac_opra_recipient_obi_v6_2.short_equity_and_index_quote.size = function(buffer, offset)
   local index = 0
 
-  index = index + siac_opra_recipient_obi_v6_2.quote_message_type.size
+  index = index + siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message_type.size
 
   index = index + siac_opra_recipient_obi_v6_2.bbo_indicator.size
 
@@ -1818,17 +1574,17 @@ siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.size = functio
   return index
 end
 
--- Display: Short Equity And Index Quote Message
-siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.display = function(packet, parent, length)
-  return ""
+-- Display: Short Equity And Index Quote
+siac_opra_recipient_obi_v6_2.short_equity_and_index_quote.display = function(buffer, offset, value, packet, parent)
+  return ""..value
 end
 
--- Dissect Fields: Short Equity And Index Quote Message
-siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Short Equity And Index Quote
+siac_opra_recipient_obi_v6_2.short_equity_and_index_quote.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Message Type: ASCII character
-  index, quote_message_type = siac_opra_recipient_obi_v6_2.quote_message_type.dissect(buffer, index, packet, parent)
+  -- Short Equity And Index Quote Message Type: ASCII character
+  index, short_equity_and_index_quote_message_type = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message_type.dissect(buffer, index, packet, parent)
 
   -- Bbo Indicator: alphabetic
   index, bbo_indicator = siac_opra_recipient_obi_v6_2.bbo_indicator.dissect(buffer, index, packet, parent)
@@ -1881,21 +1637,21 @@ siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.fields = funct
   return index
 end
 
--- Dissect: Short Equity And Index Quote Message
-siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.short_equity_and_index_quote_message then
+-- Dissect: Short Equity And Index Quote
+siac_opra_recipient_obi_v6_2.short_equity_and_index_quote.dissect = function(buffer, offset, packet, parent)
+  if show.short_equity_and_index_quote then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.display(packet, parent, length)
+    local display = siac_opra_recipient_obi_v6_2.short_equity_and_index_quote.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, parent
+    return index, value
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.fields(buffer, offset, packet, parent)
+    return siac_opra_recipient_obi_v6_2.short_equity_and_index_quote.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2516,14 +2272,71 @@ siac_opra_recipient_obi_v6_2.strike_price_denominator_code.dissect = function(bu
   return offset + length, value
 end
 
--- Long Equity And Index Quote Message
-siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message = {}
+-- Long Equity And Index Quote Message Type
+siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message_type = {}
 
--- Calculate size of: Long Equity And Index Quote Message
-siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.size = function(buffer, offset)
+-- Size: Long Equity And Index Quote Message Type
+siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message_type.size = 1
+
+-- Display: Long Equity And Index Quote Message Type
+siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message_type.display = function(value)
+  if value == " " then
+    return "Long Equity And Index Quote Message Type: Regular Trading (<whitespace>)"
+  end
+  if value == "F" then
+    return "Long Equity And Index Quote Message Type: Non Firm Quote (F)"
+  end
+  if value == "I" then
+    return "Long Equity And Index Quote Message Type: Indicative Value (I)"
+  end
+  if value == "R" then
+    return "Long Equity And Index Quote Message Type: Rotation (R)"
+  end
+  if value == "T" then
+    return "Long Equity And Index Quote Message Type: Trading Halted (T)"
+  end
+  if value == "A" then
+    return "Long Equity And Index Quote Message Type: Eligible For Automatic Execution (A)"
+  end
+  if value == "B" then
+    return "Long Equity And Index Quote Message Type: Bid Contains Customer Trading Interest (B)"
+  end
+  if value == "O" then
+    return "Long Equity And Index Quote Message Type: Offer Contains Customer Trading Interest (O)"
+  end
+  if value == "C" then
+    return "Long Equity And Index Quote Message Type: Both Bid And Offer Contain Customer Trading Interest (C)"
+  end
+  if value == "X" then
+    return "Long Equity And Index Quote Message Type: Offer Side Of Quote Not Firm Bid Side Firm (X)"
+  end
+  if value == "Y" then
+    return "Long Equity And Index Quote Message Type: Bid Side Of Quote Not Firm Offer Side Firm (Y)"
+  end
+
+  return "Long Equity And Index Quote Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Long Equity And Index Quote Message Type
+siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Long Equity And Index Quote
+siac_opra_recipient_obi_v6_2.long_equity_and_index_quote = {}
+
+-- Calculate size of: Long Equity And Index Quote
+siac_opra_recipient_obi_v6_2.long_equity_and_index_quote.size = function(buffer, offset)
   local index = 0
 
-  index = index + siac_opra_recipient_obi_v6_2.quote_message_type.size
+  index = index + siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message_type.size
 
   index = index + siac_opra_recipient_obi_v6_2.bbo_indicator.size
 
@@ -2575,17 +2388,17 @@ siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.size = function
   return index
 end
 
--- Display: Long Equity And Index Quote Message
-siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.display = function(packet, parent, length)
-  return ""
+-- Display: Long Equity And Index Quote
+siac_opra_recipient_obi_v6_2.long_equity_and_index_quote.display = function(buffer, offset, value, packet, parent)
+  return ""..value
 end
 
--- Dissect Fields: Long Equity And Index Quote Message
-siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Equity And Index Quote
+siac_opra_recipient_obi_v6_2.long_equity_and_index_quote.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Message Type: ASCII character
-  index, quote_message_type = siac_opra_recipient_obi_v6_2.quote_message_type.dissect(buffer, index, packet, parent)
+  -- Long Equity And Index Quote Message Type: ASCII character
+  index, long_equity_and_index_quote_message_type = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message_type.dissect(buffer, index, packet, parent)
 
   -- Bbo Indicator: alphabetic
   index, bbo_indicator = siac_opra_recipient_obi_v6_2.bbo_indicator.dissect(buffer, index, packet, parent)
@@ -2656,21 +2469,21 @@ siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.fields = functi
   return index
 end
 
--- Dissect: Long Equity And Index Quote Message
-siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.long_equity_and_index_quote_message then
+-- Dissect: Long Equity And Index Quote
+siac_opra_recipient_obi_v6_2.long_equity_and_index_quote.dissect = function(buffer, offset, packet, parent)
+  if show.long_equity_and_index_quote then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.display(packet, parent, length)
+    local display = siac_opra_recipient_obi_v6_2.long_equity_and_index_quote.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, parent
+    return index, value
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.fields(buffer, offset, packet, parent)
+    return siac_opra_recipient_obi_v6_2.long_equity_and_index_quote.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2909,12 +2722,35 @@ siac_opra_recipient_obi_v6_2.volume.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Equity And Index End Of Day Summary Message
-siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message = {}
+-- Equity And Index End Of Day Summary Message Type
+siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message_type = {}
 
--- Size: Equity And Index End Of Day Summary Message
-siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.size =
-  siac_opra_recipient_obi_v6_2.message_type.size + 
+-- Size: Equity And Index End Of Day Summary Message Type
+siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message_type.size = 1
+
+-- Display: Equity And Index End Of Day Summary Message Type
+siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message_type.display = function(value)
+  return "Equity And Index End Of Day Summary Message Type: "..value
+end
+
+-- Dissect: Equity And Index End Of Day Summary Message Type
+siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Equity And Index End Of Day Summary
+siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary = {}
+
+-- Size: Equity And Index End Of Day Summary
+siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary.size =
+  siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message_type.size + 
   siac_opra_recipient_obi_v6_2.message_indicator.size + 
   siac_opra_recipient_obi_v6_2.transaction_id.size + 
   siac_opra_recipient_obi_v6_2.participant_reference_number.size + 
@@ -2936,17 +2772,17 @@ siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.size =
   siac_opra_recipient_obi_v6_2.bid_price.size + 
   siac_opra_recipient_obi_v6_2.offer_price.size
 
--- Display: Equity And Index End Of Day Summary Message
-siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.display = function(packet, parent, length)
-  return ""
+-- Display: Equity And Index End Of Day Summary
+siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary.display = function(buffer, offset, value, packet, parent)
+  return ""..value
 end
 
--- Dissect Fields: Equity And Index End Of Day Summary Message
-siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Equity And Index End Of Day Summary
+siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Type: ASCII character
-  index, message_type = siac_opra_recipient_obi_v6_2.message_type.dissect(buffer, index, packet, parent)
+  -- Equity And Index End Of Day Summary Message Type: ASCII character
+  index, equity_and_index_end_of_day_summary_message_type = siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message_type.dissect(buffer, index, packet, parent)
 
   -- Message Indicator: ASCII character
   index, message_indicator = siac_opra_recipient_obi_v6_2.message_indicator.dissect(buffer, index, packet, parent)
@@ -3011,30 +2847,53 @@ siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.fields 
   return index
 end
 
--- Dissect: Equity And Index End Of Day Summary Message
-siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.equity_and_index_end_of_day_summary_message then
+-- Dissect: Equity And Index End Of Day Summary
+siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary.dissect = function(buffer, offset, packet, parent)
+  if show.equity_and_index_end_of_day_summary then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.display(packet, parent, length)
+    local display = siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, parent
+    return index, value
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.fields(buffer, offset, packet, parent)
+    return siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary.fields(buffer, offset, packet, parent)
   end
 end
 
--- Open Interest Message
-siac_opra_recipient_obi_v6_2.open_interest_message = {}
+-- Open Interest Message Type
+siac_opra_recipient_obi_v6_2.open_interest_message_type = {}
 
--- Size: Open Interest Message
-siac_opra_recipient_obi_v6_2.open_interest_message.size =
-  siac_opra_recipient_obi_v6_2.message_type.size + 
+-- Size: Open Interest Message Type
+siac_opra_recipient_obi_v6_2.open_interest_message_type.size = 1
+
+-- Display: Open Interest Message Type
+siac_opra_recipient_obi_v6_2.open_interest_message_type.display = function(value)
+  return "Open Interest Message Type: "..value
+end
+
+-- Dissect: Open Interest Message Type
+siac_opra_recipient_obi_v6_2.open_interest_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_2.open_interest_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_opra_recipient_obi_v6_2.open_interest_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.open_interest_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest
+siac_opra_recipient_obi_v6_2.open_interest = {}
+
+-- Size: Open Interest
+siac_opra_recipient_obi_v6_2.open_interest.size =
+  siac_opra_recipient_obi_v6_2.open_interest_message_type.size + 
   siac_opra_recipient_obi_v6_2.message_indicator.size + 
   siac_opra_recipient_obi_v6_2.transaction_id.size + 
   siac_opra_recipient_obi_v6_2.participant_reference_number.size + 
@@ -3045,17 +2904,17 @@ siac_opra_recipient_obi_v6_2.open_interest_message.size =
   siac_opra_recipient_obi_v6_2.strike_price.size + 
   siac_opra_recipient_obi_v6_2.open_interest_volume.size
 
--- Display: Open Interest Message
-siac_opra_recipient_obi_v6_2.open_interest_message.display = function(packet, parent, length)
-  return ""
+-- Display: Open Interest
+siac_opra_recipient_obi_v6_2.open_interest.display = function(buffer, offset, value, packet, parent)
+  return ""..value
 end
 
--- Dissect Fields: Open Interest Message
-siac_opra_recipient_obi_v6_2.open_interest_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Open Interest
+siac_opra_recipient_obi_v6_2.open_interest.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Type: ASCII character
-  index, message_type = siac_opra_recipient_obi_v6_2.message_type.dissect(buffer, index, packet, parent)
+  -- Open Interest Message Type: ASCII character
+  index, open_interest_message_type = siac_opra_recipient_obi_v6_2.open_interest_message_type.dissect(buffer, index, packet, parent)
 
   -- Message Indicator: ASCII character
   index, message_indicator = siac_opra_recipient_obi_v6_2.message_indicator.dissect(buffer, index, packet, parent)
@@ -3087,21 +2946,21 @@ siac_opra_recipient_obi_v6_2.open_interest_message.fields = function(buffer, off
   return index
 end
 
--- Dissect: Open Interest Message
-siac_opra_recipient_obi_v6_2.open_interest_message.dissect = function(buffer, offset, packet, parent)
-  if show.open_interest_message then
+-- Dissect: Open Interest
+siac_opra_recipient_obi_v6_2.open_interest.dissect = function(buffer, offset, packet, parent)
+  if show.open_interest then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.open_interest_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_2.open_interest_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.open_interest, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.open_interest.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_opra_recipient_obi_v6_2.open_interest_message.display(packet, parent, length)
+    local display = siac_opra_recipient_obi_v6_2.open_interest.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, parent
+    return index, value
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_2.open_interest_message.fields(buffer, offset, packet, parent)
+    return siac_opra_recipient_obi_v6_2.open_interest.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3151,102 +3010,99 @@ siac_opra_recipient_obi_v6_2.premium_price.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Trade Message Type
-siac_opra_recipient_obi_v6_2.trade_message_type = {}
+-- Equity And Index Last Sale Message Type
+siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message_type = {}
 
--- Size: Trade Message Type
-siac_opra_recipient_obi_v6_2.trade_message_type.size = 1
+-- Size: Equity And Index Last Sale Message Type
+siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message_type.size = 1
 
--- Display: Trade Message Type
-siac_opra_recipient_obi_v6_2.trade_message_type.display = function(value)
-  if value == " " then
-    return "Trade Message Type: Regular (<whitespace>)"
-  end
+-- Display: Equity And Index Last Sale Message Type
+siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message_type.display = function(value)
   if value == "A" then
-    return "Trade Message Type: Canc (A)"
+    return "Equity And Index Last Sale Message Type: Canc (A)"
   end
   if value == "B" then
-    return "Trade Message Type: Oseq (B)"
+    return "Equity And Index Last Sale Message Type: Oseq (B)"
   end
   if value == "C" then
-    return "Trade Message Type: Cncl (C)"
+    return "Equity And Index Last Sale Message Type: Cncl (C)"
   end
   if value == "D" then
-    return "Trade Message Type: Late (D)"
+    return "Equity And Index Last Sale Message Type: Late (D)"
   end
   if value == "E" then
-    return "Trade Message Type: Cnco (E)"
+    return "Equity And Index Last Sale Message Type: Cnco (E)"
   end
   if value == "F" then
-    return "Trade Message Type: Open (F)"
+    return "Equity And Index Last Sale Message Type: Open (F)"
   end
   if value == "G" then
-    return "Trade Message Type: Cnol (G)"
+    return "Equity And Index Last Sale Message Type: Cnol (G)"
   end
   if value == "H" then
-    return "Trade Message Type: Opnl (H)"
+    return "Equity And Index Last Sale Message Type: Opnl (H)"
   end
   if value == "I" then
-    return "Trade Message Type: Auto (I)"
+    return "Equity And Index Last Sale Message Type: Auto (I)"
   end
   if value == "J" then
-    return "Trade Message Type: Reop (J)"
+    return "Equity And Index Last Sale Message Type: Reop (J)"
   end
   if value == "K" then
-    return "Trade Message Type: Ajst (K)"
+    return "Equity And Index Last Sale Message Type: Ajst (K)"
   end
   if value == "L" then
-    return "Trade Message Type: Sprd (L)"
+    return "Equity And Index Last Sale Message Type: Sprd (L)"
   end
   if value == "M" then
-    return "Trade Message Type: Stdl (M)"
+    return "Equity And Index Last Sale Message Type: Stdl (M)"
   end
   if value == "N" then
-    return "Trade Message Type: Stpd (N)"
+    return "Equity And Index Last Sale Message Type: Stpd (N)"
   end
   if value == "O" then
-    return "Trade Message Type: Cstp (O)"
+    return "Equity And Index Last Sale Message Type: Cstp (O)"
   end
   if value == "P" then
-    return "Trade Message Type: Bwrt (P)"
+    return "Equity And Index Last Sale Message Type: Bwrt (P)"
   end
   if value == "Q" then
-    return "Trade Message Type: Cmbo (Q)"
+    return "Equity And Index Last Sale Message Type: Cmbo (Q)"
   end
   if value == "R" then
-    return "Trade Message Type: Spim (R)"
+    return "Equity And Index Last Sale Message Type: Spim (R)"
   end
   if value == "S" then
-    return "Trade Message Type: Isoi (S)"
+    return "Equity And Index Last Sale Message Type: Isoi (S)"
   end
   if value == "T" then
-    return "Trade Message Type: Bnmt (T)"
+    return "Equity And Index Last Sale Message Type: Bnmt (T)"
   end
   if value == "X" then
-    return "Trade Message Type: Xmpt (X)"
+    return "Equity And Index Last Sale Message Type: Xmpt (X)"
   end
 
-  return "Trade Message Type: Unknown("..value..")"
+  return "Equity And Index Last Sale Message Type: Unknown("..value..")"
 end
 
--- Dissect: Trade Message Type
-siac_opra_recipient_obi_v6_2.trade_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_opra_recipient_obi_v6_2.trade_message_type.size
+-- Dissect: Equity And Index Last Sale Message Type
+siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_opra_recipient_obi_v6_2.trade_message_type.display(value, buffer, offset, packet, parent)
+  local display = siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.trade_message_type, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_last_sale_message_type, range, value, display)
 
   return offset + length, value
 end
 
--- Equity And Index Last Sale Message
-siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message = {}
+-- Equity And Index Last Sale
+siac_opra_recipient_obi_v6_2.equity_and_index_last_sale = {}
 
--- Size: Equity And Index Last Sale Message
-siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.size =
-  siac_opra_recipient_obi_v6_2.trade_message_type.size + 
+-- Size: Equity And Index Last Sale
+siac_opra_recipient_obi_v6_2.equity_and_index_last_sale.size =
+  siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message_type.size + 
   siac_opra_recipient_obi_v6_2.message_indicator.size + 
   siac_opra_recipient_obi_v6_2.transaction_id.size + 
   siac_opra_recipient_obi_v6_2.participant_reference_number.size + 
@@ -3261,17 +3117,17 @@ siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.size =
   siac_opra_recipient_obi_v6_2.trade_identifier.size + 
   siac_opra_recipient_obi_v6_2.reserved_4.size
 
--- Display: Equity And Index Last Sale Message
-siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.display = function(packet, parent, length)
-  return ""
+-- Display: Equity And Index Last Sale
+siac_opra_recipient_obi_v6_2.equity_and_index_last_sale.display = function(buffer, offset, value, packet, parent)
+  return ""..value
 end
 
--- Dissect Fields: Equity And Index Last Sale Message
-siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Equity And Index Last Sale
+siac_opra_recipient_obi_v6_2.equity_and_index_last_sale.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trade Message Type: ASCII character
-  index, trade_message_type = siac_opra_recipient_obi_v6_2.trade_message_type.dissect(buffer, index, packet, parent)
+  -- Equity And Index Last Sale Message Type: ASCII character
+  index, equity_and_index_last_sale_message_type = siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message_type.dissect(buffer, index, packet, parent)
 
   -- Message Indicator: ASCII character
   index, message_indicator = siac_opra_recipient_obi_v6_2.message_indicator.dissect(buffer, index, packet, parent)
@@ -3315,21 +3171,273 @@ siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.fields = functio
   return index
 end
 
--- Dissect: Equity And Index Last Sale Message
-siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.dissect = function(buffer, offset, packet, parent)
-  if show.equity_and_index_last_sale_message then
+-- Dissect: Equity And Index Last Sale
+siac_opra_recipient_obi_v6_2.equity_and_index_last_sale.dissect = function(buffer, offset, packet, parent)
+  if show.equity_and_index_last_sale then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_last_sale_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_last_sale, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.equity_and_index_last_sale.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.display(packet, parent, length)
+    local display = siac_opra_recipient_obi_v6_2.equity_and_index_last_sale.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, parent
+    return index, value
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.fields(buffer, offset, packet, parent)
+    return siac_opra_recipient_obi_v6_2.equity_and_index_last_sale.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Control Message Type
+siac_opra_recipient_obi_v6_2.control_message_type = {}
+
+-- Size: Control Message Type
+siac_opra_recipient_obi_v6_2.control_message_type.size = 1
+
+-- Display: Control Message Type
+siac_opra_recipient_obi_v6_2.control_message_type.display = function(value)
+  if value == "C" then
+    return "Control Message Type: Start Of Day (C)"
+  end
+  if value == "E" then
+    return "Control Message Type: Start Of Summary (E)"
+  end
+  if value == "F" then
+    return "Control Message Type: End Of Summary (F)"
+  end
+  if value == "J" then
+    return "Control Message Type: End Of Day (J)"
+  end
+  if value == "K" then
+    return "Control Message Type: Reset Block Sequence Number (K)"
+  end
+  if value == "L" then
+    return "Control Message Type: Start Of Open Interest (L)"
+  end
+  if value == "M" then
+    return "Control Message Type: End Of Open Interest (M)"
+  end
+  if value == "N" then
+    return "Control Message Type: Line Integrity (N)"
+  end
+  if value == "P" then
+    return "Control Message Type: Disaster Recovery Data Center Activation (P)"
+  end
+
+  return "Control Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Control Message Type
+siac_opra_recipient_obi_v6_2.control_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_2.control_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_opra_recipient_obi_v6_2.control_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.control_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Control
+siac_opra_recipient_obi_v6_2.control = {}
+
+-- Size: Control
+siac_opra_recipient_obi_v6_2.control.size =
+  siac_opra_recipient_obi_v6_2.control_message_type.size + 
+  siac_opra_recipient_obi_v6_2.message_indicator.size + 
+  siac_opra_recipient_obi_v6_2.transaction_id.size + 
+  siac_opra_recipient_obi_v6_2.participant_reference_number.size
+
+-- Display: Control
+siac_opra_recipient_obi_v6_2.control.display = function(buffer, offset, value, packet, parent)
+  return ""..value
+end
+
+-- Dissect Fields: Control
+siac_opra_recipient_obi_v6_2.control.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Control Message Type: 1 Byte Ascii String Enum with 9 values
+  index, control_message_type = siac_opra_recipient_obi_v6_2.control_message_type.dissect(buffer, index, packet, parent)
+
+  -- Message Indicator: ASCII character
+  index, message_indicator = siac_opra_recipient_obi_v6_2.message_indicator.dissect(buffer, index, packet, parent)
+
+  -- Transaction Id: unsigned integer
+  index, transaction_id = siac_opra_recipient_obi_v6_2.transaction_id.dissect(buffer, index, packet, parent)
+
+  -- Participant Reference Number: unsigned integer
+  index, participant_reference_number = siac_opra_recipient_obi_v6_2.participant_reference_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Control
+siac_opra_recipient_obi_v6_2.control.dissect = function(buffer, offset, packet, parent)
+  if show.control then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.control, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.control.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_opra_recipient_obi_v6_2.control.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return siac_opra_recipient_obi_v6_2.control.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message Data
+siac_opra_recipient_obi_v6_2.message_data = {}
+
+-- Display: Message Data
+siac_opra_recipient_obi_v6_2.message_data.display = function(value)
+  return "Message Data: "..value
+end
+
+-- Dissect runtime sized field: Message Data
+siac_opra_recipient_obi_v6_2.message_data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = siac_opra_recipient_obi_v6_2.message_data.display(value, packet, parent, size)
+
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_data, range, value, display)
+
+  return offset + size, value
+end
+
+-- Message Data Length
+siac_opra_recipient_obi_v6_2.message_data_length = {}
+
+-- Size: Message Data Length
+siac_opra_recipient_obi_v6_2.message_data_length.size = 2
+
+-- Display: Message Data Length
+siac_opra_recipient_obi_v6_2.message_data_length.display = function(value)
+  return "Message Data Length: "..value
+end
+
+-- Dissect: Message Data Length
+siac_opra_recipient_obi_v6_2.message_data_length.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_2.message_data_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_opra_recipient_obi_v6_2.message_data_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_data_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Administrative Message Type
+siac_opra_recipient_obi_v6_2.administrative_message_type = {}
+
+-- Size: Administrative Message Type
+siac_opra_recipient_obi_v6_2.administrative_message_type.size = 1
+
+-- Display: Administrative Message Type
+siac_opra_recipient_obi_v6_2.administrative_message_type.display = function(value)
+  return "Administrative Message Type: "..value
+end
+
+-- Dissect: Administrative Message Type
+siac_opra_recipient_obi_v6_2.administrative_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_2.administrative_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_opra_recipient_obi_v6_2.administrative_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.administrative_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Administrative
+siac_opra_recipient_obi_v6_2.administrative = {}
+
+-- Calculate size of: Administrative
+siac_opra_recipient_obi_v6_2.administrative.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_opra_recipient_obi_v6_2.administrative_message_type.size
+
+  index = index + siac_opra_recipient_obi_v6_2.message_indicator.size
+
+  index = index + siac_opra_recipient_obi_v6_2.transaction_id.size
+
+  index = index + siac_opra_recipient_obi_v6_2.participant_reference_number.size
+
+  index = index + siac_opra_recipient_obi_v6_2.message_data_length.size
+
+  local message_data_length = buffer(offset + index - 2, 2):uint()
+
+  if message_data_length > 0 then
+    -- Parse runtime size of: Message Data
+    index = index + buffer(offset + index - 2, 2):uint()
+
+  end
+
+  return index
+end
+
+-- Display: Administrative
+siac_opra_recipient_obi_v6_2.administrative.display = function(buffer, offset, value, packet, parent)
+  return ""..value
+end
+
+-- Dissect Fields: Administrative
+siac_opra_recipient_obi_v6_2.administrative.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Administrative Message Type: ASCII character
+  index, administrative_message_type = siac_opra_recipient_obi_v6_2.administrative_message_type.dissect(buffer, index, packet, parent)
+
+  -- Message Indicator: ASCII character
+  index, message_indicator = siac_opra_recipient_obi_v6_2.message_indicator.dissect(buffer, index, packet, parent)
+
+  -- Transaction Id: unsigned integer
+  index, transaction_id = siac_opra_recipient_obi_v6_2.transaction_id.dissect(buffer, index, packet, parent)
+
+  -- Participant Reference Number: unsigned integer
+  index, participant_reference_number = siac_opra_recipient_obi_v6_2.participant_reference_number.dissect(buffer, index, packet, parent)
+
+  -- Message Data Length: unsigned integer
+  index, message_data_length = siac_opra_recipient_obi_v6_2.message_data_length.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Message Data
+  local message_data = nil
+
+  local message_data_exists = message_data_length > 0
+
+  if message_data_exists then
+
+    -- Runtime Size Of: Message Data
+    index, message_data = siac_opra_recipient_obi_v6_2.message_data.dissect(buffer, index, packet, parent, message_data_length)
+  end
+
+  return index
+end
+
+-- Dissect: Administrative
+siac_opra_recipient_obi_v6_2.administrative.dissect = function(buffer, offset, packet, parent)
+  if show.administrative then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.administrative, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.administrative.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_opra_recipient_obi_v6_2.administrative.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return siac_opra_recipient_obi_v6_2.administrative.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3338,37 +3446,37 @@ siac_opra_recipient_obi_v6_2.payload = {}
 
 -- Size: Payload
 siac_opra_recipient_obi_v6_2.payload.size = function(buffer, offset, message_category)
-  -- Size of Equity And Index Last Sale Message
-  if message_category == "a" then
-    return siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.size
-  end
-  -- Size of Open Interest Message
-  if message_category == "d" then
-    return siac_opra_recipient_obi_v6_2.open_interest_message.size
-  end
-  -- Size of Equity And Index End Of Day Summary Message
-  if message_category == "f" then
-    return siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.size
-  end
-  -- Size of Long Equity And Index Quote Message
-  if message_category == "k" then
-    return siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.size(buffer, offset)
-  end
-  -- Size of Short Equity And Index Quote Message
-  if message_category == "q" then
-    return siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.size(buffer, offset)
-  end
-  -- Size of Administrative Message
+  -- Size of Administrative
   if message_category == "C" then
-    return siac_opra_recipient_obi_v6_2.administrative_message.size(buffer, offset)
+    return siac_opra_recipient_obi_v6_2.administrative.size(buffer, offset)
   end
-  -- Size of Control Message
+  -- Size of Control
   if message_category == "H" then
-    return siac_opra_recipient_obi_v6_2.control_message.size
+    return siac_opra_recipient_obi_v6_2.control.size
   end
-  -- Size of Underlying Value Message
+  -- Size of Equity And Index Last Sale
+  if message_category == "a" then
+    return siac_opra_recipient_obi_v6_2.equity_and_index_last_sale.size
+  end
+  -- Size of Open Interest
+  if message_category == "d" then
+    return siac_opra_recipient_obi_v6_2.open_interest.size
+  end
+  -- Size of Equity And Index End Of Day Summary
+  if message_category == "f" then
+    return siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary.size
+  end
+  -- Size of Long Equity And Index Quote
+  if message_category == "k" then
+    return siac_opra_recipient_obi_v6_2.long_equity_and_index_quote.size(buffer, offset)
+  end
+  -- Size of Short Equity And Index Quote
+  if message_category == "q" then
+    return siac_opra_recipient_obi_v6_2.short_equity_and_index_quote.size(buffer, offset)
+  end
+  -- Size of Underlying Value
   if message_category == "Y" then
-    return siac_opra_recipient_obi_v6_2.underlying_value_message.size(buffer, offset)
+    return siac_opra_recipient_obi_v6_2.underlying_value.size(buffer, offset)
   end
 
   return 0
@@ -3376,37 +3484,37 @@ end
 
 -- Dissect Branches: Payload
 siac_opra_recipient_obi_v6_2.payload.branches = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Equity And Index Last Sale Message
-  if message_category == "a" then
-    return siac_opra_recipient_obi_v6_2.equity_and_index_last_sale_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Message
-  if message_category == "d" then
-    return siac_opra_recipient_obi_v6_2.open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equity And Index End Of Day Summary Message
-  if message_category == "f" then
-    return siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Equity And Index Quote Message
-  if message_category == "k" then
-    return siac_opra_recipient_obi_v6_2.long_equity_and_index_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Equity And Index Quote Message
-  if message_category == "q" then
-    return siac_opra_recipient_obi_v6_2.short_equity_and_index_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Administrative Message
+  -- Dissect Administrative
   if message_category == "C" then
-    return siac_opra_recipient_obi_v6_2.administrative_message.dissect(buffer, offset, packet, parent)
+    return siac_opra_recipient_obi_v6_2.administrative.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Control Message
+  -- Dissect Control
   if message_category == "H" then
-    return siac_opra_recipient_obi_v6_2.control_message.dissect(buffer, offset, packet, parent)
+    return siac_opra_recipient_obi_v6_2.control.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Underlying Value Message
+  -- Dissect Equity And Index Last Sale
+  if message_category == "a" then
+    return siac_opra_recipient_obi_v6_2.equity_and_index_last_sale.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Interest
+  if message_category == "d" then
+    return siac_opra_recipient_obi_v6_2.open_interest.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Equity And Index End Of Day Summary
+  if message_category == "f" then
+    return siac_opra_recipient_obi_v6_2.equity_and_index_end_of_day_summary.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Long Equity And Index Quote
+  if message_category == "k" then
+    return siac_opra_recipient_obi_v6_2.long_equity_and_index_quote.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Short Equity And Index Quote
+  if message_category == "q" then
+    return siac_opra_recipient_obi_v6_2.short_equity_and_index_quote.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Underlying Value
   if message_category == "Y" then
-    return siac_opra_recipient_obi_v6_2.underlying_value_message.dissect(buffer, offset, packet, parent)
+    return siac_opra_recipient_obi_v6_2.underlying_value.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3425,29 +3533,29 @@ siac_opra_recipient_obi_v6_2.message_category.size = 1
 
 -- Display: Message Category
 siac_opra_recipient_obi_v6_2.message_category.display = function(value)
-  if value == "a" then
-    return "Message Category: Equity And Index Last Sale Message (a)"
-  end
-  if value == "d" then
-    return "Message Category: Open Interest Message (d)"
-  end
-  if value == "f" then
-    return "Message Category: Equity And Index End Of Day Summary Message (f)"
-  end
-  if value == "k" then
-    return "Message Category: Long Equity And Index Quote Message (k)"
-  end
-  if value == "q" then
-    return "Message Category: Short Equity And Index Quote Message (q)"
-  end
   if value == "C" then
-    return "Message Category: Administrative Message (C)"
+    return "Message Category: Administrative (C)"
   end
   if value == "H" then
-    return "Message Category: Control Message (H)"
+    return "Message Category: Control (H)"
+  end
+  if value == "a" then
+    return "Message Category: Equity And Index Last Sale (a)"
+  end
+  if value == "d" then
+    return "Message Category: Open Interest (d)"
+  end
+  if value == "f" then
+    return "Message Category: Equity And Index End Of Day Summary (f)"
+  end
+  if value == "k" then
+    return "Message Category: Long Equity And Index Quote (k)"
+  end
+  if value == "q" then
+    return "Message Category: Short Equity And Index Quote (q)"
   end
   if value == "Y" then
-    return "Message Category: Underlying Value Message (Y)"
+    return "Message Category: Underlying Value (Y)"
   end
 
   return "Message Category: Unknown("..value..")"
@@ -3465,6 +3573,50 @@ siac_opra_recipient_obi_v6_2.message_category.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Message Header
+siac_opra_recipient_obi_v6_2.message_header = {}
+
+-- Size: Message Header
+siac_opra_recipient_obi_v6_2.message_header.size =
+  siac_opra_recipient_obi_v6_2.participant_id.size + 
+  siac_opra_recipient_obi_v6_2.message_category.size
+
+-- Display: Message Header
+siac_opra_recipient_obi_v6_2.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+siac_opra_recipient_obi_v6_2.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Participant Id: ASCII character
+  index, participant_id = siac_opra_recipient_obi_v6_2.participant_id.dissect(buffer, index, packet, parent)
+
+  -- Message Category: ASCII character
+  index, message_category = siac_opra_recipient_obi_v6_2.message_category.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+siac_opra_recipient_obi_v6_2.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.message_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_header, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_2.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_opra_recipient_obi_v6_2.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_opra_recipient_obi_v6_2.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Message
 siac_opra_recipient_obi_v6_2.message = {}
 
@@ -3472,9 +3624,7 @@ siac_opra_recipient_obi_v6_2.message = {}
 siac_opra_recipient_obi_v6_2.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + siac_opra_recipient_obi_v6_2.participant_id.size
-
-  index = index + siac_opra_recipient_obi_v6_2.message_category.size
+  index = index + siac_opra_recipient_obi_v6_2.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3499,11 +3649,11 @@ siac_opra_recipient_obi_v6_2.message.fields = function(buffer, offset, packet, p
     iteration:set_generated()
   end
 
-  -- Participant Id: ASCII character
-  index, participant_id = siac_opra_recipient_obi_v6_2.participant_id.dissect(buffer, index, packet, parent)
+  -- Message Header: Struct of 2 fields
+  index, message_header = siac_opra_recipient_obi_v6_2.message_header.dissect(buffer, index, packet, parent)
 
-  -- Message Category: ASCII character
-  index, message_category = siac_opra_recipient_obi_v6_2.message_category.dissect(buffer, index, packet, parent)
+  -- Dependency element: Message Category
+  local message_category = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 8 branches
   index = siac_opra_recipient_obi_v6_2.payload.dissect(buffer, index, packet, parent, message_category)
