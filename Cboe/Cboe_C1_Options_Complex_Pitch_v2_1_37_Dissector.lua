@@ -59,7 +59,6 @@ omi_cboe_c1_options_complex_pitch_v2_1_37.fields.packet = ProtoField.new("Packet
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1.options.complex.pitch.v2.1.37.packetheader", ftypes.STRING)
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.padding = ProtoField.new("Padding", "cboe.c1.options.complex.pitch.v2.1.37.padding", ftypes.BYTES)
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.participant_id = ProtoField.new("Participant Id", "cboe.c1.options.complex.pitch.v2.1.37.participantid", ftypes.STRING)
-omi_cboe_c1_options_complex_pitch_v2_1_37.fields.payload = ProtoField.new("Payload", "cboe.c1.options.complex.pitch.v2.1.37.payload", ftypes.STRING)
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.price = ProtoField.new("Price", "cboe.c1.options.complex.pitch.v2.1.37.price", ftypes.DOUBLE)
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.price_short = ProtoField.new("Price Short", "cboe.c1.options.complex.pitch.v2.1.37.priceshort", ftypes.DOUBLE)
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.quantity = ProtoField.new("Quantity", "cboe.c1.options.complex.pitch.v2.1.37.quantity", ftypes.UINT32)
@@ -80,7 +79,7 @@ omi_cboe_c1_options_complex_pitch_v2_1_37.fields.underlying = ProtoField.new("Un
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.unit = ProtoField.new("Unit", "cboe.c1.options.complex.pitch.v2.1.37.unit", ftypes.UINT8)
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.unused = ProtoField.new("Unused", "cboe.c1.options.complex.pitch.v2.1.37.unused", ftypes.BYTES)
 
--- Cboe C1 Options Complex Pitch 2.1.37 messages
+-- Cboe C1 Options Pitch Complex 2.1.37 Application Messages
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.c1.options.complex.pitch.v2.1.37.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.c1.options.complex.pitch.v2.1.37.addorderlongmessage", ftypes.STRING)
 omi_cboe_c1_options_complex_pitch_v2_1_37.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.c1.options.complex.pitch.v2.1.37.addordershortmessage", ftypes.STRING)
@@ -151,7 +150,6 @@ show.trading_status_message = true
 show.transaction_begin = true
 show.transaction_end_message = true
 show.unit_clear_message = true
-show.payload = false
 
 -- Register Cboe C1 Options Complex Pitch 2.1.37 Show Options
 omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_add_order_expanded_message = Pref.bool("Show Add Order Expanded Message", show.add_order_expanded_message, "Parse and add Add Order Expanded Message to protocol tree")
@@ -186,7 +184,6 @@ omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_trading_status_message = Pr
 omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_transaction_begin = Pref.bool("Show Transaction Begin", show.transaction_begin, "Parse and add Transaction Begin to protocol tree")
 omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_transaction_end_message = Pref.bool("Show Transaction End Message", show.transaction_end_message, "Parse and add Transaction End Message to protocol tree")
 omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_unit_clear_message = Pref.bool("Show Unit Clear Message", show.unit_clear_message, "Parse and add Unit Clear Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_c1_options_complex_pitch_v2_1_37.prefs_changed()
@@ -319,10 +316,6 @@ function omi_cboe_c1_options_complex_pitch_v2_1_37.prefs_changed()
   end
   if show.unit_clear_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_unit_clear_message then
     show.unit_clear_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_unit_clear_message
-    changed = true
-  end
-  if show.payload ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_payload then
-    show.payload = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_payload
     changed = true
   end
 
@@ -2802,7 +2795,7 @@ cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.size =
 
 -- Display: Complex Instrument Type
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.display = function(buffer, offset, value, packet, parent)
-  return "Complex Instrument Type: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Complex Instrument Type
@@ -2820,16 +2813,20 @@ end
 
 -- Dissect: Complex Instrument Type
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.complex_instrument_type then
-    local length = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:string()
-    local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_type, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_type, buffer(offset, 0))
+    local index = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.fields(buffer, offset, packet, parent)
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Complex Instrument Underlying
@@ -2913,15 +2910,20 @@ end
 
 -- Dissect: Complex Instrument Definition Expanded Message
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.complex_instrument_definition_expanded_message then
-    local length = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.display(buffer, packet, parent)
-    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_definition_expanded_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_definition_expanded_message, buffer(offset, 0))
+    local index = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Transaction End Message
@@ -3345,11 +3347,6 @@ cboe_c1_options_complex_pitch_v2_1_37.payload.size = function(buffer, offset, me
   return 0
 end
 
--- Display: Payload
-cboe_c1_options_complex_pitch_v2_1_37.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
 -- Dissect Branches: Payload
 cboe_c1_options_complex_pitch_v2_1_37.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Reference Message
@@ -3462,21 +3459,6 @@ end
 
 -- Dissect: Payload
 cboe_c1_options_complex_pitch_v2_1_37.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return cboe_c1_options_complex_pitch_v2_1_37.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = cboe_c1_options_complex_pitch_v2_1_37.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cboe_c1_options_complex_pitch_v2_1_37.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.payload, range, display)
-
   return cboe_c1_options_complex_pitch_v2_1_37.payload.branches(buffer, offset, packet, parent, message_type)
 end
 

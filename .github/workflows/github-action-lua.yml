@@ -21,7 +21,7 @@ jobs:
         run: export PATH=/usr/local/bin:$PATH
 
       - name: Clone Omi Data
-        run: git clone --depth=1 https://github.com/Open-Markets-Initiative/Data.git
+        run: git clone --depth=1 https://github.com/Open-Markets-Initiative/omi-data-packets.git
 
       - name: Run B3 Equities BinaryEntryPoint Sbe 8.0 Dissector Tests
         run: bash -x .github/tests/B3-Equities-BinaryEntryPoint-Sbe-v8-0-Test.sh

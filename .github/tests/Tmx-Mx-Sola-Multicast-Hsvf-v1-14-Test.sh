@@ -2,7 +2,7 @@ set -o errexit
 set -o pipefail
 
 tshark \
-  -r "Data/Tmx/Mx.Sola.1.14/StrategyAuctionBeginningMessage.pcap" \
+  -r "omi-data-packets/Tmx/Mx.Sola.1.14/StrategyAuctionBeginningMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
   -T json \
   | jq '.[0]._source.layers["tmx.mx.sola.multicast.hsvf.v1.14.lua"]' \
