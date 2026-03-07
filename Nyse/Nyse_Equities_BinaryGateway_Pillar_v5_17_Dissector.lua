@@ -108,7 +108,6 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.paired_qty = ProtoField.new(
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.participant_type = ProtoField.new("Participant Type", "nyse.equities.binarygateway.pillar.v5.17.participanttype", ftypes.UINT8)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.password = ProtoField.new("Password", "nyse.equities.binarygateway.pillar.v5.17.password", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.percentage_limit = ProtoField.new("Percentage Limit", "nyse.equities.binarygateway.pillar.v5.17.percentagelimit", ftypes.INT32)
-omi_nyse_equities_binarygateway_pillar_v5_17.fields.pillar_stream_message = ProtoField.new("Pillar Stream Message", "nyse.equities.binarygateway.pillar.v5.17.pillarstreammessage", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.post = ProtoField.new("Post", "nyse.equities.binarygateway.pillar.v5.17.post", ftypes.STRING)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.ppp_1 = ProtoField.new("Ppp 1", "nyse.equities.binarygateway.pillar.v5.17.ppp1", ftypes.DOUBLE)
 omi_nyse_equities_binarygateway_pillar_v5_17.fields.ppp_2 = ProtoField.new("Ppp 2", "nyse.equities.binarygateway.pillar.v5.17.ppp2", ftypes.DOUBLE)
@@ -288,7 +287,6 @@ show.order_cancel_request_message = true
 show.order_modify_cancel_request_acknowledgment_and_urout_message = true
 show.order_modify_request_message = true
 show.order_priority_update_acknowledgment_message = true
-show.pillar_stream_message = true
 show.ref_seq_msg_id = true
 show.risk_action_request_message = true
 show.risk_control_acknowledgement_message = true
@@ -342,7 +340,6 @@ omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_cancel_request_mes
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_modify_cancel_request_acknowledgment_and_urout_message = Pref.bool("Show Order Modify Cancel Request Acknowledgment And Urout Message", show.order_modify_cancel_request_acknowledgment_and_urout_message, "Parse and add Order Modify Cancel Request Acknowledgment And Urout Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_modify_request_message = Pref.bool("Show Order Modify Request Message", show.order_modify_request_message, "Parse and add Order Modify Request Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_priority_update_acknowledgment_message = Pref.bool("Show Order Priority Update Acknowledgment Message", show.order_priority_update_acknowledgment_message, "Parse and add Order Priority Update Acknowledgment Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_action_request_message = Pref.bool("Show Risk Action Request Message", show.risk_action_request_message, "Parse and add Risk Action Request Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_control_acknowledgement_message = Pref.bool("Show Risk Control Acknowledgement Message", show.risk_control_acknowledgement_message, "Parse and add Risk Control Acknowledgement Message to protocol tree")
@@ -505,10 +502,6 @@ function omi_nyse_equities_binarygateway_pillar_v5_17.prefs_changed()
     show.order_priority_update_acknowledgment_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_priority_update_acknowledgment_message
     changed = true
   end
-  if show.pillar_stream_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_pillar_stream_message then
-    show.pillar_stream_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_pillar_stream_message
-    changed = true
-  end
   if show.ref_seq_msg_id ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id then
     show.ref_seq_msg_id = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id
     changed = true
@@ -602,46 +595,6 @@ end
 -----------------------------------------------------------------------
 -- Dissect Nyse Equities BinaryGateway Pillar 5.17
 -----------------------------------------------------------------------
-
--- Pillar Stream Message
-nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message = {}
-
--- Size: Pillar Stream Message
-nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.size =
-  nyse_equities_binarygateway_pillar_v5_17.message.size
-
--- Display: Pillar Stream Message
-nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Pillar Stream Message
-nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message
-  index, message = nyse_equities_binarygateway_pillar_v5_17.message.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Pillar Stream Message
-nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.dissect = function(buffer, offset, packet, parent)
-  if show.pillar_stream_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.pillar_stream_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- Reserved 200
 nyse_equities_binarygateway_pillar_v5_17.reserved_200 = {}
@@ -8732,6 +8685,7 @@ nyse_equities_binarygateway_pillar_v5_17.sequenced_message.branches = function(b
   end
   -- Dissect Sequenced Filler Message
   if seq_msg_type == 0x0282 then
+    return offset
   end
   -- Dissect New Order Single And Cancel Replace Request Message
   if seq_msg_type == 0x0240 then
@@ -8755,9 +8709,11 @@ nyse_equities_binarygateway_pillar_v5_17.sequenced_message.branches = function(b
   end
   -- Dissect Tg Begin Message
   if seq_msg_type == 0x0343 then
+    return offset
   end
   -- Dissect Tg End Message
   if seq_msg_type == 0x0344 then
+    return offset
   end
   -- Dissect Manual Action Response Message
   if seq_msg_type == 0x0354 then
@@ -9990,11 +9946,11 @@ nyse_equities_binarygateway_pillar_v5_17.login_message.dissect = function(buffer
   end
 end
 
--- Pillar Stream Message Block
-nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message_block = {}
+-- Pillar Stream Message
+nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message = {}
 
--- Dissect Pillar Stream Message Block
-nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message_block.dissect = function(buffer, packet, parent)
+-- Dissect Pillar Stream Message
+nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.dissect = function(buffer, packet, parent)
   local offset = 0
 
   -- Dependency element: Msg Type
@@ -10057,7 +10013,7 @@ function omi_nyse_equities_binarygateway_pillar_v5_17.dissector(buffer, packet, 
 
   -- Dissect protocol
   local protocol = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17, buffer(), omi_nyse_equities_binarygateway_pillar_v5_17.description, "("..buffer:len().." Bytes)")
-  return nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message_block.dissect(buffer, packet, protocol)
+  return nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.dissect(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
@@ -10070,7 +10026,7 @@ tcp_table:add(65333, omi_nyse_equities_binarygateway_pillar_v5_17)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message_block.requiredsize = function(buffer)
+nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.requiredsize = function(buffer)
 
   return true
 end
@@ -10078,7 +10034,7 @@ end
 -- Dissector Heuristic for Nyse Equities BinaryGateway Pillar 5.17
 local function omi_nyse_equities_binarygateway_pillar_v5_17_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message_block.requiredsize(buffer) then return false end
+  if not nyse_equities_binarygateway_pillar_v5_17.pillar_stream_message.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_equities_binarygateway_pillar_v5_17

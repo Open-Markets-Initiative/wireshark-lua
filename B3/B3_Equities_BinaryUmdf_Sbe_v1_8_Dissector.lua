@@ -9736,6 +9736,7 @@ end
 b3_equities_binaryumdf_sbe_v1_8.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Sequence Reset Message
   if template_id == 1 then
+    return offset
   end
   -- Dissect Sequence Message
   if template_id == 2 then

@@ -11924,6 +11924,7 @@ end
 cme_futures_streamlined_sbe_v5_8.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Admin Heartbeat
   if template_id == 312 then
+    return offset
   end
   -- Dissect Admin Login
   if template_id == 315 then

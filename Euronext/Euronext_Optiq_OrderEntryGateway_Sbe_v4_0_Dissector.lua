@@ -18236,9 +18236,11 @@ euronext_optiq_orderentrygateway_sbe_v4_0.payload.branches = function(buffer, of
   end
   -- Dissect Heartbeat Message
   if template_id == 106 then
+    return offset
   end
   -- Dissect Test Request Message
   if template_id == 107 then
+    return offset
   end
   -- Dissect Technical Reject Message
   if template_id == 108 then

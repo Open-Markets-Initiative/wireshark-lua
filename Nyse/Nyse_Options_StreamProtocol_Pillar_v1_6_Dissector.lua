@@ -25,7 +25,6 @@ omi_nyse_options_streamprotocol_pillar_v1_6.fields.msg_length = ProtoField.new("
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.msg_type = ProtoField.new("Msg Type", "nyse.options.streamprotocol.pillar.v1.6.msgtype", ftypes.UINT16)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.next_seq = ProtoField.new("Next Seq", "nyse.options.streamprotocol.pillar.v1.6.nextseq", ftypes.UINT64)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.password = ProtoField.new("Password", "nyse.options.streamprotocol.pillar.v1.6.password", ftypes.STRING)
-omi_nyse_options_streamprotocol_pillar_v1_6.fields.pillar_stream_message = ProtoField.new("Pillar Stream Message", "nyse.options.streamprotocol.pillar.v1.6.pillarstreammessage", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.options.streamprotocol.pillar.v1.6.reserved4", ftypes.BYTES)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq = ProtoField.new("Seq", "nyse.options.streamprotocol.pillar.v1.6.seq", ftypes.UINT64)
 omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.options.streamprotocol.pillar.v1.6.seqmsgheader", ftypes.STRING)
@@ -68,7 +67,6 @@ show.login_response = true
 show.msg_header = true
 show.open = true
 show.open_response = true
-show.pillar_stream_message = true
 show.seq_msg = true
 show.seq_msg_header = true
 show.seq_msg_id = true
@@ -85,7 +83,6 @@ omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_login_response = Pref.boo
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_open = Pref.bool("Show Open", show.open, "Parse and add Open to protocol tree")
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_open_response = Pref.bool("Show Open Response", show.open_response, "Parse and add Open Response to protocol tree")
-omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
 omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
@@ -130,10 +127,6 @@ function omi_nyse_options_streamprotocol_pillar_v1_6.prefs_changed()
     show.open_response = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_open_response
     changed = true
   end
-  if show.pillar_stream_message ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_pillar_stream_message then
-    show.pillar_stream_message = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_pillar_stream_message
-    changed = true
-  end
   if show.seq_msg ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg then
     show.seq_msg = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg
     changed = true
@@ -169,46 +162,6 @@ end
 -----------------------------------------------------------------------
 -- Dissect Nyse Options StreamProtocol Pillar 1.6
 -----------------------------------------------------------------------
-
--- Pillar Stream Message
-nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message = {}
-
--- Size: Pillar Stream Message
-nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.size =
-  nyse_options_streamprotocol_pillar_v1_6.message.size
-
--- Display: Pillar Stream Message
-nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Pillar Stream Message
-nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message
-  index, message = nyse_options_streamprotocol_pillar_v1_6.message.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Pillar Stream Message
-nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.dissect = function(buffer, offset, packet, parent)
-  if show.pillar_stream_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.pillar_stream_message, buffer(offset, 0))
-    local index = nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- Data
 nyse_options_streamprotocol_pillar_v1_6.data = {}
@@ -1520,11 +1473,11 @@ nyse_options_streamprotocol_pillar_v1_6.login_message.dissect = function(buffer,
   end
 end
 
--- Pillar Stream Message Block
-nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message_block = {}
+-- Pillar Stream Message
+nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message = {}
 
--- Dissect Pillar Stream Message Block
-nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message_block.dissect = function(buffer, packet, parent)
+-- Dissect Pillar Stream Message
+nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.dissect = function(buffer, packet, parent)
   local offset = 0
 
   -- Dependency element: Msg Type
@@ -1587,7 +1540,7 @@ function omi_nyse_options_streamprotocol_pillar_v1_6.dissector(buffer, packet, p
 
   -- Dissect protocol
   local protocol = parent:add(omi_nyse_options_streamprotocol_pillar_v1_6, buffer(), omi_nyse_options_streamprotocol_pillar_v1_6.description, "("..buffer:len().." Bytes)")
-  return nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message_block.dissect(buffer, packet, protocol)
+  return nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.dissect(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
@@ -1600,7 +1553,7 @@ tcp_table:add(65333, omi_nyse_options_streamprotocol_pillar_v1_6)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message_block.requiredsize = function(buffer)
+nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.requiredsize = function(buffer)
 
   return true
 end
@@ -1608,7 +1561,7 @@ end
 -- Dissector Heuristic for Nyse Options StreamProtocol Pillar 1.6
 local function omi_nyse_options_streamprotocol_pillar_v1_6_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message_block.requiredsize(buffer) then return false end
+  if not nyse_options_streamprotocol_pillar_v1_6.pillar_stream_message.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_options_streamprotocol_pillar_v1_6

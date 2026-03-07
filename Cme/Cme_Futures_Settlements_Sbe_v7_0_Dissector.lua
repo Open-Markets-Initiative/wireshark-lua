@@ -2459,6 +2459,7 @@ cme_futures_settlements_sbe_v7_0.payload.branches = function(buffer, offset, pac
   end
   -- Dissect Admin Heartbeat
   if template_id == 407 then
+    return offset
   end
 
   return offset

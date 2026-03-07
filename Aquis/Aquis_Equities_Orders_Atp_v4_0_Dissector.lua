@@ -3497,9 +3497,11 @@ aquis_equities_orders_atp_v4_0.payload.branches = function(buffer, offset, packe
   end
   -- Dissect Heartbeat
   if msg_type == 0 then
+    return offset
   end
   -- Dissect Logout Request Message
   if msg_type == 3 then
+    return offset
   end
   -- Dissect Logout Message
   if msg_type == 4 then

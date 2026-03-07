@@ -706,6 +706,7 @@ end
 a2x_equities_snapshot_amd_v1_3_2.payload.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Heartbeat Message
   if msg_type == 1 then
+    return offset
   end
   -- Dissect Snapshot Start Message
   if msg_type == 10 then

@@ -802,6 +802,7 @@ txse_headers_rake_tcp_v1_0.payload.branches = function(buffer, offset, packet, p
   end
   -- Dissect End Of Session Message
   if packet_type == 52 then
+    return offset
   end
   -- Dissect Logon Response Message
   if packet_type == 49 then

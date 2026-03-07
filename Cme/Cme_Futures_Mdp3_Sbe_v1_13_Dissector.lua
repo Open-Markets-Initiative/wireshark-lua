@@ -15635,6 +15635,7 @@ cme_futures_mdp3_sbe_v1_13.payload.branches = function(buffer, offset, packet, p
   end
   -- Dissect Admin Heartbeat
   if template_id == 12 then
+    return offset
   end
   -- Dissect Admin Login
   if template_id == 15 then

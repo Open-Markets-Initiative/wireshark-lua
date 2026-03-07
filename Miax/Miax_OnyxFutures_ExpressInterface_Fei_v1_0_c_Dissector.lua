@@ -4599,6 +4599,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.payload.branches = function(buffer,
   end
   -- Dissect Synchronization Complete
   if packet_type == "C" then
+    return offset
   end
   -- Dissect Retransmission Request
   if packet_type == "A" then
@@ -4614,12 +4615,15 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.payload.branches = function(buffer,
   end
   -- Dissect End Of Session
   if packet_type == "E" then
+    return offset
   end
   -- Dissect Server Heartbeat
   if packet_type == "0" then
+    return offset
   end
   -- Dissect Client Heartbeat
   if packet_type == "1" then
+    return offset
   end
 
   return offset

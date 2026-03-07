@@ -1129,6 +1129,7 @@ cme_brokertec_ust_sbe_v10_1.payload.branches = function(buffer, offset, packet, 
   end
   -- Dissect Admin Heartbeat
   if template_id == 411 then
+    return offset
   end
 
   return offset

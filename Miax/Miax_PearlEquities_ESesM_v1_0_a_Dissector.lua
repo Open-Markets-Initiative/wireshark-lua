@@ -1251,12 +1251,15 @@ miax_pearlequities_esesm_v1_0_a.payload.branches = function(buffer, offset, pack
   end
   -- Dissect Trading Session Update
   if packet_type == "u" then
+    return offset
   end
   -- Dissect Server Heartbeat
   if packet_type == "0" then
+    return offset
   end
   -- Dissect Client Heartbeat
   if packet_type == "1" then
+    return offset
   end
   -- Dissect Test Packet
   if packet_type == "T" then

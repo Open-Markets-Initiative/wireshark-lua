@@ -1534,6 +1534,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2.payload.branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Heartbeat Message
   if msg_type == 1 then
+    return offset
   end
   -- Dissect Order Add Message
   if msg_type == 2 then

@@ -6788,6 +6788,7 @@ txse_equities_orderentry_seed_v0_1.payload.branches = function(buffer, offset, p
   end
   -- Dissect End Of Session Message
   if packet_type == 52 then
+    return offset
   end
   -- Dissect Logon Response Message
   if packet_type == 49 then

@@ -1200,6 +1200,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b.payload.branches = function(buffer, off
   end
   -- Dissect Heartbeat Message
   if message_type == 2 then
+    return offset
   end
 
   return offset

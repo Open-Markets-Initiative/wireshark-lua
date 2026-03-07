@@ -1639,6 +1639,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.branches = function(buff
   end
   -- Dissect Account Query Message
   if unsequenced_message_type == "Q" then
+    return offset
   end
 
   return offset

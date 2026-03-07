@@ -1632,6 +1632,7 @@ end
 cme_futures_derived_sbe_v12_0.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Admin Heartbeat
   if template_id == 302 then
+    return offset
   end
   -- Dissect Md Incremental Refresh Spectrum
   if template_id == 303 then

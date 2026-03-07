@@ -2445,33 +2445,20 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message.dissect = function(buffer,
   end
 end
 
--- Message Block
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_block = {}
+-- Messages
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages = {}
 
--- Size: Message Block
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_block.size = function(buffer, offset, message_count)
-  -- Size of Heartbeat
-  if message_count == 0 then
-    return 0
-  end
-  -- Size of End Of Session
-  if message_count == 65535 then
-    return 0
-  end
-
-  return 1
-end
-
--- Dissect Branches: Message Block
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_block.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect Branches: Messages
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.branches = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
+    return offset
   end
   -- Dissect End Of Session
   if message_count == 65535 then
+    return offset
   end
-
-  -- Repeating: Message Block
+  -- Repeating: Messages
   for message_index = 1, message_count do
 
     -- Dependency element: Message Length
@@ -2487,9 +2474,9 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_block.branches = function(
   return offset
 end
 
--- Dissect: Message Block
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_block.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_block.branches(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
+  return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count
@@ -2638,8 +2625,8 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.packet.dissect = function(buffer, 
   -- Dependency element: Message Count
   local message_count = buffer(index - 2, 2):uint()
 
-  -- Message Block: Runtime Type with 3 branches
-  index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_block.dissect(buffer, index, packet, parent, message_count)
+  -- Messages: Runtime Type with 3 branches
+  index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end
