@@ -2229,16 +2229,10 @@ iex_equities_deep_iextp_v1_0_6.messages.branches = function(buffer, offset, pack
     return offset
   end
   -- Repeating: Messages
-  for message_index = 1, message_count do
+  for messages_index = 1, message_count do
 
-    -- Dependency element: Message Length
-    local message_length = buffer(offset, 2):le_uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = message_length + 2
-
-    -- Message: Struct of 2 fields
-    offset = iex_equities_deep_iextp_v1_0_6.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+    -- Messages: Runtime Type with 2 branches
+    offset = iex_equities_deep_iextp_v1_0_6.messages.dissect(buffer, offset, packet, parent)
   end
 
   return offset

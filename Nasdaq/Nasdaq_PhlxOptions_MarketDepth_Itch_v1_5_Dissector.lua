@@ -3920,16 +3920,10 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5.messages.branches = function(buffer, of
     return offset
   end
   -- Repeating: Messages
-  for message_index = 1, message_count do
+  for messages_index = 1, message_count do
 
-    -- Dependency element: Message Length
-    local message_length = buffer(offset, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = message_length + 2
-
-    -- Message: Struct of 2 fields
-    offset = nasdaq_phlxoptions_marketdepth_itch_v1_5.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+    -- Messages: Runtime Type with 3 branches
+    offset = nasdaq_phlxoptions_marketdepth_itch_v1_5.messages.dissect(buffer, offset, packet, parent)
   end
 
   return offset
