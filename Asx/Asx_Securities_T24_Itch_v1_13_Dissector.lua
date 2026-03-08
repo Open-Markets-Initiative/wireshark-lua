@@ -5472,11 +5472,17 @@ asx_securities_t24_itch_v1_13.messages.branches = function(buffer, offset, packe
   if message_count == 65535 then
     return offset
   end
-  -- Repeating: Messages
-  for messages_index = 1, message_count do
+  -- Repeating: Message
+  for message_index = 1, message_count do
 
-    -- Messages: Runtime Type with 3 branches
-    offset = asx_securities_t24_itch_v1_13.messages.dissect(buffer, offset, packet, parent)
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_length + 2
+
+    -- Message: Struct of 2 fields
+    offset = asx_securities_t24_itch_v1_13.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
 
   return offset
