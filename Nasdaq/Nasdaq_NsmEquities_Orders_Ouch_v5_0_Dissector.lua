@@ -710,42 +710,8 @@ end
 -- Replace Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value = {}
 
--- Size: Replace Order Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.size = function(buffer, offset, replace_order_optional_field)
-  -- Size of Min Qty
-  if replace_order_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size
-  end
-  -- Size of Max Floor
-  if replace_order_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size
-  end
-  -- Size of Price Type
-  if replace_order_optional_field == 6 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.size
-  end
-  -- Size of Post Only
-  if replace_order_optional_field == 12 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.size
-  end
-  -- Size of Expire Time
-  if replace_order_optional_field == 15 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.size
-  end
-  -- Size of Trade Now
-  if replace_order_optional_field == 16 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size
-  end
-  -- Size of Handle Inst
-  if replace_order_optional_field == 17 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Replace Order Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.branches = function(buffer, offset, packet, parent, replace_order_optional_field)
+-- Dissect: Replace Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dissect = function(buffer, offset, packet, parent, replace_order_optional_field)
   -- Dissect Min Qty
   if replace_order_optional_field == 3 then
     return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect(buffer, offset, packet, parent)
@@ -776,11 +742,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.branches = func
   end
 
   return offset
-end
-
--- Dissect: Replace Order Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dissect = function(buffer, offset, packet, parent, replace_order_optional_field)
-  return nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.branches(buffer, offset, packet, parent, replace_order_optional_field)
 end
 
 -- Replace Order Optional Field
@@ -1261,30 +1222,8 @@ end
 -- Enter Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value = {}
 
--- Size: Enter Order Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.size = function(buffer, offset, enter_order_optional_field)
-  -- Size of Firm
-  if enter_order_optional_field == 2 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.firm.size
-  end
-  -- Size of Min Qty
-  if enter_order_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size
-  end
-  -- Size of Customer Type
-  if enter_order_optional_field == 4 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.customer_type.size
-  end
-  -- Size of Max Floor
-  if enter_order_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Enter Order Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.branches = function(buffer, offset, packet, parent, enter_order_optional_field)
+-- Dissect: Enter Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dissect = function(buffer, offset, packet, parent, enter_order_optional_field)
   -- Dissect Firm
   if enter_order_optional_field == 2 then
     return nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect(buffer, offset, packet, parent)
@@ -1303,11 +1242,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.branches = functi
   end
 
   return offset
-end
-
--- Dissect: Enter Order Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dissect = function(buffer, offset, packet, parent, enter_order_optional_field)
-  return nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.branches(buffer, offset, packet, parent, enter_order_optional_field)
 end
 
 -- Enter Order Optional Field
@@ -1593,34 +1527,8 @@ end
 -- Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message = {}
 
--- Size: Unsequenced Message
-nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.size = function(buffer, offset, unsequenced_message_type)
-  -- Size of Enter Order Message
-  if unsequenced_message_type == "O" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.size(buffer, offset)
-  end
-  -- Size of Replace Order Message
-  if unsequenced_message_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.size(buffer, offset)
-  end
-  -- Size of Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.size
-  end
-  -- Size of Modify Order Message
-  if unsequenced_message_type == "M" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.size
-  end
-  -- Size of Account Query Message
-  if unsequenced_message_type == "Q" then
-    return 0
-  end
-
-  return 0
-end
-
--- Dissect Branches: Unsequenced Message
-nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Enter Order Message
   if unsequenced_message_type == "O" then
     return nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.dissect(buffer, offset, packet, parent)
@@ -1643,11 +1551,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.branches = function(buff
   end
 
   return offset
-end
-
--- Dissect: Unsequenced Message
-nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  return nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
 -- Unsequenced Message Type
@@ -2058,26 +1961,8 @@ end
 -- Order Restated Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value = {}
 
--- Size: Order Restated Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.size = function(buffer, offset, order_restated_optional_field)
-  -- Size of Display Quantity
-  if order_restated_optional_field == 22 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.display_quantity.size
-  end
-  -- Size of Display Price
-  if order_restated_optional_field == 23 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.display_price.size
-  end
-  -- Size of Secondary Ord Ref Num
-  if order_restated_optional_field == 1 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.secondary_ord_ref_num.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Order Restated Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.branches = function(buffer, offset, packet, parent, order_restated_optional_field)
+-- Dissect: Order Restated Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dissect = function(buffer, offset, packet, parent, order_restated_optional_field)
   -- Dissect Display Quantity
   if order_restated_optional_field == 22 then
     return nasdaq_nsmequities_orders_ouch_v5_0.display_quantity.dissect(buffer, offset, packet, parent)
@@ -2092,11 +1977,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.branches = fun
   end
 
   return offset
-end
-
--- Dissect: Order Restated Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dissect = function(buffer, offset, packet, parent, order_restated_optional_field)
-  return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.branches(buffer, offset, packet, parent, order_restated_optional_field)
 end
 
 -- Order Restated Optional Field
@@ -3018,22 +2898,8 @@ end
 -- Order Executed Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value = {}
 
--- Size: Order Executed Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.size = function(buffer, offset, order_executed_optional_field)
-  -- Size of Reference Price
-  if order_executed_optional_field == 19 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.reference_price.size
-  end
-  -- Size of Reference Price Type
-  if order_executed_optional_field == 20 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.reference_price_type.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Order Executed Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.branches = function(buffer, offset, packet, parent, order_executed_optional_field)
+-- Dissect: Order Executed Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dissect = function(buffer, offset, packet, parent, order_executed_optional_field)
   -- Dissect Reference Price
   if order_executed_optional_field == 19 then
     return nasdaq_nsmequities_orders_ouch_v5_0.reference_price.dissect(buffer, offset, packet, parent)
@@ -3044,11 +2910,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.branches = fun
   end
 
   return offset
-end
-
--- Dissect: Order Executed Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dissect = function(buffer, offset, packet, parent, order_executed_optional_field)
-  return nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.branches(buffer, offset, packet, parent, order_executed_optional_field)
 end
 
 -- Order Executed Optional Field
@@ -3509,50 +3370,8 @@ end
 -- Replaced Message Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value = {}
 
--- Size: Replaced Message Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.size = function(buffer, offset, replaced_message_optional_field)
-  -- Size of Firm
-  if replaced_message_optional_field == 2 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.firm.size
-  end
-  -- Size of Min Qty
-  if replaced_message_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size
-  end
-  -- Size of Max Floor
-  if replaced_message_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size
-  end
-  -- Size of Price Type
-  if replaced_message_optional_field == 6 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.size
-  end
-  -- Size of Post Only
-  if replaced_message_optional_field == 12 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.size
-  end
-  -- Size of Expire Time
-  if replaced_message_optional_field == 15 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.size
-  end
-  -- Size of Trade Now
-  if replaced_message_optional_field == 16 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size
-  end
-  -- Size of Handle Inst
-  if replaced_message_optional_field == 17 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size
-  end
-  -- Size of Bbo Weight Indicator
-  if replaced_message_optional_field == 18 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Replaced Message Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.branches = function(buffer, offset, packet, parent, replaced_message_optional_field)
+-- Dissect: Replaced Message Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dissect = function(buffer, offset, packet, parent, replaced_message_optional_field)
   -- Dissect Firm
   if replaced_message_optional_field == 2 then
     return nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect(buffer, offset, packet, parent)
@@ -3591,11 +3410,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.branches = f
   end
 
   return offset
-end
-
--- Dissect: Replaced Message Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dissect = function(buffer, offset, packet, parent, replaced_message_optional_field)
-  return nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.branches(buffer, offset, packet, parent, replaced_message_optional_field)
 end
 
 -- Replaced Message Optional Field
@@ -3987,78 +3801,8 @@ end
 -- Order Accepted Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value = {}
 
--- Size: Order Accepted Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.size = function(buffer, offset, order_accepted_optional_field)
-  -- Size of Firm
-  if order_accepted_optional_field == 2 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.firm.size
-  end
-  -- Size of Min Qty
-  if order_accepted_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.size
-  end
-  -- Size of Customer Type
-  if order_accepted_optional_field == 4 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.customer_type.size
-  end
-  -- Size of Max Floor
-  if order_accepted_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.size
-  end
-  -- Size of Price Type
-  if order_accepted_optional_field == 6 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.size
-  end
-  -- Size of Peg Offset
-  if order_accepted_optional_field == 7 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.size
-  end
-  -- Size of Discretion Price
-  if order_accepted_optional_field == 9 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.size
-  end
-  -- Size of Discretion Peg Type
-  if order_accepted_optional_field == 10 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_type.size
-  end
-  -- Size of Discretion Peg Offset
-  if order_accepted_optional_field == 11 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.size
-  end
-  -- Size of Post Only
-  if order_accepted_optional_field == 12 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.size
-  end
-  -- Size of Random Reserves
-  if order_accepted_optional_field == 13 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.size
-  end
-  -- Size of Route
-  if order_accepted_optional_field == 14 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.route.size
-  end
-  -- Size of Expire Time
-  if order_accepted_optional_field == 15 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.size
-  end
-  -- Size of Trade Now
-  if order_accepted_optional_field == 16 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size
-  end
-  -- Size of Handle Inst
-  if order_accepted_optional_field == 17 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size
-  end
-  -- Size of Bbo Weight Indicator
-  if order_accepted_optional_field == 18 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Order Accepted Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.branches = function(buffer, offset, packet, parent, order_accepted_optional_field)
+-- Dissect: Order Accepted Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dissect = function(buffer, offset, packet, parent, order_accepted_optional_field)
   -- Dissect Firm
   if order_accepted_optional_field == 2 then
     return nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect(buffer, offset, packet, parent)
@@ -4125,11 +3869,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.branches = fun
   end
 
   return offset
-end
-
--- Dissect: Order Accepted Optional Value
-nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dissect = function(buffer, offset, packet, parent, order_accepted_optional_field)
-  return nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.branches(buffer, offset, packet, parent, order_accepted_optional_field)
 end
 
 -- Order Accepted Optional Field
@@ -4427,74 +4166,8 @@ end
 -- Sequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message = {}
 
--- Size: Sequenced Message
-nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.size = function(buffer, offset, sequenced_message_type)
-  -- Size of System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.system_event_message.size
-  end
-  -- Size of Order Accepted Message
-  if sequenced_message_type == "A" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.size(buffer, offset)
-  end
-  -- Size of Replaced Message
-  if sequenced_message_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.size(buffer, offset)
-  end
-  -- Size of Canceled Message
-  if sequenced_message_type == "C" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.size
-  end
-  -- Size of Aiq Canceled Message
-  if sequenced_message_type == "D" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.size
-  end
-  -- Size of Order Executed Message
-  if sequenced_message_type == "E" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.size(buffer, offset)
-  end
-  -- Size of Broken Trade Message
-  if sequenced_message_type == "B" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.size
-  end
-  -- Size of Trade Correction Message
-  if sequenced_message_type == "F" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.size
-  end
-  -- Size of Rejected Order Message
-  if sequenced_message_type == "J" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.size
-  end
-  -- Size of Cancel Pending Message
-  if sequenced_message_type == "P" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.size
-  end
-  -- Size of Cancel Reject Message
-  if sequenced_message_type == "I" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.size
-  end
-  -- Size of Order Priority Update Message
-  if sequenced_message_type == "T" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.size
-  end
-  -- Size of Order Modified Message
-  if sequenced_message_type == "M" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.size
-  end
-  -- Size of Order Restated Message
-  if sequenced_message_type == "R" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.size(buffer, offset)
-  end
-  -- Size of Account Query Response Message
-  if sequenced_message_type == "Q" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Sequenced Message
-nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect System Event Message
   if sequenced_message_type == "S" then
     return nasdaq_nsmequities_orders_ouch_v5_0.system_event_message.dissect(buffer, offset, packet, parent)
@@ -4557,11 +4230,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.branches = function(buffer
   end
 
   return offset
-end
-
--- Dissect: Sequenced Message
-nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  return nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
 -- Sequenced Message Type
@@ -4905,38 +4573,8 @@ end
 -- Payload
 nasdaq_nsmequities_orders_ouch_v5_0.payload = {}
 
--- Size: Payload
-nasdaq_nsmequities_orders_ouch_v5_0.payload.size = function(buffer, offset, packet_type)
-  -- Size of Debug Packet
-  if packet_type == "+" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.size
-  end
-  -- Size of Login Accepted Packet
-  if packet_type == "A" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet.size
-  end
-  -- Size of Login Rejected Packet
-  if packet_type == "J" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.login_rejected_packet.size
-  end
-  -- Size of Sequenced Data Packet
-  if packet_type == "S" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Login Request Packet
-  if packet_type == "L" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.login_request_packet.size
-  end
-  -- Size of Unsequenced Data Packet
-  if packet_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_nsmequities_orders_ouch_v5_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+nasdaq_nsmequities_orders_ouch_v5_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
   if packet_type == "+" then
     return nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.dissect(buffer, offset, packet, parent)
@@ -4963,11 +4601,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_nsmequities_orders_ouch_v5_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return nasdaq_nsmequities_orders_ouch_v5_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

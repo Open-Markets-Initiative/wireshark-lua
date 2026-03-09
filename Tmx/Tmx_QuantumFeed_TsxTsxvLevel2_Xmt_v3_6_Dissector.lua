@@ -3489,98 +3489,8 @@ end
 -- Business Message
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.business_message = {}
 
--- Size: Business Message
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.business_message.size = function(buffer, offset, msg_type)
-  -- Size of Symbol Status Message
-  if msg_type == "J" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.symbol_status_message.size
-  end
-  -- Size of Order Book Message
-  if msg_type == "G" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.order_book_message.size
-  end
-  -- Size of Order Book Terms Message
-  if msg_type == "j" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.order_book_terms_message.size
-  end
-  -- Size of Assign Cop Orders Message
-  if msg_type == "A" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.assign_cop_orders_message.size
-  end
-  -- Size of Assign Cop No Orders Message
-  if msg_type == "B" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.assign_cop_no_orders_message.size
-  end
-  -- Size of Assign Limit Message
-  if msg_type == "C" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.assign_limit_message.size
-  end
-  -- Size of Market State Update Message
-  if msg_type == "E" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.market_state_update_message.size
-  end
-  -- Size of Moc Imbalance Message
-  if msg_type == "F" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.moc_imbalance_message.size
-  end
-  -- Size of Order Booked Message
-  if msg_type == "P" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.order_booked_message.size
-  end
-  -- Size of Order Booked Terms Message
-  if msg_type == "m" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.order_booked_terms_message.size
-  end
-  -- Size of Order Cancelled Message
-  if msg_type == "Q" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.order_cancelled_message.size
-  end
-  -- Size of Order Cancelled Terms Message
-  if msg_type == "n" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.order_cancelled_terms_message.size
-  end
-  -- Size of Order Price Time Assigned Message
-  if msg_type == "R" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.order_price_time_assigned_message.size
-  end
-  -- Size of Order Price Time Assigned Terms Message
-  if msg_type == "o" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.order_price_time_assigned_terms_message.size
-  end
-  -- Size of Stock Status Message
-  if msg_type == "I" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.stock_status_message.size
-  end
-  -- Size of Trade Report Message
-  if msg_type == "S" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.trade_report_message.size
-  end
-  -- Size of Trade Report Terms Message
-  if msg_type == "P" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.trade_report_terms_message.size
-  end
-  -- Size of Trade Cancelled Message
-  if msg_type == "T" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.trade_cancelled_message.size
-  end
-  -- Size of Trade Cancelled Terms Message
-  if msg_type == "q" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.trade_cancelled_terms_message.size
-  end
-  -- Size of Trade Correction Message
-  if msg_type == "U" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.trade_correction_message.size
-  end
-  -- Size of Trade Correction Terms Message
-  if msg_type == "r" then
-    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.trade_correction_terms_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Business Message
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.business_message.branches = function(buffer, offset, packet, parent, msg_type)
+-- Dissect: Business Message
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Symbol Status Message
   if msg_type == "J" then
     return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.symbol_status_message.dissect(buffer, offset, packet, parent)
@@ -3667,11 +3577,6 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.business_message.branches = function(buff
   end
 
   return offset
-end
-
--- Dissect: Business Message
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.business_message.branches(buffer, offset, packet, parent, msg_type)
 end
 
 -- Sequence 1

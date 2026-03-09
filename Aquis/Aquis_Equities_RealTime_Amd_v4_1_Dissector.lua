@@ -1745,54 +1745,8 @@ end
 -- Payload
 aquis_equities_realtime_amd_v4_1.payload = {}
 
--- Size: Payload
-aquis_equities_realtime_amd_v4_1.payload.size = function(buffer, offset, msg_type)
-  -- Size of Order Add
-  if msg_type == 2 then
-    return aquis_equities_realtime_amd_v4_1.order_add.size
-  end
-  -- Size of Order Cancel
-  if msg_type == 3 then
-    return aquis_equities_realtime_amd_v4_1.order_cancel.size
-  end
-  -- Size of Order Modify
-  if msg_type == 4 then
-    return aquis_equities_realtime_amd_v4_1.order_modify.size
-  end
-  -- Size of Trade
-  if msg_type == 5 then
-    return aquis_equities_realtime_amd_v4_1.trade.size
-  end
-  -- Size of Trade Bust Message
-  if msg_type == 6 then
-    return aquis_equities_realtime_amd_v4_1.trade_bust_message.size
-  end
-  -- Size of Tick Table Data Message
-  if msg_type == 7 then
-    return aquis_equities_realtime_amd_v4_1.tick_table_data_message.size
-  end
-  -- Size of Security Definition Message
-  if msg_type == 8 then
-    return aquis_equities_realtime_amd_v4_1.security_definition_message.size
-  end
-  -- Size of Security Status Message
-  if msg_type == 9 then
-    return aquis_equities_realtime_amd_v4_1.security_status_message.size
-  end
-  -- Size of Ao D Update Message
-  if msg_type == 17 then
-    return aquis_equities_realtime_amd_v4_1.ao_d_update_message.size
-  end
-  -- Size of Ma C Update Message
-  if msg_type == 16 then
-    return aquis_equities_realtime_amd_v4_1.ma_c_update_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-aquis_equities_realtime_amd_v4_1.payload.branches = function(buffer, offset, packet, parent, msg_type)
+-- Dissect: Payload
+aquis_equities_realtime_amd_v4_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Order Add
   if msg_type == 2 then
     return aquis_equities_realtime_amd_v4_1.order_add.dissect(buffer, offset, packet, parent)
@@ -1835,11 +1789,6 @@ aquis_equities_realtime_amd_v4_1.payload.branches = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Dissect: Payload
-aquis_equities_realtime_amd_v4_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  return aquis_equities_realtime_amd_v4_1.payload.branches(buffer, offset, packet, parent, msg_type)
 end
 
 -- Seq No

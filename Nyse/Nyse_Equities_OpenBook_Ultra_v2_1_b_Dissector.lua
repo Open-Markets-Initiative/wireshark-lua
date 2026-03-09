@@ -1156,30 +1156,8 @@ end
 -- Payload
 nyse_equities_openbook_ultra_v2_1_b.payload = {}
 
--- Size: Payload
-nyse_equities_openbook_ultra_v2_1_b.payload.size = function(buffer, offset, message_type)
-  -- Size of Full Update Messages
-  if message_type == 230 then
-    return nyse_equities_openbook_ultra_v2_1_b.full_update_messages.size(buffer, offset)
-  end
-  -- Size of Delta Update Messages
-  if message_type == 231 then
-    return nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.size(buffer, offset)
-  end
-  -- Size of Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size
-  end
-  -- Size of Heartbeat Message
-  if message_type == 2 then
-    return 0
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nyse_equities_openbook_ultra_v2_1_b.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nyse_equities_openbook_ultra_v2_1_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Full Update Messages
   if message_type == 230 then
     return nyse_equities_openbook_ultra_v2_1_b.full_update_messages.dissect(buffer, offset, packet, parent)
@@ -1198,11 +1176,6 @@ nyse_equities_openbook_ultra_v2_1_b.payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-nyse_equities_openbook_ultra_v2_1_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nyse_equities_openbook_ultra_v2_1_b.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Link Flag

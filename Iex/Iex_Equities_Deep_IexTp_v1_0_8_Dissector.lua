@@ -2015,66 +2015,8 @@ end
 -- Message Data
 iex_equities_deep_iextp_v1_0_8.message_data = {}
 
--- Size: Message Data
-iex_equities_deep_iextp_v1_0_8.message_data.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == "S" then
-    return iex_equities_deep_iextp_v1_0_8.system_event_message.size
-  end
-  -- Size of Security Directory Message
-  if message_type == "D" then
-    return iex_equities_deep_iextp_v1_0_8.security_directory_message.size
-  end
-  -- Size of Trading Status Message
-  if message_type == "H" then
-    return iex_equities_deep_iextp_v1_0_8.trading_status_message.size
-  end
-  -- Size of Retail Liquidity Indicator Message
-  if message_type == "I" then
-    return iex_equities_deep_iextp_v1_0_8.retail_liquidity_indicator_message.size
-  end
-  -- Size of Operational Halt Status Message
-  if message_type == "O" then
-    return iex_equities_deep_iextp_v1_0_8.operational_halt_status_message.size
-  end
-  -- Size of Short Sale Price Test Status Message
-  if message_type == "P" then
-    return iex_equities_deep_iextp_v1_0_8.short_sale_price_test_status_message.size
-  end
-  -- Size of Security Event Message
-  if message_type == "E" then
-    return iex_equities_deep_iextp_v1_0_8.security_event_message.size
-  end
-  -- Size of Price Level Buy Update Message
-  if message_type == "8" then
-    return iex_equities_deep_iextp_v1_0_8.price_level_buy_update_message.size
-  end
-  -- Size of Price Level Sell Update Message
-  if message_type == "5" then
-    return iex_equities_deep_iextp_v1_0_8.price_level_sell_update_message.size
-  end
-  -- Size of Trade Report Message
-  if message_type == "T" then
-    return iex_equities_deep_iextp_v1_0_8.trade_report_message.size
-  end
-  -- Size of Official Price Message
-  if message_type == "X" then
-    return iex_equities_deep_iextp_v1_0_8.official_price_message.size
-  end
-  -- Size of Trade Break Message
-  if message_type == "B" then
-    return iex_equities_deep_iextp_v1_0_8.trade_break_message.size
-  end
-  -- Size of Auction Information Message
-  if message_type == "A" then
-    return iex_equities_deep_iextp_v1_0_8.auction_information_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Message Data
-iex_equities_deep_iextp_v1_0_8.message_data.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Message Data
+iex_equities_deep_iextp_v1_0_8.message_data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
     return iex_equities_deep_iextp_v1_0_8.system_event_message.dissect(buffer, offset, packet, parent)
@@ -2129,11 +2071,6 @@ iex_equities_deep_iextp_v1_0_8.message_data.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Message Data
-iex_equities_deep_iextp_v1_0_8.message_data.dissect = function(buffer, offset, packet, parent, message_type)
-  return iex_equities_deep_iextp_v1_0_8.message_data.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2331,8 +2268,8 @@ end
 -- Messages
 iex_equities_deep_iextp_v1_0_8.messages = {}
 
--- Dissect Branches: Messages
-iex_equities_deep_iextp_v1_0_8.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+iex_equities_deep_iextp_v1_0_8.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -2351,11 +2288,6 @@ iex_equities_deep_iextp_v1_0_8.messages.branches = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Dissect: Messages
-iex_equities_deep_iextp_v1_0_8.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return iex_equities_deep_iextp_v1_0_8.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Send Time

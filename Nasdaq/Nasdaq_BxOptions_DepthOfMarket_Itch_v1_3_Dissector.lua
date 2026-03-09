@@ -3348,114 +3348,8 @@ end
 -- Payload
 nasdaq_bxoptions_depthofmarket_itch_v1_3.payload = {}
 
--- Size: Payload
-nasdaq_bxoptions_depthofmarket_itch_v1_3.payload.size = function(buffer, offset, message_type)
-  -- Size of Seconds Message
-  if message_type == "T" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.seconds_message.size
-  end
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.system_event_message.size
-  end
-  -- Size of Base Reference Message
-  if message_type == "L" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_message.size
-  end
-  -- Size of Option Directory Message
-  if message_type == "R" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.option_directory_message.size
-  end
-  -- Size of Trading Action Message
-  if message_type == "H" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.trading_action_message.size
-  end
-  -- Size of Option Open Message
-  if message_type == "O" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.option_open_message.size
-  end
-  -- Size of Add Order Message Short Form
-  if message_type == "a" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_short_form.size
-  end
-  -- Size of Add Order Message Long Form
-  if message_type == "A" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_long_form.size
-  end
-  -- Size of Add Quote Message Short Form
-  if message_type == "j" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_short_form.size
-  end
-  -- Size of Add Quote Message Long Form
-  if message_type == "J" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_long_form.size
-  end
-  -- Size of Single Side Executed Message
-  if message_type == "E" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_executed_message.size
-  end
-  -- Size of Single Side Order Executed With Price Message
-  if message_type == "C" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_order_executed_with_price_message.size
-  end
-  -- Size of Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.order_cancel_message.size
-  end
-  -- Size of Single Side Replace Message Short Form
-  if message_type == "u" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_short_form.size
-  end
-  -- Size of Single Side Replace Message Long Form
-  if message_type == "U" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form.size
-  end
-  -- Size of Single Side Delete Message
-  if message_type == "D" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_delete_message.size
-  end
-  -- Size of Single Side Update Message
-  if message_type == "G" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_update_message.size
-  end
-  -- Size of Quote Replace Message Short Form
-  if message_type == "k" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form.size
-  end
-  -- Size of Quote Replace Message Long Form
-  if message_type == "K" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_long_form.size
-  end
-  -- Size of Quote Delete Message
-  if message_type == "Y" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_delete_message.size
-  end
-  -- Size of Block Delete Message
-  if message_type == "Z" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.block_delete_message.size
-  end
-  -- Size of Non Auction Options Trade Message
-  if message_type == "P" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.non_auction_options_trade_message.size
-  end
-  -- Size of Options Cross Trade Message
-  if message_type == "Q" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.options_cross_trade_message.size
-  end
-  -- Size of Broken Trade Or Order Execution Message
-  if message_type == "B" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message.size
-  end
-  -- Size of Net Order Imbalance Indicator Message
-  if message_type == "I" then
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_bxoptions_depthofmarket_itch_v1_3.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_bxoptions_depthofmarket_itch_v1_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Seconds Message
   if message_type == "T" then
     return nasdaq_bxoptions_depthofmarket_itch_v1_3.seconds_message.dissect(buffer, offset, packet, parent)
@@ -3558,11 +3452,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.payload.branches = function(buffer, off
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_bxoptions_depthofmarket_itch_v1_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_bxoptions_depthofmarket_itch_v1_3.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -3796,8 +3685,8 @@ end
 -- Messages
 nasdaq_bxoptions_depthofmarket_itch_v1_3.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_bxoptions_depthofmarket_itch_v1_3.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_bxoptions_depthofmarket_itch_v1_3.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -3820,11 +3709,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.messages.branches = function(buffer, of
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_bxoptions_depthofmarket_itch_v1_3.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_bxoptions_depthofmarket_itch_v1_3.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

@@ -4645,118 +4645,8 @@ end
 -- Payload
 asx_securities_ntp_itch_v1_05.payload = {}
 
--- Size: Payload
-asx_securities_ntp_itch_v1_05.payload.size = function(buffer, offset, message_type)
-  -- Size of Seconds Message
-  if message_type == "T" then
-    return asx_securities_ntp_itch_v1_05.seconds_message.size
-  end
-  -- Size of End Of Business Trade Date Message
-  if message_type == "S" then
-    return asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message.size
-  end
-  -- Size of Future Symbol Directory Message
-  if message_type == "f" then
-    return asx_securities_ntp_itch_v1_05.future_symbol_directory_message.size
-  end
-  -- Size of Options Symbol Directory Message
-  if message_type == "h" then
-    return asx_securities_ntp_itch_v1_05.options_symbol_directory_message.size
-  end
-  -- Size of Combination Symbol Directory Message
-  if message_type == "M" then
-    return asx_securities_ntp_itch_v1_05.combination_symbol_directory_message.size
-  end
-  -- Size of Bundles Symbol Directory
-  if message_type == "m" then
-    return asx_securities_ntp_itch_v1_05.bundles_symbol_directory.size
-  end
-  -- Size of Order Book State Message
-  if message_type == "O" then
-    return asx_securities_ntp_itch_v1_05.order_book_state_message.size
-  end
-  -- Size of Add Order Message
-  if message_type == "A" then
-    return asx_securities_ntp_itch_v1_05.add_order_message.size
-  end
-  -- Size of Order Volume Cancelled Message
-  if message_type == "X" then
-    return asx_securities_ntp_itch_v1_05.order_volume_cancelled_message.size
-  end
-  -- Size of Order Deleted Message
-  if message_type == "D" then
-    return asx_securities_ntp_itch_v1_05.order_deleted_message.size
-  end
-  -- Size of Order Executed Message
-  if message_type == "E" then
-    return asx_securities_ntp_itch_v1_05.order_executed_message.size
-  end
-  -- Size of Auction Order Executed Message
-  if message_type == "C" then
-    return asx_securities_ntp_itch_v1_05.auction_order_executed_message.size
-  end
-  -- Size of Combination Order Executed Message
-  if message_type == "e" then
-    return asx_securities_ntp_itch_v1_05.combination_order_executed_message.size
-  end
-  -- Size of Implied Order Added Message
-  if message_type == "j" then
-    return asx_securities_ntp_itch_v1_05.implied_order_added_message.size
-  end
-  -- Size of Implied Order Replaced Message
-  if message_type == "l" then
-    return asx_securities_ntp_itch_v1_05.implied_order_replaced_message.size
-  end
-  -- Size of Implied Order Deleted Message
-  if message_type == "k" then
-    return asx_securities_ntp_itch_v1_05.implied_order_deleted_message.size
-  end
-  -- Size of Trade Executed Message
-  if message_type == "P" then
-    return asx_securities_ntp_itch_v1_05.trade_executed_message.size
-  end
-  -- Size of Combination Trade Executed Message
-  if message_type == "p" then
-    return asx_securities_ntp_itch_v1_05.combination_trade_executed_message.size
-  end
-  -- Size of Trade Cancellation Message
-  if message_type == "B" then
-    return asx_securities_ntp_itch_v1_05.trade_cancellation_message.size
-  end
-  -- Size of Equilibrium Price Message
-  if message_type == "Z" then
-    return asx_securities_ntp_itch_v1_05.equilibrium_price_message.size
-  end
-  -- Size of Open High Low Last Trade Adjustment Message
-  if message_type == "t" then
-    return asx_securities_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message.size
-  end
-  -- Size of Market Settlement Message
-  if message_type == "Y" then
-    return asx_securities_ntp_itch_v1_05.market_settlement_message.size
-  end
-  -- Size of Text Message
-  if message_type == "x" then
-    return asx_securities_ntp_itch_v1_05.text_message.size
-  end
-  -- Size of Request For Quote Message
-  if message_type == "q" then
-    return asx_securities_ntp_itch_v1_05.request_for_quote_message.size
-  end
-  -- Size of Anomalous Order Threshold Publish Message
-  if message_type == "W" then
-    return asx_securities_ntp_itch_v1_05.anomalous_order_threshold_publish_message.size
-  end
-  -- Size of Volume And Open Interest Message
-  if message_type == "V" then
-    return asx_securities_ntp_itch_v1_05.volume_and_open_interest_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-asx_securities_ntp_itch_v1_05.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+asx_securities_ntp_itch_v1_05.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Seconds Message
   if message_type == "T" then
     return asx_securities_ntp_itch_v1_05.seconds_message.dissect(buffer, offset, packet, parent)
@@ -4863,11 +4753,6 @@ asx_securities_ntp_itch_v1_05.payload.branches = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Dissect: Payload
-asx_securities_ntp_itch_v1_05.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return asx_securities_ntp_itch_v1_05.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -5104,8 +4989,8 @@ end
 -- Messages
 asx_securities_ntp_itch_v1_05.messages = {}
 
--- Dissect Branches: Messages
-asx_securities_ntp_itch_v1_05.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+asx_securities_ntp_itch_v1_05.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -5128,11 +5013,6 @@ asx_securities_ntp_itch_v1_05.messages.branches = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Dissect: Messages
-asx_securities_ntp_itch_v1_05.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return asx_securities_ntp_itch_v1_05.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

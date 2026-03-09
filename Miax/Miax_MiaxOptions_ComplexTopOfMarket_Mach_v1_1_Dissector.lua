@@ -2832,62 +2832,8 @@ end
 -- Data
 miax_miaxoptions_complextopofmarket_mach_v1_1.data = {}
 
--- Size: Data
-miax_miaxoptions_complextopofmarket_mach_v1_1.data.size = function(buffer, offset, message_type)
-  -- Size of System Time Message
-  if message_type == "1" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.system_time_message.size
-  end
-  -- Size of Series Update
-  if message_type == "P" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.series_update.size
-  end
-  -- Size of Complex Strategy Definition Message
-  if message_type == "C" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.complex_strategy_definition_message.size(buffer, offset)
-  end
-  -- Size of System State Message
-  if message_type == "S" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.system_state_message.size
-  end
-  -- Size of Compact Complex Top Of Market Bid Message
-  if message_type == "b" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.compact_complex_top_of_market_bid_message.size
-  end
-  -- Size of Compact Complex Top Of Market Offer Message
-  if message_type == "o" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.compact_complex_top_of_market_offer_message.size
-  end
-  -- Size of Wide Complex Top Of Market Bid Message
-  if message_type == "e" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.wide_complex_top_of_market_bid_message.size
-  end
-  -- Size of Wide Complex Top Of Market Offer Message
-  if message_type == "f" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.wide_complex_top_of_market_offer_message.size
-  end
-  -- Size of Compact Complex Double Sided Top Of Market Message
-  if message_type == "m" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.compact_complex_double_sided_top_of_market_message.size
-  end
-  -- Size of Wide Complex Double Sided Top Of Market Message
-  if message_type == "w" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.wide_complex_double_sided_top_of_market_message.size
-  end
-  -- Size of Strategy Trade Message
-  if message_type == "t" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.strategy_trade_message.size
-  end
-  -- Size of Underlying Trading Status Message
-  if message_type == "H" then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.underlying_trading_status_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Data
-miax_miaxoptions_complextopofmarket_mach_v1_1.data.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Data
+miax_miaxoptions_complextopofmarket_mach_v1_1.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
   if message_type == "1" then
     return miax_miaxoptions_complextopofmarket_mach_v1_1.system_time_message.dissect(buffer, offset, packet, parent)
@@ -2938,11 +2884,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.data.branches = function(buffer, o
   end
 
   return offset
-end
-
--- Dissect: Data
-miax_miaxoptions_complextopofmarket_mach_v1_1.data.dissect = function(buffer, offset, packet, parent, message_type)
-  return miax_miaxoptions_complextopofmarket_mach_v1_1.data.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -3061,29 +3002,14 @@ end
 -- Payload
 miax_miaxoptions_complextopofmarket_mach_v1_1.payload = {}
 
--- Size: Payload
-miax_miaxoptions_complextopofmarket_mach_v1_1.payload.size = function(buffer, offset, packet_type)
-  -- Size of Application Message
-  if packet_type == 3 then
-    return miax_miaxoptions_complextopofmarket_mach_v1_1.application_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-miax_miaxoptions_complextopofmarket_mach_v1_1.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+miax_miaxoptions_complextopofmarket_mach_v1_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_miaxoptions_complextopofmarket_mach_v1_1.application_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Payload
-miax_miaxoptions_complextopofmarket_mach_v1_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return miax_miaxoptions_complextopofmarket_mach_v1_1.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Session Number

@@ -636,22 +636,8 @@ end
 -- Underlying Value Message Payload
 siac_opra_recipient_obi_v4_0.underlying_value_message_payload = {}
 
--- Size: Underlying Value Message Payload
-siac_opra_recipient_obi_v4_0.underlying_value_message_payload.size = function(buffer, offset, underlying_value_message_type)
-  -- Size of Underlying Value Last Sale Message
-  if underlying_value_message_type == " " then
-    return siac_opra_recipient_obi_v4_0.underlying_value_last_sale_message.size
-  end
-  -- Size of Underlying Value Bid And Offer Message
-  if underlying_value_message_type == "I" then
-    return siac_opra_recipient_obi_v4_0.underlying_value_bid_and_offer_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Underlying Value Message Payload
-siac_opra_recipient_obi_v4_0.underlying_value_message_payload.branches = function(buffer, offset, packet, parent, underlying_value_message_type)
+-- Dissect: Underlying Value Message Payload
+siac_opra_recipient_obi_v4_0.underlying_value_message_payload.dissect = function(buffer, offset, packet, parent, underlying_value_message_type)
   -- Dissect Underlying Value Last Sale Message
   if underlying_value_message_type == " " then
     return siac_opra_recipient_obi_v4_0.underlying_value_last_sale_message.dissect(buffer, offset, packet, parent)
@@ -662,11 +648,6 @@ siac_opra_recipient_obi_v4_0.underlying_value_message_payload.branches = functio
   end
 
   return offset
-end
-
--- Dissect: Underlying Value Message Payload
-siac_opra_recipient_obi_v4_0.underlying_value_message_payload.dissect = function(buffer, offset, packet, parent, underlying_value_message_type)
-  return siac_opra_recipient_obi_v4_0.underlying_value_message_payload.branches(buffer, offset, packet, parent, underlying_value_message_type)
 end
 
 -- Underlying Value Message Type
@@ -3268,46 +3249,8 @@ end
 -- Payload
 siac_opra_recipient_obi_v4_0.payload = {}
 
--- Size: Payload
-siac_opra_recipient_obi_v4_0.payload.size = function(buffer, offset, message_category)
-  -- Size of Equity And Index Last Sale Message
-  if message_category == "a" then
-    return siac_opra_recipient_obi_v4_0.equity_and_index_last_sale_message.size
-  end
-  -- Size of Open Interest Message
-  if message_category == "d" then
-    return siac_opra_recipient_obi_v4_0.open_interest_message.size
-  end
-  -- Size of Equity And Index End Of Day Summary Message
-  if message_category == "f" then
-    return siac_opra_recipient_obi_v4_0.equity_and_index_end_of_day_summary_message.size
-  end
-  -- Size of Long Equity And Index Quote Message
-  if message_category == "k" then
-    return siac_opra_recipient_obi_v4_0.long_equity_and_index_quote_message.size(buffer, offset)
-  end
-  -- Size of Short Equity And Index Quote Message
-  if message_category == "q" then
-    return siac_opra_recipient_obi_v4_0.short_equity_and_index_quote_message.size(buffer, offset)
-  end
-  -- Size of Administrative Message
-  if message_category == "C" then
-    return siac_opra_recipient_obi_v4_0.administrative_message.size(buffer, offset)
-  end
-  -- Size of Control Message
-  if message_category == "H" then
-    return siac_opra_recipient_obi_v4_0.control_message.size(buffer, offset)
-  end
-  -- Size of Underlying Value Message
-  if message_category == "Y" then
-    return siac_opra_recipient_obi_v4_0.underlying_value_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-siac_opra_recipient_obi_v4_0.payload.branches = function(buffer, offset, packet, parent, message_category)
+-- Dissect: Payload
+siac_opra_recipient_obi_v4_0.payload.dissect = function(buffer, offset, packet, parent, message_category)
   -- Dissect Equity And Index Last Sale Message
   if message_category == "a" then
     return siac_opra_recipient_obi_v4_0.equity_and_index_last_sale_message.dissect(buffer, offset, packet, parent)
@@ -3342,11 +3285,6 @@ siac_opra_recipient_obi_v4_0.payload.branches = function(buffer, offset, packet,
   end
 
   return offset
-end
-
--- Dissect: Payload
-siac_opra_recipient_obi_v4_0.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  return siac_opra_recipient_obi_v4_0.payload.branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Message Category

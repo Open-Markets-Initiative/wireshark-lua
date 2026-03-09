@@ -1834,54 +1834,8 @@ end
 -- Payload
 nyse_options_complexfeed_xdp_v1_3_a.payload = {}
 
--- Size: Payload
-nyse_options_complexfeed_xdp_v1_3_a.payload.size = function(buffer, offset, message_type)
-  -- Size of Complex Quote Message
-  if message_type == 423 then
-    return nyse_options_complexfeed_xdp_v1_3_a.complex_quote_message.size
-  end
-  -- Size of Complex Trade Message
-  if message_type == 425 then
-    return nyse_options_complexfeed_xdp_v1_3_a.complex_trade_message.size
-  end
-  -- Size of Complex Crossing Rfq Message
-  if message_type == 429 then
-    return nyse_options_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.size
-  end
-  -- Size of Complex Cube Rfq Message
-  if message_type == 472 then
-    return nyse_options_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.size
-  end
-  -- Size of Complex Status Message
-  if message_type == 433 then
-    return nyse_options_complexfeed_xdp_v1_3_a.complex_status_message.size
-  end
-  -- Size of Refresh Complex Quote Message
-  if message_type == 511 then
-    return nyse_options_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.size
-  end
-  -- Size of Refresh Complex Trade Message
-  if message_type == 513 then
-    return nyse_options_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.size
-  end
-  -- Size of Complex Symbol Definition Message
-  if message_type == 439 then
-    return nyse_options_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.size(buffer, offset)
-  end
-  -- Size of Stream Id Message
-  if message_type == 455 then
-    return nyse_options_complexfeed_xdp_v1_3_a.stream_id_message.size
-  end
-  -- Size of Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_options_complexfeed_xdp_v1_3_a.sequence_number_reset_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nyse_options_complexfeed_xdp_v1_3_a.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nyse_options_complexfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Complex Quote Message
   if message_type == 423 then
     return nyse_options_complexfeed_xdp_v1_3_a.complex_quote_message.dissect(buffer, offset, packet, parent)
@@ -1924,11 +1878,6 @@ nyse_options_complexfeed_xdp_v1_3_a.payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-nyse_options_complexfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nyse_options_complexfeed_xdp_v1_3_a.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

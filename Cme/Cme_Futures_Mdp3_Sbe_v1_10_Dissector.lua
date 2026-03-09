@@ -12039,106 +12039,8 @@ end
 -- Payload
 cme_futures_mdp3_sbe_v1_10.payload = {}
 
--- Size: Payload
-cme_futures_mdp3_sbe_v1_10.payload.size = function(buffer, offset, template_id)
-  -- Size of Channel Reset
-  if template_id == 4 then
-    return cme_futures_mdp3_sbe_v1_10.channel_reset.size(buffer, offset)
-  end
-  -- Size of Admin Heartbeat
-  if template_id == 12 then
-    return 0
-  end
-  -- Size of Admin Login
-  if template_id == 15 then
-    return cme_futures_mdp3_sbe_v1_10.admin_login.size
-  end
-  -- Size of Admin Logout
-  if template_id == 16 then
-    return cme_futures_mdp3_sbe_v1_10.admin_logout.size
-  end
-  -- Size of Security Status
-  if template_id == 30 then
-    return cme_futures_mdp3_sbe_v1_10.security_status.size
-  end
-  -- Size of Md Incremental Refresh Volume
-  if template_id == 37 then
-    return cme_futures_mdp3_sbe_v1_10.md_incremental_refresh_volume.size(buffer, offset)
-  end
-  -- Size of Quote Request
-  if template_id == 39 then
-    return cme_futures_mdp3_sbe_v1_10.quote_request.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Book
-  if template_id == 46 then
-    return cme_futures_mdp3_sbe_v1_10.md_incremental_refresh_book.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Order Book
-  if template_id == 47 then
-    return cme_futures_mdp3_sbe_v1_10.md_incremental_refresh_order_book.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Trade Summary
-  if template_id == 48 then
-    return cme_futures_mdp3_sbe_v1_10.md_incremental_refresh_trade_summary.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Daily Statistics
-  if template_id == 49 then
-    return cme_futures_mdp3_sbe_v1_10.md_incremental_refresh_daily_statistics.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Limits Banding
-  if template_id == 50 then
-    return cme_futures_mdp3_sbe_v1_10.md_incremental_refresh_limits_banding.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Session Statistics
-  if template_id == 51 then
-    return cme_futures_mdp3_sbe_v1_10.md_incremental_refresh_session_statistics.size(buffer, offset)
-  end
-  -- Size of Snapshot Full Refresh
-  if template_id == 52 then
-    return cme_futures_mdp3_sbe_v1_10.snapshot_full_refresh.size(buffer, offset)
-  end
-  -- Size of Snapshot Full Refresh Order Book
-  if template_id == 53 then
-    return cme_futures_mdp3_sbe_v1_10.snapshot_full_refresh_order_book.size(buffer, offset)
-  end
-  -- Size of Md Instrument Definition Future
-  if template_id == 54 then
-    return cme_futures_mdp3_sbe_v1_10.md_instrument_definition_future.size(buffer, offset)
-  end
-  -- Size of Md Instrument Definition Option
-  if template_id == 55 then
-    return cme_futures_mdp3_sbe_v1_10.md_instrument_definition_option.size(buffer, offset)
-  end
-  -- Size of Md Instrument Definition Spread
-  if template_id == 56 then
-    return cme_futures_mdp3_sbe_v1_10.md_instrument_definition_spread.size(buffer, offset)
-  end
-  -- Size of Md Instrument Definition Fixed Income
-  if template_id == 57 then
-    return cme_futures_mdp3_sbe_v1_10.md_instrument_definition_fixed_income.size(buffer, offset)
-  end
-  -- Size of Md Instrument Definition Repo
-  if template_id == 58 then
-    return cme_futures_mdp3_sbe_v1_10.md_instrument_definition_repo.size(buffer, offset)
-  end
-  -- Size of Snapshot Refresh Top Orders
-  if template_id == 59 then
-    return cme_futures_mdp3_sbe_v1_10.snapshot_refresh_top_orders.size(buffer, offset)
-  end
-  -- Size of Security Status Workup
-  if template_id == 60 then
-    return cme_futures_mdp3_sbe_v1_10.security_status_workup.size(buffer, offset)
-  end
-  -- Size of Snapshot Full Refresh Tcp
-  if template_id == 61 then
-    return cme_futures_mdp3_sbe_v1_10.snapshot_full_refresh_tcp.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-cme_futures_mdp3_sbe_v1_10.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+cme_futures_mdp3_sbe_v1_10.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Channel Reset
   if template_id == 4 then
     return cme_futures_mdp3_sbe_v1_10.channel_reset.dissect(buffer, offset, packet, parent)
@@ -12233,11 +12135,6 @@ cme_futures_mdp3_sbe_v1_10.payload.branches = function(buffer, offset, packet, p
   end
 
   return offset
-end
-
--- Dissect: Payload
-cme_futures_mdp3_sbe_v1_10.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return cme_futures_mdp3_sbe_v1_10.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version

@@ -2444,58 +2444,8 @@ end
 -- Payload
 nasdaq_phlxoptions_orders_itch_v1_9.payload = {}
 
--- Size: Payload
-nasdaq_phlxoptions_orders_itch_v1_9.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.system_event_message.size
-  end
-  -- Size of Options Directory Message
-  if message_type == "D" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.size
-  end
-  -- Size of Complex Order Strategy Message
-  if message_type == "R" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_message.size(buffer, offset)
-  end
-  -- Size of Security Trading Action Message
-  if message_type == "H" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message.size
-  end
-  -- Size of Complex Trading Action Message
-  if message_type == "I" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message.size
-  end
-  -- Size of Security Open Closed Message
-  if message_type == "P" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.size
-  end
-  -- Size of Strategy Open Closed Message
-  if message_type == "Q" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message.size
-  end
-  -- Size of Simple Order Message
-  if message_type == "O" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.size
-  end
-  -- Size of Complex Order Message
-  if message_type == "X" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.complex_order_message.size(buffer, offset)
-  end
-  -- Size of Auction Notification Message
-  if message_type == "A" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.size
-  end
-  -- Size of Complex Auction Notification Message
-  if message_type == "C" then
-    return nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_phlxoptions_orders_itch_v1_9.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_phlxoptions_orders_itch_v1_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
     return nasdaq_phlxoptions_orders_itch_v1_9.system_event_message.dissect(buffer, offset, packet, parent)
@@ -2542,11 +2492,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_phlxoptions_orders_itch_v1_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_phlxoptions_orders_itch_v1_9.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

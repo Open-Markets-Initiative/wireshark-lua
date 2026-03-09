@@ -4682,94 +4682,8 @@ end
 -- Payload
 hkex_derivatives_fulltick_omd_v1_47.payload = {}
 
--- Size: Payload
-hkex_derivatives_fulltick_omd_v1_47.payload.size = function(buffer, offset, msg_type)
-  -- Size of Sequence Reset
-  if msg_type == 100 then
-    return hkex_derivatives_fulltick_omd_v1_47.sequence_reset.size
-  end
-  -- Size of Disaster Recovery Signal Message
-  if msg_type == 105 then
-    return hkex_derivatives_fulltick_omd_v1_47.disaster_recovery_signal_message.size
-  end
-  -- Size of Refresh Complete
-  if msg_type == 203 then
-    return hkex_derivatives_fulltick_omd_v1_47.refresh_complete.size
-  end
-  -- Size of Commodity Definition Message
-  if msg_type == 301 then
-    return hkex_derivatives_fulltick_omd_v1_47.commodity_definition_message.size
-  end
-  -- Size of Class Definition Message
-  if msg_type == 302 then
-    return hkex_derivatives_fulltick_omd_v1_47.class_definition_message.size
-  end
-  -- Size of Series Definition Base Message
-  if msg_type == 303 then
-    return hkex_derivatives_fulltick_omd_v1_47.series_definition_base_message.size
-  end
-  -- Size of Series Definition Extended Message
-  if msg_type == 304 then
-    return hkex_derivatives_fulltick_omd_v1_47.series_definition_extended_message.size
-  end
-  -- Size of Combination Definition Message
-  if msg_type == 305 then
-    return hkex_derivatives_fulltick_omd_v1_47.combination_definition_message.size
-  end
-  -- Size of Market Status Message
-  if msg_type == 320 then
-    return hkex_derivatives_fulltick_omd_v1_47.market_status_message.size
-  end
-  -- Size of Series Status Message
-  if msg_type == 321 then
-    return hkex_derivatives_fulltick_omd_v1_47.series_status_message.size
-  end
-  -- Size of Commodity Status Message
-  if msg_type == 322 then
-    return hkex_derivatives_fulltick_omd_v1_47.commodity_status_message.size
-  end
-  -- Size of Add Order Message
-  if msg_type == 330 then
-    return hkex_derivatives_fulltick_omd_v1_47.add_order_message.size
-  end
-  -- Size of Modify Order Message
-  if msg_type == 331 then
-    return hkex_derivatives_fulltick_omd_v1_47.modify_order_message.size
-  end
-  -- Size of Delete Order Message
-  if msg_type == 332 then
-    return hkex_derivatives_fulltick_omd_v1_47.delete_order_message.size
-  end
-  -- Size of Orderbook Clear Message
-  if msg_type == 335 then
-    return hkex_derivatives_fulltick_omd_v1_47.orderbook_clear_message.size
-  end
-  -- Size of Quote Request
-  if msg_type == 336 then
-    return hkex_derivatives_fulltick_omd_v1_47.quote_request.size
-  end
-  -- Size of Trade Message
-  if msg_type == 350 then
-    return hkex_derivatives_fulltick_omd_v1_47.trade_message.size
-  end
-  -- Size of Trade Amendment Message
-  if msg_type == 356 then
-    return hkex_derivatives_fulltick_omd_v1_47.trade_amendment_message.size
-  end
-  -- Size of Calculated Opening Price Message
-  if msg_type == 364 then
-    return hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price_message.size
-  end
-  -- Size of Market Alert Message
-  if msg_type == 323 then
-    return hkex_derivatives_fulltick_omd_v1_47.market_alert_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-hkex_derivatives_fulltick_omd_v1_47.payload.branches = function(buffer, offset, packet, parent, msg_type)
+-- Dissect: Payload
+hkex_derivatives_fulltick_omd_v1_47.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Sequence Reset
   if msg_type == 100 then
     return hkex_derivatives_fulltick_omd_v1_47.sequence_reset.dissect(buffer, offset, packet, parent)
@@ -4852,11 +4766,6 @@ hkex_derivatives_fulltick_omd_v1_47.payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-hkex_derivatives_fulltick_omd_v1_47.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  return hkex_derivatives_fulltick_omd_v1_47.payload.branches(buffer, offset, packet, parent, msg_type)
 end
 
 -- Msg Type

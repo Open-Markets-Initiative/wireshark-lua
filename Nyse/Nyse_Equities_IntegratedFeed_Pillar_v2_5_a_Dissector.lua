@@ -4494,114 +4494,8 @@ end
 -- Payload
 nyse_equities_integratedfeed_pillar_v2_5_a.payload = {}
 
--- Size: Payload
-nyse_equities_integratedfeed_pillar_v2_5_a.payload.size = function(buffer, offset, message_type)
-  -- Size of Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number_reset_message.size
-  end
-  -- Size of Source Time Reference Message
-  if message_type == 2 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.source_time_reference_message.size
-  end
-  -- Size of Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.symbol_index_mapping_message.size
-  end
-  -- Size of Retransmission Request Message
-  if message_type == 10 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.retransmission_request_message.size
-  end
-  -- Size of Request Response Message
-  if message_type == 11 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.request_response_message.size
-  end
-  -- Size of Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.heartbeat_response_message.size
-  end
-  -- Size of Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.symbol_index_mapping_request_message.size
-  end
-  -- Size of Refresh Request Message
-  if message_type == 15 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.refresh_request_message.size
-  end
-  -- Size of Message Unavailable Message
-  if message_type == 31 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.message_unavailable_message.size
-  end
-  -- Size of Symbol Clear Message
-  if message_type == 32 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.symbol_clear_message.size
-  end
-  -- Size of Security Status Message
-  if message_type == 34 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.security_status_message.size
-  end
-  -- Size of Refresh Header Message
-  if message_type == 35 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.refresh_header_message.size
-  end
-  -- Size of Add Order Message
-  if message_type == 100 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.add_order_message.size
-  end
-  -- Size of Modify Order Message
-  if message_type == 101 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.modify_order_message.size
-  end
-  -- Size of Delete Order Message
-  if message_type == 102 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.delete_order_message.size
-  end
-  -- Size of Order Execution Message
-  if message_type == 103 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.order_execution_message.size
-  end
-  -- Size of Replace Order Message
-  if message_type == 104 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.replace_order_message.size
-  end
-  -- Size of Imbalance Message
-  if message_type == 105 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.imbalance_message.size
-  end
-  -- Size of Add Order Refresh Message
-  if message_type == 106 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.add_order_refresh_message.size
-  end
-  -- Size of Non Displayed Trade Message
-  if message_type == 110 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.non_displayed_trade_message.size
-  end
-  -- Size of Cross Trade Message
-  if message_type == 111 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.cross_trade_message.size
-  end
-  -- Size of Trade Cancel Message
-  if message_type == 112 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.trade_cancel_message.size
-  end
-  -- Size of Cross Correction Message
-  if message_type == 113 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.cross_correction_message.size
-  end
-  -- Size of Retail Price Improvement Message
-  if message_type == 114 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.retail_price_improvement_message.size
-  end
-  -- Size of Stock Summary Message
-  if message_type == 223 then
-    return nyse_equities_integratedfeed_pillar_v2_5_a.stock_summary_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nyse_equities_integratedfeed_pillar_v2_5_a.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nyse_equities_integratedfeed_pillar_v2_5_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequence Number Reset Message
   if message_type == 1 then
     return nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
@@ -4704,11 +4598,6 @@ nyse_equities_integratedfeed_pillar_v2_5_a.payload.branches = function(buffer, o
   end
 
   return offset
-end
-
--- Dissect: Payload
-nyse_equities_integratedfeed_pillar_v2_5_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nyse_equities_integratedfeed_pillar_v2_5_a.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

@@ -2836,66 +2836,8 @@ end
 -- Payload
 nasdaq_psxequities_lastsale_itch_v2_1.payload = {}
 
--- Size: Payload
-nasdaq_psxequities_lastsale_itch_v2_1.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.system_event_message.size
-  end
-  -- Size of Trade Report Message
-  if message_type == "T" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.trade_report_message.size
-  end
-  -- Size of Next Shares Trade Report Message
-  if message_type == "M" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.next_shares_trade_report_message.size
-  end
-  -- Size of Trade Cancel Error Message
-  if message_type == "X" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.trade_cancel_error_message.size
-  end
-  -- Size of Trade Cancel Error For Next Shares Message
-  if message_type == "O" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.trade_cancel_error_for_next_shares_message.size
-  end
-  -- Size of Trade Correction Message
-  if message_type == "C" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.trade_correction_message.size
-  end
-  -- Size of Trade Correction For Next Shares Message
-  if message_type == "Z" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.trade_correction_for_next_shares_message.size
-  end
-  -- Size of Trading Action Message
-  if message_type == "H" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.trading_action_message.size
-  end
-  -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.reg_sho_short_sale_price_test_restricted_indicator_message.size
-  end
-  -- Size of Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.stock_directory_message.size
-  end
-  -- Size of Mwcb Decline Level Message
-  if message_type == "V" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.mwcb_decline_level_message.size
-  end
-  -- Size of Mwcb Breach Message
-  if message_type == "W" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.mwcb_breach_message.size
-  end
-  -- Size of Operational Halt Message
-  if message_type == "h" then
-    return nasdaq_psxequities_lastsale_itch_v2_1.operational_halt_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_psxequities_lastsale_itch_v2_1.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_psxequities_lastsale_itch_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
     return nasdaq_psxequities_lastsale_itch_v2_1.system_event_message.dissect(buffer, offset, packet, parent)
@@ -2950,11 +2892,6 @@ nasdaq_psxequities_lastsale_itch_v2_1.payload.branches = function(buffer, offset
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_psxequities_lastsale_itch_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_psxequities_lastsale_itch_v2_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

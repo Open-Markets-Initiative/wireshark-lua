@@ -989,38 +989,8 @@ end
 -- Unsequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message = {}
 
--- Size: Unsequenced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.size = function(buffer, offset, unsequenced_message_type)
-  -- Size of Enter Order
-  if unsequenced_message_type == "O" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.size
-  end
-  -- Size of Enter Mm Order
-  if unsequenced_message_type == "P" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.size
-  end
-  -- Size of Replace Order
-  if unsequenced_message_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.size
-  end
-  -- Size of Cancel Order
-  if unsequenced_message_type == "X" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.size
-  end
-  -- Size of Cancel By Order Id
-  if unsequenced_message_type == "Y" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.size
-  end
-  -- Size of Mass Cancel
-  if unsequenced_message_type == "M" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Unsequenced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Enter Order
   if unsequenced_message_type == "O" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect(buffer, offset, packet, parent)
@@ -1047,11 +1017,6 @@ jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.branches = function(
   end
 
   return offset
-end
-
--- Dissect: Unsequenced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  return jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
 -- Unsequenced Message Type
@@ -2537,38 +2502,8 @@ end
 -- Sequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message = {}
 
--- Size: Sequenced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.size = function(buffer, offset, sequenced_message_type)
-  -- Size of Order Accepted
-  if sequenced_message_type == "A" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.size
-  end
-  -- Size of Mass Cancel Accepted
-  if sequenced_message_type == "M" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.size
-  end
-  -- Size of Order Rejected
-  if sequenced_message_type == "J" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.size
-  end
-  -- Size of Order Replaced
-  if sequenced_message_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.size
-  end
-  -- Size of Order Canceled
-  if sequenced_message_type == "C" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.size
-  end
-  -- Size of Order Executed
-  if sequenced_message_type == "E" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Sequenced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect Order Accepted
   if sequenced_message_type == "A" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.dissect(buffer, offset, packet, parent)
@@ -2595,11 +2530,6 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.branches = function(bu
   end
 
   return offset
-end
-
--- Dissect: Sequenced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  return jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
 -- Sequenced Message Type
@@ -2916,38 +2846,8 @@ end
 -- Payload
 jpx_osederivatives_geniuminet_ouch_v5_0.payload = {}
 
--- Size: Payload
-jpx_osederivatives_geniuminet_ouch_v5_0.payload.size = function(buffer, offset, packet_type)
-  -- Size of Debug Packet
-  if packet_type == "+" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.size
-  end
-  -- Size of Login Accepted Packet
-  if packet_type == "A" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.size
-  end
-  -- Size of Login Rejected Packet
-  if packet_type == "J" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.login_rejected_packet.size
-  end
-  -- Size of Sequenced Data Packet
-  if packet_type == "S" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Login Request Packet
-  if packet_type == "L" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.size
-  end
-  -- Size of Unsequenced Data Packet
-  if packet_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-jpx_osederivatives_geniuminet_ouch_v5_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+jpx_osederivatives_geniuminet_ouch_v5_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
   if packet_type == "+" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect(buffer, offset, packet, parent)
@@ -2974,11 +2874,6 @@ jpx_osederivatives_geniuminet_ouch_v5_0.payload.branches = function(buffer, offs
   end
 
   return offset
-end
-
--- Dissect: Payload
-jpx_osederivatives_geniuminet_ouch_v5_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return jpx_osederivatives_geniuminet_ouch_v5_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

@@ -2075,66 +2075,8 @@ end
 -- Payload
 memx_options_memoirtop_sbe_v1_3.payload = {}
 
--- Size: Payload
-memx_options_memoirtop_sbe_v1_3.payload.size = function(buffer, offset, template_id)
-  -- Size of Instrument Directory Message
-  if template_id == 1 then
-    return memx_options_memoirtop_sbe_v1_3.instrument_directory_message.size
-  end
-  -- Size of Instrument Trading Status Message
-  if template_id == 2 then
-    return memx_options_memoirtop_sbe_v1_3.instrument_trading_status_message.size
-  end
-  -- Size of Trading Session Status Message
-  if template_id == 3 then
-    return memx_options_memoirtop_sbe_v1_3.trading_session_status_message.size
-  end
-  -- Size of Broken Trade Message
-  if template_id == 5 then
-    return memx_options_memoirtop_sbe_v1_3.broken_trade_message.size
-  end
-  -- Size of Corrected Trade Message
-  if template_id == 6 then
-    return memx_options_memoirtop_sbe_v1_3.corrected_trade_message.size
-  end
-  -- Size of Snapshot Complete Message
-  if template_id == 7 then
-    return memx_options_memoirtop_sbe_v1_3.snapshot_complete_message.size
-  end
-  -- Size of Best Bid Offer Message
-  if template_id == 10 then
-    return memx_options_memoirtop_sbe_v1_3.best_bid_offer_message.size
-  end
-  -- Size of Best Bid Message
-  if template_id == 11 then
-    return memx_options_memoirtop_sbe_v1_3.best_bid_message.size
-  end
-  -- Size of Best Offer Message
-  if template_id == 12 then
-    return memx_options_memoirtop_sbe_v1_3.best_offer_message.size
-  end
-  -- Size of Best Bid Short Message
-  if template_id == 13 then
-    return memx_options_memoirtop_sbe_v1_3.best_bid_short_message.size
-  end
-  -- Size of Best Offer Short Message
-  if template_id == 14 then
-    return memx_options_memoirtop_sbe_v1_3.best_offer_short_message.size
-  end
-  -- Size of Trade Message
-  if template_id == 15 then
-    return memx_options_memoirtop_sbe_v1_3.trade_message.size
-  end
-  -- Size of Clear Book Message
-  if template_id == 16 then
-    return memx_options_memoirtop_sbe_v1_3.clear_book_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-memx_options_memoirtop_sbe_v1_3.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+memx_options_memoirtop_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Instrument Directory Message
   if template_id == 1 then
     return memx_options_memoirtop_sbe_v1_3.instrument_directory_message.dissect(buffer, offset, packet, parent)
@@ -2189,11 +2131,6 @@ memx_options_memoirtop_sbe_v1_3.payload.branches = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Dissect: Payload
-memx_options_memoirtop_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return memx_options_memoirtop_sbe_v1_3.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version
@@ -2594,29 +2531,14 @@ end
 -- Sequenced Messages
 memx_options_memoirtop_sbe_v1_3.sequenced_messages = {}
 
--- Size: Sequenced Messages
-memx_options_memoirtop_sbe_v1_3.sequenced_messages.size = function(buffer, offset, message_type)
-  -- Size of Sequenced Message
-  if message_type == 2 then
-    return memx_options_memoirtop_sbe_v1_3.sequenced_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Sequenced Messages
-memx_options_memoirtop_sbe_v1_3.sequenced_messages.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Sequenced Messages
+memx_options_memoirtop_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequenced Message
   if message_type == 2 then
     return memx_options_memoirtop_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Sequenced Messages
-memx_options_memoirtop_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  return memx_options_memoirtop_sbe_v1_3.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Sequence Number

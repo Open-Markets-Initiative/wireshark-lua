@@ -2071,38 +2071,8 @@ end
 -- Business Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_message = {}
 
--- Size: Business Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_message.size = function(buffer, offset, msg_type)
-  -- Size of Symbol Status Message
-  if msg_type == "J" then
-    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol_status_message.size
-  end
-  -- Size of Trade Report Message
-  if msg_type == "s" then
-    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_report_message.size
-  end
-  -- Size of Trade Cancelled Message
-  if msg_type == "T" then
-    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_cancelled_message.size
-  end
-  -- Size of Moc Imbalance Message
-  if msg_type == "F" then
-    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.moc_imbalance_message.size
-  end
-  -- Size of Stock Status Message
-  if msg_type == "I" then
-    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_status_message.size
-  end
-  -- Size of Quote Message
-  if msg_type == "I" then
-    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.quote_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Business Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_message.branches = function(buffer, offset, packet, parent, msg_type)
+-- Dissect: Business Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Symbol Status Message
   if msg_type == "J" then
     return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol_status_message.dissect(buffer, offset, packet, parent)
@@ -2129,11 +2099,6 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_message.branches = function(buff
   end
 
   return offset
-end
-
--- Dissect: Business Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_message.branches(buffer, offset, packet, parent, msg_type)
 end
 
 -- Sequence 1

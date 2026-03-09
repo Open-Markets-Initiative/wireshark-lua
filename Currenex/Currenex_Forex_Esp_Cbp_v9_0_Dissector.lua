@@ -1393,54 +1393,8 @@ end
 -- Message Body
 currenex_forex_esp_cbp_v9_0.message_body = {}
 
--- Size: Message Body
-currenex_forex_esp_cbp_v9_0.message_body.size = function(buffer, offset, message_type)
-  -- Size of Logon
-  if message_type == "A" then
-    return currenex_forex_esp_cbp_v9_0.logon.size
-  end
-  -- Size of Logout
-  if message_type == "B" then
-    return currenex_forex_esp_cbp_v9_0.logout.size
-  end
-  -- Size of Heartbeat
-  if message_type == "C" then
-    return currenex_forex_esp_cbp_v9_0.heartbeat.size
-  end
-  -- Size of Instrument Info
-  if message_type == "D" then
-    return currenex_forex_esp_cbp_v9_0.instrument_info.size
-  end
-  -- Size of Subscription Request
-  if message_type == "F" then
-    return currenex_forex_esp_cbp_v9_0.subscription_request.size
-  end
-  -- Size of Subscription Reply
-  if message_type == "G" then
-    return currenex_forex_esp_cbp_v9_0.subscription_reply.size
-  end
-  -- Size of Price Message
-  if message_type == "H" then
-    return currenex_forex_esp_cbp_v9_0.price_message.size
-  end
-  -- Size of Price Cancel Message
-  if message_type == "H" then
-    return currenex_forex_esp_cbp_v9_0.price_cancel_message.size
-  end
-  -- Size of Trade Ticker Message
-  if message_type == "J" then
-    return currenex_forex_esp_cbp_v9_0.trade_ticker_message.size
-  end
-  -- Size of Reject Message
-  if message_type == "J" then
-    return currenex_forex_esp_cbp_v9_0.reject_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Message Body
-currenex_forex_esp_cbp_v9_0.message_body.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Message Body
+currenex_forex_esp_cbp_v9_0.message_body.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Logon
   if message_type == "A" then
     return currenex_forex_esp_cbp_v9_0.logon.dissect(buffer, offset, packet, parent)
@@ -1483,11 +1437,6 @@ currenex_forex_esp_cbp_v9_0.message_body.branches = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Dissect: Message Body
-currenex_forex_esp_cbp_v9_0.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  return currenex_forex_esp_cbp_v9_0.message_body.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

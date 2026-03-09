@@ -2507,62 +2507,8 @@ end
 -- Data
 miax_pearloptions_topofmarket_mach_v1_0.data = {}
 
--- Size: Data
-miax_pearloptions_topofmarket_mach_v1_0.data.size = function(buffer, offset, message_type)
-  -- Size of Pearl System Time Message
-  if message_type == "1" then
-    return miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.size
-  end
-  -- Size of Series Update Message
-  if message_type == "P" then
-    return miax_pearloptions_topofmarket_mach_v1_0.series_update_message.size
-  end
-  -- Size of System State Message
-  if message_type == "S" then
-    return miax_pearloptions_topofmarket_mach_v1_0.system_state_message.size
-  end
-  -- Size of Compact Top Of Market Bid Message
-  if message_type == "B" then
-    return miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message.size
-  end
-  -- Size of Compact Top Of Market Best Offer Message
-  if message_type == "O" then
-    return miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message.size
-  end
-  -- Size of Wide Top Of Market Best Bid Message
-  if message_type == "W" then
-    return miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message.size
-  end
-  -- Size of Wide Top Of Market Best Offer Message
-  if message_type == "A" then
-    return miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message.size
-  end
-  -- Size of Compact Double Sided Top Of Market Message
-  if message_type == "d" then
-    return miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message.size
-  end
-  -- Size of Wide Double Sided Top Of Market Message
-  if message_type == "D" then
-    return miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message.size
-  end
-  -- Size of Last Sale Message
-  if message_type == "T" then
-    return miax_pearloptions_topofmarket_mach_v1_0.last_sale_message.size
-  end
-  -- Size of Trade Cancel Message
-  if message_type == "X" then
-    return miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message.size
-  end
-  -- Size of Underlying Trading Status Notification
-  if message_type == "H" then
-    return miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Data
-miax_pearloptions_topofmarket_mach_v1_0.data.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Data
+miax_pearloptions_topofmarket_mach_v1_0.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Pearl System Time Message
   if message_type == "1" then
     return miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.dissect(buffer, offset, packet, parent)
@@ -2613,11 +2559,6 @@ miax_pearloptions_topofmarket_mach_v1_0.data.branches = function(buffer, offset,
   end
 
   return offset
-end
-
--- Dissect: Data
-miax_pearloptions_topofmarket_mach_v1_0.data.dissect = function(buffer, offset, packet, parent, message_type)
-  return miax_pearloptions_topofmarket_mach_v1_0.data.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2736,29 +2677,14 @@ end
 -- Payload
 miax_pearloptions_topofmarket_mach_v1_0.payload = {}
 
--- Size: Payload
-miax_pearloptions_topofmarket_mach_v1_0.payload.size = function(buffer, offset, packet_type)
-  -- Size of Application Message
-  if packet_type == 3 then
-    return miax_pearloptions_topofmarket_mach_v1_0.application_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-miax_pearloptions_topofmarket_mach_v1_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+miax_pearloptions_topofmarket_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_pearloptions_topofmarket_mach_v1_0.application_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Payload
-miax_pearloptions_topofmarket_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return miax_pearloptions_topofmarket_mach_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Session Number

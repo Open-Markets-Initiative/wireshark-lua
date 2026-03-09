@@ -7698,138 +7698,8 @@ end
 -- Payload
 memx_options_memo_sbe_v1_5_b.payload = {}
 
--- Size: Payload
-memx_options_memo_sbe_v1_5_b.payload.size = function(buffer, offset, template_id)
-  -- Size of New Order Single Message
-  if template_id == 1 then
-    return memx_options_memo_sbe_v1_5_b.new_order_single_message.size(buffer, offset)
-  end
-  -- Size of Short Two Sided Bulk Quote Message
-  if template_id == 2 then
-    return memx_options_memo_sbe_v1_5_b.short_two_sided_bulk_quote_message.size(buffer, offset)
-  end
-  -- Size of Long Two Sided Bulk Quote Message
-  if template_id == 3 then
-    return memx_options_memo_sbe_v1_5_b.long_two_sided_bulk_quote_message.size(buffer, offset)
-  end
-  -- Size of Short One Sided Bulk Quote Message
-  if template_id == 4 then
-    return memx_options_memo_sbe_v1_5_b.short_one_sided_bulk_quote_message.size(buffer, offset)
-  end
-  -- Size of Long One Sided Bulk Quote Message
-  if template_id == 5 then
-    return memx_options_memo_sbe_v1_5_b.long_one_sided_bulk_quote_message.size(buffer, offset)
-  end
-  -- Size of Order Cancel Replace Request Message
-  if template_id == 6 then
-    return memx_options_memo_sbe_v1_5_b.order_cancel_replace_request_message.size
-  end
-  -- Size of Order Cancel Request Message
-  if template_id == 7 then
-    return memx_options_memo_sbe_v1_5_b.order_cancel_request_message.size
-  end
-  -- Size of Mass Cancel Request Message
-  if template_id == 8 then
-    return memx_options_memo_sbe_v1_5_b.mass_cancel_request_message.size
-  end
-  -- Size of Mass Cancel Clear Lockout Request Message
-  if template_id == 9 then
-    return memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_request_message.size
-  end
-  -- Size of Allocation Instruction Message
-  if template_id == 10 then
-    return memx_options_memo_sbe_v1_5_b.allocation_instruction_message.size(buffer, offset)
-  end
-  -- Size of Execution Report New Message
-  if template_id == 11 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_new_message.size(buffer, offset)
-  end
-  -- Size of Execution Report Bulk Quote Pending New Message
-  if template_id == 12 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_pending_new_message.size(buffer, offset)
-  end
-  -- Size of Execution Report Bulk Quote Component New Message
-  if template_id == 13 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_component_new_message.size
-  end
-  -- Size of Execution Report Rejected Message
-  if template_id == 14 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_rejected_message.size
-  end
-  -- Size of Execution Report Trade Message
-  if template_id == 15 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_trade_message.size(buffer, offset)
-  end
-  -- Size of Execution Report Pending Cancel Message
-  if template_id == 16 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_pending_cancel_message.size
-  end
-  -- Size of Execution Report Canceled Message
-  if template_id == 17 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_canceled_message.size
-  end
-  -- Size of Execution Report Pending Replace Message
-  if template_id == 18 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_pending_replace_message.size
-  end
-  -- Size of Execution Report Replaced Message
-  if template_id == 19 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_replaced_message.size
-  end
-  -- Size of Execution Report Trade Correction Message
-  if template_id == 20 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_trade_correction_message.size
-  end
-  -- Size of Execution Report Trade Break Message
-  if template_id == 21 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_trade_break_message.size
-  end
-  -- Size of Execution Report Restatement Message
-  if template_id == 22 then
-    return memx_options_memo_sbe_v1_5_b.execution_report_restatement_message.size
-  end
-  -- Size of Pending Mass Cancel Message
-  if template_id == 23 then
-    return memx_options_memo_sbe_v1_5_b.pending_mass_cancel_message.size
-  end
-  -- Size of Mass Cancel Reject Message
-  if template_id == 24 then
-    return memx_options_memo_sbe_v1_5_b.mass_cancel_reject_message.size
-  end
-  -- Size of Mass Cancel Done Message
-  if template_id == 25 then
-    return memx_options_memo_sbe_v1_5_b.mass_cancel_done_message.size
-  end
-  -- Size of Order Cancel Reject Message
-  if template_id == 26 then
-    return memx_options_memo_sbe_v1_5_b.order_cancel_reject_message.size
-  end
-  -- Size of Allocation Instruction Ack Message
-  if template_id == 27 then
-    return memx_options_memo_sbe_v1_5_b.allocation_instruction_ack_message.size(buffer, offset)
-  end
-  -- Size of Allocation Instruction Alert Message
-  if template_id == 28 then
-    return memx_options_memo_sbe_v1_5_b.allocation_instruction_alert_message.size(buffer, offset)
-  end
-  -- Size of User Notification Message
-  if template_id == 29 then
-    return memx_options_memo_sbe_v1_5_b.user_notification_message.size
-  end
-  -- Size of Mass Cancel Clear Lockout Reject Message
-  if template_id == 30 then
-    return memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_reject_message.size
-  end
-  -- Size of Mass Cancel Clear Lockout Done Message
-  if template_id == 31 then
-    return memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_done_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-memx_options_memo_sbe_v1_5_b.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+memx_options_memo_sbe_v1_5_b.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect New Order Single Message
   if template_id == 1 then
     return memx_options_memo_sbe_v1_5_b.new_order_single_message.dissect(buffer, offset, packet, parent)
@@ -7956,11 +7826,6 @@ memx_options_memo_sbe_v1_5_b.payload.branches = function(buffer, offset, packet,
   end
 
   return offset
-end
-
--- Dissect: Payload
-memx_options_memo_sbe_v1_5_b.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return memx_options_memo_sbe_v1_5_b.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version
@@ -9247,74 +9112,8 @@ end
 -- Data
 memx_options_memo_sbe_v1_5_b.data = {}
 
--- Size: Data
-memx_options_memo_sbe_v1_5_b.data.size = function(buffer, offset, message_type)
-  -- Size of Login Request Message
-  if message_type == 100 then
-    return memx_options_memo_sbe_v1_5_b.login_request_message.size
-  end
-  -- Size of Replay Request Message
-  if message_type == 101 then
-    return memx_options_memo_sbe_v1_5_b.replay_request_message.size
-  end
-  -- Size of Replay All Request Message
-  if message_type == 102 then
-    return memx_options_memo_sbe_v1_5_b.replay_all_request_message.size
-  end
-  -- Size of Stream Request Message
-  if message_type == 103 then
-    return memx_options_memo_sbe_v1_5_b.stream_request_message.size
-  end
-  -- Size of Unsequenced Message
-  if message_type == 104 then
-    return memx_options_memo_sbe_v1_5_b.unsequenced_message.size(buffer, offset)
-  end
-  -- Size of Login Accepted Message
-  if message_type == 1 then
-    return memx_options_memo_sbe_v1_5_b.login_accepted_message.size
-  end
-  -- Size of Login Rejected Message
-  if message_type == 2 then
-    return memx_options_memo_sbe_v1_5_b.login_rejected_message.size
-  end
-  -- Size of Start Of Session Message
-  if message_type == 3 then
-    return memx_options_memo_sbe_v1_5_b.start_of_session_message.size
-  end
-  -- Size of Replay Begin Message
-  if message_type == 5 then
-    return memx_options_memo_sbe_v1_5_b.replay_begin_message.size
-  end
-  -- Size of Replay Rejected Message
-  if message_type == 6 then
-    return memx_options_memo_sbe_v1_5_b.replay_rejected_message.size
-  end
-  -- Size of Replay Complete Message
-  if message_type == 7 then
-    return memx_options_memo_sbe_v1_5_b.replay_complete_message.size
-  end
-  -- Size of Stream Begin Message
-  if message_type == 8 then
-    return memx_options_memo_sbe_v1_5_b.stream_begin_message.size
-  end
-  -- Size of Stream Rejected Message
-  if message_type == 9 then
-    return memx_options_memo_sbe_v1_5_b.stream_rejected_message.size
-  end
-  -- Size of Stream Complete Message
-  if message_type == 10 then
-    return memx_options_memo_sbe_v1_5_b.stream_complete_message.size
-  end
-  -- Size of Sequenced Message
-  if message_type == 11 then
-    return memx_options_memo_sbe_v1_5_b.sequenced_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Data
-memx_options_memo_sbe_v1_5_b.data.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Data
+memx_options_memo_sbe_v1_5_b.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
   if message_type == 100 then
     return memx_options_memo_sbe_v1_5_b.login_request_message.dissect(buffer, offset, packet, parent)
@@ -9377,11 +9176,6 @@ memx_options_memo_sbe_v1_5_b.data.branches = function(buffer, offset, packet, pa
   end
 
   return offset
-end
-
--- Dissect: Data
-memx_options_memo_sbe_v1_5_b.data.dissect = function(buffer, offset, packet, parent, message_type)
-  return memx_options_memo_sbe_v1_5_b.data.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Length

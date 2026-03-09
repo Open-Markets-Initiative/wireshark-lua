@@ -264,8 +264,8 @@ end
 -- Messages
 iex_equities_udpheader_iextp_v1_0.messages = {}
 
--- Dissect Branches: Messages
-iex_equities_udpheader_iextp_v1_0.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+iex_equities_udpheader_iextp_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -284,11 +284,6 @@ iex_equities_udpheader_iextp_v1_0.messages.branches = function(buffer, offset, p
   end
 
   return offset
-end
-
--- Dissect: Messages
-iex_equities_udpheader_iextp_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return iex_equities_udpheader_iextp_v1_0.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Send Time

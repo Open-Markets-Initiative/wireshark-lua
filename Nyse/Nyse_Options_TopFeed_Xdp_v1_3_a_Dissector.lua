@@ -3115,82 +3115,8 @@ end
 -- Payload
 nyse_options_topfeed_xdp_v1_3_a.payload = {}
 
--- Size: Payload
-nyse_options_topfeed_xdp_v1_3_a.payload.size = function(buffer, offset, message_type)
-  -- Size of Outright Quote Message
-  if message_type == 401 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_quote_message.size
-  end
-  -- Size of Outright Trade Message
-  if message_type == 407 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_trade_message.size
-  end
-  -- Size of Outright Trade Cancel Message
-  if message_type == 409 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_trade_cancel_message.size
-  end
-  -- Size of Outright Trade Correction Message
-  if message_type == 411 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_trade_correction_message.size
-  end
-  -- Size of Outright Imbalance Message
-  if message_type == 413 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_imbalance_message.size
-  end
-  -- Size of Outright Crossing Rfq Message
-  if message_type == 415 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_crossing_rfq_message.size
-  end
-  -- Size of Outright Bold Rfq Message
-  if message_type == 471 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_bold_rfq_message.size
-  end
-  -- Size of Outright Summary Message
-  if message_type == 417 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_summary_message.size
-  end
-  -- Size of Underlying Status Message
-  if message_type == 419 then
-    return nyse_options_topfeed_xdp_v1_3_a.underlying_status_message.size
-  end
-  -- Size of Outright Series Status Message
-  if message_type == 421 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_series_status_message.size
-  end
-  -- Size of Refresh Outright Quote Message
-  if message_type == 501 then
-    return nyse_options_topfeed_xdp_v1_3_a.refresh_outright_quote_message.size
-  end
-  -- Size of Refresh Outright Trade Message
-  if message_type == 507 then
-    return nyse_options_topfeed_xdp_v1_3_a.refresh_outright_trade_message.size
-  end
-  -- Size of Refresh Outright Imbalance Message
-  if message_type == 509 then
-    return nyse_options_topfeed_xdp_v1_3_a.refresh_outright_imbalance_message.size
-  end
-  -- Size of Underlying Index Mapping Message
-  if message_type == 435 then
-    return nyse_options_topfeed_xdp_v1_3_a.underlying_index_mapping_message.size
-  end
-  -- Size of Series Index Mapping Message
-  if message_type == 437 then
-    return nyse_options_topfeed_xdp_v1_3_a.series_index_mapping_message.size
-  end
-  -- Size of Stream Id Message
-  if message_type == 455 then
-    return nyse_options_topfeed_xdp_v1_3_a.stream_id_message.size
-  end
-  -- Size of Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_options_topfeed_xdp_v1_3_a.sequence_number_reset_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nyse_options_topfeed_xdp_v1_3_a.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nyse_options_topfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Outright Quote Message
   if message_type == 401 then
     return nyse_options_topfeed_xdp_v1_3_a.outright_quote_message.dissect(buffer, offset, packet, parent)
@@ -3261,11 +3187,6 @@ nyse_options_topfeed_xdp_v1_3_a.payload.branches = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Dissect: Payload
-nyse_options_topfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nyse_options_topfeed_xdp_v1_3_a.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

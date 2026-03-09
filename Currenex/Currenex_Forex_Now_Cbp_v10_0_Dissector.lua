@@ -2036,70 +2036,8 @@ end
 -- Message Body
 currenex_forex_now_cbp_v10_0.message_body = {}
 
--- Size: Message Body
-currenex_forex_now_cbp_v10_0.message_body.size = function(buffer, offset, message_type)
-  -- Size of Logon Message
-  if message_type == "A" then
-    return currenex_forex_now_cbp_v10_0.logon_message.size
-  end
-  -- Size of Logout Message
-  if message_type == "B" then
-    return currenex_forex_now_cbp_v10_0.logout_message.size
-  end
-  -- Size of Heart Beat Message
-  if message_type == "C" then
-    return currenex_forex_now_cbp_v10_0.heart_beat_message.size
-  end
-  -- Size of Instrument Info
-  if message_type == "D" then
-    return currenex_forex_now_cbp_v10_0.instrument_info.size
-  end
-  -- Size of Instrument Info Ack Message
-  if message_type == "E" then
-    return currenex_forex_now_cbp_v10_0.instrument_info_ack_message.size
-  end
-  -- Size of Subscription Request Message
-  if message_type == "X" then
-    return currenex_forex_now_cbp_v10_0.subscription_request_message.size
-  end
-  -- Size of Mass Subscription Request Message
-  if message_type == "Y" then
-    return currenex_forex_now_cbp_v10_0.mass_subscription_request_message.size
-  end
-  -- Size of Subscription Reply Message
-  if message_type == "G" then
-    return currenex_forex_now_cbp_v10_0.subscription_reply_message.size
-  end
-  -- Size of Mass Subscription Reply Message
-  if message_type == "Z" then
-    return currenex_forex_now_cbp_v10_0.mass_subscription_reply_message.size
-  end
-  -- Size of Depth Of Book Message
-  if message_type == "d" then
-    return currenex_forex_now_cbp_v10_0.depth_of_book_message.size
-  end
-  -- Size of Paid Given Message
-  if message_type == "k" then
-    return currenex_forex_now_cbp_v10_0.paid_given_message.size
-  end
-  -- Size of Wamr With Confidence Factor Message
-  if message_type == "r" then
-    return currenex_forex_now_cbp_v10_0.wamr_with_confidence_factor_message.size
-  end
-  -- Size of Mid Activity Indicator Message
-  if message_type == "x" then
-    return currenex_forex_now_cbp_v10_0.mid_activity_indicator_message.size
-  end
-  -- Size of Reject Message
-  if message_type == "K" then
-    return currenex_forex_now_cbp_v10_0.reject_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Message Body
-currenex_forex_now_cbp_v10_0.message_body.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Message Body
+currenex_forex_now_cbp_v10_0.message_body.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Logon Message
   if message_type == "A" then
     return currenex_forex_now_cbp_v10_0.logon_message.dissect(buffer, offset, packet, parent)
@@ -2158,11 +2096,6 @@ currenex_forex_now_cbp_v10_0.message_body.branches = function(buffer, offset, pa
   end
 
   return offset
-end
-
--- Dissect: Message Body
-currenex_forex_now_cbp_v10_0.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  return currenex_forex_now_cbp_v10_0.message_body.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

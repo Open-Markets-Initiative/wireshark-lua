@@ -1321,46 +1321,8 @@ end
 -- Data
 miax_pearlequities_topofmarket_mach_v1_1_a.data = {}
 
--- Size: Data
-miax_pearlequities_topofmarket_mach_v1_1_a.data.size = function(buffer, offset, message_type)
-  -- Size of System Time Message
-  if message_type == "49" then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.size
-  end
-  -- Size of Symbol Update Message
-  if message_type == "1" then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message.size
-  end
-  -- Size of System State Message
-  if message_type == "83" then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.size
-  end
-  -- Size of Security Trading Status Notification Message
-  if message_type == "4" then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message.size
-  end
-  -- Size of Compact Top Of Market Best Bid And Offer Message
-  if message_type == "2" then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_offer_message.size
-  end
-  -- Size of Wide Top Of Market Best Bid And Offer Message
-  if message_type == "3" then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer_message.size
-  end
-  -- Size of Last Sale Message
-  if message_type == "10" then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.size
-  end
-  -- Size of Trade Cancel Message
-  if message_type == "11" then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Data
-miax_pearlequities_topofmarket_mach_v1_1_a.data.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Data
+miax_pearlequities_topofmarket_mach_v1_1_a.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
   if message_type == "49" then
     return miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.dissect(buffer, offset, packet, parent)
@@ -1395,11 +1357,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.data.branches = function(buffer, offs
   end
 
   return offset
-end
-
--- Dissect: Data
-miax_pearlequities_topofmarket_mach_v1_1_a.data.dissect = function(buffer, offset, packet, parent, message_type)
-  return miax_pearlequities_topofmarket_mach_v1_1_a.data.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -1506,29 +1463,14 @@ end
 -- Payload
 miax_pearlequities_topofmarket_mach_v1_1_a.payload = {}
 
--- Size: Payload
-miax_pearlequities_topofmarket_mach_v1_1_a.payload.size = function(buffer, offset, packet_type)
-  -- Size of Application Message
-  if packet_type == 3 then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.application_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-miax_pearlequities_topofmarket_mach_v1_1_a.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+miax_pearlequities_topofmarket_mach_v1_1_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_pearlequities_topofmarket_mach_v1_1_a.application_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Payload
-miax_pearlequities_topofmarket_mach_v1_1_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return miax_pearlequities_topofmarket_mach_v1_1_a.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Session Number

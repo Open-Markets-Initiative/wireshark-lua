@@ -676,34 +676,8 @@ end
 -- Payload
 a2x_equities_snapshot_amd_v1_3_2.payload = {}
 
--- Size: Payload
-a2x_equities_snapshot_amd_v1_3_2.payload.size = function(buffer, offset, msg_type)
-  -- Size of Heartbeat Message
-  if msg_type == 1 then
-    return 0
-  end
-  -- Size of Snapshot Start Message
-  if msg_type == 10 then
-    return a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.size
-  end
-  -- Size of Book Status Message
-  if msg_type == 11 then
-    return a2x_equities_snapshot_amd_v1_3_2.book_status_message.size
-  end
-  -- Size of Book Entry Message
-  if msg_type == 12 then
-    return a2x_equities_snapshot_amd_v1_3_2.book_entry_message.size
-  end
-  -- Size of Market At Close Book Entry Message
-  if msg_type == 18 then
-    return a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-a2x_equities_snapshot_amd_v1_3_2.payload.branches = function(buffer, offset, packet, parent, msg_type)
+-- Dissect: Payload
+a2x_equities_snapshot_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Heartbeat Message
   if msg_type == 1 then
     return offset
@@ -726,11 +700,6 @@ a2x_equities_snapshot_amd_v1_3_2.payload.branches = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Dissect: Payload
-a2x_equities_snapshot_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  return a2x_equities_snapshot_amd_v1_3_2.payload.branches(buffer, offset, packet, parent, msg_type)
 end
 
 -- Seq No

@@ -1020,50 +1020,8 @@ end
 -- Control Payload
 finra_otc_bbds_dfi_v2018_1a.control_payload = {}
 
--- Size: Control Payload
-finra_otc_bbds_dfi_v2018_1a.control_payload.size = function(buffer, offset, control_message_type)
-  -- Size of Start Of Day Message
-  if control_message_type == "I" then
-    return finra_otc_bbds_dfi_v2018_1a.start_of_day_message.size
-  end
-  -- Size of End Of Day Message
-  if control_message_type == "J" then
-    return finra_otc_bbds_dfi_v2018_1a.end_of_day_message.size
-  end
-  -- Size of Market Session Open Message
-  if control_message_type == "O" then
-    return finra_otc_bbds_dfi_v2018_1a.market_session_open_message.size
-  end
-  -- Size of Market Session Close Message
-  if control_message_type == "O" then
-    return finra_otc_bbds_dfi_v2018_1a.market_session_close_message.size
-  end
-  -- Size of End Of Retransmission Requests Message
-  if control_message_type == "K" then
-    return finra_otc_bbds_dfi_v2018_1a.end_of_retransmission_requests_message.size
-  end
-  -- Size of End Of Transmissions Message
-  if control_message_type == "Z" then
-    return finra_otc_bbds_dfi_v2018_1a.end_of_transmissions_message.size
-  end
-  -- Size of Line Integrity Message
-  if control_message_type == "T" then
-    return finra_otc_bbds_dfi_v2018_1a.line_integrity_message.size
-  end
-  -- Size of Sequence Number Reset Message
-  if control_message_type == "L" then
-    return finra_otc_bbds_dfi_v2018_1a.sequence_number_reset_message.size
-  end
-  -- Size of End Of Trade Reporting Message
-  if control_message_type == "X" then
-    return finra_otc_bbds_dfi_v2018_1a.end_of_trade_reporting_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Control Payload
-finra_otc_bbds_dfi_v2018_1a.control_payload.branches = function(buffer, offset, packet, parent, control_message_type)
+-- Dissect: Control Payload
+finra_otc_bbds_dfi_v2018_1a.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "I" then
     return finra_otc_bbds_dfi_v2018_1a.start_of_day_message.dissect(buffer, offset, packet, parent)
@@ -1102,11 +1060,6 @@ finra_otc_bbds_dfi_v2018_1a.control_payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Control Payload
-finra_otc_bbds_dfi_v2018_1a.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  return finra_otc_bbds_dfi_v2018_1a.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
 
 -- Control Message Type
@@ -1478,22 +1431,8 @@ end
 -- Administrative Payload
 finra_otc_bbds_dfi_v2018_1a.administrative_payload = {}
 
--- Size: Administrative Payload
-finra_otc_bbds_dfi_v2018_1a.administrative_payload.size = function(buffer, offset, administrative_message_type)
-  -- Size of General Administrative Message
-  if administrative_message_type == "A" then
-    return finra_otc_bbds_dfi_v2018_1a.general_administrative_message.size
-  end
-  -- Size of Trading Action Message
-  if administrative_message_type == "H" then
-    return finra_otc_bbds_dfi_v2018_1a.trading_action_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Administrative Payload
-finra_otc_bbds_dfi_v2018_1a.administrative_payload.branches = function(buffer, offset, packet, parent, administrative_message_type)
+-- Dissect: Administrative Payload
+finra_otc_bbds_dfi_v2018_1a.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect General Administrative Message
   if administrative_message_type == "A" then
     return finra_otc_bbds_dfi_v2018_1a.general_administrative_message.dissect(buffer, offset, packet, parent)
@@ -1504,11 +1443,6 @@ finra_otc_bbds_dfi_v2018_1a.administrative_payload.branches = function(buffer, o
   end
 
   return offset
-end
-
--- Dissect: Administrative Payload
-finra_otc_bbds_dfi_v2018_1a.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  return finra_otc_bbds_dfi_v2018_1a.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
 
 -- Administrative Message Type
@@ -2450,29 +2384,14 @@ end
 -- Quotation Payload
 finra_otc_bbds_dfi_v2018_1a.quotation_payload = {}
 
--- Size: Quotation Payload
-finra_otc_bbds_dfi_v2018_1a.quotation_payload.size = function(buffer, offset, quotation_message_type)
-  -- Size of Market Participant Quote Update Message
-  if quotation_message_type == "1" then
-    return finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Quotation Payload
-finra_otc_bbds_dfi_v2018_1a.quotation_payload.branches = function(buffer, offset, packet, parent, quotation_message_type)
+-- Dissect: Quotation Payload
+finra_otc_bbds_dfi_v2018_1a.quotation_payload.dissect = function(buffer, offset, packet, parent, quotation_message_type)
   -- Dissect Market Participant Quote Update Message
   if quotation_message_type == "1" then
     return finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Quotation Payload
-finra_otc_bbds_dfi_v2018_1a.quotation_payload.dissect = function(buffer, offset, packet, parent, quotation_message_type)
-  return finra_otc_bbds_dfi_v2018_1a.quotation_payload.branches(buffer, offset, packet, parent, quotation_message_type)
 end
 
 -- Quotation Message Type
@@ -2558,26 +2477,8 @@ end
 -- Payload
 finra_otc_bbds_dfi_v2018_1a.payload = {}
 
--- Size: Payload
-finra_otc_bbds_dfi_v2018_1a.payload.size = function(buffer, offset, message_category)
-  -- Size of Quotation
-  if message_category == "Q" then
-    return finra_otc_bbds_dfi_v2018_1a.quotation.size(buffer, offset)
-  end
-  -- Size of Administrative
-  if message_category == "A" then
-    return finra_otc_bbds_dfi_v2018_1a.administrative.size(buffer, offset)
-  end
-  -- Size of Control
-  if message_category == "C" then
-    return finra_otc_bbds_dfi_v2018_1a.control.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-finra_otc_bbds_dfi_v2018_1a.payload.branches = function(buffer, offset, packet, parent, message_category)
+-- Dissect: Payload
+finra_otc_bbds_dfi_v2018_1a.payload.dissect = function(buffer, offset, packet, parent, message_category)
   -- Dissect Quotation
   if message_category == "Q" then
     return finra_otc_bbds_dfi_v2018_1a.quotation.dissect(buffer, offset, packet, parent)
@@ -2592,11 +2493,6 @@ finra_otc_bbds_dfi_v2018_1a.payload.branches = function(buffer, offset, packet, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-finra_otc_bbds_dfi_v2018_1a.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  return finra_otc_bbds_dfi_v2018_1a.payload.branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Message Category

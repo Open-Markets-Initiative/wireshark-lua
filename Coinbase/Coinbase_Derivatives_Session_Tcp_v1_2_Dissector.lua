@@ -945,50 +945,8 @@ end
 -- Payload
 coinbase_derivatives_session_tcp_v1_2.payload = {}
 
--- Size: Payload
-coinbase_derivatives_session_tcp_v1_2.payload.size = function(buffer, offset, template_id)
-  -- Size of Logon Message
-  if template_id == 100 then
-    return coinbase_derivatives_session_tcp_v1_2.logon_message.size
-  end
-  -- Size of Logon Conf Message
-  if template_id == 200 then
-    return coinbase_derivatives_session_tcp_v1_2.logon_conf_message.size
-  end
-  -- Size of Logout Message
-  if template_id == 101 then
-    return coinbase_derivatives_session_tcp_v1_2.logout_message.size
-  end
-  -- Size of Logged Out Message
-  if template_id == 201 then
-    return coinbase_derivatives_session_tcp_v1_2.logged_out_message.size
-  end
-  -- Size of Heartbeat Message
-  if template_id == 10 then
-    return coinbase_derivatives_session_tcp_v1_2.heartbeat_message.size
-  end
-  -- Size of Test Request Message
-  if template_id == 11 then
-    return coinbase_derivatives_session_tcp_v1_2.test_request_message.size
-  end
-  -- Size of Resend Request Message
-  if template_id == 102 then
-    return coinbase_derivatives_session_tcp_v1_2.resend_request_message.size
-  end
-  -- Size of Gap Fill Message
-  if template_id == 202 then
-    return coinbase_derivatives_session_tcp_v1_2.gap_fill_message.size(buffer, offset)
-  end
-  -- Size of Reject Message
-  if template_id == 210 then
-    return coinbase_derivatives_session_tcp_v1_2.reject_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-coinbase_derivatives_session_tcp_v1_2.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+coinbase_derivatives_session_tcp_v1_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Logon Message
   if template_id == 100 then
     return coinbase_derivatives_session_tcp_v1_2.logon_message.dissect(buffer, offset, packet, parent)
@@ -1027,11 +985,6 @@ coinbase_derivatives_session_tcp_v1_2.payload.branches = function(buffer, offset
   end
 
   return offset
-end
-
--- Dissect: Payload
-coinbase_derivatives_session_tcp_v1_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return coinbase_derivatives_session_tcp_v1_2.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version

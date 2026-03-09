@@ -1480,58 +1480,8 @@ end
 -- Payload
 a2x_equities_rtmdf_amd_v1_3_2.payload = {}
 
--- Size: Payload
-a2x_equities_rtmdf_amd_v1_3_2.payload.size = function(buffer, offset, msg_type)
-  -- Size of Heartbeat Message
-  if msg_type == 1 then
-    return 0
-  end
-  -- Size of Order Add Message
-  if msg_type == 2 then
-    return a2x_equities_rtmdf_amd_v1_3_2.order_add_message.size
-  end
-  -- Size of Order Cancel Message
-  if msg_type == 3 then
-    return a2x_equities_rtmdf_amd_v1_3_2.order_cancel_message.size
-  end
-  -- Size of Order Modify Message
-  if msg_type == 4 then
-    return a2x_equities_rtmdf_amd_v1_3_2.order_modify_message.size
-  end
-  -- Size of Trade Message
-  if msg_type == 5 then
-    return a2x_equities_rtmdf_amd_v1_3_2.trade_message.size
-  end
-  -- Size of Trade Bust Message
-  if msg_type == 6 then
-    return a2x_equities_rtmdf_amd_v1_3_2.trade_bust_message.size
-  end
-  -- Size of Tick Table Data Message
-  if msg_type == 7 then
-    return a2x_equities_rtmdf_amd_v1_3_2.tick_table_data_message.size
-  end
-  -- Size of Security Definition Message
-  if msg_type == 8 then
-    return a2x_equities_rtmdf_amd_v1_3_2.security_definition_message.size
-  end
-  -- Size of Security Status Message
-  if msg_type == 9 then
-    return a2x_equities_rtmdf_amd_v1_3_2.security_status_message.size
-  end
-  -- Size of Auction On Demand Message
-  if msg_type == 17 then
-    return a2x_equities_rtmdf_amd_v1_3_2.auction_on_demand_message.size
-  end
-  -- Size of Market At Close
-  if msg_type == 16 then
-    return a2x_equities_rtmdf_amd_v1_3_2.market_at_close.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-a2x_equities_rtmdf_amd_v1_3_2.payload.branches = function(buffer, offset, packet, parent, msg_type)
+-- Dissect: Payload
+a2x_equities_rtmdf_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Heartbeat Message
   if msg_type == 1 then
     return offset
@@ -1578,11 +1528,6 @@ a2x_equities_rtmdf_amd_v1_3_2.payload.branches = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Dissect: Payload
-a2x_equities_rtmdf_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  return a2x_equities_rtmdf_amd_v1_3_2.payload.branches(buffer, offset, packet, parent, msg_type)
 end
 
 -- Seq No

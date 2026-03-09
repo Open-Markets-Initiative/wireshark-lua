@@ -1215,50 +1215,8 @@ end
 -- Payload
 jnx_bonds_pts_itch_v1_2.payload = {}
 
--- Size: Payload
-jnx_bonds_pts_itch_v1_2.payload.size = function(buffer, offset, message_type)
-  -- Size of Timestamp Seconds Message
-  if message_type == "T" then
-    return jnx_bonds_pts_itch_v1_2.timestamp_seconds_message.size
-  end
-  -- Size of System Event Message
-  if message_type == "S" then
-    return jnx_bonds_pts_itch_v1_2.system_event_message.size
-  end
-  -- Size of Price Tick Size Message
-  if message_type == "L" then
-    return jnx_bonds_pts_itch_v1_2.price_tick_size_message.size
-  end
-  -- Size of Orderbook Directory Message
-  if message_type == "R" then
-    return jnx_bonds_pts_itch_v1_2.orderbook_directory_message.size
-  end
-  -- Size of Trading State Message
-  if message_type == "H" then
-    return jnx_bonds_pts_itch_v1_2.trading_state_message.size
-  end
-  -- Size of Order Added Message
-  if message_type == "A" then
-    return jnx_bonds_pts_itch_v1_2.order_added_message.size
-  end
-  -- Size of Order Executed Message
-  if message_type == "E" then
-    return jnx_bonds_pts_itch_v1_2.order_executed_message.size
-  end
-  -- Size of Order Deleted Message
-  if message_type == "D" then
-    return jnx_bonds_pts_itch_v1_2.order_deleted_message.size
-  end
-  -- Size of Order Replaced Message
-  if message_type == "U" then
-    return jnx_bonds_pts_itch_v1_2.order_replaced_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-jnx_bonds_pts_itch_v1_2.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+jnx_bonds_pts_itch_v1_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Timestamp Seconds Message
   if message_type == "T" then
     return jnx_bonds_pts_itch_v1_2.timestamp_seconds_message.dissect(buffer, offset, packet, parent)
@@ -1297,11 +1255,6 @@ jnx_bonds_pts_itch_v1_2.payload.branches = function(buffer, offset, packet, pare
   end
 
   return offset
-end
-
--- Dissect: Payload
-jnx_bonds_pts_itch_v1_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return jnx_bonds_pts_itch_v1_2.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -1487,8 +1440,8 @@ end
 -- Messages
 jnx_bonds_pts_itch_v1_2.messages = {}
 
--- Dissect Branches: Messages
-jnx_bonds_pts_itch_v1_2.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+jnx_bonds_pts_itch_v1_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -1511,11 +1464,6 @@ jnx_bonds_pts_itch_v1_2.messages.branches = function(buffer, offset, packet, par
   end
 
   return offset
-end
-
--- Dissect: Messages
-jnx_bonds_pts_itch_v1_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return jnx_bonds_pts_itch_v1_2.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

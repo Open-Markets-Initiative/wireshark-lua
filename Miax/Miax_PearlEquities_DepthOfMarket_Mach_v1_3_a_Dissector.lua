@@ -1602,58 +1602,8 @@ end
 -- Data
 miax_pearlequities_depthofmarket_mach_v1_3_a.data = {}
 
--- Size: Data
-miax_pearlequities_depthofmarket_mach_v1_3_a.data.size = function(buffer, offset, message_type)
-  -- Size of System Time Message
-  if message_type == "49" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.size
-  end
-  -- Size of Symbol Update Message
-  if message_type == "1" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.size
-  end
-  -- Size of System State Message
-  if message_type == "83" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.size
-  end
-  -- Size of Security Trading Status Notification Message
-  if message_type == "4" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.size
-  end
-  -- Size of Symbol Clear Message
-  if message_type == "5" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.size
-  end
-  -- Size of Add Order Message
-  if message_type == "20" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.size
-  end
-  -- Size of Modify Order Message
-  if message_type == "21" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.size
-  end
-  -- Size of Delete Order Message
-  if message_type == "23" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.size
-  end
-  -- Size of Order Execution Message
-  if message_type == "24" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.size
-  end
-  -- Size of Trade Message
-  if message_type == "10" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.size
-  end
-  -- Size of Trade Cancel Message
-  if message_type == "11" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Data
-miax_pearlequities_depthofmarket_mach_v1_3_a.data.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Data
+miax_pearlequities_depthofmarket_mach_v1_3_a.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
   if message_type == "49" then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.dissect(buffer, offset, packet, parent)
@@ -1700,11 +1650,6 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.data.branches = function(buffer, of
   end
 
   return offset
-end
-
--- Dissect: Data
-miax_pearlequities_depthofmarket_mach_v1_3_a.data.dissect = function(buffer, offset, packet, parent, message_type)
-  return miax_pearlequities_depthofmarket_mach_v1_3_a.data.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -1820,29 +1765,14 @@ end
 -- Payload
 miax_pearlequities_depthofmarket_mach_v1_3_a.payload = {}
 
--- Size: Payload
-miax_pearlequities_depthofmarket_mach_v1_3_a.payload.size = function(buffer, offset, packet_type)
-  -- Size of Application Message
-  if packet_type == 3 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.application_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-miax_pearlequities_depthofmarket_mach_v1_3_a.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.application_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Payload
-miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return miax_pearlequities_depthofmarket_mach_v1_3_a.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Session Number

@@ -2421,30 +2421,8 @@ end
 -- Payload
 cme_futures_settlements_sbe_v7_0.payload = {}
 
--- Size: Payload
-cme_futures_settlements_sbe_v7_0.payload.size = function(buffer, offset, template_id)
-  -- Size of Md Incremental Refresh Settle
-  if template_id == 401 then
-    return cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Voi
-  if template_id == 402 then
-    return cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh High Low
-  if template_id == 403 then
-    return cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.size(buffer, offset)
-  end
-  -- Size of Admin Heartbeat
-  if template_id == 407 then
-    return 0
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-cme_futures_settlements_sbe_v7_0.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+cme_futures_settlements_sbe_v7_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Md Incremental Refresh Settle
   if template_id == 401 then
     return cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.dissect(buffer, offset, packet, parent)
@@ -2463,11 +2441,6 @@ cme_futures_settlements_sbe_v7_0.payload.branches = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Dissect: Payload
-cme_futures_settlements_sbe_v7_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return cme_futures_settlements_sbe_v7_0.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version

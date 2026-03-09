@@ -2260,86 +2260,8 @@ end
 -- Message Body
 currenex_forex_orderservice_cbp_v26_0.message_body = {}
 
--- Size: Message Body
-currenex_forex_orderservice_cbp_v26_0.message_body.size = function(buffer, offset, message_type)
-  -- Size of Logon
-  if message_type == "A" then
-    return currenex_forex_orderservice_cbp_v26_0.logon.size
-  end
-  -- Size of Logout
-  if message_type == "B" then
-    return currenex_forex_orderservice_cbp_v26_0.logout.size
-  end
-  -- Size of Heartbeat
-  if message_type == "C" then
-    return currenex_forex_orderservice_cbp_v26_0.heartbeat.size
-  end
-  -- Size of Instrument Info Request
-  if message_type == "E" then
-    return currenex_forex_orderservice_cbp_v26_0.instrument_info_request.size
-  end
-  -- Size of Instrument Info
-  if message_type == "D" then
-    return currenex_forex_orderservice_cbp_v26_0.instrument_info.size
-  end
-  -- Size of New Order Request
-  if message_type == "L" then
-    return currenex_forex_orderservice_cbp_v26_0.new_order_request.size
-  end
-  -- Size of New Order Ack
-  if message_type == "M" then
-    return currenex_forex_orderservice_cbp_v26_0.new_order_ack.size
-  end
-  -- Size of Order Cancel Request
-  if message_type == "N" then
-    return currenex_forex_orderservice_cbp_v26_0.order_cancel_request.size
-  end
-  -- Size of Order Cancel Reject
-  if message_type == "O" then
-    return currenex_forex_orderservice_cbp_v26_0.order_cancel_reject.size
-  end
-  -- Size of Order Replace Or Cancel Request
-  if message_type == "P" then
-    return currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_request.size
-  end
-  -- Size of Order Replace Or Cancel Ack
-  if message_type == "Q" then
-    return currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_ack.size
-  end
-  -- Size of Order Canceled Or Expired
-  if message_type == "R" then
-    return currenex_forex_orderservice_cbp_v26_0.order_canceled_or_expired.size
-  end
-  -- Size of Trade
-  if message_type == "T" then
-    return currenex_forex_orderservice_cbp_v26_0.trade.size
-  end
-  -- Size of Pending Fill
-  if message_type == "U" then
-    return currenex_forex_orderservice_cbp_v26_0.pending_fill.size
-  end
-  -- Size of Pending Fill Cancel
-  if message_type == "V" then
-    return currenex_forex_orderservice_cbp_v26_0.pending_fill_cancel.size
-  end
-  -- Size of Trade Pending
-  if message_type == "t" then
-    return currenex_forex_orderservice_cbp_v26_0.trade_pending.size
-  end
-  -- Size of Resend Request
-  if message_type == "2" then
-    return currenex_forex_orderservice_cbp_v26_0.resend_request.size
-  end
-  -- Size of Gap Fill
-  if message_type == "4" then
-    return currenex_forex_orderservice_cbp_v26_0.gap_fill.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Message Body
-currenex_forex_orderservice_cbp_v26_0.message_body.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Message Body
+currenex_forex_orderservice_cbp_v26_0.message_body.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Logon
   if message_type == "A" then
     return currenex_forex_orderservice_cbp_v26_0.logon.dissect(buffer, offset, packet, parent)
@@ -2414,11 +2336,6 @@ currenex_forex_orderservice_cbp_v26_0.message_body.branches = function(buffer, o
   end
 
   return offset
-end
-
--- Dissect: Message Body
-currenex_forex_orderservice_cbp_v26_0.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  return currenex_forex_orderservice_cbp_v26_0.message_body.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

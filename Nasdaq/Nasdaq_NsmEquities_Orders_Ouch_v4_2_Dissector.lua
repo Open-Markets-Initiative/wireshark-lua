@@ -1057,34 +1057,8 @@ end
 -- Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message = {}
 
--- Size: Unsequenced Message
-nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message.size = function(buffer, offset, unsequenced_message_type)
-  -- Size of Enter Order Message
-  if unsequenced_message_type == "O" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.enter_order_message.size
-  end
-  -- Size of Replace Order Message
-  if unsequenced_message_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.replace_order_message.size
-  end
-  -- Size of Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_message.size
-  end
-  -- Size of Modify Order Message
-  if unsequenced_message_type == "M" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.modify_order_message.size
-  end
-  -- Size of Trade Now Message
-  if unsequenced_message_type == "N" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.trade_now_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Unsequenced Message
-nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Enter Order Message
   if unsequenced_message_type == "O" then
     return nasdaq_nsmequities_orders_ouch_v4_2.enter_order_message.dissect(buffer, offset, packet, parent)
@@ -1107,11 +1081,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message.branches = function(buff
   end
 
   return offset
-end
-
--- Dissect: Unsequenced Message
-nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  return nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
 -- Unsequenced Message Type
@@ -2803,74 +2772,8 @@ end
 -- Sequenced Message
 nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message = {}
 
--- Size: Sequenced Message
-nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message.size = function(buffer, offset, sequenced_message_type)
-  -- Size of System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.system_event_message.size
-  end
-  -- Size of Accepted Message
-  if sequenced_message_type == "A" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.accepted_message.size
-  end
-  -- Size of Replaced Message
-  if sequenced_message_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.replaced_message.size
-  end
-  -- Size of Canceled Message
-  if sequenced_message_type == "C" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.canceled_message.size
-  end
-  -- Size of Aiq Cancelled Message
-  if sequenced_message_type == "D" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.aiq_cancelled_message.size
-  end
-  -- Size of Executed Message
-  if sequenced_message_type == "E" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.executed_message.size
-  end
-  -- Size of Broken Trade Message
-  if sequenced_message_type == "B" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_message.size
-  end
-  -- Size of Executed With Reference Price Message
-  if sequenced_message_type == "G" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.executed_with_reference_price_message.size
-  end
-  -- Size of Trade Correction Message
-  if sequenced_message_type == "F" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.trade_correction_message.size
-  end
-  -- Size of Rejected Order Message
-  if sequenced_message_type == "J" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_message.size
-  end
-  -- Size of Cancel Pending Message
-  if sequenced_message_type == "P" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.cancel_pending_message.size
-  end
-  -- Size of Cancel Reject Message
-  if sequenced_message_type == "I" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.cancel_reject_message.size
-  end
-  -- Size of Order Priority Update Message
-  if sequenced_message_type == "T" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.order_priority_update_message.size
-  end
-  -- Size of Order Modified Message
-  if sequenced_message_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.order_modified_message.size
-  end
-  -- Size of Trade Now Message
-  if sequenced_message_type == "N" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.trade_now_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Sequenced Message
-nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect System Event Message
   if sequenced_message_type == "S" then
     return nasdaq_nsmequities_orders_ouch_v4_2.system_event_message.dissect(buffer, offset, packet, parent)
@@ -2933,11 +2836,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message.branches = function(buffer
   end
 
   return offset
-end
-
--- Dissect: Sequenced Message
-nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  return nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
 -- Sequenced Message Type
@@ -3281,38 +3179,8 @@ end
 -- Payload
 nasdaq_nsmequities_orders_ouch_v4_2.payload = {}
 
--- Size: Payload
-nasdaq_nsmequities_orders_ouch_v4_2.payload.size = function(buffer, offset, packet_type)
-  -- Size of Debug Packet
-  if packet_type == "+" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.debug_packet.size
-  end
-  -- Size of Login Accepted Packet
-  if packet_type == "A" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.login_accepted_packet.size
-  end
-  -- Size of Login Rejected Packet
-  if packet_type == "J" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.login_rejected_packet.size
-  end
-  -- Size of Sequenced Data Packet
-  if packet_type == "S" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.sequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Login Request Packet
-  if packet_type == "L" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.login_request_packet.size
-  end
-  -- Size of Unsequenced Data Packet
-  if packet_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_data_packet.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_nsmequities_orders_ouch_v4_2.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+nasdaq_nsmequities_orders_ouch_v4_2.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
   if packet_type == "+" then
     return nasdaq_nsmequities_orders_ouch_v4_2.debug_packet.dissect(buffer, offset, packet, parent)
@@ -3339,11 +3207,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_nsmequities_orders_ouch_v4_2.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return nasdaq_nsmequities_orders_ouch_v4_2.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

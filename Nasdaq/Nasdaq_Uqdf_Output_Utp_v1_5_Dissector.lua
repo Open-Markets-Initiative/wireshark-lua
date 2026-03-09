@@ -893,38 +893,8 @@ end
 -- Control Payload
 nasdaq_uqdf_output_utp_v1_5.control_payload = {}
 
--- Size: Control Payload
-nasdaq_uqdf_output_utp_v1_5.control_payload.size = function(buffer, offset, control_message_type)
-  -- Size of Start Of Day Message
-  if control_message_type == "I" then
-    return nasdaq_uqdf_output_utp_v1_5.start_of_day_message.size(buffer, offset)
-  end
-  -- Size of End Of Day Message
-  if control_message_type == "J" then
-    return nasdaq_uqdf_output_utp_v1_5.end_of_day_message.size(buffer, offset)
-  end
-  -- Size of Market Session Open Message
-  if control_message_type == "O" then
-    return nasdaq_uqdf_output_utp_v1_5.market_session_open_message.size(buffer, offset)
-  end
-  -- Size of Market Session Close Message
-  if control_message_type == "C" then
-    return nasdaq_uqdf_output_utp_v1_5.market_session_close_message.size(buffer, offset)
-  end
-  -- Size of End Of Transmissions Message
-  if control_message_type == "Z" then
-    return nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.size(buffer, offset)
-  end
-  -- Size of Quote Wipe Out Message
-  if control_message_type == "P" then
-    return nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Control Payload
-nasdaq_uqdf_output_utp_v1_5.control_payload.branches = function(buffer, offset, packet, parent, control_message_type)
+-- Dissect: Control Payload
+nasdaq_uqdf_output_utp_v1_5.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "I" then
     return nasdaq_uqdf_output_utp_v1_5.start_of_day_message.dissect(buffer, offset, packet, parent)
@@ -951,11 +921,6 @@ nasdaq_uqdf_output_utp_v1_5.control_payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Control Payload
-nasdaq_uqdf_output_utp_v1_5.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  return nasdaq_uqdf_output_utp_v1_5.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
 
 -- Control Message Type
@@ -2872,54 +2837,8 @@ end
 -- Administrative Payload
 nasdaq_uqdf_output_utp_v1_5.administrative_payload = {}
 
--- Size: Administrative Payload
-nasdaq_uqdf_output_utp_v1_5.administrative_payload.size = function(buffer, offset, administrative_message_type)
-  -- Size of General Administrative Message
-  if administrative_message_type == "A" then
-    return nasdaq_uqdf_output_utp_v1_5.general_administrative_message.size(buffer, offset)
-  end
-  -- Size of Cross Sro Trading Action Message
-  if administrative_message_type == "H" then
-    return nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.size(buffer, offset)
-  end
-  -- Size of Market Center Trading Action Message
-  if administrative_message_type == "H" then
-    return nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.size(buffer, offset)
-  end
-  -- Size of Issue Symbol Directory Message
-  if administrative_message_type == "B" then
-    return nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.size(buffer, offset)
-  end
-  -- Size of Regulation Sho Short Sale Price Test Restricted Indicator Message
-  if administrative_message_type == "V" then
-    return nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.size(buffer, offset)
-  end
-  -- Size of Limit Up Limit Down Price Band Message
-  if administrative_message_type == "P" then
-    return nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.size(buffer, offset)
-  end
-  -- Size of Market Wide Circuit Breaker Decline Level Message
-  if administrative_message_type == "C" then
-    return nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.size(buffer, offset)
-  end
-  -- Size of Market Wide Circuit Breaker Decline Level Message
-  if administrative_message_type == "D" then
-    return nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.size(buffer, offset)
-  end
-  -- Size of Auction Collar Message
-  if administrative_message_type == "E" then
-    return nasdaq_uqdf_output_utp_v1_5.auction_collar_message.size(buffer, offset)
-  end
-  -- Size of Session Close Recap Message
-  if administrative_message_type == "R" then
-    return nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Administrative Payload
-nasdaq_uqdf_output_utp_v1_5.administrative_payload.branches = function(buffer, offset, packet, parent, administrative_message_type)
+-- Dissect: Administrative Payload
+nasdaq_uqdf_output_utp_v1_5.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect General Administrative Message
   if administrative_message_type == "A" then
     return nasdaq_uqdf_output_utp_v1_5.general_administrative_message.dissect(buffer, offset, packet, parent)
@@ -2962,11 +2881,6 @@ nasdaq_uqdf_output_utp_v1_5.administrative_payload.branches = function(buffer, o
   end
 
   return offset
-end
-
--- Dissect: Administrative Payload
-nasdaq_uqdf_output_utp_v1_5.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  return nasdaq_uqdf_output_utp_v1_5.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
 
 -- Administrative Message Type
@@ -4482,26 +4396,8 @@ end
 -- Quote Payload
 nasdaq_uqdf_output_utp_v1_5.quote_payload = {}
 
--- Size: Quote Payload
-nasdaq_uqdf_output_utp_v1_5.quote_payload.size = function(buffer, offset, quote_message_type)
-  -- Size of Quote Short Form Message
-  if quote_message_type == "E" then
-    return nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.size(buffer, offset)
-  end
-  -- Size of Quote Long Form Message
-  if quote_message_type == "F" then
-    return nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.size(buffer, offset)
-  end
-  -- Size of Finra Adf Market Participant Quotation Message
-  if quote_message_type == "M" then
-    return nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Quote Payload
-nasdaq_uqdf_output_utp_v1_5.quote_payload.branches = function(buffer, offset, packet, parent, quote_message_type)
+-- Dissect: Quote Payload
+nasdaq_uqdf_output_utp_v1_5.quote_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
   -- Dissect Quote Short Form Message
   if quote_message_type == "E" then
     return nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.dissect(buffer, offset, packet, parent)
@@ -4516,11 +4412,6 @@ nasdaq_uqdf_output_utp_v1_5.quote_payload.branches = function(buffer, offset, pa
   end
 
   return offset
-end
-
--- Dissect: Quote Payload
-nasdaq_uqdf_output_utp_v1_5.quote_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
-  return nasdaq_uqdf_output_utp_v1_5.quote_payload.branches(buffer, offset, packet, parent, quote_message_type)
 end
 
 -- Quote Message Type
@@ -4612,26 +4503,8 @@ end
 -- Payload
 nasdaq_uqdf_output_utp_v1_5.payload = {}
 
--- Size: Payload
-nasdaq_uqdf_output_utp_v1_5.payload.size = function(buffer, offset, message_category)
-  -- Size of Quote
-  if message_category == "Q" then
-    return nasdaq_uqdf_output_utp_v1_5.quote.size(buffer, offset)
-  end
-  -- Size of Administrative
-  if message_category == "A" then
-    return nasdaq_uqdf_output_utp_v1_5.administrative.size(buffer, offset)
-  end
-  -- Size of Control
-  if message_category == "C" then
-    return nasdaq_uqdf_output_utp_v1_5.control.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_uqdf_output_utp_v1_5.payload.branches = function(buffer, offset, packet, parent, message_category)
+-- Dissect: Payload
+nasdaq_uqdf_output_utp_v1_5.payload.dissect = function(buffer, offset, packet, parent, message_category)
   -- Dissect Quote
   if message_category == "Q" then
     return nasdaq_uqdf_output_utp_v1_5.quote.dissect(buffer, offset, packet, parent)
@@ -4646,11 +4519,6 @@ nasdaq_uqdf_output_utp_v1_5.payload.branches = function(buffer, offset, packet, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_uqdf_output_utp_v1_5.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  return nasdaq_uqdf_output_utp_v1_5.payload.branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Message Category

@@ -4228,106 +4228,8 @@ end
 -- Payload
 nasdaq_nsmequities_totalview_itch_v5_0.payload = {}
 
--- Size: Payload
-nasdaq_nsmequities_totalview_itch_v5_0.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.system_event_message.size
-  end
-  -- Size of Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.stock_directory_message.size
-  end
-  -- Size of Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.stock_trading_action_message.size
-  end
-  -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.reg_sho_short_sale_price_test_restricted_indicator_message.size
-  end
-  -- Size of Market Participant Position Message
-  if message_type == "L" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.market_participant_position_message.size
-  end
-  -- Size of Mwcb Decline Level Message
-  if message_type == "V" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.mwcb_decline_level_message.size
-  end
-  -- Size of Mwcb Status Level Message
-  if message_type == "W" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.mwcb_status_level_message.size
-  end
-  -- Size of Ipo Quoting Period Update
-  if message_type == "K" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.ipo_quoting_period_update.size
-  end
-  -- Size of Luld Auction Collar Message
-  if message_type == "J" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.luld_auction_collar_message.size
-  end
-  -- Size of Operational Halt Message
-  if message_type == "h" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.operational_halt_message.size
-  end
-  -- Size of Add Order No Mpid Attribution Message
-  if message_type == "A" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.add_order_no_mpid_attribution_message.size
-  end
-  -- Size of Add Order With Mpid Attribution Message
-  if message_type == "F" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.add_order_with_mpid_attribution_message.size
-  end
-  -- Size of Order Executed Message
-  if message_type == "E" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.order_executed_message.size
-  end
-  -- Size of Order Executed With Price Message
-  if message_type == "C" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.order_executed_with_price_message.size
-  end
-  -- Size of Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.order_cancel_message.size
-  end
-  -- Size of Order Delete Message
-  if message_type == "D" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.order_delete_message.size
-  end
-  -- Size of Order Replace Message
-  if message_type == "U" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.order_replace_message.size
-  end
-  -- Size of Non Cross Trade Message
-  if message_type == "P" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.non_cross_trade_message.size
-  end
-  -- Size of Cross Trade Message
-  if message_type == "Q" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.cross_trade_message.size
-  end
-  -- Size of Broken Trade Message
-  if message_type == "B" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.broken_trade_message.size
-  end
-  -- Size of Net Order Imbalance Indicator Message
-  if message_type == "I" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.net_order_imbalance_indicator_message.size
-  end
-  -- Size of Retail Price Improvement Indicator Message
-  if message_type == "N" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.retail_price_improvement_indicator_message.size
-  end
-  -- Size of Direct Listing With Capital Raise Price Discovery Message
-  if message_type == "O" then
-    return nasdaq_nsmequities_totalview_itch_v5_0.direct_listing_with_capital_raise_price_discovery_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_nsmequities_totalview_itch_v5_0.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_nsmequities_totalview_itch_v5_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
     return nasdaq_nsmequities_totalview_itch_v5_0.system_event_message.dissect(buffer, offset, packet, parent)
@@ -4422,11 +4324,6 @@ nasdaq_nsmequities_totalview_itch_v5_0.payload.branches = function(buffer, offse
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_nsmequities_totalview_itch_v5_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_nsmequities_totalview_itch_v5_0.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -4654,8 +4551,8 @@ end
 -- Messages
 nasdaq_nsmequities_totalview_itch_v5_0.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_nsmequities_totalview_itch_v5_0.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_nsmequities_totalview_itch_v5_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -4678,11 +4575,6 @@ nasdaq_nsmequities_totalview_itch_v5_0.messages.branches = function(buffer, offs
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_nsmequities_totalview_itch_v5_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_nsmequities_totalview_itch_v5_0.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

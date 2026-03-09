@@ -15141,106 +15141,8 @@ end
 -- Payload
 euronext_optiq_marketdatagateway_sbe_v3_1.payload = {}
 
--- Size: Payload
-euronext_optiq_marketdatagateway_sbe_v3_1.payload.size = function(buffer, offset, template_id)
-  -- Size of Start Of Day Message
-  if template_id == 1101 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.start_of_day_message.size
-  end
-  -- Size of End Of Day Message
-  if template_id == 1102 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.end_of_day_message.size
-  end
-  -- Size of Health Status Message
-  if template_id == 1103 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.health_status_message.size
-  end
-  -- Size of Technical Notification Message
-  if template_id == 1106 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.technical_notification_message.size
-  end
-  -- Size of Market Update Message
-  if template_id == 1001 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.market_update_message.size(buffer, offset)
-  end
-  -- Size of Order Update Message
-  if template_id == 1002 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.order_update_message.size(buffer, offset)
-  end
-  -- Size of Price Update Message
-  if template_id == 1003 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.price_update_message.size(buffer, offset)
-  end
-  -- Size of Full Trade Information Message
-  if template_id == 1004 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.full_trade_information_message.size(buffer, offset)
-  end
-  -- Size of Market Status Change Message
-  if template_id == 1005 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.market_status_change_message.size(buffer, offset)
-  end
-  -- Size of Timetable Message
-  if template_id == 1006 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.timetable_message.size(buffer, offset)
-  end
-  -- Size of Standing Data Message
-  if template_id == 1007 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.standing_data_message.size(buffer, offset)
-  end
-  -- Size of Real Time Index Message
-  if template_id == 1008 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.real_time_index_message.size
-  end
-  -- Size of Statistics Message
-  if template_id == 1009 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.statistics_message.size(buffer, offset)
-  end
-  -- Size of Index Summary Message
-  if template_id == 1011 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.index_summary_message.size
-  end
-  -- Size of Strategy Standing Data Message
-  if template_id == 1012 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.strategy_standing_data_message.size(buffer, offset)
-  end
-  -- Size of Contract Standing Data Message
-  if template_id == 1013 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.contract_standing_data_message.size(buffer, offset)
-  end
-  -- Size of Outright Standing Data Message
-  if template_id == 1014 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.outright_standing_data_message.size(buffer, offset)
-  end
-  -- Size of Lis Package Structure Message
-  if template_id == 1016 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.lis_package_structure_message.size(buffer, offset)
-  end
-  -- Size of Apa Quotes Message
-  if template_id == 1026 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.apa_quotes_message.size
-  end
-  -- Size of Apa Standing Data Message
-  if template_id == 1027 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.apa_standing_data_message.size
-  end
-  -- Size of Apa Full Trade Information Message
-  if template_id == 1028 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.apa_full_trade_information_message.size
-  end
-  -- Size of Start Of Snapshot Message
-  if template_id == 2101 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.start_of_snapshot_message.size
-  end
-  -- Size of End Of Snapshot Message
-  if template_id == 2102 then
-    return euronext_optiq_marketdatagateway_sbe_v3_1.end_of_snapshot_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-euronext_optiq_marketdatagateway_sbe_v3_1.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+euronext_optiq_marketdatagateway_sbe_v3_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Start Of Day Message
   if template_id == 1101 then
     return euronext_optiq_marketdatagateway_sbe_v3_1.start_of_day_message.dissect(buffer, offset, packet, parent)
@@ -15335,11 +15237,6 @@ euronext_optiq_marketdatagateway_sbe_v3_1.payload.branches = function(buffer, of
   end
 
   return offset
-end
-
--- Dissect: Payload
-euronext_optiq_marketdatagateway_sbe_v3_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return euronext_optiq_marketdatagateway_sbe_v3_1.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version

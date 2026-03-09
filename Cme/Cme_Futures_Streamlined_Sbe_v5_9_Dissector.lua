@@ -13016,78 +13016,8 @@ end
 -- Payload
 cme_futures_streamlined_sbe_v5_9.payload = {}
 
--- Size: Payload
-cme_futures_streamlined_sbe_v5_9.payload.size = function(buffer, offset, template_id)
-  -- Size of Admin Heartbeat
-  if template_id == 312 then
-    return 0
-  end
-  -- Size of Admin Login
-  if template_id == 315 then
-    return cme_futures_streamlined_sbe_v5_9.admin_login.size
-  end
-  -- Size of Admin Logout
-  if template_id == 316 then
-    return cme_futures_streamlined_sbe_v5_9.admin_logout.size
-  end
-  -- Size of Md Incremental Refresh Eris Reference Data And Daily Statistics
-  if template_id == 333 then
-    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_daily_statistics.size(buffer, offset)
-  end
-  -- Size of Md News Indices
-  if template_id == 339 then
-    return cme_futures_streamlined_sbe_v5_9.md_news_indices.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Trade Blocks 340
-  if template_id == 340 then
-    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.size(buffer, offset)
-  end
-  -- Size of Quote Request
-  if template_id == 345 then
-    return cme_futures_streamlined_sbe_v5_9.quote_request.size(buffer, offset)
-  end
-  -- Size of Md Instrument Definition Indices
-  if template_id == 347 then
-    return cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Indices
-  if template_id == 348 then
-    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_indices.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Trade Blocks 349
-  if template_id == 349 then
-    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Eris 351
-  if template_id == 351 then
-    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Eris 353
-  if template_id == 353 then
-    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_353.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Ot C 356
-  if template_id == 356 then
-    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.size(buffer, offset)
-  end
-  -- Size of Md Instrument Definition Eris
-  if template_id == 363 then
-    return cme_futures_streamlined_sbe_v5_9.md_instrument_definition_eris.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Trade Blocks 365
-  if template_id == 365 then
-    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Ot C 366
-  if template_id == 366 then
-    return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-cme_futures_streamlined_sbe_v5_9.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+cme_futures_streamlined_sbe_v5_9.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Admin Heartbeat
   if template_id == 312 then
     return offset
@@ -13154,11 +13084,6 @@ cme_futures_streamlined_sbe_v5_9.payload.branches = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Dissect: Payload
-cme_futures_streamlined_sbe_v5_9.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return cme_futures_streamlined_sbe_v5_9.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version

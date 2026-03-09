@@ -383,26 +383,8 @@ end
 -- Payload
 aquis_equities_replay_amd_v4_1.payload = {}
 
--- Size: Payload
-aquis_equities_replay_amd_v4_1.payload.size = function(buffer, offset, msg_type)
-  -- Size of Login Message
-  if msg_type == 13 then
-    return aquis_equities_replay_amd_v4_1.login_message.size
-  end
-  -- Size of Replay Request Message
-  if msg_type == 14 then
-    return aquis_equities_replay_amd_v4_1.replay_request_message.size
-  end
-  -- Size of Replay Response Message
-  if msg_type == 15 then
-    return aquis_equities_replay_amd_v4_1.replay_response_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-aquis_equities_replay_amd_v4_1.payload.branches = function(buffer, offset, packet, parent, msg_type)
+-- Dissect: Payload
+aquis_equities_replay_amd_v4_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Login Message
   if msg_type == 13 then
     return aquis_equities_replay_amd_v4_1.login_message.dissect(buffer, offset, packet, parent)
@@ -417,11 +399,6 @@ aquis_equities_replay_amd_v4_1.payload.branches = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Dissect: Payload
-aquis_equities_replay_amd_v4_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  return aquis_equities_replay_amd_v4_1.payload.branches(buffer, offset, packet, parent, msg_type)
 end
 
 -- Seq No

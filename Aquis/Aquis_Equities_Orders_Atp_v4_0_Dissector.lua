@@ -3395,98 +3395,8 @@ end
 -- Payload
 aquis_equities_orders_atp_v4_0.payload = {}
 
--- Size: Payload
-aquis_equities_orders_atp_v4_0.payload.size = function(buffer, offset, msg_type)
-  -- Size of Login Message
-  if msg_type == 1 then
-    return aquis_equities_orders_atp_v4_0.login_message.size
-  end
-  -- Size of Login Response Message
-  if msg_type == 2 then
-    return aquis_equities_orders_atp_v4_0.login_response_message.size
-  end
-  -- Size of Heartbeat
-  if msg_type == 0 then
-    return 0
-  end
-  -- Size of Logout Request Message
-  if msg_type == 3 then
-    return 0
-  end
-  -- Size of Logout Message
-  if msg_type == 4 then
-    return aquis_equities_orders_atp_v4_0.logout_message.size
-  end
-  -- Size of Order Add Message
-  if msg_type == 5 then
-    return aquis_equities_orders_atp_v4_0.order_add_message.size
-  end
-  -- Size of Order Add Extended Message
-  if msg_type == 21 then
-    return aquis_equities_orders_atp_v4_0.order_add_extended_message.size
-  end
-  -- Size of Order Cancel Message
-  if msg_type == 7 then
-    return aquis_equities_orders_atp_v4_0.order_cancel_message.size
-  end
-  -- Size of Order Modify Message
-  if msg_type == 9 then
-    return aquis_equities_orders_atp_v4_0.order_modify_message.size
-  end
-  -- Size of Order Modify Extended Message
-  if msg_type == 22 then
-    return aquis_equities_orders_atp_v4_0.order_modify_extended_message.size
-  end
-  -- Size of Order Add Response Message
-  if msg_type == 6 then
-    return aquis_equities_orders_atp_v4_0.order_add_response_message.size
-  end
-  -- Size of Order Cancel Response Message
-  if msg_type == 8 then
-    return aquis_equities_orders_atp_v4_0.order_cancel_response_message.size
-  end
-  -- Size of Order Modify Response Message
-  if msg_type == 10 then
-    return aquis_equities_orders_atp_v4_0.order_modify_response_message.size
-  end
-  -- Size of Iceberg Order Refresh Message
-  if msg_type == 23 then
-    return aquis_equities_orders_atp_v4_0.iceberg_order_refresh_message.size
-  end
-  -- Size of Trade Capture Message
-  if msg_type == 17 then
-    return aquis_equities_orders_atp_v4_0.trade_capture_message.size
-  end
-  -- Size of Trade Capture Response Message
-  if msg_type == 18 then
-    return aquis_equities_orders_atp_v4_0.trade_capture_response_message.size
-  end
-  -- Size of Trade Message
-  if msg_type == 11 then
-    return aquis_equities_orders_atp_v4_0.trade_message.size
-  end
-  -- Size of Trade Bust Message
-  if msg_type == 12 then
-    return aquis_equities_orders_atp_v4_0.trade_bust_message.size
-  end
-  -- Size of Ioi Add Message
-  if msg_type == 27 then
-    return aquis_equities_orders_atp_v4_0.ioi_add_message.size
-  end
-  -- Size of Ioi Invite Message
-  if msg_type == 28 then
-    return aquis_equities_orders_atp_v4_0.ioi_invite_message.size
-  end
-  -- Size of Ioi Firmup Message
-  if msg_type == 29 then
-    return aquis_equities_orders_atp_v4_0.ioi_firmup_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-aquis_equities_orders_atp_v4_0.payload.branches = function(buffer, offset, packet, parent, msg_type)
+-- Dissect: Payload
+aquis_equities_orders_atp_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Login Message
   if msg_type == 1 then
     return aquis_equities_orders_atp_v4_0.login_message.dissect(buffer, offset, packet, parent)
@@ -3573,11 +3483,6 @@ aquis_equities_orders_atp_v4_0.payload.branches = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Dissect: Payload
-aquis_equities_orders_atp_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  return aquis_equities_orders_atp_v4_0.payload.branches(buffer, offset, packet, parent, msg_type)
 end
 
 -- Msg Seq No

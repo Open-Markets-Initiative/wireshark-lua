@@ -4959,134 +4959,8 @@ end
 -- Payload
 asx_securities_t24_itch_v1_13.payload = {}
 
--- Size: Payload
-asx_securities_t24_itch_v1_13.payload.size = function(buffer, offset, message_type)
-  -- Size of Time Message
-  if message_type == "T" then
-    return asx_securities_t24_itch_v1_13.time_message.size
-  end
-  -- Size of System Event Message
-  if message_type == "S" then
-    return asx_securities_t24_itch_v1_13.system_event_message.size
-  end
-  -- Size of Future Symbol Directory Message
-  if message_type == "f" then
-    return asx_securities_t24_itch_v1_13.future_symbol_directory_message.size
-  end
-  -- Size of Spread Symbol Directory Message
-  if message_type == "g" then
-    return asx_securities_t24_itch_v1_13.spread_symbol_directory_message.size
-  end
-  -- Size of Option Symbol Directory Message
-  if message_type == "h" then
-    return asx_securities_t24_itch_v1_13.option_symbol_directory_message.size
-  end
-  -- Size of Order Book State Message
-  if message_type == "O" then
-    return asx_securities_t24_itch_v1_13.order_book_state_message.size
-  end
-  -- Size of Order Added Message
-  if message_type == "A" then
-    return asx_securities_t24_itch_v1_13.order_added_message.size
-  end
-  -- Size of Order Replaced Message
-  if message_type == "U" then
-    return asx_securities_t24_itch_v1_13.order_replaced_message.size
-  end
-  -- Size of Order Volume Cancelled Message
-  if message_type == "X" then
-    return asx_securities_t24_itch_v1_13.order_volume_cancelled_message.size
-  end
-  -- Size of Order Deleted Message
-  if message_type == "D" then
-    return asx_securities_t24_itch_v1_13.order_deleted_message.size
-  end
-  -- Size of Implied Order Added Message
-  if message_type == "j" then
-    return asx_securities_t24_itch_v1_13.implied_order_added_message.size
-  end
-  -- Size of Implied Order Replaced Message
-  if message_type == "l" then
-    return asx_securities_t24_itch_v1_13.implied_order_replaced_message.size
-  end
-  -- Size of Implied Order Deleted Message
-  if message_type == "k" then
-    return asx_securities_t24_itch_v1_13.implied_order_deleted_message.size
-  end
-  -- Size of Custom Market Order Added Message
-  if message_type == "m" then
-    return asx_securities_t24_itch_v1_13.custom_market_order_added_message.size
-  end
-  -- Size of Custom Market Order Replaced Message
-  if message_type == "n" then
-    return asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.size
-  end
-  -- Size of Custom Market Order Deleted Message
-  if message_type == "r" then
-    return asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.size
-  end
-  -- Size of Order Executed Message
-  if message_type == "E" then
-    return asx_securities_t24_itch_v1_13.order_executed_message.size
-  end
-  -- Size of Order Executed With Price Message
-  if message_type == "C" then
-    return asx_securities_t24_itch_v1_13.order_executed_with_price_message.size
-  end
-  -- Size of Spread Executed Message
-  if message_type == "e" then
-    return asx_securities_t24_itch_v1_13.spread_executed_message.size
-  end
-  -- Size of Trade Spread Execution Chain Message
-  if message_type == "P" then
-    return asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.size
-  end
-  -- Size of Custom Market Executed Message
-  if message_type == "u" then
-    return asx_securities_t24_itch_v1_13.custom_market_executed_message.size
-  end
-  -- Size of Custom Market Trade Message
-  if message_type == "p" then
-    return asx_securities_t24_itch_v1_13.custom_market_trade_message.size
-  end
-  -- Size of Trade Cancellation Message
-  if message_type == "B" then
-    return asx_securities_t24_itch_v1_13.trade_cancellation_message.size
-  end
-  -- Size of Equilibrium Price Auction Info Message
-  if message_type == "Z" then
-    return asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.size
-  end
-  -- Size of Open High Low Last Trade Adjustment Message
-  if message_type == "t" then
-    return asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.size
-  end
-  -- Size of Market Settlement Message
-  if message_type == "Y" then
-    return asx_securities_t24_itch_v1_13.market_settlement_message.size
-  end
-  -- Size of Ad Hoc Text Message
-  if message_type == "x" then
-    return asx_securities_t24_itch_v1_13.ad_hoc_text_message.size
-  end
-  -- Size of Request For Quote Message
-  if message_type == "q" then
-    return asx_securities_t24_itch_v1_13.request_for_quote_message.size
-  end
-  -- Size of Anomalous Order Threshold Publish Message
-  if message_type == "W" then
-    return asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.size
-  end
-  -- Size of Volume And Open Interest Message
-  if message_type == "V" then
-    return asx_securities_t24_itch_v1_13.volume_and_open_interest_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-asx_securities_t24_itch_v1_13.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+asx_securities_t24_itch_v1_13.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
   if message_type == "T" then
     return asx_securities_t24_itch_v1_13.time_message.dissect(buffer, offset, packet, parent)
@@ -5209,11 +5083,6 @@ asx_securities_t24_itch_v1_13.payload.branches = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Dissect: Payload
-asx_securities_t24_itch_v1_13.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return asx_securities_t24_itch_v1_13.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -5462,8 +5331,8 @@ end
 -- Messages
 asx_securities_t24_itch_v1_13.messages = {}
 
--- Dissect Branches: Messages
-asx_securities_t24_itch_v1_13.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+asx_securities_t24_itch_v1_13.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -5486,11 +5355,6 @@ asx_securities_t24_itch_v1_13.messages.branches = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Dissect: Messages
-asx_securities_t24_itch_v1_13.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return asx_securities_t24_itch_v1_13.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

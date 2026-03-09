@@ -5012,86 +5012,8 @@ end
 -- Sequenced Message
 txse_equities_orderentry_seed_v0_1.sequenced_message = {}
 
--- Size: Sequenced Message
-txse_equities_orderentry_seed_v0_1.sequenced_message.size = function(buffer, offset, sequenced_message_type)
-  -- Size of Trading Session Status Message
-  if sequenced_message_type == 105 then
-    return txse_equities_orderentry_seed_v0_1.trading_session_status_message.size(buffer, offset)
-  end
-  -- Size of Define Symbol Message
-  if sequenced_message_type == 115 then
-    return txse_equities_orderentry_seed_v0_1.define_symbol_message.size(buffer, offset)
-  end
-  -- Size of Symbol Status Message
-  if sequenced_message_type == 121 then
-    return txse_equities_orderentry_seed_v0_1.symbol_status_message.size(buffer, offset)
-  end
-  -- Size of Limit Order Accepted Message
-  if sequenced_message_type == 73 then
-    return txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.size(buffer, offset)
-  end
-  -- Size of Limit Order Rejected Message
-  if sequenced_message_type == 85 then
-    return txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.size(buffer, offset)
-  end
-  -- Size of Market Order Accepted Message
-  if sequenced_message_type == 68 then
-    return txse_equities_orderentry_seed_v0_1.market_order_accepted_message.size(buffer, offset)
-  end
-  -- Size of Market Order Rejected Message
-  if sequenced_message_type == 84 then
-    return txse_equities_orderentry_seed_v0_1.market_order_rejected_message.size(buffer, offset)
-  end
-  -- Size of Order Canceled Message
-  if sequenced_message_type == 88 then
-    return txse_equities_orderentry_seed_v0_1.order_canceled_message.size(buffer, offset)
-  end
-  -- Size of Cancel Rejected Message
-  if sequenced_message_type == 87 then
-    return txse_equities_orderentry_seed_v0_1.cancel_rejected_message.size(buffer, offset)
-  end
-  -- Size of Order Modified Message
-  if sequenced_message_type == 89 then
-    return txse_equities_orderentry_seed_v0_1.order_modified_message.size(buffer, offset)
-  end
-  -- Size of Modify Rejected Message
-  if sequenced_message_type == 78 then
-    return txse_equities_orderentry_seed_v0_1.modify_rejected_message.size(buffer, offset)
-  end
-  -- Size of Order Replaced Message
-  if sequenced_message_type == 74 then
-    return txse_equities_orderentry_seed_v0_1.order_replaced_message.size(buffer, offset)
-  end
-  -- Size of Replace Rejected Message
-  if sequenced_message_type == 75 then
-    return txse_equities_orderentry_seed_v0_1.replace_rejected_message.size(buffer, offset)
-  end
-  -- Size of Order Executed Message
-  if sequenced_message_type == 69 then
-    return txse_equities_orderentry_seed_v0_1.order_executed_message.size(buffer, offset)
-  end
-  -- Size of Order Restated Message
-  if sequenced_message_type == 70 then
-    return txse_equities_orderentry_seed_v0_1.order_restated_message.size(buffer, offset)
-  end
-  -- Size of Mass Cancel Accepted Message
-  if sequenced_message_type == 79 then
-    return txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.size(buffer, offset)
-  end
-  -- Size of Mass Cancel Rejected Message
-  if sequenced_message_type == 80 then
-    return txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.size(buffer, offset)
-  end
-  -- Size of Mass Cancel Result Message
-  if sequenced_message_type == 81 then
-    return txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Sequenced Message
-txse_equities_orderentry_seed_v0_1.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+txse_equities_orderentry_seed_v0_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect Trading Session Status Message
   if sequenced_message_type == 105 then
     return txse_equities_orderentry_seed_v0_1.trading_session_status_message.dissect(buffer, offset, packet, parent)
@@ -5166,11 +5088,6 @@ txse_equities_orderentry_seed_v0_1.sequenced_message.branches = function(buffer,
   end
 
   return offset
-end
-
--- Dissect: Sequenced Message
-txse_equities_orderentry_seed_v0_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  return txse_equities_orderentry_seed_v0_1.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
 -- Sequenced Message Type
@@ -6489,34 +6406,8 @@ end
 -- Unsequenced Message
 txse_equities_orderentry_seed_v0_1.unsequenced_message = {}
 
--- Size: Unsequenced Message
-txse_equities_orderentry_seed_v0_1.unsequenced_message.size = function(buffer, offset, unsequenced_message_type)
-  -- Size of Limit Order Message
-  if unsequenced_message_type == 76 then
-    return txse_equities_orderentry_seed_v0_1.limit_order_message.size(buffer, offset)
-  end
-  -- Size of Market Order Message
-  if unsequenced_message_type == 65 then
-    return txse_equities_orderentry_seed_v0_1.market_order_message.size(buffer, offset)
-  end
-  -- Size of Cancel Order Message
-  if unsequenced_message_type == 67 then
-    return txse_equities_orderentry_seed_v0_1.cancel_order_message.size(buffer, offset)
-  end
-  -- Size of Replace Order Message
-  if unsequenced_message_type == 82 then
-    return txse_equities_orderentry_seed_v0_1.replace_order_message.size(buffer, offset)
-  end
-  -- Size of Mass Cancel Message
-  if unsequenced_message_type == 86 then
-    return txse_equities_orderentry_seed_v0_1.mass_cancel_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Unsequenced Message
-txse_equities_orderentry_seed_v0_1.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+txse_equities_orderentry_seed_v0_1.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Limit Order Message
   if unsequenced_message_type == 76 then
     return txse_equities_orderentry_seed_v0_1.limit_order_message.dissect(buffer, offset, packet, parent)
@@ -6539,11 +6430,6 @@ txse_equities_orderentry_seed_v0_1.unsequenced_message.branches = function(buffe
   end
 
   return offset
-end
-
--- Dissect: Unsequenced Message
-txse_equities_orderentry_seed_v0_1.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  return txse_equities_orderentry_seed_v0_1.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
 -- Unsequenced Message Type
@@ -6742,38 +6628,8 @@ end
 -- Payload
 txse_equities_orderentry_seed_v0_1.payload = {}
 
--- Size: Payload
-txse_equities_orderentry_seed_v0_1.payload.size = function(buffer, offset, packet_type)
-  -- Size of Logon Request Packet
-  if packet_type == 53 then
-    return txse_equities_orderentry_seed_v0_1.logon_request_packet.size
-  end
-  -- Size of Tcp Unsequenced Message
-  if packet_type == 54 then
-    return txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.size(buffer, offset)
-  end
-  -- Size of Debug Message
-  if packet_type == 48 then
-    return txse_equities_orderentry_seed_v0_1.debug_message.size(buffer, offset)
-  end
-  -- Size of End Of Session Message
-  if packet_type == 52 then
-    return 0
-  end
-  -- Size of Logon Response Message
-  if packet_type == 49 then
-    return txse_equities_orderentry_seed_v0_1.logon_response_message.size
-  end
-  -- Size of Tcp Sequenced Message
-  if packet_type == 50 then
-    return txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-txse_equities_orderentry_seed_v0_1.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+txse_equities_orderentry_seed_v0_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Logon Request Packet
   if packet_type == 53 then
     return txse_equities_orderentry_seed_v0_1.logon_request_packet.dissect(buffer, offset, packet, parent)
@@ -6800,11 +6656,6 @@ txse_equities_orderentry_seed_v0_1.payload.branches = function(buffer, offset, p
   end
 
   return offset
-end
-
--- Dissect: Payload
-txse_equities_orderentry_seed_v0_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return txse_equities_orderentry_seed_v0_1.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

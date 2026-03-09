@@ -3529,70 +3529,8 @@ end
 -- Payload
 otc_markets_multicast_ats_v4_3.payload = {}
 
--- Size: Payload
-otc_markets_multicast_ats_v4_3.payload.size = function(buffer, offset, message_type)
-  -- Size of Start Of Spin Message
-  if message_type == 11 then
-    return otc_markets_multicast_ats_v4_3.start_of_spin_message.size
-  end
-  -- Size of End Of Spin Message
-  if message_type == 12 then
-    return otc_markets_multicast_ats_v4_3.end_of_spin_message.size
-  end
-  -- Size of Market Open Message
-  if message_type == 13 then
-    return otc_markets_multicast_ats_v4_3.market_open_message.size
-  end
-  -- Size of Market Close Message
-  if message_type == 14 then
-    return otc_markets_multicast_ats_v4_3.market_close_message.size
-  end
-  -- Size of Security Message
-  if message_type == 9 then
-    return otc_markets_multicast_ats_v4_3.security_message.size
-  end
-  -- Size of Quote Message
-  if message_type == 1 then
-    return otc_markets_multicast_ats_v4_3.quote_message.size
-  end
-  -- Size of Quote Update Message
-  if message_type == 2 then
-    return otc_markets_multicast_ats_v4_3.quote_update_message.size
-  end
-  -- Size of Market Open Message
-  if message_type == 3 then
-    return otc_markets_multicast_ats_v4_3.market_open_message.size
-  end
-  -- Size of Inside Update Message
-  if message_type == 4 then
-    return otc_markets_multicast_ats_v4_3.inside_update_message.size
-  end
-  -- Size of Reference Price Message
-  if message_type == 7 then
-    return otc_markets_multicast_ats_v4_3.reference_price_message.size
-  end
-  -- Size of Reference Price Update Message
-  if message_type == 8 then
-    return otc_markets_multicast_ats_v4_3.reference_price_update_message.size
-  end
-  -- Size of Extended Security Message
-  if message_type == 15 then
-    return otc_markets_multicast_ats_v4_3.extended_security_message.size(buffer, offset)
-  end
-  -- Size of Extended Security No Cusip Message
-  if message_type == 16 then
-    return otc_markets_multicast_ats_v4_3.extended_security_no_cusip_message.size(buffer, offset)
-  end
-  -- Size of Trade Message
-  if message_type == 17 then
-    return otc_markets_multicast_ats_v4_3.trade_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-otc_markets_multicast_ats_v4_3.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+otc_markets_multicast_ats_v4_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Start Of Spin Message
   if message_type == 11 then
     return otc_markets_multicast_ats_v4_3.start_of_spin_message.dissect(buffer, offset, packet, parent)
@@ -3651,11 +3589,6 @@ otc_markets_multicast_ats_v4_3.payload.branches = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Dissect: Payload
-otc_markets_multicast_ats_v4_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return otc_markets_multicast_ats_v4_3.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

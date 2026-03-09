@@ -1919,42 +1919,8 @@ end
 -- Payload
 nasdaq_iseoptions_orderfeed_itch_v1_1.payload = {}
 
--- Size: Payload
-nasdaq_iseoptions_orderfeed_itch_v1_1.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message.size
-  end
-  -- Size of Option Directory Message
-  if message_type == "D" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message.size
-  end
-  -- Size of Trading Action Message
-  if message_type == "H" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.size
-  end
-  -- Size of Security Open Closed Message
-  if message_type == "O" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message.size
-  end
-  -- Size of Opening Imbalance Message
-  if message_type == "N" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message.size
-  end
-  -- Size of Order On Book Message
-  if message_type == "B" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message.size
-  end
-  -- Size of Auction Message
-  if message_type == "A" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.auction_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_iseoptions_orderfeed_itch_v1_1.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_iseoptions_orderfeed_itch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
     return nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message.dissect(buffer, offset, packet, parent)
@@ -1985,11 +1951,6 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.payload.branches = function(buffer, offset
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_iseoptions_orderfeed_itch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_iseoptions_orderfeed_itch_v1_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2169,8 +2130,8 @@ end
 -- Messages
 nasdaq_iseoptions_orderfeed_itch_v1_1.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_iseoptions_orderfeed_itch_v1_1.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_iseoptions_orderfeed_itch_v1_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -2193,11 +2154,6 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.messages.branches = function(buffer, offse
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_iseoptions_orderfeed_itch_v1_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_iseoptions_orderfeed_itch_v1_1.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

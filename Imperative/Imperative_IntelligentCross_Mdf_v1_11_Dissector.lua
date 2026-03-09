@@ -1245,54 +1245,8 @@ end
 -- Payload
 imperative_intelligentcross_mdf_v1_11.payload = {}
 
--- Size: Payload
-imperative_intelligentcross_mdf_v1_11.payload.size = function(buffer, offset, message_type)
-  -- Size of Market Event Message
-  if message_type == "A" then
-    return imperative_intelligentcross_mdf_v1_11.market_event_message.size
-  end
-  -- Size of Symbol Information Message
-  if message_type == "B" then
-    return imperative_intelligentcross_mdf_v1_11.symbol_information_message.size
-  end
-  -- Size of Symbol State Message
-  if message_type == "C" then
-    return imperative_intelligentcross_mdf_v1_11.symbol_state_message.size
-  end
-  -- Size of New Order Add Message
-  if message_type == "D" then
-    return imperative_intelligentcross_mdf_v1_11.new_order_add_message.size
-  end
-  -- Size of Order Partial Cancel Message
-  if message_type == "F" then
-    return imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.size
-  end
-  -- Size of Order Cancel All Message
-  if message_type == "G" then
-    return imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.size
-  end
-  -- Size of Order Updated Message
-  if message_type == "G" then
-    return imperative_intelligentcross_mdf_v1_11.order_updated_message.size
-  end
-  -- Size of Order Executed Message
-  if message_type == "J" then
-    return imperative_intelligentcross_mdf_v1_11.order_executed_message.size
-  end
-  -- Size of Trade Message
-  if message_type == "K" then
-    return imperative_intelligentcross_mdf_v1_11.trade_message.size
-  end
-  -- Size of Trade Break Message
-  if message_type == "M" then
-    return imperative_intelligentcross_mdf_v1_11.trade_break_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-imperative_intelligentcross_mdf_v1_11.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+imperative_intelligentcross_mdf_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Market Event Message
   if message_type == "A" then
     return imperative_intelligentcross_mdf_v1_11.market_event_message.dissect(buffer, offset, packet, parent)
@@ -1335,11 +1289,6 @@ imperative_intelligentcross_mdf_v1_11.payload.branches = function(buffer, offset
   end
 
   return offset
-end
-
--- Dissect: Payload
-imperative_intelligentcross_mdf_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return imperative_intelligentcross_mdf_v1_11.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

@@ -738,30 +738,8 @@ end
 -- Payload
 aquis_equities_snapshot_amd_v4_0.payload = {}
 
--- Size: Payload
-aquis_equities_snapshot_amd_v4_0.payload.size = function(buffer, offset, msg_type)
-  -- Size of Snapshot Start Message
-  if msg_type == 10 then
-    return aquis_equities_snapshot_amd_v4_0.snapshot_start_message.size
-  end
-  -- Size of Book Status Message
-  if msg_type == 11 then
-    return aquis_equities_snapshot_amd_v4_0.book_status_message.size
-  end
-  -- Size of Book Entry Message
-  if msg_type == 12 then
-    return aquis_equities_snapshot_amd_v4_0.book_entry_message.size
-  end
-  -- Size of Ma C Book Entry Message
-  if msg_type == 18 then
-    return aquis_equities_snapshot_amd_v4_0.ma_c_book_entry_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-aquis_equities_snapshot_amd_v4_0.payload.branches = function(buffer, offset, packet, parent, msg_type)
+-- Dissect: Payload
+aquis_equities_snapshot_amd_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Snapshot Start Message
   if msg_type == 10 then
     return aquis_equities_snapshot_amd_v4_0.snapshot_start_message.dissect(buffer, offset, packet, parent)
@@ -780,11 +758,6 @@ aquis_equities_snapshot_amd_v4_0.payload.branches = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Dissect: Payload
-aquis_equities_snapshot_amd_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  return aquis_equities_snapshot_amd_v4_0.payload.branches(buffer, offset, packet, parent, msg_type)
 end
 
 -- Seq No

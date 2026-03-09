@@ -806,34 +806,8 @@ end
 -- Payload
 bruceats_equities_depthofbook_itch_v1_0.payload = {}
 
--- Size: Payload
-bruceats_equities_depthofbook_itch_v1_0.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == "S" then
-    return bruceats_equities_depthofbook_itch_v1_0.system_event_message.size
-  end
-  -- Size of Stock Directory
-  if message_type == "R" then
-    return bruceats_equities_depthofbook_itch_v1_0.stock_directory.size
-  end
-  -- Size of Stock Trading Action
-  if message_type == "H" then
-    return bruceats_equities_depthofbook_itch_v1_0.stock_trading_action.size
-  end
-  -- Size of Reg Sho Short Sale Price Test Restricted Indicator
-  if message_type == "Y" then
-    return bruceats_equities_depthofbook_itch_v1_0.reg_sho_short_sale_price_test_restricted_indicator.size
-  end
-  -- Size of Quotation Message
-  if message_type == "Q" then
-    return bruceats_equities_depthofbook_itch_v1_0.quotation_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-bruceats_equities_depthofbook_itch_v1_0.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+bruceats_equities_depthofbook_itch_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
     return bruceats_equities_depthofbook_itch_v1_0.system_event_message.dissect(buffer, offset, packet, parent)
@@ -856,11 +830,6 @@ bruceats_equities_depthofbook_itch_v1_0.payload.branches = function(buffer, offs
   end
 
   return offset
-end
-
--- Dissect: Payload
-bruceats_equities_depthofbook_itch_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return bruceats_equities_depthofbook_itch_v1_0.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -1034,8 +1003,8 @@ end
 -- Messages
 bruceats_equities_depthofbook_itch_v1_0.messages = {}
 
--- Dissect Branches: Messages
-bruceats_equities_depthofbook_itch_v1_0.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+bruceats_equities_depthofbook_itch_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -1058,11 +1027,6 @@ bruceats_equities_depthofbook_itch_v1_0.messages.branches = function(buffer, off
   end
 
   return offset
-end
-
--- Dissect: Messages
-bruceats_equities_depthofbook_itch_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return bruceats_equities_depthofbook_itch_v1_0.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

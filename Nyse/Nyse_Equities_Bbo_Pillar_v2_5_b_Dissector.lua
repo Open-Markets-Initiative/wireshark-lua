@@ -2447,66 +2447,8 @@ end
 -- Payload
 nyse_equities_bbo_pillar_v2_5_b.payload = {}
 
--- Size: Payload
-nyse_equities_bbo_pillar_v2_5_b.payload.size = function(buffer, offset, message_type)
-  -- Size of Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_equities_bbo_pillar_v2_5_b.sequence_number_reset_message.size
-  end
-  -- Size of Source Time Reference Message
-  if message_type == 2 then
-    return nyse_equities_bbo_pillar_v2_5_b.source_time_reference_message.size
-  end
-  -- Size of Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_message.size
-  end
-  -- Size of Retransmission Request Message
-  if message_type == 10 then
-    return nyse_equities_bbo_pillar_v2_5_b.retransmission_request_message.size
-  end
-  -- Size of Request Response Message
-  if message_type == 11 then
-    return nyse_equities_bbo_pillar_v2_5_b.request_response_message.size
-  end
-  -- Size of Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_equities_bbo_pillar_v2_5_b.heartbeat_response_message.size
-  end
-  -- Size of Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_request_message.size
-  end
-  -- Size of Refresh Request Message
-  if message_type == 15 then
-    return nyse_equities_bbo_pillar_v2_5_b.refresh_request_message.size
-  end
-  -- Size of Message Unavailable Message
-  if message_type == 31 then
-    return nyse_equities_bbo_pillar_v2_5_b.message_unavailable_message.size
-  end
-  -- Size of Symbol Clear Message
-  if message_type == 32 then
-    return nyse_equities_bbo_pillar_v2_5_b.symbol_clear_message.size
-  end
-  -- Size of Security Status Message
-  if message_type == 34 then
-    return nyse_equities_bbo_pillar_v2_5_b.security_status_message.size
-  end
-  -- Size of Refresh Header Message
-  if message_type == 35 then
-    return nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.size
-  end
-  -- Size of Quote Message
-  if message_type == 140 then
-    return nyse_equities_bbo_pillar_v2_5_b.quote_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nyse_equities_bbo_pillar_v2_5_b.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nyse_equities_bbo_pillar_v2_5_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequence Number Reset Message
   if message_type == 1 then
     return nyse_equities_bbo_pillar_v2_5_b.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
@@ -2561,11 +2503,6 @@ nyse_equities_bbo_pillar_v2_5_b.payload.branches = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Dissect: Payload
-nyse_equities_bbo_pillar_v2_5_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nyse_equities_bbo_pillar_v2_5_b.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

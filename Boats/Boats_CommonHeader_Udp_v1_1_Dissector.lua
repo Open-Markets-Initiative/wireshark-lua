@@ -471,29 +471,14 @@ end
 -- Sequenced Messages
 boats_commonheader_udp_v1_1.sequenced_messages = {}
 
--- Size: Sequenced Messages
-boats_commonheader_udp_v1_1.sequenced_messages.size = function(buffer, offset, message_type)
-  -- Size of Sequenced Message
-  if message_type == 2 then
-    return boats_commonheader_udp_v1_1.sequenced_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Sequenced Messages
-boats_commonheader_udp_v1_1.sequenced_messages.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Sequenced Messages
+boats_commonheader_udp_v1_1.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequenced Message
   if message_type == 2 then
     return boats_commonheader_udp_v1_1.sequenced_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Sequenced Messages
-boats_commonheader_udp_v1_1.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  return boats_commonheader_udp_v1_1.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Sequence Number

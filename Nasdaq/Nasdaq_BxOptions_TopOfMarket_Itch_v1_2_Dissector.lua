@@ -1970,66 +1970,8 @@ end
 -- Payload
 nasdaq_bxoptions_topofmarket_itch_v1_2.payload = {}
 
--- Size: Payload
-nasdaq_bxoptions_topofmarket_itch_v1_2.payload.size = function(buffer, offset, message_type)
-  -- Size of Timestamp Message
-  if message_type == "T" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.timestamp_message.size
-  end
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.system_event_message.size
-  end
-  -- Size of Options Directory Message
-  if message_type == "D" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.options_directory_message.size
-  end
-  -- Size of Trading Action Message
-  if message_type == "H" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.trading_action_message.size
-  end
-  -- Size of Security Open Message
-  if message_type == "O" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.security_open_message.size
-  end
-  -- Size of Best Bid And Ask Update Short Form Message
-  if message_type == "q" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_short_form_message.size
-  end
-  -- Size of Best Bid And Ask Update Long Form Message
-  if message_type == "Q" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_long_form_message.size
-  end
-  -- Size of Best Bid Update Short Form Message
-  if message_type == "b" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_short_form_message.size
-  end
-  -- Size of Best Ask Update Short Form Message
-  if message_type == "a" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_short_form_message.size
-  end
-  -- Size of Best Bid Update Long Form Message
-  if message_type == "B" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_long_form_message.size
-  end
-  -- Size of Best Ask Update Long Form Message
-  if message_type == "A" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_long_form_message.size
-  end
-  -- Size of Trade Report Message
-  if message_type == "R" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.trade_report_message.size
-  end
-  -- Size of Broken Trade Report Message
-  if message_type == "X" then
-    return nasdaq_bxoptions_topofmarket_itch_v1_2.broken_trade_report_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_bxoptions_topofmarket_itch_v1_2.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_bxoptions_topofmarket_itch_v1_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Timestamp Message
   if message_type == "T" then
     return nasdaq_bxoptions_topofmarket_itch_v1_2.timestamp_message.dissect(buffer, offset, packet, parent)
@@ -2084,11 +2026,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.payload.branches = function(buffer, offse
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_bxoptions_topofmarket_itch_v1_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_bxoptions_topofmarket_itch_v1_2.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2286,8 +2223,8 @@ end
 -- Messages
 nasdaq_bxoptions_topofmarket_itch_v1_2.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_bxoptions_topofmarket_itch_v1_2.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_bxoptions_topofmarket_itch_v1_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -2310,11 +2247,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.messages.branches = function(buffer, offs
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_bxoptions_topofmarket_itch_v1_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_bxoptions_topofmarket_itch_v1_2.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

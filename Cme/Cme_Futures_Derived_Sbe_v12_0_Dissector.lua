@@ -1598,38 +1598,8 @@ end
 -- Payload
 cme_futures_derived_sbe_v12_0.payload = {}
 
--- Size: Payload
-cme_futures_derived_sbe_v12_0.payload.size = function(buffer, offset, template_id)
-  -- Size of Admin Heartbeat
-  if template_id == 302 then
-    return 0
-  end
-  -- Size of Md Incremental Refresh Spectrum
-  if template_id == 303 then
-    return cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.size(buffer, offset)
-  end
-  -- Size of Md Incremental Refresh Ticker
-  if template_id == 304 then
-    return cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.size(buffer, offset)
-  end
-  -- Size of Md Snapshot Refresh Spectrum
-  if template_id == 305 then
-    return cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.size(buffer, offset)
-  end
-  -- Size of Md Snapshot Refresh Ticker
-  if template_id == 306 then
-    return cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.size(buffer, offset)
-  end
-  -- Size of Global Day Roll
-  if template_id == 307 then
-    return cme_futures_derived_sbe_v12_0.global_day_roll.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-cme_futures_derived_sbe_v12_0.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+cme_futures_derived_sbe_v12_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Admin Heartbeat
   if template_id == 302 then
     return offset
@@ -1656,11 +1626,6 @@ cme_futures_derived_sbe_v12_0.payload.branches = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Dissect: Payload
-cme_futures_derived_sbe_v12_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return cme_futures_derived_sbe_v12_0.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version

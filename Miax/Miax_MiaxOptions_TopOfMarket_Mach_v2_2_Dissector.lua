@@ -2555,62 +2555,8 @@ end
 -- Data
 miax_miaxoptions_topofmarket_mach_v2_2.data = {}
 
--- Size: Data
-miax_miaxoptions_topofmarket_mach_v2_2.data.size = function(buffer, offset, message_type)
-  -- Size of System Time Message
-  if message_type == "1" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.system_time_message.size
-  end
-  -- Size of Simple Series Update Message
-  if message_type == "P" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.simple_series_update_message.size
-  end
-  -- Size of System State Message
-  if message_type == "S" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.system_state_message.size
-  end
-  -- Size of Simple Top Of Market Bid Compact Message
-  if message_type == "B" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.simple_top_of_market_bid_compact_message.size
-  end
-  -- Size of Simple Top Of Market Offer Compact Message
-  if message_type == "O" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.simple_top_of_market_offer_compact_message.size
-  end
-  -- Size of Simple Top Of Market Bid Wide Message
-  if message_type == "W" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.simple_top_of_market_bid_wide_message.size
-  end
-  -- Size of Simple Top Of Market Offer Wide Message
-  if message_type == "A" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.simple_top_of_market_offer_wide_message.size
-  end
-  -- Size of Simple Double Sided Top Of Market Compact Message
-  if message_type == "d" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.simple_double_sided_top_of_market_compact_message.size
-  end
-  -- Size of Simple Double Sided Top Of Market Wide Message
-  if message_type == "D" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.simple_double_sided_top_of_market_wide_message.size
-  end
-  -- Size of Last Sale Message
-  if message_type == "T" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.last_sale_message.size
-  end
-  -- Size of Trade Cancel Message
-  if message_type == "X" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.trade_cancel_message.size
-  end
-  -- Size of Underlying Trading Status Notification Message
-  if message_type == "H" then
-    return miax_miaxoptions_topofmarket_mach_v2_2.underlying_trading_status_notification_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Data
-miax_miaxoptions_topofmarket_mach_v2_2.data.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Data
+miax_miaxoptions_topofmarket_mach_v2_2.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
   if message_type == "1" then
     return miax_miaxoptions_topofmarket_mach_v2_2.system_time_message.dissect(buffer, offset, packet, parent)
@@ -2661,11 +2607,6 @@ miax_miaxoptions_topofmarket_mach_v2_2.data.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Data
-miax_miaxoptions_topofmarket_mach_v2_2.data.dissect = function(buffer, offset, packet, parent, message_type)
-  return miax_miaxoptions_topofmarket_mach_v2_2.data.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2784,29 +2725,14 @@ end
 -- Payload
 miax_miaxoptions_topofmarket_mach_v2_2.payload = {}
 
--- Size: Payload
-miax_miaxoptions_topofmarket_mach_v2_2.payload.size = function(buffer, offset, packet_type)
-  -- Size of Application Message
-  if packet_type == 3 then
-    return miax_miaxoptions_topofmarket_mach_v2_2.application_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-miax_miaxoptions_topofmarket_mach_v2_2.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+miax_miaxoptions_topofmarket_mach_v2_2.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_miaxoptions_topofmarket_mach_v2_2.application_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Payload
-miax_miaxoptions_topofmarket_mach_v2_2.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return miax_miaxoptions_topofmarket_mach_v2_2.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Session Number

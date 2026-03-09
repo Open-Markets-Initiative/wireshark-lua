@@ -3191,102 +3191,8 @@ end
 -- Payload
 nasdaq_nomoptions_itto_itch_v4_0.payload = {}
 
--- Size: Payload
-nasdaq_nomoptions_itto_itch_v4_0.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_nomoptions_itto_itch_v4_0.system_event_message.size
-  end
-  -- Size of Options Directory Message
-  if message_type == "R" then
-    return nasdaq_nomoptions_itto_itch_v4_0.options_directory_message.size
-  end
-  -- Size of Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nomoptions_itto_itch_v4_0.trading_action_message.size
-  end
-  -- Size of Security Open Message
-  if message_type == "O" then
-    return nasdaq_nomoptions_itto_itch_v4_0.security_open_message.size
-  end
-  -- Size of Add Order Message Short Message Form
-  if message_type == "a" then
-    return nasdaq_nomoptions_itto_itch_v4_0.add_order_message_short_message_form.size
-  end
-  -- Size of Add Order Message Long Form Message
-  if message_type == "A" then
-    return nasdaq_nomoptions_itto_itch_v4_0.add_order_message_long_form_message.size
-  end
-  -- Size of Add Quote Message Short Form Message
-  if message_type == "j" then
-    return nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_short_form_message.size
-  end
-  -- Size of Add Quote Message Long Form Message
-  if message_type == "J" then
-    return nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_long_form_message.size
-  end
-  -- Size of Single Side Executed Message
-  if message_type == "E" then
-    return nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_message.size
-  end
-  -- Size of Single Side Executed With Price Message
-  if message_type == "C" then
-    return nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_with_price_message.size
-  end
-  -- Size of Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_nomoptions_itto_itch_v4_0.order_cancel_message.size
-  end
-  -- Size of Single Side Replace Message Short Form
-  if message_type == "u" then
-    return nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_short_form.size
-  end
-  -- Size of Single Side Replace Message Long Form
-  if message_type == "U" then
-    return nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_long_form.size
-  end
-  -- Size of Single Side Delete Message
-  if message_type == "D" then
-    return nasdaq_nomoptions_itto_itch_v4_0.single_side_delete_message.size
-  end
-  -- Size of Single Side Change Message
-  if message_type == "G" then
-    return nasdaq_nomoptions_itto_itch_v4_0.single_side_change_message.size
-  end
-  -- Size of Quote Replace Message Short Form
-  if message_type == "k" then
-    return nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_short_form.size
-  end
-  -- Size of Quote Replace Message Long Form
-  if message_type == "K" then
-    return nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_long_form.size
-  end
-  -- Size of Quote Delete Message
-  if message_type == "Y" then
-    return nasdaq_nomoptions_itto_itch_v4_0.quote_delete_message.size
-  end
-  -- Size of Options Trade Messages Non Auction
-  if message_type == "P" then
-    return nasdaq_nomoptions_itto_itch_v4_0.options_trade_messages_non_auction.size
-  end
-  -- Size of Options Cross Trade Message
-  if message_type == "Q" then
-    return nasdaq_nomoptions_itto_itch_v4_0.options_cross_trade_message.size
-  end
-  -- Size of Broken Trade Order Executed Message
-  if message_type == "B" then
-    return nasdaq_nomoptions_itto_itch_v4_0.broken_trade_order_executed_message.size
-  end
-  -- Size of Noii Message
-  if message_type == "I" then
-    return nasdaq_nomoptions_itto_itch_v4_0.noii_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_nomoptions_itto_itch_v4_0.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_nomoptions_itto_itch_v4_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
     return nasdaq_nomoptions_itto_itch_v4_0.system_event_message.dissect(buffer, offset, packet, parent)
@@ -3377,11 +3283,6 @@ nasdaq_nomoptions_itto_itch_v4_0.payload.branches = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_nomoptions_itto_itch_v4_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_nomoptions_itto_itch_v4_0.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -3606,8 +3507,8 @@ end
 -- Messages
 nasdaq_nomoptions_itto_itch_v4_0.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_nomoptions_itto_itch_v4_0.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_nomoptions_itto_itch_v4_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -3630,11 +3531,6 @@ nasdaq_nomoptions_itto_itch_v4_0.messages.branches = function(buffer, offset, pa
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_nomoptions_itto_itch_v4_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_nomoptions_itto_itch_v4_0.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

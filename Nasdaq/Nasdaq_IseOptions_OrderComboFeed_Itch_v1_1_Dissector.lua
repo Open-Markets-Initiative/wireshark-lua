@@ -1885,38 +1885,8 @@ end
 -- Payload
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload = {}
 
--- Size: Payload
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_iseoptions_ordercombofeed_itch_v1_1.system_event_message.size
-  end
-  -- Size of Complex Strategy Directory Message
-  if message_type == "R" then
-    return nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_directory_message.size(buffer, offset)
-  end
-  -- Size of Strategy Trading Action Message
-  if message_type == "H" then
-    return nasdaq_iseoptions_ordercombofeed_itch_v1_1.strategy_trading_action_message.size
-  end
-  -- Size of Strategy Open Closed Message
-  if message_type == "O" then
-    return nasdaq_iseoptions_ordercombofeed_itch_v1_1.strategy_open_closed_message.size
-  end
-  -- Size of Complex Strategy Order On Book Message
-  if message_type == "L" then
-    return nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_order_on_book_message.size
-  end
-  -- Size of Complex Strategy Auction Message
-  if message_type == "J" then
-    return nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_auction_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
     return nasdaq_iseoptions_ordercombofeed_itch_v1_1.system_event_message.dissect(buffer, offset, packet, parent)
@@ -1943,11 +1913,6 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload.branches = function(buffer, o
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2124,8 +2089,8 @@ end
 -- Messages
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -2148,11 +2113,6 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.messages.branches = function(buffer, 
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_iseoptions_ordercombofeed_itch_v1_1.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

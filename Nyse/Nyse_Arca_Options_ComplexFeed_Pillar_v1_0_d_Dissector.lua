@@ -3837,86 +3837,8 @@ end
 -- Payload
 nyse_arca_options_complexfeed_pillar_v1_0_d.payload = {}
 
--- Size: Payload
-nyse_arca_options_complexfeed_pillar_v1_0_d.payload.size = function(buffer, offset, message_type)
-  -- Size of Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.sequence_number_reset_message.size
-  end
-  -- Size of Time Reference Message
-  if message_type == 2 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.time_reference_message.size
-  end
-  -- Size of Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.symbol_index_mapping_message.size
-  end
-  -- Size of Retransmission Request Message
-  if message_type == 10 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.retransmission_request_message.size
-  end
-  -- Size of Request Response Message
-  if message_type == 11 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.request_response_message.size
-  end
-  -- Size of Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.heartbeat_response_message.size
-  end
-  -- Size of Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.symbol_index_mapping_request_message.size
-  end
-  -- Size of Refresh Request Message
-  if message_type == 15 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.refresh_request_message.size
-  end
-  -- Size of Message Unavailable Message
-  if message_type == 31 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.message_unavailable_message.size
-  end
-  -- Size of Symbol Clear Message
-  if message_type == 32 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.symbol_clear_message.size
-  end
-  -- Size of Security Status Message
-  if message_type == 34 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.security_status_message.size
-  end
-  -- Size of Refresh Header Message
-  if message_type == 35 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.refresh_header_message.size
-  end
-  -- Size of Outright Series Index Mapping Message
-  if message_type == 50 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.outright_series_index_mapping_message.size
-  end
-  -- Size of Options Status Message
-  if message_type == 51 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.options_status_message.size
-  end
-  -- Size of Complex Series Index Mapping Message
-  if message_type == 60 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.size(buffer, offset)
-  end
-  -- Size of Options Quote Message
-  if message_type == 340 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.options_quote_message.size
-  end
-  -- Size of Options Trade Message
-  if message_type == 320 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.options_trade_message.size
-  end
-  -- Size of Series Rfq Message
-  if message_type == 307 then
-    return nyse_arca_options_complexfeed_pillar_v1_0_d.series_rfq_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nyse_arca_options_complexfeed_pillar_v1_0_d.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nyse_arca_options_complexfeed_pillar_v1_0_d.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequence Number Reset Message
   if message_type == 1 then
     return nyse_arca_options_complexfeed_pillar_v1_0_d.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
@@ -3991,11 +3913,6 @@ nyse_arca_options_complexfeed_pillar_v1_0_d.payload.branches = function(buffer, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-nyse_arca_options_complexfeed_pillar_v1_0_d.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nyse_arca_options_complexfeed_pillar_v1_0_d.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

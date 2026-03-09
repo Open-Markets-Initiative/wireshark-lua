@@ -2661,70 +2661,8 @@ end
 -- Payload
 asx_securities_trade_itch_v2_0.payload = {}
 
--- Size: Payload
-asx_securities_trade_itch_v2_0.payload.size = function(buffer, offset, message_type)
-  -- Size of Seconds Message
-  if message_type == "T" then
-    return asx_securities_trade_itch_v2_0.seconds_message.size
-  end
-  -- Size of Order Book Directory Message
-  if message_type == "R" then
-    return asx_securities_trade_itch_v2_0.order_book_directory_message.size
-  end
-  -- Size of Combination Order Book Directory Message
-  if message_type == "M" then
-    return asx_securities_trade_itch_v2_0.combination_order_book_directory_message.size
-  end
-  -- Size of Tick Size Message
-  if message_type == "L" then
-    return asx_securities_trade_itch_v2_0.tick_size_message.size
-  end
-  -- Size of System Event Message
-  if message_type == "S" then
-    return asx_securities_trade_itch_v2_0.system_event_message.size
-  end
-  -- Size of Order Book State Message
-  if message_type == "O" then
-    return asx_securities_trade_itch_v2_0.order_book_state_message.size
-  end
-  -- Size of Add Order No Participant Id Message
-  if message_type == "A" then
-    return asx_securities_trade_itch_v2_0.add_order_no_participant_id_message.size
-  end
-  -- Size of Add Order Participant Id Message
-  if message_type == "F" then
-    return asx_securities_trade_itch_v2_0.add_order_participant_id_message.size
-  end
-  -- Size of Order Executed Message
-  if message_type == "E" then
-    return asx_securities_trade_itch_v2_0.order_executed_message.size
-  end
-  -- Size of Order Executed With Price Message
-  if message_type == "C" then
-    return asx_securities_trade_itch_v2_0.order_executed_with_price_message.size
-  end
-  -- Size of Order Replace Message
-  if message_type == "U" then
-    return asx_securities_trade_itch_v2_0.order_replace_message.size
-  end
-  -- Size of Order Delete Message
-  if message_type == "D" then
-    return asx_securities_trade_itch_v2_0.order_delete_message.size
-  end
-  -- Size of Trade Message
-  if message_type == "P" then
-    return asx_securities_trade_itch_v2_0.trade_message.size
-  end
-  -- Size of Equilibrium Price Update Message
-  if message_type == "Z" then
-    return asx_securities_trade_itch_v2_0.equilibrium_price_update_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-asx_securities_trade_itch_v2_0.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+asx_securities_trade_itch_v2_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Seconds Message
   if message_type == "T" then
     return asx_securities_trade_itch_v2_0.seconds_message.dissect(buffer, offset, packet, parent)
@@ -2783,11 +2721,6 @@ asx_securities_trade_itch_v2_0.payload.branches = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Dissect: Payload
-asx_securities_trade_itch_v2_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return asx_securities_trade_itch_v2_0.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2988,8 +2921,8 @@ end
 -- Messages
 asx_securities_trade_itch_v2_0.messages = {}
 
--- Dissect Branches: Messages
-asx_securities_trade_itch_v2_0.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+asx_securities_trade_itch_v2_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -3012,11 +2945,6 @@ asx_securities_trade_itch_v2_0.messages.branches = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Dissect: Messages
-asx_securities_trade_itch_v2_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return asx_securities_trade_itch_v2_0.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

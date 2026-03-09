@@ -2317,46 +2317,8 @@ end
 -- Payload
 nasdaq_nsmequities_noi_itch_v3_0_2026.payload = {}
 
--- Size: Payload
-nasdaq_nsmequities_noi_itch_v3_0_2026.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event
-  if message_type == "S" then
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.system_event.size
-  end
-  -- Size of Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.stock_directory_message.size
-  end
-  -- Size of Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.size
-  end
-  -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.size
-  end
-  -- Size of Net Order Imbalance Indicator Message
-  if message_type == "I" then
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.size
-  end
-  -- Size of Cross Trade Message
-  if message_type == "Q" then
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.size
-  end
-  -- Size of Ipo Quoting Period Update Message
-  if message_type == "K" then
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.size
-  end
-  -- Size of Direct Listing With Capital Raise Price Discovery Message
-  if message_type == "O" then
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_nsmequities_noi_itch_v3_0_2026.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_nsmequities_noi_itch_v3_0_2026.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event
   if message_type == "S" then
     return nasdaq_nsmequities_noi_itch_v3_0_2026.system_event.dissect(buffer, offset, packet, parent)
@@ -2391,11 +2353,6 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.payload.branches = function(buffer, offset
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_nsmequities_noi_itch_v3_0_2026.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_nsmequities_noi_itch_v3_0_2026.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2578,8 +2535,8 @@ end
 -- Messages
 nasdaq_nsmequities_noi_itch_v3_0_2026.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_nsmequities_noi_itch_v3_0_2026.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_nsmequities_noi_itch_v3_0_2026.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -2602,11 +2559,6 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.messages.branches = function(buffer, offse
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_nsmequities_noi_itch_v3_0_2026.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_nsmequities_noi_itch_v3_0_2026.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

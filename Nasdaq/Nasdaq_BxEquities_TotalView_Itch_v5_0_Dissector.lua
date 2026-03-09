@@ -3515,98 +3515,8 @@ end
 -- Payload
 nasdaq_bxequities_totalview_itch_v5_0.payload = {}
 
--- Size: Payload
-nasdaq_bxequities_totalview_itch_v5_0.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event
-  if message_type == "S" then
-    return nasdaq_bxequities_totalview_itch_v5_0.system_event.size
-  end
-  -- Size of Stock Directory
-  if message_type == "R" then
-    return nasdaq_bxequities_totalview_itch_v5_0.stock_directory.size
-  end
-  -- Size of Stock Trading Action
-  if message_type == "H" then
-    return nasdaq_bxequities_totalview_itch_v5_0.stock_trading_action.size
-  end
-  -- Size of Reg Sho Short Sale Price Test Restricted Indicator
-  if message_type == "Y" then
-    return nasdaq_bxequities_totalview_itch_v5_0.reg_sho_short_sale_price_test_restricted_indicator.size
-  end
-  -- Size of Market Participant Position
-  if message_type == "L" then
-    return nasdaq_bxequities_totalview_itch_v5_0.market_participant_position.size
-  end
-  -- Size of Mwcb Decline Level
-  if message_type == "V" then
-    return nasdaq_bxequities_totalview_itch_v5_0.mwcb_decline_level.size
-  end
-  -- Size of Mwcb Status Message
-  if message_type == "W" then
-    return nasdaq_bxequities_totalview_itch_v5_0.mwcb_status_message.size
-  end
-  -- Size of Luld Auction Collar
-  if message_type == "J" then
-    return nasdaq_bxequities_totalview_itch_v5_0.luld_auction_collar.size
-  end
-  -- Size of Operational Halt
-  if message_type == "h" then
-    return nasdaq_bxequities_totalview_itch_v5_0.operational_halt.size
-  end
-  -- Size of Add Order No Mpid Attribution
-  if message_type == "A" then
-    return nasdaq_bxequities_totalview_itch_v5_0.add_order_no_mpid_attribution.size
-  end
-  -- Size of Add Order Mpid Attribution
-  if message_type == "F" then
-    return nasdaq_bxequities_totalview_itch_v5_0.add_order_mpid_attribution.size
-  end
-  -- Size of Order Executed
-  if message_type == "E" then
-    return nasdaq_bxequities_totalview_itch_v5_0.order_executed.size
-  end
-  -- Size of Order Executed With Price
-  if message_type == "C" then
-    return nasdaq_bxequities_totalview_itch_v5_0.order_executed_with_price.size
-  end
-  -- Size of Order Cancel
-  if message_type == "X" then
-    return nasdaq_bxequities_totalview_itch_v5_0.order_cancel.size
-  end
-  -- Size of Order Delete
-  if message_type == "D" then
-    return nasdaq_bxequities_totalview_itch_v5_0.order_delete.size
-  end
-  -- Size of Order Replace
-  if message_type == "U" then
-    return nasdaq_bxequities_totalview_itch_v5_0.order_replace.size
-  end
-  -- Size of Non Cross Trade
-  if message_type == "P" then
-    return nasdaq_bxequities_totalview_itch_v5_0.non_cross_trade.size
-  end
-  -- Size of Cross Trade
-  if message_type == "Q" then
-    return nasdaq_bxequities_totalview_itch_v5_0.cross_trade.size
-  end
-  -- Size of Broken Trade
-  if message_type == "B" then
-    return nasdaq_bxequities_totalview_itch_v5_0.broken_trade.size
-  end
-  -- Size of Net Order Imbalance Indicator
-  if message_type == "I" then
-    return nasdaq_bxequities_totalview_itch_v5_0.net_order_imbalance_indicator.size
-  end
-  -- Size of Price Improvement Indicator
-  if message_type == "N" then
-    return nasdaq_bxequities_totalview_itch_v5_0.price_improvement_indicator.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_bxequities_totalview_itch_v5_0.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_bxequities_totalview_itch_v5_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event
   if message_type == "S" then
     return nasdaq_bxequities_totalview_itch_v5_0.system_event.dissect(buffer, offset, packet, parent)
@@ -3693,11 +3603,6 @@ nasdaq_bxequities_totalview_itch_v5_0.payload.branches = function(buffer, offset
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_bxequities_totalview_itch_v5_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_bxequities_totalview_itch_v5_0.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -3919,8 +3824,8 @@ end
 -- Messages
 nasdaq_bxequities_totalview_itch_v5_0.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_bxequities_totalview_itch_v5_0.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_bxequities_totalview_itch_v5_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -3943,11 +3848,6 @@ nasdaq_bxequities_totalview_itch_v5_0.messages.branches = function(buffer, offse
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_bxequities_totalview_itch_v5_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_bxequities_totalview_itch_v5_0.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

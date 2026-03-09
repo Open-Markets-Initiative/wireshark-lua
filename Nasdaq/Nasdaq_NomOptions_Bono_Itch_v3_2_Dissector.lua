@@ -1977,66 +1977,8 @@ end
 -- Payload
 nasdaq_nomoptions_bono_itch_v3_2.payload = {}
 
--- Size: Payload
-nasdaq_nomoptions_bono_itch_v3_2.payload.size = function(buffer, offset, message_type)
-  -- Size of Timestamp Message
-  if message_type == "T" then
-    return nasdaq_nomoptions_bono_itch_v3_2.timestamp_message.size
-  end
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_nomoptions_bono_itch_v3_2.system_event_message.size
-  end
-  -- Size of Options Directory Message
-  if message_type == "D" then
-    return nasdaq_nomoptions_bono_itch_v3_2.options_directory_message.size
-  end
-  -- Size of Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nomoptions_bono_itch_v3_2.trading_action_message.size
-  end
-  -- Size of Security Open Closed Message
-  if message_type == "O" then
-    return nasdaq_nomoptions_bono_itch_v3_2.security_open_closed_message.size
-  end
-  -- Size of Short Best Bid And Ask Update Message
-  if message_type == "q" then
-    return nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_and_ask_update_message.size
-  end
-  -- Size of Long Best Bid And Ask Update Message
-  if message_type == "Q" then
-    return nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_and_ask_update_message.size
-  end
-  -- Size of Short Best Ask Update Message
-  if message_type == "a" then
-    return nasdaq_nomoptions_bono_itch_v3_2.short_best_ask_update_message.size
-  end
-  -- Size of Short Best Bid Update Message
-  if message_type == "b" then
-    return nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_update_message.size
-  end
-  -- Size of Long Best Ask Update Message
-  if message_type == "A" then
-    return nasdaq_nomoptions_bono_itch_v3_2.long_best_ask_update_message.size
-  end
-  -- Size of Long Best Bid Update Message
-  if message_type == "B" then
-    return nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_update_message.size
-  end
-  -- Size of Trade Report Message
-  if message_type == "R" then
-    return nasdaq_nomoptions_bono_itch_v3_2.trade_report_message.size
-  end
-  -- Size of Broken Trade Report Message
-  if message_type == "X" then
-    return nasdaq_nomoptions_bono_itch_v3_2.broken_trade_report_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_nomoptions_bono_itch_v3_2.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_nomoptions_bono_itch_v3_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Timestamp Message
   if message_type == "T" then
     return nasdaq_nomoptions_bono_itch_v3_2.timestamp_message.dissect(buffer, offset, packet, parent)
@@ -2091,11 +2033,6 @@ nasdaq_nomoptions_bono_itch_v3_2.payload.branches = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_nomoptions_bono_itch_v3_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_nomoptions_bono_itch_v3_2.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2293,8 +2230,8 @@ end
 -- Messages
 nasdaq_nomoptions_bono_itch_v3_2.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_nomoptions_bono_itch_v3_2.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_nomoptions_bono_itch_v3_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -2317,11 +2254,6 @@ nasdaq_nomoptions_bono_itch_v3_2.messages.branches = function(buffer, offset, pa
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_nomoptions_bono_itch_v3_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_nomoptions_bono_itch_v3_2.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

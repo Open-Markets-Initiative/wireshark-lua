@@ -687,38 +687,8 @@ end
 -- Payload
 nasdaq_common_soupbin_tcp_v3_0.payload = {}
 
--- Size: Payload
-nasdaq_common_soupbin_tcp_v3_0.payload.size = function(buffer, offset, packet_type)
-  -- Size of Debug Packet
-  if packet_type == "+" then
-    return nasdaq_common_soupbin_tcp_v3_0.debug_packet.size
-  end
-  -- Size of Login Accepted Packet
-  if packet_type == "A" then
-    return nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.size
-  end
-  -- Size of Login Rejected Packet
-  if packet_type == "J" then
-    return nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.size
-  end
-  -- Size of Sequenced Data Packet
-  if packet_type == "S" then
-    return nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Login Request Packet
-  if packet_type == "L" then
-    return nasdaq_common_soupbin_tcp_v3_0.login_request_packet.size
-  end
-  -- Size of Unsequenced Data Packet
-  if packet_type == "U" then
-    return nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_common_soupbin_tcp_v3_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+nasdaq_common_soupbin_tcp_v3_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
   if packet_type == "+" then
     return nasdaq_common_soupbin_tcp_v3_0.debug_packet.dissect(buffer, offset, packet, parent)
@@ -745,11 +715,6 @@ nasdaq_common_soupbin_tcp_v3_0.payload.branches = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_common_soupbin_tcp_v3_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return nasdaq_common_soupbin_tcp_v3_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

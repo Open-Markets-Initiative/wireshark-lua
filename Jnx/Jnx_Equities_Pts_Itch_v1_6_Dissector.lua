@@ -1463,58 +1463,8 @@ end
 -- Payload
 jnx_equities_pts_itch_v1_6.payload = {}
 
--- Size: Payload
-jnx_equities_pts_itch_v1_6.payload.size = function(buffer, offset, message_type)
-  -- Size of Timestamp Seconds Message
-  if message_type == "T" then
-    return jnx_equities_pts_itch_v1_6.timestamp_seconds_message.size
-  end
-  -- Size of System Event Message
-  if message_type == "S" then
-    return jnx_equities_pts_itch_v1_6.system_event_message.size
-  end
-  -- Size of Price Tick Size Message
-  if message_type == "L" then
-    return jnx_equities_pts_itch_v1_6.price_tick_size_message.size
-  end
-  -- Size of Orderbook Directory Message
-  if message_type == "R" then
-    return jnx_equities_pts_itch_v1_6.orderbook_directory_message.size
-  end
-  -- Size of Trading State Message
-  if message_type == "H" then
-    return jnx_equities_pts_itch_v1_6.trading_state_message.size
-  end
-  -- Size of Short Selling Price Restriction State Message
-  if message_type == "Y" then
-    return jnx_equities_pts_itch_v1_6.short_selling_price_restriction_state_message.size
-  end
-  -- Size of Order Added Without Attributes Message
-  if message_type == "A" then
-    return jnx_equities_pts_itch_v1_6.order_added_without_attributes_message.size
-  end
-  -- Size of Order Added With Attributes Message
-  if message_type == "F" then
-    return jnx_equities_pts_itch_v1_6.order_added_with_attributes_message.size
-  end
-  -- Size of Order Executed Message
-  if message_type == "E" then
-    return jnx_equities_pts_itch_v1_6.order_executed_message.size
-  end
-  -- Size of Order Deleted Message
-  if message_type == "D" then
-    return jnx_equities_pts_itch_v1_6.order_deleted_message.size
-  end
-  -- Size of Order Replaced Message
-  if message_type == "U" then
-    return jnx_equities_pts_itch_v1_6.order_replaced_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-jnx_equities_pts_itch_v1_6.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+jnx_equities_pts_itch_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Timestamp Seconds Message
   if message_type == "T" then
     return jnx_equities_pts_itch_v1_6.timestamp_seconds_message.dissect(buffer, offset, packet, parent)
@@ -1561,11 +1511,6 @@ jnx_equities_pts_itch_v1_6.payload.branches = function(buffer, offset, packet, p
   end
 
   return offset
-end
-
--- Dissect: Payload
-jnx_equities_pts_itch_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return jnx_equities_pts_itch_v1_6.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -1757,8 +1702,8 @@ end
 -- Messages
 jnx_equities_pts_itch_v1_6.messages = {}
 
--- Dissect Branches: Messages
-jnx_equities_pts_itch_v1_6.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+jnx_equities_pts_itch_v1_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -1781,11 +1726,6 @@ jnx_equities_pts_itch_v1_6.messages.branches = function(buffer, offset, packet, 
   end
 
   return offset
-end
-
--- Dissect: Messages
-jnx_equities_pts_itch_v1_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return jnx_equities_pts_itch_v1_6.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

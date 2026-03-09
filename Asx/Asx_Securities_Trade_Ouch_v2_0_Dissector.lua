@@ -1186,30 +1186,8 @@ end
 -- Unsequenced Message
 asx_securities_trade_ouch_v2_0.unsequenced_message = {}
 
--- Size: Unsequenced Message
-asx_securities_trade_ouch_v2_0.unsequenced_message.size = function(buffer, offset, unsequenced_message_type)
-  -- Size of Enter Order Message
-  if unsequenced_message_type == "O" then
-    return asx_securities_trade_ouch_v2_0.enter_order_message.size
-  end
-  -- Size of Replace Order Message
-  if unsequenced_message_type == "U" then
-    return asx_securities_trade_ouch_v2_0.replace_order_message.size
-  end
-  -- Size of Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return asx_securities_trade_ouch_v2_0.cancel_order_message.size
-  end
-  -- Size of Cancel By Order Id Message
-  if unsequenced_message_type == "Y" then
-    return asx_securities_trade_ouch_v2_0.cancel_by_order_id_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Unsequenced Message
-asx_securities_trade_ouch_v2_0.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+asx_securities_trade_ouch_v2_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Enter Order Message
   if unsequenced_message_type == "O" then
     return asx_securities_trade_ouch_v2_0.enter_order_message.dissect(buffer, offset, packet, parent)
@@ -1228,11 +1206,6 @@ asx_securities_trade_ouch_v2_0.unsequenced_message.branches = function(buffer, o
   end
 
   return offset
-end
-
--- Dissect: Unsequenced Message
-asx_securities_trade_ouch_v2_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  return asx_securities_trade_ouch_v2_0.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
 -- Unsequenced Message Type
@@ -2206,34 +2179,8 @@ end
 -- Sequenced Message
 asx_securities_trade_ouch_v2_0.sequenced_message = {}
 
--- Size: Sequenced Message
-asx_securities_trade_ouch_v2_0.sequenced_message.size = function(buffer, offset, sequenced_message_type)
-  -- Size of Order Accepted Message
-  if sequenced_message_type == "A" then
-    return asx_securities_trade_ouch_v2_0.order_accepted_message.size
-  end
-  -- Size of Order Rejected Message
-  if sequenced_message_type == "J" then
-    return asx_securities_trade_ouch_v2_0.order_rejected_message.size
-  end
-  -- Size of Order Replaced Message
-  if sequenced_message_type == "U" then
-    return asx_securities_trade_ouch_v2_0.order_replaced_message.size
-  end
-  -- Size of Order Cancelled Message
-  if sequenced_message_type == "C" then
-    return asx_securities_trade_ouch_v2_0.order_cancelled_message.size
-  end
-  -- Size of Order Executed Message
-  if sequenced_message_type == "E" then
-    return asx_securities_trade_ouch_v2_0.order_executed_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Sequenced Message
-asx_securities_trade_ouch_v2_0.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+asx_securities_trade_ouch_v2_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect Order Accepted Message
   if sequenced_message_type == "A" then
     return asx_securities_trade_ouch_v2_0.order_accepted_message.dissect(buffer, offset, packet, parent)
@@ -2256,11 +2203,6 @@ asx_securities_trade_ouch_v2_0.sequenced_message.branches = function(buffer, off
   end
 
   return offset
-end
-
--- Dissect: Sequenced Message
-asx_securities_trade_ouch_v2_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  return asx_securities_trade_ouch_v2_0.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
 -- Sequenced Message Type
@@ -2574,38 +2516,8 @@ end
 -- Payload
 asx_securities_trade_ouch_v2_0.payload = {}
 
--- Size: Payload
-asx_securities_trade_ouch_v2_0.payload.size = function(buffer, offset, packet_type)
-  -- Size of Debug Packet
-  if packet_type == "+" then
-    return asx_securities_trade_ouch_v2_0.debug_packet.size
-  end
-  -- Size of Login Accepted Packet
-  if packet_type == "A" then
-    return asx_securities_trade_ouch_v2_0.login_accepted_packet.size
-  end
-  -- Size of Login Rejected Packet
-  if packet_type == "J" then
-    return asx_securities_trade_ouch_v2_0.login_rejected_packet.size
-  end
-  -- Size of Sequenced Data Packet
-  if packet_type == "S" then
-    return asx_securities_trade_ouch_v2_0.sequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Login Request Packet
-  if packet_type == "L" then
-    return asx_securities_trade_ouch_v2_0.login_request_packet.size
-  end
-  -- Size of Unsequenced Data Packet
-  if packet_type == "U" then
-    return asx_securities_trade_ouch_v2_0.unsequenced_data_packet.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-asx_securities_trade_ouch_v2_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+asx_securities_trade_ouch_v2_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
   if packet_type == "+" then
     return asx_securities_trade_ouch_v2_0.debug_packet.dissect(buffer, offset, packet, parent)
@@ -2632,11 +2544,6 @@ asx_securities_trade_ouch_v2_0.payload.branches = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Dissect: Payload
-asx_securities_trade_ouch_v2_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return asx_securities_trade_ouch_v2_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

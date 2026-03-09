@@ -1161,62 +1161,8 @@ end
 -- Payload
 miax_pearlequities_esesm_v1_0_a.payload = {}
 
--- Size: Payload
-miax_pearlequities_esesm_v1_0_a.payload.size = function(buffer, offset, packet_type)
-  -- Size of Sequenced Data Packet
-  if packet_type == "s" then
-    return miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Unsequenced Data Packet
-  if packet_type == "U" then
-    return miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Login Request
-  if packet_type == "l" then
-    return miax_pearlequities_esesm_v1_0_a.login_request.size
-  end
-  -- Size of Login Response
-  if packet_type == "r" then
-    return miax_pearlequities_esesm_v1_0_a.login_response.size
-  end
-  -- Size of Synchronization Complete
-  if packet_type == "c" then
-    return miax_pearlequities_esesm_v1_0_a.synchronization_complete.size
-  end
-  -- Size of Retransmission Request
-  if packet_type == "a" then
-    return miax_pearlequities_esesm_v1_0_a.retransmission_request.size
-  end
-  -- Size of Logout Request
-  if packet_type == "X" then
-    return miax_pearlequities_esesm_v1_0_a.logout_request.size(buffer, offset)
-  end
-  -- Size of Goodbye Packet
-  if packet_type == "G" then
-    return miax_pearlequities_esesm_v1_0_a.goodbye_packet.size(buffer, offset)
-  end
-  -- Size of Trading Session Update
-  if packet_type == "u" then
-    return 0
-  end
-  -- Size of Server Heartbeat
-  if packet_type == "0" then
-    return 0
-  end
-  -- Size of Client Heartbeat
-  if packet_type == "1" then
-    return 0
-  end
-  -- Size of Test Packet
-  if packet_type == "T" then
-    return miax_pearlequities_esesm_v1_0_a.test_packet.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-miax_pearlequities_esesm_v1_0_a.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+miax_pearlequities_esesm_v1_0_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Sequenced Data Packet
   if packet_type == "s" then
     return miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.dissect(buffer, offset, packet, parent)
@@ -1267,11 +1213,6 @@ miax_pearlequities_esesm_v1_0_a.payload.branches = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Dissect: Payload
-miax_pearlequities_esesm_v1_0_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return miax_pearlequities_esesm_v1_0_a.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

@@ -4597,70 +4597,8 @@ end
 -- Unsequenced Message
 miax_pearlequities_expressorders_meo_v2_7.unsequenced_message = {}
 
--- Size: Unsequenced Message
-miax_pearlequities_expressorders_meo_v2_7.unsequenced_message.size = function(buffer, offset, unsequenced_message_type)
-  -- Size of New Order Request Message
-  if unsequenced_message_type == "N1" then
-    return miax_pearlequities_expressorders_meo_v2_7.new_order_request_message.size
-  end
-  -- Size of New Order Response Message
-  if unsequenced_message_type == "NR" then
-    return miax_pearlequities_expressorders_meo_v2_7.new_order_response_message.size
-  end
-  -- Size of Modify Order Request Message
-  if unsequenced_message_type == "M1" then
-    return miax_pearlequities_expressorders_meo_v2_7.modify_order_request_message.size
-  end
-  -- Size of Modify Order Response
-  if unsequenced_message_type == "MR" then
-    return miax_pearlequities_expressorders_meo_v2_7.modify_order_response.size
-  end
-  -- Size of Cancel Order Request
-  if unsequenced_message_type == "CO" then
-    return miax_pearlequities_expressorders_meo_v2_7.cancel_order_request.size
-  end
-  -- Size of Cancel Order Response
-  if unsequenced_message_type == "CR" then
-    return miax_pearlequities_expressorders_meo_v2_7.cancel_order_response.size
-  end
-  -- Size of Cancel Order By Exchange Order Id Request
-  if unsequenced_message_type == "CX" then
-    return miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_request.size
-  end
-  -- Size of Cancel Order By Exchange Order Id Response Message
-  if unsequenced_message_type == "CQ" then
-    return miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_response_message.size
-  end
-  -- Size of Mass Cancel Request
-  if unsequenced_message_type == "XQ" then
-    return miax_pearlequities_expressorders_meo_v2_7.mass_cancel_request.size
-  end
-  -- Size of Mass Cancel Response
-  if unsequenced_message_type == "XR" then
-    return miax_pearlequities_expressorders_meo_v2_7.mass_cancel_response.size
-  end
-  -- Size of Aggressive Side Purge Request
-  if unsequenced_message_type == "XS" then
-    return miax_pearlequities_expressorders_meo_v2_7.aggressive_side_purge_request.size
-  end
-  -- Size of Aggressive Side Purge Response
-  if unsequenced_message_type == "SR" then
-    return miax_pearlequities_expressorders_meo_v2_7.aggressive_side_purge_response.size
-  end
-  -- Size of Reserve Order Replenishment Notification
-  if unsequenced_message_type == "RA" then
-    return miax_pearlequities_expressorders_meo_v2_7.reserve_order_replenishment_notification.size
-  end
-  -- Size of Execution Notification
-  if unsequenced_message_type == "E1" then
-    return miax_pearlequities_expressorders_meo_v2_7.execution_notification.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Unsequenced Message
-miax_pearlequities_expressorders_meo_v2_7.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+miax_pearlequities_expressorders_meo_v2_7.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect New Order Request Message
   if unsequenced_message_type == "N1" then
     return miax_pearlequities_expressorders_meo_v2_7.new_order_request_message.dissect(buffer, offset, packet, parent)
@@ -4719,11 +4657,6 @@ miax_pearlequities_expressorders_meo_v2_7.unsequenced_message.branches = functio
   end
 
   return offset
-end
-
--- Dissect: Unsequenced Message
-miax_pearlequities_expressorders_meo_v2_7.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  return miax_pearlequities_expressorders_meo_v2_7.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
 -- Unsequenced Message Type
@@ -6031,62 +5964,8 @@ end
 -- Sequenced Message
 miax_pearlequities_expressorders_meo_v2_7.sequenced_message = {}
 
--- Size: Sequenced Message
-miax_pearlequities_expressorders_meo_v2_7.sequenced_message.size = function(buffer, offset, sequenced_message_type)
-  -- Size of Symbol Update
-  if sequenced_message_type == "SU" then
-    return miax_pearlequities_expressorders_meo_v2_7.symbol_update.size
-  end
-  -- Size of New Order Response Message
-  if sequenced_message_type == "NR" then
-    return miax_pearlequities_expressorders_meo_v2_7.new_order_response_message.size
-  end
-  -- Size of Modify Order Response
-  if sequenced_message_type == "MR" then
-    return miax_pearlequities_expressorders_meo_v2_7.modify_order_response.size
-  end
-  -- Size of Cancel Order Response
-  if sequenced_message_type == "CR" then
-    return miax_pearlequities_expressorders_meo_v2_7.cancel_order_response.size
-  end
-  -- Size of Cancel Order By Exchange Order Id Response Message
-  if sequenced_message_type == "CQ" then
-    return miax_pearlequities_expressorders_meo_v2_7.cancel_order_by_exchange_order_id_response_message.size
-  end
-  -- Size of System State Notification
-  if sequenced_message_type == "SN" then
-    return miax_pearlequities_expressorders_meo_v2_7.system_state_notification.size
-  end
-  -- Size of New Order Notification
-  if sequenced_message_type == "O1" then
-    return miax_pearlequities_expressorders_meo_v2_7.new_order_notification.size
-  end
-  -- Size of Modify Order Notification
-  if sequenced_message_type == "MN" then
-    return miax_pearlequities_expressorders_meo_v2_7.modify_order_notification.size
-  end
-  -- Size of Cancel Reduce Size Order Notification
-  if sequenced_message_type == "XN" then
-    return miax_pearlequities_expressorders_meo_v2_7.cancel_reduce_size_order_notification.size
-  end
-  -- Size of Order Price Update Notification
-  if sequenced_message_type == "P1" then
-    return miax_pearlequities_expressorders_meo_v2_7.order_price_update_notification.size
-  end
-  -- Size of Reserve Order Replenishment Notification
-  if sequenced_message_type == "RA" then
-    return miax_pearlequities_expressorders_meo_v2_7.reserve_order_replenishment_notification.size
-  end
-  -- Size of Execution Notification
-  if sequenced_message_type == "E1" then
-    return miax_pearlequities_expressorders_meo_v2_7.execution_notification.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Sequenced Message
-miax_pearlequities_expressorders_meo_v2_7.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+miax_pearlequities_expressorders_meo_v2_7.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect Symbol Update
   if sequenced_message_type == "SU" then
     return miax_pearlequities_expressorders_meo_v2_7.symbol_update.dissect(buffer, offset, packet, parent)
@@ -6137,11 +6016,6 @@ miax_pearlequities_expressorders_meo_v2_7.sequenced_message.branches = function(
   end
 
   return offset
-end
-
--- Dissect: Sequenced Message
-miax_pearlequities_expressorders_meo_v2_7.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  return miax_pearlequities_expressorders_meo_v2_7.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
 -- Sequenced Message Type
@@ -6312,62 +6186,8 @@ end
 -- Payload
 miax_pearlequities_expressorders_meo_v2_7.payload = {}
 
--- Size: Payload
-miax_pearlequities_expressorders_meo_v2_7.payload.size = function(buffer, offset, packet_type)
-  -- Size of Sequenced Data Packet
-  if packet_type == "s" then
-    return miax_pearlequities_expressorders_meo_v2_7.sequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Unsequenced Data Packet
-  if packet_type == "U" then
-    return miax_pearlequities_expressorders_meo_v2_7.unsequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Login Request
-  if packet_type == "l" then
-    return miax_pearlequities_expressorders_meo_v2_7.login_request.size
-  end
-  -- Size of Login Response
-  if packet_type == "r" then
-    return miax_pearlequities_expressorders_meo_v2_7.login_response.size
-  end
-  -- Size of Synchronization Complete
-  if packet_type == "c" then
-    return miax_pearlequities_expressorders_meo_v2_7.synchronization_complete.size
-  end
-  -- Size of Retransmission Request
-  if packet_type == "a" then
-    return miax_pearlequities_expressorders_meo_v2_7.retransmission_request.size
-  end
-  -- Size of Logout Request
-  if packet_type == "X" then
-    return miax_pearlequities_expressorders_meo_v2_7.logout_request.size(buffer, offset)
-  end
-  -- Size of Goodbye Packet
-  if packet_type == "G" then
-    return miax_pearlequities_expressorders_meo_v2_7.goodbye_packet.size(buffer, offset)
-  end
-  -- Size of Trading Session Update
-  if packet_type == "u" then
-    return 0
-  end
-  -- Size of Server Heartbeat
-  if packet_type == "0" then
-    return 0
-  end
-  -- Size of Client Heartbeat
-  if packet_type == "1" then
-    return 0
-  end
-  -- Size of Test Packet
-  if packet_type == "T" then
-    return miax_pearlequities_expressorders_meo_v2_7.test_packet.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-miax_pearlequities_expressorders_meo_v2_7.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+miax_pearlequities_expressorders_meo_v2_7.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Sequenced Data Packet
   if packet_type == "s" then
     return miax_pearlequities_expressorders_meo_v2_7.sequenced_data_packet.dissect(buffer, offset, packet, parent)
@@ -6418,11 +6238,6 @@ miax_pearlequities_expressorders_meo_v2_7.payload.branches = function(buffer, of
   end
 
   return offset
-end
-
--- Dissect: Payload
-miax_pearlequities_expressorders_meo_v2_7.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return miax_pearlequities_expressorders_meo_v2_7.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

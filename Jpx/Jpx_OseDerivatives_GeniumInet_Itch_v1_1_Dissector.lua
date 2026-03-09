@@ -2553,70 +2553,8 @@ end
 -- Payload
 jpx_osederivatives_geniuminet_itch_v1_1.payload = {}
 
--- Size: Payload
-jpx_osederivatives_geniuminet_itch_v1_1.payload.size = function(buffer, offset, message_type)
-  -- Size of Seconds Message
-  if message_type == "T" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.seconds_message.size
-  end
-  -- Size of Order Book Directory
-  if message_type == "R" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.order_book_directory.size
-  end
-  -- Size of Combination Orderbook Leg
-  if message_type == "M" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_leg.size
-  end
-  -- Size of Tick Size Table Entry
-  if message_type == "L" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.tick_size_table_entry.size
-  end
-  -- Size of System Event Message
-  if message_type == "S" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.system_event_message.size
-  end
-  -- Size of Order Book State Message
-  if message_type == "O" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.order_book_state_message.size
-  end
-  -- Size of Add Order No Mpid
-  if message_type == "A" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.add_order_no_mpid.size
-  end
-  -- Size of Add Order With Mpid
-  if message_type == "F" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.add_order_with_mpid.size
-  end
-  -- Size of Order Executed Message
-  if message_type == "E" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.order_executed_message.size
-  end
-  -- Size of Order Executed With Price Message
-  if message_type == "C" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.order_executed_with_price_message.size
-  end
-  -- Size of Order Replace Message
-  if message_type == "U" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.order_replace_message.size
-  end
-  -- Size of Order Delete Message
-  if message_type == "D" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.order_delete_message.size
-  end
-  -- Size of Trade Message
-  if message_type == "P" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.trade_message.size
-  end
-  -- Size of Equilibrium Price Update
-  if message_type == "Z" then
-    return jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price_update.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-jpx_osederivatives_geniuminet_itch_v1_1.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+jpx_osederivatives_geniuminet_itch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Seconds Message
   if message_type == "T" then
     return jpx_osederivatives_geniuminet_itch_v1_1.seconds_message.dissect(buffer, offset, packet, parent)
@@ -2675,11 +2613,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.payload.branches = function(buffer, offs
   end
 
   return offset
-end
-
--- Dissect: Payload
-jpx_osederivatives_geniuminet_itch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return jpx_osederivatives_geniuminet_itch_v1_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2880,8 +2813,8 @@ end
 -- Messages
 jpx_osederivatives_geniuminet_itch_v1_1.messages = {}
 
--- Dissect Branches: Messages
-jpx_osederivatives_geniuminet_itch_v1_1.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+jpx_osederivatives_geniuminet_itch_v1_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -2904,11 +2837,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.messages.branches = function(buffer, off
   end
 
   return offset
-end
-
--- Dissect: Messages
-jpx_osederivatives_geniuminet_itch_v1_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return jpx_osederivatives_geniuminet_itch_v1_1.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

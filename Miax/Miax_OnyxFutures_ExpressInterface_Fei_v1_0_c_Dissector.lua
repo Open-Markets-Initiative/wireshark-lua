@@ -3073,54 +3073,8 @@ end
 -- Unsequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message = {}
 
--- Size: Unsequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.size = function(buffer, offset, unsequenced_message_type)
-  -- Size of New Order Request Message
-  if unsequenced_message_type == "N1" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.size
-  end
-  -- Size of New Order Response Message
-  if unsequenced_message_type == "NR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.size
-  end
-  -- Size of Modify Order Request Message
-  if unsequenced_message_type == "M1" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.size
-  end
-  -- Size of Modify Order Response
-  if unsequenced_message_type == "MR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.size
-  end
-  -- Size of Cancel Order Request Message
-  if unsequenced_message_type == "CO" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.size
-  end
-  -- Size of Cancel Order Response
-  if unsequenced_message_type == "CR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.size
-  end
-  -- Size of Mass Cancel Request
-  if unsequenced_message_type == "XQ" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request.size
-  end
-  -- Size of Mass Cancel Response
-  if unsequenced_message_type == "XR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.size
-  end
-  -- Size of Strategy Creation Request
-  if unsequenced_message_type == "SD" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.size(buffer, offset)
-  end
-  -- Size of Strategy Creation Response Message
-  if unsequenced_message_type == "SR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Unsequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect New Order Request Message
   if unsequenced_message_type == "N1" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.dissect(buffer, offset, packet, parent)
@@ -3163,11 +3117,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.branches = func
   end
 
   return offset
-end
-
--- Dissect: Unsequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  return miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
 -- Unsequenced Message Type
@@ -4274,62 +4223,8 @@ end
 -- Sequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message = {}
 
--- Size: Sequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.size = function(buffer, offset, sequenced_message_type)
-  -- Size of New Order Response Message
-  if sequenced_message_type == "NR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.size
-  end
-  -- Size of Modify Order Response
-  if sequenced_message_type == "MR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.size
-  end
-  -- Size of Cancel Order Response
-  if sequenced_message_type == "CR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.size
-  end
-  -- Size of Mass Cancel Response
-  if sequenced_message_type == "XR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.size
-  end
-  -- Size of Strategy Creation Response Message
-  if sequenced_message_type == "SR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.size
-  end
-  -- Size of System State Notification Message
-  if sequenced_message_type == "SN" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.size
-  end
-  -- Size of New Order Notification
-  if sequenced_message_type == "O1" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.size
-  end
-  -- Size of Modify Order Notification
-  if sequenced_message_type == "MN" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.size
-  end
-  -- Size of Cancel Reduce Size Order Notification
-  if sequenced_message_type == "XN" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notification.size
-  end
-  -- Size of Order Status Update Notification
-  if sequenced_message_type == "OS" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.size
-  end
-  -- Size of Simple Execution Notification
-  if sequenced_message_type == "EN" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.size
-  end
-  -- Size of Complex Execution Notification
-  if sequenced_message_type == "CN" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Sequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect New Order Response Message
   if sequenced_message_type == "NR" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.dissect(buffer, offset, packet, parent)
@@ -4380,11 +4275,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.branches = functi
   end
 
   return offset
-end
-
--- Dissect: Sequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  return miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
 -- Sequenced Message Type
@@ -4529,58 +4419,8 @@ end
 -- Payload
 miax_onyxfutures_expressinterface_fei_v1_0_c.payload = {}
 
--- Size: Payload
-miax_onyxfutures_expressinterface_fei_v1_0_c.payload.size = function(buffer, offset, packet_type)
-  -- Size of Sequenced Data Packet
-  if packet_type == "S" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Unsequenced Data Packet
-  if packet_type == "U" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Login Request
-  if packet_type == "L" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.login_request.size
-  end
-  -- Size of Login Response
-  if packet_type == "R" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.login_response.size
-  end
-  -- Size of Synchronization Complete
-  if packet_type == "C" then
-    return 0
-  end
-  -- Size of Retransmission Request
-  if packet_type == "A" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.size
-  end
-  -- Size of Logout Request
-  if packet_type == "X" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.size(buffer, offset)
-  end
-  -- Size of Goodbye Packet
-  if packet_type == "G" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.size(buffer, offset)
-  end
-  -- Size of End Of Session
-  if packet_type == "E" then
-    return 0
-  end
-  -- Size of Server Heartbeat
-  if packet_type == "0" then
-    return 0
-  end
-  -- Size of Client Heartbeat
-  if packet_type == "1" then
-    return 0
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-miax_onyxfutures_expressinterface_fei_v1_0_c.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+miax_onyxfutures_expressinterface_fei_v1_0_c.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Sequenced Data Packet
   if packet_type == "S" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect(buffer, offset, packet, parent)
@@ -4627,11 +4467,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.payload.branches = function(buffer,
   end
 
   return offset
-end
-
--- Dissect: Payload
-miax_onyxfutures_expressinterface_fei_v1_0_c.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return miax_onyxfutures_expressinterface_fei_v1_0_c.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

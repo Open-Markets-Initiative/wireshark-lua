@@ -2117,54 +2117,8 @@ end
 -- Payload
 nyse_options_deepfeed_xdp_v1_3_a.payload = {}
 
--- Size: Payload
-nyse_options_deepfeed_xdp_v1_3_a.payload.size = function(buffer, offset, message_type)
-  -- Size of Outright Market Depth Buy Message
-  if message_type == 403 then
-    return nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.size
-  end
-  -- Size of Outright Market Depth Sell Message
-  if message_type == 405 then
-    return nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.size
-  end
-  -- Size of Underlying Status Message
-  if message_type == 419 then
-    return nyse_options_deepfeed_xdp_v1_3_a.underlying_status_message.size
-  end
-  -- Size of Outright Series Status Message
-  if message_type == 421 then
-    return nyse_options_deepfeed_xdp_v1_3_a.outright_series_status_message.size
-  end
-  -- Size of Refresh Outright Market Depth Buy Message
-  if message_type == 503 then
-    return nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.size
-  end
-  -- Size of Refresh Outright Market Depth Sell Message
-  if message_type == 505 then
-    return nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.size
-  end
-  -- Size of Underlying Index Mapping Message
-  if message_type == 435 then
-    return nyse_options_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.size
-  end
-  -- Size of Series Index Mapping Message
-  if message_type == 437 then
-    return nyse_options_deepfeed_xdp_v1_3_a.series_index_mapping_message.size
-  end
-  -- Size of Stream Id Message
-  if message_type == 455 then
-    return nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.size
-  end
-  -- Size of Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nyse_options_deepfeed_xdp_v1_3_a.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nyse_options_deepfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Outright Market Depth Buy Message
   if message_type == 403 then
     return nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.dissect(buffer, offset, packet, parent)
@@ -2207,11 +2161,6 @@ nyse_options_deepfeed_xdp_v1_3_a.payload.branches = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Dissect: Payload
-nyse_options_deepfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nyse_options_deepfeed_xdp_v1_3_a.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

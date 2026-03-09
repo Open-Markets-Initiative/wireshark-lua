@@ -1107,22 +1107,8 @@ end
 -- Payload
 cme_brokertec_ust_sbe_v10_1.payload = {}
 
--- Size: Payload
-cme_brokertec_ust_sbe_v10_1.payload.size = function(buffer, offset, template_id)
-  -- Size of Md Incremental Refresh Btec
-  if template_id == 405 then
-    return cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.size(buffer, offset)
-  end
-  -- Size of Admin Heartbeat
-  if template_id == 411 then
-    return 0
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-cme_brokertec_ust_sbe_v10_1.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+cme_brokertec_ust_sbe_v10_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Md Incremental Refresh Btec
   if template_id == 405 then
     return cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.dissect(buffer, offset, packet, parent)
@@ -1133,11 +1119,6 @@ cme_brokertec_ust_sbe_v10_1.payload.branches = function(buffer, offset, packet, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-cme_brokertec_ust_sbe_v10_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return cme_brokertec_ust_sbe_v10_1.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version

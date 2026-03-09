@@ -2344,58 +2344,8 @@ end
 -- Payload
 nasdaq_nsmequities_level2_itch_v2_0.payload = {}
 
--- Size: Payload
-nasdaq_nsmequities_level2_itch_v2_0.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_nsmequities_level2_itch_v2_0.system_event_message.size
-  end
-  -- Size of Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_nsmequities_level2_itch_v2_0.stock_directory_message.size
-  end
-  -- Size of Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nsmequities_level2_itch_v2_0.stock_trading_action_message.size
-  end
-  -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return nasdaq_nsmequities_level2_itch_v2_0.reg_sho_short_sale_price_test_restricted_indicator_message.size
-  end
-  -- Size of Market Participant Position Message
-  if message_type == "P" then
-    return nasdaq_nsmequities_level2_itch_v2_0.market_participant_position_message.size
-  end
-  -- Size of Operational Halt Message
-  if message_type == "h" then
-    return nasdaq_nsmequities_level2_itch_v2_0.operational_halt_message.size
-  end
-  -- Size of Market Participant Bid Ask Update Message
-  if message_type == "U" then
-    return nasdaq_nsmequities_level2_itch_v2_0.market_participant_bid_ask_update_message.size
-  end
-  -- Size of Retail Price Interest Indicator Message
-  if message_type == "N" then
-    return nasdaq_nsmequities_level2_itch_v2_0.retail_price_interest_indicator_message.size
-  end
-  -- Size of Market Wide Circuit Breaker Decline Level Message
-  if message_type == "V" then
-    return nasdaq_nsmequities_level2_itch_v2_0.market_wide_circuit_breaker_decline_level_message.size
-  end
-  -- Size of Market Wide Circuit Breaker Status Message
-  if message_type == "W" then
-    return nasdaq_nsmequities_level2_itch_v2_0.market_wide_circuit_breaker_status_message.size
-  end
-  -- Size of Ipo Quoting Period Update Message
-  if message_type == "K" then
-    return nasdaq_nsmequities_level2_itch_v2_0.ipo_quoting_period_update_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_nsmequities_level2_itch_v2_0.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_nsmequities_level2_itch_v2_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
     return nasdaq_nsmequities_level2_itch_v2_0.system_event_message.dissect(buffer, offset, packet, parent)
@@ -2442,11 +2392,6 @@ nasdaq_nsmequities_level2_itch_v2_0.payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_nsmequities_level2_itch_v2_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_nsmequities_level2_itch_v2_0.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2638,8 +2583,8 @@ end
 -- Messages
 nasdaq_nsmequities_level2_itch_v2_0.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_nsmequities_level2_itch_v2_0.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_nsmequities_level2_itch_v2_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -2662,11 +2607,6 @@ nasdaq_nsmequities_level2_itch_v2_0.messages.branches = function(buffer, offset,
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_nsmequities_level2_itch_v2_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_nsmequities_level2_itch_v2_0.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

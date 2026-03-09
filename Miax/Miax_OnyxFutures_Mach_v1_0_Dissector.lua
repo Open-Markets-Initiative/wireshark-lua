@@ -174,29 +174,14 @@ end
 -- Payload
 miax_onyxfutures_mach_v1_0.payload = {}
 
--- Size: Payload
-miax_onyxfutures_mach_v1_0.payload.size = function(buffer, offset, packet_type)
-  -- Size of Application Message
-  if packet_type == 3 then
-    return miax_onyxfutures_mach_v1_0.application_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-miax_onyxfutures_mach_v1_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+miax_onyxfutures_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_onyxfutures_mach_v1_0.application_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Payload
-miax_onyxfutures_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return miax_onyxfutures_mach_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Session Number

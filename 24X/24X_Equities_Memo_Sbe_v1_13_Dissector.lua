@@ -5459,90 +5459,8 @@ end
 -- Payload
 n24x_equities_memo_sbe_v1_13.payload = {}
 
--- Size: Payload
-n24x_equities_memo_sbe_v1_13.payload.size = function(buffer, offset, template_id)
-  -- Size of New Order Single Message
-  if template_id == 1 then
-    return n24x_equities_memo_sbe_v1_13.new_order_single_message.size(buffer, offset)
-  end
-  -- Size of Order Cancel Replace Request Message
-  if template_id == 2 then
-    return n24x_equities_memo_sbe_v1_13.order_cancel_replace_request_message.size
-  end
-  -- Size of Order Cancel Request Message
-  if template_id == 3 then
-    return n24x_equities_memo_sbe_v1_13.order_cancel_request_message.size
-  end
-  -- Size of Mass Cancel Request Message
-  if template_id == 4 then
-    return n24x_equities_memo_sbe_v1_13.mass_cancel_request_message.size
-  end
-  -- Size of Execution Report Pending New Message
-  if template_id == 5 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_pending_new_message.size(buffer, offset)
-  end
-  -- Size of Execution Report New Message
-  if template_id == 6 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_new_message.size(buffer, offset)
-  end
-  -- Size of Execution Report Rejected Message
-  if template_id == 7 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_rejected_message.size(buffer, offset)
-  end
-  -- Size of Execution Report Trade Message
-  if template_id == 8 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_trade_message.size(buffer, offset)
-  end
-  -- Size of Execution Report Pending Cancel Message
-  if template_id == 9 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_pending_cancel_message.size(buffer, offset)
-  end
-  -- Size of Pending Mass Cancel Message
-  if template_id == 10 then
-    return n24x_equities_memo_sbe_v1_13.pending_mass_cancel_message.size
-  end
-  -- Size of Execution Report Canceled Message
-  if template_id == 11 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_canceled_message.size(buffer, offset)
-  end
-  -- Size of Mass Cancel Done Message
-  if template_id == 12 then
-    return n24x_equities_memo_sbe_v1_13.mass_cancel_done_message.size
-  end
-  -- Size of Execution Report Pending Replace Message
-  if template_id == 13 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_pending_replace_message.size(buffer, offset)
-  end
-  -- Size of Execution Report Replaced Message
-  if template_id == 14 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_replaced_message.size(buffer, offset)
-  end
-  -- Size of Execution Report Trade Correction Message
-  if template_id == 15 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_trade_correction_message.size(buffer, offset)
-  end
-  -- Size of Execution Report Trade Break Message
-  if template_id == 16 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_trade_break_message.size(buffer, offset)
-  end
-  -- Size of Execution Report Restatement Message
-  if template_id == 17 then
-    return n24x_equities_memo_sbe_v1_13.execution_report_restatement_message.size(buffer, offset)
-  end
-  -- Size of Order Cancel Reject Message
-  if template_id == 18 then
-    return n24x_equities_memo_sbe_v1_13.order_cancel_reject_message.size
-  end
-  -- Size of Mass Cancel Reject Message
-  if template_id == 20 then
-    return n24x_equities_memo_sbe_v1_13.mass_cancel_reject_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-n24x_equities_memo_sbe_v1_13.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+n24x_equities_memo_sbe_v1_13.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect New Order Single Message
   if template_id == 1 then
     return n24x_equities_memo_sbe_v1_13.new_order_single_message.dissect(buffer, offset, packet, parent)
@@ -5621,11 +5539,6 @@ n24x_equities_memo_sbe_v1_13.payload.branches = function(buffer, offset, packet,
   end
 
   return offset
-end
-
--- Dissect: Payload
-n24x_equities_memo_sbe_v1_13.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return n24x_equities_memo_sbe_v1_13.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version
@@ -6879,74 +6792,8 @@ end
 -- Data
 n24x_equities_memo_sbe_v1_13.data = {}
 
--- Size: Data
-n24x_equities_memo_sbe_v1_13.data.size = function(buffer, offset, message_type)
-  -- Size of Login Request Message
-  if message_type == 100 then
-    return n24x_equities_memo_sbe_v1_13.login_request_message.size
-  end
-  -- Size of Replay Request Message
-  if message_type == 101 then
-    return n24x_equities_memo_sbe_v1_13.replay_request_message.size
-  end
-  -- Size of Replay All Request Message
-  if message_type == 102 then
-    return n24x_equities_memo_sbe_v1_13.replay_all_request_message.size
-  end
-  -- Size of Stream Request Message
-  if message_type == 103 then
-    return n24x_equities_memo_sbe_v1_13.stream_request_message.size
-  end
-  -- Size of Unsequenced Message
-  if message_type == 104 then
-    return n24x_equities_memo_sbe_v1_13.unsequenced_message.size(buffer, offset)
-  end
-  -- Size of Login Accepted Message
-  if message_type == 1 then
-    return n24x_equities_memo_sbe_v1_13.login_accepted_message.size
-  end
-  -- Size of Login Rejected Message
-  if message_type == 2 then
-    return n24x_equities_memo_sbe_v1_13.login_rejected_message.size
-  end
-  -- Size of Start Of Session Message
-  if message_type == 3 then
-    return n24x_equities_memo_sbe_v1_13.start_of_session_message.size
-  end
-  -- Size of Replay Begin Message
-  if message_type == 5 then
-    return n24x_equities_memo_sbe_v1_13.replay_begin_message.size
-  end
-  -- Size of Replay Rejected Message
-  if message_type == 6 then
-    return n24x_equities_memo_sbe_v1_13.replay_rejected_message.size
-  end
-  -- Size of Replay Complete Message
-  if message_type == 7 then
-    return n24x_equities_memo_sbe_v1_13.replay_complete_message.size
-  end
-  -- Size of Stream Begin Message
-  if message_type == 8 then
-    return n24x_equities_memo_sbe_v1_13.stream_begin_message.size
-  end
-  -- Size of Stream Rejected Message
-  if message_type == 9 then
-    return n24x_equities_memo_sbe_v1_13.stream_rejected_message.size
-  end
-  -- Size of Stream Complete Message
-  if message_type == 10 then
-    return n24x_equities_memo_sbe_v1_13.stream_complete_message.size
-  end
-  -- Size of Sequenced Message
-  if message_type == 11 then
-    return n24x_equities_memo_sbe_v1_13.sequenced_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Data
-n24x_equities_memo_sbe_v1_13.data.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Data
+n24x_equities_memo_sbe_v1_13.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
   if message_type == 100 then
     return n24x_equities_memo_sbe_v1_13.login_request_message.dissect(buffer, offset, packet, parent)
@@ -7009,11 +6856,6 @@ n24x_equities_memo_sbe_v1_13.data.branches = function(buffer, offset, packet, pa
   end
 
   return offset
-end
-
--- Dissect: Data
-n24x_equities_memo_sbe_v1_13.data.dissect = function(buffer, offset, packet, parent, message_type)
-  return n24x_equities_memo_sbe_v1_13.data.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Length

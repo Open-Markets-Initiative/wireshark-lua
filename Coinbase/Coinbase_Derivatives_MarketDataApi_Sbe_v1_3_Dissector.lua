@@ -4468,102 +4468,8 @@ end
 -- Payload
 coinbase_derivatives_marketdataapi_sbe_v1_3.payload = {}
 
--- Size: Payload
-coinbase_derivatives_marketdataapi_sbe_v1_3.payload.size = function(buffer, offset, template_id)
-  -- Size of Outright Instrument Definition Message
-  if template_id == 10 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.outright_instrument_definition_message.size
-  end
-  -- Size of Spread Instrument Definition Message
-  if template_id == 11 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.spread_instrument_definition_message.size
-  end
-  -- Size of Option Instrument Definition Message
-  if template_id == 12 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.option_instrument_definition_message.size
-  end
-  -- Size of Trading Status Update Message
-  if template_id == 17 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.trading_status_update_message.size
-  end
-  -- Size of Order Put Message
-  if template_id == 20 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.order_put_message.size
-  end
-  -- Size of Order Delete Message
-  if template_id == 21 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.order_delete_message.size
-  end
-  -- Size of Implied Order Update Message
-  if template_id == 22 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.implied_order_update_message.size
-  end
-  -- Size of Trade Summary Message
-  if template_id == 33 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.trade_summary_message.size
-  end
-  -- Size of Trade Message
-  if template_id == 30 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.trade_message.size
-  end
-  -- Size of Trade Amend Message
-  if template_id == 31 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.trade_amend_message.size
-  end
-  -- Size of Spread Trade Amend Message
-  if template_id == 34 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.spread_trade_amend_message.size
-  end
-  -- Size of Trade Bust Message
-  if template_id == 32 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.trade_bust_message.size
-  end
-  -- Size of Market Stat Message
-  if template_id == 40 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.market_stat_message.size
-  end
-  -- Size of Trade Session Volume Message
-  if template_id == 41 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.trade_session_volume_message.size
-  end
-  -- Size of Open Interest Message
-  if template_id == 42 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.open_interest_message.size
-  end
-  -- Size of Start Of Outright Instrument Snapshot Message
-  if template_id == 110 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.start_of_outright_instrument_snapshot_message.size
-  end
-  -- Size of Start Of Spread Instrument Snapshot Message
-  if template_id == 111 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.start_of_spread_instrument_snapshot_message.size
-  end
-  -- Size of Start Of Option Instrument Snapshot Message
-  if template_id == 112 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.start_of_option_instrument_snapshot_message.size
-  end
-  -- Size of Order Snapshot Message
-  if template_id == 120 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.order_snapshot_message.size
-  end
-  -- Size of End Of Snapshot Message
-  if template_id == 122 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.end_of_snapshot_message.size
-  end
-  -- Size of Retransmit Request Message
-  if template_id == 200 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.retransmit_request_message.size
-  end
-  -- Size of Retransmit Reject Message
-  if template_id == 202 then
-    return coinbase_derivatives_marketdataapi_sbe_v1_3.retransmit_reject_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-coinbase_derivatives_marketdataapi_sbe_v1_3.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+coinbase_derivatives_marketdataapi_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Outright Instrument Definition Message
   if template_id == 10 then
     return coinbase_derivatives_marketdataapi_sbe_v1_3.outright_instrument_definition_message.dissect(buffer, offset, packet, parent)
@@ -4654,11 +4560,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.payload.branches = function(buffer, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-coinbase_derivatives_marketdataapi_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return coinbase_derivatives_marketdataapi_sbe_v1_3.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version

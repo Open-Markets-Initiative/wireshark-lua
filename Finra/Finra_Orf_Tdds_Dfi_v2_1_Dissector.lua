@@ -1058,50 +1058,8 @@ end
 -- Control Payload
 finra_orf_tdds_dfi_v2_1.control_payload = {}
 
--- Size: Control Payload
-finra_orf_tdds_dfi_v2_1.control_payload.size = function(buffer, offset, control_message_type)
-  -- Size of Start Of Day Message
-  if control_message_type == "I" then
-    return finra_orf_tdds_dfi_v2_1.start_of_day_message.size
-  end
-  -- Size of End Of Day Message
-  if control_message_type == "J" then
-    return finra_orf_tdds_dfi_v2_1.end_of_day_message.size
-  end
-  -- Size of Market Session Open Message
-  if control_message_type == "O" then
-    return finra_orf_tdds_dfi_v2_1.market_session_open_message.size
-  end
-  -- Size of Market Session Close Message
-  if control_message_type == "O" then
-    return finra_orf_tdds_dfi_v2_1.market_session_close_message.size
-  end
-  -- Size of End Of Retransmission Requests Message
-  if control_message_type == "K" then
-    return finra_orf_tdds_dfi_v2_1.end_of_retransmission_requests_message.size
-  end
-  -- Size of End Of Transmissions Message
-  if control_message_type == "Z" then
-    return finra_orf_tdds_dfi_v2_1.end_of_transmissions_message.size
-  end
-  -- Size of Line Integrity Message
-  if control_message_type == "T" then
-    return finra_orf_tdds_dfi_v2_1.line_integrity_message.size
-  end
-  -- Size of Sequence Number Reset Message
-  if control_message_type == "L" then
-    return finra_orf_tdds_dfi_v2_1.sequence_number_reset_message.size
-  end
-  -- Size of End Of Trade Reporting Message
-  if control_message_type == "X" then
-    return finra_orf_tdds_dfi_v2_1.end_of_trade_reporting_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Control Payload
-finra_orf_tdds_dfi_v2_1.control_payload.branches = function(buffer, offset, packet, parent, control_message_type)
+-- Dissect: Control Payload
+finra_orf_tdds_dfi_v2_1.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "I" then
     return finra_orf_tdds_dfi_v2_1.start_of_day_message.dissect(buffer, offset, packet, parent)
@@ -1140,11 +1098,6 @@ finra_orf_tdds_dfi_v2_1.control_payload.branches = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Dissect: Control Payload
-finra_orf_tdds_dfi_v2_1.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  return finra_orf_tdds_dfi_v2_1.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
 
 -- Control Message Type
@@ -2012,30 +1965,8 @@ end
 -- Administrative Payload
 finra_orf_tdds_dfi_v2_1.administrative_payload = {}
 
--- Size: Administrative Payload
-finra_orf_tdds_dfi_v2_1.administrative_payload.size = function(buffer, offset, administrative_message_type)
-  -- Size of General Administrative Message
-  if administrative_message_type == "A" then
-    return finra_orf_tdds_dfi_v2_1.general_administrative_message.size
-  end
-  -- Size of Closing Trade Summary Report Message
-  if administrative_message_type == "2" then
-    return finra_orf_tdds_dfi_v2_1.closing_trade_summary_report_message.size
-  end
-  -- Size of Trading Action Message
-  if administrative_message_type == "H" then
-    return finra_orf_tdds_dfi_v2_1.trading_action_message.size
-  end
-  -- Size of Market Wide Circuit Breaker Event Message
-  if administrative_message_type == "M" then
-    return finra_orf_tdds_dfi_v2_1.market_wide_circuit_breaker_event_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Administrative Payload
-finra_orf_tdds_dfi_v2_1.administrative_payload.branches = function(buffer, offset, packet, parent, administrative_message_type)
+-- Dissect: Administrative Payload
+finra_orf_tdds_dfi_v2_1.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect General Administrative Message
   if administrative_message_type == "A" then
     return finra_orf_tdds_dfi_v2_1.general_administrative_message.dissect(buffer, offset, packet, parent)
@@ -2054,11 +1985,6 @@ finra_orf_tdds_dfi_v2_1.administrative_payload.branches = function(buffer, offse
   end
 
   return offset
-end
-
--- Dissect: Administrative Payload
-finra_orf_tdds_dfi_v2_1.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  return finra_orf_tdds_dfi_v2_1.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
 
 -- Administrative Message Type
@@ -3430,30 +3356,8 @@ end
 -- Trade Payload
 finra_orf_tdds_dfi_v2_1.trade_payload = {}
 
--- Size: Trade Payload
-finra_orf_tdds_dfi_v2_1.trade_payload.size = function(buffer, offset, trade_message_type)
-  -- Size of Trade Report Short Form Message
-  if trade_message_type == "5" then
-    return finra_orf_tdds_dfi_v2_1.trade_report_short_form_message.size
-  end
-  -- Size of Trade Report Long Form Message
-  if trade_message_type == "6" then
-    return finra_orf_tdds_dfi_v2_1.trade_report_long_form_message.size
-  end
-  -- Size of Trade Cancel Error Message
-  if trade_message_type == "7" then
-    return finra_orf_tdds_dfi_v2_1.trade_cancel_error_message.size
-  end
-  -- Size of Trade Correction Message
-  if trade_message_type == "8" then
-    return finra_orf_tdds_dfi_v2_1.trade_correction_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Trade Payload
-finra_orf_tdds_dfi_v2_1.trade_payload.branches = function(buffer, offset, packet, parent, trade_message_type)
+-- Dissect: Trade Payload
+finra_orf_tdds_dfi_v2_1.trade_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
   -- Dissect Trade Report Short Form Message
   if trade_message_type == "5" then
     return finra_orf_tdds_dfi_v2_1.trade_report_short_form_message.dissect(buffer, offset, packet, parent)
@@ -3472,11 +3376,6 @@ finra_orf_tdds_dfi_v2_1.trade_payload.branches = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Dissect: Trade Payload
-finra_orf_tdds_dfi_v2_1.trade_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  return finra_orf_tdds_dfi_v2_1.trade_payload.branches(buffer, offset, packet, parent, trade_message_type)
 end
 
 -- Trade Message Type
@@ -3571,26 +3470,8 @@ end
 -- Payload
 finra_orf_tdds_dfi_v2_1.payload = {}
 
--- Size: Payload
-finra_orf_tdds_dfi_v2_1.payload.size = function(buffer, offset, message_category)
-  -- Size of Trade
-  if message_category == "T" then
-    return finra_orf_tdds_dfi_v2_1.trade.size(buffer, offset)
-  end
-  -- Size of Administrative
-  if message_category == "A" then
-    return finra_orf_tdds_dfi_v2_1.administrative.size(buffer, offset)
-  end
-  -- Size of Control
-  if message_category == "C" then
-    return finra_orf_tdds_dfi_v2_1.control.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-finra_orf_tdds_dfi_v2_1.payload.branches = function(buffer, offset, packet, parent, message_category)
+-- Dissect: Payload
+finra_orf_tdds_dfi_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_category)
   -- Dissect Trade
   if message_category == "T" then
     return finra_orf_tdds_dfi_v2_1.trade.dissect(buffer, offset, packet, parent)
@@ -3605,11 +3486,6 @@ finra_orf_tdds_dfi_v2_1.payload.branches = function(buffer, offset, packet, pare
   end
 
   return offset
-end
-
--- Dissect: Payload
-finra_orf_tdds_dfi_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  return finra_orf_tdds_dfi_v2_1.payload.branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Message Category

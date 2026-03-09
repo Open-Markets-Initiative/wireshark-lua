@@ -5117,66 +5117,8 @@ end
 -- Payload
 smallx_orderbookfeed_sbe_v2_2.payload = {}
 
--- Size: Payload
-smallx_orderbookfeed_sbe_v2_2.payload.size = function(buffer, offset, template_id)
-  -- Size of Instrument Trading Status Incremental Message
-  if template_id == 3 then
-    return smallx_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.size
-  end
-  -- Size of Trades Incremental Message
-  if template_id == 4 then
-    return smallx_orderbookfeed_sbe_v2_2.trades_incremental_message.size(buffer, offset)
-  end
-  -- Size of Trade Correct Message
-  if template_id == 5 then
-    return smallx_orderbookfeed_sbe_v2_2.trade_correct_message.size(buffer, offset)
-  end
-  -- Size of Trade Bust Message
-  if template_id == 6 then
-    return smallx_orderbookfeed_sbe_v2_2.trade_bust_message.size(buffer, offset)
-  end
-  -- Size of Order Book Incremental Message
-  if template_id == 7 then
-    return smallx_orderbookfeed_sbe_v2_2.order_book_incremental_message.size(buffer, offset)
-  end
-  -- Size of Market Summary Incremental Message
-  if template_id == 8 then
-    return smallx_orderbookfeed_sbe_v2_2.market_summary_incremental_message.size
-  end
-  -- Size of Order Book Snapshot Message
-  if template_id == 11 then
-    return smallx_orderbookfeed_sbe_v2_2.order_book_snapshot_message.size(buffer, offset)
-  end
-  -- Size of Market Summary Snapshot Message
-  if template_id == 12 then
-    return smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.size
-  end
-  -- Size of Index Value Snapshot Message
-  if template_id == 13 then
-    return smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message.size
-  end
-  -- Size of Single Instrument Definition Incremental V 2 Message
-  if template_id == 14 then
-    return smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_message.size
-  end
-  -- Size of Multileg Definition Incremental V 2 Message
-  if template_id == 15 then
-    return smallx_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message.size(buffer, offset)
-  end
-  -- Size of Single Instrument Definition Snapshot V 2 Message
-  if template_id == 16 then
-    return smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.size
-  end
-  -- Size of Multileg Definition Snapshot V 2 Message
-  if template_id == 17 then
-    return smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-smallx_orderbookfeed_sbe_v2_2.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+smallx_orderbookfeed_sbe_v2_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Instrument Trading Status Incremental Message
   if template_id == 3 then
     return smallx_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.dissect(buffer, offset, packet, parent)
@@ -5231,11 +5173,6 @@ smallx_orderbookfeed_sbe_v2_2.payload.branches = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Dissect: Payload
-smallx_orderbookfeed_sbe_v2_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return smallx_orderbookfeed_sbe_v2_2.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Version

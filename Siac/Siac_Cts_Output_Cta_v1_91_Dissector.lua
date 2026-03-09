@@ -3446,38 +3446,8 @@ end
 -- Trade Payload
 siac_cts_output_cta_v1_91.trade_payload = {}
 
--- Size: Trade Payload
-siac_cts_output_cta_v1_91.trade_payload.size = function(buffer, offset, trade_message_type)
-  -- Size of Auction Status Message
-  if trade_message_type == "A" then
-    return siac_cts_output_cta_v1_91.auction_status_message.size(buffer, offset)
-  end
-  -- Size of Trade Correction Message
-  if trade_message_type == "C" then
-    return siac_cts_output_cta_v1_91.trade_correction_message.size(buffer, offset)
-  end
-  -- Size of Long Trade Message
-  if trade_message_type == "L" then
-    return siac_cts_output_cta_v1_91.long_trade_message.size(buffer, offset)
-  end
-  -- Size of Trading Status Message
-  if trade_message_type == "S" then
-    return siac_cts_output_cta_v1_91.trading_status_message.size(buffer, offset)
-  end
-  -- Size of Short Trade Message
-  if trade_message_type == "T" then
-    return siac_cts_output_cta_v1_91.short_trade_message.size(buffer, offset)
-  end
-  -- Size of Trade Cancel Error Message
-  if trade_message_type == "X" then
-    return siac_cts_output_cta_v1_91.trade_cancel_error_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Trade Payload
-siac_cts_output_cta_v1_91.trade_payload.branches = function(buffer, offset, packet, parent, trade_message_type)
+-- Dissect: Trade Payload
+siac_cts_output_cta_v1_91.trade_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
   -- Dissect Auction Status Message
   if trade_message_type == "A" then
     return siac_cts_output_cta_v1_91.auction_status_message.dissect(buffer, offset, packet, parent)
@@ -3504,11 +3474,6 @@ siac_cts_output_cta_v1_91.trade_payload.branches = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Dissect: Trade Payload
-siac_cts_output_cta_v1_91.trade_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  return siac_cts_output_cta_v1_91.trade_payload.branches(buffer, offset, packet, parent, trade_message_type)
 end
 
 -- Trade Message Type
@@ -4046,30 +4011,8 @@ end
 -- Summary Payload
 siac_cts_output_cta_v1_91.summary_payload = {}
 
--- Size: Summary Payload
-siac_cts_output_cta_v1_91.summary_payload.size = function(buffer, offset, summary_message_type)
-  -- Size of Consolidated Start Of Day Summary Message
-  if summary_message_type == "A" then
-    return siac_cts_output_cta_v1_91.consolidated_start_of_day_summary_message.size(buffer, offset)
-  end
-  -- Size of Participant Start Of Day Summary Message
-  if summary_message_type == "B" then
-    return siac_cts_output_cta_v1_91.participant_start_of_day_summary_message.size(buffer, offset)
-  end
-  -- Size of Consolidated End Of Day Summary Message
-  if summary_message_type == "C" then
-    return siac_cts_output_cta_v1_91.consolidated_end_of_day_summary_message.size(buffer, offset)
-  end
-  -- Size of Participant End Of Day Summary Message
-  if summary_message_type == "D" then
-    return siac_cts_output_cta_v1_91.participant_end_of_day_summary_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Summary Payload
-siac_cts_output_cta_v1_91.summary_payload.branches = function(buffer, offset, packet, parent, summary_message_type)
+-- Dissect: Summary Payload
+siac_cts_output_cta_v1_91.summary_payload.dissect = function(buffer, offset, packet, parent, summary_message_type)
   -- Dissect Consolidated Start Of Day Summary Message
   if summary_message_type == "A" then
     return siac_cts_output_cta_v1_91.consolidated_start_of_day_summary_message.dissect(buffer, offset, packet, parent)
@@ -4088,11 +4031,6 @@ siac_cts_output_cta_v1_91.summary_payload.branches = function(buffer, offset, pa
   end
 
   return offset
-end
-
--- Dissect: Summary Payload
-siac_cts_output_cta_v1_91.summary_payload.dissect = function(buffer, offset, packet, parent, summary_message_type)
-  return siac_cts_output_cta_v1_91.summary_payload.branches(buffer, offset, packet, parent, summary_message_type)
 end
 
 -- Summary Message Type
@@ -4359,26 +4297,8 @@ end
 -- Prior Day Payload
 siac_cts_output_cta_v1_91.prior_day_payload = {}
 
--- Size: Prior Day Payload
-siac_cts_output_cta_v1_91.prior_day_payload.size = function(buffer, offset, prior_day_message_type)
-  -- Size of Prior Day Trade Correction Message
-  if prior_day_message_type == "C" then
-    return siac_cts_output_cta_v1_91.prior_day_trade_correction_message.size(buffer, offset)
-  end
-  -- Size of Prior Day Trade Message
-  if prior_day_message_type == "L" then
-    return siac_cts_output_cta_v1_91.prior_day_trade_message.size(buffer, offset)
-  end
-  -- Size of Prior Day Trade Message
-  if prior_day_message_type == "X" then
-    return siac_cts_output_cta_v1_91.prior_day_trade_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Prior Day Payload
-siac_cts_output_cta_v1_91.prior_day_payload.branches = function(buffer, offset, packet, parent, prior_day_message_type)
+-- Dissect: Prior Day Payload
+siac_cts_output_cta_v1_91.prior_day_payload.dissect = function(buffer, offset, packet, parent, prior_day_message_type)
   -- Dissect Prior Day Trade Correction Message
   if prior_day_message_type == "C" then
     return siac_cts_output_cta_v1_91.prior_day_trade_correction_message.dissect(buffer, offset, packet, parent)
@@ -4393,11 +4313,6 @@ siac_cts_output_cta_v1_91.prior_day_payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Prior Day Payload
-siac_cts_output_cta_v1_91.prior_day_payload.dissect = function(buffer, offset, packet, parent, prior_day_message_type)
-  return siac_cts_output_cta_v1_91.prior_day_payload.branches(buffer, offset, packet, parent, prior_day_message_type)
 end
 
 -- Prior Day Message Type
@@ -5097,34 +5012,8 @@ end
 -- Market Status Payload
 siac_cts_output_cta_v1_91.market_status_payload = {}
 
--- Size: Market Status Payload
-siac_cts_output_cta_v1_91.market_status_payload.size = function(buffer, offset, market_status_message_type)
-  -- Size of Market Wide Circuit Breaker Decline Level Status Message
-  if market_status_message_type == "M" then
-    return siac_cts_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.size(buffer, offset)
-  end
-  -- Size of Market Wide Circuit Breaker Status Message
-  if market_status_message_type == "L" then
-    return siac_cts_output_cta_v1_91.market_wide_circuit_breaker_status_message.size(buffer, offset)
-  end
-  -- Size of Approximate Adjusted Volume Market Center Message
-  if market_status_message_type == "N" then
-    return siac_cts_output_cta_v1_91.approximate_adjusted_volume_market_center_message.size(buffer, offset)
-  end
-  -- Size of Approximate Trades And Total Dollar Value Message
-  if market_status_message_type == "O" then
-    return siac_cts_output_cta_v1_91.approximate_trades_and_total_dollar_value_message.size(buffer, offset)
-  end
-  -- Size of Crossing Session Summary Message
-  if market_status_message_type == "P" then
-    return siac_cts_output_cta_v1_91.crossing_session_summary_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Market Status Payload
-siac_cts_output_cta_v1_91.market_status_payload.branches = function(buffer, offset, packet, parent, market_status_message_type)
+-- Dissect: Market Status Payload
+siac_cts_output_cta_v1_91.market_status_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
   -- Dissect Market Wide Circuit Breaker Decline Level Status Message
   if market_status_message_type == "M" then
     return siac_cts_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.dissect(buffer, offset, packet, parent)
@@ -5147,11 +5036,6 @@ siac_cts_output_cta_v1_91.market_status_payload.branches = function(buffer, offs
   end
 
   return offset
-end
-
--- Dissect: Market Status Payload
-siac_cts_output_cta_v1_91.market_status_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
-  return siac_cts_output_cta_v1_91.market_status_payload.branches(buffer, offset, packet, parent, market_status_message_type)
 end
 
 -- Market Status Message Type
@@ -5480,22 +5364,8 @@ end
 -- Index Payload
 siac_cts_output_cta_v1_91.index_payload = {}
 
--- Size: Index Payload
-siac_cts_output_cta_v1_91.index_payload.size = function(buffer, offset, index_message_type)
-  -- Size of Index Message
-  if index_message_type == "I" then
-    return siac_cts_output_cta_v1_91.index_message.size(buffer, offset)
-  end
-  -- Size of Bid And Offer Index Message
-  if index_message_type == "Q" then
-    return siac_cts_output_cta_v1_91.bid_and_offer_index_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Index Payload
-siac_cts_output_cta_v1_91.index_payload.branches = function(buffer, offset, packet, parent, index_message_type)
+-- Dissect: Index Payload
+siac_cts_output_cta_v1_91.index_payload.dissect = function(buffer, offset, packet, parent, index_message_type)
   -- Dissect Index Message
   if index_message_type == "I" then
     return siac_cts_output_cta_v1_91.index_message.dissect(buffer, offset, packet, parent)
@@ -5506,11 +5376,6 @@ siac_cts_output_cta_v1_91.index_payload.branches = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Dissect: Index Payload
-siac_cts_output_cta_v1_91.index_payload.dissect = function(buffer, offset, packet, parent, index_message_type)
-  return siac_cts_output_cta_v1_91.index_payload.branches(buffer, offset, packet, parent, index_message_type)
 end
 
 -- Index Message Type
@@ -6033,42 +5898,8 @@ end
 -- Control Payload
 siac_cts_output_cta_v1_91.control_payload = {}
 
--- Size: Control Payload
-siac_cts_output_cta_v1_91.control_payload.size = function(buffer, offset, control_message_type)
-  -- Size of Start Of Day Message
-  if control_message_type == "A" then
-    return siac_cts_output_cta_v1_91.start_of_day_message.size(buffer, offset)
-  end
-  -- Size of Reset Block Sequence Number Message
-  if control_message_type == "L" then
-    return siac_cts_output_cta_v1_91.reset_block_sequence_number_message.size(buffer, offset)
-  end
-  -- Size of Start Of Test Cycle Message
-  if control_message_type == "M" then
-    return siac_cts_output_cta_v1_91.start_of_test_cycle_message.size(buffer, offset)
-  end
-  -- Size of End Of Test Cycle Message
-  if control_message_type == "N" then
-    return siac_cts_output_cta_v1_91.end_of_test_cycle_message.size(buffer, offset)
-  end
-  -- Size of Disaster Recovery Data Center Activation Message
-  if control_message_type == "P" then
-    return siac_cts_output_cta_v1_91.disaster_recovery_data_center_activation_message.size(buffer, offset)
-  end
-  -- Size of Line Integrity Message
-  if control_message_type == "T" then
-    return siac_cts_output_cta_v1_91.line_integrity_message.size(buffer, offset)
-  end
-  -- Size of End Of Day Message
-  if control_message_type == "Z" then
-    return siac_cts_output_cta_v1_91.end_of_day_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Control Payload
-siac_cts_output_cta_v1_91.control_payload.branches = function(buffer, offset, packet, parent, control_message_type)
+-- Dissect: Control Payload
+siac_cts_output_cta_v1_91.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "A" then
     return siac_cts_output_cta_v1_91.start_of_day_message.dissect(buffer, offset, packet, parent)
@@ -6099,11 +5930,6 @@ siac_cts_output_cta_v1_91.control_payload.branches = function(buffer, offset, pa
   end
 
   return offset
-end
-
--- Dissect: Control Payload
-siac_cts_output_cta_v1_91.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  return siac_cts_output_cta_v1_91.control_payload.branches(buffer, offset, packet, parent, control_message_type)
 end
 
 -- Control Message Type
@@ -6543,34 +6369,8 @@ end
 -- Administrative Payload
 siac_cts_output_cta_v1_91.administrative_payload = {}
 
--- Size: Administrative Payload
-siac_cts_output_cta_v1_91.administrative_payload.size = function(buffer, offset, administrative_message_type)
-  -- Size of Start Of End Of Day Message
-  if administrative_message_type == "A" then
-    return siac_cts_output_cta_v1_91.start_of_end_of_day_message.size(buffer, offset)
-  end
-  -- Size of End Of End Of Day Message
-  if administrative_message_type == "B" then
-    return siac_cts_output_cta_v1_91.end_of_end_of_day_message.size(buffer, offset)
-  end
-  -- Size of Start Of Start Of Day Message
-  if administrative_message_type == "C" then
-    return siac_cts_output_cta_v1_91.start_of_start_of_day_message.size(buffer, offset)
-  end
-  -- Size of End Of Start Of Day Message
-  if administrative_message_type == "D" then
-    return siac_cts_output_cta_v1_91.end_of_start_of_day_message.size(buffer, offset)
-  end
-  -- Size of Administrative Unformatted Message
-  if administrative_message_type == "H" then
-    return siac_cts_output_cta_v1_91.administrative_unformatted_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Administrative Payload
-siac_cts_output_cta_v1_91.administrative_payload.branches = function(buffer, offset, packet, parent, administrative_message_type)
+-- Dissect: Administrative Payload
+siac_cts_output_cta_v1_91.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect Start Of End Of Day Message
   if administrative_message_type == "A" then
     return siac_cts_output_cta_v1_91.start_of_end_of_day_message.dissect(buffer, offset, packet, parent)
@@ -6593,11 +6393,6 @@ siac_cts_output_cta_v1_91.administrative_payload.branches = function(buffer, off
   end
 
   return offset
-end
-
--- Dissect: Administrative Payload
-siac_cts_output_cta_v1_91.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  return siac_cts_output_cta_v1_91.administrative_payload.branches(buffer, offset, packet, parent, administrative_message_type)
 end
 
 -- Administrative Message Type
@@ -6695,42 +6490,8 @@ end
 -- Payload
 siac_cts_output_cta_v1_91.payload = {}
 
--- Size: Payload
-siac_cts_output_cta_v1_91.payload.size = function(buffer, offset, message_category)
-  -- Size of Administrative
-  if message_category == "A" then
-    return siac_cts_output_cta_v1_91.administrative.size(buffer, offset)
-  end
-  -- Size of Control
-  if message_category == "C" then
-    return siac_cts_output_cta_v1_91.control.size(buffer, offset)
-  end
-  -- Size of Index
-  if message_category == "I" then
-    return siac_cts_output_cta_v1_91.index.size(buffer, offset)
-  end
-  -- Size of Market Status
-  if message_category == "M" then
-    return siac_cts_output_cta_v1_91.market_status.size(buffer, offset)
-  end
-  -- Size of Prior Day
-  if message_category == "P" then
-    return siac_cts_output_cta_v1_91.prior_day.size(buffer, offset)
-  end
-  -- Size of Summary
-  if message_category == "S" then
-    return siac_cts_output_cta_v1_91.summary.size(buffer, offset)
-  end
-  -- Size of Trade
-  if message_category == "T" then
-    return siac_cts_output_cta_v1_91.trade.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-siac_cts_output_cta_v1_91.payload.branches = function(buffer, offset, packet, parent, message_category)
+-- Dissect: Payload
+siac_cts_output_cta_v1_91.payload.dissect = function(buffer, offset, packet, parent, message_category)
   -- Dissect Administrative
   if message_category == "A" then
     return siac_cts_output_cta_v1_91.administrative.dissect(buffer, offset, packet, parent)
@@ -6761,11 +6522,6 @@ siac_cts_output_cta_v1_91.payload.branches = function(buffer, offset, packet, pa
   end
 
   return offset
-end
-
--- Dissect: Payload
-siac_cts_output_cta_v1_91.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  return siac_cts_output_cta_v1_91.payload.branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Message Category

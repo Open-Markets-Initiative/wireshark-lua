@@ -3890,90 +3890,8 @@ end
 -- Payload
 nyse_equities_bqt_xdp_v2_1_a.payload = {}
 
--- Size: Payload
-nyse_equities_bqt_xdp_v2_1_a.payload.size = function(buffer, offset, message_type)
-  -- Size of Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_equities_bqt_xdp_v2_1_a.sequence_number_reset_message.size
-  end
-  -- Size of Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_equities_bqt_xdp_v2_1_a.symbol_index_mapping_message.size
-  end
-  -- Size of Retransmission Request Message
-  if message_type == 10 then
-    return nyse_equities_bqt_xdp_v2_1_a.retransmission_request_message.size
-  end
-  -- Size of Request Response Message
-  if message_type == 11 then
-    return nyse_equities_bqt_xdp_v2_1_a.request_response_message.size
-  end
-  -- Size of Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_equities_bqt_xdp_v2_1_a.heartbeat_response_message.size
-  end
-  -- Size of Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_equities_bqt_xdp_v2_1_a.symbol_index_mapping_request_message.size
-  end
-  -- Size of Refresh Request Message
-  if message_type == 15 then
-    return nyse_equities_bqt_xdp_v2_1_a.refresh_request_message.size
-  end
-  -- Size of Message Unavailable Message
-  if message_type == 31 then
-    return nyse_equities_bqt_xdp_v2_1_a.message_unavailable_message.size
-  end
-  -- Size of Consolidated Symbol Clear Message
-  if message_type == 32 then
-    return nyse_equities_bqt_xdp_v2_1_a.consolidated_symbol_clear_message.size
-  end
-  -- Size of Consolidated Trading Session Change Message
-  if message_type == 33 then
-    return nyse_equities_bqt_xdp_v2_1_a.consolidated_trading_session_change_message.size
-  end
-  -- Size of Consolidated Security Status Message
-  if message_type == 34 then
-    return nyse_equities_bqt_xdp_v2_1_a.consolidated_security_status_message.size
-  end
-  -- Size of Refresh Header Message
-  if message_type == 35 then
-    return nyse_equities_bqt_xdp_v2_1_a.refresh_header_message.size
-  end
-  -- Size of Bqt Message
-  if message_type == 142 then
-    return nyse_equities_bqt_xdp_v2_1_a.bqt_message.size
-  end
-  -- Size of Consolidated Single Sided Quote Message
-  if message_type == 143 then
-    return nyse_equities_bqt_xdp_v2_1_a.consolidated_single_sided_quote_message.size
-  end
-  -- Size of Consolidated Trade Message
-  if message_type == 220 then
-    return nyse_equities_bqt_xdp_v2_1_a.consolidated_trade_message.size
-  end
-  -- Size of Consolidated Trade Cancel Message
-  if message_type == 221 then
-    return nyse_equities_bqt_xdp_v2_1_a.consolidated_trade_cancel_message.size
-  end
-  -- Size of Consolidated Trade Correction Message
-  if message_type == 222 then
-    return nyse_equities_bqt_xdp_v2_1_a.consolidated_trade_correction_message.size
-  end
-  -- Size of Consolidated Stock Summary Message
-  if message_type == 229 then
-    return nyse_equities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.size
-  end
-  -- Size of Consolidated Volume Message
-  if message_type == 240 then
-    return nyse_equities_bqt_xdp_v2_1_a.consolidated_volume_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nyse_equities_bqt_xdp_v2_1_a.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nyse_equities_bqt_xdp_v2_1_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequence Number Reset Message
   if message_type == 1 then
     return nyse_equities_bqt_xdp_v2_1_a.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
@@ -4052,11 +3970,6 @@ nyse_equities_bqt_xdp_v2_1_a.payload.branches = function(buffer, offset, packet,
   end
 
   return offset
-end
-
--- Dissect: Payload
-nyse_equities_bqt_xdp_v2_1_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nyse_equities_bqt_xdp_v2_1_a.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type

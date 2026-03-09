@@ -895,26 +895,8 @@ end
 -- Unsequenced Message
 jnx_equities_pts_ouch_v1_11.unsequenced_message = {}
 
--- Size: Unsequenced Message
-jnx_equities_pts_ouch_v1_11.unsequenced_message.size = function(buffer, offset, unsequenced_message_type)
-  -- Size of Enter Order Message
-  if unsequenced_message_type == "O" then
-    return jnx_equities_pts_ouch_v1_11.enter_order_message.size
-  end
-  -- Size of Replace Order Message
-  if unsequenced_message_type == "U" then
-    return jnx_equities_pts_ouch_v1_11.replace_order_message.size
-  end
-  -- Size of Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return jnx_equities_pts_ouch_v1_11.cancel_order_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Unsequenced Message
-jnx_equities_pts_ouch_v1_11.unsequenced_message.branches = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+jnx_equities_pts_ouch_v1_11.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Enter Order Message
   if unsequenced_message_type == "O" then
     return jnx_equities_pts_ouch_v1_11.enter_order_message.dissect(buffer, offset, packet, parent)
@@ -929,11 +911,6 @@ jnx_equities_pts_ouch_v1_11.unsequenced_message.branches = function(buffer, offs
   end
 
   return offset
-end
-
--- Dissect: Unsequenced Message
-jnx_equities_pts_ouch_v1_11.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  return jnx_equities_pts_ouch_v1_11.unsequenced_message.branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
 
 -- Unsequenced Message Type
@@ -2050,42 +2027,8 @@ end
 -- Sequenced Message
 jnx_equities_pts_ouch_v1_11.sequenced_message = {}
 
--- Size: Sequenced Message
-jnx_equities_pts_ouch_v1_11.sequenced_message.size = function(buffer, offset, sequenced_message_type)
-  -- Size of System Event Message
-  if sequenced_message_type == "S" then
-    return jnx_equities_pts_ouch_v1_11.system_event_message.size
-  end
-  -- Size of Order Accepted Message
-  if sequenced_message_type == "A" then
-    return jnx_equities_pts_ouch_v1_11.order_accepted_message.size
-  end
-  -- Size of Order Replaced Message
-  if sequenced_message_type == "U" then
-    return jnx_equities_pts_ouch_v1_11.order_replaced_message.size
-  end
-  -- Size of Order Canceled Message
-  if sequenced_message_type == "C" then
-    return jnx_equities_pts_ouch_v1_11.order_canceled_message.size
-  end
-  -- Size of Order Aiq Canceled Message
-  if sequenced_message_type == "D" then
-    return jnx_equities_pts_ouch_v1_11.order_aiq_canceled_message.size
-  end
-  -- Size of Order Executed Message
-  if sequenced_message_type == "E" then
-    return jnx_equities_pts_ouch_v1_11.order_executed_message.size
-  end
-  -- Size of Order Rejected Message
-  if sequenced_message_type == "J" then
-    return jnx_equities_pts_ouch_v1_11.order_rejected_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Sequenced Message
-jnx_equities_pts_ouch_v1_11.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+jnx_equities_pts_ouch_v1_11.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect System Event Message
   if sequenced_message_type == "S" then
     return jnx_equities_pts_ouch_v1_11.system_event_message.dissect(buffer, offset, packet, parent)
@@ -2116,11 +2059,6 @@ jnx_equities_pts_ouch_v1_11.sequenced_message.branches = function(buffer, offset
   end
 
   return offset
-end
-
--- Dissect: Sequenced Message
-jnx_equities_pts_ouch_v1_11.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  return jnx_equities_pts_ouch_v1_11.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
 end
 
 -- Sequenced Message Type
@@ -2440,38 +2378,8 @@ end
 -- Payload
 jnx_equities_pts_ouch_v1_11.payload = {}
 
--- Size: Payload
-jnx_equities_pts_ouch_v1_11.payload.size = function(buffer, offset, packet_type)
-  -- Size of Debug Packet
-  if packet_type == "+" then
-    return jnx_equities_pts_ouch_v1_11.debug_packet.size
-  end
-  -- Size of Login Accepted Packet
-  if packet_type == "A" then
-    return jnx_equities_pts_ouch_v1_11.login_accepted_packet.size
-  end
-  -- Size of Login Rejected Packet
-  if packet_type == "J" then
-    return jnx_equities_pts_ouch_v1_11.login_rejected_packet.size
-  end
-  -- Size of Sequenced Data Packet
-  if packet_type == "S" then
-    return jnx_equities_pts_ouch_v1_11.sequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Login Request Packet
-  if packet_type == "L" then
-    return jnx_equities_pts_ouch_v1_11.login_request_packet.size
-  end
-  -- Size of Unsequenced Data Packet
-  if packet_type == "U" then
-    return jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-jnx_equities_pts_ouch_v1_11.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+jnx_equities_pts_ouch_v1_11.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
   if packet_type == "+" then
     return jnx_equities_pts_ouch_v1_11.debug_packet.dissect(buffer, offset, packet, parent)
@@ -2498,11 +2406,6 @@ jnx_equities_pts_ouch_v1_11.payload.branches = function(buffer, offset, packet, 
   end
 
   return offset
-end
-
--- Dissect: Payload
-jnx_equities_pts_ouch_v1_11.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return jnx_equities_pts_ouch_v1_11.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

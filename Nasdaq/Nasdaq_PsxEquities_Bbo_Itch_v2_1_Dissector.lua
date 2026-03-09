@@ -1751,50 +1751,8 @@ end
 -- Payload
 nasdaq_psxequities_bbo_itch_v2_1.payload = {}
 
--- Size: Payload
-nasdaq_psxequities_bbo_itch_v2_1.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_psxequities_bbo_itch_v2_1.system_event_message.size
-  end
-  -- Size of Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_psxequities_bbo_itch_v2_1.stock_directory_message.size
-  end
-  -- Size of Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_psxequities_bbo_itch_v2_1.stock_trading_action_message.size
-  end
-  -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return nasdaq_psxequities_bbo_itch_v2_1.reg_sho_short_sale_price_test_restricted_indicator_message.size
-  end
-  -- Size of Mwcb Decline Level Message
-  if message_type == "V" then
-    return nasdaq_psxequities_bbo_itch_v2_1.mwcb_decline_level_message.size
-  end
-  -- Size of Mwcb Status Message
-  if message_type == "W" then
-    return nasdaq_psxequities_bbo_itch_v2_1.mwcb_status_message.size
-  end
-  -- Size of Operational Halt Message
-  if message_type == "h" then
-    return nasdaq_psxequities_bbo_itch_v2_1.operational_halt_message.size
-  end
-  -- Size of Quotation Message
-  if message_type == "Q" then
-    return nasdaq_psxequities_bbo_itch_v2_1.quotation_message.size
-  end
-  -- Size of Next Shares Quotation Message
-  if message_type == "A" then
-    return nasdaq_psxequities_bbo_itch_v2_1.next_shares_quotation_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_psxequities_bbo_itch_v2_1.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_psxequities_bbo_itch_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
     return nasdaq_psxequities_bbo_itch_v2_1.system_event_message.dissect(buffer, offset, packet, parent)
@@ -1833,11 +1791,6 @@ nasdaq_psxequities_bbo_itch_v2_1.payload.branches = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_psxequities_bbo_itch_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_psxequities_bbo_itch_v2_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2023,8 +1976,8 @@ end
 -- Messages
 nasdaq_psxequities_bbo_itch_v2_1.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_psxequities_bbo_itch_v2_1.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_psxequities_bbo_itch_v2_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -2047,11 +2000,6 @@ nasdaq_psxequities_bbo_itch_v2_1.messages.branches = function(buffer, offset, pa
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_psxequities_bbo_itch_v2_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_psxequities_bbo_itch_v2_1.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

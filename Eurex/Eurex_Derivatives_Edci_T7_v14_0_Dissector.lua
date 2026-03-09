@@ -4460,66 +4460,8 @@ end
 -- Payload
 eurex_derivatives_edci_t7_v14_0.payload = {}
 
--- Size: Payload
-eurex_derivatives_edci_t7_v14_0.payload.size = function(buffer, offset, template_id)
-  -- Size of Delete Order Broadcast
-  if template_id == 10902 then
-    return eurex_derivatives_edci_t7_v14_0.delete_order_broadcast.size(buffer, offset)
-  end
-  -- Size of Forced Logout Notification
-  if template_id == 10012 then
-    return eurex_derivatives_edci_t7_v14_0.forced_logout_notification.size(buffer, offset)
-  end
-  -- Size of Heartbeat
-  if template_id == 10011 then
-    return eurex_derivatives_edci_t7_v14_0.heartbeat.size(buffer, offset)
-  end
-  -- Size of Heartbeat Notification
-  if template_id == 10023 then
-    return eurex_derivatives_edci_t7_v14_0.heartbeat_notification.size(buffer, offset)
-  end
-  -- Size of Logon Request
-  if template_id == 10000 then
-    return eurex_derivatives_edci_t7_v14_0.logon_request.size(buffer, offset)
-  end
-  -- Size of Logon Response
-  if template_id == 10001 then
-    return eurex_derivatives_edci_t7_v14_0.logon_response.size(buffer, offset)
-  end
-  -- Size of Logout Request
-  if template_id == 10002 then
-    return eurex_derivatives_edci_t7_v14_0.logout_request.size(buffer, offset)
-  end
-  -- Size of Logout Response
-  if template_id == 10003 then
-    return eurex_derivatives_edci_t7_v14_0.logout_response.size(buffer, offset)
-  end
-  -- Size of Order Exec Report Broadcast
-  if template_id == 10901 then
-    return eurex_derivatives_edci_t7_v14_0.order_exec_report_broadcast.size(buffer, offset)
-  end
-  -- Size of Partition List Notification
-  if template_id == 10037 then
-    return eurex_derivatives_edci_t7_v14_0.partition_list_notification.size(buffer, offset)
-  end
-  -- Size of Reject
-  if template_id == 10010 then
-    return eurex_derivatives_edci_t7_v14_0.reject.size(buffer, offset)
-  end
-  -- Size of Session List Notification
-  if template_id == 10036 then
-    return eurex_derivatives_edci_t7_v14_0.session_list_notification.size(buffer, offset)
-  end
-  -- Size of Session Status Broadcast
-  if template_id == 10903 then
-    return eurex_derivatives_edci_t7_v14_0.session_status_broadcast.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-eurex_derivatives_edci_t7_v14_0.payload.branches = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Payload
+eurex_derivatives_edci_t7_v14_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Delete Order Broadcast
   if template_id == 10902 then
     return eurex_derivatives_edci_t7_v14_0.delete_order_broadcast.dissect(buffer, offset, packet, parent)
@@ -4574,11 +4516,6 @@ eurex_derivatives_edci_t7_v14_0.payload.branches = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Dissect: Payload
-eurex_derivatives_edci_t7_v14_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  return eurex_derivatives_edci_t7_v14_0.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Template Id

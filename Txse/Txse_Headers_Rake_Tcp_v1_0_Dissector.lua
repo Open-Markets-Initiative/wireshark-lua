@@ -756,38 +756,8 @@ end
 -- Payload
 txse_headers_rake_tcp_v1_0.payload = {}
 
--- Size: Payload
-txse_headers_rake_tcp_v1_0.payload.size = function(buffer, offset, packet_type)
-  -- Size of Logon Request Packet
-  if packet_type == 53 then
-    return txse_headers_rake_tcp_v1_0.logon_request_packet.size
-  end
-  -- Size of Tcp Unsequenced Message
-  if packet_type == 54 then
-    return txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.size(buffer, offset)
-  end
-  -- Size of Debug Message
-  if packet_type == 48 then
-    return txse_headers_rake_tcp_v1_0.debug_message.size(buffer, offset)
-  end
-  -- Size of End Of Session Message
-  if packet_type == 52 then
-    return 0
-  end
-  -- Size of Logon Response Message
-  if packet_type == 49 then
-    return txse_headers_rake_tcp_v1_0.logon_response_message.size
-  end
-  -- Size of Tcp Sequenced Message
-  if packet_type == 50 then
-    return txse_headers_rake_tcp_v1_0.tcp_sequenced_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-txse_headers_rake_tcp_v1_0.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+txse_headers_rake_tcp_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Logon Request Packet
   if packet_type == 53 then
     return txse_headers_rake_tcp_v1_0.logon_request_packet.dissect(buffer, offset, packet, parent)
@@ -814,11 +784,6 @@ txse_headers_rake_tcp_v1_0.payload.branches = function(buffer, offset, packet, p
   end
 
   return offset
-end
-
--- Dissect: Payload
-txse_headers_rake_tcp_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return txse_headers_rake_tcp_v1_0.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Packet Type

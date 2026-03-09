@@ -2025,42 +2025,8 @@ end
 -- Data
 miax_onyxfutures_topofmarket_mach_v1_0_b.data = {}
 
--- Size: Data
-miax_onyxfutures_topofmarket_mach_v1_0_b.data.size = function(buffer, offset, message_type)
-  -- Size of Simple Instrument Definition Message
-  if message_type == 1 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.size
-  end
-  -- Size of Complex Instrument Definition Message
-  if message_type == 2 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.complex_instrument_definition_message.size(buffer, offset)
-  end
-  -- Size of System State Message
-  if message_type == 3 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.size
-  end
-  -- Size of Instrument Trading Status Notification Message
-  if message_type == 4 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.size
-  end
-  -- Size of Best Bid And Offer Message
-  if message_type == 15 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.size
-  end
-  -- Size of Last Sale Message
-  if message_type == 16 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.size
-  end
-  -- Size of Trade Cancel Message
-  if message_type == 14 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Data
-miax_onyxfutures_topofmarket_mach_v1_0_b.data.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Data
+miax_onyxfutures_topofmarket_mach_v1_0_b.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Simple Instrument Definition Message
   if message_type == 1 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.dissect(buffer, offset, packet, parent)
@@ -2091,11 +2057,6 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.data.branches = function(buffer, offset
   end
 
   return offset
-end
-
--- Dissect: Data
-miax_onyxfutures_topofmarket_mach_v1_0_b.data.dissect = function(buffer, offset, packet, parent, message_type)
-  return miax_onyxfutures_topofmarket_mach_v1_0_b.data.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -2199,29 +2160,14 @@ end
 -- Payload
 miax_onyxfutures_topofmarket_mach_v1_0_b.payload = {}
 
--- Size: Payload
-miax_onyxfutures_topofmarket_mach_v1_0_b.payload.size = function(buffer, offset, packet_type)
-  -- Size of Application Message
-  if packet_type == 3 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.application_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-miax_onyxfutures_topofmarket_mach_v1_0_b.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b.application_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Payload
-miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  return miax_onyxfutures_topofmarket_mach_v1_0_b.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Session Number

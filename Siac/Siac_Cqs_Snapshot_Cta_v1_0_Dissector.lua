@@ -2457,34 +2457,8 @@ end
 -- Snapshot Payload
 siac_cqs_snapshot_cta_v1_0.snapshot_payload = {}
 
--- Size: Snapshot Payload
-siac_cqs_snapshot_cta_v1_0.snapshot_payload.size = function(buffer, offset, snapshot_message_type)
-  -- Size of Line Integrity Message
-  if snapshot_message_type == "T" then
-    return siac_cqs_snapshot_cta_v1_0.line_integrity_message.size(buffer, offset)
-  end
-  -- Size of Market Wide Circuit Breaker Decline Level Status Snapshot Message
-  if snapshot_message_type == "K" then
-    return siac_cqs_snapshot_cta_v1_0.market_wide_circuit_breaker_decline_level_status_snapshot_message.size(buffer, offset)
-  end
-  -- Size of Consolidated Snapshot Message
-  if snapshot_message_type == "C" then
-    return siac_cqs_snapshot_cta_v1_0.consolidated_snapshot_message.size(buffer, offset)
-  end
-  -- Size of Participant Snapshot Message
-  if snapshot_message_type == "P" then
-    return siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.size(buffer, offset)
-  end
-  -- Size of Finra Snapshot Message
-  if snapshot_message_type == "F" then
-    return siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Snapshot Payload
-siac_cqs_snapshot_cta_v1_0.snapshot_payload.branches = function(buffer, offset, packet, parent, snapshot_message_type)
+-- Dissect: Snapshot Payload
+siac_cqs_snapshot_cta_v1_0.snapshot_payload.dissect = function(buffer, offset, packet, parent, snapshot_message_type)
   -- Dissect Line Integrity Message
   if snapshot_message_type == "T" then
     return siac_cqs_snapshot_cta_v1_0.line_integrity_message.dissect(buffer, offset, packet, parent)
@@ -2507,11 +2481,6 @@ siac_cqs_snapshot_cta_v1_0.snapshot_payload.branches = function(buffer, offset, 
   end
 
   return offset
-end
-
--- Dissect: Snapshot Payload
-siac_cqs_snapshot_cta_v1_0.snapshot_payload.dissect = function(buffer, offset, packet, parent, snapshot_message_type)
-  return siac_cqs_snapshot_cta_v1_0.snapshot_payload.branches(buffer, offset, packet, parent, snapshot_message_type)
 end
 
 -- Snapshot Message Type
@@ -2609,29 +2578,14 @@ end
 -- Payload
 siac_cqs_snapshot_cta_v1_0.payload = {}
 
--- Size: Payload
-siac_cqs_snapshot_cta_v1_0.payload.size = function(buffer, offset, message_category)
-  -- Size of Snapshot
-  if message_category == "K" then
-    return siac_cqs_snapshot_cta_v1_0.snapshot.size(buffer, offset)
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-siac_cqs_snapshot_cta_v1_0.payload.branches = function(buffer, offset, packet, parent, message_category)
+-- Dissect: Payload
+siac_cqs_snapshot_cta_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_category)
   -- Dissect Snapshot
   if message_category == "K" then
     return siac_cqs_snapshot_cta_v1_0.snapshot.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Payload
-siac_cqs_snapshot_cta_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  return siac_cqs_snapshot_cta_v1_0.payload.branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Message Category

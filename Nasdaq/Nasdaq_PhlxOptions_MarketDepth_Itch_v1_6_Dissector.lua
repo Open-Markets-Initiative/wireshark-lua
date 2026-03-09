@@ -3440,122 +3440,8 @@ end
 -- Payload
 nasdaq_phlxoptions_marketdepth_itch_v1_6.payload = {}
 
--- Size: Payload
-nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.size = function(buffer, offset, message_type)
-  -- Size of Seconds Message
-  if message_type == "T" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.seconds_message.size
-  end
-  -- Size of System Event Message
-  if message_type == "S" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.system_event_message.size
-  end
-  -- Size of Base Reference Message
-  if message_type == "L" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.base_reference_message.size
-  end
-  -- Size of Option Directory Message
-  if message_type == "R" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.option_directory_message.size
-  end
-  -- Size of Trading Action Message
-  if message_type == "H" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.trading_action_message.size
-  end
-  -- Size of Security Open Message
-  if message_type == "O" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.security_open_message.size
-  end
-  -- Size of Add Order Short Message
-  if message_type == "a" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.add_order_short_message.size
-  end
-  -- Size of Add Order Long Message
-  if message_type == "A" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.add_order_long_message.size
-  end
-  -- Size of Add Quote Short Message
-  if message_type == "j" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.add_quote_short_message.size
-  end
-  -- Size of Add Quote Long Message
-  if message_type == "J" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.add_quote_long_message.size
-  end
-  -- Size of Single Side Executed Message
-  if message_type == "E" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.single_side_executed_message.size
-  end
-  -- Size of Single Side Executed With Price Message
-  if message_type == "C" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.single_side_executed_with_price_message.size
-  end
-  -- Size of Single Side Cancel Message
-  if message_type == "X" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.single_side_cancel_message.size
-  end
-  -- Size of Single Side Replace Short Message
-  if message_type == "u" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.single_side_replace_short_message.size
-  end
-  -- Size of Single Side Replace Long Message
-  if message_type == "U" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.single_side_replace_long_message.size
-  end
-  -- Size of Order Replace Short Message
-  if message_type == "v" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.order_replace_short_message.size
-  end
-  -- Size of Order Replace Long Message
-  if message_type == "V" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.order_replace_long_message.size
-  end
-  -- Size of Single Side Delete Message
-  if message_type == "D" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.single_side_delete_message.size
-  end
-  -- Size of Single Side Update Message
-  if message_type == "G" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.single_side_update_message.size
-  end
-  -- Size of Quote Replace Short Message
-  if message_type == "k" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.quote_replace_short_message.size
-  end
-  -- Size of Quote Replace Long Message
-  if message_type == "K" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.quote_replace_long_message.size
-  end
-  -- Size of Quote Delete Message
-  if message_type == "Y" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.quote_delete_message.size
-  end
-  -- Size of Block Delete Message
-  if message_type == "Z" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.block_delete_message.size
-  end
-  -- Size of Non Auction Options Trade Message
-  if message_type == "P" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.non_auction_options_trade_message.size
-  end
-  -- Size of Options Cross Trade Message
-  if message_type == "Q" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.options_cross_trade_message.size
-  end
-  -- Size of Broken Trade Order Executed Message
-  if message_type == "B" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.broken_trade_order_executed_message.size
-  end
-  -- Size of Auction Notification Message
-  if message_type == "I" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_6.auction_notification_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Seconds Message
   if message_type == "T" then
     return nasdaq_phlxoptions_marketdepth_itch_v1_6.seconds_message.dissect(buffer, offset, packet, parent)
@@ -3666,11 +3552,6 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.branches = function(buffer, off
   end
 
   return offset
-end
-
--- Dissect: Payload
-nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return nasdaq_phlxoptions_marketdepth_itch_v1_6.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
@@ -3910,8 +3791,8 @@ end
 -- Messages
 nasdaq_phlxoptions_marketdepth_itch_v1_6.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_phlxoptions_marketdepth_itch_v1_6.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_phlxoptions_marketdepth_itch_v1_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -3934,11 +3815,6 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.messages.branches = function(buffer, of
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_phlxoptions_marketdepth_itch_v1_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_phlxoptions_marketdepth_itch_v1_6.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

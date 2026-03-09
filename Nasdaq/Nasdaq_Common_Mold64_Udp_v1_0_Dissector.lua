@@ -257,8 +257,8 @@ end
 -- Messages
 nasdaq_common_mold64_udp_v1_0.messages = {}
 
--- Dissect Branches: Messages
-nasdaq_common_mold64_udp_v1_0.messages.branches = function(buffer, offset, packet, parent, message_count)
+-- Dissect: Messages
+nasdaq_common_mold64_udp_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
     return offset
@@ -281,11 +281,6 @@ nasdaq_common_mold64_udp_v1_0.messages.branches = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Dissect: Messages
-nasdaq_common_mold64_udp_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  return nasdaq_common_mold64_udp_v1_0.messages.branches(buffer, offset, packet, parent, message_count)
 end
 
 -- Message Count

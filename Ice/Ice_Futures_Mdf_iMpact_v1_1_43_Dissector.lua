@@ -7264,38 +7264,8 @@ end
 -- Variable Field
 ice_futures_mdf_impact_v1_1_43.variable_field = {}
 
--- Size: Variable Field
-ice_futures_mdf_impact_v1_1_43.variable_field.size = function(buffer, offset, special_field_id)
-  -- Size of Alt Price
-  if special_field_id == 1 then
-    return ice_futures_mdf_impact_v1_1_43.alt_price.size
-  end
-  -- Size of Alt High Price
-  if special_field_id == 2 then
-    return ice_futures_mdf_impact_v1_1_43.alt_high_price.size
-  end
-  -- Size of Alt Low Price
-  if special_field_id == 3 then
-    return ice_futures_mdf_impact_v1_1_43.alt_low_price.size
-  end
-  -- Size of Alt Vwap
-  if special_field_id == 4 then
-    return ice_futures_mdf_impact_v1_1_43.alt_vwap.size
-  end
-  -- Size of Alt Last Trade Price
-  if special_field_id == 5 then
-    return ice_futures_mdf_impact_v1_1_43.alt_last_trade_price.size
-  end
-  -- Size of Aon
-  if special_field_id == 6 then
-    return ice_futures_mdf_impact_v1_1_43.aon.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Variable Field
-ice_futures_mdf_impact_v1_1_43.variable_field.branches = function(buffer, offset, packet, parent, special_field_id)
+-- Dissect: Variable Field
+ice_futures_mdf_impact_v1_1_43.variable_field.dissect = function(buffer, offset, packet, parent, special_field_id)
   -- Dissect Alt Price
   if special_field_id == 1 then
     return ice_futures_mdf_impact_v1_1_43.alt_price.dissect(buffer, offset, packet, parent)
@@ -7322,11 +7292,6 @@ ice_futures_mdf_impact_v1_1_43.variable_field.branches = function(buffer, offset
   end
 
   return offset
-end
-
--- Dissect: Variable Field
-ice_futures_mdf_impact_v1_1_43.variable_field.dissect = function(buffer, offset, packet, parent, special_field_id)
-  return ice_futures_mdf_impact_v1_1_43.variable_field.branches(buffer, offset, packet, parent, special_field_id)
 end
 
 -- Special Field Length
@@ -11960,170 +11925,8 @@ end
 -- Payload
 ice_futures_mdf_impact_v1_1_43.payload = {}
 
--- Size: Payload
-ice_futures_mdf_impact_v1_1_43.payload.size = function(buffer, offset, message_type)
-  -- Size of Market Snapshot Message
-  if message_type == "C" then
-    return ice_futures_mdf_impact_v1_1_43.market_snapshot_message.size
-  end
-  -- Size of Trade Message
-  if message_type == "G" then
-    return ice_futures_mdf_impact_v1_1_43.trade_message.size
-  end
-  -- Size of Spot Market Trade Message
-  if message_type == "Y" then
-    return ice_futures_mdf_impact_v1_1_43.spot_market_trade_message.size
-  end
-  -- Size of Investigated Trade Message
-  if message_type == "H" then
-    return ice_futures_mdf_impact_v1_1_43.investigated_trade_message.size
-  end
-  -- Size of Cancelled Trade Message
-  if message_type == "I" then
-    return ice_futures_mdf_impact_v1_1_43.cancelled_trade_message.size
-  end
-  -- Size of Market Statistics Message
-  if message_type == "J" then
-    return ice_futures_mdf_impact_v1_1_43.market_statistics_message.size
-  end
-  -- Size of Market State Change Message
-  if message_type == "K" then
-    return ice_futures_mdf_impact_v1_1_43.market_state_change_message.size
-  end
-  -- Size of System Text Message
-  if message_type == "L" then
-    return ice_futures_mdf_impact_v1_1_43.system_text_message.size
-  end
-  -- Size of Open Interest Message
-  if message_type == "M" then
-    return ice_futures_mdf_impact_v1_1_43.open_interest_message.size
-  end
-  -- Size of Open Price Message
-  if message_type == "N" then
-    return ice_futures_mdf_impact_v1_1_43.open_price_message.size
-  end
-  -- Size of Close Price Message
-  if message_type == "c" then
-    return ice_futures_mdf_impact_v1_1_43.close_price_message.size
-  end
-  -- Size of Settlement Price Message
-  if message_type == "O" then
-    return ice_futures_mdf_impact_v1_1_43.settlement_price_message.size
-  end
-  -- Size of Index Prices Message
-  if message_type == "z" then
-    return ice_futures_mdf_impact_v1_1_43.index_prices_message.size
-  end
-  -- Size of End Of Day Market Summary Message
-  if message_type == "u" then
-    return ice_futures_mdf_impact_v1_1_43.end_of_day_market_summary_message.size
-  end
-  -- Size of Market Event Message
-  if message_type == "f" then
-    return ice_futures_mdf_impact_v1_1_43.market_event_message.size
-  end
-  -- Size of Pre Open Price Indicator Message
-  if message_type == "g" then
-    return ice_futures_mdf_impact_v1_1_43.pre_open_price_indicator_message.size
-  end
-  -- Size of Strip Info Message
-  if message_type == "i" then
-    return ice_futures_mdf_impact_v1_1_43.strip_info_message.size
-  end
-  -- Size of Interval Price Limit Notification Message
-  if message_type == "V" then
-    return ice_futures_mdf_impact_v1_1_43.interval_price_limit_notification_message.size
-  end
-  -- Size of New Futures Strategy Definition Message
-  if message_type == "9" then
-    return ice_futures_mdf_impact_v1_1_43.new_futures_strategy_definition_message.size(buffer, offset)
-  end
-  -- Size of New Expiry Message
-  if message_type == "R" then
-    return ice_futures_mdf_impact_v1_1_43.new_expiry_message.size
-  end
-  -- Size of Special Field Message
-  if message_type == "b" then
-    return ice_futures_mdf_impact_v1_1_43.special_field_message.size(buffer, offset)
-  end
-  -- Size of Fragment Wrapper Message
-  if message_type == "Z" then
-    return ice_futures_mdf_impact_v1_1_43.fragment_wrapper_message.size
-  end
-  -- Size of Market Snapshot Order Message
-  if message_type == "D" then
-    return ice_futures_mdf_impact_v1_1_43.market_snapshot_order_message.size
-  end
-  -- Size of Add Or Modify Order Message
-  if message_type == "E" then
-    return ice_futures_mdf_impact_v1_1_43.add_or_modify_order_message.size
-  end
-  -- Size of Delete Order Message
-  if message_type == "F" then
-    return ice_futures_mdf_impact_v1_1_43.delete_order_message.size
-  end
-  -- Size of Message Bundle Marker
-  if message_type == "T" then
-    return ice_futures_mdf_impact_v1_1_43.message_bundle_marker.size
-  end
-  -- Size of Fixing Transition Message
-  if message_type == "3" then
-    return ice_futures_mdf_impact_v1_1_43.fixing_transition_message.size
-  end
-  -- Size of Fixing Lockdown Message
-  if message_type == "4" then
-    return ice_futures_mdf_impact_v1_1_43.fixing_lockdown_message.size
-  end
-  -- Size of Fixing Indicative Price Message
-  if message_type == "0" then
-    return ice_futures_mdf_impact_v1_1_43.fixing_indicative_price_message.size
-  end
-  -- Size of Market Snapshot Price Level Message
-  if message_type == "m" then
-    return ice_futures_mdf_impact_v1_1_43.market_snapshot_price_level_message.size
-  end
-  -- Size of Add Price Level Message
-  if message_type == "t" then
-    return ice_futures_mdf_impact_v1_1_43.add_price_level_message.size
-  end
-  -- Size of Change Price Level Message
-  if message_type == "s" then
-    return ice_futures_mdf_impact_v1_1_43.change_price_level_message.size
-  end
-  -- Size of Delete Price Level Message
-  if message_type == "r" then
-    return ice_futures_mdf_impact_v1_1_43.delete_price_level_message.size
-  end
-  -- Size of New Options Strategy Definition Message
-  if message_type == "U" then
-    return ice_futures_mdf_impact_v1_1_43.new_options_strategy_definition_message.size(buffer, offset)
-  end
-  -- Size of New Options Market Definition Message
-  if message_type == "l" then
-    return ice_futures_mdf_impact_v1_1_43.new_options_market_definition_message.size
-  end
-  -- Size of Rfq Message
-  if message_type == "k" then
-    return ice_futures_mdf_impact_v1_1_43.rfq_message.size
-  end
-  -- Size of Option Open Interest Message
-  if message_type == "v" then
-    return ice_futures_mdf_impact_v1_1_43.option_open_interest_message.size
-  end
-  -- Size of Option Settlement Price Message
-  if message_type == "w" then
-    return ice_futures_mdf_impact_v1_1_43.option_settlement_price_message.size
-  end
-  -- Size of Old Style Options Trade And Market Stats Message
-  if message_type == "W" then
-    return ice_futures_mdf_impact_v1_1_43.old_style_options_trade_and_market_stats_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-ice_futures_mdf_impact_v1_1_43.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+ice_futures_mdf_impact_v1_1_43.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Market Snapshot Message
   if message_type == "C" then
     return ice_futures_mdf_impact_v1_1_43.market_snapshot_message.dissect(buffer, offset, packet, parent)
@@ -12282,11 +12085,6 @@ ice_futures_mdf_impact_v1_1_43.payload.branches = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Dissect: Payload
-ice_futures_mdf_impact_v1_1_43.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return ice_futures_mdf_impact_v1_1_43.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Length
