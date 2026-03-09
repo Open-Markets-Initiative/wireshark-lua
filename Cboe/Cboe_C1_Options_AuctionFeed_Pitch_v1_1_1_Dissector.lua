@@ -1467,54 +1467,8 @@ end
 -- Payload
 cboe_c1_options_auctionfeed_pitch_v1_1_1.payload = {}
 
--- Size: Payload
-cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.size = function(buffer, offset, message_type)
-  -- Size of Time Message
-  if message_type == 0x20 then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.time_message.size
-  end
-  -- Size of Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.unit_clear_message.size
-  end
-  -- Size of Auction Notification Message
-  if message_type == 0xAD then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_notification_message.size
-  end
-  -- Size of Auction Cancel Message
-  if message_type == 0xAE then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_cancel_message.size
-  end
-  -- Size of Auction Trade Message
-  if message_type == 0xAF then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_trade_message.size
-  end
-  -- Size of Auction Update Message
-  if message_type == 0xD1 then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_update_message.size
-  end
-  -- Size of Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_summary_message.size
-  end
-  -- Size of Width Update Message
-  if message_type == 0xD2 then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.size
-  end
-  -- Size of Symbol Mapping Message
-  if message_type == 0x2E then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.size
-  end
-  -- Size of End Of Session Message
-  if message_type == 0x2D then
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.size
-  end
-
-  return 0
-end
-
--- Dissect Branches: Payload
-cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
   if message_type == 0x20 then
     return cboe_c1_options_auctionfeed_pitch_v1_1_1.time_message.dissect(buffer, offset, packet, parent)
@@ -1557,11 +1511,6 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.branches = function(buffer, off
   end
 
   return offset
-end
-
--- Dissect: Payload
-cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  return cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Message Type
